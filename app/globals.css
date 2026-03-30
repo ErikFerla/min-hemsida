@@ -16,13 +16,11 @@ h1, h2, h3, h4 {
 }
 
 main {
-  max-width: 100%;
-  margin: 0 auto;
   width: 100%;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 60px;
 }

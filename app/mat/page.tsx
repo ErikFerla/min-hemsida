@@ -57,7 +57,7 @@ export default function MatPage() {
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
   const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
   const kort = { background: '#e0e0e0', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', overflow: 'hidden' } as React.CSSProperties;
-  const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' } as React.CSSProperties;
+  const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '20px' } as React.CSSProperties;
   const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#c0392b', color: 'white', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
   return (
     <div style={{ background: '#d8d8d8', minHeight: '100vh', padding: '60px 20px' }}>

@@ -37,7 +37,7 @@
   color: #fff;
   line-height: 1.1;
 }
-.container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
 .sectionHeading { font-size: 1.6rem; font-weight: 600; margin: 40px 0 18px; }
 .intro { padding-top: 12px; border-bottom: 1px solid var(--border); padding-bottom: 40px; }
 .ctaBtn {
