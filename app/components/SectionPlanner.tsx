@@ -1,56 +1,249 @@
-"use client";
+'use client';
 import { useState } from 'react';
-import styles from '../page.module.css';
 
-const resplan: Record<string, string[]> = {
-  Strand: ['Besok Cala des Moro tidigt pa morgonen', 'Snorkla i Cala Mondrago naturreservat', 'Soldag pa Es Trenc - Mallorcas vackraste strand'],
-  Kultur: ['Utforska Palmas gotiska gamla stad och La Seu', 'Besok Coves del Drach i Porto Cristo', 'Prova lokala marknaden i Santanyi pa lordagen'],
-  Mat: ['Frukostera pa ett lokalt cafe i Porto Colom', 'Middagsreservation pa hamnen i Palma', 'Besok vingardsvistering i Binissalem'],
-  Aventyr: ['Vandra Cala Boquer-leden', 'Kajakpaddla runt Porto Petro', 'Cykla nerfor berget fran Soller'],
-  Familj: ['Hidropark i Alcudia', 'Safari Zoo i Porto Cristo', 'Glasbottenbat fran Cala dOr'],
+const resplaner: Record<string, Record<string, string[]>> = {
+  '3': {
+    'Strand': [
+      'Dag 1: Ankomst Palma – checka in, promenera längs Passeig del Born, middag vid hamnen',
+      'Dag 2: Es Trenc – Mallorcas vackraste strand. Ta med picknick och snorkling',
+      'Dag 3: Cala Mondragó naturpark – kristallklart vatten, sedan flyg hem',
+    ],
+    'Kultur': [
+      'Dag 1: Palma gamla stan – La Seu katedralen, Bellver slott, tapas på kvällen',
+      'Dag 2: Valldemossa – Robert Graves museum i Deià, lunch i Sóller',
+      'Dag 3: Alcúdia – romerska ruiner, medeltida stadsmur, marknad',
+    ],
+    'Mat': [
+      'Dag 1: Palma – Mercat de lOlivar frukost, Marc Fosh lunch, Pa amb oli middag',
+      'Dag 2: Binissalem vingårdstur – Bodega Ribas + José L. Ferrer, vinprovning',
+      'Dag 3: Fiskmarknad Porto Colom på morgonen, caldereta de llagosta till lunch',
+    ],
+    'Aventyr': [
+      'Dag 1: Klättring i Cala Barques, kayak i Cala Sant Vicenç',
+      'Dag 2: Vandring i Serra de Tramuntana – GR221 etapp med utsikt över havet',
+      'Dag 3: Cykla från Sóller till Port de Sóller längs kusten',
+    ],
+    'Familj': [
+      'Dag 1: Palma Aquarium – barnen älskar hajarna, sedan glass vid katedralen',
+      'Dag 2: Aqualand El Arenal – vattenrutschkanor hela dagen',
+      'Dag 3: Safari Zoo Porto Cristo + Coves del Drach – dramatiska grottor',
+    ],
+  },
+  '5': {
+    'Strand': [
+      'Dag 1: Ankomst och vila – Playa de Palma för en lugn start',
+      'Dag 2: Es Trenc – kom tidigt, ta med picknick, snorkla vid klipporna',
+      'Dag 3: Cala Mondragó – naturskyddad vik, kristallklart vatten',
+      'Dag 4: Nordkusten – Cala Sant Vicenç och Formentor, dramatisk natur',
+      'Dag 5: Cala Llombards – hemlig vik, perfekt för sista baddag',
+    ],
+    'Kultur': [
+      'Dag 1: Palma – La Seu, Palau de lAlmudaina, kvällspromenad i gamla stan',
+      'Dag 2: Valldemossa och Deià – Robert Graves, terrasser, lunch med utsikt',
+      'Dag 3: Sóller – spårvagn till Port de Sóller, oranger och gammal arkitektur',
+      'Dag 4: Alcúdia – romerska teatern, medeltida murar, marknad',
+      'Dag 5: Sineu marknad på onsdagar, Manacor – pärlfabriker',
+    ],
+    'Mat': [
+      'Dag 1: Palma – Mercat de lOlivar, tapas-crawl i El Born-kvarteret',
+      'Dag 2: Binissalem – vingårdstur och vinprovning, lunch på Can Arabí',
+      'Dag 3: Porto Colom – fiskmarknad, caldereta de llagosta, lokalt café',
+      'Dag 4: Sóller – citrusmarmelad, olivolja-provning, middag vid hamnen',
+      'Dag 5: Palma – avslutningmiddag på Marc Fosh eller Simply Fosh',
+    ],
+    'Aventyr': [
+      'Dag 1: Kayak i Cala Barques och Cala Sant Vicenç',
+      'Dag 2: Vandring GR221 – Port de Sóller till Deià, 4 timmar',
+      'Dag 3: Mountainbike i Serra de Tramuntana',
+      'Dag 4: Klättring i Cala en Gossalba, eftermiddag snorkling',
+      'Dag 5: Jeeptur till Cap de Formentor – otillgängliga stränder',
+    ],
+    'Familj': [
+      'Dag 1: Palma Aquarium och promenad längs strandpromenaden',
+      'Dag 2: Aqualand El Arenal – vattenrutschkanor och barnpooler',
+      'Dag 3: Coves del Drach – dramatiska grottor med konsert på underjordisk sjö',
+      'Dag 4: Safari Zoo Porto Cristo – giraffer, lejon och kamelridning',
+      'Dag 5: Hidropark Alcúdia – perfekt avslutning för hela familjen',
+    ],
+  },
+  '7': {
+    'Strand': [
+      'Dag 1: Ankomst Palma, check-in, kvällspromenad',
+      'Dag 2: Es Trenc – Mallorcas Karibien, kom tidigt',
+      'Dag 3: Cala Mondragó naturpark – snorkla och vandra',
+      'Dag 4: Nordkusten – Formentor och Cala Barques',
+      'Dag 5: Cala Llombards och Cala des Moro – Grytes favoritstrand',
+      'Dag 6: Cala Ratjada – lugn vik på östkusten',
+      'Dag 7: Avslappnad morgon vid hotellet, hemresa',
+    ],
+    'Kultur': [
+      'Dag 1: Ankomst och kvällspromenad i Palma gamla stan',
+      'Dag 2: Palma – La Seu, Bellver, Fundació Miró',
+      'Dag 3: Valldemossa och Deià – kultur och utsikter',
+      'Dag 4: Sóller – spårvagn, orangerlundar, hamn',
+      'Dag 5: Alcúdia – romerska ruiner och medeltida mur',
+      'Dag 6: Sineu och Petra – autentiska inlandbyar',
+      'Dag 7: Sista shopping i Palma, hemresa',
+    ],
+    'Mat': [
+      'Dag 1: Palma – Mercat de lOlivar, kvällstapas',
+      'Dag 2: Binissalem vingårdsrunda – 3 vingårdar',
+      'Dag 3: Porto Colom – fiskmarknad och färsk fisk',
+      'Dag 4: Matlagningskurs med lokal kock i Palma',
+      'Dag 5: Sóller – olivolja och citrusfarm-besök',
+      'Dag 6: Michelinkrog – Marc Fosh eller Adrián Quetglas',
+      'Dag 7: Sista frukost på Mercat, hemresa',
+    ],
+    'Aventyr': [
+      'Dag 1: Ankomst, kvällspromenad',
+      'Dag 2: Kayak längs nordkusten',
+      'Dag 3: Vandring GR221 etapp 1',
+      'Dag 4: Mountainbike Tramuntana',
+      'Dag 5: Klättring + snorkling',
+      'Dag 6: Jeeptur Cap de Formentor',
+      'Dag 7: Paddelsurf i Port de Pollença',
+    ],
+    'Familj': [
+      'Dag 1: Ankomst, pool på hotellet',
+      'Dag 2: Palma Aquarium',
+      'Dag 3: Aqualand El Arenal',
+      'Dag 4: Coves del Drach',
+      'Dag 5: Safari Zoo Porto Cristo',
+      'Dag 6: Hidropark Alcúdia',
+      'Dag 7: Stranddag och hemresa',
+    ],
+  },
+  '10': {
+    'Strand': ['Dag 1-10: Komplett strandtur runt hela ön – Es Trenc, Cala Mondragó, Formentor, Cala Barques, Cala des Moro, Cala Llombards, Cala Ratjada, Cala Agulla, Cala Mesquida, och avslutning vid Playa de Palma'],
+    'Kultur': ['Dag 1-10: Djupdyk i Mallorcas historia – Palma, Valldemossa, Deià, Sóller, Alcúdia, Pollença, Sineu, Felanitx, Santanyí och Manacor'],
+    'Mat': ['Dag 1-10: Kulinarisk rundresa – vingårdar, fiskmarknader, matlagningskurser, Michelinkrogar och lokala marknader'],
+    'Aventyr': ['Dag 1-10: Äventyrspacket – vandring, kayak, klättring, mountainbike, dykning, jeepturer och paddelsurf'],
+    'Familj': ['Dag 1-10: Familjepaket – vattenparker, grottor, djurparker, stränder, båtturer och kulturupplevelser för alla åldrar'],
+  },
+  '14': {
+    'Strand': ['Dag 1-14: Ultimat strandupplevelse – besök ALLA Mallorcas 50 bästa stränder och vikar, från norr till söder'],
+    'Kultur': ['Dag 1-14: Komplett kulturresa – varje by, museum, kloster och historisk plats på ön'],
+    'Mat': ['Dag 1-14: Gastronomisk expedition – alla Michelinkrogar, alla vingårdar, alla marknader'],
+    'Aventyr': ['Dag 1-14: Ultimat äventyr – hela GR221 vandringsledan + alla aktiviteter'],
+    'Familj': ['Dag 1-14: Drömfamiljesemester – allt för barn och vuxna, inget stressigt'],
+  },
+};
+
+const intressenIkon: Record<string, string> = {
+  'Strand': '🏖️',
+  'Kultur': '🏛️',
+  'Mat': '🍽️',
+  'Aventyr': '🧗',
+  'Familj': '👨‍👩‍👧',
 };
 
 export default function SectionPlanner() {
-  const [resDagar, setResDagar] = useState(7);
+  const [dagar, setDagar] = useState('');
   const [intressen, setIntressen] = useState<string[]>([]);
-  const toggleIntresse = (i: string) => setIntressen(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i]);
+  const [resplan, setResplan] = useState<string[]>([]);
+  const [visar, setVisar] = useState(false);
+
+  const dagval = ['3', '5', '7', '10', '14'];
+  const intresseVal = ['Strand', 'Kultur', 'Mat', 'Aventyr', 'Familj'];
+
+  const toggleIntresse = (i: string) => {
+    setIntressen(prev => prev.includes(i) ? prev.filter(x => x !== i) : [...prev, i]);
+    setVisar(false);
+  };
+
+  const genereraResplan = () => {
+    if (!dagar || intressen.length === 0) return;
+    const huvud = intressen[0];
+    const plan = resplaner[dagar]?.[huvud] || [];
+    setResplan(plan);
+    setVisar(true);
+  };
+
+  const knappStyle = (aktiv: boolean) => ({
+    padding: '10px 20px',
+    borderRadius: '8px',
+    border: '2px solid #111',
+    background: aktiv ? '#111' : 'transparent',
+    color: aktiv ? 'white' : '#111',
+    fontWeight: '600' as const,
+    cursor: 'pointer',
+    fontSize: '0.95rem',
+    transition: 'all 0.2s',
+  });
 
   return (
-    <section className={styles.plannerSection}>
-      <div className={styles.plannerInner}>
-        <h2 className={styles.plannerTitle}>Skräddarsy din resa</h2>
-        <p className={styles.plannerSub}>Berätta vad du gillar - få en personlig resplan för Mallorca</p>
-        <div className={styles.plannerForm}>
-          <div className={styles.plannerStep}>
-            <h3 className={styles.plannerStepTitle}>Hur länge reser du?</h3>
-            <div className={styles.daysRow}>
-              {[3,5,7,10,14].map(d => (
-                <button key={d} className={`${styles.dayBtn} ${resDagar === d ? styles.dayBtnActive : ''}`} onClick={() => setResDagar(d)}>{d} dagar</button>
-              ))}
-            </div>
+    <section style={{ background: '#d8d8d8', padding: '80px 60px', marginTop: '60px' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2.5rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '8px' }}>
+          Skräddarsy din resa
+        </h2>
+        <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '40px' }}>
+          Berätta vad du gillar – få en personlig resplan för Mallorca
+        </p>
+
+        <div style={{ marginBottom: '32px' }}>
+          <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Hur länge reser du?</p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {dagval.map(d => (
+              <button key={d} onClick={() => { setDagar(d); setVisar(false); }} style={knappStyle(dagar === d)}>
+                {d} dagar
+              </button>
+            ))}
           </div>
-          <div className={styles.plannerStep}>
-            <h3 className={styles.plannerStepTitle}>Vad intresserar dig? (välj flera)</h3>
-            <div className={styles.interestRow}>
-              {[{k:'Strand',e:'🏖️'},{k:'Kultur',e:'🏛️'},{k:'Mat',e:'🍽️'},{k:'Aventyr',e:'🧗'},{k:'Familj',e:'👨‍👩‍👧'}].map(({k,e}) => (
-                <button key={k} className={`${styles.interestBtn} ${intressen.includes(k) ? styles.interestBtnActive : ''}`} onClick={() => toggleIntresse(k)}>{e} {k}</button>
-              ))}
-            </div>
-          </div>
-          {intressen.length > 0 && (
-            <div className={styles.plannerResult}>
-              <h3 className={styles.plannerResultTitle}>Din personliga {resDagar}-dagarsplan 🌟</h3>
-              <ul className={styles.plannerList}>
-                {intressen.flatMap(i => resplan[i] || []).slice(0, resDagar).map((tip, idx) => (
-                  <li key={idx} className={styles.plannerItem}>
-                    <span className={styles.plannerDay}>Dag {idx + 1}</span>
-                    <span>{tip}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
+
+        <div style={{ marginBottom: '40px' }}>
+          <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Vad intresserar dig? (välj flera)</p>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {intresseVal.map(i => (
+              <button key={i} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
+                {intressenIkon[i]} {i}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={genereraResplan}
+          disabled={!dagar || intressen.length === 0}
+          style={{
+            padding: '14px 40px',
+            background: dagar && intressen.length > 0 ? '#c0392b' : '#ccc',
+            color: 'white',
+            border: 'none',
+            borderRadius: '8px',
+            fontSize: '1.1rem',
+            fontWeight: '700',
+            cursor: dagar && intressen.length > 0 ? 'pointer' : 'not-allowed',
+            letterSpacing: '-0.01em',
+            transition: 'all 0.2s',
+          }}
+        >
+          Skapa min resplan →
+        </button>
+
+        {visar && resplan.length > 0 && (
+          <div style={{ marginTop: '48px', background: 'white', borderRadius: '16px', padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
+            <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '24px' }}>
+              Din personliga {dagar}-dagarsplan 🗺️
+            </h3>
+            {resplan.map((dag, i) => (
+              <div key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
+                <div style={{ minWidth: '36px', height: '36px', background: '#111', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
+                  {i + 1}
+                </div>
+                <div style={{ paddingTop: '6px' }}>
+                  <p style={{ margin: 0, fontSize: '1rem', lineHeight: '1.6', color: '#222' }}>{dag}</p>
+                </div>
+              </div>
+            ))}
+            <div style={{ marginTop: '32px', padding: '20px', background: '#f5f5f5', borderRadius: '10px' }}>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: '#666' }}>
+                💡 <strong>Tips:</strong> Vill du ha ännu mer personliga rekommendationer? Klicka på "Planera din resa" i menyn så hjälper vi dig vidare!
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
