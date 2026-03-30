@@ -56,7 +56,7 @@ export default function MatPage() {
   const [filter, setFilter] = useState('Alla');
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
   const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
-  const kort = { background: 'white', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', overflow: 'hidden' } as React.CSSProperties;
+  const kort = { background: '#e0e0e0', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', overflow: 'hidden' } as React.CSSProperties;
   const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' } as React.CSSProperties;
   const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#c0392b', color: 'white', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
   return (
@@ -85,7 +85,7 @@ export default function MatPage() {
         <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#c0392b' }}>🍽️ Topp 30 restauranger</h2>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
           {kategorier.map(k => (
-            <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #c0392b', background: filter === k ? '#c0392b' : 'white', color: filter === k ? 'white' : '#c0392b', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
+            <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #c0392b', background: filter === k ? '#c0392b' : '#e0e0e0', color: filter === k ? 'white' : '#c0392b', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
               {k}
             </button>
           ))}

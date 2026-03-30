@@ -148,7 +148,7 @@
 .seasonTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .seasonSub { color: var(--muted); margin-bottom: 40px; font-size: 1rem; }
 .seasonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.seasonCard { background: white; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.seasonCard { background: #e0e0e0; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
 .seasonEmoji { font-size: 2.5rem; display: block; margin-bottom: 12px; }
 .seasonName { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 4px; }
 .seasonMonths { font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
@@ -159,22 +159,22 @@
 .plannerInner { max-width: 1200px; margin: 0 auto; }
 .plannerTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .plannerSub { color: var(--muted); margin-bottom: 40px; }
-.plannerForm { background: #c8c8c8; border-radius: 16px; padding: 40px; }
+.plannerForm { background: #c4c4c4; border-radius: 16px; padding: 40px; }
 .plannerStep { margin-bottom: 32px; }
 .plannerStepTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
 .daysRow { display: flex; gap: 12px; flex-wrap: wrap; }
-.dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #e0e0e0; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .dayBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
 .interestRow { display: flex; gap: 12px; flex-wrap: wrap; }
-.interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #e0e0e0; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .interestBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
-.plannerResult { background: white; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
+.plannerResult { background: #e0e0e0; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
 .plannerResultTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--fg); margin-bottom: 20px; letter-spacing: 0.05em; }
 .plannerList { list-style: none; padding: 0; }
 .plannerItem { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
 .plannerDay { font-weight: 600; color: #c60b1e; flex-shrink: 0; min-width: 50px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
 .insiderSection {
-  background: #c8c8c8;
+  background: #c4c4c4;
   clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
   margin: -40px 0;
   padding: 120px 40px;
@@ -185,7 +185,7 @@
 .insiderTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .insiderSub { color: var(--muted); margin-bottom: 40px; }
 .insiderGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.insiderCard { background: #cfcfcf; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.insiderCard { background: #cecece; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
 .insiderCity { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #1a3a5c; letter-spacing: 0.05em; margin-bottom: 20px; }
 .insiderList { list-style: none; padding: 0; }
 .insiderList li { font-size: 0.875rem; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--fg); }

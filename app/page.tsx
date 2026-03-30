@@ -54,7 +54,7 @@ export default function Home() {
               { namn: 'Palma', href: '/palma', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80' },
               { namn: 'Alcudia', href: '/alcudia', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80' },
             ].map((stad) => (
-              <a key={stad.namn} href={stad.href} style={{textDecoration: 'none', display: 'block', borderRadius: '12px', overflow: 'hidden', background: 'white', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
+              <a key={stad.namn} href={stad.href} style={{textDecoration: 'none', display: 'block', borderRadius: '12px', overflow: 'hidden', background: '#e0e0e0', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
                 <div style={{height: '200px', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
                 <div style={{padding: '16px'}}>
                   <div style={{fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', color: '#2C1A0E', marginBottom: '4px'}}>{stad.namn}</div>
