@@ -1,5 +1,5 @@
 .nav {
-  background: #F0E6D0;
+  background: #e8e8e8;
   border-bottom: 1px solid #C9B89A;
   position: sticky;
   top: 0;
@@ -8,7 +8,7 @@
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 .nav.scrolled {
-  background: rgba(240, 230, 208, 0.95);
+  background: rgba(232, 232, 232, 0.95);
 }
 .inner {
   max-width: 1280px;
