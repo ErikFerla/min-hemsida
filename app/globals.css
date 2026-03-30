@@ -34,3 +34,16 @@ a:hover { text-decoration: underline; }
 p { margin-bottom: 1.2em; }
 strong { font-weight: 600; }
 img { max-width: 100%; display: block; }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #e8e8e8;
+  color: #111111;
+}
+
+h1, h2, h3, h4 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
