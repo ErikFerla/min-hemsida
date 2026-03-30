@@ -60,7 +60,7 @@ export default function MatPage() {
   const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' } as React.CSSProperties;
   const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#c0392b', color: 'white', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
   return (
-    <div style={{ background: '#f5f0e8', minHeight: '100vh', padding: '60px 20px' }}>
+    <div style={{ background: '#d8d8d8', minHeight: '100vh', padding: '60px 20px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h1 style={{ fontFamily: 'serif', fontSize: '2.5rem', marginBottom: '40px' }}>Mat & Vin på Mallorca</h1>
         <h2 style={{ fontFamily: 'serif', fontSize: '2rem', marginBottom: '24px', color: '#c0392b' }}>🍷 Bästa vingårdarna</h2>

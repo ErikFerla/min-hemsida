@@ -227,7 +227,7 @@ export default function BarnPage() {
                       <div style={{fontFamily: 'Bebas Neue, sans-serif', fontSize: '1rem', marginBottom: '4px', color: '#2C1A0E'}}>{a.namn}</div>
                       <div style={{fontSize: '0.72rem', color: '#7D6650', marginBottom: '8px'}}>{a.info}</div>
                       <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
-                         style={{display: 'inline-block', padding: '6px 12px', background: '#f0ebe0', color: '#8B4513', fontSize: '0.75rem', borderRadius: '4px', border: '1px solid #C9B89A', textDecoration: 'none'}}>
+                         style={{display: 'inline-block', padding: '6px 12px', background: '#cfcfcf', color: '#8B4513', fontSize: '0.75rem', borderRadius: '4px', border: '1px solid #C9B89A', textDecoration: 'none'}}>
                         Visa pa karta
                       </a>
                     </div>

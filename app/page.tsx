@@ -44,7 +44,7 @@ export default function Home() {
         <Suspense fallback={<div>Loading...</div>}>
           <SectionEvents />
         </Suspense>
-        <section style={{background: '#F5EFE0'}}>
+        <section style={{background: '#d8d8d8'}}>
           <Carousel title="UTFORSKA STÄDERNA">
             {[
               { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=600&q=80' },
