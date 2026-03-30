@@ -1,3 +1,4 @@
+import MallorcaMap from '@/components/MallorcaMap';
 import Link from 'next/link';
 import styles from './barn.module.css';
 import Carousel from '@/components/Carousel';
@@ -235,6 +236,7 @@ export default function BarnPage() {
               </Carousel>
             </section>
           ))}
+          <MallorcaMap />
         </div>
       </div>
     </div>
