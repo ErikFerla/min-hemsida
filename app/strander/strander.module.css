@@ -1,0 +1,201 @@
+.page { min-height: 100vh; background: #F5EFE0; }
+
+.hero {
+  position: relative;
+  height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.55) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  color: #fff;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.heroTagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.sectionHeading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 50px 0 30px;
+  color: #c60b1e;
+  border-bottom: 2px solid #c60b1e;
+  padding-bottom: 12px;
+}
+
+.beachGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
+}
+
+.beachCard {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.beachCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+}
+
+.beachCardImage {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.beachCardContent {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.beachName {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.beachDescription {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.beachInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.mapBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #f0f7ff;
+  color: var(--accent);
+  font-size: 0.8rem;
+  border-radius: 4px;
+  border: 1px solid var(--accent-light);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.mapBtn:hover {
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+}
+
+.infoLabel {
+  font-weight: 600;
+  color: #2a7fcf;
+  min-width: 80px;
+}
+
+.easyDifficulty {
+  color: #27ae60;
+}
+
+.mediumDifficulty {
+  color: #f39c12;
+}
+
+.hardDifficulty {
+  color: #e74c3c;
+}
+
+.sectionsWrapper {
+  padding: 40px 0;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1024px) {
+  .beachGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 320px;
+  }
+
+  .heroContent {
+    padding: 24px 16px;
+  }
+
+  .beachGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sectionHeading {
+    font-size: 1.4rem;
+    margin: 30px 0 20px;
+  }
+
+  .beachCard {
+    padding: 16px;
+  }
+}

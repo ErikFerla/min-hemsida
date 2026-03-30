@@ -1,0 +1,205 @@
+﻿.page { min-height: 100vh; }
+.hero {
+  position: relative;
+  height: 550px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.55) 100%);
+}
+.heroBgText {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(120px, 18vw, 220px);
+  color: rgba(255,255,255,0.06);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 1;
+}
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  color: #fff;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.heroTagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #3D2B1F;
+  padding: 48px 40px;
+}
+.statItem {
+  text-align: center;
+  padding: 20px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.statItem:last-child { border-right: none; }
+.statNumber {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #ffc400;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.statLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 8px;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.sectionHeading { font-size: 1.6rem; font-weight: 600; margin: 40px 0 18px; text-transform: uppercase; }
+.intro { padding-top: 12px; background: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; max-width: none; }
+.ctaBtn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 22px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  transition: background 0.2s;
+  text-decoration: none !important;
+}
+.ctaBtn:hover { background: var(--accent-dark); }
+.quotes { padding: 40px 0; border-bottom: 1px solid var(--border); }
+.quote {
+  background: var(--light-gray);
+  border-left: 3px solid var(--accent);
+  padding: 18px 24px;
+  margin-bottom: 16px;
+  font-style: italic;
+  font-size: 0.97rem;
+  color: #333;
+}
+.quote p { margin-bottom: 8px; }
+.quote cite { font-style: normal; font-size: 0.85rem; color: var(--muted); }
+.eventsSection { display: flex; gap: 48px; padding: 60px 0; border-top: 1px solid #C9B89A; }
+.eventsLeft { flex: 0 0 280px; }
+.eventsTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; margin-bottom: 16px; }
+.eventsText { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
+.eventsBtn { display: inline-block; padding: 12px 24px; background: var(--fg); color: white; font-size: 0.85rem; border-radius: 2px; text-decoration: none; }
+.eventsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; flex: 1; }
+.eventCard { border: 1px solid #C9B89A; border-radius: 4px; overflow: hidden; cursor: pointer; }
+.eventCard img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.eventCard:hover img { opacity: 0.85; }
+.eventName { display: block; padding: 10px 12px; font-size: 0.85rem; color: var(--fg); text-decoration: underline; }
+.personalSection {
+  background: #3D2B1F;
+  clip-path: polygon(0 0, 100% 3%, 100% 97%, 0 100%);
+  margin: -40px 0;
+  padding: 120px 40px;
+  position: relative;
+  z-index: 2;
+}
+.personalInner { max-width: 1200px; margin: 0 auto; }
+.personalHeader { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
+.personalAvatar { width: 64px; height: 64px; border-radius: 50%; background: #c60b1e; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; flex-shrink: 0; }
+.personalTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; letter-spacing: 0.05em; margin: 0; }
+.personalSub { color: rgba(255,255,255,0.6); margin: 0; font-size: 0.9rem; }
+.personalGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.personalCard { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; transition: background 0.2s; }
+.personalCard:hover { background: rgba(255,255,255,0.13); }
+.personalEmoji { font-size: 2rem; display: block; margin-bottom: 12px; }
+.personalCard h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #F5C842; letter-spacing: 0.05em; margin-bottom: 12px; }
+.personalCard p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
+.personalTag { font-size: 0.75rem; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; }
+.seasonSection {
+  background: #EDE4CF;
+  clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 97%);
+  margin: -40px 0;
+  padding: 120px 40px;
+  position: relative;
+  z-index: 1;
+}
+.seasonInner { max-width: 1200px; margin: 0 auto; }
+.seasonTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.seasonSub { color: var(--muted); margin-bottom: 40px; font-size: 1rem; }
+.seasonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.seasonCard { background: white; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.seasonEmoji { font-size: 2.5rem; display: block; margin-bottom: 12px; }
+.seasonName { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+.seasonMonths { font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
+.seasonList { list-style: none; padding: 0; margin-bottom: 20px; }
+.seasonList li { font-size: 0.82rem; color: var(--fg); padding: 4px 0; border-bottom: 1px solid var(--border); }
+.seasonBadge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 20px; }
+.plannerSection { background: #F5EFE0; padding: 80px 40px; border-top: 1px solid var(--border); }
+.plannerInner { max-width: 1200px; margin: 0 auto; }
+.plannerTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.plannerSub { color: var(--muted); margin-bottom: 40px; }
+.plannerForm { background: #E8DCC8; border-radius: 16px; padding: 40px; }
+.plannerStep { margin-bottom: 32px; }
+.plannerStepTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
+.daysRow { display: flex; gap: 12px; flex-wrap: wrap; }
+.dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.dayBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
+.interestRow { display: flex; gap: 12px; flex-wrap: wrap; }
+.interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: white; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.interestBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
+.plannerResult { background: white; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
+.plannerResultTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--fg); margin-bottom: 20px; letter-spacing: 0.05em; }
+.plannerList { list-style: none; padding: 0; }
+.plannerItem { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.plannerDay { font-weight: 600; color: #c60b1e; flex-shrink: 0; min-width: 50px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
+.insiderSection {
+  background: #DDD0B8;
+  clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 97%);
+  margin: -40px 0;
+  padding: 120px 40px;
+  position: relative;
+  z-index: 2;
+}
+.insiderInner { max-width: 1200px; margin: 0 auto; }
+.insiderTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.insiderSub { color: var(--muted); margin-bottom: 40px; }
+.insiderGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.insiderCard { background: #F5EFE0; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.insiderCity { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #1a3a5c; letter-spacing: 0.05em; margin-bottom: 20px; }
+.insiderList { list-style: none; padding: 0; }
+.insiderList li { font-size: 0.875rem; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--fg); }
+@media (max-width: 600px) {
+  .hero { height: 320px; }
+  .heroContent { padding: 24px 16px; }
+}
+@media (max-width: 700px) {
+  .eventsSection { flex-direction: column; }
+  .eventsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .personalGrid { grid-template-columns: 1fr; }
+  .seasonGrid { grid-template-columns: repeat(2, 1fr); }
+  .insiderGrid { grid-template-columns: 1fr; }
+  .plannerForm { padding: 24px; }
+}

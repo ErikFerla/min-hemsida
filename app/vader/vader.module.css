@@ -1,0 +1,236 @@
+.page {
+  min-height: 100vh;
+  background: #F5EFE0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 40px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 16px 28px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  background-color: #f0f0f0;
+}
+
+.tab.active {
+  border-bottom-color: #2a6496;
+  color: #2a6496;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2a6496;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 2rem;
+}
+
+.weatherWidget {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.currentWeather {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.locationDate h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.locationDate p {
+  margin: 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tempIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.currentTemp {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.currentIcon {
+  font-size: 3.5rem;
+}
+
+.description {
+  font-size: 1.3rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.tempChart {
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.chartSvg {
+  display: block;
+  margin: 0 auto;
+}
+
+.tempLabel {
+  font-size: 0.8rem;
+  font-weight: bold;
+  fill: #333;
+}
+
+.dayLabel {
+  font-size: 0.7rem;
+  fill: #666;
+}
+
+.emojiLabel {
+  font-size: 1rem;
+}
+
+.dayCards {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.dayCard {
+  flex-shrink: 0;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  min-width: 80px;
+}
+
+.dayCard:hover {
+  background: #e9e9e9;
+}
+
+.dayCard.selected {
+  background: #2a6496;
+  color: white;
+}
+
+.dayName {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.dayIcon {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.dayTemp {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+  }
+
+  .currentTemp {
+    font-size: 3rem;
+  }
+
+  .currentIcon {
+    font-size: 2rem;
+  }
+
+  .details {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .chartSvg {
+    width: 100%;
+    height: auto;
+  }
+
+  .dayCards {
+    padding: 0.5rem 0;
+  }
+
+  .dayCard {
+    min-width: 60px;
+    padding: 0.5rem;
+  }
+}

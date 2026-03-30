@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:wght@400;500&display=swap');
+
+:root {
+  --bg: #F5EFE0;
+  --bg-alt: #EDE4CF;
+  --fg: #2C1A0E;
+  --accent: #8B4513;
+  --accent-dark: #6B3410;
+  --accent-light: #D4B896;
+  --muted: #7D6650;
+  --light-gray: #EDE4CF;
+  --border: #C9B89A;
+  --nav-height: 80px;
+  --max-width: 1200px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  background: #F5EFE0;
+}
+body {
+  background: #F5EFE0;
+  color: var(--fg);
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+p { margin-bottom: 1.2em; }
+strong { font-weight: 600; }
+img { max-width: 100%; display: block; }
