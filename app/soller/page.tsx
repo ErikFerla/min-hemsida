@@ -4,12 +4,12 @@ import Link from 'next/link';
 import Gallery from '@/components/Gallery';
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80', alt: 'Soller by' },
-  { src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80', alt: 'Tramuntanabergen' },
-  { src: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80', alt: 'Apelsinlundar' },
-  { src: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80', alt: 'Bergsutsikt' },
-  { src: 'https://images.unsplash.com/photo-1445620466293-d6316372ab59?w=800&q=80', alt: 'Port de Soller' },
-  { src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', alt: 'Hamnen' },
+  { url: 'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80', caption: 'Soller by' },
+  { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80', caption: 'Tramuntanabergen' },
+  { url: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80', caption: 'Apelsinlundar' },
+  { url: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80', caption: 'Bergsutsikt' },
+  { url: 'https://images.unsplash.com/photo-1445620466293-d6316372ab59?w=800&q=80', caption: 'Port de Soller' },
+  { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', caption: 'Hamnen' },
 ];
 
 export default function Soller() {
@@ -50,3 +50,4 @@ export default function Soller() {
     </div>
   );
 }
+
