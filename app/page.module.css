@@ -78,8 +78,10 @@
   margin-top: 8px;
 }
 .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
-.sectionHeading { font-size: 1.6rem; font-weight: 600; margin: 40px 0 18px; text-transform: uppercase; }
-.intro { padding-top: 12px; background: none; border-bottom: 1px solid var(--border); padding-bottom: 40px; max-width: none; }
+.sectionHeading { font-size: 2rem; font-weight: 700; margin: 0 0 24px; letter-spacing: -0.03em; text-transform: uppercase; }
+.intro { padding: 60px 80px; background: none; border-bottom: 1px solid var(--border); max-width: none; font-size: 1.1rem; line-height: 1.8; }
+.intro p { margin-bottom: 40px; font-size: 1.1rem; line-height: 1.8; }
+.intro p:last-of-type { margin-bottom: 24px; }
 .ctaBtn {
   display: inline-block;
   margin-top: 8px;
