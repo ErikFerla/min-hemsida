@@ -1,94 +1,30 @@
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 
 const golfbanor = [
-  {
-    namn: 'Son Gual Golf',
-    plats: 'Palma',
-    hål: 18,
-    svårighet: 'Medel',
-    pris: '💰💰💰',
-    beskrivning: 'Mallorcas mest prestigefyllda bana med fantastisk utsikt över Palma och havet. Designad av Thomas Himmel.',
-    bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca',
-    tips: 'Boka minst 2 dagar i förväg – mycket populär',
-  },
-  {
-    namn: 'Golf Son Muntaner',
-    plats: 'Palma',
-    hål: 18,
-    svårighet: 'Svår',
-    pris: '💰💰💰💰',
-    beskrivning: 'Exklusiv bana vid Arabella Hotel med vackra fairways kantade av mandelträd och olivlundar.',
-    bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Golf+Son+Muntaner+Palma+Mallorca',
-    tips: 'Bäst på morgonen – undvik middagssolen',
-  },
-  {
-    namn: 'Capdepera Golf',
-    plats: 'Capdepera',
-    hål: 18,
-    svårighet: 'Medel',
-    pris: '💰💰💰',
-    beskrivning: 'Storslagen bana i nordöstra Mallorca med dramatisk bergsutsikt och välskötta greener.',
-    bild: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Capdepera+Golf+Mallorca',
-    tips: 'Kombinera med besök i Capdepera-borgen efteråt',
-  },
-  {
-    namn: 'Pula Golf Resort',
-    plats: 'Son Servera',
-    hål: 18,
-    svårighet: 'Medel',
-    pris: '💰💰💰',
-    beskrivning: 'Pittoresk bana omgiven av pinjeskogen nära östkusten. Perfekt för alla nivåer.',
-    bild: 'https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Pula+Golf+Son+Servera+Mallorca',
-    tips: 'Restaurangen på klubbhuset serverar utmärkt mallorquinsk mat',
-  },
-  {
-    namn: 'Golf de Andratx',
-    plats: 'Camp de Mar',
-    hål: 18,
-    svårighet: 'Svår',
-    pris: '💰💰💰💰',
-    beskrivning: 'Spektakulär bana i sydvästra Mallorca med havsutsikt och utmanande terräng i bergslandskapet.',
-    bild: 'https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Golf+de+Andratx+Camp+de+Mar+Mallorca',
-    tips: 'En av Europas vackraste banor – ett måste för golfentusiaster',
-  },
-  {
-    namn: 'Santa Ponsa Golf',
-    plats: 'Santa Ponsa',
-    hål: 27,
-    svårighet: 'Lätt',
-    pris: '💰💰',
-    beskrivning: 'Tre 9-hålsbanor som kan kombineras på olika sätt. Perfekt för nybörjare och familjer.',
-    bild: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Santa+Ponsa+Golf+Mallorca',
-    tips: 'Bra pris-kvalitet, nära stränder och restauranger',
-  },
-  {
-    namn: 'Pollensa Golf',
-    plats: 'Pollença',
-    hål: 18,
-    svårighet: 'Lätt',
-    pris: '💰💰',
-    beskrivning: 'Välkomnande bana i norra Mallorca med fantastisk utsikt över Tramuntana-bergen. Perfekt för avkoppling.',
-    bild: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Pollensa+Golf+Mallorca',
-    tips: 'Lugnt och avslappnat – bra för nybörjare',
-  },
-  {
-    namn: 'Alcanada Golf',
-    plats: 'Alcúdia',
-    hål: 18,
-    svårighet: 'Svår',
-    pris: '💰💰💰💰',
-    beskrivning: 'Kustnära bana norr om Alcúdia med utsikt mot havet och fyren. Rankas bland Europas bästa banor.',
-    bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80',
-    maps: 'https://maps.google.com/?q=Alcanada+Golf+Alcudia+Mallorca',
-    tips: 'Hål 12 med utsikt mot fyren är ett av Europas vackraste hål',
-  },
+  { namn: 'Son Gual Golf', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'En av Mallorcas mest prestigefyllda banor med fantastisk utsikt. Rankad på plats 51 i Europa, värd för Senior European Tour 2009.', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca', tips: 'Boka minst 2 dagar i förväg – mycket populär' },
+  { namn: 'Club de Golf Alcanada', plats: 'Alcúdia', region: 'Norr', hål: 18, svårighet: 'Svår', pris: '💰💰💰💰', beskrivning: 'Spektakulär kustnära bana med utsikt mot havet och fyren från 14 av 18 hål. Rankad bland Europas bästa.', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', maps: 'https://maps.google.com/?q=Club+de+Golf+Alcanada+Alcudia+Mallorca', tips: 'Hål 12 med utsikt mot fyren är ett av Europas vackraste hål' },
+  { namn: 'Son Muntaner Golf (ArabellaGolf)', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Svår', pris: '💰💰💰💰', beskrivning: 'Exklusiv bana med vackra fairways kantade av mandelträd och olivlundar. Del av Arabella Golf-komplexet.', bild: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Muntaner+Golf+Palma+Mallorca', tips: 'Bäst på morgonen – undvik middagssolen' },
+  { namn: 'Son Vida Golf (ArabellaGolf)', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Mallorcas äldsta golfbana från 1964. Har stått värd för Europa Tour två gånger. Fantastisk utsikt över Palmabukten.', bild: 'https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Vida+Golf+Palma+Mallorca', tips: 'Klassisk bana – passar alla nivåer' },
+  { namn: 'Son Quint Golf (ArabellaGolf)', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Lätt', pris: '💰💰', beskrivning: 'Den nyaste banan i Arabella Golf-komplexet. Ligger vid infarten till lyxbostadsområdet Son Vida.', bild: 'https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Quint+Golf+Palma+Mallorca', tips: 'Bra för nybörjare – lättaste av Arabella-banorna' },
+  { namn: 'Capdepera Golf', plats: 'Capdepera', region: 'Öst', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Storslagen bana i nordöstra Mallorca med dramatisk bergsutsikt. Hål 15 erbjuder fantastisk utsikt över kusten.', bild: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80', maps: 'https://maps.google.com/?q=Capdepera+Golf+Mallorca', tips: 'Kombinera med besök i Capdepera-borgen efteråt' },
+  { namn: 'Pula Golf Resort', plats: 'Son Servera', region: 'Öst', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Internationellt känd tävlingsbana designad av José María Olazábal 2007. Komplett resort med hotell, pool och spa.', bild: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80', maps: 'https://maps.google.com/?q=Pula+Golf+Son+Servera+Mallorca', tips: 'Restaurangen på klubbhuset serverar utmärkt mallorquinsk mat' },
+  { namn: 'Golf de Andratx', plats: 'Camp de Mar', region: 'Sydväst', hål: 18, svårighet: 'Svår', pris: '💰💰💰💰', beskrivning: 'Spektakulär bana i sydvästra Mallorca med havsutsikt och utmanande bergslandskap. En av Europas vackraste.', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', maps: 'https://maps.google.com/?q=Golf+de+Andratx+Camp+de+Mar+Mallorca', tips: 'Ett måste för golfentusiaster – boka långt i förväg' },
+  { namn: 'Golf Santa Ponsa I', plats: 'Santa Ponsa', region: 'Sydväst', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Invigd 1977 och värd för Europa Tour sex gånger med spelare som Ballesteros och Olazábal. Prinsessan Birgitta är hedersmedlem.', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', maps: 'https://maps.google.com/?q=Golf+Santa+Ponsa+Mallorca', tips: 'Historisk bana med internationellt rykte – bra för alla nivåer' },
+  { namn: 'Real Golf de Bendinat', plats: 'Bendinat', region: 'Sydväst', hål: 18, svårighet: 'Svår', pris: '💰💰💰', beskrivning: 'En av de äldsta och mest populära banorna nära Magaluf. Utmanande och tuff – passar golfare som vill ha utmaning.', bild: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=600&q=80', maps: 'https://maps.google.com/?q=Real+Golf+de+Bendinat+Mallorca', tips: 'Tar sig igenom på 4 timmar – planera middagen efteråt i Palma' },
+  { namn: 'Son Antem Golf (East Course)', plats: 'Llucmajor', region: 'Syd', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'En av 36-håls anläggningens två banor. Platt medelhavsterräng, lätt att gå. 10-20 min från Palma.', bild: 'https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Antem+Golf+Llucmajor+Mallorca', tips: 'East anses lite lättare än West – bra startalternativ' },
+  { namn: 'Son Antem Golf (West Course)', plats: 'Llucmajor', region: 'Syd', hål: 18, svårighet: 'Svår', pris: '💰💰💰', beskrivning: 'Den mer utmanande av Son Antems två banor. Utmärkt anläggning med hotell och spa i anslutning.', bild: 'https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Antem+Golf+Llucmajor+Mallorca', tips: 'Kombinera med övernattning på anläggningens hotell' },
+  { namn: 'T Golf Palma Puntiró', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Designad av Jack Nicklaus Design 2006. 15 min från Palma med typisk mallorquinsk miljö – tall, olivträd och johannesbröd.', bild: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80', maps: 'https://maps.google.com/?q=T+Golf+Palma+Puntiro+Mallorca', tips: 'Medlemmar kan spela på alla 120 Nicklaus-banor världen över' },
+  { namn: 'Golf Maioris', plats: 'Llucmajor', region: 'Syd', hål: 18, svårighet: 'Medel', pris: '💰💰', beskrivning: 'Designad av R.S. Group 2006. Känd för sin utmärkta restaurang och golfakademi. Bra pris-kvalitet.', bild: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80', maps: 'https://maps.google.com/?q=Golf+Maioris+Llucmajor+Mallorca', tips: 'Restaurangen är en av de bästa vid någon golfbana på ön' },
+  { namn: 'Club de Golf Son Servera', plats: 'Son Servera', region: 'Öst', hål: 9, svårighet: 'Lätt', pris: '💰', beskrivning: 'En av Mallorcas äldsta banor från 1960-talet. Naturskönt läge vid kusten med utsikt mot Cala Millor-bukten.', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', maps: 'https://maps.google.com/?q=Club+de+Golf+Son+Servera+Mallorca', tips: 'Bra för nybörjare och avkopplad golfrunda' },
+  { namn: "Vall d'or Golf", plats: 'Felanitx', region: 'Öst', hål: 18, svårighet: 'Lätt', pris: '💰💰', beskrivning: 'Rolig bana nära Portocolom med vacker utsikt över bukten från flera hål. Passar alla spelare.', bild: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=600&q=80', maps: 'https://maps.google.com/?q=Vall+d+Or+Golf+Felanitx+Mallorca', tips: 'Avsluta med middag i Porto Colom – 10 min bort' },
+  { namn: 'Golf Santa Ponsa II', plats: 'Santa Ponsa', region: 'Sydväst', hål: 9, svårighet: 'Lätt', pris: '💰', beskrivning: 'Kompletterande 9-hålsbana till Santa Ponsa I. Perfekt för en snabb runda eller nybörjare.', bild: 'https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=600&q=80', maps: 'https://maps.google.com/?q=Golf+Santa+Ponsa+II+Mallorca', tips: 'Kombinera med Santa Ponsa I för en full 27-håls dag' },
+  { namn: 'T Golf Poniente', plats: 'Magaluf', region: 'Sydväst', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Vacker bana kantad av tall-, oliv- och mandelträd nära Magaluf. Välskött med bra faciliteter.', bild: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=600&q=80', maps: 'https://maps.google.com/?q=T+Golf+Poniente+Magaluf+Mallorca', tips: 'Bra läge nära stränder och restauranger i Magaluf' },
+  { namn: 'Golf de Son Termes', plats: 'Bunyola', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰', beskrivning: 'Stilla och naturskön bana i inlandet nära Bunyola med bergsutsikt. Lugnt alternativ till de mer besökta banorna.', bild: 'https://images.unsplash.com/photo-1592919505780-303950717480?w=600&q=80', maps: 'https://maps.google.com/?q=Golf+de+Son+Termes+Bunyola+Mallorca', tips: 'Perfekt för en lugn runda utan folkmassor' },
+  { namn: 'Pollensa Golf', plats: 'Pollença', region: 'Norr', hål: 18, svårighet: 'Lätt', pris: '💰💰', beskrivning: 'Välkomnande bana i norra Mallorca med fantastisk utsikt över Tramuntana-bergen. Perfekt för avkoppling.', bild: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80', maps: 'https://maps.google.com/?q=Pollensa+Golf+Mallorca', tips: 'Lugnt och avslappnat – bra för nybörjare och rekreationsgolfare' },
+  { namn: 'Cap Vermell Country Club', plats: 'Canyamel', region: 'Öst', hål: 18, svårighet: 'Svår', pris: '💰💰💰💰', beskrivning: 'Exklusiv och utmanande bana nära Canyamel med kuperad terräng och havsutsikt. En av öns nyare banor.', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', maps: 'https://maps.google.com/?q=Cap+Vermell+Country+Club+Canyamel+Mallorca', tips: 'Kräver precision – inte för nybörjare' },
+  { namn: 'Club de Golf Canyamel', plats: 'Canyamel', region: 'Öst', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'Vacker bana i östra Mallorca nära Canyamel med tallskog och buskvegetation. Vattenhinder och doglegs.', bild: 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=600&q=80', maps: 'https://maps.google.com/?q=Club+de+Golf+Canyamel+Mallorca', tips: "Nära Coves d'Artà – perfekt att kombinera utflykt och golf" },
 ];
 
 const svårighetFärg: Record<string, string> = {
@@ -97,7 +33,37 @@ const svårighetFärg: Record<string, string> = {
   'Svår': '#c0392b',
 };
 
+const regioner = ['Alla', 'Palma', 'Norr', 'Öst', 'Syd', 'Sydväst'];
+
 export default function GolfPage() {
+  const [aktivRegion, setAktivRegion] = useState('Alla');
+
+  const filtrerade = aktivRegion === 'Alla'
+    ? golfbanor
+    : golfbanor.filter(b => b.region === aktivRegion);
+
+  const knappAktiv = {
+    padding: '8px 20px',
+    borderRadius: '20px',
+    border: '2px solid #111',
+    background: '#111',
+    color: 'white',
+    fontWeight: '600' as const,
+    cursor: 'pointer',
+    fontSize: '0.9rem',
+  };
+
+  const knappInaktiv = {
+    padding: '8px 20px',
+    borderRadius: '20px',
+    border: '2px solid #ccc',
+    background: 'white',
+    color: '#444',
+    fontWeight: '600' as const,
+    cursor: 'pointer',
+    fontSize: '0.9rem',
+  };
+
   return (
     <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
       <div style={{
@@ -115,24 +81,24 @@ export default function GolfPage() {
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
             Aktiviteter på Mallorca
           </p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
-            Golf på Mallorca
+          <h1 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
+            22 golfbanor på Mallorca
           </h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9, maxWidth: '500px' }}>
-            Ön har över 20 golfbanor – från nybörjarvänliga till europeisk toppklass
+          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9, maxWidth: '600px' }}>
+            Komplett guide till alla golfbanor – för alla nivåer och budgetar
           </p>
         </div>
       </div>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px', flexWrap: 'wrap', gap: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
-              Bästa golfbanorna
+              Alla golfbanor
             </h2>
-            <p style={{ color: '#666', marginTop: '8px' }}>{golfbanor.length} utvalda banor för alla nivåer</p>
+            <p style={{ color: '#666', marginTop: '8px' }}>{filtrerade.length} banor visas</p>
           </div>
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
             {['Lätt', 'Medel', 'Svår'].map(s => (
               <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'white', padding: '6px 14px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600' }}>
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: svårighetFärg[s] }} />
@@ -142,19 +108,30 @@ export default function GolfPage() {
           </div>
         </div>
 
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
+          {regioner.map(r => (
+            <button key={r} onClick={() => setAktivRegion(r)} style={aktivRegion === r ? knappAktiv : knappInaktiv}>
+              {r}
+            </button>
+          ))}
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
-          {golfbanor.map((b, i) => (
-            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', transition: 'transform 0.2s' }}>
+          {filtrerade.map((b, i) => (
+            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
               <div style={{ position: 'relative' }}>
                 <img src={b.bild} alt={b.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '12px', right: '12px', background: svårighetFärg[b.svårighet], color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '700' }}>
                   {b.svårighet}
                 </div>
+                <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>
+                  {b.region}
+                </div>
               </div>
               <div style={{ padding: '20px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.1rem', fontWeight: '700', margin: 0 }}>{b.namn}</h3>
-                  <span style={{ fontSize: '0.9rem' }}>{b.pris}</span>
+                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: 0 }}>{b.namn}</h3>
+                  <span style={{ fontSize: '0.9rem', flexShrink: 0, marginLeft: '8px' }}>{b.pris}</span>
                 </div>
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: '#666' }}>
                   <span>📍 {b.plats}</span>
@@ -173,10 +150,10 @@ export default function GolfPage() {
         </div>
 
         <div style={{ marginTop: '60px', background: '#111', borderRadius: '16px', padding: '40px', color: 'white', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
             Planera din golfsemester
           </h2>
-          <p style={{ color: '#aaa', fontSize: '1rem', marginBottom: '28px', maxWidth: '500px', margin: '0 auto 28px' }}>
+          <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>
             Vill du ha hjälp att boka greenfee, hyra utrustning eller kombinera golf med andra aktiviteter?
           </p>
           <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#c0392b', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
