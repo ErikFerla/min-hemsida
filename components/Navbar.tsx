@@ -20,6 +20,7 @@ const strandLinks = [
 ];
 
 const aktivitetLinks = [
+  { label: 'Golf', href: '/aktiviteter/golf' },
   { label: 'Barn på Mallorca', href: '/barn' },
   { label: 'Vandring', href: '/aktiviteter#vandring' },
   { label: 'Vattensport', href: '/aktiviteter#vattensport' },
