@@ -51,8 +51,8 @@ export default function Home() {
               { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80' },
               { namn: 'Porto Petro', href: '/porto-petro', desc: 'Exklusiv och lugn marinaby', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
               { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80' },
-              { namn: 'Palma', href: '/palma', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80' },
-              { namn: 'Alcudia', href: '/alcudia', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80' },
+              { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80' },
+              { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80' },
             ].map((stad) => (
               <a key={stad.namn} href={stad.href} style={{textDecoration: 'none', display: 'block', borderRadius: '12px', overflow: 'hidden', background: '#e0e0e0', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
                 <div style={{height: '200px', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
