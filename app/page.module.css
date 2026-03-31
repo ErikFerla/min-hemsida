@@ -119,7 +119,7 @@
 .eventCard:hover img { opacity: 0.85; }
 .eventName { display: block; padding: 10px 12px; font-size: 0.85rem; color: var(--fg); text-decoration: underline; }
 .personalSection {
-  background: #3D2B1F;
+  background: #2d3d2e;
   clip-path: polygon(0 0, 100% 3%, 100% 97%, 0 100%);
   margin: -40px 0;
   padding: 120px 40px;
@@ -132,8 +132,8 @@
 .personalTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; letter-spacing: 0.05em; margin: 0; }
 .personalSub { color: rgba(255,255,255,0.6); margin: 0; font-size: 0.9rem; }
 .personalGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-.personalCard { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; transition: background 0.2s; }
-.personalCard:hover { background: rgba(255,255,255,0.13); }
+.personalCard { background: #3a4d3b; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; transition: background 0.2s; }
+.personalCard:hover { background: #445c45; }
 .personalEmoji { font-size: 2rem; display: block; margin-bottom: 12px; }
 .personalCard h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #F5C842; letter-spacing: 0.05em; margin-bottom: 12px; }
 .personalCard p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
