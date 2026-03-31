@@ -3,6 +3,7 @@ import styles from './page.module.css';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
 import { Suspense } from 'react';
+import HeroSlideshow from '@/components/HeroSlideshow';
 
 const SectionPersonal = dynamic(() => import('./components/SectionPersonal'));
 const SectionSeason = dynamic(() => import('./components/SectionSeason'));
@@ -13,14 +14,7 @@ const SectionEvents = dynamic(() => import('./components/SectionEvents'));
 export default function Home() {
   return (
     <div className={styles.page}>
-      <section className={styles.hero} style={{ backgroundImage: "url('https://immobilien-portocolom.com/images/slide/Portocolom-Altstadt-Fisherhafen.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroBgText} aria-hidden="true">MALLORCA</div>
-        <div className={styles.heroContent}>
-          <p className={styles.heroTagline}>BIENVENIDOS A</p>
-          <h1 className={styles.heroTitle}>Mallorca</h1>
-        </div>
-      </section>
+      <HeroSlideshow />
       <div className={styles.container}>
         <section className={styles.intro}>
           <h2 className={styles.sectionHeading}>Mallorca</h2>

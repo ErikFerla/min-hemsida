@@ -52,8 +52,9 @@
   align-items: center;
   gap: 4px;
   padding: 0 16px;
-  font-family: 'Lora', serif;
-  font-size: 0.82rem;
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
   font-weight: 500;
   color: #444;
   text-decoration: none;
