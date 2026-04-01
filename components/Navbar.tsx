@@ -19,10 +19,8 @@ export default function Navbar() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
         <Link href="/" style={{ textDecoration: 'none' }}>
-          <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.05em' }}>
-            <span style={{ color: '#c0392b' }}>GRYTES</span>{' '}
-            <span style={{ color: '#f5a623' }}>MALLORCA</span>{' '}
-            <span style={{ color: '#111' }}>GUIDE</span>
+          <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.05em', color: '#111111' }}>
+            DIN GUIDE PÅ MALLORCA 🇪🇸
           </span>
         </Link>
 
