@@ -4,10 +4,11 @@ import styles from './Carousel.module.css';
 
 interface CarouselProps {
   title: string;
+  label?: string;
   children: React.ReactNode[];
 }
 
-export default function Carousel({ title, children }: CarouselProps) {
+export default function Carousel({ title, label, children }: CarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: 'left' | 'right') => {
@@ -18,6 +19,7 @@ export default function Carousel({ title, children }: CarouselProps) {
 
   return (
     <div className={styles.carousel}>
+      {label && <p className="section-label" style={{ padding: '0 60px' }}>{label}</p>}
       <div className={styles.carouselHeader}>
         <h2 className={styles.carouselTitle}>{title}</h2>
         <div className={styles.arrows}>
@@ -25,6 +27,7 @@ export default function Carousel({ title, children }: CarouselProps) {
           <button className={styles.arrow} onClick={() => scroll('right')} aria-label="Nästa">&#8594;</button>
         </div>
       </div>
+      <div className="section-divider" style={{ margin: '0 60px 24px' }}></div>
       <div className={styles.track} ref={scrollRef}>
         {children.map((child, i) => (
           <div key={i} className={styles.slide}>{child}</div>

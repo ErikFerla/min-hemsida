@@ -172,11 +172,11 @@ export default function SectionPlanner() {
   });
 
   return (
-    <section style={{ background: '#d8d8d8', padding: '80px 60px', marginTop: '60px' }}>
+    <section className="section-light">
       <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-        <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2.5rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '8px' }}>
-          Skräddarsy din resa
-        </h2>
+        <p className="section-label">PLANERA DIN RESA</p>
+        <h2 className="section-title">Skräddarsy din resa</h2>
+        <div className="section-divider"></div>
         <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '40px' }}>
           Berätta vad du gillar – få en personlig resplan för Mallorca
         </p>

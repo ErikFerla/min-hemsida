@@ -16,12 +16,16 @@ export default function Home() {
     <div className={styles.page}>
       <HeroSlideshow />
       <div className={styles.container}>
-        <section className={styles.intro}>
-          <h2 className={styles.sectionHeading}>Mallorca</h2>
-          <p>Mallorca är mer än bara en semesterö - det är en upplevelse som stannar kvar länge efter att du kommit hem. Här möter du krispigt turkost hav, doftande apelsinlundar, vitputsade fiskebyar och en livlig matkultur som får smaklökarna att dansa. Med över 300 soldagar om året och ett klimat som är behagligt från april till november finns det knappt något bättre ställe i Europa att ladda batterierna på. Oavsett om du söker stillhet, äventyr, romantik eller familjesemester - Mallorca har det du letar efter.</p>
-          <p><strong>Stränder och natur</strong><br />Föreställ dig att vakna upp, promenera fem minuter och sätta fötterna i sand vit som pudrat socker. På Mallorca är det vardagsliv. Ön över 200 stränder och vikar erbjuder allt från breda familjevänliga sandstränder till dolda paradisvikar som bara nås till fots. Es Trenc i söder - ofta kallad Mallorcas Karibien - lockar med sitt kristallklara vatten och orörda naturmiljö. Cala Mondragó är naturskyddad och ovanligt obefolkad. Och Serra de Tramuntana, UNESCOs världsarv, reser sig dramatiskt mot himlen med vandringsleder som belönar dig med utsikter du aldrig glömmer.</p>
-          <p><strong>Mat och kultur</strong><br />Mallorcansk matkultur är en kärlekshistoria mellan havet, jorden och generationer av tradition. Frukostera på ett lokalt café med ensaimada - den karakteristiska snigelbullen - och njut av en cortado i morgonsolens sken. Till lunch serveras färsk fisk direkt från hamnen, tillagad med olivolja pressad från öns egna oliver. På kvällen lockar Palmas restaurangscen med allt från enkla tapasrestauranger till stjärnkrogarnas avantgardistiska tolkning av mallorcansk husmanskost. Och vinerna? Ön vingårdar i Binissalem producerar rödviner som tar upp kampen med Spaniens bästa.</p>
-          <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
+        <section className="section-light">
+          <div className="section-inner">
+            <p className="section-label">VÄLKOMMEN TILL MALLORCA</p>
+            <h2 className="section-title">Mallorca</h2>
+            <div className="section-divider"></div>
+            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}>Mallorca är mer än bara en semesterö - det är en upplevelse som stannar kvar länge efter att du kommit hem. Här möter du krispigt turkost hav, doftande apelsinlundar, vitputsade fiskebyar och en livlig matkultur som får smaklökarna att dansa. Med över 300 soldagar om året och ett klimat som är behagligt från april till november finns det knappt något bättre ställe i Europa att ladda batterierna på. Oavsett om du söker stillhet, äventyr, romantik eller familjesemester - Mallorca har det du letar efter.</p>
+            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}><strong>Stränder och natur</strong><br />Föreställ dig att vakna upp, promenera fem minuter och sätta fötterna i sand vit som pudrat socker. På Mallorca är det vardagsliv. Ön över 200 stränder och vikar erbjuder allt från breda familjevänliga sandstränder till dolda paradisvikar som bara nås till fots. Es Trenc i söder - ofta kallad Mallorcas Karibien - lockar med sitt kristallklara vatten och orörda naturmiljö. Cala Mondragó är naturskyddad och ovanligt obefolkad. Och Serra de Tramuntana, UNESCOs världsarv, reser sig dramatiskt mot himlen med vandringsleder som belönar dig med utsikter du aldrig glömmer.</p>
+            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '24px'}}><strong>Mat och kultur</strong><br />Mallorcansk matkultur är en kärlekshistoria mellan havet, jorden och generationer av tradition. Frukostera på ett lokalt café med ensaimada - den karakteristiska snigelbullen - och njut av en cortado i morgonsolens sken. Till lunch serveras färsk fisk direkt från hamnen, tillagad med olivolja pressad från öns egna oliver. På kvällen lockar Palmas restaurangscen med allt från enkla tapasrestauranger till stjärnkrogarnas avantgardistiska tolkning av mallorcansk husmanskost. Och vinerna? Ön vingårdar i Binissalem producerar rödviner som tar upp kampen med Spaniens bästa.</p>
+            <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
+          </div>
         </section>
         <Suspense fallback={<div>Loading...</div>}>
           <SectionPersonal />
@@ -38,8 +42,8 @@ export default function Home() {
         <Suspense fallback={<div>Loading...</div>}>
           <SectionEvents />
         </Suspense>
-        <section style={{background: '#d8d8d8'}}>
-          <Carousel title="UTFORSKA STÄDERNA">
+        <section className="section-black">
+          <Carousel title="UTFORSKA STÄDERNA" label="DESTINATIONER">
             {[
               { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
               { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80' },

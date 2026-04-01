@@ -72,28 +72,34 @@ export const evenemang = [
 
 export default function SectionEvents() {
   return (
-    <section className={styles.eventsSection}>
-      <div className={styles.eventsLeft}>
-        <h2 className={styles.eventsTitle}>KOMMANDE EVENEMANG</h2>
-        <p className={styles.eventsText}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, jordbruksmarknader och internationella sportevenemang.</p>
-        <Link href="/evenemang" className={styles.eventsBtn}>Se alla evenemang</Link>
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px', flex: 1 }}>
-        {evenemang.slice(0, 6).map((e, i) => (
-          <div key={i} style={{ background: '#e0e0e0', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column' }}>
-            <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
-            <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              <div style={{ fontSize: '0.75rem', color: '#555', display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-                <span style={{ background: '#111', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.7rem', fontWeight: '600' }}>{e.kategori}</span>
-                <span>📅 {e.datum}</span>
-                <span>📍 {e.plats}</span>
-              </div>
-              <h3 style={{ fontSize: '1rem', fontWeight: '700', letterSpacing: '-0.02em', margin: 0, color: '#111' }}>{e.namn}</h3>
-              <p style={{ fontSize: '0.85rem', color: '#444', lineHeight: '1.5', margin: 0, flex: 1 }}>{e.beskrivning}</p>
-              <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ marginTop: '8px', display: 'inline-block', padding: '6px 14px', background: '#111', color: 'white', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '600', textDecoration: 'none' }}>Läs mer ↗</a>
-            </div>
+    <section className="section-light">
+      <div className="section-inner">
+        <p className="section-label">EVENEMANG</p>
+        <h2 className="section-title">Kommande Evenemang</h2>
+        <div className="section-divider"></div>
+        <div style={{ display: 'flex', gap: '48px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+          <div className={styles.eventsLeft}>
+            <p className={styles.eventsText}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, jordbruksmarknader och internationella sportevenemang.</p>
+            <Link href="/evenemang" className={styles.eventsBtn}>Se alla evenemang</Link>
           </div>
-        ))}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px', flex: 1 }}>
+            {evenemang.slice(0, 6).map((e, i) => (
+              <div key={i} style={{ background: '#e0e0e0', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column' }}>
+                <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
+                <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#555', display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+                    <span style={{ background: '#111', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.7rem', fontWeight: '600' }}>{e.kategori}</span>
+                    <span>📅 {e.datum}</span>
+                    <span>📍 {e.plats}</span>
+                  </div>
+                  <h3 style={{ fontSize: '1rem', fontWeight: '700', letterSpacing: '-0.02em', margin: 0, color: '#111' }}>{e.namn}</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#444', lineHeight: '1.5', margin: 0, flex: 1 }}>{e.beskrivning}</p>
+                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ marginTop: '8px', display: 'inline-block', padding: '6px 14px', background: '#111', color: 'white', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '600', textDecoration: 'none' }}>Läs mer ↗</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
