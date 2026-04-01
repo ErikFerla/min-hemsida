@@ -203,7 +203,7 @@ export default function BarnPage() {
       <section className={styles.hero} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80')" }}>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
-          <p className={styles.heroTagline}>ROLIGA UPPLEVELSER FOR HELA FAMILJEN</p>
+          <p className={styles.heroTagline}>ROLIGA UPPLEVELSER FÖR HELA FAMILJEN</p>
           <h1 className={styles.heroTitle}>BARN PA MALLORCA</h1>
         </div>
       </section>
@@ -211,7 +211,7 @@ export default function BarnPage() {
       <div className={styles.container}>
         <div className={styles.sectionsWrapper}>
           <section className={styles.section}>
-            <h2 className={styles.sectionHeading}>Barn på Mallorca</h2>
+            <h2 className={styles.sectionHeading}>Barnvänligt på Mallorca</h2>
             <p className={styles.sectionDescription}>
               Mallorca är ett av Europas bästa resmål för barnfamiljer. Oavsett om ni söker vilda vattenrutschkanor, exotiska djur, spännande grottor eller lugna lekplatser vid stranden – här finns något för alla åldrar. Låt er inspireras av allt som ön har att erbjuda!
             </p>
