@@ -1,74 +1,44 @@
-import styles from './page.module.css';
-import Link from 'next/link';
-import Gallery from '@/components/Gallery';
-
-const galleryImages = [
-  { url: '/bilder/palma/alex-boscarato-oRddU3Onh3A-unsplash.jpg', caption: 'Palma gata' },
-  { url: '/bilder/palma/david-vives-12cqhQNVUIg-unsplash.jpg', caption: 'Palma park' },
-  { url: '/bilder/palma/david-vives-fz1dT3-se-o-unsplash.jpg', caption: 'Palma katedral' },
-  { url: '/bilder/palma/david-vives-Wr3eym_diWU-unsplash.jpg', caption: 'Palma stad' },
-  { url: '/bilder/palma/felix-4pqjneOJa9k-unsplash.jpg', caption: 'Palma vy' },
-  { url: '/bilder/palma/luca-J5SQg9nYzo-unsplash.jpg', caption: 'Palma arkitektur' },
-  { url: '/bilder/palma/maurits-bausenhart-QhgLeTJaVso-unsplash.jpg', caption: 'Palma utsikt' },
-  { url: '/bilder/palma/sara-darcaj-swAWzza3rOc-unsplash.jpg', caption: 'Palma detalj' },
-  { url: '/bilder/palma/tom-podmore-SaW5DBltJHI-unsplash.jpg', caption: 'Palma kväll' },
-];
-
-const faqs = [
-  { q: 'Vad är Palma känt för?', a: 'Palma är Mallorcas huvudstad och känd för sin gotiska katedral La Seu, historia och kultur. Det är också känt för att ha världsklass-museer, lyxig shopping på Paseo Marítimo och ett vibrerande restaurang- och nattliv.' },
-  { q: 'Vilka sevärdigheter bör man se?', a: 'La Seu-katedralen är obligatorisk. Du bör också besöka gamla stadskärnan med sina smala gator, Almudaina-palatset och flera konstmuseer. Den moderna konstmässan Museum of Art är också undebar.' },
-  { q: 'Vilka restauranger rekommenderas?', a: 'Palma har allt från moderna Michelin-stjärnor-restauranger till små traditionella bodegar. Omkring hamnen finns många bra seafoodalternativ. Tapas-barerna är utmärkta för ett möte mellan vänner.' },
-  { q: 'Hur långt är det från huvudflygplatsen?', a: 'Flygplatsen ligger endast 8 km öster om Palma. Det tar ungefär 15-20 minuter med taxi eller ungefär 30 minuter med buss. Det är mycket enkelt att nå Palma.' },
-];
-
-export default function PalmaDeMallorca() {
+﻿export default function PalmaDeMallorca() {
   return (
-    <div className={styles.page}>
-      <section className={styles.hero} style={{ backgroundImage: "url('/bilder/palma/palma-hero.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={styles.heroTagline}>MALLORCAS HJÄRTA</p>
-          <h1 className={styles.heroTitle}>Palma de Mallorca</h1>
+    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
+        <div style={{ position: 'relative', color: 'white' }}>
+          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Mallorcas hjärta · Huvudstaden</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Palma de Mallorca</h1>
+          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Öns pulserande huvudstad med La Seu, historisk gamla stan och livlig restaurangscen</p>
         </div>
-      </section>
-      <div className={styles.container}>
-        <section className={styles.intro}>
-          <h2 className={styles.sectionHeading}>Välkommen till Palma</h2>
-          <p>Palma de Mallorca är den vibrerande huvudstaden på Mallorca. Med sin imponerande gotiska katedral La Seu, ryktbar historia, världsklass-shopping och ett livligare restaurang- och nightlife-scen är det ett måste-besök för alla som reser till ön.</p>
-          <p><strong>La Seu - Katedralen</strong><br />La Seu är en av Europas finaste gotiska katedraler, byggd på 1300-talet. Dess imponerande rosettfönster och höga valv är spektakulär från in- och utsida. Om du kan, gå in under solnedgången när solljuset skiner genom fönstren.</p>
-          <p><strong>Historia och kultur</strong><br />Palmas gamla stad är ett labyrint av smala gatorna, medeltida kyrkor och hemliga trädgårdar. Här finns också flera konstmuseer inklusive Museu d'Art de Mallorca och det moderna Museum of Art. Konstintresserade kommer att bli begeistrade.</p>
-          <p><strong>Shopping och nattliv</strong><br />Paseo Marítimo är hemmet för lyxiga butiker och upscale-restauranger. Katedral Square är pulsande på kvällen med människor som flanerar längs kajen. För nattlivet finns allt från trendy cocktail bars till klassiska diskotek.</p>
-          <Link href="/kontakt" className={styles.ctaBtn}>BOKA RESA</Link>
-        </section>
-        <Gallery images={galleryImages} />
-        <section className={styles.quotes}>
-          <h2 className={styles.sectionHeading}>Media älskar Palma</h2>
-          <blockquote className={styles.quote}>
-            <p>Palma är en av Europas mest underskattade städer. Med dess historia, arkitektur och moderna kultur hör det hemma på samma lista som Barcelona och Madrid.</p>
-            <cite>— The Guardian Travel</cite>
-          </blockquote>
-          <blockquote className={styles.quote}>
-            <p>La Seu-katedralen är en av världens sju vackraste gotiska katedraler. Att besöka den är att stå inför konsthistorien personligen.</p>
-            <cite>— Arkitektur och Design-tidskrift</cite>
-          </blockquote>
-        </section>
-        <section className={styles.photoGrid}>
-          {['La Seu', 'Gamla Stad', 'Kajpromenad', 'Nattliv'].map((f, i) => (
-            <div key={i} className={styles.photoItem}>
-              <div className={styles.photoPlaceholder}><span>{f}</span></div>
-              <p className={styles.photoCaption}>{f}</p>
+      </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+          <div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Palma de Mallorca</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Palma är en av Medelhavseuropas mest dynamiska städer – en plats där gotisk katedral möter modernistisk arkitektur, och där lokala tapasrestauranger samsas med internationellt erkända kockars krogar. Många som kom för en vecka stannade för ett liv.</p>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>La Seu-katedralen, som reser sig majestätiskt ur havet, dominerar stadsbilden och är ett av Spaniens vackraste gotiska mästerverk. Inne i gamla stan snirklar sig smala gränder förbi mörka patiohus, konstgallerier och välgömda restauranger med bara tio sittplatser.</p>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
+              <li>Besök La Seu på en vardag tidig morgon – inga köer och ljuset är magiskt</li>
+              <li>Santa Catalina-kvarteret är det bästa för mat och nattliv – gå dit på kvällen</li>
+              <li>Hyra en el-scooter och kör längs paseo marítimo i solnedgången</li>
+              <li>Mercat de l'Olivar är bäst på fredags- och lördagsmorgon för färska råvaror</li>
+            </ul>
+          </div>
+          <div>
+            <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
+                <strong>Plats:</strong> Sydväst Mallorca, huvudstad<br/>
+                <strong>Flyg:</strong> 15 min från PMI-flygplatsen<br/>
+                <strong>Bästa tid:</strong> Maj, juni, september<br/>
+                <strong>Känd för:</strong> La Seu, gamla stan, restauranger<br/>
+                <strong>Stränder nearby:</strong> Platja de Palma, Cala Major
+              </p>
             </div>
-          ))}
-        </section>
-        <section className={styles.faq}>
-          <h2 className={styles.sectionHeading}>Vanliga frågor</h2>
-          {faqs.map((item, i) => (
-            <div key={i} className={styles.faqItem}>
-              <h3 className={styles.faqQ}>{item.q}</h3>
-              <p className={styles.faqA}>{item.a}</p>
-            </div>
-          ))}
-        </section>
+            <a href="https://maps.google.com/?q=Palma+de+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
+              Visa på karta →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

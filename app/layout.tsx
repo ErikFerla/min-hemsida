@@ -7,8 +7,9 @@ const inter = Inter({ subsets: ['latin'] });
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
 
 export const metadata: Metadata = {
-  title: 'Grytes Mallorca Guide',
-  description: 'Din kompletta guide till Mallorca',
+  title: 'Mymallorca.se – Din guide till Mallorca',
+  description: 'Komplett reseguide till Mallorca på svenska. Stränder, restauranger, vingårdar, golf, aktiviteter och insider-tips från lokalerna.',
+  keywords: 'Mallorca, reseguide, stränder, restauranger, golf, aktiviteter, Palma',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

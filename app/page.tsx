@@ -41,12 +41,12 @@ export default function Home() {
         <section style={{background: '#d8d8d8'}}>
           <Carousel title="UTFORSKA STÄDERNA">
             {[
-              { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=600&q=80' },
-              { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80' },
-              { namn: 'Porto Petro', href: '/porto-petro', desc: 'Exklusiv och lugn marinaby', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
-              { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80' },
-              { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80' },
-              { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80' },
+              { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80' },
+              { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1562564055-71e051d33c19?w=600&q=80' },
+              { namn: 'Porto Petro', href: '/porto-petro', desc: 'Exklusiv och lugn marinaby', bild: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80' },
+              { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80' },
+              { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80' },
+              { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80' },
             ].map((stad) => (
               <a key={stad.namn} href={stad.href} style={{textDecoration: 'none', display: 'block', borderRadius: '12px', overflow: 'hidden', background: '#e0e0e0', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
                 <div style={{height: '200px', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center'}} />

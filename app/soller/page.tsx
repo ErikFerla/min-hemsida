@@ -1,53 +1,45 @@
-﻿'use client';
-import styles from '../page.module.css';
-import Link from 'next/link';
-import Gallery from '@/components/Gallery';
-
-const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=800&q=80', caption: 'Soller by' },
-  { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80', caption: 'Tramuntanabergen' },
-  { url: 'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80', caption: 'Apelsinlundar' },
-  { url: 'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80', caption: 'Bergsutsikt' },
-  { url: 'https://images.unsplash.com/photo-1445620466293-d6316372ab59?w=800&q=80', caption: 'Port de Soller' },
-  { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', caption: 'Hamnen' },
-];
-
-export default function Soller() {
+﻿export default function Soller() {
   return (
-    <div className={styles.page}>
-      <section className={styles.hero} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={styles.heroTagline}>BERGSBY MED CHARM</p>
-          <h1 className={styles.heroTitle}>Soller</h1>
+    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
+        <div style={{ position: 'relative', color: 'white' }}>
+          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Nordvästra Mallorca · Tramuntana</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Sóller</h1>
+          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Bergsby med historisk spårvagn, omgiven av apelsinlundar och Serra de Tramuntana</p>
         </div>
-      </section>
-      <div className={styles.container}>
-        <section className={styles.intro}>
-          <h2 className={styles.sectionHeading}>Om Soller</h2>
-          <p>Soller ar en av Mallorcas mest charmiga byar, belagen i en frodig dal omgiven av Tramuntanabergen i nordvast. Byn ar kand for sina apelsinlundar, sin historiska sparvagn och sin avslappnade atmosfar.</p>
-          <p><strong>Sparvagnen</strong><br />Den historiska trasparvagnen gar mellan Soller och Port de Soller sedan 1913. En klassisk upplevelse som lockar besokare fran hela varlden.</p>
-          <p><strong>Vandring och cykling</strong><br />Soller ar ett utmarkt utgangspunkt for vandring i Serra de Tramuntana, som ar ett UNESCO-världsarv. Flera av Mallorcas basta vandringsleder startar har.</p>
-          <Link href="/kontakt" className={styles.ctaBtn}>BOKA RESA</Link>
-        </section>
-        <Gallery images={galleryImages} title="Bildgalleri - Soller" />
-        <section className={styles.faq}>
-          <h2 className={styles.sectionHeading}>Vanliga fragor</h2>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQ}>Hur tar man sig till Soller?</h3>
-            <p className={styles.faqA}>Fran Palma kan man aka det historiska taget over bergen, kora bil via tunneln eller ta den kurviga bergsvagen. Taget ar den mest minnesvarda upplevelsen.</p>
+      </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+          <div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Sóller</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Sóller ligger inbäddad i en frodig dal omgiven av Tramuntanabergens dramatiska siluetter. Det är en bergsby med franskt inflytande – en gång välbärgad tack vare handel med apelsiner och citrus, vilket syns i de modernistiska byggnaderna runt torget.</p>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Den historiska trätåget från Palma (sedan 1912) och spårvägen ner till Port de Sóller är en av Mallorcas mest ikoniska upplevelser. Port de Sóller är en halvmåneformad bukt med en avslappnad strandpromenad och bra fiskrestauranger.</p>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
+              <li>Ta det historiska träntåget från Palma – ett minne för livet (boka i förväg)</li>
+              <li>Åk spårvägen ner till Port de Sóller och ta en bukt-kaffe på morgonen</li>
+              <li>Köp färska apelsiner direkt från en bonde längs vägen in i byn</li>
+              <li>Vandringen till Biniaraix – 45 min – är en av öns bästa korta leder</li>
+            </ul>
           </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQ}>Vad ska man se i Soller?</h3>
-            <p className={styles.faqA}>Torget med kyrkan Sant Bartomeu, den botaniska tradgarden, marknaden pa lordagar och naturligtvis sparvagnsturen ner till Port de Soller.</p>
+          <div>
+            <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
+                <strong>Plats:</strong> Nordväst, 30 km från Palma<br/>
+                <strong>Tåg:</strong> Från Palma (Ferrocarril de Sóller)<br/>
+                <strong>Bästa tid:</strong> April–juni, september<br/>
+                <strong>Känd för:</strong> Spårvagn, apelsiner, Tramuntana<br/>
+                <strong>Stränder nearby:</strong> Port de Sóller, Platja d'en Repic
+              </p>
+            </div>
+            <a href="https://maps.google.com/?q=Soller+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
+              Visa på karta →
+            </a>
           </div>
-          <div className={styles.faqItem}>
-            <h3 className={styles.faqQ}>Nar ar basta tiden att besoka Soller?</h3>
-            <p className={styles.faqA}>Varen och hosten ar idealiska — apelsinerna blommar pa varen och temperaturen ar perfekt for vandring. Sommaren ar varm men mer turisttatt.</p>
-          </div>
-        </section>
+        </div>
       </div>
     </div>
   );
 }
-

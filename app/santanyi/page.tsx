@@ -1,72 +1,46 @@
-import styles from './page.module.css';
-import Link from 'next/link';
-import Gallery from '@/components/Gallery';
-
-const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80', caption: 'Byn Santanyi' },
-  { url: 'https://images.unsplash.com/photo-1555990538-c4e462d1b2cb?w=800&q=80', caption: 'Marknaden' },
-  { url: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=800&q=80', caption: 'Sandstensarkitektur' },
-  { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80', caption: 'Cala Santanyi strand' },
-  { url: 'https://images.unsplash.com/photo-1473496169904-658ba7574b0d?w=800&q=80', caption: 'Hantverksmarknad' },
-  { url: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80', caption: 'Solnedgang vid havet' },
-];
-
-const faqs = [
-  { q: 'Vad är Santanyi känt för?', a: 'Santanyi är känt för sin charmiga marknadsplats, vacker sandstensarkitektur och sin historiska karaktär. Det är en av de viktigaste marknadsborna på Mallorca och motsvarar en klassisk spansk small town atmosfär.' },
-  { q: 'Vilken strand rekommenderas?', a: 'Cala Santanyi är en av öns vackraste stränder med vita sandkampar och turkos vatten. Det är endast 3 km från bygdan. Stranden är omgiven av kiparträd och klippor som ger ett naturligt skydd från vinden.' },
-  { q: 'Vilken dag är marknaden?', a: 'Veckomarknaden i Santanyi hålls på lördag morgon. Här kan du handla lokala produkter, frukt, grönsaker, tyger och olika konsthantverk. Det är en autentisk och färgrik lokalt event.' },
-  { q: 'Vilka restauranger finns det?', a: 'Santanyi har ett urval av traditionella spanska och mallorcanska restauranger. Många ligger på eller nära marknadsplatsen. Pizza-restauranger och caféer finns också för ett snabbare ätande.' },
-];
-
-export default function Santanyi() {
+﻿export default function Santanyi() {
   return (
-    <div className={styles.page}>
-      <section className={styles.hero} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1589179447604-26cc7dd49e53?w=1600&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={styles.heroTagline}>CHARMIG MARKNADSBY</p>
-          <h1 className={styles.heroTitle}>Santanyi</h1>
+    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1562564055-71e051d33c19?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
+        <div style={{ position: 'relative', color: 'white' }}>
+          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Södra Mallorca · Mallorca</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Santanyi</h1>
+          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Charmig marknadsby i söder, känd för sin onsdagsmarknad och närheten till Cala Llombards</p>
         </div>
-      </section>
-      <div className={styles.container}>
-        <section className={styles.intro}>
-          <h2 className={styles.sectionHeading}>Välkommen till Santanyi</h2>
-          <p>Santanyi är en klassisk spansk marknadsby i södra Mallorca. Med sin charmiga arkitektur i sandsten, levande marknadsplats och närhet till vackra stränder är det en perfekt destination för att uppleva autentisk lokonal kultur.</p>
-          <p><strong>Sandstensarkitektur</strong><br />Santanyi är berömt för sina byggnader byggda i gul sandsten. Detta ger byn en varm och hemtrevlig känsla som andra byar på ön saknar. Många av husen är flera hundra år gamla och väl bevarade.</p>
-          <p><strong>Marknader och hantverkare</strong><br />Veckomarknaden på lördagar lockar både turister och lokalbor. Men Santanyi är också känt som an konsthantverksby. Många lokala konstnärer och keramiker arbetar här och säljer sina verk genom små gallerier.</p>
-          <p><strong>Strander och natur</strong><br />Cala Santanyi ligger bara några kilometer därifrån och är en av öns vackraste stränder. Kiparträd och klippor ramar in den lysande vita Sanden och kristallklara vattnet. Perfekt för ett avslappnat stranddag eller snorkling.</p>
-          <Link href="/kontakt" className={styles.ctaBtn}>BOKA RESA</Link>
-        </section>
-        <Gallery images={galleryImages} />
-        <section className={styles.quotes}>
-          <h2 className={styles.sectionHeading}>Besökares favoriter</h2>
-          <blockquote className={styles.quote}>
-            <p>Santanyi är en riktig pärla. Den perfekta blandningen av spanish charm och moderna bekvämligheter. Vi återkommer varje år.</p>
-            <cite>— Kulturmagasin i Malmö</cite>
-          </blockquote>
-          <blockquote className={styles.quote}>
-            <p>Marknaden på lördagen är en måste-upplevelse. Färger, dofter, lokala produkter... det är en verklig karneval!</p>
-            <cite>— Travel blogger Stockholm</cite>
-          </blockquote>
-        </section>
-        <section className={styles.photoGrid}>
-          {['Marknaden', 'Sandsten', 'Cala Santanyi', 'Gator'].map((f, i) => (
-            <div key={i} className={styles.photoItem}>
-              <div className={styles.photoPlaceholder}><span>{f}</span></div>
-              <p className={styles.photoCaption}>{f}</p>
+      </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+          <div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Santanyi</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Santanyi är en av Mallorcas mest charmiga byar, byggd i den karakteristiska gulbruna sandstenen som kallas ”mares”. Byn har ett levande torgliv, ett starkt konsthantverk och en avslappnad atmosfär som lockar tillbaka besökare år efter år.</p>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Onsdags- och lördagsmarknaden är en av öns bästa – här blandas lokala producenter med konsthantverk, textilier och olivoljor. Under sommaren tar arkaderna skugga och det är perfekt att ta en pausa på något av kafeteriorna runt torget.</p>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
+              <li>Onsdagsmarknaden är bättre än lördagens – mindre folk, mer lokalt</li>
+              <li>Cala Llombards (15 min bort) är en av öns vackraste privatstränder</li>
+              <li>Beställ ”pa amb oli” på baren vid kyrkan – klassisk mallorcansk snack</li>
+              <li>Glöm inte galleriet Sa Quartera – gratis och riktigt bra samtidskonst</li>
+            </ul>
+          </div>
+          <div>
+            <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
+                <strong>Plats:</strong> Södra Mallorca, 65 km från Palma<br/>
+                <strong>Bil:</strong> Ca 55 min från Palma<br/>
+                <strong>Marknad:</strong> Onsdag &amp; lördag fm<br/>
+                <strong>Känd för:</strong> Marknad, sandstensarkitektur<br/>
+                <strong>Stränder nearby:</strong> Cala Llombards, Cala Santanyi
+              </p>
             </div>
-          ))}
-        </section>
-        <section className={styles.faq}>
-          <h2 className={styles.sectionHeading}>Vanliga frågor</h2>
-          {faqs.map((item, i) => (
-            <div key={i} className={styles.faqItem}>
-              <h3 className={styles.faqQ}>{item.q}</h3>
-              <p className={styles.faqA}>{item.a}</p>
-            </div>
-          ))}
-        </section>
+            <a href="https://maps.google.com/?q=Santanyi+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
+              Visa på karta →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
+
