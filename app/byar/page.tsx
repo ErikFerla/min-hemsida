@@ -8,20 +8,18 @@ const städer = [
   { namn: 'Porto Petro', href: '/porto-petro', region: 'Syd', beskrivning: 'Exklusiv och lugn marinaby i sydost, populär bland segelbåtar', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', tips: 'Perfekt för kvällspromenad längs hamnen' },
   { namn: 'Alcúdia', href: '/byar', region: 'Norr', beskrivning: 'Historisk kuststad med välbevarade medeltida murar och romarteater', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', tips: 'Besök den romerska teatern och gamla stan' },
   { namn: 'Valldemossa', href: '/sevardheter', region: 'Nordväst', beskrivning: 'UNESCO-skyddat bergsdorf känt för Chopin och George Sands vistelse', bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80', tips: 'Besök kartusianerklostret tidigt på morgonen' },
-  { namn: 'Deià', href: '/byar', region: 'Nordväst', beskrivning: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och hav utsikt', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', tips: 'Robert Graves museum är ett måste' },
+  { namn: 'Deià', href: '/byar', region: 'Nordväst', beskrivning: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och havsutsikt', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', tips: 'Robert Graves museum är ett måste' },
   { namn: 'Pollença', href: '/byar', region: 'Norr', beskrivning: 'Autentisk by med romersk bro, konstmarknad och 365 trappsteg till Calvari', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', tips: 'Klättra upp till Calvari för fantastisk utsikt' },
   { namn: 'Sineu', href: '/byar', region: 'Inland', beskrivning: 'Mallorcas geografiska hjärta med öns äldsta marknad sedan 1306', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', tips: 'Onsdagsmarknaden – kom tidigt för bästa upplevelsen' },
   { namn: 'Artà', href: '/byar', region: 'Öst', beskrivning: 'Historisk bergsstad med imponerande borg och vackra gränder', bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80', tips: 'Besök borgen Santuari de Sant Salvador' },
   { namn: 'Felanitx', href: '/byar', region: 'Öst', beskrivning: 'Traditionell stad känd för keramik, vin och söndagsmarknad', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', tips: 'Köp lokal keramik direkt från hantverkarna' },
   { namn: 'Manacor', href: '/byar', region: 'Öst', beskrivning: 'Mallorcas näst största stad – känd för pärlor, möbler och Rafael Nadal', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', tips: 'Besök en pärlafabrik och se hur de tillverkas' },
   { namn: 'Inca', href: '/byar', region: 'Inland', beskrivning: 'Läderstaden med berömda torsdagsmarknad och kellerviner', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', tips: 'November – kom på den stora lädermässan' },
-  { namn: 'Binissalem', href: '/byar', region: 'Inland', beskrivning: 'Mallorcas vinbygd med vingårdar, kellerviner och vinmarknad i oktober', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', tips: 'Besök José L. Ferrer – öns äldsta vingård' },
-  { namn: 'Andratx', href: '/byar', region: 'Sydväst', beskrivning: 'Lugn stadskärna i sydväst med konstgalleri och nära till Port d\'Andratx', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', tips: 'Port d\'Andratx har öns snyggaste marina' },
+  { namn: 'Binissalem', href: '/byar', region: 'Inland', beskrivning: 'Mallorcas vinbygd med vingårdar och vinmarknad i oktober', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', tips: 'Besök José L. Ferrer – öns äldsta vingård' },
+  { namn: 'Andratx', href: '/byar', region: 'Sydväst', beskrivning: 'Lugn stadskärna i sydväst nära Port d Andratx med fin marina', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', tips: 'Port d Andratx har öns snyggaste marina' },
   { namn: 'Campos', href: '/byar', region: 'Syd', beskrivning: 'Lantlig stad nära Es Trenc känd för salt, kapers och lördagsmarknad', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', tips: 'Perfekt stopp på väg till Es Trenc' },
   { namn: 'Llucmajor', href: '/byar', region: 'Syd', beskrivning: 'Historisk stad med medeltida rötter och vackert torg', bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80', tips: 'Prova den lokala ensaimadan på torgets café' },
 ];
-
-const regioner = ['Alla', 'Sydväst', 'Nordväst', 'Norr', 'Öst', 'Syd', 'Inland'];
 
 export default function ByadSida() {
   return (
@@ -39,7 +37,7 @@ export default function ByadSida() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Utforska Mallorca</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Städer & Byar</h1>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Städer och Byar</h1>
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{städer.length} utvalda destinationer runt hela ön</p>
         </div>
       </div>
@@ -48,10 +46,7 @@ export default function ByadSida() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
           {städer.map((stad, i) => (
             <Link key={i} href={stad.href} style={{ textDecoration: 'none' }}>
-              <div style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', transition: 'transform 0.2s, box-shadow 0.2s', cursor: 'pointer' }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.15)'; }}
-                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'none'; (e.currentTarget as HTMLElement).style.boxShadow = '0 2px 16px rgba(0,0,0,0.08)'; }}
-              >
+              <div style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
                 <div style={{ position: 'relative' }}>
                   <img src={stad.bild} alt={stad.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
