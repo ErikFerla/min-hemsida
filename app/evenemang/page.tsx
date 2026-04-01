@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { evenemang } from '@/app/components/SectionEvents';
 
-const kategorier = ['Alla', 'Sport', 'Musik', 'Kultur', 'Mat & Dryck', 'Marknad', 'Familj', 'Mässa', 'Natur'];
+const kategorier = ['Alla', 'Sport', 'Musik', 'Kultur', 'Mat & Dryck', 'Marknad', 'Familj'];
 
 const kategoriColor: Record<string, string> = {
   'Sport': '#2563eb',
@@ -11,8 +11,6 @@ const kategoriColor: Record<string, string> = {
   'Mat & Dryck': '#16a34a',
   'Marknad': '#92400e',
   'Familj': '#db2777',
-  'Mässa': '#475569',
-  'Natur': '#059669',
 };
 
 export default function EvenemangPage() {
