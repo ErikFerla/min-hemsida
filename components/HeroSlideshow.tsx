@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 
 const bilder = [
-  { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90', text: 'Kristallklara stränder', plats: 'Es Trenc, södra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&q=90', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
-  { url: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
-  { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
+  { url: 'https://images.pexels.com/photos/1007657/pexels-photo-1007657.jpeg?w=1600&q=90', text: 'Kristallklara stränder', plats: 'Es Trenc, södra Mallorca' },
+  { url: 'https://images.pexels.com/photos/4846097/pexels-photo-4846097.jpeg?w=1600&q=90', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
+  { url: 'https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
+  { url: 'https://images.pexels.com/photos/2901215/pexels-photo-2901215.jpeg?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
+  { url: 'https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
+  { url: 'https://images.pexels.com/photos/3683051/pexels-photo-3683051.jpeg?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
+  { url: 'https://images.pexels.com/photos/2403568/pexels-photo-2403568.jpeg?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
+  { url: 'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?w=1600&q=90', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
 ];
 
 export default function HeroSlideshow() {
