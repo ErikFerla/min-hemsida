@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react';
 
 const bilder = [
   { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90', text: 'Kristallklara stränder', plats: 'Es Trenc, södra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1600&q=90', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&q=90', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
   { url: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
-  { url: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
+  { url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
   { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
 ];
 
