@@ -7,8 +7,8 @@ const bilder = [
   { url: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
   { url: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
   { url: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
-  { url: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
-  { url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
+  { url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
+  { url: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
   { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
 ];
 
