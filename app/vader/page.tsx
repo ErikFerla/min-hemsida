@@ -20,6 +20,7 @@ const locations = [
   { name: 'Porto Colom', lat: 39.4167, lon: 3.2667, fact: 'Kustby, havsbris, något svalare än inlandet' },
   { name: 'Port de Soller', lat: 39.7958, lon: 2.6942, fact: 'Skyddad av bergen, ofta vindstilla, varm sommar' },
   { name: 'Alcudia', lat: 39.8527, lon: 3.1237, fact: 'Norra Mallorca, något blåsigare, fin sommarsäsong' },
+  { name: 'Andratx', lat: 39.5741, lon: 2.4267, fact: 'Sydväst på ön, skyddad av berg, populärt bland segelbåtsägare' },
 ];
 
 const symbolToEmojiAndDesc: { [key: string]: { emoji: string; desc: string } } = {
@@ -225,7 +226,7 @@ export default function Vader() {
                 ))}
               </svg>
             </div>
-            <div className={styles.dayCards}>
+            <div className={styles.dayCards} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
               {currentData.map((day, index) => (
                 <div
                   key={day.date}
