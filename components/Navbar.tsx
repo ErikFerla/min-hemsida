@@ -1,91 +1,65 @@
 'use client';
-
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import styles from './Navbar.module.css';
-
-const subpages = [
-  { label: 'Porto Colom', href: '/porto-colom' },
-  { label: 'Santanyi', href: '/santanyi' },
-  { label: 'Porto Petro', href: '/porto-petro' },
-  { label: 'Soller', href: '/soller' },
-  { label: 'Palma de Mallorca', href: '/palma-de-mallorca' },
-];
-
-const strandLinks = [
-  { label: 'Barnvänliga stränder', href: '/strander#barnvanliga' },
-  { label: 'Högst betyg', href: '/strander#hogst-betyg' },
-  { label: 'Kräver promenad', href: '/strander#promenad' },
-  { label: 'Minst besökare', href: '/strander#minst-besokare' },
-];
-
-const aktivitetLinks = [
-  { label: 'Golf', href: '/aktiviteter/golf' },
-  { label: 'Barn på Mallorca', href: '/barn' },
-  { label: 'Vandring', href: '/aktiviteter#vandring' },
-  { label: 'Vattensport', href: '/aktiviteter#vattensport' },
-  { label: 'Cykling', href: '/aktiviteter#cykling' },
-];
 
 const navLinks = [
-  { label: 'Städer', href: '/byar', dropdown: subpages },
-  { label: 'Stränder', href: '/strander', dropdown: strandLinks },
-  { label: 'Sevärdheter', href: '/sevardheter' },
-  { label: 'Mat', href: '/mat' },
-  { label: 'Aktiviteter', href: '/aktiviteter', dropdown: aktivitetLinks },
-  { label: 'Väder', href: '/vader' },
+  { text: 'Städer', href: '/byar' },
+  { text: 'Stränder', href: '/strander' },
+  { text: 'Sevärdheter', href: '/sevardheter' },
+  { text: 'Mat & Vin', href: '/mat' },
+  { text: 'Aktiviteter', href: '/aktiviteter' },
+  { text: 'Väder', href: '/vader' },
 ];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={styles.inner}>
-        <Link href="/" className={styles.logo}>
-          <span style={{color: '#c60b1e'}}>GRYTES&nbsp;</span>
-          <span style={{color: '#ffc400'}}>MALLORCA&nbsp;</span>
-          <span style={{color: '#c60b1e'}}>GUIDE</span>
+    <nav style={{ background: '#e8e8e8', borderBottom: '1px solid #d0d0d0', position: 'sticky', top: 0, zIndex: 1000 }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+        <Link href="/" style={{ textDecoration: 'none' }}>
+          <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.05em' }}>
+            <span style={{ color: '#c0392b' }}>GRYTES</span>{' '}
+            <span style={{ color: '#f5a623' }}>MALLORCA</span>{' '}
+            <span style={{ color: '#111' }}>GUIDE</span>
+          </span>
         </Link>
-        <ul className={styles.links + (menuOpen ? ' ' + styles.mobileOpen : '')}>
-          {navLinks.map((link) =>
-            link.dropdown ? (
-              <li key={link.href} className={styles.hasDropdown}
-                onMouseEnter={() => setOpenDropdown(link.label)}
-                onMouseLeave={() => setOpenDropdown(null)}>
-                <span className={styles.link}>{link.label}</span>
-                {openDropdown === link.label && (
-                  <ul className={styles.dropdown}>
-                    {link.dropdown.map((sub) => (
-                      <li key={sub.href}>
-                        <Link href={sub.href} className={styles.dropdownLink}>{sub.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ) : (
-              <li key={link.href}>
-                <Link href={link.href} className={styles.link}>{link.label}</Link>
-              </li>
-            )
-          )}
-        </ul>
-        <Link href="/kontakt" className={styles.ctaBtn}>Planera din resa</Link>
-        <button className={styles.burger} onClick={() => setMenuOpen(!menuOpen)}>
-          <span /><span /><span />
+
+        {/* Desktop meny */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }} className="desktop-nav">
+          {navLinks.map(l => (
+            <Link key={l.href} href={l.href} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
+              {l.text}
+            </Link>
+          ))}
+          <Link href="/kontakt" style={{ background: '#7a3b00', color: 'white', padding: '8px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none' }}>
+            PLANERA DIN RESA
+          </Link>
+        </div>
+
+        {/* Hamburgermeny knapp */}
+        <button onClick={() => setOpen(!open)} className="hamburger" style={{ display: 'none', flexDirection: 'column', gap: '5px', background: 'none', border: 'none', cursor: 'pointer', padding: '8px' }}>
+          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: open ? 'rotate(45deg) translateY(7px)' : 'none' }} />
+          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', opacity: open ? 0 : 1 }} />
+          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
         </button>
       </div>
+
+      {/* Mobil dropdown */}
+      {open && (
+        <div style={{ background: '#e8e8e8', borderTop: '1px solid #d0d0d0', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          {navLinks.map(l => (
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
+              {l.text}
+            </Link>
+          ))}
+          <Link href="/kontakt" onClick={() => setOpen(false)} style={{ background: '#7a3b00', color: 'white', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
+            PLANERA DIN RESA
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }
+

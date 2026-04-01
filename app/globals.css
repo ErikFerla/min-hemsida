@@ -81,3 +81,21 @@ main {
   background: #c0392b;
   margin-bottom: 32px;
 }
+
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+  .section-light,
+  .section-medium,
+  .section-dark,
+  .section-black {
+    padding: 48px 20px !important;
+  }
+  .section-title {
+    font-size: 2rem !important;
+  }
+}

@@ -39,14 +39,14 @@ export default function HeroSlideshow() {
         background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)',
       }} />
       <div style={{
-        position: 'absolute', bottom: '80px', left: '80px', color: 'white',
+        position: 'absolute', bottom: 'clamp(24px, 5vw, 80px)', left: 'clamp(20px, 5vw, 80px)', color: 'white',
       }}>
         <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
           {bilder[aktiv].plats}
         </p>
         <h1 style={{
           fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif',
-          fontSize: '5rem',
+          fontSize: 'clamp(2rem, 8vw, 5rem)',
           fontWeight: '400',
           letterSpacing: '0.05em',
           margin: 0,
