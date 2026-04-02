@@ -19,11 +19,11 @@ const navItems = [
     text: 'Stränder',
     href: '/strandar',
     submenu: [
-      { text: '🧭 Norra Mallorca', href: '/strandar' },
-      { text: '🧭 Östra Mallorca', href: '/strandar' },
-      { text: '🧭 Södra Mallorca', href: '/strandar' },
-      { text: '🧭 Västra Mallorca', href: '/strandar' },
-      { text: '🏖️ Se alla stränder', href: '/strandar' },
+      { text: 'Norra Mallorca', href: '/strandar' },
+      { text: 'Östra Mallorca', href: '/strandar' },
+      { text: 'Södra Mallorca', href: '/strandar' },
+      { text: 'Västra Mallorca', href: '/strandar' },
+      { text: 'Se alla stränder', href: '/strandar' },
     ],
   },
   {
