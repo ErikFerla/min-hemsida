@@ -102,6 +102,36 @@ main {
   display: none;
 }
 
+/* ===== MOBILANPASSNING ===== */
+
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .desktop-nav {
+    display: none !important;
+  }
+  .hamburger {
+    display: flex !important;
+  }
+
+  /* Sektioner */
+  .section-light,
+  .section-medium,
+  .section-dark,
+  .section-black {
+    padding: 40px 20px !important;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+
+  /* Hero-text på bildspel */
+  .hero-text {
+    font-size: clamp(2rem, 8vw, 5rem) !important;
+  }
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none !important;

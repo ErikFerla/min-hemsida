@@ -32,18 +32,18 @@ export default function ByadSida() {
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'flex-end',
-        padding: '60px 80px',
+        padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)'
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Utforska Mallorca</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Städer och Byar</h1>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Städer och Byar</h1>
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{städer.length} utvalda destinationer runt hela ön</p>
         </div>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {städer.map((stad, i) => (
             <Link key={i} href={stad.href} style={{ textDecoration: 'none' }}>
               <div style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>

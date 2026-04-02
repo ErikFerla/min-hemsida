@@ -85,17 +85,17 @@ function StrandarContent() {
         position: 'relative', height: '55vh',
         backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90)',
         backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end', padding: '60px 80px',
+        display: 'flex', alignItems: 'flex-end', padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Mallorcas vackraste platser</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Stränder på Mallorca</h1>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Stränder på Mallorca</h1>
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>30 utvalda stränder – från folktomma paradisvikar till långa familjesandstränder</p>
         </div>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ marginBottom: '40px' }}>
           <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c0392b', marginBottom: '16px' }}>Filtrera stränder</p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
@@ -112,7 +112,7 @@ function StrandarContent() {
           <p style={{ marginTop: '16px', color: '#666', fontSize: '0.9rem' }}>{visade.length} stränder visas</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {visade.map((s, i) => (
             <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
               <div style={{ position: 'relative' }}>

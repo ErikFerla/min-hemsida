@@ -74,14 +74,14 @@ export default function GolfPage() {
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'flex-end',
-        padding: '60px 80px',
+        padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
             Aktiviteter på Mallorca
           </p>
-          <h1 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
+          <h1 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
             22 golfbanor på Mallorca
           </h1>
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9, maxWidth: '600px' }}>
@@ -90,7 +90,7 @@ export default function GolfPage() {
         </div>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
@@ -116,7 +116,7 @@ export default function GolfPage() {
           ))}
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {filtrerade.map((b, i) => (
             <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 2px 16px rgba(0,0,0,0.08)' }}>
               <div style={{ position: 'relative' }}>

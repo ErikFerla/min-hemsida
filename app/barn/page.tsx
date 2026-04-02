@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Link from 'next/link';
 
 const kategorier = [
@@ -74,18 +74,18 @@ export default function BarnPage() {
         position: 'relative', height: '55vh',
         backgroundImage: 'url(https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1600&q=90)',
         backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end', padding: '60px 80px',
+        display: 'flex', alignItems: 'flex-end', padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Roliga upplevelser för hela familjen</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Barnvänligt på Mallorca</h1>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Barnvänligt på Mallorca</h1>
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Allt för barnfamiljen – vattenparker, djur, grottor och äventyr</p>
         </div>
       </div>
 
       {/* Innehåll */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 5vw, 60px) clamp(20px, 4vw, 60px)' }}>
         <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.8', marginBottom: '60px', maxWidth: '800px' }}>
           Mallorca är ett av Europas bästa resmål för barnfamiljer. Oavsett om ni söker vilda vattenrutschkanor, exotiska djur, spännande grottor eller lugna lekplatser vid stranden – här finns något för alla åldrar.
         </p>
@@ -94,7 +94,7 @@ export default function BarnPage() {
           <section key={kategori.titel} style={{ marginBottom: '64px' }}>
             <h2 style={{
               fontFamily: '"Bebas Neue", sans-serif',
-              fontSize: '2.2rem',
+              fontSize: 'clamp(1.5rem, 5vw, 2.2rem)',
               letterSpacing: '0.05em',
               color: '#111',
               marginBottom: '28px',
@@ -108,7 +108,7 @@ export default function BarnPage() {
             </h2>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))',
               gap: '20px',
             }}>
               {kategori.aktiviteter.map((a) => (
