@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react';
 
 const bilder = [
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,beach,turquoise,water', text: 'Kristallklara stränder', plats: 'Es Trenc, södra Mallorca' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,vineyard,wine,balearic', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,sunset,mediterranean,coast', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,cathedral,church,palma', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,sailing,boat,mediterranean', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
-  { url: 'https://source.unsplash.com/1600x900/?golf,course,green,spain', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,fishing,village,harbor', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
-  { url: 'https://source.unsplash.com/1600x900/?mallorca,luxury,hotel,pool', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90', text: 'Kristallklara stränder', plats: 'Es Trenc, södra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=1600&q=90', text: 'Prisvärda vingårdar', plats: 'Binissalem, centrala Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&q=90', text: 'Magiska solnedgångar', plats: 'Cap de Formentor, norra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=90', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
+  { url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=90', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
+  { url: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
+  { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=90', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
 ];
 
 export default function HeroSlideshow() {
