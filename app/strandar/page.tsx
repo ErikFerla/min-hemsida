@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const stränder = [
@@ -39,6 +39,14 @@ const regioner = ['Alla', 'Norr', 'Nordväst', 'Öst', 'Syd', 'Sydväst'];
 const typer = ['Alla typer', 'Sandstrand', 'Vik', 'Stenstrand'];
 
 export default function StrandarPage() {
+  return (
+    <Suspense fallback={<div style={{ background: '#e8e8e8', minHeight: '100vh' }} />}>
+      <StrandarContent />
+    </Suspense>
+  );
+}
+
+function StrandarContent() {
   const searchParams = useSearchParams();
   const regionParam = searchParams.get('region');
 
