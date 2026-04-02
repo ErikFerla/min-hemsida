@@ -12,7 +12,6 @@ const navItems = [
       { text: 'Porto Colom', href: '/porto-colom' },
       { text: 'Santanyi', href: '/santanyi' },
       { text: 'Porto Petro', href: '/porto-petro' },
-      { text: 'Alcúdia', href: '/byar' },
       { text: 'Se alla städer', href: '/byar' },
     ],
   },
@@ -20,12 +19,11 @@ const navItems = [
     text: 'Stränder',
     href: '/strandar',
     submenu: [
-      { text: 'Norra Mallorca', href: '/strandar' },
-      { text: 'Östra Mallorca', href: '/strandar' },
-      { text: 'Södra Mallorca', href: '/strandar' },
-      { text: 'Västra Mallorca', href: '/strandar' },
-      { text: 'Sydvästra Mallorca', href: '/strandar' },
-      { text: 'Se alla stränder', href: '/strandar' },
+      { text: '🧭 Norra Mallorca', href: '/strandar' },
+      { text: '🧭 Östra Mallorca', href: '/strandar' },
+      { text: '🧭 Södra Mallorca', href: '/strandar' },
+      { text: '🧭 Västra Mallorca', href: '/strandar' },
+      { text: '🏖️ Se alla stränder', href: '/strandar' },
     ],
   },
   {
@@ -74,7 +72,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
@@ -92,7 +90,7 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
           {navItems.map(item => (
             <div
-              key={item.href + item.text}
+              key={item.text}
               style={{ position: 'relative' }}
               onMouseEnter={() => setActiveDropdown(item.text)}
               onMouseLeave={() => setActiveDropdown(null)}
@@ -115,7 +113,6 @@ export default function Navbar() {
                 <span style={{ fontSize: '0.6rem', marginTop: '2px' }}>▼</span>
               </Link>
 
-              {/* Dropdown */}
               {activeDropdown === item.text && (
                 <div style={{
                   position: 'absolute',
@@ -123,24 +120,25 @@ export default function Navbar() {
                   left: '50%',
                   transform: 'translateX(-50%)',
                   background: 'white',
-                  borderRadius: '8px',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                  borderRadius: '10px',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.14)',
                   padding: '8px 0',
                   minWidth: '200px',
-                  zIndex: 1001,
+                  zIndex: 2000,
                 }}>
                   {item.submenu.map(sub => (
                     <Link
-                      key={sub.href + sub.text}
+                      key={sub.text}
                       href={sub.href}
                       style={{
                         display: 'block',
                         padding: '10px 20px',
                         fontSize: '0.9rem',
-                        color: sub.text.startsWith('Se alla') || sub.text.startsWith('Se ') ? '#c0392b' : '#111',
+                        color: sub.text.startsWith('Se alla') || sub.text.includes('Se ') ? '#c0392b' : '#111',
+                        fontWeight: sub.text.startsWith('Se alla') || sub.text.includes('Se ') ? '700' : '400',
                         textDecoration: 'none',
-                        fontWeight: sub.text.startsWith('Se alla') || sub.text.startsWith('Se ') ? '700' : '400',
-                        borderTop: sub.text.startsWith('Se alla') || sub.text.startsWith('Se ') ? '1px solid #eee' : 'none',
+                        borderTop: sub.text.startsWith('Se alla') || sub.text.includes('Se ') ? '1px solid #eee' : 'none',
+                        whiteSpace: 'nowrap',
                       }}
                       onMouseEnter={e => (e.currentTarget.style.background = '#f5f5f5')}
                       onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
@@ -166,37 +164,37 @@ export default function Navbar() {
           }}>
             PLANERA DIN RESA
           </Link>
-        </div>
 
-        {/* Hamburgermeny */}
-        <button
-          onClick={() => setOpen(!open)}
-          style={{
-            display: 'none',
-            flexDirection: 'column',
-            gap: '5px',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '8px',
-          }}
-          className="hamburger"
-        >
-          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: open ? 'rotate(45deg) translateY(7px)' : 'none' }} />
-          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', opacity: open ? 0 : 1 }} />
-          <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: open ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
-        </button>
+          {/* Hamburgermeny knapp */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="hamburger"
+            style={{
+              display: 'none',
+              flexDirection: 'column' as const,
+              gap: '5px',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              padding: '8px',
+            }}
+          >
+            <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
+            <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ width: '24px', height: '2px', background: '#111', display: 'block', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
+          </button>
+        </div>
       </div>
 
       {/* Mobil dropdown */}
-      {open && (
+      {menuOpen && (
         <div style={{ background: '#e8e8e8', borderTop: '1px solid #d0d0d0', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {navItems.map(item => (
-            <Link key={item.href + item.text} href={item.href} onClick={() => setOpen(false)} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
+            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
               {item.text}
             </Link>
           ))}
-          <Link href="/kontakt" onClick={() => setOpen(false)} style={{ background: '#7a3b00', color: 'white', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
+          <Link href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: '#7a3b00', color: 'white', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
             PLANERA DIN RESA
           </Link>
         </div>
