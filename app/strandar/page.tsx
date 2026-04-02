@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 const stränder = [
   { namn: 'Caló des Moro', region: 'Syd', typ: 'Vik', svårighet: 'Promenad krävs', längd: '40m', beskrivning: 'Topprankad år efter år som Spaniens vackraste vik. Turkost vatten likt en pool, omgiven av klippor och tallskog. Inga faciliteter – kom tidigt!', tips: 'Kom före kl 9 på morgonen – fullsatt redan kl 10 på sommaren', maps: 'https://maps.google.com/?q=Calo+des+Moro+Mallorca', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', familj: false, snorkling: true, nudist: false },
@@ -38,9 +39,16 @@ const regioner = ['Alla', 'Norr', 'Nordväst', 'Öst', 'Syd', 'Sydväst'];
 const typer = ['Alla typer', 'Sandstrand', 'Vik', 'Stenstrand'];
 
 export default function StrandarPage() {
+  const searchParams = useSearchParams();
+  const regionParam = searchParams.get('region');
+
   const [region, setRegion] = useState('Alla');
   const [typ, setTyp] = useState('Alla typer');
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    if (regionParam) setRegion(regionParam);
+  }, [regionParam]);
 
   const visade = stränder.filter(s => {
     if (region !== 'Alla' && s.region !== region) return false;
