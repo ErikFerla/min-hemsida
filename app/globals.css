@@ -82,6 +82,15 @@ main {
   margin-bottom: 32px;
 }
 
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .desktop-nav {
     display: none !important;
