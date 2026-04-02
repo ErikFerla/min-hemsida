@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import styles from './vader.module.css';
 
 type ForecastData = {
@@ -18,9 +19,11 @@ type ForecastData = {
 const locations = [
   { name: 'Palma', lat: 39.5696, lon: 2.6502, fact: 'Största stad, medeltemperatur sommar 28°C, mild vinter' },
   { name: 'Porto Colom', lat: 39.4167, lon: 3.2667, fact: 'Kustby, havsbris, något svalare än inlandet' },
-  { name: 'Port de Soller', lat: 39.7958, lon: 2.6942, fact: 'Skyddad av bergen, ofta vindstilla, varm sommar' },
-  { name: 'Alcudia', lat: 39.8527, lon: 3.1237, fact: 'Norra Mallorca, något blåsigare, fin sommarsäsong' },
+  { name: 'Port de Sóller', lat: 39.7958, lon: 2.6942, fact: 'Skyddad av bergen, ofta vindstilla, varm sommar' },
+  { name: 'Alcúdia', lat: 39.8527, lon: 3.1237, fact: 'Norra Mallorca, något blåsigare, fin sommarsäsong' },
   { name: 'Andratx', lat: 39.5741, lon: 2.4267, fact: 'Sydväst på ön, skyddad av berg, populärt bland segelbåtsägare' },
+  { name: 'Deià', lat: 39.7469, lon: 2.6488, fact: 'Konstnärsby i Tramuntana-bergen, svalare tack vare höjden' },
+  { name: 'Artà', lat: 39.6981, lon: 3.3503, fact: 'Historisk bergsstad i nordöst, varmt och soligt' },
 ];
 
 const symbolToEmojiAndDesc: { [key: string]: { emoji: string; desc: string } } = {
@@ -129,6 +132,15 @@ const generateTempCurve = (data: ForecastData[], width: number, height: number) 
 };
 
 export default function Vader() {
+  return (
+    <Suspense fallback={<div style={{ background: '#e8e8e8', minHeight: '100vh' }} />}>
+      <VaderContent />
+    </Suspense>
+  );
+}
+
+function VaderContent() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState(0);
   const [weatherData, setWeatherData] = useState<{ [key: string]: ForecastData[] }>({});
   const [loading, setLoading] = useState(true);
@@ -153,6 +165,17 @@ export default function Vader() {
     };
     loadAllWeather();
   }, []);
+
+  useEffect(() => {
+    const cityParam = searchParams.get('stad');
+    if (cityParam) {
+      const index = locations.findIndex(loc =>
+        loc.name.toLowerCase().replace(/[\u00e0\u00e1\u00e4]/g, 'a').replace(/[\u00e8]/g, 'e') ===
+        cityParam.toLowerCase().replace(/[\u00e0\u00e1\u00e4]/g, 'a').replace(/[\u00e8]/g, 'e')
+      );
+      if (index !== -1) setActiveTab(index);
+    }
+  }, [searchParams]);
 
   const currentLocation = locations[activeTab];
   const currentData = weatherData[currentLocation.name];

@@ -66,10 +66,14 @@ const navItems = [
     text: 'Väder',
     href: '/vader',
     submenu: [
-      { text: 'Palma', href: '/vader' },
-      { text: 'Alcúdia', href: '/vader' },
-      { text: 'Sóller', href: '/vader' },
-      { text: 'Se väderprognos', href: '/vader' },
+      { text: 'Palma', href: '/vader?stad=Palma' },
+      { text: 'Porto Colom', href: '/vader?stad=Porto Colom' },
+      { text: 'Port de Sóller', href: '/vader?stad=Port de Soller' },
+      { text: 'Alcúdia', href: '/vader?stad=Alcudia' },
+      { text: 'Andratx', href: '/vader?stad=Andratx' },
+      { text: 'Deià', href: '/vader?stad=Deia' },
+      { text: 'Artà', href: '/vader?stad=Arta' },
+      { text: 'Se väderprognos →', href: '/vader' },
     ],
   },
 ];
