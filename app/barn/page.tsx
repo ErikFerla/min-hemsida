@@ -1,5 +1,4 @@
-import MallorcaMap from '@/components/MallorcaMap';
-import Link from 'next/link';
+﻿import MallorcaMap from '@/components/MallorcaMap';
 import styles from './barn.module.css';
 import Carousel from '@/components/Carousel';
 
@@ -7,192 +6,63 @@ const kategorier = [
   {
     titel: 'VATTENPARKER',
     aktiviteter: [
-      {
-        namn: 'Aqualand El Arenal',
-        bild: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&q=80',
-        info: 'Plats: El Arenal | Ålder: Alla | Tips: Kom tidigt för kortare köer',
-        lat: 39.4934,
-        lon: 2.7356,
-      },
-      {
-        namn: 'Hidropark Alcudia',
-        bild: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=80',
-        info: 'Plats: Alcudia | Ålder: Alla | Tips: Ingår i parkbiljetten',
-        lat: 39.8234,
-        lon: 3.1234,
-      },
-      {
-        namn: 'Western Water Park',
-        bild: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&q=80',
-        info: 'Plats: Magaluf | Ålder: Alla',
-        lat: 39.5012,
-        lon: 2.5189,
-      },
-      {
-        namn: 'Aqualand Magaluf',
-        bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80',
-        info: 'Plats: Magaluf | Ålder: Alla',
-        lat: 39.5012,
-        lon: 2.5234,
-      },
-      {
-        namn: 'Marineland Vattenpark',
-        bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80',
-        info: 'Plats: Costa de Blanes | Ålder: Alla',
-        lat: 39.5678,
-        lon: 2.5123,
-      },
+      { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', tips: 'Kom tidigt för kortare köer', bild: 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=600&q=80', lat: 39.4934, lon: 2.7356, webb: 'https://www.aqualand.es' },
+      { namn: 'Hidropark Alcudia', plats: 'Alcudia', ålder: 'Alla åldrar', tips: 'Bra för yngre barn, lugnt och familjärt', bild: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=80', lat: 39.8234, lon: 3.1234, webb: 'https://www.hidropark.com' },
+      { namn: 'Western Water Park', plats: 'Magaluf', ålder: 'Alla åldrar', tips: 'Kombinera med Western Park-temat', bild: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600&q=80', lat: 39.5012, lon: 2.5189, webb: 'https://www.westernpark.com' },
+      { namn: 'Aqualand Magaluf', plats: 'Magaluf', ålder: 'Alla åldrar', tips: 'Europas längsta rutschbana finns här', bild: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80', lat: 39.5012, lon: 2.5234, webb: 'https://www.aqualand.es' },
+      { namn: 'Marineland Vattenpark', plats: 'Costa de Blanes', ålder: 'Alla åldrar', tips: 'Kombinera med djurshowerna på samma anläggning', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', lat: 39.5678, lon: 2.5123, webb: 'https://www.marineland.es' },
+      { namn: 'Splash Fun Cala Millor', plats: 'Cala Millor', ålder: 'Alla åldrar', tips: 'Liten och familjär – perfekt för de allra yngsta', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80', lat: 39.5912, lon: 3.3623, webb: 'https://www.google.com/search?q=Splash+Fun+Cala+Millor' },
     ],
   },
   {
-    titel: 'DJURPARKER OCH AKVARIUM',
+    titel: 'DJURPARKER & AKVARIUM',
     aktiviteter: [
-      {
-        namn: 'Palma Akvarium',
-        bild: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
-        info: 'Plats: Palma | Ålder: Alla | Tid: 2-3 timmar',
-        lat: 39.5234,
-        lon: 2.7234,
-      },
-      {
-        namn: 'Safari Zoo Porto Cristo',
-        bild: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80',
-        info: 'Plats: Porto Cristo | Ålder: Alla | Tid: Halv dag',
-        lat: 39.5123,
-        lon: 3.3456,
-      },
-      {
-        namn: 'Marineland djurpark',
-        bild: 'https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=600&q=80',
-        info: 'Plats: Costa de Blanes | Ålder: Alla | Tid: Hel dag',
-        lat: 39.5678,
-        lon: 2.5123,
-      },
-      {
-        namn: 'Natura Parc',
-        bild: 'https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?w=600&q=80',
-        info: 'Plats: Santa Eugenia | Ålder: Alla | Tid: 2 timmar',
-        lat: 39.6234,
-        lon: 2.8456,
-      },
-      {
-        namn: 'Falconeria de Altair',
-        bild: 'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&q=80',
-        info: 'Plats: Cas Concos | Ålder: 3+ år | Uppvisning: Dagligen',
-        lat: 39.4123,
-        lon: 3.1456,
-      },
+      { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', tips: 'Hajbassängen är ett måste – boka online för rabatt', bild: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
+      { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Kamelridning och giraffutfodring ingår', bild: 'https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=600&q=80', lat: 39.5123, lon: 3.3456, webb: 'https://www.zoomalorca.com' },
+      { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', tips: 'Delfinshow kl 12 och 16 – kom i god tid', bild: 'https://images.unsplash.com/photo-1564182842519-8a3b2af3e228?w=600&q=80', lat: 39.5678, lon: 2.5123, webb: 'https://www.marineland.es' },
+      { namn: 'Natura Parc', plats: 'Santa Eugenia', ålder: 'Alla åldrar', tips: 'Ekologisk djurpark med inhemska djur – unikt på ön', bild: 'https://images.unsplash.com/photo-1459262838948-3e2de6c1ec80?w=600&q=80', lat: 39.6234, lon: 2.8456, webb: 'https://www.naturaparc.net' },
+      { namn: 'Falconeria de Altair', plats: 'Cas Concos', ålder: '3+ år', tips: 'Dagliga uppvisningar med örnar, falkar och ugglor', bild: 'https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&q=80', lat: 39.4123, lon: 3.1456, webb: 'https://www.google.com/search?q=Falconeria+de+Altair+Mallorca' },
+      { namn: 'La Reserva Puig de Galatzó', plats: 'Puigpunyent', ålder: 'Alla åldrar', tips: 'Naturpark med ziplines och djurobservation i bergen', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', lat: 39.6123, lon: 2.5234, webb: 'https://www.la-reserva.com' },
     ],
   },
   {
-    titel: 'LEKPARKER OCH AVENTYRSLEKPLATSER',
+    titel: 'GROTTOR & NATURÄVENTYR',
     aktiviteter: [
-      {
-        namn: 'Parc de la Mar Lekplats (Palma)',
-        bild: 'https://images.unsplash.com/photo-1575783970733-1aaedde1db74?w=600&q=80',
-        info: 'Plats: Palma | Ålder: 2-10 år | Kostnad: Gratis',
-        lat: 39.5678,
-        lon: 2.6523,
-      },
-      {
-        namn: 'Rancho Grande (Arta)',
-        bild: 'https://images.unsplash.com/photo-1472745433479-4556f2cde01f?w=600&q=80',
-        info: 'Plats: Arta | Ålder: 3-15 år | Tips: Ta med matsäck',
-        lat: 39.7234,
-        lon: 3.3123,
-      },
-      {
-        namn: 'Lekplatser vid Alcudia Beach',
-        bild: 'https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=600&q=80',
-        info: 'Plats: Alcudia | Ålder: 1-10 år | Kostnad: Gratis',
-        lat: 39.8456,
-        lon: 3.1234,
-      },
-      {
-        namn: 'Katmandu Park Magaluf',
-        bild: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80',
-        info: 'Plats: Magaluf | Ålder: 3+ år | Tips: Kombinera med vattenpark',
-        lat: 39.5012,
-        lon: 2.5189,
-      },
+      { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Boka biljetter online – öns populäraste attraktion', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.5234, lon: 3.3312, webb: 'https://www.covesdeldrach.com' },
+      { namn: "Coves d'Arta", plats: 'Capdepera', ålder: 'Alla åldrar', tips: 'Mindre känd än Drach – färre turister och lika imponerande', bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80', lat: 39.7012, lon: 3.4523, webb: 'https://www.covesdarta.com' },
+      { namn: 'Coves de Campanet', plats: 'Campanet', ålder: 'Alla åldrar', tips: 'Mindre och mysigare – bra för yngre barn', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.7812, lon: 2.9234, webb: 'https://www.covesdecampanet.com' },
+      { namn: 'Torrent de Pareis / Sa Calobra', plats: 'Nordvästra Mallorca', ålder: '8+ år', tips: 'Dramatisk vandring – ta med vattenskor och mycket vatten', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', lat: 39.8523, lon: 2.7934, webb: 'https://www.google.com/search?q=Torrent+de+Pareis+Mallorca' },
+      { namn: "Glassbottenbåt Cala d'Or", plats: "Cala d'Or", ålder: 'Alla åldrar', tips: 'Se undervattenslivet utan att blöta ner dig – barnen älskar det', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80', lat: 39.3789, lon: 3.2345, webb: 'https://www.google.com/search?q=glassbottenbat+Cala+d+Or+Mallorca' },
     ],
   },
   {
-    titel: 'AVENTYR OCH AKTIVITETER',
+    titel: 'ÄVENTYR & AKTIVITETER',
     aktiviteter: [
-      {
-        namn: 'House of Katmandu (Magaluf)',
-        bild: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80',
-        info: 'Plats: Magaluf | Ålder: 4+ år | Tid: 3-4 timmar',
-        lat: 39.5012,
-        lon: 2.5234,
-      },
-      {
-        namn: 'Glassbottenbåt Cala d\'Or',
-        bild: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&q=80',
-        info: 'Plats: Cala d\'Or | Ålder: Alla | Tid: 1-2 timmar',
-        lat: 39.3789,
-        lon: 3.2345,
-      },
-      {
-        namn: 'Karting Magaluf',
-        bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-        info: 'Plats: Magaluf | Ålder: 3+ år | Tid: 1 timme',
-        lat: 39.5023,
-        lon: 2.5178,
-      },
+      { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', tips: '4D-bio, spegellabyrint och minigolf i ett – heldagsaktivitet', bild: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80', lat: 39.5012, lon: 2.5234, webb: 'https://www.katmandu.es' },
+      { namn: 'Karting Magaluf', plats: 'Magaluf', ålder: '3+ år', tips: 'Olika banor för olika åldrar – säkert och roligt', bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', lat: 39.5023, lon: 2.5178, webb: 'https://www.google.com/search?q=karting+magaluf+mallorca' },
+      { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', tips: 'Europas längsta ziplines i naturskön bergsmiljö', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80', lat: 39.6123, lon: 2.5234, webb: 'https://www.la-reserva.com' },
+      { namn: 'Snorkling Cala Mondrago', plats: 'Cala Mondrago', ålder: '5+ år', tips: 'Hyr utrustning i Porto Petro - kristallklart vatten med massor av fisk', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', lat: 39.3523, lon: 3.1934, webb: 'https://www.google.com/search?q=snorkling+Cala+Mondrago+Mallorca' },
+      { namn: 'Kajakpaddling Port de Sóller', plats: 'Port de Sóller', ålder: '6+ år', tips: 'Paddla längs nordvästkusten – guidade turer finns', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80', lat: 39.7958, lon: 2.6942, webb: 'https://www.google.com/search?q=kayak+Port+de+Soller+Mallorca' },
+      { namn: 'Jeeptur i Tramuntana', plats: 'Serra de Tramuntana', ålder: 'Alla åldrar', tips: 'Se bergen på ett äventyrligt sätt – boka guidad tur', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.7523, lon: 2.7234, webb: 'https://www.google.com/search?q=jeep+tour+Tramuntana+Mallorca' },
     ],
   },
   {
-    titel: 'MUSEUM OCH LÄRANDE',
+    titel: 'MINIGOLF & LEK',
     aktiviteter: [
-      {
-        namn: 'Palma Akvarium Science Center',
-        bild: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80',
-        info: 'Plats: Palma | Ålder: 5+ år | Tid: 2-3 timmar',
-        lat: 39.5234,
-        lon: 2.7234,
-      },
-      {
-        namn: 'Museu de Mallorca (Palma)',
-        bild: 'https://images.unsplash.com/photo-1566127992631-137a642a90f4?w=600&q=80',
-        info: 'Plats: Palma | Ålder: 6+ år | Tid: 1-2 timmar',
-        lat: 39.5712,
-        lon: 2.6523,
-      },
-      {
-        namn: 'Coves del Drach (Porto Cristo)',
-        bild: 'https://images.unsplash.com/photo-1520637836862-4d197d17c38a?w=600&q=80',
-        info: 'Plats: Porto Cristo | Ålder: Alla | Tid: 1.5 timmar',
-        lat: 39.5234,
-        lon: 3.3312,
-      },
+      { namn: 'Golf Fantasia Palma Nova', plats: 'Palma Nova', ålder: 'Alla åldrar', tips: 'Tre olika 18-hålsbanor i tropisk miljö', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', lat: 39.5023, lon: 2.5312, webb: 'https://www.golffantasia.com' },
+      { namn: 'Crazy Golf Alcudia', plats: 'Alcudia', ålder: 'Alla åldrar', tips: 'Rolig kvällsaktivitet efter en dag på stranden', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', lat: 39.8234, lon: 3.1234, webb: 'https://www.google.com/search?q=crazy+golf+Alcudia+Mallorca' },
+      { namn: 'Hidropark Minigolf', plats: 'Alcudia', ålder: 'Alla åldrar', tips: 'Ingår i inträdet till Hidropark', bild: 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=600&q=80', lat: 39.8234, lon: 3.1234, webb: 'https://www.hidropark.com' },
+      { namn: 'Adventure Golf Palmanova', plats: 'Palmanova', ålder: 'Alla åldrar', tips: 'Temabanor med äventyrstema - perfekt för hela familjen', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', lat: 39.5056, lon: 2.5289, webb: 'https://www.google.com/search?q=adventure+golf+palmanova+mallorca' },
     ],
   },
   {
-    titel: 'MINIGOLF OCH LEK',
+    titel: 'MUSEER & LÄRANDE',
     aktiviteter: [
-      {
-        namn: 'Golf Fantasia Palma Nova',
-        bild: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7b9d?w=600&q=80',
-        info: 'Plats: Palma Nova | Ålder: Alla | Tid: 1-2 timmar',
-        lat: 39.5023,
-        lon: 2.5312,
-      },
-      {
-        namn: 'Sea Golf Palma (Glow-in-the-dark)',
-        bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80',
-        info: 'Plats: Palma | Ålder: 5+ år | Tips: Perfekt regnig dag',
-        lat: 39.5712,
-        lon: 2.6523,
-      },
-      {
-        namn: 'Hidropark Minigolf Alcudia',
-        bild: 'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=600&q=80',
-        info: 'Plats: Alcudia | Ålder: Alla | Tips: Ingår i parkbiljetten',
-        lat: 39.8234,
-        lon: 3.1234,
-      },
+      { namn: 'Palma Akvarium Science Center', plats: 'Palma', ålder: '5+ år', tips: 'Interaktiva experiment – lärorikt och roligt', bild: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
+      { namn: 'Museu de Mallorca', plats: 'Palma', ålder: '6+ år', tips: 'Gratis söndagar – historia från förhistorisk tid', bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80', lat: 39.5712, lon: 2.6523, webb: 'https://www.google.com/search?q=Museu+de+Mallorca+Palma' },
+      { namn: 'Museu de Ciències Naturals', plats: 'Sóller', ålder: '5+ år', tips: 'Naturhistoria i en vacker modernistisk byggnad i Söller', bild: 'https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?w=600&q=80', lat: 39.7667, lon: 2.7167, webb: 'https://www.museucienciesnaturals.org' },
+      { namn: "Es Baluard Museu d'Art Modern", plats: 'Palma', ålder: '6+ år', tips: 'Barnvänliga konstworkshops på helger', bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80', lat: 39.5723, lon: 2.6434, webb: 'https://www.esbaluard.org' },
+      { namn: 'Tren de Sóller – Historisk tågtur', plats: 'Palma–Sóller', ålder: 'Alla åldrar', tips: 'Barnen älskar det gamla trätåget – boka i förväg på sommaren', bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', lat: 39.7667, lon: 2.7167, webb: 'https://www.trendesoller.com' },
     ],
   },
 ];
@@ -221,15 +91,17 @@ export default function BarnPage() {
             <section key={kategori.titel} style={{padding: '40px 0'}}>
               <Carousel title={kategori.titel}>
                 {kategori.aktiviteter.map((a) => (
-                  <div key={a.namn} style={{background: '#e0e0e0', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
-                    <div style={{height: '180px', backgroundImage: `url('${a.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
-                    <div style={{padding: '12px 14px'}}>
-                      <div style={{fontFamily: 'Bebas Neue, sans-serif', fontSize: '1rem', marginBottom: '4px', color: '#2C1A0E'}}>{a.namn}</div>
-                      <div style={{fontSize: '0.72rem', color: '#7D6650', marginBottom: '8px'}}>{a.info}</div>
-                      <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
-                         style={{display: 'inline-block', padding: '6px 12px', background: '#cecece', color: '#8B4513', fontSize: '0.75rem', borderRadius: '4px', border: '1px solid #C9B89A', textDecoration: 'none'}}>
-                        Visa pa karta
-                      </a>
+                  <div key={a.namn} style={{background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', minWidth: '260px', maxWidth: '300px'}}>
+                    <img src={a.bild} alt={a.namn} style={{width: '100%', height: '180px', objectFit: 'cover'}} />
+                    <div style={{padding: '14px'}}>
+                      <div style={{fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', marginBottom: '4px', color: '#111'}}>{a.namn}</div>
+                      <div style={{fontSize: '0.8rem', color: '#888', marginBottom: '2px'}}>📍 {a.plats}</div>
+                      <div style={{fontSize: '0.8rem', color: '#888', marginBottom: '2px'}}>👶 {a.ålder}</div>
+                      <div style={{fontSize: '0.8rem', color: '#555', marginBottom: '12px', background: '#f5f5f5', padding: '6px 8px', borderRadius: '6px'}}>💡 {a.tips}</div>
+                      <div style={{display: 'flex', gap: '8px'}}>
+                        <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer" style={{flex: 1, display: 'block', textAlign: 'center', padding: '8px', background: '#111', color: 'white', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600'}}>🗺️ Karta</a>
+                        <a href={a.webb} target="_blank" rel="noopener noreferrer" style={{flex: 1, display: 'block', textAlign: 'center', padding: '8px', background: 'white', color: '#111', border: '2px solid #111', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600'}}>🌐 Hemsida</a>
+                      </div>
                     </div>
                   </div>
                 ))}
