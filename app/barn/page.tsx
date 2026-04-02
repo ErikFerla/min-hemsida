@@ -1,6 +1,4 @@
-﻿import MallorcaMap from '@/components/MallorcaMap';
-import styles from './barn.module.css';
-import Carousel from '@/components/Carousel';
+﻿import styles from './barn.module.css';
 
 const kategorier = [
   {
@@ -88,27 +86,127 @@ export default function BarnPage() {
           </section>
 
           {kategorier.map((kategori) => (
-            <section key={kategori.titel} style={{padding: '40px 0'}}>
-              <Carousel title={kategori.titel}>
+            <section key={kategori.titel} style={{ marginBottom: '60px' }}>
+              <h2 style={{
+                fontFamily: '"Bebas Neue", sans-serif',
+                fontSize: '2rem',
+                letterSpacing: '0.05em',
+                color: '#111',
+                marginBottom: '24px',
+                paddingBottom: '12px',
+                borderBottom: '3px solid #c0392b',
+              }}>
+                {kategori.titel}
+              </h2>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: '20px',
+              }}>
                 {kategori.aktiviteter.map((a) => (
-                  <div key={a.namn} style={{background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', minWidth: '260px', maxWidth: '300px'}}>
-                    <img src={a.bild} alt={a.namn} style={{width: '100%', height: '180px', objectFit: 'cover'}} />
-                    <div style={{padding: '14px'}}>
-                      <div style={{fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', marginBottom: '4px', color: '#111'}}>{a.namn}</div>
-                      <div style={{fontSize: '0.8rem', color: '#888', marginBottom: '2px'}}>📍 {a.plats}</div>
-                      <div style={{fontSize: '0.8rem', color: '#888', marginBottom: '2px'}}>👶 {a.ålder}</div>
-                      <div style={{fontSize: '0.8rem', color: '#555', marginBottom: '12px', background: '#f5f5f5', padding: '6px 8px', borderRadius: '6px'}}>💡 {a.tips}</div>
-                      <div style={{display: 'flex', gap: '8px'}}>
-                        <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer" style={{flex: 1, display: 'block', textAlign: 'center', padding: '8px', background: '#111', color: 'white', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600'}}>🗺️ Karta</a>
-                        <a href={a.webb} target="_blank" rel="noopener noreferrer" style={{flex: 1, display: 'block', textAlign: 'center', padding: '8px', background: 'white', color: '#111', border: '2px solid #111', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600'}}>🌐 Hemsida</a>
+                  <div key={a.namn} style={{
+                    background: 'white',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
+                  }}>
+                    <img
+                      src={a.bild}
+                      alt={a.namn}
+                      style={{ width: '100%', height: '180px', objectFit: 'cover' }}
+                    />
+                    <div style={{ padding: '16px' }}>
+                      <div style={{
+                        fontFamily: '"Bebas Neue", sans-serif',
+                        fontSize: '1.2rem',
+                        marginBottom: '6px',
+                        color: '#111',
+                      }}>
+                        {a.namn}
+                      </div>
+                      <div style={{ fontSize: '0.82rem', color: '#888', marginBottom: '2px' }}>📍 {a.plats}</div>
+                      <div style={{ fontSize: '0.82rem', color: '#888', marginBottom: '10px' }}>👶 {a.ålder}</div>
+                      <div style={{
+                        fontSize: '0.82rem',
+                        color: '#555',
+                        background: '#f5f5f5',
+                        padding: '8px 10px',
+                        borderRadius: '8px',
+                        marginBottom: '14px',
+                        lineHeight: '1.5',
+                      }}>
+                        💡 {a.tips}
+                      </div>
+                      <div style={{ display: 'flex', gap: '8px' }}>
+                        <a
+                          href={`https://www.google.com/maps?q=${a.lat},${a.lon}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            flex: 1,
+                            display: 'block',
+                            textAlign: 'center',
+                            padding: '9px',
+                            background: '#111',
+                            color: 'white',
+                            fontSize: '0.82rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            fontWeight: '600',
+                          }}
+                        >
+                          🗺️ Karta
+                        </a>
+                        <a
+                          href={a.webb}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{
+                            flex: 1,
+                            display: 'block',
+                            textAlign: 'center',
+                            padding: '9px',
+                            background: 'white',
+                            color: '#111',
+                            border: '2px solid #111',
+                            fontSize: '0.82rem',
+                            borderRadius: '8px',
+                            textDecoration: 'none',
+                            fontWeight: '600',
+                          }}
+                        >
+                          🌐 Hemsida
+                        </a>
                       </div>
                     </div>
                   </div>
                 ))}
-              </Carousel>
+              </div>
             </section>
           ))}
-          <MallorcaMap />
+
+          <section style={{ marginTop: '40px', marginBottom: '40px' }}>
+            <h2 style={{
+              fontFamily: '"Bebas Neue", sans-serif',
+              fontSize: '2rem',
+              letterSpacing: '0.05em',
+              color: '#111',
+              marginBottom: '24px',
+              paddingBottom: '12px',
+              borderBottom: '3px solid #c0392b',
+            }}>
+              KARTA – BARNAKTIVITETER PÅ MALLORCA
+            </h2>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m0!4v1!6m8!1m7!1sCAoSLEFGMVFpcE5IUGJQWG5wUEdFdlJaX3p6Q0lKd2J3X0JCVjBfN3FMQ1VpNkw!2m2!1d39.5696!2d2.6502!3f0!4f0!5f0.7820865974627469&markers=color:red%7C39.4934,2.7356%7C39.8234,3.1234%7C39.5012,2.5189%7C39.5234,2.7234%7C39.5123,3.3456%7C39.5678,2.5123%7C39.6234,2.8456%7C39.4123,3.1456%7C39.5234,3.3312%7C39.7812,2.9234%7C39.5012,2.5234%7C39.5023,2.5178%7C39.6123,2.5234%7C39.5023,2.5312%7C39.8234,3.1234"
+              width="100%"
+              height="500"
+              style={{ border: 0, borderRadius: '16px', boxShadow: '0 2px 16px rgba(0,0,0,0.12)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </section>
         </div>
       </div>
     </div>
