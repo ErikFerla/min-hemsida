@@ -87,6 +87,17 @@ main {
   align-items: center;
 }
 
+.footer-link {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
 .hamburger {
   display: none;
 }

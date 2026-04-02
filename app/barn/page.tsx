@@ -200,11 +200,11 @@ const kategorier = [
 export default function BarnPage() {
   return (
     <div className={styles.page}>
-      <section className={styles.hero} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80')" }}>
+      <section className={styles.hero} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1530549387789-4c1017266635?w=1600&q=90')" }}>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.heroTagline}>ROLIGA UPPLEVELSER FÖR HELA FAMILJEN</p>
-          <h1 className={styles.heroTitle}>BARN PA MALLORCA</h1>
+          <h1 className={styles.heroTitle}>BARNVÄNLIGT PÅ MALLORCA</h1>
         </div>
       </section>
 
