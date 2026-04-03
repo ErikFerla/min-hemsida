@@ -25,7 +25,7 @@ export default function HeroSlideshow() {
   return (
     <>
     <div style={{
-      background: '#111',
+      background: '#0E7490',
       color: 'white',
       textAlign: 'center',
       padding: '10px 20px',

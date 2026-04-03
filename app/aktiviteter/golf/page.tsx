@@ -45,8 +45,8 @@ export default function GolfPage() {
   const knappAktiv = {
     padding: '8px 20px',
     borderRadius: '20px',
-    border: '2px solid #111',
-    background: '#111',
+    border: '2px solid #0E7490',
+    background: '#0E7490',
     color: 'white',
     fontWeight: '600' as const,
     cursor: 'pointer',
@@ -155,7 +155,7 @@ export default function GolfPage() {
                     <span>{b.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#0E7490', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta
                 </a>
                 <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#111', border: '2px solid #111', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>

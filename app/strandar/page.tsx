@@ -70,9 +70,9 @@ function StrandarContent() {
   const knappStyle = (aktiv: boolean) => ({
     padding: '8px 18px',
     borderRadius: '20px',
-    border: '2px solid #111',
-    background: aktiv ? '#111' : 'transparent',
-    color: aktiv ? 'white' : '#111',
+    border: '2px solid #0E7490',
+    background: aktiv ? '#0E7490' : 'transparent',
+    color: aktiv ? 'white' : '#0E7490',
     fontWeight: '600' as const,
     cursor: 'pointer',
     fontSize: '0.85rem',
@@ -147,7 +147,7 @@ function StrandarContent() {
                     <span>{s.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#0E7490', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta →
                 </a>
               </div>
