@@ -149,9 +149,9 @@ export default function SevardheterPage() {
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Historia, natur och kultur</p>
+          <p style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.8 }}>Historia, natur och kultur</p>
           <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Sevärdheter på Mallorca</h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>12 utvalda pärlor – från gotiska katedraler till dramatiska grottor</p>
+          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85 }}>12 utvalda pärlor – från gotiska katedraler till dramatiska grottor</p>
         </div>
       </div>
 
@@ -165,11 +165,11 @@ export default function SevardheterPage() {
                 <img src={s.bild} alt={s.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>
               </div>
-              <div style={{ padding: '20px' }}>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.05em', margin: '0 0 6px', color: '#111' }}>{s.namn}</h2>
+              <div style={{ padding: '22px' }}>
+                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{s.namn}</h2>
                 <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '10px' }}>📍 {s.plats} · 🕐 {s.oppet}</p>
-                <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6', margin: '0 0 12px' }}>{s.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginBottom: '14px' }}>💡 {s.tips}</div>
+                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{s.beskrivning}</p>
+                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}>💡 {s.tips}</div>
                 {s.redaktionellt && (
                   <div style={{
                     display: 'flex', alignItems: 'flex-start', gap: '8px',

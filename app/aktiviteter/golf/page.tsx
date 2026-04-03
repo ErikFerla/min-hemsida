@@ -84,7 +84,7 @@ export default function GolfPage() {
           <h1 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
             22 golfbanor på Mallorca
           </h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9, maxWidth: '600px' }}>
+          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85, maxWidth: '600px' }}>
             Komplett guide till alla golfbanor – för alla nivåer och budgetar
           </p>
         </div>
@@ -130,17 +130,17 @@ export default function GolfPage() {
                   {b.region}
                 </div>
               </div>
-              <div style={{ padding: '20px' }}>
+              <div style={{ padding: '22px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: 0 }}>{b.namn}</h3>
+                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: '0 0 8px', lineHeight: '1.15' }}>{b.namn}</h3>
                   <span style={{ fontSize: '0.9rem', flexShrink: 0, marginLeft: '8px' }}>{b.pris}</span>
                 </div>
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: '#666' }}>
                   <span>📍 {b.plats}</span>
                   <span>⛳ {b.hål} hål</span>
                 </div>
-                <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6', margin: '0 0 12px' }}>{b.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '10px 14px', marginBottom: '16px', fontSize: '0.85rem', color: '#444' }}>
+                  <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{b.beskrivning}</p>
+                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '10px 14px', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6', fontSize: '0.85rem', color: '#444' }}>
                   💡 {b.tips}
                 </div>
                 {b.redaktionellt && (

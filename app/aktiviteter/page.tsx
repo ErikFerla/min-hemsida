@@ -65,9 +65,9 @@ export default function AktiviteterPage() {
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Upplev Mallorca</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Aktiviteter på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.9rem,2.5vw,1.1rem)', marginTop: '12px', opacity: 0.9 }}>Golf, vandring, vattensport och mycket mer – för alla smaker</p>
+          <p style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.8 }}>Upplev Mallorca</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.04em', margin: 0, lineHeight: '1' }}>Aktiviteter på Mallorca</h1>
+          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85 }}>Golf, vandring, vattensport och mycket mer – för alla smaker</p>
         </div>
       </div>
 
@@ -88,8 +88,8 @@ export default function AktiviteterPage() {
                 <img src={a.bild} alt={a.titel} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
                 <div style={{ padding: '24px' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{a.emoji}</div>
-                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.6rem', letterSpacing: '0.05em', margin: '0 0 10px', color: '#1F2937' }}>{a.titel}</h2>
-                  <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: '1.6', margin: '0 0 16px' }}>{a.beskrivning}</p>
+                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#1F2937' }}>{a.titel}</h2>
+                  <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 16px' }}>{a.beskrivning}</p>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
                     {a.highlights.map((h, j) => (
                       <span key={j} style={{ background: '#F0EBE3', color: '#0E7490', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600' }}>{h}</span>

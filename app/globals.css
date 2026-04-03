@@ -60,21 +60,22 @@ main {
 }
 
 .section-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem !important;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.2em !important;
   text-transform: uppercase;
   color: #F59E0B;
-  margin-bottom: 8px;
+  margin-bottom: 10px !important;
+  margin-top: 0 !important;
 }
 
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
   font-weight: 400;
   letter-spacing: 0.05em;
-  margin: 0 0 8px 0;
-  line-height: 1;
+  margin: 0 0 6px 0 !important;
+  line-height: 1.05 !important;
 }
 
 .section-subtitle {
@@ -87,7 +88,29 @@ main {
   width: 60px;
   height: 3px;
   background: #F59E0B;
-  margin-bottom: 32px;
+  margin-bottom: 28px !important;
+  margin-top: 12px !important;
+}
+
+/* === TYPOGRAFI - PREMIUM UPPGRADERING === */
+
+h1 {
+  line-height: 1.05 !important;
+  letter-spacing: 0.03em;
+}
+
+h2 {
+  line-height: 1.1 !important;
+  margin-top: 0;
+}
+
+h3 {
+  line-height: 1.15 !important;
+}
+
+p {
+  line-height: 1.75;
+  color: #374151;
 }
 
 .desktop-nav {
