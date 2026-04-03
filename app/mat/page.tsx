@@ -68,7 +68,7 @@ export default function MatPage() {
         display: 'flex', alignItems: 'flex-end',
         padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)',
       }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
           <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Mallorcas matkultur</p>
           <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Mat & Vin på Mallorca</h1>
@@ -89,7 +89,7 @@ export default function MatPage() {
                 <h3 style={{ fontFamily: 'serif', margin: '0 0 2px' }}>{v.namn}</h3>
                 <div style={{ color: '#888', fontSize: '0.8rem', marginBottom: '6px' }}>📍 {v.plats} · ⏰ {v.öppet}</div>
                 <p style={{ fontSize: '0.9rem', color: '#555', margin: '0 0 4px' }}>{v.info}</p>
-                <p style={{ fontSize: '0.85rem', color: '#7a4f2e', fontStyle: 'italic', margin: '0 0 8px' }}>🍾 {v.vin}</p>
+                <p style={{ fontSize: '0.85rem', color: '#0E7490', fontStyle: 'italic', margin: '0 0 8px' }}>🍾 {v.vin}</p>
                 <a href={v.maps} target="_blank" rel="noopener noreferrer" style={knapp}>Visa på karta</a>
               </div>
             </div>
