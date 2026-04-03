@@ -26,13 +26,13 @@ export default function ByadSida() {
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
       <div style={{
         position: 'relative',
-        height: '50vh',
-        backgroundImage: 'url(https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Palma_de_Mallorca_aerial_view.jpg/1280px-Palma_de_Mallorca_aerial_view.jpg)',
+        height: '55vh',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'flex-end',
-        padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)'
+        padding: 'clamp(20px, 5vw, 60px) clamp(16px, 5vw, 80px)'
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
@@ -45,25 +45,33 @@ export default function ByadSida() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {städer.map((stad, i) => (
-            <Link key={i} href={stad.href} style={{ textDecoration: 'none' }}>
-              <div style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-                <div style={{ position: 'relative' }}>
-                  <img src={stad.bild} alt={stad.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
-                    {stad.region}
-                  </div>
-                </div>
-                <div style={{ padding: '20px' }}>
-                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 8px', color: '#111' }}>{stad.namn}</h2>
-                  <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6', margin: '0 0 12px' }}>{stad.beskrivning}</p>
-                  <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444' }}>
-                    💡 {stad.tips}
-                  </div>
+            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
+              <div style={{ position: 'relative' }}>
+                <img src={stad.bild} alt={stad.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+                  {stad.region}
                 </div>
               </div>
-            </Link>
+              <div style={{ padding: '20px' }}>
+                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 8px', color: '#111' }}>{stad.namn}</h2>
+                <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6', margin: '0 0 12px' }}>{stad.beskrivning}</p>
+                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginBottom: '12px' }}>
+                  💡 {stad.tips}
+                </div>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
+                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
+                    🗺️ Visa på karta
+                  </a>
+                  <Link href={stad.href}
+                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
+                    Utforska →
+                  </Link>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

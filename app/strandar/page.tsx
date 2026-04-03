@@ -97,7 +97,7 @@ function StrandarContent() {
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ marginBottom: '40px' }}>
-          <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c0392b', marginBottom: '16px' }}>Filtrera stränder</p>
+          <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F59E0B', marginBottom: '16px' }}>Filtrera stränder</p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
             {regioner.map(r => <button key={r} onClick={() => setRegion(r)} style={knappStyle(region === r)}>{r}</button>)}
           </div>
