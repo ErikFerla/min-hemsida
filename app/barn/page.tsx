@@ -165,8 +165,11 @@ export default function BarnPage() {
                       background: 'white',
                       borderRadius: '12px',
                       overflow: 'hidden',
-                      boxShadow: '0 2px 12px rgba(0,0,0,0.08)',
-                    }}>
+                      boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                    }}
+                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
+                      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
                       <img src={a.bild} alt={a.namn} style={{ width: '100%', height: '160px', objectFit: 'cover' }} />
                       <div style={{ padding: '14px' }}>
                         <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', margin: '0 0 4px', color: '#111' }}>{a.namn}</h3>
