@@ -8,6 +8,7 @@
     oppet: 'Mån–Lör 10–17, Sön stängd för turister',
     bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80',
     maps: 'https://maps.google.com/?q=La+Seu+Cathedral+Palma+Mallorca',
+    redaktionellt: { typ: 'tips', text: 'Gratis entré vardagar före kl 10 – kom 09:30 för bästa ljuset genom rosfönstret' },
   },
   {
     namn: 'Bellver Slott',
@@ -18,6 +19,7 @@
     oppet: 'Tis–Sön 10–19 (sommar), 10–18 (vinter)',
     bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80',
     maps: 'https://maps.google.com/?q=Bellver+Castle+Palma+Mallorca',
+    redaktionellt: { typ: 'bast', text: 'Bäst för: Solnedgångsutsikt över Palma – kom kl 18 på sommaren' },
   },
   {
     namn: 'Valldemossa Kartusianerkloster',
@@ -28,6 +30,7 @@
     oppet: 'Mån–Lör 9:30–18:30, Sön 10–13',
     bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80',
     maps: 'https://maps.google.com/?q=Valldemossa+Monastery+Mallorca',
+    redaktionellt: { typ: 'varning', text: 'Fullsatt 10–14 på sommaren – kom vid öppning eller efter kl 15' },
   },
   {
     namn: 'Coves del Drach',
@@ -38,6 +41,7 @@
     oppet: 'Dagligen 10–17 (apr–okt), 10–15 (nov–mar)',
     bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
     maps: 'https://maps.google.com/?q=Coves+del+Drach+Porto+Cristo+Mallorca',
+    redaktionellt: { typ: 'tips', text: 'Boka ALLTID online – kassaköerna kan vara 1–2 timmar på högsäsong' },
   },
   {
     namn: 'Serra de Tramuntana',
@@ -48,6 +52,7 @@
     oppet: 'Alltid öppet – ta med karta och vatten',
     bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
     maps: 'https://maps.google.com/?q=Serra+de+Tramuntana+Mallorca',
+    redaktionellt: { typ: 'bast', text: 'Bäst för: Cykelentusiaster och vandrare – GR-221 är en av Europas vackraste leder' },
   },
   {
     namn: 'Cap de Formentor',
@@ -58,6 +63,7 @@
     oppet: 'Alltid öppet',
     bild: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&q=80',
     maps: 'https://maps.google.com/?q=Cap+de+Formentor+Mallorca',
+    redaktionellt: { typ: 'info', text: 'Biltillstånd krävs maj–oktober – ta bussen från Port de Pollença (30 kr)' },
   },
   {
     namn: "Palau de l'Almudaina",
@@ -68,6 +74,7 @@
     oppet: 'Mån–Fre 10–18, Lör 10–14',
     bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80',
     maps: 'https://maps.google.com/?q=Palau+de+l+Almudaina+Palma+Mallorca',
+    redaktionellt: { typ: 'tips', text: 'Kombinera alltid med La Seu – de ligger 50 meter från varandra' },
   },
   {
     namn: 'Sa Calobra',
@@ -78,6 +85,7 @@
     oppet: 'Alltid öppet',
     bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
     maps: 'https://maps.google.com/?q=Sa+Calobra+Mallorca',
+    redaktionellt: { typ: 'varning', text: 'Mötande trafik på slingrande bergsväg – kör lugnt och parkera tidigt' },
   },
   {
     namn: 'Fundació Miró Mallorca',
@@ -88,6 +96,7 @@
     oppet: 'Tis–Lör 10–18, Sön 10–15',
     bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80',
     maps: 'https://maps.google.com/?q=Fundacio+Miro+Mallorca+Palma',
+    redaktionellt: { typ: 'bast', text: 'Bäst för: Konstälskare – ateljén är en av Europas bäst bevarade' },
   },
   {
     namn: "Coves d'Artà",
@@ -98,6 +107,7 @@
     oppet: 'Dagligen 10–17',
     bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
     maps: 'https://maps.google.com/?q=Coves+d+Arta+Mallorca',
+    redaktionellt: { typ: 'info', text: 'Mycket färre turister än Coves del Drach – lika vackert men lugnare' },
   },
   {
     namn: 'Museu de Mallorca',
@@ -108,6 +118,7 @@
     oppet: 'Tis–Lör 10–19, Sön 10–14',
     bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80',
     maps: 'https://maps.google.com/?q=Museu+de+Mallorca+Palma',
+    redaktionellt: { typ: 'tips', text: 'Gratis söndagar – perfekt att kombinera med en promenad i gamla stan' },
   },
   {
     namn: 'Santuari de Lluc',
@@ -118,6 +129,7 @@
     oppet: 'Dagligen 10–18',
     bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80',
     maps: 'https://maps.google.com/?q=Santuari+de+Lluc+Mallorca',
+    redaktionellt: { typ: 'bast', text: 'Bäst för: En lugn dag i bergen borta från strandtumult – restaurangen är utmärkt' },
   },
 ];
 
@@ -155,6 +167,20 @@ export default function SevardheterPage() {
                 <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '10px' }}>📍 {s.plats} · 🕐 {s.oppet}</p>
                 <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.6', margin: '0 0 12px' }}>{s.beskrivning}</p>
                 <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginBottom: '14px' }}>💡 {s.tips}</div>
+                {s.redaktionellt && (
+                  <div style={{
+                    display: 'flex', alignItems: 'flex-start', gap: '8px',
+                    padding: '8px 12px', borderRadius: '8px', marginBottom: '12px',
+                    background: s.redaktionellt.typ === 'varning' ? '#fff3cd' : s.redaktionellt.typ === 'tips' ? '#e8f5e9' : s.redaktionellt.typ === 'bast' ? '#e3f2fd' : '#f3e5f5',
+                    borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
+                    fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
+                  }}>
+                    <span style={{ flexShrink: 0 }}>
+                      {s.redaktionellt.typ === 'varning' ? '⚠️' : s.redaktionellt.typ === 'tips' ? '⭐' : s.redaktionellt.typ === 'bast' ? '🏆' : '💡'}
+                    </span>
+                    <span>{s.redaktionellt.text}</span>
+                  </div>
+                )}
                 <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta →
                 </a>
