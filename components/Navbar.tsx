@@ -170,8 +170,8 @@ export default function Navbar() {
           ))}
 
           <Link href="/kontakt" style={{
-            background: '#0E7490',
-            color: 'white',
+            background: '#F59E0B',
+            color: '#1F2937',
             padding: '8px 20px',
             borderRadius: '6px',
             fontFamily: '"Bebas Neue", sans-serif',
@@ -212,7 +212,7 @@ export default function Navbar() {
               {item.text}
             </Link>
           ))}
-          <Link href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: '#0E7490', color: 'white', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
+          <Link href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: '#F59E0B', color: '#1F2937', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
             PLANERA DIN RESA
           </Link>
         </div>

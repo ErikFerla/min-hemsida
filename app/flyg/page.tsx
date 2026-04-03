@@ -114,7 +114,7 @@ export default function FlygPage() {
 
           <button
             onClick={sökFlyg}
-            style={{ width: '100%', padding: '16px', background: '#F59E0B', color: 'white', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.1em', cursor: 'pointer' }}
+            style={{ width: '100%', padding: '16px', background: '#F59E0B', color: '#1F2937', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.1em', cursor: 'pointer' }}
           >
             SÖK FLYG PÅ SKYSCANNER →
           </button>
@@ -135,7 +135,7 @@ export default function FlygPage() {
               <p style={{ fontSize: '0.85rem', color: '#888', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
               <button
                 onClick={() => snabbSök(f.kod)}
-                style={{ width: '100%', padding: '10px', background: '#0E7490', color: 'white', border: 'none', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}
+                style={{ width: '100%', padding: '10px', background: '#F59E0B', color: '#1F2937', border: 'none', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}
               >
                 Sök flyg →
               </button>

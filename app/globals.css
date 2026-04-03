@@ -64,7 +64,7 @@ main {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #0E7490;
+  color: #F59E0B;
   margin-bottom: 8px;
 }
 
@@ -86,7 +86,7 @@ main {
 .section-divider {
   width: 60px;
   height: 3px;
-  background: #0E7490;
+  background: #F59E0B;
   margin-bottom: 32px;
 }
 

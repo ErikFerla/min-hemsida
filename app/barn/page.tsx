@@ -176,7 +176,7 @@ export default function BarnPage() {
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
-                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#111', color: 'white', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
+                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#F59E0B', color: '#1F2937', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
                             🗺️ Karta
                           </a>
                           <a href={a.webb} target="_blank" rel="noopener noreferrer"
