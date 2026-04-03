@@ -9,7 +9,7 @@ const SectionPersonal = dynamic(() => import('./components/SectionPersonal'));
 const SectionSeason = dynamic(() => import('./components/SectionSeason'));
 const SectionPlanner = dynamic(() => import('./components/SectionPlanner'));
 const SectionInsider = dynamic(() => import('./components/SectionInsider'));
-const SectionEvents = dynamic(() => import('./components/SectionEvents'));
+import SectionEvents from './components/SectionEvents';
 
 export default function Home() {
   return (
@@ -39,9 +39,7 @@ export default function Home() {
         <Suspense fallback={<div>Loading...</div>}>
           <SectionInsider />
         </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SectionEvents />
-        </Suspense>
+        <SectionEvents />
         <section className="section-black">
           <Carousel title="UTFORSKA STÄDERNA" label="DESTINATIONER">
             {[
