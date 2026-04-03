@@ -60,9 +60,22 @@ export default function MatPage() {
   const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' } as React.CSSProperties;
   const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h1 style={{ fontFamily: 'serif', fontSize: '2.5rem', marginBottom: '40px' }}>Mat & Vin på Mallorca</h1>
+    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+      <div style={{
+        position: 'relative', height: '55vh',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90)',
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        display: 'flex', alignItems: 'flex-end',
+        padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)',
+      }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
+        <div style={{ position: 'relative', color: 'white' }}>
+          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Mallorcas matkultur</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Mat & Vin på Mallorca</h1>
+          <p style={{ fontSize: 'clamp(0.9rem,2.5vw,1.1rem)', marginTop: '12px', opacity: 0.9 }}>Från Michelinkrogar till lokala vingårdar – din guide till det bästa</p>
+        </div>
+      </div>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <h2 style={{ fontFamily: 'serif', fontSize: '2rem', marginBottom: '24px', color: '#0E7490' }}>🍷 Bästa vingårdarna</h2>
         <div style={grid}>
           {vingårdar.map((v, i) => (
