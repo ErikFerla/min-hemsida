@@ -71,7 +71,7 @@ export const evenemang = [
 
 export default function SectionEvents() {
   return (
-    <section style={{ background: '#d8d8d8', padding: '80px 60px' }}>
+    <section style={{ background: '#F5EEE4', padding: '80px 60px' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'flex-start', marginBottom: '32px' }}>
           <div>
