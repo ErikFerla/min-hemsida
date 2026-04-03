@@ -77,7 +77,7 @@ export default function KontaktPage() {
   }
 
   return (
-    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+    <div style={{ background: '#F8F5F0', minHeight: '100vh' }}>
       <div style={{ background: '#111', color: 'white', padding: '80px 40px', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: '3rem', fontWeight: '700', letterSpacing: '-0.04em', marginBottom: '16px' }}>
           Planera din resa

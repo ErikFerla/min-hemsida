@@ -133,7 +133,7 @@ const generateTempCurve = (data: ForecastData[], width: number, height: number) 
 
 export default function Vader() {
   return (
-    <Suspense fallback={<div style={{ background: '#e8e8e8', minHeight: '100vh' }} />}>
+    <Suspense fallback={<div style={{ background: '#F8F5F0', minHeight: '100vh' }} />}>
       <VaderContent />
     </Suspense>
   );

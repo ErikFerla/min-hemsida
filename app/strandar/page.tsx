@@ -40,7 +40,7 @@ const typer = ['Alla typer', 'Sandstrand', 'Vik', 'Stenstrand'];
 
 export default function StrandarPage() {
   return (
-    <Suspense fallback={<div style={{ background: '#e8e8e8', minHeight: '100vh' }} />}>
+    <Suspense fallback={<div style={{ background: '#F8F5F0', minHeight: '100vh' }} />}>
       <StrandarContent />
     </Suspense>
   );
@@ -80,7 +80,7 @@ function StrandarContent() {
   });
 
   return (
-    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+    <div style={{ background: '#F8F5F0', minHeight: '100vh' }}>
       <div style={{
         position: 'relative', height: '55vh',
         backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90)',

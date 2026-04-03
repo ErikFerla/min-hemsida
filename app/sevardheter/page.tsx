@@ -135,7 +135,7 @@
 
 export default function SevardheterPage() {
   return (
-    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+    <div style={{ background: '#F8F5F0', minHeight: '100vh' }}>
       <div style={{
         position: 'relative',
         height: '55vh',

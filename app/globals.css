@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #e8e8e8;
+  background: #F8F5F0;
   color: #111111;
   font-family: 'Inter', sans-serif;
 }
@@ -34,12 +34,12 @@ main {
 }
 
 .section-light {
-  background: #e8e8e8;
+  background: #F8F5F0;
   padding: 80px 60px;
 }
 
 .section-medium {
-  background: #d8d8d8;
+  background: #F0EBE3;
   padding: 80px 60px;
 }
 

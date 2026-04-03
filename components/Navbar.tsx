@@ -94,7 +94,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <nav style={{ background: '#e8e8e8', borderBottom: '1px solid #d0d0d0', position: 'sticky', top: 0, zIndex: 1000 }}>
+    <nav style={{ background: '#F8F5F0', borderBottom: '1px solid #e5ddd3', position: 'sticky', top: 0, zIndex: 1000 }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
         {/* Logo */}

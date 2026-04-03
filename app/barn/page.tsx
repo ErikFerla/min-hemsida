@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 
 const kategorier = [
@@ -76,7 +76,7 @@ export default function BarnPage() {
   };
 
   return (
-    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+    <div style={{ background: '#F8F5F0', minHeight: '100vh' }}>
       {/* Hero */}
       <div style={{
         position: 'relative',

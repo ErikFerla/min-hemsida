@@ -18,7 +18,7 @@ export default function EvenemangPage() {
   const filtrerade = aktiv === 'Alla' ? evenemang : evenemang.filter(e => e.kategori === aktiv);
 
   return (
-    <div style={{ background: '#e8e8e8', minHeight: '100vh' }}>
+    <div style={{ background: '#F8F5F0', minHeight: '100vh' }}>
       <div style={{ background: '#111', padding: '80px 80px 60px', color: 'white' }}>
         <p style={{ fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.6, marginBottom: '12px' }}>Mallorca 2026</p>
         <h1 style={{ fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif', fontSize: '4.5rem', fontWeight: '400', letterSpacing: '0.05em', margin: '0 0 16px', lineHeight: 1 }}>EVENEMANG</h1>
