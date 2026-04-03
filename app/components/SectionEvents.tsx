@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import styles from '../page.module.css';
+
 
 export const evenemang = [
   // SPORT
@@ -72,29 +71,34 @@ export const evenemang = [
 
 export default function SectionEvents() {
   return (
-    <section className="section-light">
-      <div className="section-inner">
-        <p className="section-label">EVENEMANG</p>
-        <h2 className="section-title">Kommande Evenemang</h2>
-        <div className="section-divider"></div>
-        <div style={{ display: 'flex', gap: '48px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
-          <div className={styles.eventsLeft}>
-            <p className={styles.eventsText}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, jordbruksmarknader och internationella sportevenemang.</p>
-            <Link href="/evenemang" className={styles.eventsBtn}>Se alla evenemang</Link>
+    <section style={{ background: '#d8d8d8', padding: '80px 60px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'flex-start', marginBottom: '32px' }}>
+          <div>
+            <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c0392b', marginBottom: '8px' }}>På Mallorca</p>
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '3rem', letterSpacing: '0.05em', margin: '0 0 4px', lineHeight: 1, color: '#111' }}>KOMMANDE EVENEMANG</h2>
+            <div style={{ width: '60px', height: '3px', background: '#c0392b', marginBottom: '20px' }} />
+            <p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.7', marginBottom: '28px' }}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, marknader och internationella sportevenemang.</p>
+            <a href="/evenemang" style={{ display: 'inline-block', padding: '12px 28px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em' }}>
+              SE ALLA EVENEMANG →
+            </a>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px', flex: 1 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
             {evenemang.slice(0, 6).map((e, i) => (
-              <div key={i} style={{ background: '#e0e0e0', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column' }}>
-                <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '160px', objectFit: 'cover', display: 'block' }} />
-                <div style={{ padding: '16px', flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#555', display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
-                    <span style={{ background: '#111', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.7rem', fontWeight: '600' }}>{e.kategori}</span>
-                    <span>📅 {e.datum}</span>
-                    <span>📍 {e.plats}</span>
+              <div key={i} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
+                <div style={{ position: 'relative' }}>
+                  <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '140px', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#c0392b', color: 'white', padding: '3px 8px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
+                    {e.kategori}
                   </div>
-                  <h3 style={{ fontSize: '1rem', fontWeight: '700', letterSpacing: '-0.02em', margin: 0, color: '#111' }}>{e.namn}</h3>
-                  <p style={{ fontSize: '0.85rem', color: '#444', lineHeight: '1.5', margin: 0, flex: 1 }}>{e.beskrivning}</p>
-                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ marginTop: '8px', display: 'inline-block', padding: '6px 14px', background: '#111', color: 'white', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '600', textDecoration: 'none' }}>Läs mer ↗</a>
+                </div>
+                <div style={{ padding: '14px' }}>
+                  <p style={{ fontSize: '0.75rem', color: '#888', margin: '0 0 4px' }}>📅 {e.datum} · 📍 {e.plats}</p>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.05em', margin: '0 0 6px', color: '#111', lineHeight: 1.2 }}>{e.namn}</h3>
+                  <p style={{ fontSize: '0.8rem', color: '#666', lineHeight: '1.5', margin: '0 0 12px' }}>{e.beskrivning}</p>
+                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#111', color: 'white', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
+                    Läs mer →
+                  </a>
                 </div>
               </div>
             ))}
