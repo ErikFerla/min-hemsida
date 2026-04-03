@@ -63,6 +63,17 @@ const navItems = [
     ],
   },
   {
+    text: 'Flyg',
+    href: '/flyg',
+    submenu: [
+      { text: '✈️ Från Landvetter (GOT)', href: '/flyg' },
+      { text: '✈️ Från Arlanda (ARN)', href: '/flyg' },
+      { text: '✈️ Från Malmö (MMX)', href: '/flyg' },
+      { text: '✈️ Från Oslo (OSL)', href: '/flyg' },
+      { text: 'Sök alla flyg →', href: '/flyg' },
+    ],
+  },
+  {
     text: 'Väder',
     href: '/vader',
     submenu: [
