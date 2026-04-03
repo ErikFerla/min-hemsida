@@ -77,9 +77,9 @@ export default function SectionEvents() {
           <div>
             <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c0392b', marginBottom: '8px' }}>På Mallorca</p>
             <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '3rem', letterSpacing: '0.05em', margin: '0 0 4px', lineHeight: 1, color: '#111' }}>KOMMANDE EVENEMANG</h2>
-            <div style={{ width: '60px', height: '3px', background: '#c0392b', marginBottom: '20px' }} />
+            <div style={{ width: '60px', height: '3px', background: '#F59E0B', marginBottom: '20px' }} />
             <p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.7', marginBottom: '28px' }}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, marknader och internationella sportevenemang.</p>
-            <a href="/evenemang" style={{ display: 'inline-block', padding: '12px 28px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em' }}>
+            <a href="/evenemang" style={{ display: 'inline-block', padding: '12px 28px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em' }}>
               SE ALLA EVENEMANG →
             </a>
           </div>
@@ -88,7 +88,7 @@ export default function SectionEvents() {
               <div key={i} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
                 <div style={{ position: 'relative' }}>
                   <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '140px', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#c0392b', color: 'white', padding: '3px 8px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
+                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#F59E0B', color: '#1F2937', padding: '3px 8px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
                     {e.kategori}
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function SectionEvents() {
                   <p style={{ fontSize: '0.75rem', color: '#888', margin: '0 0 4px' }}>📅 {e.datum} · 📍 {e.plats}</p>
                   <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.05em', margin: '0 0 6px', color: '#111', lineHeight: 1.2 }}>{e.namn}</h3>
                   <p style={{ fontSize: '0.8rem', color: '#666', lineHeight: '1.5', margin: '0 0 12px' }}>{e.beskrivning}</p>
-                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#111', color: 'white', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
+                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
                     Läs mer →
                   </a>
                 </div>
