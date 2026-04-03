@@ -94,7 +94,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <nav style={{ background: '#F8F5F0', borderBottom: '1px solid #e5ddd3', position: 'sticky', top: 0, zIndex: 1000 }}>
+    <nav style={{ background: '#FDF8F2', borderBottom: '1px solid #ede5da', position: 'sticky', top: 0, zIndex: 1000 }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
         {/* Logo */}
@@ -206,7 +206,7 @@ export default function Navbar() {
 
       {/* Mobil dropdown */}
       {menuOpen && (
-        <div style={{ background: '#e8e8e8', borderTop: '1px solid #d0d0d0', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ background: '#FDF8F2', borderTop: '1px solid #ede5da', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {navItems.map(item => (
             <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
               {item.text}

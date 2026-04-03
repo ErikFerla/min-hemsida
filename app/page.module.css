@@ -136,7 +136,7 @@
 .personalCard p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
 .personalTag { font-size: 0.75rem; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; }
 .seasonSection {
-  background: #d8d8d8;
+  background: #F5EEE4;
   padding: 80px 40px;
   position: relative;
 }
@@ -151,11 +151,11 @@
 .seasonList { list-style: none; padding: 0; margin-bottom: 20px; }
 .seasonList li { font-size: 0.82rem; color: var(--fg); padding: 4px 0; border-bottom: 1px solid var(--border); }
 .seasonBadge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 20px; }
-.plannerSection { background: #d8d8d8; padding: 80px 60px; border-top: 1px solid var(--border); }
+.plannerSection { background: #F5EEE4; padding: 80px 60px; border-top: 1px solid var(--border); }
 .plannerInner { max-width: 1400px; margin: 0 auto; }
 .plannerTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .plannerSub { color: var(--muted); margin-bottom: 40px; }
-.plannerForm { background: #c4c4c4; border-radius: 16px; padding: 40px; }
+.plannerForm { background: #EDE4D8; border-radius: 16px; padding: 40px; }
 .plannerStep { margin-bottom: 32px; }
 .plannerStepTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
 .daysRow { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -170,7 +170,7 @@
 .plannerItem { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
 .plannerDay { font-weight: 600; color: #c60b1e; flex-shrink: 0; min-width: 50px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
 .insiderSection {
-  background: #c4c4c4;
+  background: #EDE4D8;
   padding: 80px 40px;
   position: relative;
 }
