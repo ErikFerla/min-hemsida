@@ -23,6 +23,18 @@ export default function HeroSlideshow() {
   }, []);
 
   return (
+    <>
+    <div style={{
+      background: '#111',
+      color: 'white',
+      textAlign: 'center',
+      padding: '10px 20px',
+      fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
+      letterSpacing: '0.15em',
+      fontWeight: '500',
+    }}>
+      🌴 Din personliga guide till Mallorcas bästa hemligheter – på svenska
+    </div>
     <div style={{ position: 'relative', width: '100%', height: '90vh', overflow: 'hidden' }}>
       {bilder.map((bild, i) => (
         <div key={i} style={{
@@ -55,6 +67,15 @@ export default function HeroSlideshow() {
         }}>
           {bilder[aktiv].text}
         </h1>
+        <p style={{
+          fontSize: 'clamp(0.85rem, 2vw, 1rem)',
+          marginTop: '12px',
+          opacity: 0.85,
+          fontWeight: '400',
+          letterSpacing: '0.05em',
+        }}>
+          Din personliga guide till Mallorcas bästa hemligheter
+        </p>
       </div>
       <div style={{
         position: 'absolute', bottom: '40px', left: '80px',
@@ -74,5 +95,6 @@ export default function HeroSlideshow() {
         ))}
       </div>
     </div>
+    </>
   );
 }

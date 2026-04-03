@@ -15,8 +15,11 @@ export default function Home() {
       <div className={styles.container}>
         <section className="section-light">
           <div className="section-inner">
-            <p className="section-label">VÄLKOMMEN TILL MALLORCA</p>
+            <p className="section-label">DIN PERSONLIGA GUIDE</p>
             <h2 className="section-title">Mallorca</h2>
+            <p style={{ fontSize: '1.2rem', color: '#c0392b', fontWeight: '600', marginBottom: '24px', fontStyle: 'italic' }}>
+              Din personliga guide till Mallorcas bästa hemligheter – utan turistfällor
+            </p>
             <div className="section-divider"></div>
             <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}>Mallorca är mer än bara en semesterö - det är en upplevelse som stannar kvar länge efter att du kommit hem. Här möter du krispigt turkost hav, doftande apelsinlundar, vitputsade fiskebyar och en livlig matkultur som får smaklökarna att dansa. Med över 300 soldagar om året och ett klimat som är behagligt från april till november finns det knappt något bättre ställe i Europa att ladda batterierna på. Oavsett om du söker stillhet, äventyr, romantik eller familjesemester - Mallorca har det du letar efter.</p>
             <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}><strong>Stränder och natur</strong><br />Föreställ dig att vakna upp, promenera fem minuter och sätta fötterna i sand vit som pudrat socker. På Mallorca är det vardagsliv. Ön över 200 stränder och vikar erbjuder allt från breda familjevänliga sandstränder till dolda paradisvikar som bara nås till fots. Es Trenc i söder - ofta kallad Mallorcas Karibien - lockar med sitt kristallklara vatten och orörda naturmiljö. Cala Mondragó är naturskyddad och ovanligt obefolkad. Och Serra de Tramuntana, UNESCOs världsarv, reser sig dramatiskt mot himlen med vandringsleder som belönar dig med utsikter du aldrig glömmer.</p>

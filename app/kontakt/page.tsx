@@ -83,7 +83,7 @@ export default function KontaktPage() {
           Planera din resa
         </h1>
         <p style={{ fontSize: '1.2rem', color: '#aaa', maxWidth: '600px', margin: '0 auto' }}>
-          Berätta om din drömresa – vi hjälper dig skapa en perfekt Mallorca-upplevelse
+          Berätta om din drömresa – vi hjälper dig hitta Mallorcas bästa hemligheter
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '40px' }}>
           {[1, 2, 3].map(s => (

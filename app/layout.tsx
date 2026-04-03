@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ['latin'] });
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
 
 export const metadata: Metadata = {
-  title: 'Mymallorca.se – Din guide till Mallorca',
-  description: 'Komplett reseguide till Mallorca på svenska. Stränder, restauranger, vingårdar, golf, aktiviteter och insider-tips från lokalerna.',
+  title: 'Mymallorca.se – Din personliga guide till Mallorcas bästa hemligheter',
+  description: 'Din personliga guide till Mallorcas bästa hemligheter på svenska. Stränder, mat, golf, sevärdheter och insider-tips från en som kan ön utan och innan.',
   keywords: 'Mallorca, reseguide, stränder, restauranger, golf, aktiviteter, Palma',
 };
 
