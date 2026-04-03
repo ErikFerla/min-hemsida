@@ -1,4 +1,5 @@
-﻿const sevardheter = [
+﻿'use client';
+const sevardheter = [
   {
     namn: 'La Seu – Palmas katedral',
     plats: 'Palma',
