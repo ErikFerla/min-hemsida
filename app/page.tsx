@@ -1,14 +1,11 @@
-﻿import dynamic from 'next/dynamic';
-import styles from './page.module.css';
+﻿import styles from './page.module.css';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
-import { Suspense } from 'react';
 import HeroSlideshow from '@/components/HeroSlideshow';
-
-const SectionPersonal = dynamic(() => import('./components/SectionPersonal'));
-const SectionSeason = dynamic(() => import('./components/SectionSeason'));
-const SectionPlanner = dynamic(() => import('./components/SectionPlanner'));
-const SectionInsider = dynamic(() => import('./components/SectionInsider'));
+import SectionPersonal from './components/SectionPersonal';
+import SectionSeason from './components/SectionSeason';
+import SectionPlanner from './components/SectionPlanner';
+import SectionInsider from './components/SectionInsider';
 import SectionEvents from './components/SectionEvents';
 
 export default function Home() {
@@ -27,18 +24,10 @@ export default function Home() {
             <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
           </div>
         </section>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SectionPersonal />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SectionSeason />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SectionPlanner />
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <SectionInsider />
-        </Suspense>
+        <SectionPersonal />
+        <SectionSeason />
+        <SectionPlanner />
+        <SectionInsider />
         <SectionEvents />
         <section className="section-black">
           <Carousel title="UTFORSKA STÄDERNA" label="DESTINATIONER">
