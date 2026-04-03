@@ -56,7 +56,7 @@ const fetchWeather = async (lat: number, lon: number): Promise<ForecastData[]> =
   const today = new Date();
   today.setHours(12, 0, 0, 0);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 9; i++) {
     const targetDate = new Date(today);
     targetDate.setDate(today.getDate() + i);
     const targetTime = targetDate.getTime();

@@ -1,5 +1,5 @@
 .page { min-height: 100vh; background: #FDF8F2 !important; }
-.container { max-width: 1000px; margin: 0 auto; padding: 40px 40px; background: #FDF8F2 !important; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 40px; background: #FDF8F2 !important; }
 .tabs { display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 2px solid #ede5da; background: #FDF8F2 !important; }
 .tab { background: none; border: none; padding: 16px 28px; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; transition: all 0.3s; color: #1F2937; }
 .tab:hover { background-color: #F0EBE3; color: #0E7490; }
@@ -22,8 +22,8 @@
 .tempLabel { font-size: 0.8rem; font-weight: 700; fill: #1F2937; }
 .dayLabel { font-size: 0.7rem; fill: #666; }
 .emojiLabel { font-size: 1rem; }
-.dayCards { display: flex; overflow-x: auto; gap: 0.5rem; padding: 1rem 0; scrollbar-width: thin; scrollbar-color: #ede5da transparent; }
-.dayCard { flex-shrink: 0; background: #FDF8F2 !important; border: 1px solid #ede5da; border-radius: 10px; padding: 1rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 80px; }
+.dayCards { display: flex; gap: 0.4rem; padding: 1rem 0; scrollbar-width: thin; scrollbar-color: #ede5da transparent; justify-content: space-between; }
+.dayCard { flex-shrink: 0; background: white; border: 1px solid #ede5da; border-radius: 10px; padding: 0.7rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 70px; max-width: 80px; flex: 1; }
 .dayCard:hover { background: #F0EBE3; border-color: #0E7490; }
 .dayCard.selected { background: #0E7490; color: white; border-color: #0E7490; }
 .dayName { margin: 0; font-size: 0.8rem; font-weight: 700; }
