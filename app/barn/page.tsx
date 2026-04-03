@@ -125,9 +125,9 @@ export default function BarnPage() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                background: oppna.includes(kategori.titel) ? '#111' : 'white',
-                color: oppna.includes(kategori.titel) ? 'white' : '#111',
-                border: '2px solid #111',
+                background: oppna.includes(kategori.titel) ? '#0E7490' : 'white',
+                color: oppna.includes(kategori.titel) ? 'white' : '#1F2937',
+                border: '2px solid #0E7490',
                 borderRadius: oppna.includes(kategori.titel) ? '12px 12px 0 0' : '12px',
                 padding: '16px 24px',
                 cursor: 'pointer',
@@ -198,7 +198,7 @@ export default function BarnPage() {
 
         {/* Karta */}
         <section style={{ marginTop: '32px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', letterSpacing: '0.05em', color: '#111', marginBottom: '16px', paddingBottom: '12px', borderBottom: '3px solid #c0392b' }}>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', letterSpacing: '0.05em', color: '#111', marginBottom: '16px', paddingBottom: '12px', borderBottom: '3px solid #F59E0B' }}>
             🗺️ Karta – Barnaktiviteter på Mallorca
           </h2>
           <iframe

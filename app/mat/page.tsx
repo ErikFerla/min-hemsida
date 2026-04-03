@@ -63,14 +63,14 @@ export default function MatPage() {
     <div style={{ background: '#FDF8F2', minHeight: '100vh', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         <h1 style={{ fontFamily: 'serif', fontSize: '2.5rem', marginBottom: '40px' }}>Mat & Vin på Mallorca</h1>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', marginBottom: '24px', color: '#c0392b' }}>🍷 Bästa vingårdarna</h2>
+        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', marginBottom: '24px', color: '#0E7490' }}>🍷 Bästa vingårdarna</h2>
         <div style={grid}>
           {vingårdar.map((v, i) => (
             <div key={i} style={kort}>
               <img src={v.bild} alt={v.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ color: '#c0392b', fontWeight: 'bold', fontSize: '0.8rem' }}>#{i + 1}</span>
+                  <span style={{ color: '#0E7490', fontWeight: 'bold', fontSize: '0.8rem' }}>#{i + 1}</span>
                   <span>{v.prisklass}</span>
                 </div>
                 <h3 style={{ fontFamily: 'serif', margin: '0 0 2px' }}>{v.namn}</h3>
@@ -82,10 +82,10 @@ export default function MatPage() {
             </div>
           ))}
         </div>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#c0392b' }}>🍽️ Topp 30 restauranger</h2>
+        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#0E7490' }}>🍽️ Topp 30 restauranger</h2>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
           {kategorier.map(k => (
-            <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #c0392b', background: filter === k ? '#c0392b' : '#e0e0e0', color: filter === k ? 'white' : '#c0392b', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
+            <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #0E7490', background: filter === k ? '#0E7490' : '#FDF8F2', color: filter === k ? 'white' : '#0E7490', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
               {k}
             </button>
           ))}
@@ -96,7 +96,7 @@ export default function MatPage() {
               <img src={r.bild} alt={r.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ background: '#c0392b', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold' }}>{r.kategori}</span>
+                  <span style={{ background: '#0E7490', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold' }}>{r.kategori}</span>
                   <span>{r.prisklass}</span>
                 </div>
                 <h3 style={{ fontFamily: 'serif', margin: '8px 0 2px' }}>{r.namn}</h3>
@@ -107,7 +107,7 @@ export default function MatPage() {
             </div>
           ))}
         </div>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#c0392b' }}>🗺️ Utforska Mallorca</h2>
+        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#0E7490' }}>🗺️ Utforska Mallorca</h2>
         <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
           <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%' }} />
         </div>
