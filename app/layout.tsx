@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
-      <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#e8e8e8', color: '#111111' }}>
+      <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#111111' }}>
         <Navbar />
         <main>{children}</main>
         <footer style={{ background: '#111', color: 'white', padding: '60px 60px 30px' }}>
