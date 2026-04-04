@@ -119,14 +119,14 @@ p {
 }
 
 .footer-link {
-  color: #aaa;
+  color: rgba(253,248,242,0.6);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s;
 }
 
 .footer-link:hover {
-  color: white;
+  color: #FDF8F2;
 }
 
 .hamburger {
