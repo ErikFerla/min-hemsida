@@ -8,9 +8,9 @@ const inter = Inter({ subsets: ['latin'] });
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
 
 export const metadata: Metadata = {
-  title: 'Mymallorca.se ñ Din personliga guide till Mallorcas b‰sta hemligheter',
-  description: 'Din personliga guide till Mallorcas b‰sta hemligheter pÂ svenska. Str‰nder, mat, golf, sev‰rdheter och insider-tips frÂn en som kan ˆn utan och innan.',
-  keywords: 'Mallorca, reseguide, str‰nder, restauranger, golf, aktiviteter, Palma',
+  title: 'Mymallorca.se ‚Äì Din personliga guide till Mallorcas b√§sta hemligheter',
+  description: 'Din personliga guide till Mallorcas b√§sta hemligheter p√• svenska. Str√§nder, mat, golf, sev√§rdheter och insider-tips fr√•n en som kan √∂n utan och innan.',
+  keywords: 'Mallorca, reseguide, str√§nder, restauranger, golf, aktiviteter, Palma',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -24,14 +24,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
         <footer style={{ background: '#2C2018', color: 'white', padding: '0 0 0' }}>
 
-          {/* Mobilsnabbval ovanfˆr footer ñ visas bara pÂ mobil */}
+          {/* Mobilsnabbval ovanf√∂r footer ‚Äì visas bara p√• mobil */}
           <div className="footer-mobile-quicklinks">
             {[
-              { text: '??? Str‰nder', href: '/strandar' },
-              { text: '??? St‰der', href: '/byar' },
-              { text: '??? Planera resan', href: '/kontakt' },
-              { text: '?? V‰der', href: '/vader' },
-              { text: '?? Evenemang', href: '/evenemang' },
+              { text: 'üèñÔ∏è Str√§nder', href: '/strandar' },
+              { text: 'üèôÔ∏è St√§der', href: '/byar' },
+              { text: 'üó∫Ô∏è Planera resan', href: '/kontakt' },
+              { text: '‚òÄÔ∏è V√§der', href: '/vader' },
+              { text: 'üéâ Evenemang', href: '/evenemang' },
             ].map(({ text, href }) => (
               <a key={href} href={href} className="footer-mobile-quicklink">{text}</a>
             ))}
@@ -41,41 +41,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '48px' }} className="footer-desktop-grid">
               <div>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#FDF8F2' }}>DIN GUIDE P≈ MALLORCA ??</h3>
-                <p style={{ color: 'rgba(253,248,242,0.6)', fontSize: '0.9rem', lineHeight: '1.7' }}>Din kompletta guide till Mallorca pÂ svenska. Insider-tips, str‰nder, mat, golf och mycket mer.</p>
+                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#FDF8F2' }}>DIN GUIDE P√Ö MALLORCA üå¥</h3>
+                <p style={{ color: 'rgba(253,248,242,0.6)', fontSize: '0.9rem', lineHeight: '1.7' }}>Din kompletta guide till Mallorca p√• svenska. Insider-tips, str√§nder, mat, golf och mycket mer.</p>
               </div>
               <div>
                 <h4 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#F59E0B' }}>UTFORSKA</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {[['St‰der & Byar', '/byar'], ['Str‰nder', '/strandar'], ['Sev‰rdheter', '/sevardheter'], ['Mat & Vin', '/mat'], ['Barnv‰nligt', '/barn']].map(([text, href]) => (
+                  {[['St√§der & Byar', '/byar'], ['Str√§nder', '/strandar'], ['Sev√§rdheter', '/sevardheter'], ['Mat & Vin', '/mat'], ['Barnv√§nligt', '/barn']].map(([text, href]) => (
                     <a key={href} href={href} className="footer-link">{text}</a>
                   ))}
                 </div>
               </div>
               <div>
-                <h4 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#F59E0B' }}>POPULƒRT</h4>
+                <h4 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#F59E0B' }}>POPUL√ÑRT</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {[['V‰der', '/vader'], ['Evenemang', '/evenemang'], ['Sev‰rdheter', '/sevardheter'], ['Planera din resa', '/kontakt'], ['Se alla str‰nder', '/strandar']].map(([text, href]) => (
+                  {[['V√§der', '/vader'], ['Evenemang', '/evenemang'], ['Sev√§rdheter', '/sevardheter'], ['Planera din resa', '/kontakt'], ['Se alla str√§nder', '/strandar']].map(([text, href]) => (
                     <a key={text} href={href} className="footer-link">{text}</a>
                   ))}
                 </div>
               </div>
               <div>
-                <h4 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#F59E0B' }}>STƒDER</h4>
+                <h4 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', marginBottom: '16px', color: '#F59E0B' }}>ST√ÑDER</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {[['Palma de Mallorca', '/palma-de-mallorca'], ['SÛller', '/soller'], ['Porto Colom', '/porto-colom'], ['SantanyÌ', '/santanyi'], ['Se alla st‰der', '/byar']].map(([text, href]) => (
+                  {[['Palma de Mallorca', '/palma-de-mallorca'], ['S√≥ller', '/soller'], ['Porto Colom', '/porto-colom'], ['Santany√≠', '/santanyi'], ['Se alla st√§der', '/byar']].map(([text, href]) => (
                     <a key={href} href={href} className="footer-link">{text}</a>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Mobilaccordion ñ visas bara pÂ mobil */}
+            {/* Mobilaccordion ‚Äì visas bara p√• mobil */}
             <FooterAccordion />
 
             <div style={{ borderTop: '1px solid rgba(253,248,242,0.15)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-              <p style={{ color: 'rgba(253,248,242,0.35)', fontSize: '0.85rem', margin: 0 }}>© 2026 mymallorca.se ñ Din guide till Mallorca</p>
-              <p style={{ color: 'rgba(253,248,242,0.35)', fontSize: '0.85rem', margin: 0 }}>Med ?? frÂn Mallorca</p>
+              <p style={{ color: 'rgba(253,248,242,0.35)', fontSize: '0.85rem', margin: 0 }}>¬© 2026 mymallorca.se ‚Äì Din guide till Mallorca</p>
+              <p style={{ color: 'rgba(253,248,242,0.35)', fontSize: '0.85rem', margin: 0 }}>Med ‚ù§Ô∏è fr√•n Mallorca</p>
             </div>
           </div>
         </footer>

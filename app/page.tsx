@@ -65,7 +65,7 @@ export default function Home() {
         <div className="mobile-order-6"><SectionEvents /></div>
         <div className="mobile-order-5">
         <section className="section-black">
-          <Carousel title="Hitta smultronen som bara \"locals\" känner till" label="DESTINATIONER">
+          <Carousel title={'Hitta smultronen som bara "locals" känner till'} label="DESTINATIONER">
             {[
               { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
               { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80' },
