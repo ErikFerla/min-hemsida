@@ -376,3 +376,99 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   MOBILANPASSAD TYPOGRAFI OCH LAYOUT
+   Påverkar ENDAST skärmar <= 768px
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  /* Body-text */
+  p {
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Rubriker */
+  h1 {
+    font-size: clamp(28px, 8vw, 36px) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 10px !important;
+  }
+
+  h2 {
+    font-size: clamp(22px, 6vw, 28px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 10px !important;
+    margin-top: 40px !important;
+  }
+
+  h3 {
+    font-size: clamp(18px, 5vw, 22px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 8px !important;
+    margin-top: 28px !important;
+  }
+
+  /* Section-rubriker (Bebas Neue) */
+  .section-title {
+    font-size: clamp(26px, 7vw, 32px) !important;
+    margin-bottom: 8px !important;
+  }
+
+  .section-label {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Sidmarginaler */
+  .section-inner {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Avstånd mellan sektioner */
+  section {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+
+  /* Avstånd titel till text */
+  .section-divider {
+    margin-bottom: 14px !important;
+    margin-top: 10px !important;
+  }
+
+  /* Begränsa textbredden på mobil */
+  .section-inner p,
+  .section-inner li {
+    max-width: 100% !important;
+  }
+
+  /* Kortpadding på mobil */
+  div[style*="border-radius: 16px"] > div,
+  div[style*="borderRadius: 16px"] > div {
+    padding: 16px !important;
+  }
+
+  /* Padding på innehållssidor */
+  div[style*="padding: 'clamp(30px"],
+  div[style*="maxWidth: '1400px'"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  p {
+    font-size: 15px !important;
+  }
+
+  .section-inner {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+}
