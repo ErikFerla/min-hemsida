@@ -649,3 +649,48 @@ p {
   .planner-intresse-grid button { width: 100% !important; justify-content: center !important; min-height: 52px !important; font-size: 1rem !important; padding: 14px 16px !important; }
   .planner-cta-btn { width: 100% !important; min-height: 52px !important; font-size: 1.1rem !important; padding: 16px 24px !important; border-radius: 12px !important; }
 }
+
+/* === EVENTS MOBILSLIDER === */
+.events-mobile-slider { display: none; }
+
+@media (max-width: 768px) {
+  /* Göm desktop-grid */
+  .events-desktop-grid { display: none !important; }
+
+  /* Visa mobilslider */
+  .events-mobile-slider {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    gap: 12px !important;
+    padding: 4px 16px 16px !important;
+    margin: 0 -16px !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .events-mobile-slider::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .events-mobile-card {
+    flex: 0 0 82vw !important;
+    min-width: 82vw !important;
+    scroll-snap-align: start !important;
+    background: white !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Göm vänster kolumn på mobil i events-sektionen */
+  .events-mobile-slider ~ div,
+  .events-desktop-grid ~ * { display: none !important; }
+
+  /* Gör events-sektionen mer kompakt på mobil */
+  section[style*="background: '#F5EEE4'"],
+  section[style*="background: #F5EEE4"] {
+    padding: 48px 20px !important;
+  }
+}
