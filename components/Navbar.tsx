@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const navItems = [
@@ -89,9 +89,55 @@ const navItems = [
   },
 ];
 
+function MobileMenuItem({ item, onClose }: { item: typeof navItems[0], onClose: () => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ borderBottom: '1px solid #ede5da' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '16px 24px', background: 'none', border: 'none', cursor: 'pointer',
+          fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.1em',
+          color: '#1F2937', minHeight: '44px', textAlign: 'left',
+        }}
+      >
+        {item.text}
+        <span style={{ fontSize: '0.7rem', transition: 'transform 0.2s', transform: open ? 'rotate(180deg)' : 'none', color: '#0E7490' }}>▼</span>
+      </button>
+      {open && (
+        <div style={{ background: '#F0EBE3', paddingBottom: '8px' }}>
+          {item.submenu.map(sub => (
+            <Link
+              key={sub.text}
+              href={sub.href}
+              onClick={onClose}
+              style={{
+                display: 'flex', alignItems: 'center',
+                padding: '13px 32px',
+                fontSize: '1rem', color: sub.text.includes('Se alla') || sub.text.includes('Se ') ? '#0E7490' : '#374151',
+                fontWeight: sub.text.includes('Se alla') || sub.text.includes('Se ') ? '700' : '400',
+                textDecoration: 'none', minHeight: '44px',
+                borderTop: '1px solid #e5ddd3',
+              }}
+            >
+              {sub.text}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <nav style={{ background: '#FDF8F2', borderBottom: '1px solid #ede5da', position: 'sticky', top: 0, zIndex: 1000 }}>
@@ -213,18 +259,53 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobil dropdown */}
+      {/* Mobil slide-in meny */}
       {menuOpen && (
-        <div style={{ background: '#FDF8F2', borderTop: '1px solid #ede5da', padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {navItems.map(item => (
-            <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)} style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#111', textDecoration: 'none' }}>
-              {item.text}
-            </Link>
-          ))}
-          <Link href="/kontakt" onClick={() => setMenuOpen(false)} style={{ background: '#F59E0B', color: '#1F2937', padding: '12px 20px', borderRadius: '6px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', textDecoration: 'none', textAlign: 'center' }}>
-            PLANERA DIN RESA
-          </Link>
-        </div>
+        <>
+          {/* Overlay bakom menyn */}
+          <div
+            onClick={() => setMenuOpen(false)}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 999 }}
+          />
+          {/* Slide-in meny */}
+          <div style={{
+            position: 'fixed', top: 0, left: 0, width: '85%', maxWidth: '360px',
+            height: '100vh', background: '#FDF8F2', zIndex: 1000,
+            overflowY: 'auto', display: 'flex', flexDirection: 'column',
+            boxShadow: '4px 0 24px rgba(0,0,0,0.15)',
+          }}>
+            {/* Menyheader */}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '20px 24px', borderBottom: '1px solid #ede5da' }}>
+              <a href="/" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#0E7490" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                  <circle cx="28" cy="10" r="3" fill="#F59E0B"/>
+                </svg>
+                <span style={{ fontFamily: 'Georgia, serif', fontSize: '16px', fontWeight: '700', color: '#1F2937' }}>MyMallorca</span>
+              </a>
+              <button onClick={() => setMenuOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '24px', color: '#555', padding: '4px' }}>✕</button>
+            </div>
+
+            {/* CTA knapp */}
+            <div style={{ padding: '16px 24px', borderBottom: '1px solid #ede5da' }}>
+              <Link href="/kontakt" onClick={() => setMenuOpen(false)} style={{
+                display: 'block', textAlign: 'center', padding: '14px 20px',
+                background: '#F59E0B', color: '#1F2937', borderRadius: '8px',
+                fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem',
+                letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700',
+              }}>
+                PLANERA DIN RESA
+              </Link>
+            </div>
+
+            {/* Accordion-meny */}
+            <div style={{ flex: 1, padding: '8px 0' }}>
+              {navItems.map(item => (
+                <MobileMenuItem key={item.text} item={item} onClose={() => setMenuOpen(false)} />
+              ))}
+            </div>
+          </div>
+        </>
       )}
     </nav>
   );

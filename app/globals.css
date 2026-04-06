@@ -129,6 +129,11 @@ p {
   color: #FDF8F2;
 }
 
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .hamburger { display: flex !important; }
+}
+
 .hamburger {
   display: none;
 }
