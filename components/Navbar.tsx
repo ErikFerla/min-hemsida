@@ -265,12 +265,12 @@ export default function Navbar() {
           {/* Overlay bakom menyn */}
           <div
             onClick={() => setMenuOpen(false)}
-            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 999 }}
+            style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 9998 }}
           />
           {/* Slide-in meny */}
           <div style={{
             position: 'fixed', top: 0, left: 0, width: '85%', maxWidth: '360px',
-            height: '100vh', background: '#FDF8F2', zIndex: 1000,
+            height: '100vh', background: '#FDF8F2', zIndex: 9999,
             overflowY: 'auto', display: 'flex', flexDirection: 'column',
             boxShadow: '4px 0 24px rgba(0,0,0,0.15)',
           }}>
