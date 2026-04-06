@@ -1,6 +1,6 @@
 ﻿.carousel { padding: 40px 0; }
 .carouselHeader { display: flex; justify-content: space-between; align-items: center; padding: 0 60px; margin-bottom: 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
-.carouselTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--fg); letter-spacing: 0.05em; margin: 0; }
+.carouselTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: #1F2937; letter-spacing: 0.05em; margin: 0; }
 .arrows { display: flex; gap: 10px; }
 .arrow { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #ede5da; background: #FDF8F2; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--fg); transition: all 0.2s; }
 .arrow:hover { background: #c60b1e; color: white; border-color: #c60b1e; }
