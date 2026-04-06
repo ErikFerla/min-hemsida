@@ -22,6 +22,19 @@
               <li>Köp färska apelsiner direkt från en bonde längs vägen in i byn</li>
               <li>Vandringen till Biniaraix – 45 min – är en av öns bästa korta leder</li>
             </ul>
+            <div style={{ marginTop: '32px', marginBottom: '32px' }}>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Sóller</h2>
+              {[
+                { icon: '⭐', text: 'Historiska spårvagnen ner till Port de Sóller – åk tur och retur' },
+                { icon: '🏛️', text: 'Apelsinlundarna – köp färskpressad juice direkt från bönderna' },
+                { icon: '📍', text: 'Firó-festivalen i maj – unikt historiskt skådespäl på gatorna' },
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
+                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>

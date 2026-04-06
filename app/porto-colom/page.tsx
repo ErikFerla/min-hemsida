@@ -26,6 +26,19 @@ export default function PortoColom() {
               <li>Bästa solnädgången ses från klipporna vid Calo de Sa Barca Trencada</li>
               <li>Parkera vid kyrkan – parkeringen vid hamnen är alltid full</li>
             </ul>
+            <div style={{ marginTop: '32px', marginBottom: '32px' }}>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Porto Colom</h2>
+              {[
+                { icon: '⭐', text: 'Naturhamnen – en av Mallorcas vackraste, perfekt för kvällspromenad' },
+                { icon: '🏛️', text: 'Färsk fisk från fiskarna vid hamnen – kom kl 7–8 på morgonen' },
+                { icon: '📍', text: 'Cala Marçal – fin sandstrand precis utanför byn' },
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
+                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>

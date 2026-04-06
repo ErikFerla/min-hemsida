@@ -22,6 +22,19 @@
               <li>Hyra en el-scooter och kör längs paseo marítimo i solnedgången</li>
               <li>Mercat de l'Olivar är bäst på fredags- och lördagsmorgon för färska råvaror</li>
             </ul>
+            <div style={{ marginTop: '32px', marginBottom: '32px' }}>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Palma</h2>
+              {[
+                { icon: '⭐', text: 'La Seu-katedralen – gå dit innan kl 10 för gratis entré och bästa ljuset' },
+                { icon: '🏛️', text: 'Gamla stan (Casc Antic) – gå vilse i gränderna och hitta dolda barer' },
+                { icon: '📍', text: 'Bellver Slott – bästa utsikten över Palma, kom vid solnedgång' },
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
+                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
+                </div>
+              ))}
+            </div>
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
