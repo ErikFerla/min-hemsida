@@ -169,6 +169,10 @@ export default function SectionPlanner() {
     cursor: 'pointer',
     fontSize: '0.95rem',
     transition: 'all 0.2s',
+    minHeight: '48px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
   });
 
   return (
@@ -183,7 +187,7 @@ export default function SectionPlanner() {
 
         <div style={{ marginBottom: '32px' }}>
           <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Hur länge reser du?</p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div className="planner-dag-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {dagval.map(d => (
               <button key={d} onClick={() => { setDagar(d); setVisar(false); }} style={knappStyle(dagar === d)}>
                 {d} dagar
@@ -194,7 +198,7 @@ export default function SectionPlanner() {
 
         <div style={{ marginBottom: '40px' }}>
           <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Vad intresserar dig? (välj flera)</p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div className="planner-intresse-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {intresseVal.map(i => (
               <button key={i} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
                 {intressenIkon[i]} {i}
@@ -204,12 +208,13 @@ export default function SectionPlanner() {
         </div>
 
         <button
+          className="planner-cta-btn"
           onClick={genereraResplan}
           disabled={!dagar || intressen.length === 0}
           style={{
             padding: '14px 40px',
-            background: dagar && intressen.length > 0 ? '#c0392b' : '#d4c8bb',
-            color: 'white',
+            background: dagar && intressen.length > 0 ? '#F59E0B' : '#d4c8bb',
+            color: dagar && intressen.length > 0 ? '#1F2937' : '#888',
             border: 'none',
             borderRadius: '8px',
             fontSize: '1.1rem',
@@ -217,6 +222,7 @@ export default function SectionPlanner() {
             cursor: dagar && intressen.length > 0 ? 'pointer' : 'not-allowed',
             letterSpacing: '-0.01em',
             transition: 'all 0.2s',
+            minHeight: '52px',
           }}
         >
           Skapa min resplan →
@@ -229,7 +235,7 @@ export default function SectionPlanner() {
             </h3>
             {resplan.map((dag, i) => (
               <div key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
-                <div style={{ minWidth: '36px', height: '36px', background: '#111', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
+                <div style={{ minWidth: '36px', height: '36px', background: '#0E7490', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
                   {i + 1}
                 </div>
                 <div style={{ paddingTop: '6px' }}>
