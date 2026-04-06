@@ -13,7 +13,7 @@ export default function Home() {
     <div className={styles.page}>
       <HeroSlideshow />
       <div className={styles.container}>
-        <section className="section-light">
+        <section className="section-light desktop-intro">
           <div className="section-inner">
             <p className="section-label">DIN PERSONLIGA GUIDE</p>
             <h2 className="section-title">Mallorca</h2>

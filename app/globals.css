@@ -132,6 +132,7 @@ p {
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .hamburger { display: flex !important; }
+  .desktop-intro { display: none; }
 }
 
 .hamburger {

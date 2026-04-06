@@ -35,7 +35,7 @@ export default function HeroSlideshow() {
     }}>
       🌴 Din personliga guide till Mallorcas bästa hemligheter – på svenska
     </div>
-    <div style={{ position: 'relative', width: '100%', height: '90vh', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', height: 'clamp(50vh, 90vh, 90vh)', overflow: 'hidden' }}>
       {bilder.map((bild, i) => (
         <div key={i} style={{
           position: 'absolute', inset: 0,
@@ -51,17 +51,28 @@ export default function HeroSlideshow() {
         background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)',
       }} />
       <div style={{
-        position: 'absolute', bottom: 'clamp(24px, 5vw, 80px)', left: 'clamp(20px, 5vw, 80px)', color: 'white',
+        position: 'absolute',
+        bottom: 'clamp(20px, 5vw, 80px)',
+        left: 'clamp(20px, 5vw, 80px)',
+        right: 'clamp(20px, 5vw, 80px)',
+        color: 'white',
+        maxWidth: '700px',
       }}>
-        <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
+        <p style={{
+          fontSize: 'clamp(0.7rem, 1.5vw, 0.9rem)',
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase',
+          marginBottom: '8px',
+          opacity: 0.8,
+        }}>
           {bilder[aktiv].plats}
         </p>
         <h1 style={{
-          fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif',
+          fontFamily: '"Bebas Neue", sans-serif',
           fontSize: 'clamp(2rem, 8vw, 5rem)',
           fontWeight: '400',
           letterSpacing: '0.05em',
-          margin: 0,
+          margin: '0 0 8px',
           lineHeight: 1,
           textShadow: '0 2px 20px rgba(0,0,0,0.3)',
         }}>
@@ -69,16 +80,51 @@ export default function HeroSlideshow() {
         </h1>
         <p style={{
           fontSize: 'clamp(0.85rem, 2vw, 1rem)',
-          marginTop: '12px',
+          marginTop: '8px',
+          marginBottom: '20px',
           opacity: 0.85,
           fontWeight: '400',
-          letterSpacing: '0.05em',
+          letterSpacing: '0.03em',
+          maxWidth: '480px',
         }}>
           Din personliga guide till Mallorcas bästa hemligheter
         </p>
+        {/* CTA-knappar – visas alltid men extra viktiga på mobil */}
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <a href="/kontakt" style={{
+            display: 'inline-block',
+            padding: 'clamp(10px, 2vw, 14px) clamp(20px, 3vw, 32px)',
+            background: '#F59E0B',
+            color: '#1F2937',
+            borderRadius: '8px',
+            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+            letterSpacing: '0.1em',
+            textDecoration: 'none',
+            fontWeight: '700',
+          }}>
+            PLANERA DIN RESA
+          </a>
+          <a href="/strandar" style={{
+            display: 'inline-block',
+            padding: 'clamp(10px, 2vw, 14px) clamp(20px, 3vw, 32px)',
+            background: 'rgba(255,255,255,0.2)',
+            color: 'white',
+            border: '2px solid rgba(255,255,255,0.7)',
+            borderRadius: '8px',
+            fontFamily: '"Bebas Neue", sans-serif',
+            fontSize: 'clamp(1rem, 2vw, 1.15rem)',
+            letterSpacing: '0.1em',
+            textDecoration: 'none',
+            backdropFilter: 'blur(4px)',
+          }}>
+            SE BÄSTA STRÄNDERNA
+          </a>
+        </div>
       </div>
       <div style={{
-        position: 'absolute', bottom: '40px', left: '80px',
+        position: 'absolute', bottom: 'clamp(12px, 2vw, 20px)', left: '50%',
+        transform: 'translateX(-50%)',
         display: 'flex', gap: '8px',
       }}>
         {bilder.map((_, i) => (
