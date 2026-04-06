@@ -2,21 +2,21 @@
 import { useState } from 'react';
 
 const vingårdar = [
-  { namn: 'Bodega Binigrau', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
-  { namn: 'José L. Ferrer', plats: 'Binissalem', info: 'Mallorcas äldsta och mest välkända vingård', vin: 'Prova: Veritas Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 9–19, Sön 10–14', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Jose+Luis+Ferrer+Binissalem+Mallorca' },
-  { namn: 'Bodega Ribas', plats: 'Consell', info: 'Familjedriven vingård sedan 1711', vin: 'Prova: Ribas de Cabrera', prisklass: '💰💰💰', öppet: 'Mån–Fre 9–17', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Ribas+Consell+Mallorca' },
-  { namn: 'Ànima Negra', plats: 'Felanitx', info: 'Producerar öns mest hyllade rödviner', vin: 'Prova: ÀN/2', prisklass: '💰💰💰', öppet: 'Endast med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Anima+Negra+Felanitx+Mallorca' },
-  { namn: 'Can Majoral', plats: 'Algaida', info: 'Ekologisk vingård med unik terroar', vin: 'Prova: Entel', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Majoral+Algaida+Mallorca' },
-  { namn: 'Vinya Taujana', plats: 'Santa Eugènia', info: 'Liten boutique-vingård', vin: 'Prova: Taujana Rosat', prisklass: '💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Vinya+Taujana+Santa+Eugenia+Mallorca' },
-  { namn: 'Miquel Gelabert', plats: 'Manacor', info: 'Prisbelönt hantverksvingård', vin: 'Prova: Torrent Negre', prisklass: '💰💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Miquel+Gelabert+Manacor+Mallorca' },
-  { namn: 'Son Bordils', plats: 'Inca', info: 'Vackert gods med ekologisk produktion', vin: 'Prova: Son Bordils Blanc', prisklass: '💰💰', öppet: 'Mån–Fre 9–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Bordils+Inca+Mallorca' },
-  { namn: 'Bodegas Macià Batle', plats: 'Santa Maria', info: 'En av öns största producenter', vin: 'Prova: Anni Blanc de Blancs', prisklass: '💰💰', öppet: 'Mån–Lör 9–19, Sön 10–14', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Bodegas+Macia+Batle+Santa+Maria+Mallorca' },
-  { namn: 'Can Vidalet', plats: 'Llubí', info: 'Ekologisk, internationellt prisad', vin: 'Prova: Petit Fangar', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Vidalet+Llubi+Mallorca' },
-  { namn: 'Son Prim', plats: 'Sencelles', info: 'Fokus på inhemska druvor', vin: 'Prova: Son Prim Merlot', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Prim+Sencelles+Mallorca' },
-  { namn: 'Celler Tianna Negre', plats: 'Binissalem', info: 'Modern och innovativ', vin: 'Prova: Ses Nines Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Celler+Tianna+Negre+Binissalem+Mallorca' },
-  { namn: 'Son Sureda Rica', plats: 'Manacor', info: 'Liten och exklusiv', vin: 'Prova: Son Sureda Blanc', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Sureda+Rica+Manacor+Mallorca' },
-  { namn: 'Bodega Can Coleto', plats: 'Llucmajor', info: 'Familjegods med fantastisk utsikt', vin: 'Prova: Can Coleto Negre', prisklass: '💰💰', öppet: 'Mån–Lör 10–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Can+Coleto+Llucmajor+Mallorca' },
-  { namn: 'Vins Nadal', plats: 'Binissalem', info: 'Traditionell familjevingård sedan 1944', vin: 'Prova: Nadal Rosat', prisklass: '💰', öppet: 'Mån–Lör 9–18', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
+  { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
+  { namn: 'José L. Ferrer', web: 'https://www.vinosferrer.com', plats: 'Binissalem', info: 'Mallorcas äldsta och mest välkända vingård', vin: 'Prova: Veritas Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 9–19, Sön 10–14', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Jose+Luis+Ferrer+Binissalem+Mallorca' },
+  { namn: 'Bodega Ribas', web: 'https://www.bodegasribas.com', plats: 'Consell', info: 'Familjedriven vingård sedan 1711', vin: 'Prova: Ribas de Cabrera', prisklass: '💰💰💰', öppet: 'Mån–Fre 9–17', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Ribas+Consell+Mallorca' },
+  { namn: 'Ànima Negra', web: 'https://www.animanegra.com', plats: 'Felanitx', info: 'Producerar öns mest hyllade rödviner', vin: 'Prova: ÀN/2', prisklass: '💰💰💰', öppet: 'Endast med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Anima+Negra+Felanitx+Mallorca' },
+  { namn: 'Can Majoral', web: 'https://www.canmajoral.com', plats: 'Algaida', info: 'Ekologisk vingård med unik terroar', vin: 'Prova: Entel', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Majoral+Algaida+Mallorca' },
+  { namn: 'Vinya Taujana', web: 'https://www.vinyataujana.com', plats: 'Santa Eugènia', info: 'Liten boutique-vingård', vin: 'Prova: Taujana Rosat', prisklass: '💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Vinya+Taujana+Santa+Eugenia+Mallorca' },
+  { namn: 'Miquel Gelabert', web: 'https://www.miquelgelabert.com', plats: 'Manacor', info: 'Prisbelönt hantverksvingård', vin: 'Prova: Torrent Negre', prisklass: '💰💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Miquel+Gelabert+Manacor+Mallorca' },
+  { namn: 'Son Bordils', web: 'https://www.sonbordils.es', plats: 'Inca', info: 'Vackert gods med ekologisk produktion', vin: 'Prova: Son Bordils Blanc', prisklass: '💰💰', öppet: 'Mån–Fre 9–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Bordils+Inca+Mallorca' },
+  { namn: 'Bodegas Macià Batle', web: 'https://www.maciabatle.com', plats: 'Santa Maria', info: 'En av öns största producenter', vin: 'Prova: Anni Blanc de Blancs', prisklass: '💰💰', öppet: 'Mån–Lör 9–19, Sön 10–14', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Bodegas+Macia+Batle+Santa+Maria+Mallorca' },
+  { namn: 'Can Vidalet', web: 'https://www.canvidalet.com', plats: 'Llubí', info: 'Ekologisk, internationellt prisad', vin: 'Prova: Petit Fangar', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Vidalet+Llubi+Mallorca' },
+  { namn: 'Son Prim', web: 'https://www.sonprim.com', plats: 'Sencelles', info: 'Fokus på inhemska druvor', vin: 'Prova: Son Prim Merlot', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Prim+Sencelles+Mallorca' },
+  { namn: 'Celler Tianna Negre', web: 'https://www.tiannanegre.com', plats: 'Binissalem', info: 'Modern och innovativ', vin: 'Prova: Ses Nines Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Celler+Tianna+Negre+Binissalem+Mallorca' },
+  { namn: 'Son Sureda Rica', web: 'https://www.sonsurecirica.com', plats: 'Manacor', info: 'Liten och exklusiv', vin: 'Prova: Son Sureda Blanc', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Sureda+Rica+Manacor+Mallorca' },
+  { namn: 'Bodega Can Coleto', web: 'https://www.cancoleto.com', plats: 'Llucmajor', info: 'Familjegods med fantastisk utsikt', vin: 'Prova: Can Coleto Negre', prisklass: '💰💰', öppet: 'Mån–Lör 10–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Can+Coleto+Llucmajor+Mallorca' },
+  { namn: 'Vins Nadal', web: 'https://www.vinsnadal.com', plats: 'Binissalem', info: 'Traditionell familjevingård sedan 1944', vin: 'Prova: Nadal Rosat', prisklass: '💰', öppet: 'Mån–Lör 9–18', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
 ];
 
 const restauranger = [
@@ -56,7 +56,7 @@ export default function MatPage() {
   const [filter, setFilter] = useState('Alla');
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
   const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
-  const kort = { background: '#FDF8F2', borderRadius: '12px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.2s ease, box-shadow 0.2s ease' } as React.CSSProperties;
+  const kort = { background: 'white', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.2s ease, box-shadow 0.2s ease' } as React.CSSProperties;
   const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' } as React.CSSProperties;
   const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
   return (
@@ -76,26 +76,33 @@ export default function MatPage() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', marginBottom: '24px', color: '#0E7490' }}>🍷 Bästa vingårdarna</h2>
+        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginTop: '0', marginBottom: '24px', color: '#0E7490' }}>🍷 Bästa vingårdarna</h2>
         <div style={grid}>
           {vingårdar.map((v, i) => (
-            <div key={i} style={kort}>
+            <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <img src={v.bild} alt={v.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ color: '#0E7490', fontWeight: 'bold', fontSize: '0.8rem' }}>#{i + 1}</span>
                   <span>{v.prisklass}</span>
                 </div>
-                <h3 style={{ fontFamily: 'serif', margin: '0 0 2px' }}>{v.namn}</h3>
+                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', margin: '0 0 2px' }}>{v.namn}</h3>
                 <div style={{ color: '#888', fontSize: '0.8rem', marginBottom: '6px' }}>📍 {v.plats} · ⏰ {v.öppet}</div>
                 <p style={{ fontSize: '0.9rem', color: '#555', margin: '0 0 4px' }}>{v.info}</p>
                 <p style={{ fontSize: '0.85rem', color: '#0E7490', fontStyle: 'italic', margin: '0 0 8px' }}>🍾 {v.vin}</p>
-                <a href={v.maps} target="_blank" rel="noopener noreferrer" style={knapp}>Visa på karta</a>
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '12px' }}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '6px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' }}>Visa på karta</a>
+                  {v.web && (
+                    <a href={v.web} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '6px 14px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' }}>
+                      Hemsida →
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}
         </div>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#0E7490' }}>🍽️ Topp 30 restauranger</h2>
+        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginTop: '80px', marginBottom: '16px', color: '#0E7490' }}>🍽️ Topp 30 restauranger</h2>
         <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
           {kategorier.map(k => (
             <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #0E7490', background: filter === k ? '#0E7490' : '#FDF8F2', color: filter === k ? 'white' : '#0E7490', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
@@ -105,14 +112,14 @@ export default function MatPage() {
         </div>
         <div style={grid}>
           {filtreradeLista.map((r, i) => (
-            <div key={i} style={kort}>
+            <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <img src={r.bild} alt={r.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ background: '#0E7490', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold' }}>{r.kategori}</span>
                   <span>{r.prisklass}</span>
                 </div>
-                <h3 style={{ fontFamily: 'serif', margin: '8px 0 2px' }}>{r.namn}</h3>
+                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', margin: '8px 0 2px' }}>{r.namn}</h3>
                 <div style={{ color: '#888', fontSize: '0.8rem', marginBottom: '6px' }}>📍 {r.plats} · ⏰ {r.öppet}</div>
                 <p style={{ fontSize: '0.9rem', color: '#555', margin: '0 0 8px' }}>{r.info}</p>
                 <a href={r.maps} target="_blank" rel="noopener noreferrer" style={knapp}>Visa på karta</a>
@@ -120,7 +127,7 @@ export default function MatPage() {
             </div>
           ))}
         </div>
-        <h2 style={{ fontFamily: 'serif', fontSize: '2rem', margin: '60px 0 16px', color: '#0E7490' }}>🗺️ Utforska Mallorca</h2>
+        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '60px 0 16px', color: '#0E7490' }}>🗺️ Utforska Mallorca</h2>
         <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
           <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%' }} />
         </div>
