@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#111111' }}>
         <Navbar />
-        <main>{children}</main>
+        <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
         <footer style={{ background: '#2C2018', color: 'white', padding: '0 0 0' }}>
 
           {/* Mobilsnabbval ovanför footer – visas bara på mobil */}

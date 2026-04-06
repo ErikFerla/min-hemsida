@@ -141,7 +141,7 @@ export default function Navbar() {
 
   return (
     <nav style={{ background: '#FDF8F2', borderBottom: '1px solid #ede5da', position: 'sticky', top: 0, zIndex: 1000 }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 40px)', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', boxSizing: 'border-box' }}>
 
         {/* Logo */}
         <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
