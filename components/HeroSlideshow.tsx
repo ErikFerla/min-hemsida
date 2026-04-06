@@ -90,7 +90,7 @@ export default function HeroSlideshow() {
           Din personliga guide till Mallorcas bästa hemligheter
         </p>
         {/* CTA-knappar – visas alltid men extra viktiga på mobil */}
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        <div className="mobile-cta-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <a href="/kontakt" style={{
             display: 'inline-block',
             padding: 'clamp(10px, 2vw, 14px) clamp(20px, 3vw, 32px)',
