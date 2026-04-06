@@ -12,13 +12,35 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSlideshow />
-      <div className="mobile-quicknav">
-        <a href="/strandar" className="mobile-quicknav-item">🏖️<span>Stränder</span></a>
-        <a href="/byar" className="mobile-quicknav-item">🏙️<span>Städer</span></a>
-        <a href="/mat" className="mobile-quicknav-item">🍷<span>Mat &amp; Vin</span></a>
-        <a href="/aktiviteter" className="mobile-quicknav-item">⛳<span>Aktiviteter</span></a>
-        <a href="/vader" className="mobile-quicknav-item">☀️<span>Väder</span></a>
-        <a href="/evenemang" className="mobile-quicknav-item">🎉<span>Evenemang</span></a>
+      <div className="mobile-quicklinks">
+        <a href="/strandar" className="mobile-quicklink-card">
+          <span className="mobile-quicklink-icon">🏖️</span>
+          <div>
+            <div className="mobile-quicklink-title">Bästa stränderna</div>
+            <div className="mobile-quicklink-desc">30 utvalda stränder på Mallorca</div>
+          </div>
+        </a>
+        <a href="/byar" className="mobile-quicklink-card">
+          <span className="mobile-quicklink-icon">🏙️</span>
+          <div>
+            <div className="mobile-quicklink-title">Städer &amp; byar</div>
+            <div className="mobile-quicklink-desc">18 destinationer runt hela ön</div>
+          </div>
+        </a>
+        <a href="/kontakt" className="mobile-quicklink-card">
+          <span className="mobile-quicklink-icon">🗺️</span>
+          <div>
+            <div className="mobile-quicklink-title">Planera din resa</div>
+            <div className="mobile-quicklink-desc">Få personlig hjälp och tips</div>
+          </div>
+        </a>
+        <a href="/evenemang" className="mobile-quicklink-card">
+          <span className="mobile-quicklink-icon">🎉</span>
+          <div>
+            <div className="mobile-quicklink-title">Evenemang</div>
+            <div className="mobile-quicklink-desc">60 evenemang under 2026</div>
+          </div>
+        </a>
       </div>
       <div className={styles.container}>
         <section className="section-light desktop-intro">

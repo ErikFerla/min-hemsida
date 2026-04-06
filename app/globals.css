@@ -132,6 +132,11 @@ p {
 /* === MOBILORDNING STARTSIDAN === */
 .mobile-quicknav { display: none; }
 
+/* === MOBIL SNABBVAL === */
+.mobile-quicklinks {
+  display: none;
+}
+
 /* Visa CTA-knappar i hero endast på mobil */
 .mobile-cta-buttons { display: none !important; }
 
@@ -140,6 +145,54 @@ p {
   .hamburger { display: flex !important; }
   .desktop-intro { display: none; }
   .mobile-cta-buttons { display: flex !important; gap: 12px; flex-wrap: wrap; }
+
+  /* Snabbval kort */
+  .mobile-quicklinks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+    background: #FDF8F2;
+  }
+
+  .mobile-quicklink-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border: 1px solid #ede5da;
+    transition: transform 0.15s ease;
+    min-height: 44px;
+  }
+
+  .mobile-quicklink-card:active {
+    transform: scale(0.97);
+    background: #F0EBE3;
+  }
+
+  .mobile-quicklink-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .mobile-quicklink-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    color: #1F2937;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .mobile-quicklink-desc {
+    font-size: 0.72rem;
+    color: #888;
+    line-height: 1.4;
+  }
 
   /* Snabbval */
   .mobile-quicknav {
@@ -316,4 +369,10 @@ p {
 .card-hover:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 35px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 380px) {
+  .mobile-quicklinks {
+    grid-template-columns: 1fr;
+  }
 }
