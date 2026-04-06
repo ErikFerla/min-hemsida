@@ -472,3 +472,39 @@ p {
     padding-right: 14px !important;
   }
 }
+
+@media (max-width: 768px) {
+  /* Inline-style override för kortbeskrivningar */
+  [style*="fontSize: '0.9rem'"],
+  [style*="fontSize: '0.88rem'"],
+  [style*="font-size: 0.9rem"],
+  [style*="font-size: 0.88rem"] {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Sektionspadding på innehållssidor */
+  [style*="maxWidth: '1400px'"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  [style*="max-width: 1400px"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Kortpadding */
+  [style*="padding: '22px'"],
+  [style*="padding: 22px"] {
+    padding: 16px !important;
+  }
+
+  /* Avstånd mellan sektioner på innehållssidor */
+  [style*="padding: 'clamp(30px"] {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
