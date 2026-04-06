@@ -133,13 +133,13 @@ p {
 .mobile-quicknav { display: none; }
 
 /* Visa CTA-knappar i hero endast på mobil */
-.mobile-cta-buttons { display: none; }
+.mobile-cta-buttons { display: none !important; }
 
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .hamburger { display: flex !important; }
   .desktop-intro { display: none; }
-  .mobile-cta-buttons { display: flex !important; }
+  .mobile-cta-buttons { display: flex !important; gap: 12px; flex-wrap: wrap; }
 
   /* Snabbval */
   .mobile-quicknav {
