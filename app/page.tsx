@@ -11,6 +11,7 @@ import SectionEvents from './components/SectionEvents';
 export default function Home() {
   return (
     <div className={styles.page}>
+      {/* Updated: carousel title and section-black color */}
       <HeroSlideshow />
       <div className="mobile-quicklinks">
         <a href="/strandar" className="mobile-quicklink-card">
