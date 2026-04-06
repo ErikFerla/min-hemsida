@@ -98,11 +98,20 @@ export default function Navbar() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 40px', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', color: '#111' }}>
-            DIN GUIDE PÅ MALLORCA 🌴
-          </span>
-        </Link>
+        <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#0E7490" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+            <circle cx="28" cy="10" r="3" fill="#F59E0B"/>
+          </svg>
+          <div>
+            <div style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: '700', color: '#1F2937', letterSpacing: '0.02em', lineHeight: '1' }}>
+              MyMallorca
+            </div>
+            <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
+              Din guide på ön
+            </div>
+          </div>
+        </a>
 
         {/* Desktop meny */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }} className="desktop-nav">
