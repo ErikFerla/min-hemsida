@@ -1,66 +1,117 @@
+'use client';
+import { useState } from 'react';
 import styles from '../page.module.css';
 
+const säsonger = [
+  {
+    emoji: '🌸',
+    namn: 'Våren',
+    månader: 'Mars – Maj',
+    färg: '#a8e6a3',
+    textFärg: '#1a5c1a',
+    fördelar: ['Mandelblomning i februari', 'Perfekt för vandring i Tramuntana', 'Få turister och lägre priser', 'Behagliga 18–22 grader'],
+    nackdel: 'Lite kyligt för bad',
+    bästFör: 'Natur & vandring',
+    borderColor: '#a8e6a3',
+  },
+  {
+    emoji: '☀️',
+    namn: 'Sommaren',
+    månader: 'Juni – Augusti',
+    färg: '#ffc400',
+    textFärg: '#5c3d00',
+    fördelar: ['28–32 grader, garanterat sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
+    nackdel: 'Mest turister och högsta priser',
+    bästFör: 'Bad & nöjesliv',
+    borderColor: '#ffc400',
+  },
+  {
+    emoji: '🍂',
+    namn: 'Hösten',
+    månader: 'September – November',
+    färg: '#f5a623',
+    textFärg: '#5c2d00',
+    fördelar: ['Havet fortfarande varmt (24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
+    nackdel: 'Regnigare i oktober',
+    bästFör: 'Mat & kultur',
+    borderColor: '#f5a623',
+  },
+  {
+    emoji: '❄️',
+    namn: 'Vintern',
+    månader: 'December – Februari',
+    färg: '#90caf9',
+    textFärg: '#0a2a5c',
+    fördelar: ['Lugnt och autentiskt', 'Billigaste priserna', 'Cyklister och vandrare', 'Mild 14–18 grader'],
+    nackdel: 'Många affärer stängda',
+    bästFör: 'Avkoppling & cykling',
+    borderColor: '#90caf9',
+  },
+];
+
 export default function SectionSeason() {
+  const [öppen, setÖppen] = useState<number | null>(null);
+
   return (
     <section className={styles.seasonSection}>
       <div className={styles.seasonInner}>
         <h2 className={styles.seasonTitle}>När ska du åka?</h2>
-        <p className={styles.seasonSub}>Mallorca är fantastiskt hela året - men varje säsong erbjuder något unikt</p>
-        <div className={styles.seasonGrid}>
-          <div className={styles.seasonCard} style={{borderTop: '4px solid #a8e6a3'}}>
-            <span className={styles.seasonEmoji}>🌸</span>
-            <h3 className={styles.seasonName}>Våren</h3>
-            <p className={styles.seasonMonths}>Mars - Maj</p>
-            <ul className={styles.seasonList}>
-              <li>✓ Mandelblomning i februari</li>
-              <li>✓ Perfekt för vandring i Tramuntana</li>
-              <li>✓ Få turister, lägre priser</li>
-              <li>✓ Behagliga 18-22 grader</li>
-              <li>✗ Lite kyligt för bad</li>
-            </ul>
-            <span className={styles.seasonBadge} style={{background: '#a8e6a3', color: '#1a5c1a'}}>Bäst för: Natur & vandring</span>
-          </div>
-          <div className={styles.seasonCard} style={{borderTop: '4px solid #ffc400'}}>
-            <span className={styles.seasonEmoji}>☀️</span>
-            <h3 className={styles.seasonName}>Sommaren</h3>
-            <p className={styles.seasonMonths}>Juni - Augusti</p>
-            <ul className={styles.seasonList}>
-              <li>✓ 28-32 grader, garanterat sol</li>
-              <li>✓ Allt är öppet och i gång</li>
-              <li>✓ Livligt nattliv och evenemang</li>
-              <li>✗ Mest turister och högsta priser</li>
-              <li>✗ Stränder kan vara fullsatta</li>
-            </ul>
-            <span className={styles.seasonBadge} style={{background: '#ffc400', color: '#5c3d00'}}>Bäst för: Bad & nöjesliv</span>
-          </div>
-          <div className={styles.seasonCard} style={{borderTop: '4px solid #f5a623'}}>
-            <span className={styles.seasonEmoji}>🍂</span>
-            <h3 className={styles.seasonName}>Hösten</h3>
-            <p className={styles.seasonMonths}>September - November</p>
-            <ul className={styles.seasonList}>
-              <li>✓ Havet fortfarande varmt (24°)</li>
-              <li>✓ Färre turister än sommaren</li>
-              <li>✓ Bäst för mat och kultur</li>
-              <li>✓ Skördefester och marknader</li>
-              <li>✗ Regnigare i oktober</li>
-            </ul>
-            <span className={styles.seasonBadge} style={{background: '#f5a623', color: '#5c2d00'}}>Bäst för: Mat & kultur</span>
-          </div>
-          <div className={styles.seasonCard} style={{borderTop: '4px solid #90caf9'}}>
-            <span className={styles.seasonEmoji}>❄️</span>
-            <h3 className={styles.seasonName}>Vintern</h3>
-            <p className={styles.seasonMonths}>December - Februari</p>
-            <ul className={styles.seasonList}>
-              <li>✓ Lugnt och autentiskt</li>
-              <li>✓ Billigaste priserna</li>
-              <li>✓ Cyklister och vandrare</li>
-              <li>✓ Mild 14-18 grader</li>
-              <li>✗ Många affärer stängda</li>
-            </ul>
-            <span className={styles.seasonBadge} style={{background: '#90caf9', color: '#0a2a5c'}}>Bäst för: Avkoppling & cykling</span>
-          </div>
+        <p className={styles.seasonSub}>Mallorca är fantastiskt hela året – men varje säsong erbjuder något unikt</p>
+
+        {/* Desktop-grid – oförändrat */}
+        <div className={`${styles.seasonGrid} season-desktop`}>
+          {säsonger.map((s, i) => (
+            <div key={i} className={styles.seasonCard} style={{ borderTop: `4px solid ${s.borderColor}` }}>
+              <span className={styles.seasonEmoji}>{s.emoji}</span>
+              <h3 className={styles.seasonName}>{s.namn}</h3>
+              <p className={styles.seasonMonths}>{s.månader}</p>
+              <ul className={styles.seasonList}>
+                {s.fördelar.map((f, j) => <li key={j}>✓ {f}</li>)}
+                <li>✗ {s.nackdel}</li>
+              </ul>
+              <span className={styles.seasonBadge} style={{ background: s.färg, color: s.textFärg }}>
+                Bäst för: {s.bästFör}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobilaccordion – visas bara på mobil */}
+        <div className="season-mobile-accordion">
+          {säsonger.map((s, i) => (
+            <div key={i} className="season-accordion-item" style={{ borderLeft: `4px solid ${s.borderColor}` }}>
+              <button
+                className="season-accordion-header"
+                onClick={() => setÖppen(öppen === i ? null : i)}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span style={{ fontSize: '1.4rem' }}>{s.emoji}</span>
+                  <span>
+                    <span className="season-accordion-title">{s.namn}</span>
+                    <span className="season-accordion-months">{s.månader}</span>
+                  </span>
+                </span>
+                <span style={{ fontSize: '0.8rem', color: '#0E7490', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }}>▼</span>
+              </button>
+
+              {öppen === i && (
+                <div className="season-accordion-body">
+                  <ul className="season-accordion-list">
+                    {s.fördelar.slice(0, 3).map((f, j) => (
+                      <li key={j} className="season-accordion-pro">✓ {f}</li>
+                    ))}
+                    <li className="season-accordion-con">✗ {s.nackdel}</li>
+                  </ul>
+                  <span className="season-accordion-badge" style={{ background: s.färg, color: s.textFärg }}>
+                    Bäst för: {s.bästFör}
+                  </span>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+

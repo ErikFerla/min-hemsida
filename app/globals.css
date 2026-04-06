@@ -553,3 +553,90 @@ p {
     overflow: hidden !important;
   }
 }
+
+/* === SÄSONGSACCORDION – ENDAST MOBIL === */
+.season-mobile-accordion { display: none; }
+
+@media (max-width: 768px) {
+  .season-desktop { display: none !important; }
+
+  .season-mobile-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .season-accordion-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #ede5da;
+  }
+
+  .season-accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    min-height: 64px;
+    text-align: left;
+  }
+
+  .season-accordion-title {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    color: #1F2937;
+    line-height: 1;
+  }
+
+  .season-accordion-months {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  .season-accordion-body {
+    padding: 0 20px 20px;
+    border-top: 1px solid #f0ebe3;
+  }
+
+  .season-accordion-list {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+  }
+
+  .season-accordion-pro {
+    font-size: 0.9rem;
+    color: #374151;
+    padding: 5px 0;
+    line-height: 1.5;
+  }
+
+  .season-accordion-con {
+    font-size: 0.9rem;
+    color: #888;
+    padding: 5px 0;
+    line-height: 1.5;
+    border-top: 1px solid #f0ebe3;
+    margin-top: 4px;
+  }
+
+  .season-accordion-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+}
