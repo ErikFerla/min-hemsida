@@ -7,3 +7,35 @@
 .track { display: flex; flex-direction: row; gap: 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; padding: 8px 60px 20px; scrollbar-width: none; -ms-overflow-style: none; align-items: flex-start; }
 .track::-webkit-scrollbar { display: none; }
 .slide { flex: 0 0 220px; min-width: 220px; max-width: 220px; scroll-snap-align: start; height: auto; }
+
+@media (max-width: 768px) {
+  .carousel {
+    padding: 24px 0;
+  }
+
+  .carouselHeader {
+    padding: 0 16px;
+    margin-bottom: 12px;
+  }
+
+  .carouselTitle {
+    font-size: 1.4rem !important;
+  }
+
+  /* Göm pil-knappar på mobil */
+  .arrows {
+    display: none;
+  }
+
+  .track {
+    padding: 8px 16px 20px;
+    gap: 12px;
+  }
+
+  /* Stora klickbara kort på mobil */
+  .slide {
+    flex: 0 0 72vw;
+    min-width: 72vw;
+    max-width: 72vw;
+  }
+}

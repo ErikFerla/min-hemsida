@@ -73,11 +73,14 @@ export default function Home() {
               { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80' },
               { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80' },
             ].map((stad) => (
-              <a key={stad.namn} href={stad.href} style={{textDecoration: 'none', display: 'block', borderRadius: '12px', overflow: 'hidden', background: '#FDF8F2', boxShadow: '0 2px 12px rgba(0,0,0,0.08)'}}>
-                <div style={{height: '200px', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center'}} />
-                <div style={{padding: '16px'}}>
+              <a key={stad.namn} href={stad.href} style={{ textDecoration: 'none', display: 'block', borderRadius: '16px', overflow: 'hidden', background: '#FDF8F2', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }}>
+                <div style={{ height: 'clamp(160px, 25vw, 200px)', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
+                <div style={{ padding: '14px 16px 16px' }}>
                   <div style={{fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', color: '#2C1A0E', marginBottom: '4px'}}>{stad.namn}</div>
                   <div style={{fontSize: '0.82rem', color: '#7D6650'}}>{stad.desc}</div>
+                  <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#0E7490', fontWeight: '700', letterSpacing: '0.05em' }}>
+                    Utforska →
+                  </div>
                 </div>
               </a>
             ))}
