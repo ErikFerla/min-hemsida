@@ -16,6 +16,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
+      <head>
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" />
+      </head>
       <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#111111' }}>
         <Navbar />
         <main>{children}</main>

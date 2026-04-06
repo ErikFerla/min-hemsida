@@ -1,5 +1,6 @@
 ﻿'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const aktiviteter = [
   {
@@ -85,7 +86,7 @@ export default function AktiviteterPage() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}
               >
-                <img src={a.bild} alt={a.titel} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <Image src={a.bild} alt={a.titel} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ padding: '24px' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{a.emoji}</div>
                   <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#1F2937' }}>{a.titel}</h2>

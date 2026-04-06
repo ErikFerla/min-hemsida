@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const golfbanor = [
   { namn: 'Son Gual Golf', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'En av Mallorcas mest prestigefyllda banor med fantastisk utsikt. Rankad på plats 51 i Europa, värd för Senior European Tour 2009.', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca', webb: 'https://www.golfsongual.com', tips: 'Boka minst 2 dagar i förväg – mycket populär', redaktionellt: { typ: 'bast', text: 'Bäst för: Serösa golfare som vill ha Mallorcas tuffaste utmaning' } },
@@ -122,7 +123,7 @@ export default function GolfPage() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <div style={{ position: 'relative' }}>
-                <img src={b.bild} alt={b.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <Image src={b.bild} alt={b.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: '12px', right: '12px', background: svårighetFärg[b.svårighet], color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '700' }}>
                   {b.svårighet}
                 </div>

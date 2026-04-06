@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const vingårdar = [
   { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
@@ -80,7 +81,7 @@ export default function MatPage() {
         <div style={grid}>
           {vingårdar.map((v, i) => (
             <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-              <img src={v.bild} alt={v.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+              <Image src={v.bild} alt={v.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ color: '#0E7490', fontWeight: 'bold', fontSize: '0.8rem' }}>#{i + 1}</span>
@@ -113,7 +114,7 @@ export default function MatPage() {
         <div style={grid}>
           {filtreradeLista.map((r, i) => (
             <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-              <img src={r.bild} alt={r.namn} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+              <Image src={r.bild} alt={r.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
               <div style={{ padding: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
                   <span style={{ background: '#0E7490', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold' }}>{r.kategori}</span>

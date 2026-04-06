@@ -740,3 +740,31 @@ p {
     background: #3d2d22;
   }
 }
+
+/* Performance – lazy loading för alla bilder under fold */
+img {
+  loading: lazy;
+}
+
+/* Förhindra layout shift – sätt aspect-ratio på kortbilder */
+.personal-mobile-card img,
+.events-mobile-card img,
+[class*="slide"] img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Inga hoverberoenden för UX på mobil */
+@media (hover: none) {
+  /* Touch-enheter – ta bort hover-states som kräver mus */
+  a:hover, button:hover {
+    opacity: 1 !important;
+  }
+
+  /* Dropdown-menyer ska inte öppnas av hover på touch */
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+}

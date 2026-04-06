@@ -1,4 +1,5 @@
 ﻿'use client';
+import Image from 'next/image';
 const sevardheter = [
   {
     namn: 'La Seu – Palmas katedral',
@@ -162,7 +163,7 @@ export default function SevardheterPage() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <div style={{ position: 'relative' }}>
-                <img src={s.bild} alt={s.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>
               </div>
               <div style={{ padding: '22px' }}>

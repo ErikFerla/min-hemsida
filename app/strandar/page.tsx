@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 const stränder = [
   { namn: 'Caló des Moro', region: 'Syd', typ: 'Vik', svårighet: 'Promenad krävs', längd: '40m', beskrivning: 'Topprankad år efter år som Spaniens vackraste vik. Turkost vatten likt en pool, omgiven av klippor och tallskog. Inga faciliteter – kom tidigt!', tips: 'Kom före kl 9 på morgonen – fullsatt redan kl 10 på sommaren', maps: 'https://maps.google.com/?q=Calo+des+Moro+Mallorca', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', familj: false, snorkling: true, nudist: false, redaktionellt: { typ: 'varning', text: 'Kom INTE efter kl 10 på sommaren – stranden är fullsatt och parkeringen stängd' } },
@@ -118,7 +119,7 @@ function StrandarContent() {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <div style={{ position: 'relative' }}>
-                <img src={s.bild} alt={s.namn} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
+                <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.65)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.region}</div>
                 <div style={{ position: 'absolute', top: '12px', right: '12px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.typ}</div>
               </div>
