@@ -12,6 +12,14 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <HeroSlideshow />
+      <div className="mobile-quicknav">
+        <a href="/strandar" className="mobile-quicknav-item">🏖️<span>Stränder</span></a>
+        <a href="/byar" className="mobile-quicknav-item">🏙️<span>Städer</span></a>
+        <a href="/mat" className="mobile-quicknav-item">🍷<span>Mat &amp; Vin</span></a>
+        <a href="/aktiviteter" className="mobile-quicknav-item">⛳<span>Aktiviteter</span></a>
+        <a href="/vader" className="mobile-quicknav-item">☀️<span>Väder</span></a>
+        <a href="/evenemang" className="mobile-quicknav-item">🎉<span>Evenemang</span></a>
+      </div>
       <div className={styles.container}>
         <section className="section-light desktop-intro">
           <div className="section-inner">
@@ -27,11 +35,12 @@ export default function Home() {
             <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
           </div>
         </section>
-        <SectionPersonal />
-        <SectionSeason />
-        <SectionPlanner />
-        <SectionInsider />
-        <SectionEvents />
+        <div className="mobile-order-3"><SectionPersonal /></div>
+        <div className="mobile-order-7"><SectionSeason /></div>
+        <div className="mobile-order-4"><SectionPlanner /></div>
+        <div className="mobile-order-8"><SectionInsider /></div>
+        <div className="mobile-order-6"><SectionEvents /></div>
+        <div className="mobile-order-5">
         <section className="section-black">
           <Carousel title="UTFORSKA STÄDERNA" label="DESTINATIONER">
             {[
@@ -52,6 +61,7 @@ export default function Home() {
             ))}
           </Carousel>
         </section>
+        </div>
       </div>
     </div>
   );

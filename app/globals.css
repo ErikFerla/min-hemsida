@@ -129,16 +129,56 @@ p {
   color: #FDF8F2;
 }
 
+/* === MOBILORDNING STARTSIDAN === */
+.mobile-quicknav { display: none; }
+
+/* Visa CTA-knappar i hero endast på mobil */
+.mobile-cta-buttons { display: none; }
+
 @media (max-width: 768px) {
   .desktop-nav { display: none !important; }
   .hamburger { display: flex !important; }
   .desktop-intro { display: none; }
   .mobile-cta-buttons { display: flex !important; }
-}
 
-/* Visa CTA-knappar i hero endast på mobil */
-.mobile-cta-buttons {
-  display: none;
+  /* Snabbval */
+  .mobile-quicknav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #ede5da;
+    border-bottom: 1px solid #ede5da;
+  }
+  .mobile-quicknav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 16px 8px;
+    background: #FDF8F2;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1F2937;
+    letter-spacing: 0.05em;
+    min-height: 44px;
+  }
+  .mobile-quicknav-item:active { background: #F0EBE3; }
+
+  /* Omordning av sektioner */
+  .mobile-order-3 { order: 3; }
+  .mobile-order-4 { order: 4; }
+  .mobile-order-5 { order: 5; }
+  .mobile-order-6 { order: 6; }
+  .mobile-order-7 { order: 7; }
+  .mobile-order-8 { order: 8; }
+
+  /* Container måste vara flex för order att funka */
+  .page > div {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .hamburger {
