@@ -18,10 +18,10 @@ export default function Carousel({ title, label, children }: CarouselProps) {
   };
 
   return (
-    <div className={styles.carousel}>
-      {label && <p className="section-label" style={{ padding: '0 60px' }}>{label}</p>}
+    <div className={styles.carousel} style={{ background: '#EDE4D8' }}>
+      {label && <p className="section-label" style={{ padding: '0 60px', color: '#0E7490' }}>{label}</p>}
       <div className={styles.carouselHeader}>
-        <h2 className={styles.carouselTitle}>{title}</h2>
+        <h2 className={styles.carouselTitle} style={{ color: '#1F2937' }}>{title}</h2>
         <div className={styles.arrows}>
           <button className={styles.arrow} onClick={() => scroll('left')} aria-label="Föregående">&#8592;</button>
           <button className={styles.arrow} onClick={() => scroll('right')} aria-label="Nästa">&#8594;</button>
