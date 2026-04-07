@@ -36,6 +36,13 @@
   }
 }
 
+@media (max-width: 900px) {
+  .editorial-split {
+    grid-template-columns: 1fr !important;
+    padding: 48px 20px !important;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

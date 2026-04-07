@@ -79,6 +79,52 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section style={{ background: '#FDF8F2', padding: '80px 60px' }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="editorial-split">
+            <div>
+              <p style={{ fontSize: '0.72rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, marginBottom: '16px' }}>
+                VARFÖR MALLORCA
+              </p>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', letterSpacing: '0.04em', color: '#1F2937', lineHeight: 1.05, marginBottom: '24px' }}>
+                En ö med allt – hela året om
+              </h2>
+              <div style={{ width: '48px', height: '2px', background: '#F59E0B', marginBottom: '28px', borderRadius: '2px' }} />
+              <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4B5563', marginBottom: '20px' }}>
+                Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
+              </p>
+              <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4B5563', marginBottom: '36px' }}>
+                Öns nordvästra bergsmassiv, Serra de Tramuntana, är ett UNESCO-världsarv. Längs kusterna hittar du 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
+              </p>
+              <div style={{ display: 'flex', gap: '48px', marginBottom: '36px' }}>
+                {[
+                  { siffra: '200+', text: 'Stränder och vikar' },
+                  { siffra: '22', text: 'Golfbanor' },
+                  { siffra: '300', text: 'Soldagar per år' },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2.2rem', color: '#1F2937', margin: 0, letterSpacing: '0.05em' }}>{s.siffra}</p>
+                    <p style={{ fontSize: '0.8rem', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
+                  </div>
+                ))}
+              </div>
+              <a href="/byar" style={{ display: 'inline-block', padding: '12px 28px', background: '#1F2937', color: 'white', borderRadius: '3px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '0.95rem', letterSpacing: '0.12em', textDecoration: 'none' }}>
+                UTFORSKA ÖN →
+              </a>
+            </div>
+            <div style={{ position: 'relative' }}>
+              <img
+                src="https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=900&q=85"
+                alt="Mallorca – charmig gränd i Valldemossa"
+                loading="lazy"
+                style={{ width: '100%', height: '620px', objectFit: 'cover', borderRadius: '4px', display: 'block' }}
+              />
+              <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', padding: '12px 18px', borderRadius: '3px' }}>
+                <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, color: '#1F2937', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Valldemossa</p>
+                <p style={{ margin: '2px 0 0', fontSize: '0.7rem', color: '#9CA3AF' }}>UNESCO-skyddat världsarv</p>
+              </div>
+            </div>
+          </div>
+        </section>
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
