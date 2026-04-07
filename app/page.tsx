@@ -1,4 +1,4 @@
-import styles from './page.module.css';
+﻿import styles from './page.module.css';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
@@ -11,7 +11,7 @@ import SectionEvents from './components/SectionEvents';
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Updated: carousel title and section-black color */}
+      {/* Updated: carousel title and section-black color - redeploy 2026-04-07 */}
       <HeroSlideshow />
       <div className="mobile-quicklinks">
         <a href="/strandar" className="mobile-quicklink-card">
