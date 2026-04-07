@@ -46,7 +46,7 @@ export default function Home() {
         <section style={{ background: '#FDF8F2', padding: '64px 60px' }}>
           <div className="section-inner">
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
-            <h2 className="section-title">Allt om Mallorca – på svenska</h2>
+            <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
             <div style={{
               display: 'grid',
