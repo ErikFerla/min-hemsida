@@ -151,8 +151,8 @@ export default function Navbar() {
   }, [menuOpen]);
 
   return (
-    <nav style={{ background: '#FDF8F2', borderBottom: '1px solid #ede5da', position: 'sticky', top: 0, zIndex: 1000 }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 40px)', height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', boxSizing: 'border-box' }}>
+    <nav style={{ background: 'white', borderBottom: 'none', boxShadow: '0 1px 0 rgba(0,0,0,0.08)', position: 'sticky', top: 0, zIndex: 1000 }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 clamp(16px, 4vw, 40px)', height: '72px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', boxSizing: 'border-box' }}>
 
         {/* Logo */}
         <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -183,15 +183,17 @@ export default function Navbar() {
                 href={item.href}
                 style={{
                   fontFamily: '"Bebas Neue", sans-serif',
-                  fontSize: '1rem',
-                  letterSpacing: '0.1em',
-                  color: '#111',
+                  fontSize: '0.8rem',
+                  letterSpacing: '0.12em',
+                  color: '#374151',
                   textDecoration: 'none',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '4px',
                   padding: '18px 0',
                 }}
+                onMouseEnter={e => (e.currentTarget.style.borderBottom = '1px solid #111')}
+                onMouseLeave={e => (e.currentTarget.style.borderBottom = 'none')}
               >
                 {item.text}
                 <span style={{ fontSize: '0.6rem', marginTop: '2px' }}>▼</span>
@@ -236,12 +238,12 @@ export default function Navbar() {
           ))}
 
           <Link href="/kontakt" style={{
-            background: '#F59E0B',
-            color: '#1F2937',
-            padding: '8px 20px',
-            borderRadius: '6px',
+            background: '#1F2937',
+            color: 'white',
+            padding: '10px 22px',
+            borderRadius: '4px',
             fontFamily: '"Bebas Neue", sans-serif',
-            fontSize: '1rem',
+            fontSize: '0.8rem',
             letterSpacing: '0.1em',
             textDecoration: 'none',
             whiteSpace: 'nowrap',

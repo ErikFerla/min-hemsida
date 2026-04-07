@@ -24,17 +24,6 @@ export default function HeroSlideshow() {
 
   return (
     <>
-    <div style={{
-      background: '#0E7490',
-      color: 'white',
-      textAlign: 'center',
-      padding: '10px 20px',
-      fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
-      letterSpacing: '0.15em',
-      fontWeight: '500',
-    }}>
-      🌴 Din personliga guide till Mallorcas bästa hemligheter – på svenska
-    </div>
     <div style={{ position: 'relative', width: '100%', height: 'clamp(50vh, 90vh, 90vh)', overflow: 'hidden' }}>
       {bilder.map((bild, i) => (
         <div key={i} style={{
@@ -48,75 +37,42 @@ export default function HeroSlideshow() {
       ))}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)',
       }} />
-      <div style={{
-        position: 'absolute',
-        bottom: 'clamp(20px, 5vw, 80px)',
-        left: 'clamp(20px, 5vw, 80px)',
-        right: 'clamp(20px, 5vw, 80px)',
-        color: 'white',
-        maxWidth: '700px',
-      }}>
-        <p style={{
-          fontSize: 'clamp(0.7rem, 1.5vw, 0.9rem)',
-          letterSpacing: '0.2em',
-          textTransform: 'uppercase',
-          marginBottom: '8px',
-          opacity: 0.8,
-        }}>
-          {bilder[aktiv].plats}
-        </p>
-        <h1 style={{
-          fontFamily: '"Bebas Neue", sans-serif',
-          fontSize: 'clamp(2rem, 8vw, 5rem)',
-          fontWeight: '400',
-          letterSpacing: '0.05em',
-          margin: '0 0 8px',
-          lineHeight: 1,
-          textShadow: '0 2px 20px rgba(0,0,0,0.3)',
-        }}>
-          {bilder[aktiv].text}
+      <div style={{ position: 'absolute', bottom: '15%', left: '8%', color: 'white', zIndex: 2 }}>
+        <p style={{ fontSize: '0.8rem', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.75, fontWeight: 500 }}>Mallorca på svenska</p>
+        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 400, letterSpacing: '0.03em', lineHeight: 1, margin: 0, maxWidth: '700px' }}>
+          Din lokala guide till Mallorca
         </h1>
-        <p style={{
-          fontSize: 'clamp(0.85rem, 2vw, 1rem)',
-          marginTop: '8px',
-          marginBottom: '20px',
-          opacity: 0.85,
-          fontWeight: '400',
-          letterSpacing: '0.03em',
-          maxWidth: '480px',
-        }}>
-          Din personliga guide till Mallorcas bästa hemligheter
+        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginTop: '20px', opacity: 0.85, maxWidth: '500px', lineHeight: 1.6 }}>
+          Insider-tips, dolda stränder och de bästa restaurangerna – från en som bor på ön.
         </p>
         {/* CTA-knappar – visas alltid men extra viktiga på mobil */}
-        <div className="mobile-cta-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        <div className="mobile-cta-buttons" style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginTop: '28px' }}>
           <a href="/kontakt" style={{
             display: 'inline-block',
             padding: 'clamp(10px, 2vw, 14px) clamp(20px, 3vw, 32px)',
-            background: '#F59E0B',
-            color: '#1F2937',
-            borderRadius: '8px',
+            background: '#1F2937',
+            color: 'white',
+            borderRadius: '4px',
             fontFamily: '"Bebas Neue", sans-serif',
             fontSize: 'clamp(1rem, 2vw, 1.15rem)',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.08em',
             textDecoration: 'none',
-            fontWeight: '700',
           }}>
             PLANERA DIN RESA
           </a>
           <a href="/strandar" style={{
             display: 'inline-block',
             padding: 'clamp(10px, 2vw, 14px) clamp(20px, 3vw, 32px)',
-            background: 'rgba(255,255,255,0.2)',
+            background: 'transparent',
             color: 'white',
-            border: '2px solid rgba(255,255,255,0.7)',
-            borderRadius: '8px',
+            border: '1.5px solid rgba(255,255,255,0.7)',
+            borderRadius: '4px',
             fontFamily: '"Bebas Neue", sans-serif',
             fontSize: 'clamp(1rem, 2vw, 1.15rem)',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.08em',
             textDecoration: 'none',
-            backdropFilter: 'blur(4px)',
           }}>
             SE BÄSTA STRÄNDERNA
           </a>
