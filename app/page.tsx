@@ -4,7 +4,6 @@ import Carousel from '@/components/Carousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
-import SectionInsider from './components/SectionInsider';
 import SectionEvents from './components/SectionEvents';
 
 export default function Home() {
@@ -130,7 +129,6 @@ export default function Home() {
         </section>
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
-        <div className="mobile-order-8"><SectionInsider /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
         <div className="mobile-order-5">
         <section className="section-black">
