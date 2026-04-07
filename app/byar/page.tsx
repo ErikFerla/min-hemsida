@@ -12,7 +12,7 @@ const städer = [
   { namn: 'Valldemossa', href: '/valldemossa', region: 'Nordväst', beskrivning: 'UNESCO-skyddad bergsby känt för Chopin och George Sands vistelse', bild: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=600&q=75', tips: 'Besök kartusianerklostret tidigt på morgonen', top3: ['Kartusianerklostret', 'Chopins pianosalong', 'Utsikten från byplatsen'] },
   { namn: 'Deià', href: '/deia', region: 'Nordväst', beskrivning: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och havsutsikt', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75', tips: 'Robert Graves museum är ett måste', top3: ['Robert Graves museum', 'Cala Deià (bad)', 'Utsikten från kyrkan'] },
   { namn: 'Artà', href: '/arta', region: 'Öst', beskrivning: 'Historisk bergsstad med imponerande borg och vackra gränder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=75', tips: 'Besök borgen Santuari de Sant Salvador', top3: ["Santuari de Sant Salvador", "Coves d'Artà (nära)", 'Tisdagsmarknaden'] },
-  { namn: 'Andratx', href: '/andratx', region: 'Sydväst', beskrivning: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina", bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=75', tips: "Port d'Andratx har öns snyggaste marina", top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'] },
+  { namn: 'Andratx', href: '/andratx', region: 'Sydväst', beskrivning: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina", bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=75', tips: "Port d'Andratx har öns snyggaste marina", top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'] },
   { namn: 'Pollença', href: '/pollenca', region: 'Norr', beskrivning: 'Autentisk by med romersk bro, konstmarknad och 365 trappsteg till Calvari', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75', tips: 'Klättra upp till Calvari för fantastisk utsikt', top3: ['365 trappsteg till Calvari', 'Söndagsmarknaden', 'Jazz-festivalen i juli'] },
   { namn: 'Sineu', href: '/sineu', region: 'Inland', beskrivning: 'Mallorcas geografiska hjärta med öns äldsta marknad sedan 1306', bild: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85', tips: 'Onsdagsmarknaden – kom tidigt för bästa upplevelsen', top3: ['Onsdagsmarknaden (sedan 1306)', 'Sa Placa-torget', 'Kyrkan Mare de Déu dels Àngels'] },
   { namn: 'Felanitx', href: '/felanitx', region: 'Öst', beskrivning: 'Traditionell stad känd för keramik, vin och söndagsmarknad', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75', tips: 'Köp lokal keramik direkt från hantverkarna', top3: ['Lokal keramik & hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'] },
@@ -29,7 +29,7 @@ export default function ByadSida() {
       <div style={{
         position: 'relative',
         height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90)',
+        backgroundImage: 'url(https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1600&q=85)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         display: 'flex',

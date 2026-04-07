@@ -17,11 +17,11 @@ const kategorier = [
     titel: 'Djurparker & Akvarium',
     emoji: '🦁',
     aktiviteter: [
-      { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', tips: 'Hajbassängen är ett måste – boka online för rabatt', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
-      { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Kamelridning och giraffutfodring ingår', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', lat: 39.5123, lon: 3.3456, webb: 'https://www.zoomalorca.com' },
-      { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', tips: 'Delfinshow kl 12 och 16 – kom i god tid', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', lat: 39.5678, lon: 2.5123, webb: 'https://www.marineland.es' },
-      { namn: 'Natura Parc', plats: 'Santa Eugènia', ålder: 'Alla åldrar', tips: 'Ekologisk djurpark med inhemska djur', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', lat: 39.6234, lon: 2.8456, webb: 'https://www.naturaparc.net' },
-      { namn: 'Falconeria de Altair', plats: 'Cas Concos', ålder: '3+ år', tips: 'Dagliga uppvisningar med örnar och falkar', bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=600&q=80', lat: 39.4123, lon: 3.1456, webb: 'https://www.google.com/search?q=Falconeria+Altair+Mallorca' },
+      { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', tips: 'Hajbassängen är ett måste – boka online för rabatt', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
+      { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Kamelridning och giraffutfodring ingår', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.5123, lon: 3.3456, webb: 'https://www.zoomalorca.com' },
+      { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', tips: 'Delfinshow kl 12 och 16 – kom i god tid', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.5678, lon: 2.5123, webb: 'https://www.marineland.es' },
+      { namn: 'Natura Parc', plats: 'Santa Eugènia', ålder: 'Alla åldrar', tips: 'Ekologisk djurpark med inhemska djur', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.6234, lon: 2.8456, webb: 'https://www.naturaparc.net' },
+      { namn: 'Falconeria de Altair', plats: 'Cas Concos', ålder: '3+ år', tips: 'Dagliga uppvisningar med örnar och falkar', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.4123, lon: 3.1456, webb: 'https://www.google.com/search?q=Falconeria+Altair+Mallorca' },
     ],
   },
   {

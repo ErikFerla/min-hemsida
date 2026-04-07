@@ -8,7 +8,7 @@ const bilder = [
   { url: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85', text: 'Historiska kyrkor', plats: 'Valldemossa, västra Mallorca' },
   { url: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=1600&q=80', text: 'Äventyrliga båtturer', plats: 'Port de Sóller, nordvästra Mallorca' },
   { url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=80', text: 'Världsklassigt golf', plats: 'Son Gual Golf, Palma' },
-  { url: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=80', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
+  { url: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=1600&q=80', text: 'Charmiga fiskebyar', plats: 'Porto Colom, östkusten' },
   { url: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1600&q=80', text: 'Lyxiga hotell & spa', plats: 'Palma de Mallorca' },
 ];
 

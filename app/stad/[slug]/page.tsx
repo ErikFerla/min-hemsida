@@ -87,7 +87,7 @@ const stadsData: Record<string, {
   },
   'andratx': {
     namn: 'Andratx', region: 'Sydväst',
-    bild: 'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=1600&q=90',
     beskrivning: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina",
     tips: "Port d'Andratx har öns snyggaste marina",
     top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'],
