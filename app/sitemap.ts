@@ -34,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/arta`, priority: 0.65 },
     { url: `${baseUrl}/porto-petro`, priority: 0.65 },
     { url: `${baseUrl}/campos`, priority: 0.6 },
+    { url: `${baseUrl}/guide/basta-stranderna-mallorca`, priority: 0.9 },
+    { url: `${baseUrl}/guide/mallorca-med-barn`, priority: 0.9 },
+    { url: `${baseUrl}/guide/basta-restauranger-palma`, priority: 0.85 },
+    { url: `${baseUrl}/guide/golf-mallorca-guide`, priority: 0.85 },
+    { url: `${baseUrl}/guide/basta-tid-resa-mallorca`, priority: 0.85 },
   ];
 
   return staticPages.map(page => ({

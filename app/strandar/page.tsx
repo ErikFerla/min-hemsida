@@ -114,6 +114,15 @@ function StrandarContent() {
           <p style={{ marginTop: '16px', color: '#666', fontSize: '0.9rem' }}>{visade.length} stränder visas</p>
         </div>
 
+        <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '16px 20px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <p style={{ margin: 0, fontSize: '0.9rem', color: '#374151' }}>
+            📖 <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
+          </p>
+          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#0E7490', color: 'white', padding: '8px 18px', borderRadius: '8px', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
+            Läs guiden →
+          </a>
+        </div>
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {visade.map((s, i) => (
             <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
