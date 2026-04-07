@@ -27,6 +27,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .planner-grid-outer {
+    grid-template-columns: 1fr !important;
+  }
+  .planner-image-col {
+    display: none !important;
+  }
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

@@ -177,7 +177,10 @@ export default function SectionPlanner() {
 
   return (
     <section className="section-light">
-      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+      <div className="planner-grid-outer" style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(60px,8vw,100px) clamp(16px,5vw,80px)', display: 'grid', gridTemplateColumns: '1fr 480px', gap: '80px', alignItems: 'start' }}>
+
+        {/* Vänster: Hela planner-innehållet */}
+        <div>
         <p className="section-label">PLANERA DIN RESA</p>
         <h2 className="section-title">Skräddarsy din resa</h2>
         <div className="section-divider"></div>
@@ -250,6 +253,25 @@ export default function SectionPlanner() {
             </div>
           </div>
         )}
+        </div>
+
+        {/* Höger: Stämningsbild */}
+        <div style={{ position: 'sticky', top: '100px' }} className="planner-image-col">
+          <img
+            src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=900&q=85"
+            alt="Mallorca – planera din resa"
+            loading="lazy"
+            style={{ width: '100%', height: '520px', objectFit: 'cover', borderRadius: '4px', display: 'block', marginBottom: '16px' }}
+          />
+          <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
+            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#1F2937', margin: '0 0 8px' }}>🌴 TIPS FRÅN EN LOKAL</p>
+            <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: '1.65', margin: 0 }}>
+              "Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet."
+            </p>
+            <p style={{ fontSize: '0.75rem', color: '#9CA3AF', margin: '10px 0 0', fontWeight: 600 }}>— Erik, MyMallorca</p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
