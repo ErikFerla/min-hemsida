@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Inter, Bebas_Neue } from 'next/font/google';
+import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import FooterAccordion from '@/components/FooterAccordion';
 import { WebSiteSchema } from '@/app/components/SchemaOrg';
 
-const inter = Inter({ subsets: ['latin'] });
-const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mymallorca.se'),
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" />
       </head>
-      <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#111111' }}>
+      <body className={`${inter.variable} ${playfair.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#1F2937' }}>
         <Navbar />
         <WebSiteSchema />
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>

@@ -4,6 +4,21 @@
   --orange: #F59E0B;
   --orange-dark: #D97706;
   --text: #1F2937;
+  --font-inter: var(--font-inter, 'Inter', system-ui, sans-serif);
+  --font-playfair: var(--font-playfair, 'Playfair Display', Georgia, serif);
+}
+
+/* Brödtext och UI = Inter */
+body, p, a, button, input, select, li, span {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Rubriker = Playfair Display */
+h1, h2, h3, h4, h5, h6,
+.section-title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .feature-card {
@@ -156,12 +171,12 @@ main {
 }
 
 .section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem) !important;
-  font-weight: 400;
-  letter-spacing: 0.02em !important;
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2rem, 4.5vw, 3.2rem) !important;
+  font-weight: 700;
+  letter-spacing: -0.01em !important;
   margin: 0 0 6px 0 !important;
-  line-height: 1.05 !important;
+  line-height: 1.1 !important;
 }
 
 .section-subtitle {
@@ -273,9 +288,10 @@ p {
   }
 
   .mobile-quicklink-title {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: #1F2937;
     line-height: 1.2;
     margin-bottom: 2px;
@@ -683,11 +699,12 @@ p {
 
   .season-accordion-title {
     display: block;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 0.05em;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0;
     color: #1F2937;
-    line-height: 1;
+    line-height: 1.2;
   }
 
   .season-accordion-months {

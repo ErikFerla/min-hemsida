@@ -114,11 +114,11 @@ export default function HeroSlideshow() {
         </p>
 
         <h1 style={{
-          fontFamily: '"Bebas Neue", sans-serif',
-          fontSize: 'clamp(3.2rem, 5.5vw, 5.5rem)',
-          fontWeight: 400,
-          letterSpacing: '0.04em',
-          lineHeight: 1,
+          fontFamily: 'var(--font-playfair), Georgia, serif',
+          fontSize: 'clamp(2.8rem, 5vw, 5rem)',
+          fontWeight: 700,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.05,
           margin: 0,
           textShadow: '0 2px 12px rgba(0,0,0,0.5)',
         }}>
@@ -145,9 +145,10 @@ export default function HeroSlideshow() {
             background: 'white',
             color: '#1F2937',
             borderRadius: '3px',
-            fontFamily: '"Bebas Neue", sans-serif',
-            fontSize: '1rem',
-            letterSpacing: '0.12em',
+            fontFamily: 'var(--font-inter), system-ui, sans-serif',
+            fontSize: '0.9rem',
+            fontWeight: 600,
+            letterSpacing: '0.05em',
             textDecoration: 'none',
             pointerEvents: 'auto',
             transition: 'background 0.2s, color 0.2s',
