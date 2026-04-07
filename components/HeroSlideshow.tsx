@@ -37,14 +37,14 @@ export default function HeroSlideshow() {
       ))}
       <div style={{
         position: 'absolute', inset: 0,
-        background: 'linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)',
+        background: 'linear-gradient(to right, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, transparent 100%)',
       }} />
       <div style={{ position: 'absolute', bottom: '15%', left: '8%', color: 'white', zIndex: 2 }}>
         <p style={{ fontSize: '0.8rem', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.75, fontWeight: 500 }}>Mallorca på svenska</p>
-        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: 400, letterSpacing: '0.03em', lineHeight: 1, margin: 0, maxWidth: '700px' }}>
+        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.8rem, 5vw, 5rem)', fontWeight: 400, letterSpacing: '0.03em', lineHeight: 1, margin: 0, maxWidth: '700px', whiteSpace: 'nowrap' }}>
           Din lokala guide till Mallorca
         </h1>
-        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginTop: '20px', opacity: 0.85, maxWidth: '500px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', marginTop: '20px', opacity: 1, maxWidth: '500px', lineHeight: 1.6, textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}>
           Insider-tips, dolda stränder och de bästa restaurangerna – från en som bor på ön.
         </p>
         {/* CTA-knappar – visas alltid men extra viktiga på mobil */}
