@@ -3,11 +3,14 @@ import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import FooterAccordion from '@/components/FooterAccordion';
+import { WebSiteSchema } from '@/app/components/SchemaOrg';
 
 const inter = Inter({ subsets: ['latin'] });
 const bebasNeue = Bebas_Neue({ weight: '400', subsets: ['latin'], variable: '--font-bebas' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mymallorca.se'),
+  alternates: { canonical: '/' },
   title: 'Mymallorca.se – Din personliga guide till Mallorcas bästa hemligheter',
   description: 'Din personliga guide till Mallorcas bästa hemligheter på svenska. Stränder, mat, golf, sevärdheter och insider-tips från en som kan ön utan och innan.',
   keywords: 'Mallorca, reseguide, stränder, restauranger, golf, aktiviteter, Palma',
@@ -21,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.className} ${bebasNeue.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#111111' }}>
         <Navbar />
+        <WebSiteSchema />
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
         <footer style={{ background: '#2C2018', color: 'white', padding: '0 0 0' }}>
 
