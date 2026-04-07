@@ -6,7 +6,7 @@ const stadsData: Record<string, {
 }> = {
   'palma-de-mallorca': {
     namn: 'Palma de Mallorca', region: 'Sydväst',
-    bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85',
     beskrivning: 'Öns pulserande huvudstad med La Seu-katedralen, gamla stan och livlig restaurangscen',
     tips: 'Bästa utsikten från Bellver slott',
     top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Bellver Slott'],
@@ -60,7 +60,7 @@ const stadsData: Record<string, {
   },
   'valldemossa': {
     namn: 'Valldemossa', region: 'Nordväst',
-    bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85',
     beskrivning: 'UNESCO-skyddad bergsby känt för Chopin och George Sands vistelse',
     tips: 'Besök kartusianerklostret tidigt på morgonen',
     top3: ['Kartusianerklostret', 'Chopins pianosalong', 'Utsikten från byplatsen'],
@@ -105,7 +105,7 @@ const stadsData: Record<string, {
   },
   'sineu': {
     namn: 'Sineu', region: 'Inland',
-    bild: 'https://images.unsplash.com/photo-1548013146-72479768bada?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85',
     beskrivning: 'Mallorcas geografiska hjärta med öns äldsta marknad sedan 1306',
     tips: 'Onsdagsmarknaden – kom tidigt för bästa upplevelsen',
     top3: ['Onsdagsmarknaden (sedan 1306)', 'Sa Placa-torget', 'Kyrkan Mare de Déu dels Àngels'],
@@ -123,7 +123,7 @@ const stadsData: Record<string, {
   },
   'manacor': {
     namn: 'Manacor', region: 'Öst',
-    bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85',
     beskrivning: 'Mallorcas näst största stad – känd för pärlor, möbler och Rafael Nadal',
     tips: 'Besök en pärlafabrik och se hur de tillverkas',
     top3: ['Majórica pärlafabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'],

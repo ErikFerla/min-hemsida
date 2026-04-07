@@ -127,7 +127,7 @@ export default function AktiviteterPage() {
               pris="från 895 kr"
               betyg={4.8}
               länk="https://www.getyourguide.com/mallorca-l234/hiking-tc133/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=75"
+              bild="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85"
             />
             <AffiliateCard
               typ="aktivitet"
