@@ -50,6 +50,23 @@
             <a href="https://maps.google.com/?q=Palma+de+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
               Visa på karta →
             </a>
+            <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginTop: '20px', border: '1px solid #ede5da' }}>
+              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#1F2937' }}>🎯 Boka upplevelser i Palma</h3>
+              {[
+                { text: 'Guidad tur i gamla stan (2h)', pris: 'från 295 kr', länk: 'https://www.getyourguide.com/palma-de-mallorca-l790/walking-tours-tc56/?partner_id=DITT_ID' },
+                { text: 'La Seu – guidad katedral-tur', pris: 'från 195 kr', länk: 'https://www.getyourguide.com/palma-de-mallorca-l790/la-seu-cathedral-tc257/?partner_id=DITT_ID' },
+                { text: 'E-bike-tur runt Palma', pris: 'från 595 kr', länk: 'https://www.getyourguide.com/palma-de-mallorca-l790/bike-tours-tc64/?partner_id=DITT_ID' },
+              ].map((item, i) => (
+                <a key={i} href={item.länk} target="_blank" rel="noopener noreferrer sponsored"
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                    padding: '12px 0', borderBottom: i < 2 ? '1px solid #f0ebe3' : 'none',
+                    textDecoration: 'none', color: '#1F2937' }}
+                >
+                  <span style={{ fontSize: '0.9rem' }}>{item.text}</span>
+                  <span style={{ fontSize: '0.85rem', color: '#0E7490', fontWeight: '700', flexShrink: 0 }}>{item.pris} →</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 ﻿'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import AffiliateCard from '@/app/components/AffiliateCard';
 
 const aktiviteter = [
   {
@@ -103,6 +104,42 @@ export default function AktiviteterPage() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: '600', marginBottom: '8px' }}>BOKA DIREKT</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#1F2937' }}>Populära upplevelser just nu</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
+            <AffiliateCard
+              typ="aktivitet"
+              titel="Helikoptertur över Mallorca"
+              beskrivning="Se hela ön från ovan. 30 minuters privat rundflygning med plats för 3 personer."
+              pris="från 2 450 kr/pers"
+              betyg={4.9}
+              badge="⭐ Premiumupplevelse"
+              länk="https://www.getyourguide.com/mallorca-l234/helicopter-tours-tc253/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75"
+            />
+            <AffiliateCard
+              typ="aktivitet"
+              titel="Vandring i Tramuntana med guide"
+              beskrivning="Lokal guide tar dig på GR-221 med lunch och transport inkluderat."
+              pris="från 895 kr"
+              betyg={4.8}
+              länk="https://www.getyourguide.com/mallorca-l234/hiking-tc133/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=75"
+            />
+            <AffiliateCard
+              typ="aktivitet"
+              titel="Båttur till okända vikar"
+              beskrivning="Heldagstur med liten grupp (max 12 pers). Lunch, snorkling och frisvimmning ingår."
+              pris="från 1 195 kr"
+              betyg={4.9}
+              badge="Slutsåld senaste veckan"
+              länk="https://www.getyourguide.com/mallorca-l234/boat-tours-tc55/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75"
+            />
+          </div>
         </div>
       </div>
     </div>

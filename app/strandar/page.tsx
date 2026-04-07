@@ -2,6 +2,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import AffiliateCard from '@/app/components/AffiliateCard';
 
 const stränder = [
   { namn: 'Caló des Moro', region: 'Syd', typ: 'Vik', svårighet: 'Promenad krävs', längd: '40m', beskrivning: 'Topprankad år efter år som Spaniens vackraste vik. Turkost vatten likt en pool, omgiven av klippor och tallskog. Inga faciliteter – kom tidigt!', tips: 'Kom före kl 9 på morgonen – fullsatt redan kl 10 på sommaren', maps: 'https://maps.google.com/?q=Calo+des+Moro+Mallorca', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80', familj: false, snorkling: true, nudist: false, redaktionellt: { typ: 'varning', text: 'Kom INTE efter kl 10 på sommaren – stranden är fullsatt och parkeringen stängd' } },
@@ -156,6 +157,42 @@ function StrandarContent() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: '600', marginBottom: '8px' }}>PLANERA VIDARE</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#1F2937' }}>Boka upplevelser vid stranden</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
+            <AffiliateCard
+              typ="aktivitet"
+              titel="Snorkeltur till Cala des Moro"
+              beskrivning="Guidad snorkeltur med liten grupp till Mallorcas klaraste vatten. Utrustning ingår."
+              pris="från 495 kr"
+              betyg={4.8}
+              badge="⭐ Vår favorit"
+              länk="https://www.getyourguide.com/mallorca-l234/snorkeling-tc63/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=75"
+            />
+            <AffiliateCard
+              typ="aktivitet"
+              titel="Kayakpaddling längs nordkusten"
+              beskrivning="Paddla längs dramatiska klippor och in i dolda grottor. Perfekt för nybörjare."
+              pris="från 695 kr"
+              betyg={4.7}
+              länk="https://www.getyourguide.com/mallorca-l234/kayaking-tc99/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=75"
+            />
+            <AffiliateCard
+              typ="transfer"
+              titel="Transfer flygplats ↔ hotell"
+              beskrivning="Privat transfer från PMI. Fast pris, ingen stress. Chauffören väntar med namnskylt."
+              pris="från 349 kr"
+              betyg={4.9}
+              badge="Populärt val"
+              länk="https://www.getyourguide.com/palma-de-mallorca-l790/transfers-tc188/?partner_id=DITT_ID"
+              bild="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75"
+            />
+          </div>
         </div>
       </div>
     </div>
