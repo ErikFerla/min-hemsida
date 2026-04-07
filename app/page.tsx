@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
-import SectionPersonal from './components/SectionPersonal';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
 import SectionInsider from './components/SectionInsider';
@@ -58,7 +57,6 @@ export default function Home() {
             <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
           </div>
         </section>
-        <div className="mobile-order-3"><SectionPersonal /></div>
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-8"><SectionInsider /></div>
