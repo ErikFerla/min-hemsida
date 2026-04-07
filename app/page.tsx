@@ -43,18 +43,41 @@ export default function Home() {
         </a>
       </div>
       <div className={styles.container}>
-        <section className="section-light desktop-intro">
+        <section style={{ background: '#FDF8F2', padding: '64px 60px' }}>
           <div className="section-inner">
-            <p className="section-label">DIN PERSONLIGA GUIDE</p>
-            <h2 className="section-title">Mallorca</h2>
-            <p style={{ fontSize: '1.2rem', color: '#c0392b', fontWeight: '600', marginBottom: '24px', fontStyle: 'italic' }}>
-              Din personliga guide till Mallorcas bästa hemligheter – utan turistfällor
-            </p>
+            <p className="section-label">VAD VILL DU UPPLEVA?</p>
+            <h2 className="section-title">Allt om Mallorca – på svenska</h2>
             <div className="section-divider"></div>
-            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}>Mallorca är mer än bara en semesterö - det är en upplevelse som stannar kvar länge efter att du kommit hem. Här möter du krispigt turkost hav, doftande apelsinlundar, vitputsade fiskebyar och en livlig matkultur som får smaklökarna att dansa. Med över 300 soldagar om året och ett klimat som är behagligt från april till november finns det knappt något bättre ställe i Europa att ladda batterierna på. Oavsett om du söker stillhet, äventyr, romantik eller familjesemester - Mallorca har det du letar efter.</p>
-            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '40px'}}><strong>Stränder och natur</strong><br />Föreställ dig att vakna upp, promenera fem minuter och sätta fötterna i sand vit som pudrat socker. På Mallorca är det vardagsliv. Ön över 200 stränder och vikar erbjuder allt från breda familjevänliga sandstränder till dolda paradisvikar som bara nås till fots. Es Trenc i söder - ofta kallad Mallorcas Karibien - lockar med sitt kristallklara vatten och orörda naturmiljö. Cala Mondragó är naturskyddad och ovanligt obefolkad. Och Serra de Tramuntana, UNESCOs världsarv, reser sig dramatiskt mot himlen med vandringsleder som belönar dig med utsikter du aldrig glömmer.</p>
-            <p style={{fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '24px'}}><strong>Mat och kultur</strong><br />Mallorcansk matkultur är en kärlekshistoria mellan havet, jorden och generationer av tradition. Frukostera på ett lokalt café med ensaimada - den karakteristiska snigelbullen - och njut av en cortado i morgonsolens sken. Till lunch serveras färsk fisk direkt från hamnen, tillagad med olivolja pressad från öns egna oliver. På kvällen lockar Palmas restaurangscen med allt från enkla tapasrestauranger till stjärnkrogarnas avantgardistiska tolkning av mallorcansk husmanskost. Och vinerna? Ön vingårdar i Binissalem producerar rödviner som tar upp kampen med Spaniens bästa.</p>
-            <Link href="/kontakt" className={styles.ctaBtn}>UPPLEV MALLORCA</Link>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '24px',
+              marginTop: '8px',
+            }}>
+              {[
+                { icon: '🏖️', title: 'Stränder', desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder', href: '/strandar' },
+                { icon: '🏙️', title: 'Städer & byar', desc: '18 destinationer med insider-tips från Palma till dolda bergsbyer', href: '/byar' },
+                { icon: '🍽️', title: 'Mat & Vin', desc: 'Restaurangtips, lokala vindistriktet och Michelinstjärnor', href: '/mat' },
+                { icon: '⛳', title: 'Golf', desc: '22 banor i världsklass – boka rätt bana för din nivå', href: '/aktiviteter/golf' },
+                { icon: '🎉', title: 'Evenemang 2026', desc: 'Festivaler, marknader och lokala fester hela säsongen', href: '/evenemang' },
+                { icon: '✈️', title: 'Planera resan', desc: 'Flyg, hyrbil, bästa restid – allt du behöver veta', href: '/flyg' },
+              ].map((item) => (
+                <a key={item.title} href={item.href} className="feature-card" style={{
+                  display: 'block',
+                  background: 'white',
+                  borderRadius: '12px',
+                  padding: '28px 24px',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(0,0,0,0.06)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                }}>
+                  <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{item.icon}</div>
+                  <div style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.04em', color: '#1F2937', marginBottom: '8px' }}>{item.title}</div>
+                  <div style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.6 }}>{item.desc}</div>
+                  <div style={{ marginTop: '16px', fontSize: '0.8rem', color: '#1F2937', fontWeight: 700, letterSpacing: '0.06em' }}>LÄS MER →</div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
         <div className="mobile-order-7"><SectionSeason /></div>
