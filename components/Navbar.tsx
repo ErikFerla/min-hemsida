@@ -63,6 +63,17 @@ const navItems = [
     ],
   },
   {
+    text: 'Guider',
+    href: '/guide',
+    submenu: [
+      { text: 'Bästa stränderna', href: '/guide/basta-stranderna-mallorca' },
+      { text: 'Mallorca med barn', href: '/guide/mallorca-med-barn' },
+      { text: 'Restauranger i Palma', href: '/guide/basta-restauranger-palma' },
+      { text: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { text: 'Bästa tid att resa', href: '/guide/basta-tid-resa-mallorca' },
+    ],
+  },
+  {
     text: 'Flyg',
     href: '/flyg',
     submenu: [
