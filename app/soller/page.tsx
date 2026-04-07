@@ -1,3 +1,4 @@
+// verified 2026-04-07
 export default function Soller() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
