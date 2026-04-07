@@ -1,4 +1,4 @@
-﻿import styles from './page.module.css';
+import styles from './page.module.css';
 import Link from 'next/link';
 import Carousel from '@/components/Carousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
@@ -70,7 +70,7 @@ export default function Home() {
               { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
               { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80' },
               { namn: 'Porto Petro', href: '/porto-petro', desc: 'Exklusiv och lugn marinaby', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80' },
-              { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80' },
+              { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80' },
               { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1555993539-1732b0258235?w=600&q=80' },
               { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80' },
             ].map((stad) => (

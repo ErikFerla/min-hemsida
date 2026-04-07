@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import AffiliateCard from '@/app/components/AffiliateCard';
@@ -17,7 +17,7 @@ const aktiviteter = [
     beskrivning: 'Serra de Tramuntana är ett UNESCO-världsarv med spektakulära vandringsleder genom olivlundar och bergsdalar.',
     emoji: '🥾',
     href: '/aktiviteter',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     highlights: ['UNESCO-världsarv', 'GR-221 leden', 'Alla svårigheter'],
   },
   {
@@ -118,7 +118,7 @@ export default function AktiviteterPage() {
               betyg={4.9}
               badge="⭐ Premiumupplevelse"
               länk="https://www.getyourguide.com/mallorca-l234/helicopter-tours-tc253/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=75"
+              bild="https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75"
             />
             <AffiliateCard
               typ="aktivitet"

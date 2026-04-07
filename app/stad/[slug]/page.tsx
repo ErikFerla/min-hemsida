@@ -15,7 +15,7 @@ const stadsData: Record<string, {
   },
   'soller': {
     namn: 'Sóller', region: 'Nordväst',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=1600&q=90',
     beskrivning: 'Bergsby omgiven av apelsinlundar med historisk spårvagn ner till havet',
     tips: 'Ta spårvagnen till Port de Sóller',
     top3: ['Historiska spårvagnen', 'Apelsinlundarna', 'Firó-festivalen i maj'],
@@ -69,7 +69,7 @@ const stadsData: Record<string, {
   },
   'deia': {
     namn: 'Deià', region: 'Nordväst',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=1600&q=90',
     beskrivning: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och havsutsikt',
     tips: 'Robert Graves museum är ett måste',
     top3: ['Robert Graves museum', 'Cala Deià (bad)', 'Utsikten från kyrkan'],
@@ -150,7 +150,7 @@ const stadsData: Record<string, {
   },
   'port-de-soller': {
     namn: 'Port de Sóller', region: 'Nordväst',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=1600&q=90',
     beskrivning: 'Charmig hamnby med en av Mallorcas vackraste vikar, nådd med historisk spårvagn',
     tips: 'Ta den historiska spårvagnen från Sóller',
     top3: ['Spårvagnsresan från Sóller', 'Solnedgången vid hamnen', 'Snorkling i viken'],

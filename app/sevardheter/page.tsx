@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import Image from 'next/image';
 const sevardheter = [
   {
@@ -41,7 +41,7 @@ const sevardheter = [
     beskrivning: 'Dramatiska underjordiska grottor med en av världens största underjordiska sjöar – Lago Martel. Klassisk konsert på vattnet ingår i besöket.',
     tips: 'Boka biljetter online i förväg – populäraste attraktionen på ön.',
     oppet: 'Dagligen 10–17 (apr–okt), 10–15 (nov–mar)',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     maps: 'https://maps.google.com/?q=Coves+del+Drach+Porto+Cristo+Mallorca',
     redaktionellt: { typ: 'tips', text: 'Boka ALLTID online – kassaköerna kan vara 1–2 timmar på högsäsong' },
   },
@@ -52,7 +52,7 @@ const sevardheter = [
     beskrivning: 'UNESCO:s världsarv sedan 2011. Dramatisk bergskedja med vandringsleder, olivlundar och medeltida byar. Högsta topp: Puig Major på 1 445 m.',
     tips: 'GR-221 "Ruta de Pedra en Sec" är en av Europas vackraste vandringsleder.',
     oppet: 'Alltid öppet – ta med karta och vatten',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     maps: 'https://maps.google.com/?q=Serra+de+Tramuntana+Mallorca',
     redaktionellt: { typ: 'bast', text: 'Bäst för: Cykelentusiaster och vandrare – GR-221 är en av Europas vackraste leder' },
   },
@@ -85,7 +85,7 @@ const sevardheter = [
     beskrivning: 'En av Mallorcas mest spektakulära platser – nås via en legendarisk slingrande bergsväg eller med båt. Grottor och turkost vatten vid mynningen av Torrent de Pareis.',
     tips: 'Ta båten från Port de Sóller för den mest dramatiska upplevelsen.',
     oppet: 'Alltid öppet',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     maps: 'https://maps.google.com/?q=Sa+Calobra+Mallorca',
     redaktionellt: { typ: 'varning', text: 'Mötande trafik på slingrande bergsväg – kör lugnt och parkera tidigt' },
   },
@@ -107,7 +107,7 @@ const sevardheter = [
     beskrivning: 'Dramatiska grottor vid nordostkusten med enorma stalaktiter och stalagmiter. Jules Verne ska ha inspirerats av grottan när han skrev Vingt mille lieues sous les mers.',
     tips: 'Mindre välkänd än Coves del Drach – färre turister och lika imponerande.',
     oppet: 'Dagligen 10–17',
-    bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     maps: 'https://maps.google.com/?q=Coves+d+Arta+Mallorca',
     redaktionellt: { typ: 'info', text: 'Mycket färre turister än Coves del Drach – lika vackert men lugnare' },
   },

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState } from 'react';
 
 const kategorier = [
@@ -28,9 +28,9 @@ const kategorier = [
     titel: 'Grottor & Naturäventyr',
     emoji: '🦇',
     aktiviteter: [
-      { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Boka biljetter online – öns populäraste attraktion', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.5234, lon: 3.3312, webb: 'https://www.covesdeldrach.com' },
-      { namn: "Coves d'Artà", plats: 'Capdepera', ålder: 'Alla åldrar', tips: 'Färre turister än Drach – lika imponerande', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.7012, lon: 3.4523, webb: 'https://www.covesdarta.com' },
-      { namn: 'Coves de Campanet', plats: 'Campanet', ålder: 'Alla åldrar', tips: 'Mindre och mysigare – bra för yngre barn', bild: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80', lat: 39.7812, lon: 2.9234, webb: 'https://www.covesdecampanet.com' },
+      { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Boka biljetter online – öns populäraste attraktion', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80', lat: 39.5234, lon: 3.3312, webb: 'https://www.covesdeldrach.com' },
+      { namn: "Coves d'Artà", plats: 'Capdepera', ålder: 'Alla åldrar', tips: 'Färre turister än Drach – lika imponerande', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80', lat: 39.7012, lon: 3.4523, webb: 'https://www.covesdarta.com' },
+      { namn: 'Coves de Campanet', plats: 'Campanet', ålder: 'Alla åldrar', tips: 'Mindre och mysigare – bra för yngre barn', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80', lat: 39.7812, lon: 2.9234, webb: 'https://www.covesdecampanet.com' },
       { namn: "Glassbottenbåt Cala d'Or", plats: "Cala d'Or", ålder: 'Alla åldrar', tips: 'Se undervattenslivet utan att blöta ner dig', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80', lat: 39.3789, lon: 3.2345, webb: 'https://www.google.com/search?q=glassbottenbat+Cala+dOr' },
     ],
   },

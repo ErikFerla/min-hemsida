@@ -147,7 +147,7 @@ const beachSections = [
         difficulty: 'Medel',
         lat: 39.8456,
         lon: 2.7234,
-        imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80'
+        imageUrl: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80'
       },
       {
         name: 'Platja de Llevant',
