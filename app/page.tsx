@@ -1,6 +1,4 @@
 ﻿import styles from './page.module.css';
-import Link from 'next/link';
-import Carousel from '@/components/Carousel';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
@@ -199,7 +197,8 @@ export default function Home() {
             {/* INTERAKTIV MALLORCA-KARTA SVG */}
             <div style={{position:'relative', maxWidth:'800px', margin:'0 auto'}}>
               <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"
-                   style={{width:'100%', height:'auto'}}>
+                   width="800" height="420"
+                   style={{width:'100%', height:'auto', display:'block'}}>
 
                 {/* Hav-bakgrund */}
                 <rect width="800" height="420" fill="#d4e9f7" rx="12"/>
