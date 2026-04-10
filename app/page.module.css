@@ -157,7 +157,7 @@
   position: relative;
 }
 .seasonInner { max-width: 1400px; margin: 0 auto; }
-.seasonTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.seasonTitle { font-family: var(--font-playfair), 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 3.2vw, 3.2rem); line-height: 1.1; color: var(--fg); letter-spacing: -0.02em; word-spacing: normal; font-weight: 700; margin-bottom: 8px; }
 .seasonSub { color: var(--muted); margin-bottom: 40px; font-size: 1rem; }
 .seasonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .seasonCard { background: #FDF8F2; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }

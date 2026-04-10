@@ -75,11 +75,11 @@ export default function SectionEvents() {
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '60px', alignItems: 'flex-start', marginBottom: '32px' }}>
           <div>
-            <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c0392b', marginBottom: '8px' }}>På Mallorca</p>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '3rem', letterSpacing: '0.05em', margin: '0 0 4px', lineHeight: 1, color: '#111' }}>KOMMANDE EVENEMANG</h2>
+            <p className="section-label">På Mallorca</p>
+            <h2 className="section-title" style={{ textTransform: 'uppercase' }}>Kommande evenemang</h2>
             <div style={{ width: '60px', height: '3px', background: '#F59E0B', marginBottom: '20px' }} />
             <p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.7', marginBottom: '28px' }}>Mallorca är värd till många evenemang under året – cykellopp, segelregattor, marknader och internationella sportevenemang.</p>
-            <a href="/evenemang" style={{ display: 'inline-block', padding: '12px 28px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em' }}>
+            <a href="/evenemang" className="btn-primary">
               SE ALLA EVENEMANG →
             </a>
           </div>

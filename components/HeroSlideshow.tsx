@@ -65,7 +65,7 @@ export default function HeroSlideshow() {
   const bild = bilder[aktiv];
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: 'clamp(50vh, 90vh, 90vh)', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', width: '100%', height: 'clamp(500px, 85vh, 900px)', overflow: 'hidden' }}>
 
       {/* Bildspel */}
       {bilder.map((b, i) => (
