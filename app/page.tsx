@@ -180,31 +180,164 @@ export default function Home() {
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
-        <div className="mobile-order-5">
-        <section className="section-black">
-          <Carousel title={'Hitta smultronen som bara "locals" känner till'} label="DESTINATIONER">
-            {[
-              { namn: 'Porto Colom', href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
-              { namn: 'Santanyi', href: '/santanyi', desc: 'Charmig marknadsby i söder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80' },
-              { namn: 'Porto Petro', href: '/porto-petro', desc: 'Exklusiv och lugn marinaby', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80' },
-              { namn: 'Soller', href: '/soller', desc: 'Bergsby med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80' },
-              { namn: 'Palma', href: '/palma-de-mallorca', desc: 'Öns pulserande huvudstad', bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85' },
-              { namn: 'Alcudia', href: '/byar', desc: 'Historisk kuststad i norr', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80' },
-            ].map((stad) => (
-              <a key={stad.namn} href={stad.href} style={{ textDecoration: 'none', display: 'block', borderRadius: '16px', overflow: 'hidden', background: '#FDF8F2', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }}>
-                <div style={{ height: 'clamp(160px, 25vw, 200px)', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-                <div style={{ padding: '14px 16px 16px' }}>
-                  <div style={{fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#2C1A0E', marginBottom: '4px', textTransform: 'uppercase'}}>{stad.namn}</div>
-                  <div style={{fontSize: '0.82rem', color: '#7D6650'}}>{stad.desc}</div>
-                  <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#0E7490', fontWeight: '700', letterSpacing: '0.05em' }}>
-                    Utforska →
-                  </div>
+        <section style={{background:'#fdf8f2', padding:'80px 60px'}}>
+          <div style={{maxWidth:'1280px', margin:'0 auto'}}>
+            <p style={{fontSize:'11.52px', letterSpacing:'0.18em', textTransform:'uppercase',
+                       color:'#4b5563', fontWeight:600, marginBottom:'12px', textAlign:'center'}}>
+              UTFORSKA ÖN
+            </p>
+            <h2 style={{fontFamily:'"Playfair Display", Georgia, serif', fontSize:'51.2px',
+                        lineHeight:1.1, letterSpacing:'-0.512px', color:'#1f2937', fontWeight:700,
+                        marginBottom:'16px', textAlign:'center', wordSpacing:'normal'}}>
+              Städer &amp; byar på Mallorca
+            </h2>
+            <p style={{fontSize:'16px', lineHeight:1.75, color:'#4b5563', textAlign:'center',
+                       margin:'0 auto 48px', maxWidth:'55ch'}}>
+              Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
+            </p>
+
+            {/* INTERAKTIV MALLORCA-KARTA SVG */}
+            <div style={{position:'relative', maxWidth:'800px', margin:'0 auto'}}>
+              <svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg"
+                   style={{width:'100%', height:'auto'}}>
+
+                {/* Hav-bakgrund */}
+                <rect width="800" height="420" fill="#d4e9f7" rx="12"/>
+
+                {/* Mallorca ö-form */}
+                <path d="M 120 200
+                         C 130 160, 160 130, 200 120
+                         C 240 110, 290 105, 340 108
+                         C 390 111, 430 118, 470 125
+                         C 510 132, 550 140, 590 155
+                         C 630 170, 660 185, 670 210
+                         C 680 235, 670 260, 650 278
+                         C 630 296, 600 305, 565 310
+                         C 530 315, 490 312, 460 318
+                         C 430 324, 410 340, 385 348
+                         C 360 356, 330 355, 305 345
+                         C 280 335, 260 318, 240 305
+                         C 220 292, 195 282, 170 268
+                         C 145 254, 115 240, 110 215
+                         Z"
+                      fill="#f5e6c8" stroke="#c9a96e" strokeWidth="2"/>
+
+                {/* Bergskedja Serra de Tramuntana */}
+                <path d="M 135 195 L 155 175 L 175 185 L 195 165 L 220 178 L 245 160 L 268 172 L 285 155 L 305 168 L 320 150 L 340 165"
+                      fill="none" stroke="#8b7355" strokeWidth="1.5" opacity="0.5"/>
+
+                {/* Palma — sydväst centrum */}
+                <a href="/palma-de-mallorca">
+                  <circle cx="245" cy="265" r="9" fill="#1f2937" stroke="white" strokeWidth="2"/>
+                  <text x="245" y="290" textAnchor="middle" fontSize="11" fill="#1f2937" fontWeight="600" fontFamily="sans-serif">Palma</text>
+                </a>
+
+                {/* Sóller — nordväst */}
+                <a href="/soller">
+                  <circle cx="210" cy="185" r="7" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="210" y="175" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Sóller</text>
+                </a>
+
+                {/* Valldemossa */}
+                <a href="/valldemossa">
+                  <circle cx="195" cy="210" r="7" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="165" y="207" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Valldemossa</text>
+                </a>
+
+                {/* Deià */}
+                <a href="/deia">
+                  <circle cx="178" cy="200" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="148" y="198" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Deià</text>
+                </a>
+
+                {/* Andratx */}
+                <a href="/andratx">
+                  <circle cx="148" cy="255" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="133" y="272" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Andratx</text>
+                </a>
+
+                {/* Pollença */}
+                <a href="/pollenca">
+                  <circle cx="440" cy="138" r="7" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="440" y="128" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Pollença</text>
+                </a>
+
+                {/* Alcúdia */}
+                <a href="/alcudia">
+                  <circle cx="480" cy="148" r="7" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="505" y="146" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Alcúdia</text>
+                </a>
+
+                {/* Inca */}
+                <a href="/inca">
+                  <circle cx="360" cy="210" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="360" y="228" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Inca</text>
+                </a>
+
+                {/* Sineu */}
+                <a href="/sineu">
+                  <circle cx="420" cy="230" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="420" y="248" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Sineu</text>
+                </a>
+
+                {/* Artà */}
+                <a href="/arta">
+                  <circle cx="575" cy="195" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="597" y="193" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Artà</text>
+                </a>
+
+                {/* Capdepera */}
+                <a href="/capdepera">
+                  <circle cx="615" cy="178" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="635" y="176" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Capdepera</text>
+                </a>
+
+                {/* Felanitx */}
+                <a href="/felanitx">
+                  <circle cx="510" cy="290" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="535" y="288" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Felanitx</text>
+                </a>
+
+                {/* Santanyí */}
+                <a href="/santanyi">
+                  <circle cx="470" cy="330" r="7" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="470" y="348" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Santanyí</text>
+                </a>
+
+                {/* Porto Colom */}
+                <a href="/porto-colom">
+                  <circle cx="555" cy="300" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="578" y="310" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Porto Colom</text>
+                </a>
+
+                {/* Porto Petro */}
+                <a href="/porto-petro">
+                  <circle cx="500" cy="315" r="6" fill="#c9a96e" stroke="white" strokeWidth="2"/>
+                  <text x="495" y="330" textAnchor="middle" fontSize="10" fill="#1f2937" fontFamily="sans-serif">Porto Petro</text>
+                </a>
+
+                {/* Kompass */}
+                <text x="695" y="385" fontSize="10" fill="#4b5563" fontFamily="sans-serif" opacity="0.6">N ↑</text>
+
+                {/* Medelhavs-text */}
+                <text x="90" y="140" fontSize="12" fill="#4b8fb5" fontFamily="Georgia, serif"
+                      fontStyle="italic" opacity="0.7" transform="rotate(-15, 90, 140)">Medelhavet</text>
+              </svg>
+
+              {/* Förklaring */}
+              <div style={{display:'flex', gap:'24px', justifyContent:'center', marginTop:'24px', flexWrap:'wrap'}}>
+                <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                  <div style={{width:'12px', height:'12px', borderRadius:'50%', background:'#1f2937'}}/>
+                  <span style={{fontSize:'13px', color:'#4b5563'}}>Huvudstad</span>
                 </div>
-              </a>
-            ))}
-          </Carousel>
+                <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                  <div style={{width:'12px', height:'12px', borderRadius:'50%', background:'#c9a96e'}}/>
+                  <span style={{fontSize:'13px', color:'#4b5563'}}>Städer &amp; byar</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
-        </div>
       </div>
     </div>
   );
