@@ -13,28 +13,28 @@ export default function Home() {
       <HeroSlideshow />
       <div className="mobile-quicklinks">
         <a href="/strandar" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon">🏖️</span>
+          <span className="mobile-quicklink-icon emoji-icon">🏖️</span>
           <div>
             <div className="mobile-quicklink-title">Bästa stränderna</div>
             <div className="mobile-quicklink-desc">30 utvalda stränder på Mallorca</div>
           </div>
         </a>
         <a href="/byar" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon">🏙️</span>
+          <span className="mobile-quicklink-icon emoji-icon">🏙️</span>
           <div>
             <div className="mobile-quicklink-title">Städer &amp; byar</div>
             <div className="mobile-quicklink-desc">18 destinationer runt hela ön</div>
           </div>
         </a>
         <a href="/kontakt" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon">🗺️</span>
+          <span className="mobile-quicklink-icon emoji-icon">🗺️</span>
           <div>
             <div className="mobile-quicklink-title">Planera din resa</div>
             <div className="mobile-quicklink-desc">Få personlig hjälp och tips</div>
           </div>
         </a>
         <a href="/evenemang" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon">🎉</span>
+          <span className="mobile-quicklink-icon emoji-icon">🎉</span>
           <div>
             <div className="mobile-quicklink-title">Evenemang</div>
             <div className="mobile-quicklink-desc">60 evenemang under 2026</div>
@@ -42,8 +42,8 @@ export default function Home() {
         </a>
       </div>
       <div className={styles.container}>
-        <section style={{ background: '#FDF8F2', padding: '64px 60px' }}>
-          <div className="section-inner">
+        <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
+          <div className="section-inner" style={{ padding: '0 60px' }}>
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
@@ -70,29 +70,29 @@ export default function Home() {
                   border: '1px solid rgba(0,0,0,0.06)',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
                 }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{item.icon}</div>
-                  <div style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.04em', color: '#1F2937', marginBottom: '8px' }}>{item.title}</div>
-                  <div style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.6 }}>{item.desc}</div>
-                  <div style={{ marginTop: '16px', fontSize: '0.8rem', color: '#1F2937', fontWeight: 700, letterSpacing: '0.06em' }}>LÄS MER →</div>
+                  <div style={{ fontSize: '1.5rem', marginBottom: '12px', lineHeight: 1, verticalAlign: 'middle' }}>{item.icon}</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '0.04em', color: '#1F2937', marginBottom: '8px', textTransform: 'uppercase' }}>{item.title}</div>
+                  <div style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.7 }}>{item.desc}</div>
+                  <div style={{ marginTop: '16px', fontSize: 'var(--btn-font-size, 0.8125rem)', color: 'var(--turkos)', fontWeight: 700, letterSpacing: 'var(--btn-letter-spacing, 0.08em)', textTransform: 'uppercase' }}>LÄS MER →</div>
                 </a>
               ))}
             </div>
           </div>
         </section>
-        <section style={{ background: '#FDF8F2', padding: '80px 60px' }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="editorial-split">
+        <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="editorial-split">
             <div>
-              <p style={{ fontSize: '0.72rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, marginBottom: '16px' }}>
+              <p className="section-label">
                 VARFÖR MALLORCA
               </p>
-              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', letterSpacing: '0.04em', color: '#1F2937', lineHeight: 1.05, marginBottom: '24px' }}>
+              <h2 className="section-title" style={{ letterSpacing: '-0.512px' }}>
                 En ö med allt – hela året om
               </h2>
               <div style={{ width: '48px', height: '2px', background: '#F59E0B', marginBottom: '28px', borderRadius: '2px' }} />
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4B5563', marginBottom: '20px' }}>
+              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '1.25rem', maxWidth: '65ch' }}>
                 Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#4B5563', marginBottom: '36px' }}>
+              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '2.25rem', maxWidth: '65ch' }}>
                 Öns nordvästra bergsmassiv, Serra de Tramuntana, är ett UNESCO-världsarv. Längs kusterna hittar du 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
               </p>
               <div style={{ display: 'flex', gap: '48px', marginBottom: '36px' }}>
@@ -102,12 +102,12 @@ export default function Home() {
                   { siffra: '300', text: 'Soldagar per år' },
                 ].map((s, i) => (
                   <div key={i}>
-                    <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2.2rem', color: '#1F2937', margin: 0, letterSpacing: '0.05em' }}>{s.siffra}</p>
+                    <p style={{ fontSize: '2.2rem', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
                     <p style={{ fontSize: '0.8rem', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
                   </div>
                 ))}
               </div>
-              <a href="/byar" style={{ display: 'inline-block', padding: '12px 28px', background: '#1F2937', color: 'white', borderRadius: '3px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '0.95rem', letterSpacing: '0.12em', textDecoration: 'none' }}>
+              <a href="/byar" className="btn-primary">
                 UTFORSKA ÖN →
               </a>
             </div>
@@ -122,6 +122,58 @@ export default function Home() {
                 <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, color: '#1F2937', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Valldemossa</p>
                 <p style={{ margin: '2px 0 0', fontSize: '0.7rem', color: '#9CA3AF' }}>UNESCO-skyddat världsarv</p>
               </div>
+            </div>
+          </div>
+        </section>
+        <section style={{background:'#fdf8f2', padding:'80px 60px'}}>
+          <div style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
+                       gridTemplateColumns:'1fr 1fr', gap:'80px', alignItems:'center'}}>
+
+            {/* BILD VÄNSTER */}
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80"
+                alt="Mallorca — solig terrassdag"
+                style={{width:'100%', height:'520px', objectFit:'cover',
+                        borderRadius:'4px', display:'block'}}
+              />
+            </div>
+
+            {/* TEXT HÖGER */}
+            <div>
+              <p style={{fontSize:'11.52px', letterSpacing:'0.18em',
+                         textTransform:'uppercase', color:'#4b5563',
+                         fontWeight:600, marginBottom:'12px'}}>
+                UPPLEV SKILLNADEN
+              </p>
+              <h2 style={{fontFamily:'"Playfair Display", Georgia, serif',
+                          fontSize:'51.2px', lineHeight:1.1,
+                          letterSpacing:'-0.512px', color:'#1f2937',
+                          fontWeight:700, marginBottom:'24px', wordSpacing:'normal'}}>
+                Din guide till Mallorca — inifrån och ut
+              </h2>
+              <div style={{width:'48px', height:'2px', background:'#c9a96e',
+                           marginBottom:'32px'}} />
+              <p style={{fontSize:'16px', lineHeight:1.75, color:'#4b5563',
+                         marginBottom:'20px', maxWidth:'52ch'}}>
+                De flesta reser till Mallorca. Vi hjälper dig att uppleva den.
+                Det är skillnaden mellan ett hotellpool-semester och en morgon
+                på en okänd strand i nordväst — där vattnet är turkost och du
+                är ensam om den.
+              </p>
+              <p style={{fontSize:'16px', lineHeight:1.75, color:'#4b5563',
+                         marginBottom:'32px', maxWidth:'52ch'}}>
+                MyMallorca är byggt av människor som älskar ön på riktigt —
+                inte av resebolag med provision. Guider, stränder och
+                upplevelser som faktiskt håller. Utvalda med omdöme.
+              </p>
+              <a href="/guider"
+                 style={{display:'inline-block', background:'#1f2937',
+                         color:'#fff', padding:'12px 28px', fontSize:'15.2px',
+                         letterSpacing:'1.824px', textTransform:'uppercase',
+                         textDecoration:'none'}}>
+                SE VÅRA GUIDER →
+              </a>
             </div>
           </div>
         </section>
@@ -142,7 +194,7 @@ export default function Home() {
               <a key={stad.namn} href={stad.href} style={{ textDecoration: 'none', display: 'block', borderRadius: '16px', overflow: 'hidden', background: '#FDF8F2', boxShadow: '0 4px 16px rgba(0,0,0,0.1)' }}>
                 <div style={{ height: 'clamp(160px, 25vw, 200px)', backgroundImage: `url('${stad.bild}')`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
                 <div style={{ padding: '14px 16px 16px' }}>
-                  <div style={{fontFamily: 'Bebas Neue, sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', color: '#2C1A0E', marginBottom: '4px'}}>{stad.namn}</div>
+                  <div style={{fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#2C1A0E', marginBottom: '4px', textTransform: 'uppercase'}}>{stad.namn}</div>
                   <div style={{fontSize: '0.82rem', color: '#7D6650'}}>{stad.desc}</div>
                   <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#0E7490', fontWeight: '700', letterSpacing: '0.05em' }}>
                     Utforska →
