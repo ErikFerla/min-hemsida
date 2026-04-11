@@ -253,7 +253,7 @@ section li {
 .editorial-split {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -264,7 +264,7 @@ section li {
   .editorial-split {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
-    padding: 48px 20px !important;
+    padding: 0 !important;
     max-width: 100% !important;
   }
 
@@ -1229,4 +1229,21 @@ section > div {
   opacity: 1 !important;
   transform: none !important;
   visibility: visible !important;
+}
+
+/* FIX 1 — Minska padding-bottom under "Upptäck Mallorca" på mobil */
+@media (max-width: 768px) {
+  .section-discover {
+    padding-bottom: 24px !important;
+  }
+}
+
+/* FIX 2 — editorial-split: section-padding sköter horisontellt utrymme */
+@media (max-width: 768px) {
+  .editorial-split {
+    padding: 0 !important;
+    max-width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
 }

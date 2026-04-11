@@ -29,7 +29,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
+        <section style={{ background: '#FDF8F2', padding: '80px 60px' }}>
           <div className="editorial-split">
             <div>
               <p className="section-label">
