@@ -33,7 +33,7 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=800&q=85"
+            src="https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=800&q=85"
             alt="Mallorca — olivlundar och medeltida bergsby"
             style={{
               width: '100%',
@@ -55,7 +55,7 @@ export default function Home() {
 
         <section
           className="page-section"
-          style={{background:'#fdf8f2', padding:'80px 60px', overflow:'hidden'}}
+          style={{background:'#fdf8f2', overflow:'hidden'}}
         >
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
             <div>
@@ -90,7 +90,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
+        <section className="page-section" style={{background:'#fdf8f2'}}>
           <div className="din-guide-grid" style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
                        gap:'80px', alignItems:'center'}}>
 
@@ -145,7 +145,7 @@ export default function Home() {
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
-        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
+        <section className="page-section" style={{background:'#fdf8f2'}}>
           <div style={{maxWidth:'1280px', margin:'0 auto'}}>
             <p style={{fontSize:'11.52px', letterSpacing:'0.18em', textTransform:'uppercase',
                        color:'#4b5563', fontWeight:600, marginBottom:'12px', textAlign:'center'}}>

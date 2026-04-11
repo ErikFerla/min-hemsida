@@ -1239,10 +1239,12 @@ section > div {
 }
 
 /* Sektioner med 80px 60px padding — minska sido-padding på mobil */
+.page-section {
+  padding: 80px 60px;
+}
 @media (max-width: 768px) {
   .page-section {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding: 48px 16px !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
   }
