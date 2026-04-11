@@ -1290,3 +1290,81 @@ section > div {
     width: 100% !important;
   }
 }
+
+/* ===== NAVBAR — ny implementation ===== */
+
+/* Desktop nav-länkar */
+.navbar-desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.navbar-desktop-link {
+  font-size: 0.875rem;
+  color: #1f2937;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+.navbar-desktop-link:hover {
+  background: rgba(0,0,0,0.04);
+}
+.navbar-desktop-cta {
+  background: #1f2937;
+  color: white !important;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+/* Hamburger — dölj på desktop, visa på mobil */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+/* Mobile drawer */
+.mobile-menu-drawer {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 999;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.mobile-menu-drawer.open {
+  transform: translateX(0);
+}
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 998;
+  top: 72px;
+}
+
+/* Mobil breakpoint */
+@media (max-width: 768px) {
+  .navbar-desktop-links { display: none !important; }
+  .navbar-desktop-cta { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+  .mobile-menu-drawer { display: block; }
+  .mobile-menu-overlay { display: block; }
+}
