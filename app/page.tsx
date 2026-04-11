@@ -10,48 +10,14 @@ export default function Home() {
     <div className={styles.page}>
       {/* Updated: carousel title and section-black color - redeploy 2026-04-07 */}
       <HeroSlideshow />
-      <div className="mobile-quicklinks">
-        <a href="/strandar" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon emoji-icon">🏖️</span>
-          <div>
-            <div className="mobile-quicklink-title">Bästa stränderna</div>
-            <div className="mobile-quicklink-desc">30 utvalda stränder på Mallorca</div>
-          </div>
-        </a>
-        <a href="/byar" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon emoji-icon">🏙️</span>
-          <div>
-            <div className="mobile-quicklink-title">Städer &amp; byar</div>
-            <div className="mobile-quicklink-desc">18 destinationer runt hela ön</div>
-          </div>
-        </a>
-        <a href="/kontakt" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon emoji-icon">🗺️</span>
-          <div>
-            <div className="mobile-quicklink-title">Planera din resa</div>
-            <div className="mobile-quicklink-desc">Få personlig hjälp och tips</div>
-          </div>
-        </a>
-        <a href="/evenemang" className="mobile-quicklink-card">
-          <span className="mobile-quicklink-icon emoji-icon">🎉</span>
-          <div>
-            <div className="mobile-quicklink-title">Evenemang</div>
-            <div className="mobile-quicklink-desc">60 evenemang under 2026</div>
-          </div>
-        </a>
-      </div>
+
       <div className={styles.container}>
         <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
           <div className="section-inner" style={{ padding: '0 60px' }}>
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '24px',
-              marginTop: '8px',
-            }}>
+            <div className="feature-cards-grid">
               {[
                 { icon: '🏖️', title: 'Stränder', desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder', href: '/strandar' },
                 { icon: '🏙️', title: 'Städer & byar', desc: '18 destinationer med insider-tips från Palma till dolda bergsbyer', href: '/byar' },
@@ -60,15 +26,7 @@ export default function Home() {
                 { icon: '🎉', title: 'Evenemang 2026', desc: 'Festivaler, marknader och lokala fester hela säsongen', href: '/evenemang' },
                 { icon: '✈️', title: 'Planera resan', desc: 'Flyg, hyrbil, bästa restid – allt du behöver veta', href: '/flyg' },
               ].map((item) => (
-                <a key={item.title} href={item.href} className="feature-card" style={{
-                  display: 'block',
-                  background: 'white',
-                  borderRadius: '12px',
-                  padding: '28px 24px',
-                  textDecoration: 'none',
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-                }}>
+                <a key={item.title} href={item.href} className="feature-card">
                   <div style={{ fontSize: '1.5rem', marginBottom: '12px', lineHeight: 1, verticalAlign: 'middle' }}>{item.icon}</div>
                   <div style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '0.04em', color: '#1F2937', marginBottom: '8px', textTransform: 'uppercase' }}>{item.title}</div>
                   <div style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.7 }}>{item.desc}</div>
