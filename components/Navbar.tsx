@@ -2,20 +2,20 @@
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'Städer & byar', href: '/byar' },
-  { label: 'Stränder', href: '/strandar' },
-  { label: 'Sevärdheter', href: '/sevardheter' },
+  { label: 'Stï¿½der & byar', href: '/byar' },
+  { label: 'Strï¿½nder', href: '/strandar' },
+  { label: 'Sevï¿½rdheter', href: '/sevardheter' },
   { label: 'Mat & Vin', href: '/mat' },
   { label: 'Aktiviteter', href: '/aktiviteter' },
   { label: 'Guider', href: '/guide' },
   { label: 'Flyg', href: '/flyg' },
-  { label: 'Väder', href: '/vader' },
+  { label: 'Vï¿½der', href: '/vader' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
-  // Stäng meny vid resize till desktop
+  // Stï¿½ng meny vid resize till desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) setOpen(false)
@@ -24,7 +24,7 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Förhindra scroll när meny är öppen
+  // Fï¿½rhindra scroll nï¿½r meny ï¿½r ï¿½ppen
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -56,12 +56,12 @@ export default function Navbar() {
                 MyMallorca
               </div>
               <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
-                Din guide på ön
+                Din guide pï¿½ ï¿½n
               </div>
             </div>
           </a>
 
-          {/* Desktop nav-länkar */}
+          {/* Desktop nav-lï¿½nkar */}
           <div className="navbar-desktop-links">
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="navbar-desktop-link">
@@ -75,11 +75,11 @@ export default function Navbar() {
             PLANERA DIN RESA
           </a>
 
-          {/* Hamburger-knapp — endast mobil */}
+          {/* Hamburger-knapp ï¿½ endast mobil */}
           <button
-            className="hamburger-btn"
+            className="hamburger"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'Stäng meny' : 'Öppna meny'}
+            aria-label={open ? 'Stï¿½ng meny' : 'ï¿½ppna meny'}
             aria-expanded={open}
           >
             <span style={{
@@ -104,52 +104,38 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile dropdown overlay */}
-      {open && (
-        <div
-          className="mobile-menu-overlay"
-          onClick={() => setOpen(false)}
-        />
-      )}
-
       {/* Mobile dropdown meny */}
-      <div className={`mobile-menu-drawer ${open ? 'open' : ''}`}>
-        <div style={{ padding: '8px 0 24px' }}>
+      {open && (
+        <div style={{
+          position: 'fixed', top: '72px', left: 0, right: 0, bottom: 0,
+          background: 'white', zIndex: 999, overflowY: 'auto'
+        }}>
           {navLinks.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
+            <a key={l.href} href={l.href}
               onClick={() => setOpen(false)}
               style={{
-                display: 'flex', alignItems: 'center',
-                padding: '16px 24px',
-                fontSize: '1rem', fontWeight: 500,
-                color: '#1f2937', textDecoration: 'none',
-                borderBottom: '1px solid rgba(0,0,0,0.05)',
-                transition: 'background 0.15s'
+                display: 'block', padding: '18px 24px',
+                fontSize: '1.05rem', fontWeight: 500, color: '#1f2937',
+                textDecoration: 'none', borderBottom: '1px solid rgba(0,0,0,0.06)'
               }}
             >
               {l.label}
             </a>
           ))}
-          <div style={{ padding: '20px 24px 0' }}>
-            <a
-              href="/kontakt"
-              onClick={() => setOpen(false)}
+          <div style={{ padding: '20px 24px' }}>
+            <a href="/kontakt" onClick={() => setOpen(false)}
               style={{
-                display: 'block', textAlign: 'center',
-                background: '#1f2937', color: 'white',
-                padding: '14px 24px', borderRadius: '4px',
-                fontSize: '0.8rem', fontWeight: 600,
-                letterSpacing: '0.1em', textTransform: 'uppercase',
-                textDecoration: 'none'
+                display: 'block', textAlign: 'center', background: '#1f2937',
+                color: 'white', padding: '14px', borderRadius: '4px',
+                textDecoration: 'none', fontWeight: 600, letterSpacing: '0.08em',
+                textTransform: 'uppercase', fontSize: '0.85rem'
               }}
             >
               Planera din resa
             </a>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

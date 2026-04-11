@@ -40,7 +40,7 @@ export default function Home() {
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 60%',
+              objectPosition: 'center 50%',
               display: 'block',
             }}
           />
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
 
         <MobileSection style={{background:'#fdf8f2', paddingTop:'80px', paddingBottom:'80px'}}>
-          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center' }}>
+          <div className="varfor-mallorca-grid" style={{ maxWidth: '100%', width: '100%', margin: '0 auto', display: 'grid', boxSizing: 'border-box', gap: '80px', alignItems: 'center' }}>
             <div>
               <p className="section-label">
                 VARFÖR MALLORCA
