@@ -33,7 +33,7 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=85"
             alt="Mallorca — turkost hav och dramatisk kust"
             style={{
               width: '100%',
