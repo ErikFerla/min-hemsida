@@ -29,8 +29,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
-          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 20px'}}>
+          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center' }}>
             <div>
               <p className="section-label">
                 VARFÖR MALLORCA
