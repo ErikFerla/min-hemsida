@@ -5,7 +5,7 @@ import SectionPlanner from './components/SectionPlanner';
 import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
 import FeatureCards from './components/FeatureCards';
-import FeatureCards from './components/FeatureCards';
+import MobileFeatureCards from '@/components/MobileFeatureCards';
 
 export default function Home() {
   return (
@@ -19,7 +19,14 @@ export default function Home() {
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
-            <FeatureCards />
+            {/* MOBIL: kompakta kort */}
+            <div className="mobile-only">
+              <MobileFeatureCards />
+            </div>
+            {/* DESKTOP: feature-cards med hover */}
+            <div className="desktop-only">
+              <FeatureCards />
+            </div>
           </div>
         </section>
         <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>

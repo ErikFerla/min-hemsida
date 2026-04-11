@@ -89,6 +89,22 @@ section li {
   max-width: var(--prose-max-width);
 }
 
+/* Visa/dölj baserat på skärmbredd */
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: block;
+}
+@media (max-width: 768px) {
+  .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
+}
+
 .feature-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
