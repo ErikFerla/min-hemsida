@@ -1256,6 +1256,19 @@ section > div {
   }
 }
 
+/* Mobilbild — dölj på desktop */
+.mobile-hero-image {
+  display: none;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .mobile-hero-image {
+    display: block;
+    margin: 0;
+  }
+}
+
 /* "En ö med allt" grid — desktop + mobilanpassning */
 .varfor-mallorca-grid {
   grid-template-columns: 1fr 1fr;

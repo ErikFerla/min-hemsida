@@ -29,6 +29,30 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Mobilbild — endast synlig på mobil */}
+        <div className="mobile-hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85"
+            alt="Mallorca — turkost hav och dramatisk kust"
+            style={{
+              width: '100%',
+              height: '260px',
+              objectFit: 'cover',
+              objectPosition: 'center 60%',
+              display: 'block',
+            }}
+          />
+          <div style={{ padding: '20px 20px 8px', background: '#fdf8f2' }}>
+            <p style={{ fontSize: '0.78rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c9a96e', fontWeight: 600, margin: '0 0 6px' }}>
+              Upplev Mallorca
+            </p>
+            <p style={{ fontSize: '1.1rem', fontFamily: '"Playfair Display", Georgia, serif', color: '#1f2937', fontWeight: 700, lineHeight: 1.3, margin: 0 }}>
+              En ö som stannar kvar i minnet
+            </p>
+          </div>
+        </div>
+
         <section className="page-section" style={{background:'#fdf8f2', padding:'80px 20px'}}>
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center' }}>
             <div>
