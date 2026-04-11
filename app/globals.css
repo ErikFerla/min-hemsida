@@ -1274,6 +1274,22 @@ section > div {
   grid-template-columns: 1fr 1fr;
 }
 
+/* "Din guide" grid — desktop + mobilanpassning */
+.din-guide-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .din-guide-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .din-guide-grid img {
+    height: 260px !important;
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 768px) {
   .varfor-mallorca-grid {
     grid-template-columns: 1fr !important;

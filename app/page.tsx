@@ -33,13 +33,13 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85"
-            alt="Mallorca — turkost hav och dramatisk kust"
+            src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?w=800&q=85"
+            alt="Mallorcas turkosa kust"
             style={{
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 60%',
+              objectPosition: 'center 40%',
               display: 'block',
             }}
           />
@@ -99,9 +99,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section style={{background:'#fdf8f2', padding:'80px 60px'}}>
-          <div style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
-                       gridTemplateColumns:'1fr 1fr', gap:'80px', alignItems:'center'}}>
+        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
+          <div className="din-guide-grid" style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
+                       gap:'80px', alignItems:'center'}}>
 
             {/* BILD VÄNSTER */}
             <div>
