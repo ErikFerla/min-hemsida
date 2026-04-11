@@ -237,7 +237,7 @@ export default function Navbar() {
             </div>
           ))}
 
-          <Link href="/kontakt" style={{
+          <Link href="/kontakt" className="navbar-desktop-cta" style={{
             background: '#1F2937',
             color: 'white',
             padding: '10px 22px',

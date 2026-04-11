@@ -889,6 +889,72 @@ h1 {
   }
 }
 
+/* ==============================================
+   MOBIL — EXTRA OPTIMERINGAR
+   ============================================== */
+
+/* Dölj desktop-CTA i navbar vid riktigt liten skärm */
+@media (max-width: 480px) {
+  .navbar-desktop-cta {
+    display: none !important;
+  }
+}
+
+/* Sektioner med inline padding 80px 60px — t.ex. evenemang och Din guide */
+@media (max-width: 768px) {
+  [style*="padding: 80px 60px"],
+  [style*="padding:80px 60px"] {
+    padding: 48px 20px !important;
+  }
+}
+
+/* Tvåkolumns-grid (inline style) → enkelkolumn på mobil */
+@media (max-width: 768px) {
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Evenemangsrubrik-grid 1fr 2fr → enkelkolumn */
+  [style*="grid-template-columns: 1fr 2fr"],
+  [style*="grid-template-columns:1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Bilder i tvåkolumns-sektioner — kortare höjd */
+  [style*="grid-template-columns: 1fr 1fr"] img,
+  [style*="grid-template-columns:1fr 1fr"] img {
+    height: 280px !important;
+  }
+}
+
+/* Feature cards grid → 2 kolumner på mobil */
+@media (max-width: 768px) {
+  [style*="minmax(220px"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .feature-card {
+    padding: 18px 16px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  [style*="minmax(220px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Leaflet-karta — lägre höjd på mobil */
+@media (max-width: 768px) {
+  #mallorca-map {
+    height: 350px !important;
+  }
+}
+
 /* === RESPLANSBYGGARE – MOBILANPASSNING === */
 @media (max-width: 768px) {
   .planner-dag-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }

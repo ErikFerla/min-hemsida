@@ -34,6 +34,12 @@
   color: var(--accent);
   border-bottom: 1px solid var(--accent);
 }
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+}
 .links {
   display: flex;
   list-style: none;
