@@ -43,14 +43,6 @@ export default function Home() {
               display: 'block',
             }}
           />
-          <div style={{ padding: '20px 20px 8px', background: '#fdf8f2' }}>
-            <p style={{ fontSize: '0.78rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c9a96e', fontWeight: 600, margin: '0 0 6px' }}>
-              Upplev Mallorca
-            </p>
-            <p style={{ fontSize: '1.1rem', fontFamily: '"Playfair Display", Georgia, serif', color: '#1f2937', fontWeight: 700, lineHeight: 1.3, margin: 0 }}>
-              En ö som stannar kvar i minnet
-            </p>
-          </div>
         </div>
 
         <section

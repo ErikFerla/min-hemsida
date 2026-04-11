@@ -1,48 +1,142 @@
 ﻿'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-const navLinks = [
-  { label: 'St\u00e5der & byar', href: '/byar' },
-  { label: 'Str\u00e4nder', href: '/strandar' },
-  { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
-  { label: 'Mat & Vin', href: '/mat' },
-  { label: 'Aktiviteter', href: '/aktiviteter' },
-  { label: 'Guider', href: '/guide' },
-  { label: 'Flyg', href: '/flyg' },
-  { label: 'V\u00e4der', href: '/vader' },
+interface NavItem {
+  label: string
+  href: string
+  children?: { label: string; href: string }[]
+}
+
+const navItems: NavItem[] = [
+  {
+    label: 'Str\u00e4nder',
+    href: '/strandar',
+    children: [
+      { label: 'Alla str\u00e4nder', href: '/strandar' },
+      { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
+    ],
+  },
+  {
+    label: 'St\u00e4der & byar',
+    href: '/byar',
+    children: [
+      { label: 'Alla st\u00e4der', href: '/byar' },
+      { label: 'Palma de Mallorca', href: '/palma-de-mallorca' },
+      { label: 'S\u00f3ller', href: '/soller' },
+      { label: 'Valldemossa', href: '/valldemossa' },
+      { label: 'Alc\u00fadia', href: '/alcudia' },
+      { label: 'Pollen\u00e7a', href: '/pollenca' },
+      { label: 'Dei\u00e0', href: '/deia' },
+      { label: 'Santany\u00ed', href: '/santanyi' },
+    ],
+  },
+  {
+    label: 'Mat & Vin',
+    href: '/mat',
+    children: [
+      { label: '\u00d6versikt', href: '/mat' },
+      { label: 'B\u00e4sta restauranger i Palma', href: '/guide/basta-restauranger-palma' },
+    ],
+  },
+  {
+    label: 'Aktiviteter',
+    href: '/aktiviteter',
+    children: [
+      { label: '\u00d6versikt', href: '/aktiviteter' },
+      { label: 'Golf', href: '/aktiviteter/golf' },
+      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+    ],
+  },
+  {
+    label: 'Guider',
+    href: '/guide/basta-tid-resa-mallorca',
+    children: [
+      { label: 'B\u00e4sta restid', href: '/guide/basta-tid-resa-mallorca' },
+      { label: 'Mallorca med barn', href: '/guide/mallorca-med-barn' },
+      { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
+      { label: 'Restauranger Palma', href: '/guide/basta-restauranger-palma' },
+      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+    ],
+  },
+  {
+    label: 'Planera',
+    href: '/flyg',
+    children: [
+      { label: 'Flyg', href: '/flyg' },
+      { label: 'V\u00e4der', href: '/vader' },
+      { label: 'Evenemang', href: '/evenemang' },
+      { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
+    ],
+  },
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null)
+  const [mobileAccordion, setMobileAccordion] = useState<number | null>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const navRef = useRef<HTMLElement>(null)
 
-  // Stäng meny vid resize till desktop
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 768) setOpen(false)
+      if (window.innerWidth > 768) {
+        setMobileOpen(false)
+        setMobileAccordion(null)
+      }
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Förhindra scroll när meny är öppen
+  // Lock body scroll when mobile menu open
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
-  }, [open])
+  }, [mobileOpen])
+
+  // Close desktop dropdown on outside click
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+  }, [])
+
+  // Close desktop dropdown on Escape
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenDropdown(null)
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => document.removeEventListener('keydown', handleKey)
+  }, [])
+
+  const handleMouseEnter = (i: number) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpenDropdown(i)
+  }
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
 
   return (
     <>
-      <nav style={{
+      <nav ref={navRef} style={{
         position: 'sticky', top: 0, zIndex: 1000,
         background: 'white',
         borderBottom: '1px solid rgba(0,0,0,0.08)',
-        boxShadow: '0 1px 8px rgba(0,0,0,0.06)'
+        boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
       }}>
         <div style={{
           maxWidth: '1400px', margin: '0 auto',
           padding: '0 clamp(16px, 4vw, 40px)',
           height: '72px', display: 'flex',
-          alignItems: 'center', justifyContent: 'space-between'
+          alignItems: 'center', justifyContent: 'space-between',
         }}>
 
           {/* Logo */}
@@ -61,12 +155,50 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Desktop nav-länkar */}
+          {/* Desktop nav with dropdowns */}
           <div className="navbar-desktop-links">
-            {navLinks.map(l => (
-              <a key={l.href} href={l.href} className="navbar-desktop-link">
-                {l.label}
-              </a>
+            {navItems.map((item, i) => (
+              <div
+                key={item.href}
+                className="nav-dropdown-wrapper"
+                onMouseEnter={() => item.children ? handleMouseEnter(i) : undefined}
+                onMouseLeave={item.children ? handleMouseLeave : undefined}
+              >
+                <button
+                  className={`navbar-desktop-link nav-dropdown-trigger${openDropdown === i ? ' active' : ''}`}
+                  onClick={() => {
+                    if (item.children) {
+                      setOpenDropdown(openDropdown === i ? null : i)
+                    } else {
+                      window.location.href = item.href
+                    }
+                  }}
+                  aria-expanded={item.children ? openDropdown === i : undefined}
+                  aria-haspopup={item.children ? 'true' : undefined}
+                >
+                  {item.label}
+                  {item.children && (
+                    <svg className="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ marginLeft: '4px', transition: 'transform 0.2s', transform: openDropdown === i ? 'rotate(180deg)' : 'none' }}>
+                      <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  )}
+                </button>
+
+                {item.children && openDropdown === i && (
+                  <div className="nav-dropdown-menu" onMouseEnter={() => handleMouseEnter(i)} onMouseLeave={handleMouseLeave}>
+                    {item.children.map(child => (
+                      <a
+                        key={child.href}
+                        href={child.href}
+                        className="nav-dropdown-item"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -75,60 +207,85 @@ export default function Navbar() {
             PLANERA DIN RESA
           </a>
 
-          {/* Hamburger-knapp — endast mobil */}
+          {/* Hamburger button — mobile only */}
           <button
             className="hamburger"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
-            aria-expanded={open}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
+            aria-expanded={mobileOpen}
           >
             <span style={{
               display: 'block', width: '22px', height: '2px',
               background: '#1f2937', borderRadius: '2px',
               transition: 'transform 0.3s, opacity 0.3s',
-              transform: open ? 'rotate(45deg) translate(5px, 5px)' : 'none'
+              transform: mobileOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
             }}/>
             <span style={{
               display: 'block', width: '22px', height: '2px',
               background: '#1f2937', borderRadius: '2px',
               transition: 'opacity 0.3s',
-              opacity: open ? 0 : 1
+              opacity: mobileOpen ? 0 : 1,
             }}/>
             <span style={{
               display: 'block', width: '22px', height: '2px',
               background: '#1f2937', borderRadius: '2px',
               transition: 'transform 0.3s',
-              transform: open ? 'rotate(-45deg) translate(5px, -5px)' : 'none'
+              transform: mobileOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
             }}/>
           </button>
         </div>
       </nav>
 
-      {/* Mobile dropdown meny */}
-      {open && (
-        <div style={{
-          position: 'fixed', top: '72px', left: 0, right: 0, bottom: 0,
-          background: 'white', zIndex: 999, overflowY: 'auto'
-        }}>
-          {navLinks.map(l => (
-            <a key={l.href} href={l.href}
-              onClick={() => setOpen(false)}
-              style={{
-                display: 'block', padding: '18px 24px',
-                fontSize: '1.05rem', fontWeight: 500, color: '#1f2937',
-                textDecoration: 'none', borderBottom: '1px solid rgba(0,0,0,0.06)'
-              }}
-            >
-              {l.label}
-            </a>
+      {/* Mobile fullscreen menu with accordion */}
+      {mobileOpen && (
+        <div className="mobile-menu-fullscreen">
+          {navItems.map((item, i) => (
+            <div key={item.href} className="mobile-menu-group">
+              {item.children ? (
+                <>
+                  <button
+                    className="mobile-menu-trigger"
+                    onClick={() => setMobileAccordion(mobileAccordion === i ? null : i)}
+                    aria-expanded={mobileAccordion === i}
+                  >
+                    <span>{item.label}</span>
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" style={{ transition: 'transform 0.2s', transform: mobileAccordion === i ? 'rotate(180deg)' : 'none' }}>
+                      <path d="M1 1l5 5 5-5" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </button>
+                  {mobileAccordion === i && (
+                    <div className="mobile-menu-subitems">
+                      {item.children.map(child => (
+                        <a
+                          key={child.href}
+                          href={child.href}
+                          className="mobile-menu-subitem"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <a
+                  href={item.href}
+                  className="mobile-menu-link"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )}
+            </div>
           ))}
           <div style={{ padding: '20px 24px' }}>
-            <a href="/kontakt" onClick={() => setOpen(false)}
+            <a href="/kontakt" onClick={() => setMobileOpen(false)}
               style={{
                 display: 'block', textAlign: 'center', background: '#1f2937',
                 color: 'white', padding: '14px', borderRadius: '4px',
                 textDecoration: 'none', fontWeight: 600, letterSpacing: '0.08em',
-                textTransform: 'uppercase', fontSize: '0.85rem'
+                textTransform: 'uppercase', fontSize: '0.85rem',
               }}
             >
               Planera din resa
