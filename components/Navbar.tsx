@@ -1,21 +1,21 @@
-'use client'
+﻿'use client'
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'St�der & byar', href: '/byar' },
-  { label: 'Str�nder', href: '/strandar' },
-  { label: 'Sev�rdheter', href: '/sevardheter' },
+  { label: 'Städer & byar', href: '/byar' },
+  { label: 'Stränder', href: '/strandar' },
+  { label: 'Sevärdheter', href: '/sevardheter' },
   { label: 'Mat & Vin', href: '/mat' },
   { label: 'Aktiviteter', href: '/aktiviteter' },
   { label: 'Guider', href: '/guide' },
   { label: 'Flyg', href: '/flyg' },
-  { label: 'V�der', href: '/vader' },
+  { label: 'Väder', href: '/vader' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
-  // St�ng meny vid resize till desktop
+  // Stäng meny vid resize till desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) setOpen(false)
@@ -24,7 +24,7 @@ export default function Navbar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // F�rhindra scroll n�r meny �r �ppen
+  // Förhindra scroll när meny är öppen
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -56,12 +56,12 @@ export default function Navbar() {
                 MyMallorca
               </div>
               <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
-                Din guide p� �n
+                Din guide på ön
               </div>
             </div>
           </a>
 
-          {/* Desktop nav-l�nkar */}
+          {/* Desktop nav-länkar */}
           <div className="navbar-desktop-links">
             {navLinks.map(l => (
               <a key={l.href} href={l.href} className="navbar-desktop-link">
@@ -75,11 +75,11 @@ export default function Navbar() {
             PLANERA DIN RESA
           </a>
 
-          {/* Hamburger-knapp � endast mobil */}
+          {/* Hamburger-knapp — endast mobil */}
           <button
             className="hamburger"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'St�ng meny' : '�ppna meny'}
+            aria-label={open ? 'Stäng meny' : 'Öppna meny'}
             aria-expanded={open}
           >
             <span style={{
