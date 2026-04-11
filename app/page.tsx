@@ -33,13 +33,13 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1601628828688-632f38a5a7d0?w=800&q=85"
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85"
             alt="Mallorcas turkosa kust"
             style={{
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 40%',
+              objectPosition: 'center 50%',
               display: 'block',
             }}
           />

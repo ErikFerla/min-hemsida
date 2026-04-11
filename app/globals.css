@@ -1243,6 +1243,20 @@ section > div {
   .page-section {
     padding-left: 16px !important;
     padding-right: 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .page-section > div {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .varfor-mallorca-grid {
+    max-width: 100% !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
   }
 }
 
