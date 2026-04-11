@@ -33,13 +33,13 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1548812028-c8f6c98d80d3?w=800&q=85"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85"
             alt="Mallorca — turkost hav och dramatisk kust"
             style={{
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 60%',
+              objectPosition: 'center 40%',
               display: 'block',
             }}
           />
@@ -87,18 +87,6 @@ export default function Home() {
               <a href="/byar" className="btn-primary">
                 UTFORSKA ÖN →
               </a>
-            </div>
-            <div style={{ position: 'relative' }}>
-              <img
-                src="https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=900&q=85"
-                alt="Mallorca – charmig gränd i Valldemossa"
-                loading="lazy"
-                style={{ width: '100%', height: '620px', objectFit: 'cover', borderRadius: '4px', display: 'block' }}
-              />
-              <div style={{ position: 'absolute', bottom: '20px', left: '20px', background: 'rgba(255,255,255,0.92)', backdropFilter: 'blur(8px)', padding: '12px 18px', borderRadius: '3px' }}>
-                <p style={{ margin: 0, fontSize: '0.75rem', fontWeight: 700, color: '#1F2937', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Valldemossa</p>
-                <p style={{ margin: '2px 0 0', fontSize: '0.7rem', color: '#9CA3AF' }}>UNESCO-skyddat världsarv</p>
-              </div>
             </div>
           </div>
         </section>
