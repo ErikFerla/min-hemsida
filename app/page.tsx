@@ -4,6 +4,8 @@ import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
 import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
+import FeatureCards from './components/FeatureCards';
+import FeatureCards from './components/FeatureCards';
 
 export default function Home() {
   return (
@@ -17,23 +19,7 @@ export default function Home() {
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
-            <div className="feature-cards-grid">
-              {[
-                { icon: '🏖️', title: 'Stränder', desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder', href: '/strandar' },
-                { icon: '🏙️', title: 'Städer & byar', desc: '18 destinationer med insider-tips från Palma till dolda bergsbyer', href: '/byar' },
-                { icon: '🍽️', title: 'Mat & Vin', desc: 'Restaurangtips, lokala vindistriktet och Michelinstjärnor', href: '/mat' },
-                { icon: '⛳', title: 'Golf', desc: '22 banor i världsklass – boka rätt bana för din nivå', href: '/aktiviteter/golf' },
-                { icon: '🎉', title: 'Evenemang 2026', desc: 'Festivaler, marknader och lokala fester hela säsongen', href: '/evenemang' },
-                { icon: '✈️', title: 'Planera resan', desc: 'Flyg, hyrbil, bästa restid – allt du behöver veta', href: '/flyg' },
-              ].map((item) => (
-                <a key={item.title} href={item.href} className="feature-card">
-                  <div className="fc-icon">{item.icon}</div>
-                  <div className="fc-title">{item.title}</div>
-                  <div className="fc-desc">{item.desc}</div>
-                  <span className="fc-link">LÄS MER →</span>
-                </a>
-              ))}
-            </div>
+            <FeatureCards />
           </div>
         </section>
         <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
