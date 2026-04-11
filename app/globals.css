@@ -122,6 +122,16 @@ section li {
   }
 }
 
+.editorial-split {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
 @media (max-width: 900px) {
   .editorial-split {
     grid-template-columns: 1fr !important;

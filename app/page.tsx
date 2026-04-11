@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </section>
         <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 60px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }} className="editorial-split">
+          <div className="editorial-split">
             <div>
               <p className="section-label">
                 VARFÖR MALLORCA
