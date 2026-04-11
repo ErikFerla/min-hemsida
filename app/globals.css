@@ -125,7 +125,14 @@ section li {
 @media (max-width: 900px) {
   .editorial-split {
     grid-template-columns: 1fr !important;
+    gap: 32px !important;
     padding: 48px 20px !important;
+    max-width: 100% !important;
+  }
+
+  .editorial-split img {
+    height: 260px !important;
+    width: 100% !important;
   }
 }
 
