@@ -33,13 +33,13 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=85"
-            alt="Mallorca — turkost hav och dramatisk kust"
+            src="https://images.unsplash.com/photo-1571406252241-db0280bd36cd?w=800&q=85"
+            alt="Mallorca — olivlundar och medeltida bergsby"
             style={{
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 40%',
+              objectPosition: 'center 50%',
               display: 'block',
             }}
           />
@@ -55,9 +55,9 @@ export default function Home() {
 
         <section
           className="page-section"
-          style={{background:'#fdf8f2', padding:'80px 60px'}}
+          style={{background:'#fdf8f2', padding:'80px 60px', overflow:'hidden'}}
         >
-          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center' }}>
+          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
             <div>
               <p className="section-label">
                 VARFÖR MALLORCA
