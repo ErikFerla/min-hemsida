@@ -5,7 +5,8 @@ import SectionPlanner from './components/SectionPlanner';
 import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
 import FeatureCards from './components/FeatureCards';
-import MobileFeatureCards from '@/components/MobileFeatureCards';
+import MobileFeatureCards from '@/components/MobileFeatureCards'
+import MobileSection from '@/components/MobileSection';
 
 export default function Home() {
   return (
@@ -33,13 +34,13 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=85"
-            alt="Mallorcas turkosa kust"
+            src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&q=85"
+            alt="Mallorca — turkost hav och dramatisk kust"
             style={{
               width: '100%',
               height: '260px',
               objectFit: 'cover',
-              objectPosition: 'center 50%',
+              objectPosition: 'center 60%',
               display: 'block',
             }}
           />
@@ -53,7 +54,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 20px'}}>
+        <MobileSection style={{background:'#fdf8f2', paddingTop:'80px', paddingBottom:'80px'}}>
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center' }}>
             <div>
               <p className="section-label">
@@ -98,7 +99,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </MobileSection>
         <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
           <div className="din-guide-grid" style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
                        gap:'80px', alignItems:'center'}}>
