@@ -2,14 +2,14 @@
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'Städer & byar', href: '/byar' },
-  { label: 'Stränder', href: '/strandar' },
-  { label: 'Sevärdheter', href: '/sevardheter' },
+  { label: 'St\u00e5der & byar', href: '/byar' },
+  { label: 'Str\u00e4nder', href: '/strandar' },
+  { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
   { label: 'Mat & Vin', href: '/mat' },
   { label: 'Aktiviteter', href: '/aktiviteter' },
   { label: 'Guider', href: '/guide' },
   { label: 'Flyg', href: '/flyg' },
-  { label: 'Väder', href: '/vader' },
+  { label: 'V\u00e4der', href: '/vader' },
 ]
 
 export default function Navbar() {
@@ -56,7 +56,7 @@ export default function Navbar() {
                 MyMallorca
               </div>
               <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
-                Din guide på ön
+                Din guide p\u00e5 \u00f6n
               </div>
             </div>
           </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
           <button
             className="hamburger"
             onClick={() => setOpen(!open)}
-            aria-label={open ? 'Stäng meny' : 'Öppna meny'}
+            aria-label={open ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
             aria-expanded={open}
           >
             <span style={{
