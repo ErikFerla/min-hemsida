@@ -27,10 +27,10 @@ export default function Home() {
                 { icon: '✈️', title: 'Planera resan', desc: 'Flyg, hyrbil, bästa restid – allt du behöver veta', href: '/flyg' },
               ].map((item) => (
                 <a key={item.title} href={item.href} className="feature-card">
-                  <div style={{ fontSize: '1.5rem', marginBottom: '12px', lineHeight: 1, verticalAlign: 'middle' }}>{item.icon}</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '0.04em', color: '#1F2937', marginBottom: '8px', textTransform: 'uppercase' }}>{item.title}</div>
-                  <div style={{ fontSize: '0.88rem', color: '#6B7280', lineHeight: 1.7 }}>{item.desc}</div>
-                  <div style={{ marginTop: '16px', fontSize: 'var(--btn-font-size, 0.8125rem)', color: 'var(--turkos)', fontWeight: 700, letterSpacing: 'var(--btn-letter-spacing, 0.08em)', textTransform: 'uppercase' }}>LÄS MER →</div>
+                  <div className="fc-icon">{item.icon}</div>
+                  <div className="fc-title">{item.title}</div>
+                  <div className="fc-desc">{item.desc}</div>
+                  <span className="fc-link">LÄS MER →</span>
                 </a>
               ))}
             </div>

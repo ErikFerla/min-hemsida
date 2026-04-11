@@ -124,6 +124,10 @@ section li {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0,0,0,0.1);
 }
+.fc-icon { font-size: 1.5rem; margin-bottom: 12px; line-height: 1; }
+.fc-title { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: #1F2937; margin-bottom: 8px; text-transform: uppercase; }
+.fc-desc { font-size: 0.875rem; color: #6b7280; line-height: 1.5; margin-bottom: 12px; }
+.fc-link { font-size: 0.8rem; color: #0e7490; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 
 @media (max-width: 768px) {
 
@@ -152,7 +156,8 @@ section li {
   /* Emoji-ikon — exakt samma som .mobile-quicklink-icon */
   .feature-card > div:first-child,
   .feature-card span:first-child,
-  .feature-card [class*="icon"] {
+  .feature-card [class*="icon"],
+  .fc-icon {
     flex-shrink: 0 !important;
     font-size: 1.6rem !important;
     margin-bottom: 0 !important;
@@ -163,20 +168,24 @@ section li {
   .feature-card strong,
   .feature-card [style*="fontWeight: 700"],
   .feature-card [style*="font-weight: 700"],
-  .feature-card div[style*="600"] {
+  .feature-card div[style*="600"],
+  .fc-title {
     font-size: 0.9rem !important;
     font-weight: 600 !important;
     line-height: 1.2 !important;
     color: rgb(31, 41, 55) !important;
     margin-bottom: 2px !important;
     display: block !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
   }
 
   /* Beskrivning — exakt samma som .mobile-quicklink-desc */
   .feature-card p,
   .feature-card [style*="fontSize: '0.875rem'"],
   .feature-card div[style*="color: '#6b7280'"],
-  .feature-card div[style*="color: '#4b5563'"] {
+  .feature-card div[style*="color: '#4b5563'"],
+  .fc-desc {
     font-size: 0.72rem !important;
     color: rgb(136, 136, 136) !important;
     line-height: 1.4 !important;
@@ -185,7 +194,8 @@ section li {
   }
 
   /* Dölj LÄS MER-länken */
-  .feature-card a {
+  .feature-card a,
+  .fc-link {
     display: none !important;
   }
 
