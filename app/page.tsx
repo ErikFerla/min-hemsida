@@ -33,7 +33,7 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&q=85"
+            src="https://images.unsplash.com/photo-loxEBt7Ad18?w=800&q=85"
             alt="Mallorca — olivlundar och medeltida bergsby"
             style={{
               width: '100%',
@@ -55,7 +55,7 @@ export default function Home() {
 
         <section
           className="page-section"
-          style={{background:'#fdf8f2', overflow:'hidden'}}
+          style={{background:'#fdf8f2', padding:'80px 20px', overflow:'hidden'}}
         >
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
             <div>
