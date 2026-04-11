@@ -43,8 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             ))}
           </div>
 
-          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '60px 60px 40px' }} className="footer-inner">
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '60px' }} className="footer-desktop-grid">
+          <div className="footer-inner">
+            <div className="footer-desktop-grid">
 
               {/* Kolumn 1 — Varumärke */}
               <div>
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
 
           {/* Footer bottom */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', padding: '20px 60px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div className="footer-bottom">
             <p style={{ color: 'rgba(253,248,242,0.5)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
             <p style={{ color: 'rgba(253,248,242,0.5)', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
           </div>

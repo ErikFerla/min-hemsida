@@ -177,7 +177,7 @@ export default function SectionPlanner() {
 
   return (
     <section className="section-light">
-      <div className="planner-grid-outer" style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(60px,8vw,100px) clamp(16px,5vw,80px)', display: 'grid', gridTemplateColumns: '1fr 480px', gap: '80px', alignItems: 'start' }}>
+      <div className="planner-grid-outer">
 
         {/* Vänster: Hela planner-innehållet */}
         <div>
@@ -261,7 +261,8 @@ export default function SectionPlanner() {
             src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=900&q=85"
             alt="Mallorca – planera din resa"
             loading="lazy"
-            style={{ width: '100%', height: '520px', objectFit: 'cover', borderRadius: '4px', display: 'block', marginBottom: '16px' }}
+            style={{ width: '100%', objectFit: 'cover', borderRadius: '4px', display: 'block', marginBottom: '16px' }}
+            className="planner-side-image"
           />
           <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
             <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#1F2937', margin: '0 0 8px' }}>🌴 TIPS FRÅN EN LOKAL</p>
