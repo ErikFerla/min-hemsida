@@ -1247,3 +1247,15 @@ section > div {
     gap: 32px !important;
   }
 }
+
+/* "En ö med allt" grid — mobilanpassning */
+@media (max-width: 768px) {
+  .varfor-mallorca-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .varfor-mallorca-grid img {
+    height: 260px !important;
+    width: 100% !important;
+  }
+}
