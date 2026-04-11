@@ -248,6 +248,10 @@ section li {
   .planner-image-col {
     display: none !important;
   }
+  .events-header-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
 }
 
 .editorial-split {
@@ -1149,6 +1153,13 @@ h1 {
     display: none !important;
   }
 
+  .footer-bottom {
+    padding: 16px 20px !important;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
   .footer-accordion {
     display: block !important;
     margin-bottom: 32px;
@@ -1182,10 +1193,97 @@ h1 {
   }
 }
 
-/* Performance – lazy loading för alla bilder under fold */
-img {
-  loading: lazy;
+/* ── Stats row — fluid responsive ── */
+.stats-row {
+  display: flex;
+  gap: clamp(24px, 4vw, 48px);
+  margin-bottom: 36px;
+  flex-wrap: wrap;
 }
+
+/* ── Din guide image — responsive height ── */
+.din-guide-image {
+  height: clamp(320px, 40vw, 520px);
+}
+
+/* ── Planner side image — responsive height ── */
+.planner-side-image {
+  height: clamp(380px, 40vw, 520px);
+}
+
+/* ── Planner grid outer — CSS-controlled ── */
+.planner-grid-outer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 100px) clamp(16px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+/* ── Events header grid — CSS-controlled ── */
+.events-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 5vw, 60px);
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+/* ── Footer inner — responsive padding ── */
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 60px) clamp(20px, 4vw, 60px) clamp(24px, 3vw, 40px);
+}
+
+/* ── Footer desktop grid — responsive ── */
+.footer-desktop-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+/* ── Footer bottom bar — responsive ── */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 20px clamp(20px, 4vw, 60px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ============================================================
+   TABLET BREAKPOINT — 769px to 1024px
+   ============================================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-desktop-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+  .footer-desktop-grid > div:last-child {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 32px;
+  }
+  .footer-desktop-grid > div:last-child a {
+    flex: 0 0 auto;
+  }
+  .din-guide-grid {
+    gap: 40px !important;
+  }
+  .varfor-mallorca-grid {
+    gap: 40px !important;
+  }
+  .events-header-grid {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+/* Performance – lazy loading: use loading="lazy" HTML attribute on img tags */
 
 /* Förhindra layout shift – sätt aspect-ratio på kortbilder */
 .personal-mobile-card img,
@@ -1259,6 +1357,18 @@ section > div {
     width: 100% !important;
     grid-template-columns: 1fr !important;
     gap: 24px !important;
+  }
+
+  .stats-row {
+    gap: 20px !important;
+  }
+
+  .din-guide-image {
+    height: 260px !important;
+  }
+
+  .planner-side-image {
+    height: 260px !important;
   }
 }
 

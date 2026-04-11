@@ -55,7 +55,7 @@ export default function SectionSeason() {
   return (
     <section className={styles.seasonSection}>
       <div className={styles.seasonInner}>
-        <h2 className={styles.seasonTitle} style={{ fontSize: '51.2px', letterSpacing: '-0.512px' }}>När ska du åka?</h2>
+        <h2 className={styles.seasonTitle}>När ska du åka?</h2>
         <p className={styles.seasonSub}>Mallorca är fantastiskt hela året – men varje säsong erbjuder något unikt</p>
 
         {/* Desktop-grid – oförändrat */}
