@@ -33,7 +33,7 @@ export default function Home() {
         {/* Mobilbild — endast synlig på mobil */}
         <div className="mobile-hero-image">
           <img
-            src="https://images.unsplash.com/photo-loxEBt7Ad18?w=800&q=85"
+            src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=800&q=85"
             alt="Mallorca — olivlundar och medeltida bergsby"
             style={{
               width: '100%',
