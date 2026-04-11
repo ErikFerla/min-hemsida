@@ -256,7 +256,6 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="hamburger"
             style={{
-              display: 'none',
               flexDirection: 'column' as const,
               gap: '5px',
               background: 'none',

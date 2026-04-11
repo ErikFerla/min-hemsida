@@ -1238,6 +1238,14 @@ section > div {
   }
 }
 
+/* Sektioner med 80px 60px padding — minska sido-padding på mobil */
+@media (max-width: 768px) {
+  .page-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
 /* FIX 2 — editorial-split: section-padding sköter horisontellt utrymme */
 @media (max-width: 768px) {
   .editorial-split {

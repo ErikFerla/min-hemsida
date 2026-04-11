@@ -15,7 +15,7 @@ export default function Home() {
 
       <div className={styles.container}>
         <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
-          <div className="section-inner" style={{ padding: '0 60px' }}>
+          <div className="section-inner">
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
             <div className="section-divider"></div>
@@ -29,7 +29,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section style={{ background: '#fdf8f2', padding: '80px 60px' }}>
+        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
             <div>
               <p className="section-label">
@@ -130,7 +130,7 @@ export default function Home() {
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
-        <section style={{background:'#fdf8f2', padding:'80px 60px'}}>
+        <section className="page-section" style={{background:'#fdf8f2', padding:'80px 60px'}}>
           <div style={{maxWidth:'1280px', margin:'0 auto'}}>
             <p style={{fontSize:'11.52px', letterSpacing:'0.18em', textTransform:'uppercase',
                        color:'#4b5563', fontWeight:600, marginBottom:'12px', textAlign:'center'}}>
