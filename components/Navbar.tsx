@@ -153,7 +153,7 @@ export default function Navbar() {
                 MyMallorca
               </div>
               <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
-                Din guide p\u00e5 \u00f6n
+                Din kompletta reseguide
               </div>
             </div>
           </a>
