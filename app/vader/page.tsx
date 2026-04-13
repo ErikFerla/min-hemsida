@@ -43,11 +43,7 @@ const symbolToEmojiAndDesc: { [key: string]: { emoji: string; desc: string } } =
 };
 
 const fetchWeather = async (lat: number, lon: number): Promise<ForecastData[]> => {
-  const response = await fetch(`https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat}&lon=${lon}`, {
-    headers: {
-      'User-Agent': 'MallorcaGuide/1.0 contact@mallorcaguide.se',
-    },
-  });
+  const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
   if (!response.ok) throw new Error('Failed to fetch weather data');
   const data = await response.json();
   const timeseries = data.properties.timeseries;
