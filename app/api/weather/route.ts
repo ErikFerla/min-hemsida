@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const lat = searchParams.get('lat')
@@ -15,15 +17,24 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: 'Invalid lat/lon' }, { status: 400 })
   }
 
-  const res = await fetch(
-    `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${latNum}&lon=${lonNum}`,
-    { headers: { 'User-Agent': 'mymallorca.se/1.0 contact@mymallorca.se' } }
-  )
+  try {
+    const res = await fetch(
+      `https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${latNum}&lon=${lonNum}`,
+      {
+        headers: { 'User-Agent': 'mymallorca.se/1.0 contact@mymallorca.se' },
+        next: { revalidate: 1800 },
+      }
+    )
 
-  if (!res.ok) {
-    return NextResponse.json({ error: 'Weather API error' }, { status: res.status })
+    if (!res.ok) {
+      return NextResponse.json({ error: 'Weather API error' }, { status: res.status })
+    }
+
+    const data = await res.json()
+    const response = NextResponse.json(data)
+    response.headers.set('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=3600')
+    return response
+  } catch {
+    return NextResponse.json({ error: 'Failed to reach weather service' }, { status: 502 })
   }
-
-  const data = await res.json()
-  return NextResponse.json(data)
 }

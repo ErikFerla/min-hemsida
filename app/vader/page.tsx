@@ -143,24 +143,37 @@ function VaderContent() {
   const [error, setError] = useState<string | null>(null);
   const [selectedDay, setSelectedDay] = useState(0);
 
+  const [retryCount, setRetryCount] = useState(0);
+
   useEffect(() => {
     const loadAllWeather = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const promises = locations.map(loc => fetchWeather(loc.lat, loc.lon));
-        const results = await Promise.all(promises);
+        const results = await Promise.allSettled(
+          locations.map(loc => fetchWeather(loc.lat, loc.lon))
+        );
         const data: { [key: string]: ForecastData[] } = {};
+        let anySuccess = false;
         locations.forEach((loc, index) => {
-          data[loc.name] = results[index];
+          const result = results[index];
+          if (result.status === 'fulfilled' && result.value.length > 0) {
+            data[loc.name] = result.value;
+            anySuccess = true;
+          }
         });
+        if (!anySuccess) {
+          setError('Kunde inte hämta väderdata. Försök igen senare.');
+        }
         setWeatherData(data);
-      } catch (err) {
+      } catch {
         setError('Kunde inte hämta väderdata. Försök igen senare.');
       } finally {
         setLoading(false);
       }
     };
     loadAllWeather();
-  }, []);
+  }, [retryCount]);
 
   useEffect(() => {
     const cityParam = searchParams.get('stad');
@@ -200,7 +213,36 @@ function VaderContent() {
             <p>Hämtar prognos...</p>
           </div>
         )}
-        {error && <p className={styles.error}>{error}</p>}
+        {error && (
+          <div className={styles.error}>
+            <p>{error}</p>
+            <button
+              onClick={() => setRetryCount(c => c + 1)}
+              style={{
+                marginTop: '12px', padding: '10px 24px', background: '#1f2937',
+                color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
+                fontWeight: 600, fontSize: '0.9rem',
+              }}
+            >
+              Försök igen
+            </button>
+          </div>
+        )}
+        {!loading && !error && !currentData && (
+          <div style={{ textAlign: 'center', padding: '40px 20px', color: '#6B7280' }}>
+            <p>Väderdata saknas för {currentLocation.name}.</p>
+            <button
+              onClick={() => setRetryCount(c => c + 1)}
+              style={{
+                marginTop: '12px', padding: '10px 24px', background: '#1f2937',
+                color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
+                fontWeight: 600, fontSize: '0.9rem',
+              }}
+            >
+              Försök igen
+            </button>
+          </div>
+        )}
         {!loading && !error && currentData && currentDay && (
           <div className={styles.weatherWidget}>
             <div className={styles.currentWeather}>
