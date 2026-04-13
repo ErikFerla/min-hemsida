@@ -63,10 +63,13 @@ const navItems: NavItem[] = [
     href: '/flyg',
     children: [
       { label: 'Flyg', href: '/flyg' },
-      { label: 'V\u00e4der', href: '/vader' },
       { label: 'Evenemang', href: '/evenemang' },
-      { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
+      { label: 'Sevärdheter', href: '/sevardheter' },
     ],
+  },
+  {
+    label: 'Väder',
+    href: '/vader',
   },
 ]
 
@@ -255,55 +258,16 @@ export default function Navbar() {
                   </button>
                   {mobileAccordion === i && (
                     <div className="mobile-menu-subitems">
-                      {item.children.flatMap(child => {
-                        const elements = [];
-                        if (child.href === '/vader') {
-                          elements.push(
-                            <div key="praktiskt-header" style={{
-                              padding: '12px 24px 4px',
-                              fontSize: '0.65rem',
-                              fontWeight: 700,
-                              letterSpacing: '0.15em',
-                              textTransform: 'uppercase' as const,
-                              color: '#c9a96e',
-                              borderTop: '1px solid rgba(0,0,0,0.06)',
-                              marginTop: '8px'
-                            }}>
-                              Praktiskt
-                            </div>
-                          );
-                          elements.push(
-                            <a
-                              key={child.href}
-                              href={child.href}
-                              onClick={() => setMobileOpen(false)}
-                              style={{
-                                display: 'block',
-                                padding: '14px 24px',
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                color: '#1f2937',
-                                textDecoration: 'none',
-                                borderBottom: '1px solid rgba(0,0,0,0.05)'
-                              }}
-                            >
-                              {child.label}
-                            </a>
-                          );
-                        } else {
-                          elements.push(
-                            <a
-                              key={child.href}
-                              href={child.href}
-                              className="mobile-menu-subitem"
-                              onClick={() => setMobileOpen(false)}
-                            >
-                              {child.label}
-                            </a>
-                          );
-                        }
-                        return elements;
-                      })}
+                      {item.children.map(child => (
+                        <a
+                          key={child.href}
+                          href={child.href}
+                          className="mobile-menu-subitem"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ))}
                     </div>
                   )}
                 </>
