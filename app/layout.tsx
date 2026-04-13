@@ -30,19 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Gold top line */}
           <div style={{ borderTop: '1px solid #c9a96e' }} />
 
-          {/* Mobile quicklinks — hidden on desktop via CSS */}
-          <div className="footer-mobile-quicklinks">
-            {[
-              { text: '🏖️ Stränder', href: '/strandar' },
-              { text: '🏙️ Städer', href: '/byar' },
-              { text: '🗺️ Planera resan', href: '/kontakt' },
-              { text: '☀️ Väder', href: '/vader' },
-              { text: '🎉 Evenemang', href: '/evenemang' },
-            ].map(({ text, href }) => (
-              <a key={href} href={href} className="footer-mobile-quicklink">{text}</a>
-            ))}
-          </div>
-
           <div className="footer-inner">
             <div className="footer-desktop-grid">
 
