@@ -262,7 +262,7 @@ function VaderContent() {
               </div>
             </div>
             <div className={styles.tempChart}>
-              <svg width="600" height="200" className={styles.chartSvg}>
+              <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet" className={styles.chartSvg} style={{ width: '100%', height: 'auto' }}>
                 <defs>
                   <linearGradient id="tempGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                     <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.3" />
@@ -287,7 +287,7 @@ function VaderContent() {
                 ))}
               </svg>
             </div>
-            <div className={styles.dayCards} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px' }}>
+            <div className={styles.dayCards}>
               {currentData.map((day, index) => (
                 <div
                   key={day.date}
