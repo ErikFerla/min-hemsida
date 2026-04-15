@@ -55,7 +55,7 @@ export default function Home() {
                 VARFÖR MALLORCA
               </p>
               <h2 className="section-title" style={{ letterSpacing: '-0.512px' }}>
-                En ö med allt – hela året om
+                En ö med allt – året om
               </h2>
               <div style={{ width: '48px', height: '2px', background: '#F59E0B', marginBottom: '28px', borderRadius: '2px' }} />
               <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '1.25rem', maxWidth: '65ch' }}>
@@ -69,6 +69,7 @@ export default function Home() {
                   { siffra: '200+', text: 'Stränder och vikar' },
                   { siffra: '22', text: 'Golfbanor' },
                   { siffra: '300', text: 'Soldagar per år' },
+                  { siffra: '550 km', text: 'Kustlinje att utforska' },
                 ].map((s, i) => (
                   <div key={i}>
                     <p style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
