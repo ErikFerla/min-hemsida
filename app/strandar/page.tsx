@@ -69,22 +69,46 @@ function StrandarContent() {
     return true;
   });
 
-  const knappStyle = (aktiv: boolean) => ({
-    padding: '8px 18px',
-    borderRadius: '20px',
-    border: '2px solid #0E7490',
-    background: aktiv ? '#0E7490' : 'transparent',
-    color: aktiv ? 'white' : '#0E7490',
-    fontWeight: '600' as const,
+  const chipStyle = (aktiv: boolean) => ({
+    minHeight: '44px',
+    padding: '0 18px',
+    borderRadius: '22px',
+    border: aktiv ? '1px solid #0E7490' : '1px solid #E2D8C8',
+    background: aktiv ? '#0E7490' : '#FFFFFF',
+    color: aktiv ? '#FFFFFF' : '#1F2937',
+    fontWeight: aktiv ? 700 : 600 as const,
     cursor: 'pointer',
-    fontSize: '0.85rem',
-    transition: 'all 0.2s',
+    fontSize: '0.9rem',
+    whiteSpace: 'nowrap' as const,
+    flexShrink: 0,
+    transition: 'all 0.18s ease',
+    boxShadow: aktiv ? '0 4px 12px rgba(14,116,144,0.25)' : '0 1px 2px rgba(0,0,0,0.03)',
   });
+
+  const scrollRowStyle = {
+    display: 'flex',
+    gap: '8px',
+    overflowX: 'auto' as const,
+    overflowY: 'hidden' as const,
+    WebkitOverflowScrolling: 'touch' as const,
+    scrollbarWidth: 'none' as const,
+    padding: '4px 16px 8px',
+    margin: '0 -16px',
+  };
+
+  const filterLabelStyle = {
+    fontSize: '0.7rem',
+    fontWeight: 700,
+    letterSpacing: '0.18em',
+    textTransform: 'uppercase' as const,
+    color: '#8B6F47',
+    margin: '0 0 8px',
+  };
 
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
       <div style={{
-        position: 'relative', height: '55vh',
+        position: 'relative', height: 'clamp(320px, 48vh, 560px)',
         backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90)',
         backgroundSize: 'cover', backgroundPosition: 'center',
         display: 'flex', alignItems: 'flex-end', padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
@@ -98,69 +122,89 @@ function StrandarContent() {
       </div>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
-        <div style={{ marginBottom: '40px' }}>
-          <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F59E0B', marginBottom: '16px' }}>Filtrera stränder</p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
-            {regioner.map(r => <button key={r} onClick={() => setRegion(r)} style={knappStyle(region === r)}>{r}</button>)}
+        <style>{`
+          .strand-scroll-row::-webkit-scrollbar { display: none; }
+        `}</style>
+        <div style={{ marginBottom: '32px' }}>
+          <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F59E0B', marginBottom: '20px' }}>Filtrera stränder</p>
+
+          <div style={{ marginBottom: '18px' }}>
+            <p style={filterLabelStyle}>Område</p>
+            <div className="strand-scroll-row" style={scrollRowStyle}>
+              {regioner.map(r => <button key={r} onClick={() => setRegion(r)} style={chipStyle(region === r)}>{r}</button>)}
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '12px' }}>
-            {typer.map(t => <button key={t} onClick={() => setTyp(t)} style={knappStyle(typ === t)}>{t}</button>)}
+
+          <div style={{ marginBottom: '18px' }}>
+            <p style={filterLabelStyle}>Typ</p>
+            <div className="strand-scroll-row" style={scrollRowStyle}>
+              {typer.map(t => <button key={t} onClick={() => setTyp(t)} style={chipStyle(typ === t)}>{t}</button>)}
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            {[['', 'Visa alla'], ['familj', '👨‍👩‍👧 Familjevänlig'], ['snorkling', '🤿 Bra för snorkling'], ['nudist', '🏖️ Nudistsektion']].map(([val, label]) =>
-              <button key={val} onClick={() => setFilter(val)} style={knappStyle(filter === val)}>{label}</button>
-            )}
+
+          <div style={{ marginBottom: '18px' }}>
+            <p style={filterLabelStyle}>Kännetecken</p>
+            <div className="strand-scroll-row" style={scrollRowStyle}>
+              {[['', 'Visa alla'], ['familj', 'Familjevänlig'], ['snorkling', 'Snorkling'], ['nudist', 'Nudistsektion']].map(([val, label]) =>
+                <button key={val} onClick={() => setFilter(val)} style={chipStyle(filter === val)}>{label}</button>
+              )}
+            </div>
           </div>
-          <p style={{ marginTop: '16px', color: '#666', fontSize: '0.9rem' }}>{visade.length} stränder visas</p>
+
+          <p style={{ marginTop: '12px', color: '#6B5D4F', fontSize: '0.9rem', fontWeight: 600 }}>{visade.length} stränder visas</p>
         </div>
 
-        <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '16px 20px', marginBottom: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-          <p style={{ margin: 0, fontSize: '0.9rem', color: '#374151' }}>
-            📖 <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
+        <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '18px 20px', marginBottom: '24px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
+          <p style={{ margin: 0, fontSize: '0.92rem', color: '#374151', lineHeight: 1.5, flex: '1 1 220px' }}>
+            <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
           </p>
-          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#0E7490', color: 'white', padding: '8px 18px', borderRadius: '8px', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
+          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#0E7490', color: 'white', padding: '0 20px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', borderRadius: '8px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
             Läs guiden →
           </a>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' }}>
           {visade.map((s, i) => (
-            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 6px 18px rgba(0,0,0,0.06)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-              <div style={{ position: 'relative' }}>
-                <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.65)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.region}</div>
-                <div style={{ position: 'absolute', top: '12px', right: '12px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.typ}</div>
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,0.06)'; }}>
+              <div style={{ position: 'relative', aspectRatio: '16 / 9' }}>
+                <Image src={s.bild} alt={s.namn} fill sizes="(max-width: 600px) 100vw, 400px" style={{ objectFit: 'cover' }} loading="lazy" />
+                <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '6px' }}>
+                  <span style={{ background: 'rgba(0,0,0,0.65)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.02em' }}>{s.region}</span>
+                  <span style={{ background: 'rgba(14,116,144,0.92)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.02em' }}>{s.typ}</span>
+                </div>
               </div>
-              <div style={{ padding: '22px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{s.namn}</h2>
-                  <span style={{ fontSize: '0.8rem', color: '#888', whiteSpace: 'nowrap', marginLeft: '8px' }}>📏 {s.längd}</span>
+              <div style={{ padding: '20px 20px 22px' }}>
+                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.55rem', letterSpacing: '0.04em', margin: '0 0 8px', lineHeight: 1.1, color: '#111' }}>{s.namn}</h2>
+                <p style={{ fontSize: '0.82rem', color: '#7A6B5C', margin: '0 0 14px', fontWeight: 500 }}>
+                  {s.längd} <span style={{ color: '#D4C7B5', margin: '0 8px' }}>•</span> {s.svårighet}
+                </p>
+                <p style={{ fontSize: '0.95rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{s.beskrivning}</p>
+                <div style={{ background: '#FDF6EC', borderLeft: '3px solid #F59E0B', borderRadius: '6px', padding: '10px 14px', fontSize: '0.88rem', color: '#4B3F2F', marginBottom: '14px', lineHeight: 1.55 }}>
+                  <strong style={{ color: '#8B6F47', fontWeight: 700 }}>Tips:</strong> {s.tips}
                 </div>
-                <p style={{ fontSize: '0.85rem', color: '#777', marginBottom: '8px' }}>🚶 {s.svårighet}</p>
-                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{s.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}>💡 {s.tips}</div>
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '12px', flexWrap: 'wrap' }}>
-                  {s.familj && <span style={{ background: '#e8f5e9', color: '#2e7d32', padding: '3px 8px', borderRadius: '8px', fontSize: '0.75rem', fontWeight: '600' }}>👨‍👩‍👧 Familj</span>}
-                  {s.snorkling && <span style={{ background: '#e3f2fd', color: '#1565c0', padding: '3px 8px', borderRadius: '8px', fontSize: '0.75rem', fontWeight: '600' }}>🤿 Snorkling</span>}
-                  {s.nudist && <span style={{ background: '#fff3e0', color: '#e65100', padding: '3px 8px', borderRadius: '8px', fontSize: '0.75rem', fontWeight: '600' }}>🏖️ Nudist</span>}
-                </div>
-                {s.redaktionellt && (
-                  <div style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '8px',
-                    padding: '8px 12px', borderRadius: '8px', marginBottom: '12px',
-                    background: s.redaktionellt.typ === 'varning' ? '#fff3cd' : s.redaktionellt.typ === 'tips' ? '#e8f5e9' : s.redaktionellt.typ === 'bast' ? '#e3f2fd' : '#f3e5f5',
-                    borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
-                    fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
-                  }}>
-                    <span style={{ flexShrink: 0 }}>
-                      {s.redaktionellt.typ === 'varning' ? '⚠️' : s.redaktionellt.typ === 'tips' ? '⭐' : s.redaktionellt.typ === 'bast' ? '🏆' : '💡'}
-                    </span>
-                    <span>{s.redaktionellt.text}</span>
+                {(s.familj || s.snorkling || s.nudist) && (
+                  <div style={{ display: 'flex', gap: '6px', marginBottom: '14px', flexWrap: 'wrap' }}>
+                    {s.familj && <span style={{ background: '#E8F3EC', color: '#2e7d32', padding: '5px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600 }}>Familj</span>}
+                    {s.snorkling && <span style={{ background: '#E3EFF8', color: '#1565c0', padding: '5px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600 }}>Snorkling</span>}
+                    {s.nudist && <span style={{ background: '#FBEFE0', color: '#B65C17', padding: '5px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 600 }}>Nudist</span>}
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                {s.redaktionellt && (
+                  <div style={{
+                    padding: '10px 14px', borderRadius: '6px', marginBottom: '16px',
+                    background: s.redaktionellt.typ === 'varning' ? '#FFF6E0' : s.redaktionellt.typ === 'tips' ? '#E8F3EC' : s.redaktionellt.typ === 'bast' ? '#E3EFF8' : '#F3E8F5',
+                    borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
+                    fontSize: '0.85rem', color: '#2F2A24', lineHeight: 1.55,
+                  }}>
+                    <strong style={{ textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '0.7rem', display: 'block', marginBottom: '4px', color: s.redaktionellt.typ === 'varning' ? '#B8791C' : s.redaktionellt.typ === 'tips' ? '#1F6B3A' : s.redaktionellt.typ === 'bast' ? '#1E5A8C' : '#6A2F82' }}>
+                      {s.redaktionellt.typ === 'varning' ? 'Varning' : s.redaktionellt.typ === 'tips' ? 'Redaktionens tips' : s.redaktionellt.typ === 'bast' ? 'Bäst för' : 'Info'}
+                    </strong>
+                    {s.redaktionellt.text}
+                  </div>
+                )}
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#F59E0B', color: '#1F2937', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
                   Visa på karta →
                 </a>
               </div>
