@@ -69,7 +69,7 @@ export default function Home() {
                   { siffra: '200+', text: 'Stränder och vikar' },
                   { siffra: '22', text: 'Golfbanor' },
                   { siffra: '300', text: 'Soldagar per år' },
-                  { siffra: '550 km', text: 'Kustlinje att utforska' },
+                  { siffra: '70+', text: 'Vingårdar på ön 🍷' },
                 ].map((s, i) => (
                   <div key={i}>
                     <p style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
