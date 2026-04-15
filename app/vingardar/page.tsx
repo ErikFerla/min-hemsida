@@ -41,8 +41,8 @@ export const metadata = {
   description: 'Upptäck Mallorcas vingårdar. Från familjedrivna bodegas till ekologiska producenter — med tips om bokning, provning och vem varje vingård passar för.',
 };
 
-const META_LABEL: React.CSSProperties = { fontSize: '0.68rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0 };
-const META_VALUE: React.CSSProperties = { fontSize: '0.88rem', color: '#1F2937', margin: '2px 0 0', lineHeight: 1.4 };
+const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0, lineHeight: 1.2 };
+const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#1F2937', margin: '1px 0 0', lineHeight: 1.3 };
 
 export default function VingardarPage() {
   return (
@@ -71,33 +71,33 @@ export default function VingardarPage() {
           Mallorca har över 70 registrerade vingårdar, främst i Binissalem- och Pla i Llevant-regionerna. De flesta erbjuder provning — men boka alltid i förväg för de mindre.
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
           {vingårdar.map((v, i) => (
-            <article key={v.namn} style={{ background: 'white', borderRadius: 18, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 6px 20px rgba(31,41,55,0.04)' }}>
-              <div style={{ position: 'relative', width: '100%', height: 200 }}>
+            <article key={v.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
+              <div style={{ position: 'relative', width: '100%', height: 160 }}>
                 <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 860px" style={{ objectFit: 'cover' }} loading={i < 2 ? 'eager' : 'lazy'} />
-                <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '4px 10px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.08em' }}>#{i + 1}</div>
+                <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '3px 9px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em' }}>#{i + 1}</div>
                 {v.eko && (
-                  <div style={{ position: 'absolute', top: 12, right: 12, display: 'inline-flex', alignItems: 'center', gap: 4, background: 'rgba(15,118,110,0.94)', color: 'white', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                    <IconLeaf size={11} stroke={2} /> Eko
+                  <div style={{ position: 'absolute', top: 10, right: 10, display: 'inline-flex', alignItems: 'center', gap: 4, background: 'rgba(15,118,110,0.94)', color: 'white', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                    <IconLeaf size={10} stroke={2} /> Eko
                   </div>
                 )}
               </div>
 
-              <div style={{ padding: '18px 18px 20px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 6 }}>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.35rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937', lineHeight: 1.1 }}>{v.namn}</h3>
+              <div style={{ padding: '14px 16px 16px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 4 }}>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937', lineHeight: 1.1 }}>{v.namn}</h3>
                   <PriceTag tier={v.prisnivå} />
                 </div>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 14px', color: '#6B7280', fontSize: '0.82rem', marginBottom: 12 }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={12} /> {v.plats}</span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconClock size={12} /> {v.öppet}</span>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: '#6B7280', fontSize: '0.8rem', marginBottom: 8 }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {v.plats}</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconClock size={11} /> {v.öppet}</span>
                 </div>
 
-                <p style={{ fontSize: '0.94rem', color: '#374151', lineHeight: 1.6, margin: '0 0 16px' }}>{v.info}</p>
+                <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.45, margin: '0 0 10px' }}>{v.info}</p>
 
-                <div style={{ background: '#F9F6F1', borderRadius: 12, padding: '14px 16px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px 16px', marginBottom: 14 }}>
+                <div style={{ background: '#F9F6F1', borderRadius: 10, padding: '10px 12px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 14px', marginBottom: 10 }}>
                   <div>
                     <p style={META_LABEL}>Typ</p>
                     <p style={META_VALUE}>{v.typ}</p>
@@ -121,7 +121,7 @@ export default function VingardarPage() {
                 </div>
 
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 16px', background: '#1F2937', color: 'white', borderRadius: 10, fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600, minHeight: 40 }}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', background: '#1F2937', color: 'white', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 600, minHeight: 36 }}>
                     <IconMap size={14} stroke={1.8} /> Visa på karta
                   </a>
                   {v.web && (
