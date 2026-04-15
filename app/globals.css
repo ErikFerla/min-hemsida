@@ -1169,10 +1169,10 @@ h1 {
 
 /* ── Stats row — fluid responsive ── */
 .stats-row {
-  display: flex;
-  gap: clamp(24px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 28px);
   margin-bottom: 36px;
-  flex-wrap: wrap;
 }
 
 /* ── Din guide image — responsive height ── */
@@ -1334,6 +1334,7 @@ section > div {
   }
 
   .stats-row {
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
 

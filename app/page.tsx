@@ -69,11 +69,11 @@ export default function Home() {
                   { siffra: '200+', text: 'Stränder och vikar' },
                   { siffra: '22', text: 'Golfbanor' },
                   { siffra: '300', text: 'Soldagar per år' },
-                  { siffra: '70+', text: 'Vingårdar på ön 🍷' },
+                  { siffra: '70+', text: 'Vingårdar på ön' },
                 ].map((s, i) => (
                   <div key={i}>
-                    <p style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
-                    <p style={{ fontSize: '0.8rem', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
+                    <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
+                    <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
                   </div>
                 ))}
               </div>
