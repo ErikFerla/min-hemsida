@@ -36,6 +36,7 @@ const navItems: NavItem[] = [
     children: [
       { label: '\u00d6versikt', href: '/mat' },
       { label: 'B\u00e4sta restauranger i Palma', href: '/guide/basta-restauranger-palma' },
+      { label: 'Ving\u00e5rdar', href: '/vingardar' },
     ],
   },
   {
