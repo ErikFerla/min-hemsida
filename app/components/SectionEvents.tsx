@@ -1,4 +1,4 @@
-
+import { IconCalendar, IconPin } from '@/components/Icons';
 
 export const evenemang = [
   // SPORT
@@ -93,7 +93,7 @@ export default function SectionEvents() {
                   </div>
                 </div>
                 <div style={{ padding: '14px' }}>
-                  <p style={{ fontSize: '0.75rem', color: '#888', margin: '0 0 4px' }}>📅 {e.datum} · 📍 {e.plats}</p>
+                  <p style={{ fontSize: '0.75rem', color: '#888', margin: '0 0 4px', display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconCalendar size={12} /> {e.datum} · <IconPin size={12} /> {e.plats}</p>
                   <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.05em', margin: '0 0 6px', color: '#111', lineHeight: 1.2 }}>{e.namn}</h3>
                   <p style={{ fontSize: '0.8rem', color: '#666', lineHeight: '1.5', margin: '0 0 12px' }}>{e.beskrivning}</p>
                   <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
@@ -114,7 +114,7 @@ export default function SectionEvents() {
                 </div>
                 <div style={{ padding: '16px' }}>
                   <p style={{ fontSize: '0.78rem', color: '#0E7490', fontWeight: '600', margin: '0 0 6px', letterSpacing: '0.03em' }}>
-                    📅 {e.datum}
+                    <IconCalendar size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {e.datum}
                   </p>
                   <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.05em', margin: '0 0 8px', color: '#1F2937', lineHeight: 1.2 }}>
                     {e.namn}

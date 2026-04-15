@@ -2,6 +2,8 @@
 
 
 
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+
 export default function PortoColom() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -19,7 +21,7 @@ export default function PortoColom() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Porto Colom</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Porto Colom är en av Mallorcas mest autentiska fiskebyar, belägen på östkusten. Till skillnad från många andra kustorter har Porto Colom lyckats bevara sin ursprungliga karaktär med färglada fiskarbåtar, vita hus och en avslappnad atmosfär som tar dig tillbaka i tiden.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Hamnen är en av de vackraste naturliga hamnarna på ön och är omgiven av pittoreska byggnader i ockra och rosa toner. På morgonen kan du se fiskarna lossa sin fångst – och om du frågar snällt säljer de direkt från båten.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Skippa turistkrogarna vid hamnen – gå till baksidan av torget</li>
               <li>Fråga efter “el peix del dia” – färsk fisk fångad samma dag</li>
@@ -29,12 +31,12 @@ export default function PortoColom() {
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
               <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Porto Colom</h2>
               {[
-                { icon: '⭐', text: 'Naturhamnen – en av Mallorcas vackraste, perfekt för kvällspromenad' },
-                { icon: '🏛️', text: 'Färsk fisk från fiskarna vid hamnen – kom kl 7–8 på morgonen' },
-                { icon: '📍', text: 'Cala Marçal – fin sandstrand precis utanför byn' },
+                { Icon: IconStar, text: 'Naturhamnen – en av Mallorcas vackraste, perfekt för kvällspromenad' },
+                { Icon: IconBuilding, text: 'Färsk fisk från fiskarna vid hamnen – kom kl 7–8 på morgonen' },
+                { Icon: IconPin, text: 'Cala Marçal – fin sandstrand precis utanför byn' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -42,7 +44,7 @@ export default function PortoColom() {
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
-              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
                 <strong>Plats:</strong> Östkusten, 60 km från Palma<br/>
                 <strong>Bil:</strong> Ca 50 min från Palma<br/>

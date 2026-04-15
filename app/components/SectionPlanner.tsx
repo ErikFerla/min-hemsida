@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconMap, IconBulb, IconPalm } from '@/components/Icons';
+import type { ComponentType } from 'react';
 
 const resplaner: Record<string, Record<string, string[]>> = {
   '3': {
@@ -129,12 +131,12 @@ const resplaner: Record<string, Record<string, string[]>> = {
   },
 };
 
-const intressenIkon: Record<string, string> = {
-  'Strand': '🏖️',
-  'Kultur': '🏛️',
-  'Mat': '🍽️',
-  'Aventyr': '🧗',
-  'Familj': '👨‍👩‍👧',
+const intressenIkon: Record<string, ComponentType<{ size?: number }>> = {
+  'Strand': IconWave,
+  'Kultur': IconBuilding,
+  'Mat': IconForkKnife,
+  'Aventyr': IconHiker,
+  'Familj': IconUsers,
 };
 
 export default function SectionPlanner() {
@@ -202,11 +204,14 @@ export default function SectionPlanner() {
         <div style={{ marginBottom: '40px' }}>
           <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Vad intresserar dig? (välj flera)</p>
           <div className="planner-intresse-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            {intresseVal.map(i => (
-              <button key={i} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
-                {intressenIkon[i]} {i}
-              </button>
-            ))}
+            {intresseVal.map(i => {
+              const Ikon = intressenIkon[i];
+              return (
+                <button key={i} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
+                  <Ikon size={18} /> {i}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -234,7 +239,7 @@ export default function SectionPlanner() {
         {visar && resplan.length > 0 && (
           <div style={{ marginTop: '48px', background: 'white', borderRadius: '16px', padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
             <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '24px' }}>
-              Din personliga {dagar}-dagarsplan 🗺️
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>Din personliga {dagar}-dagarsplan <IconMap size={20} /></span>
             </h3>
             {resplan.map((dag, i) => (
               <div key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
@@ -248,7 +253,7 @@ export default function SectionPlanner() {
             ))}
             <div style={{ marginTop: '32px', padding: '20px', background: '#f5f5f5', borderRadius: '10px' }}>
               <p style={{ margin: 0, fontSize: '0.9rem', color: '#666' }}>
-                💡 <strong>Tips:</strong> Vill du ha ännu mer personliga rekommendationer? Klicka på "Planera din resa" i menyn så hjälper vi dig vidare!
+                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du ha ännu mer personliga rekommendationer? Klicka på "Planera din resa" i menyn så hjälper vi dig vidare!
               </p>
             </div>
           </div>
@@ -265,7 +270,7 @@ export default function SectionPlanner() {
             className="planner-side-image"
           />
           <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
-            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#1F2937', margin: '0 0 8px' }}>🌴 TIPS FRÅN EN LOKAL</p>
+            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#1F2937', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
             <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: '1.65', margin: 0 }}>
               "Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet."
             </p>

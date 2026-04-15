@@ -1,6 +1,8 @@
 import styles from '../page.module.css';
+import { IconPin } from '@/components/Icons';
 
 export default function SectionInsider() {
+  const pinStyle = { verticalAlign: '-2px', marginRight: 6 };
   return (
     <section className={styles.insiderSection}>
       <div className={styles.insiderInner}>
@@ -8,30 +10,30 @@ export default function SectionInsider() {
         <p className={styles.insiderSub}>Tips som inte finns i någon guidebook</p>
         <div className={styles.insiderGrid}>
           <div className={styles.insiderCard}>
-            <h3 className={styles.insiderCity}>📍 Porto Colom</h3>
+            <h3 className={styles.insiderCity}><IconPin size={16} style={pinStyle} /> Porto Colom</h3>
             <ul className={styles.insiderList}>
-              <li>🤫 Fiskarna säljer direkt från båten på morgonen vid Es Riveto - fråga bara</li>
-              <li>🌅 Bästa solnedgången ses från klipporna vid Calo de Sa Barca Trencada</li>
-              <li>🚗 Parkera vid kyrkan och gå - parkeringen vid hamnen är alltid full</li>
-              <li>🍕 Restaurangen utan skylt på Carrer Major serverar bäst caldereta på hela ön</li>
+              <li>Fiskarna säljer direkt från båten på morgonen vid Es Riveto - fråga bara</li>
+              <li>Bästa solnedgången ses från klipporna vid Calo de Sa Barca Trencada</li>
+              <li>Parkera vid kyrkan och gå - parkeringen vid hamnen är alltid full</li>
+              <li>Restaurangen utan skylt på Carrer Major serverar bäst caldereta på hela ön</li>
             </ul>
           </div>
           <div className={styles.insiderCard}>
-            <h3 className={styles.insiderCity}>📍 Palma</h3>
+            <h3 className={styles.insiderCity}><IconPin size={16} style={pinStyle} /> Palma</h3>
             <ul className={styles.insiderList}>
-              <li>🤫 La Seu är gratis att besöka på vardagsmorgnar före kl 10</li>
-              <li>🌅 Bästa utsikten över Palma är från Castell de Bellver - inte från katedralen</li>
-              <li>🚗 Parkera vid Parc de la Mar och gå in i gamla stan till fots</li>
-              <li>🍕 Frukostera på Mercat de l'Olivar - lokalerna äter där, inte på turistkaféen</li>
+              <li>La Seu är gratis att besöka på vardagsmorgnar före kl 10</li>
+              <li>Bästa utsikten över Palma är från Castell de Bellver - inte från katedralen</li>
+              <li>Parkera vid Parc de la Mar och gå in i gamla stan till fots</li>
+              <li>Frukostera på Mercat de l'Olivar - lokalerna äter där, inte på turistkaféen</li>
             </ul>
           </div>
           <div className={styles.insiderCard}>
-            <h3 className={styles.insiderCity}>📍 Santanyi</h3>
+            <h3 className={styles.insiderCity}><IconPin size={16} style={pinStyle} /> Santanyi</h3>
             <ul className={styles.insiderList}>
-              <li>🤫 Marknaden på onsdagar är bättre än lördagen - färre turister, fler lokala</li>
-              <li>🌅 Kör till Cala Llombards en timme före solnedgången för magiska bilder</li>
-              <li>🚗 Parkera utanför byn och gå in - centrum är bilfritt på marknadsdagar</li>
-              <li>🍕 Bageri med ensaimadas från ugnen finns vid torget - öppnar kl 7</li>
+              <li>Marknaden på onsdagar är bättre än lördagen - färre turister, fler lokala</li>
+              <li>Kör till Cala Llombards en timme före solnedgången för magiska bilder</li>
+              <li>Parkera utanför byn och gå in - centrum är bilfritt på marknadsdagar</li>
+              <li>Bageri med ensaimadas från ugnen finns vid torget - öppnar kl 7</li>
             </ul>
           </div>
         </div>

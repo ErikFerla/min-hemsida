@@ -1,4 +1,6 @@
 'use client';
+import { IconSparkle, IconBuilding, IconPlane, IconStar } from '@/components/Icons';
+import type { ComponentType } from 'react';
 
 interface AffiliateCardProps {
   typ: 'aktivitet' | 'hotell' | 'hyrbil' | 'transfer';
@@ -12,7 +14,8 @@ interface AffiliateCardProps {
 }
 
 export default function AffiliateCard({ typ, titel, beskrivning, pris, betyg, länk, bild, badge }: AffiliateCardProps) {
-  const ikoner = { aktivitet: '🎯', hotell: '🏨', hyrbil: '🚗', transfer: '✈️' };
+  const ikoner: Record<AffiliateCardProps['typ'], ComponentType<{ size?: number }>> = { aktivitet: IconSparkle, hotell: IconBuilding, hyrbil: IconSparkle, transfer: IconPlane };
+  const Ikon = ikoner[typ];
   const färger = { aktivitet: '#0E7490', hotell: '#7C3AED', hyrbil: '#EA580C', transfer: '#0E7490' };
 
   return (
@@ -33,13 +36,13 @@ export default function AffiliateCard({ typ, titel, beskrivning, pris, betyg, l�
         )}
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '8px' }}>
           <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.05em',
-            color: '#1F2937', margin: 0, lineHeight: 1.2, flex: 1 }}>{ikoner[typ]} {titel}</h3>
+            color: '#1F2937', margin: 0, lineHeight: 1.2, flex: 1, display: 'inline-flex', alignItems: 'center', gap: 8 }}><Ikon size={18} /> {titel}</h3>
           {pris && <span style={{ fontWeight: '700', color: färger[typ], fontSize: '0.95rem', flexShrink: 0, marginLeft: '8px' }}>{pris}</span>}
         </div>
         <p style={{ fontSize: '0.85rem', color: '#6B7280', lineHeight: '1.55', margin: '0 0 14px' }}>{beskrivning}</p>
         {betyg && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '14px' }}>
-            {'⭐'.repeat(Math.round(betyg))}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '14px', color: '#F59E0B' }}>
+            {Array.from({ length: Math.round(betyg) }).map((_, i) => <IconStar key={i} size={14} />)}
             <span style={{ fontSize: '0.8rem', color: '#6B7280', marginLeft: '4px' }}>{betyg.toFixed(1)}</span>
           </div>
         )}

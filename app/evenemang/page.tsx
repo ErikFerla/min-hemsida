@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { evenemang } from '@/app/components/SectionEvents';
+import { IconCalendar, IconPin } from '@/components/Icons';
 
 const kategorier = ['Alla', 'Sport', 'Musik', 'Kultur', 'Mat & Dryck', 'Marknad', 'Familj'];
 
@@ -67,8 +68,8 @@ export default function EvenemangPage() {
               </div>
               <div style={{ padding: '18px', flex: 1, display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <div style={{ fontSize: '0.78rem', color: '#555', display: 'flex', gap: '12px' }}>
-                  <span>📅 {e.datum}</span>
-                  <span>📍 {e.plats}</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconCalendar size={12} /> {e.datum}</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {e.plats}</span>
                 </div>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: '700', letterSpacing: '-0.02em', margin: 0, color: '#111' }}>{e.namn}</h3>
                 <p style={{ fontSize: '0.875rem', color: '#444', lineHeight: '1.55', margin: 0, flex: 1 }}>{e.beskrivning}</p>

@@ -2,12 +2,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AffiliateCard from '@/app/components/AffiliateCard';
+import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave } from '@/components/Icons';
+import type { ComponentType } from 'react';
 
-const aktiviteter = [
+type Aktivitet = {
+  titel: string;
+  beskrivning: string;
+  Icon: ComponentType<{ size?: number }>;
+  href: string;
+  bild: string;
+  highlights: string[];
+};
+
+const aktiviteter: Aktivitet[] = [
   {
     titel: 'Golf på Mallorca',
     beskrivning: 'Mallorca har 22 golfbanor i världsklass – från nybörjarvänliga till europeisk toppklass med fantastisk havsutsikt.',
-    emoji: '⛳',
+    Icon: IconFlag,
     href: '/aktiviteter/golf',
     bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80',
     highlights: ['22 golfbanor', 'Alla nivåer', 'Havsutsikt'],
@@ -15,7 +26,7 @@ const aktiviteter = [
   {
     titel: 'Vandring i Tramuntana',
     beskrivning: 'Serra de Tramuntana är ett UNESCO-världsarv med spektakulära vandringsleder genom olivlundar och bergsdalar.',
-    emoji: '🥾',
+    Icon: IconHiker,
     href: '/aktiviteter',
     bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
     highlights: ['UNESCO-världsarv', 'GR-221 leden', 'Alla svårigheter'],
@@ -23,7 +34,7 @@ const aktiviteter = [
   {
     titel: 'Vattensport',
     beskrivning: 'Kristallklart vatten och perfekta vindförhållanden gör Mallorca till ett paradis för segling, kajakpaddling och snorkling.',
-    emoji: '🤿',
+    Icon: IconSnorkel,
     href: '/aktiviteter',
     bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80',
     highlights: ['Segling', 'Kajakpaddling', 'Snorkling'],
@@ -31,7 +42,7 @@ const aktiviteter = [
   {
     titel: 'Barn & Familj',
     beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
-    emoji: '👨‍👩‍👧',
+    Icon: IconUsers,
     href: '/barn',
     bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80',
     highlights: ['Vattenparker', 'Djurparker', 'Grottor'],
@@ -39,7 +50,7 @@ const aktiviteter = [
   {
     titel: 'Cykling',
     beskrivning: 'Mallorca är cyklisternas mekka – professionella lag tränar här på vintern. Välj mellan bergsetapper och kustvägar.',
-    emoji: '🚴',
+    Icon: IconHiker,
     href: '/aktiviteter',
     bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
     highlights: ['Mallorca 312', 'Tramuntana', 'Cykeluthyrning'],
@@ -47,7 +58,7 @@ const aktiviteter = [
   {
     titel: 'Båtliv & Segling',
     beskrivning: 'Utforska Mallorcas dramatiska kustlinje från havet – charter, guidade båtturer och glassbottenbåtar.',
-    emoji: '⛵',
+    Icon: IconWave,
     href: '/aktiviteter',
     bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80',
     highlights: ['Båtcharter', 'Guidade turer', 'Glassbottenbåt'],
@@ -89,7 +100,7 @@ export default function AktiviteterPage() {
               >
                 <Image src={a.bild} alt={a.titel} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ padding: '24px' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{a.emoji}</div>
+                  <div style={{ marginBottom: '8px', color: '#1f2937' }}><a.Icon size={28} /></div>
                   <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#1F2937' }}>{a.titel}</h2>
                   <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 16px' }}>{a.beskrivning}</p>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
@@ -116,7 +127,7 @@ export default function AktiviteterPage() {
               beskrivning="Se hela ön från ovan. 30 minuters privat rundflygning med plats för 3 personer."
               pris="från 2 450 kr/pers"
               betyg={4.9}
-              badge="⭐ Premiumupplevelse"
+              badge="Premiumupplevelse"
               länk="https://www.getyourguide.com/mallorca-l234/helicopter-tours-tc253/?partner_id=DITT_ID"
               bild="https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75"
             />

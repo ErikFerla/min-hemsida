@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
 const sevardheter = [
   {
     namn: 'La Seu – Palmas katedral',
@@ -168,9 +169,9 @@ export default function SevardheterPage() {
               </div>
               <div style={{ padding: '22px' }}>
                 <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{s.namn}</h2>
-                <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '10px' }}>📍 {s.plats} · 🕐 {s.oppet}</p>
+                <p style={{ fontSize: '0.85rem', color: '#888', marginBottom: '10px', display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {s.plats} · <IconClock size={12} /> {s.oppet}</p>
                 <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{s.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}>💡 {s.tips}</div>
+                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}><IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {s.tips}</div>
                 {s.redaktionellt && (
                   <div style={{
                     display: 'flex', alignItems: 'flex-start', gap: '8px',
@@ -179,8 +180,8 @@ export default function SevardheterPage() {
                     borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
                     fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
                   }}>
-                    <span style={{ flexShrink: 0 }}>
-                      {s.redaktionellt.typ === 'varning' ? '⚠️' : s.redaktionellt.typ === 'tips' ? '⭐' : s.redaktionellt.typ === 'bast' ? '🏆' : '💡'}
+                    <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                      {s.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : s.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : s.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{s.redaktionellt.text}</span>
                   </div>

@@ -1,3 +1,5 @@
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+
 export default function Capdepera() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -15,7 +17,7 @@ export default function Capdepera() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Capdepera</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Capdepera domineras av Castell de Capdepera – ett enormt medeltida fort som kröner kullen ovanför byn. Inifrån murarna har man en fantastisk panoramautsikt över hela nordöstra hörnet av Mallorca, havet och bortom. Byn nedan är charmig med vita hus och blomsterprydda gränder.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Strax nedanför ligger Cala Rajada – ett livligt fiskeläge och badort med flera fina stränder. Solnedgångarna sett från borgmurarna är spektakulära och ett av de bästa fotomotivet på norra Mallorca.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Besök borgen vid solnedgång – utsikten och ljuset är oöverträffat</li>
               <li>Cala Rajada 5 min bort – bra stränder och fiskrestauranger</li>
@@ -25,12 +27,12 @@ export default function Capdepera() {
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
               <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Capdepera</h2>
               {[
-                { icon: '⭐', text: 'Castell de Capdepera vid solnedgång – panoramautsikt och magiskt ljus' },
-                { icon: '🏛️', text: 'Cala Rajada – livlig hadstrand med fina stränder och fiskrestauranger' },
-                { icon: '📍', text: 'Panoramautsikten över havet – en av nordöstras bästa utsiktspunkter' },
+                { Icon: IconStar, text: 'Castell de Capdepera vid solnedgång – panoramautsikt och magiskt ljus' },
+                { Icon: IconBuilding, text: 'Cala Rajada – livlig hadstrand med fina stränder och fiskrestauranger' },
+                { Icon: IconPin, text: 'Panoramautsikten över havet – en av nordöstras bästa utsiktspunkter' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -38,7 +40,7 @@ export default function Capdepera() {
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
-              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
                 <strong>Plats:</strong> Nordöst, 80 km från Palma<br/>
                 <strong>Bil:</strong> Ca 60 min från Palma<br/>

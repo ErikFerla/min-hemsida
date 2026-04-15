@@ -1,10 +1,24 @@
 'use client';
 import { useState } from 'react';
 import styles from '../page.module.css';
+import { IconFlower, IconSun, IconLeaf, IconSnow } from '@/components/Icons';
+import type { ComponentType } from 'react';
 
-const säsonger = [
+type Sasong = {
+  Icon: ComponentType<{ size?: number }>;
+  namn: string;
+  månader: string;
+  färg: string;
+  textFärg: string;
+  fördelar: string[];
+  nackdel: string;
+  bästFör: string;
+  borderColor: string;
+};
+
+const säsonger: Sasong[] = [
   {
-    emoji: '🌸',
+    Icon: IconFlower,
     namn: 'Våren',
     månader: 'Mars – Maj',
     färg: '#a8e6a3',
@@ -15,7 +29,7 @@ const säsonger = [
     borderColor: '#a8e6a3',
   },
   {
-    emoji: '☀️',
+    Icon: IconSun,
     namn: 'Sommaren',
     månader: 'Juni – Augusti',
     färg: '#ffc400',
@@ -26,7 +40,7 @@ const säsonger = [
     borderColor: '#ffc400',
   },
   {
-    emoji: '🍂',
+    Icon: IconLeaf,
     namn: 'Hösten',
     månader: 'September – November',
     färg: '#f5a623',
@@ -37,7 +51,7 @@ const säsonger = [
     borderColor: '#f5a623',
   },
   {
-    emoji: '❄️',
+    Icon: IconSnow,
     namn: 'Vintern',
     månader: 'December – Februari',
     färg: '#90caf9',
@@ -62,7 +76,7 @@ export default function SectionSeason() {
         <div className={`${styles.seasonGrid} season-desktop`}>
           {säsonger.map((s, i) => (
             <div key={i} className={styles.seasonCard} style={{ borderTop: `4px solid ${s.borderColor}` }}>
-              <span className={styles.seasonEmoji}>{s.emoji}</span>
+              <span className={styles.seasonEmoji} style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={28} /></span>
               <h3 className={styles.seasonName}>{s.namn}</h3>
               <p className={styles.seasonMonths}>{s.månader}</p>
               <ul className={styles.seasonList}>
@@ -85,7 +99,7 @@ export default function SectionSeason() {
                 onClick={() => setÖppen(öppen === i ? null : i)}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ fontSize: '1.4rem' }}>{s.emoji}</span>
+                  <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={22} /></span>
                   <span>
                     <span className="season-accordion-title">{s.namn}</span>
                     <span className="season-accordion-months">{s.månader}</span>

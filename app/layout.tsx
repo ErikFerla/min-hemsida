@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import FooterAccordion from '@/components/FooterAccordion';
 import { WebSiteSchema } from '@/app/components/SchemaOrg';
+import { IconPalm } from '@/components/Icons';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' });
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Kolumn 1 — Varumärke */}
               <div>
-                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 12px' }}>DIN GUIDE PÅ MALLORCA 🌴</p>
+                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>DIN GUIDE PÅ MALLORCA <IconPalm size={22} /></p>
                 <p style={{ color: '#1f2937', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.</p>
                 <div style={{ display: 'flex', gap: '16px' }}>
                   <a href="#" aria-label="Instagram" className="footer-social-link">

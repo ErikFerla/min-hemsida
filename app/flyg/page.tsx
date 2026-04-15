@@ -1,11 +1,12 @@
 'use client';
 import { useState } from 'react';
+import { IconPlane, IconPalm, IconSparkle, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
 
 const flygplatser = [
-  { kod: 'GOT', namn: 'Göteborg Landvetter', emoji: '✈️' },
-  { kod: 'ARN', namn: 'Stockholm Arlanda', emoji: '✈️' },
-  { kod: 'MMX', namn: 'Malmö Airport', emoji: '✈️' },
-  { kod: 'OSL', namn: 'Oslo Gardermoen', emoji: '✈️' },
+  { kod: 'GOT', namn: 'Göteborg Landvetter' },
+  { kod: 'ARN', namn: 'Stockholm Arlanda' },
+  { kod: 'MMX', namn: 'Malmö Airport' },
+  { kod: 'OSL', namn: 'Oslo Gardermoen' },
 ];
 
 const destinations = [
@@ -54,7 +55,7 @@ export default function FlygPage() {
         {/* Sökformulär */}
         <div style={{ background: 'white', borderRadius: '20px', padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.1)', marginBottom: '48px' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 28px', color: '#111' }}>
-            🔍 Sök flyg till Palma de Mallorca
+            Sök flyg till Palma de Mallorca
           </h2>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '24px' }}>
@@ -66,15 +67,15 @@ export default function FlygPage() {
                 style={{ width: '100%', padding: '12px 16px', border: '2px solid #ddd', borderRadius: '10px', fontSize: '1rem', background: 'white', cursor: 'pointer' }}
               >
                 {flygplatser.map(f => (
-                  <option key={f.kod} value={f.kod}>{f.emoji} {f.namn} ({f.kod})</option>
+                  <option key={f.kod} value={f.kod}>{f.namn} ({f.kod})</option>
                 ))}
               </select>
             </div>
 
             <div>
               <label style={{ display: 'block', fontWeight: '700', fontSize: '0.85rem', marginBottom: '8px', color: '#555' }}>DESTINATION</label>
-              <div style={{ width: '100%', padding: '12px 16px', border: '2px solid #ddd', borderRadius: '10px', fontSize: '1rem', background: '#f9f9f9', color: '#555' }}>
-                🌴 Palma de Mallorca (PMI)
+              <div style={{ width: '100%', padding: '12px 16px', border: '2px solid #ddd', borderRadius: '10px', fontSize: '1rem', background: '#f9f9f9', color: '#555', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                <IconPalm size={18} /> Palma de Mallorca (PMI)
               </div>
             </div>
 
@@ -124,13 +125,13 @@ export default function FlygPage() {
         </div>
 
         {/* Snabbknappar */}
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '24px', paddingBottom: '12px', borderBottom: '3px solid #F59E0B', color: '#111' }}>
-          ⚡ Snabbsök – Populära avgångar
+        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '24px', paddingBottom: '12px', borderBottom: '3px solid #F59E0B', color: '#111', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+          <IconSparkle size={22} /> Snabbsök – Populära avgångar
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {flygplatser.map(f => (
             <div key={f.kod} style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-              <div style={{ fontSize: '2rem', marginBottom: '8px' }}>✈️</div>
+              <div style={{ marginBottom: '8px', color: '#1f2937' }}><IconPlane size={28} /></div>
               <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', margin: '0 0 4px', color: '#111' }}>{f.namn}</h3>
               <p style={{ fontSize: '0.85rem', color: '#888', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
               <button
@@ -145,18 +146,18 @@ export default function FlygPage() {
 
         {/* Tips */}
         <div style={{ background: '#111', borderRadius: '16px', padding: '32px', color: 'white' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px' }}>
-            💡 Tips för billigare flyg till Mallorca
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <IconBulb size={22} /> Tips för billigare flyg till Mallorca
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>
             {[
-              { icon: '📅', tips: 'Boka 6–8 veckor i förväg för bästa pris' },
-              { icon: '🌤️', tips: 'Maj och september är billigare än juli–aug' },
-              { icon: '⏰', tips: 'Tidiga morgon- eller sena kvällsflygningar är ofta billigast' },
-              { icon: '🔔', tips: 'Sätt prisvarning på Skyscanner och vänta på rea' },
+              { Icon: IconCalendar, tips: 'Boka 6–8 veckor i förväg för bästa pris' },
+              { Icon: IconSun, tips: 'Maj och september är billigare än juli–aug' },
+              { Icon: IconClock, tips: 'Tidiga morgon- eller sena kvällsflygningar är ofta billigast' },
+              { Icon: IconInfo, tips: 'Sätt prisvarning på Skyscanner och vänta på rea' },
             ].map((t, i) => (
               <div key={i} style={{ background: 'rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{t.icon}</div>
+                <div style={{ marginBottom: '8px', color: 'white' }}><t.Icon size={22} /></div>
                 <p style={{ fontSize: '0.9rem', color: '#ddd', margin: 0, lineHeight: '1.5' }}>{t.tips}</p>
               </div>
             ))}

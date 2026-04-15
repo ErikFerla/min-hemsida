@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { IconPalm } from '@/components/Icons';
 
 const grupper = [
   {
@@ -22,7 +23,7 @@ export default function FooterAccordion() {
   return (
     <div className="footer-accordion">
       <div style={{ marginBottom: '20px' }}>
-        <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 8px' }}>DIN GUIDE PÅ MALLORCA 🌴</p>
+        <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>DIN GUIDE PÅ MALLORCA <IconPalm size={20} /></p>
         <p style={{ color: '#1f2937', fontSize: '0.85rem', lineHeight: '1.6', margin: 0 }}>Din kompletta guide till Mallorca på svenska.</p>
       </div>
       {grupper.map((g, i) => (

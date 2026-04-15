@@ -1,4 +1,6 @@
 // verified 2026-04-07
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+
 export default function Soller() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -16,7 +18,7 @@ export default function Soller() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Sóller</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Sóller ligger inbäddad i en frodig dal omgiven av Tramuntanabergens dramatiska siluetter. Det är en bergsby med franskt inflytande – en gång välbärgad tack vare handel med apelsiner och citrus, vilket syns i de modernistiska byggnaderna runt torget.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Den historiska trätåget från Palma (sedan 1912) och spårvägen ner till Port de Sóller är en av Mallorcas mest ikoniska upplevelser. Port de Sóller är en halvmåneformad bukt med en avslappnad strandpromenad och bra fiskrestauranger.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Ta det historiska träntåget från Palma – ett minne för livet (boka i förväg)</li>
               <li>Åk spårvägen ner till Port de Sóller och ta en bukt-kaffe på morgonen</li>
@@ -26,12 +28,12 @@ export default function Soller() {
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
               <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Sóller</h2>
               {[
-                { icon: '⭐', text: 'Historiska spårvagnen ner till Port de Sóller – åk tur och retur' },
-                { icon: '🏛️', text: 'Apelsinlundarna – köp färskpressad juice direkt från bönderna' },
-                { icon: '📍', text: 'Firó-festivalen i maj – unikt historiskt skådespäl på gatorna' },
+                { Icon: IconStar, text: 'Historiska spårvagnen ner till Port de Sóller – åk tur och retur' },
+                { Icon: IconBuilding, text: 'Apelsinlundarna – köp färskpressad juice direkt från bönderna' },
+                { Icon: IconPin, text: 'Firó-festivalen i maj – unikt historiskt skådespäl på gatorna' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -39,7 +41,7 @@ export default function Soller() {
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
-              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
                 <strong>Plats:</strong> Nordväst, 30 km från Palma<br/>
                 <strong>Tåg:</strong> Från Palma (Ferrocarril de Sóller)<br/>

@@ -1,5 +1,7 @@
 'use client';
 import { useState } from 'react';
+import { IconPalm, IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconLeaf, IconCalendar, IconPin } from '@/components/Icons';
+import { PriceTag } from '@/components/Icons';
 
 export default function KontaktPage() {
   const [steg, setSteg] = useState(1);
@@ -16,7 +18,16 @@ export default function KontaktPage() {
   });
   const [skickat, setSkickat] = useState(false);
 
-  const intresseVal = ['🏖️ Strand', '🏛️ Kultur', '🍽️ Mat & Vin', '🧗 Äventyr', '👨‍👩‍👧 Familj', '🚴 Cykling', '⛵ Segling', '🌿 Natur'];
+  const intresseVal: { id: string; label: string; Icon: React.ComponentType<{ size?: number }> }[] = [
+    { id: 'Strand', label: 'Strand', Icon: IconWave },
+    { id: 'Kultur', label: 'Kultur', Icon: IconBuilding },
+    { id: 'Mat & Vin', label: 'Mat & Vin', Icon: IconForkKnife },
+    { id: 'Äventyr', label: 'Äventyr', Icon: IconHiker },
+    { id: 'Familj', label: 'Familj', Icon: IconUsers },
+    { id: 'Cykling', label: 'Cykling', Icon: IconHiker },
+    { id: 'Segling', label: 'Segling', Icon: IconWave },
+    { id: 'Natur', label: 'Natur', Icon: IconLeaf },
+  ];
 
   const toggleIntresse = (i: string) => {
     setFormData(prev => ({
@@ -61,7 +72,7 @@ export default function KontaktPage() {
     return (
       <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 20px' }}>
         <div style={{ textAlign: 'center', maxWidth: '500px' }}>
-          <div style={{ fontSize: '4rem', marginBottom: '24px' }}>🌴</div>
+          <div style={{ marginBottom: '24px', color: '#1f2937', display: 'flex', justifyContent: 'center' }}><IconPalm size={56} /></div>
           <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '16px' }}>
             Tack {formData.namn}!
           </h1>
@@ -142,7 +153,7 @@ export default function KontaktPage() {
                 <label style={{ display: 'block', fontWeight: '600', marginBottom: '12px' }}>Vad intresserar dig?</label>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                   {intresseVal.map(i => (
-                    <button key={i} onClick={() => toggleIntresse(i)} style={formData.intressen.includes(i) ? knappAktiv : knappInaktiv}>{i}</button>
+                    <button key={i.id} onClick={() => toggleIntresse(i.id)} style={{ ...(formData.intressen.includes(i.id) ? knappAktiv : knappInaktiv), display: 'inline-flex', alignItems: 'center', gap: 6 }}><i.Icon size={16} /> {i.label}</button>
                   ))}
                 </div>
               </div>
@@ -153,8 +164,8 @@ export default function KontaktPage() {
               <div>
                 <label style={{ display: 'block', fontWeight: '600', marginBottom: '12px' }}>Budget per person</label>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                  {[{ val: 'budget', text: '💰 Budget' }, { val: 'medel', text: '💰💰 Medel' }, { val: 'lyx', text: '💰💰💰 Lyx' }].map(b => (
-                    <button key={b.val} onClick={() => setFormData(p => ({ ...p, budget: b.val }))} style={formData.budget === b.val ? knappAktiv : knappInaktiv}>{b.text}</button>
+                  {[{ val: 'budget', tier: 1, label: 'Budget' }, { val: 'medel', tier: 2, label: 'Medel' }, { val: 'lyx', tier: 3, label: 'Lyx' }].map(b => (
+                    <button key={b.val} onClick={() => setFormData(p => ({ ...p, budget: b.val }))} style={{ ...(formData.budget === b.val ? knappAktiv : knappInaktiv), display: 'inline-flex', alignItems: 'center', gap: 8 }}><PriceTag tier={b.tier} /> {b.label}</button>
                   ))}
                 </div>
               </div>
@@ -175,8 +186,8 @@ export default function KontaktPage() {
               <div>
                 <label style={{ display: 'block', fontWeight: '600', marginBottom: '12px' }}>Önskat boende</label>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                  {[{ val: 'hotell', text: '🏨 Hotell' }, { val: 'villa', text: '🏡 Villa' }, { val: 'airbnb', text: '🛋️ Airbnb' }, { val: 'resort', text: '🌴 Resort' }].map(b => (
-                    <button key={b.val} onClick={() => setFormData(p => ({ ...p, boende: b.val }))} style={formData.boende === b.val ? knappAktiv : knappInaktiv}>{b.text}</button>
+                  {[{ val: 'hotell', text: 'Hotell', Icon: IconBuilding }, { val: 'villa', text: 'Villa', Icon: IconBuilding }, { val: 'airbnb', text: 'Airbnb', Icon: IconBuilding }, { val: 'resort', text: 'Resort', Icon: IconPalm }].map(b => (
+                    <button key={b.val} onClick={() => setFormData(p => ({ ...p, boende: b.val }))} style={{ ...(formData.boende === b.val ? knappAktiv : knappInaktiv), display: 'inline-flex', alignItems: 'center', gap: 6 }}><b.Icon size={16} /> {b.text}</button>
                   ))}
                 </div>
               </div>
@@ -185,16 +196,16 @@ export default function KontaktPage() {
                 <textarea style={{ ...inputStyle, minHeight: '120px', resize: 'vertical' }} placeholder="Berätta mer om din drömresa..." value={formData.meddelande} onChange={e => setFormData(p => ({ ...p, meddelande: e.target.value }))} />
               </div>
               <div style={{ background: 'white', borderRadius: '12px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-                <h3 style={{ fontWeight: '700', marginBottom: '12px' }}>📋 Din sammanfattning</h3>
-                <p>👤 {formData.namn} · {formData.antalPersoner} pers</p>
-                <p>📅 {formData.antalDagar} dagar · {formData.tid || 'Tid ej angiven'}</p>
-                <p>💰 {formData.budget === 'budget' ? 'Budget' : formData.budget === 'medel' ? 'Medel' : 'Lyx'} · 🏠 {formData.boende}</p>
-                <p>❤️ {formData.intressen.join(', ') || 'Inga intressen valda'}</p>
+                <h3 style={{ fontWeight: '700', marginBottom: '12px' }}>Din sammanfattning</h3>
+                <p style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><IconUsers size={14} /> {formData.namn} · {formData.antalPersoner} pers</p>
+                <p style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><IconCalendar size={14} /> {formData.antalDagar} dagar · {formData.tid || 'Tid ej angiven'}</p>
+                <p style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><PriceTag tier={formData.budget === 'budget' ? 1 : formData.budget === 'medel' ? 2 : 3} /> {formData.budget === 'budget' ? 'Budget' : formData.budget === 'medel' ? 'Medel' : 'Lyx'} · <IconBuilding size={14} /> {formData.boende}</p>
+                <p style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><IconPin size={14} /> {formData.intressen.join(', ') || 'Inga intressen valda'}</p>
               </div>
               <div style={{ display: 'flex', gap: '12px' }}>
                 <button onClick={() => setSteg(2)} style={{ ...knappInaktiv, padding: '16px 24px' }}>← Tillbaka</button>
-                <button onClick={() => setSkickat(true)} style={{ flex: 1, padding: '16px 40px', background: '#c0392b', color: 'white', border: 'none', borderRadius: '8px', fontSize: '1.1rem', fontWeight: '700', cursor: 'pointer' }}>
-                  🌴 Skicka förfrågan
+                <button onClick={() => setSkickat(true)} style={{ flex: 1, padding: '16px 40px', background: '#c0392b', color: 'white', border: 'none', borderRadius: '8px', fontSize: '1.1rem', fontWeight: '700', cursor: 'pointer', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+                  <IconPalm size={18} /> Skicka förfrågan
                 </button>
               </div>
             </div>

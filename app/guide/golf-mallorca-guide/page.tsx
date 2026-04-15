@@ -1,3 +1,5 @@
+import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
+
 export const metadata = {
   title: 'Golf på Mallorca 2026 – Komplett guide till alla 22 banor | MyMallorca',
   description: 'Komplett golfguide för Mallorca. De 5 bästa banorna djupanalyserade + komplett lista på alla 22 banor med grön-avgift, svårighet och kontakt.',
@@ -11,7 +13,7 @@ const toppBanor = [
     hål: 18,
     par: 71,
     grönAvgift: '120–190 €',
-    svårighet: '⭐⭐⭐⭐⭐',
+    svårighet: 5,
     beskrivning: 'Son Gual är Mallorcas absolut bästa golfbana och rankas bland de 100 bästa i Europa. Designad av Thomas Himmel med fantastisk utsikt mot Tramuntanabergen och havet. Fairways i perfekt skick.',
     insider: 'Boka tee-time minst 2 veckor i förväg under mars–juni. Banan är lättast tillgänglig tidig morgon. Restaurangen efter rundan är outstanding.',
     bästTid: 'November–april (under 25°C, inga turister)',
@@ -23,7 +25,7 @@ const toppBanor = [
     hål: 18,
     par: 72,
     grönAvgift: '95–150 €',
-    svårighet: '⭐⭐⭐⭐',
+    svårighet: 4,
     beskrivning: 'Tre banor på samma lyxiga resort nära Palma. Son Vida-banan är den äldsta på ön (1964) och har Mallorcas mest imponerande panoramautsikt. Favoritbana för proffsiga resenärer.',
     insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellpaketen är värda det – du kan gå till banan direkt från rummet.',
     bästTid: 'Oktober–maj',
@@ -35,7 +37,7 @@ const toppBanor = [
     hål: 9,
     par: 36,
     grönAvgift: '60–80 €',
-    svårighet: '⭐⭐⭐',
+    svårighet: 3,
     beskrivning: 'En av Mallorcas vackraste 9-hålsbanor, omringad av olivlundar och mandelträd. Perfekt för en halvdags golf med utsikt. Mer avslappnad atmosfär än de stora banorna.',
     insider: 'Ideal för par som vill kombinera golf och sightseeing. Spelat rundan på ca 2,5 timmar – gott om tid för en middag i Palma efteråt.',
     bästTid: 'Hela året – aldrig för trångt',
@@ -47,7 +49,7 @@ const toppBanor = [
     hål: 18,
     par: 72,
     grönAvgift: '100–160 €',
-    svårighet: '⭐⭐⭐⭐',
+    svårighet: 4,
     beskrivning: 'Nordens bästa golfupplevelse på Mallorca. Från tee 15 ser du ut över ett litet fyr-ö i havet – ett av öns mest fotograferade golfmotiv. Vindigt och utmanande.',
     insider: 'Hål 15 är "foto-obligatoriskt". Ta med fler bollar än vanligt – vinden tar de flesta amatörers bollar i havet på hål 14–16.',
     bästTid: 'Maj och oktober – juni–september är mycket vindig',
@@ -59,7 +61,7 @@ const toppBanor = [
     hål: 9,
     par: 36,
     grönAvgift: '45–65 €',
-    svårighet: '⭐⭐',
+    svårighet: 2,
     beskrivning: 'En av Mallorcas äldsta banor (1967) och favoriten för avslappnad golf. Omgiven av tallar och olivträd med havsutsikt. Bra för nybörjare och de som vill ha en enkel runda.',
     insider: 'Priset är det lägsta bland de bra banorna. Kombinera med en middag i Porto Cristo (15 min). Lokal och vänlig personal – inget snobb.',
     bästTid: 'Hela året – aldrig trångt',
@@ -108,7 +110,7 @@ export default function GolfMallorcaGuide() {
 
         {/* Snabbfakta */}
         <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #0E7490' }}>
-          <p style={{ fontWeight: '700', color: '#1F2937', marginBottom: '12px' }}>⛳ Golfinfo Mallorca – snabbfakta</p>
+          <p style={{ fontWeight: '700', color: '#1F2937', marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconFlag size={18} /> Golfinfo Mallorca – snabbfakta</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '8px', fontSize: '0.88rem', color: '#374151' }}>
             <div><strong>Antal banor:</strong> 22</div>
             <div><strong>Bästa säsong:</strong> November–april</div>
@@ -128,13 +130,13 @@ export default function GolfMallorcaGuide() {
               <span style={{ background: '#0E7490', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{bana.rank}</span>
               <div>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#1F2937', lineHeight: 1 }}>{bana.namn}</h3>
-                <p style={{ margin: 0, color: '#0E7490', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px' }}>{bana.region} · {bana.hål} hål · Par {bana.par} · {bana.svårighet}</p>
+                <p style={{ margin: 0, color: '#0E7490', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px', display: 'inline-flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span style={{ display: 'inline-flex', color: '#F59E0B' }}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
               </div>
             </div>
             <p style={{ fontSize: '0.98rem', lineHeight: '1.75', color: '#374151', marginBottom: '20px' }}>{bana.beskrivning}</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px' }}>
               <div style={{ background: '#F0EBE3', borderRadius: '10px', padding: '14px' }}>
-                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: '#0E7490', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>💡 INSIDER-TIPS</p>
+                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: '#0E7490', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600', display: 'inline-flex', alignItems: 'center', gap: 6 }}><IconBulb size={12} /> INSIDER-TIPS</p>
                 <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151' }}>{bana.insider}</p>
               </div>
               <div style={{ background: '#F9F6F1', borderRadius: '10px', padding: '14px' }}>
@@ -167,7 +169,7 @@ export default function GolfMallorcaGuide() {
                     <td style={{ padding: '11px 16px', color: '#6B7280' }}>{b.region}</td>
                     <td style={{ padding: '11px 16px', textAlign: 'center', color: '#6B7280' }}>{b.hål}</td>
                     <td style={{ padding: '11px 16px', color: '#374151' }}>{b.grönAvgift}</td>
-                    <td style={{ padding: '11px 16px', textAlign: 'center' }}>{'⭐'.repeat(b.svårighet)}</td>
+                    <td style={{ padding: '11px 16px', textAlign: 'center', color: '#F59E0B' }}><span style={{ display: 'inline-flex' }}>{Array.from({ length: b.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></td>
                   </tr>
                 ))}
               </tbody>
@@ -177,18 +179,18 @@ export default function GolfMallorcaGuide() {
 
         {/* Tips om säsong */}
         <section style={{ marginBottom: '64px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,3vw,2rem)', letterSpacing: '0.05em', color: '#1F2937', marginBottom: '20px' }}>🗓️ Bästa tid att spela golf på Mallorca</h2>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,3vw,2rem)', letterSpacing: '0.05em', color: '#1F2937', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             {[
-              { period: 'Nov – Februari', rating: '⭐⭐⭐⭐⭐', text: 'Perfekt. Behaglig 15–20°C. Inga köer. 30–40% lägre priser.' },
-              { period: 'Mars – April', rating: '⭐⭐⭐⭐⭐', text: 'Toppsäsong. Mandelblomningstid, 18–23°C. Boka tidigt.' },
-              { period: 'Maj – Juni', rating: '⭐⭐⭐⭐', text: 'Fortfarande bra. Varmare men hanterbart. Fler turister.' },
-              { period: 'Juli – Augusti', rating: '⭐⭐', text: 'För varmt (33–36°C). Spela bara tidigt 07:00–09:30.' },
-              { period: 'September – Oktober', rating: '⭐⭐⭐⭐', text: 'Bra alternativ. Varmt hav, svalare luft. Bra priser.' },
+              { period: 'Nov – Februari', rating: 5, text: 'Perfekt. Behaglig 15–20°C. Inga köer. 30–40% lägre priser.' },
+              { period: 'Mars – April', rating: 5, text: 'Toppsäsong. Mandelblomningstid, 18–23°C. Boka tidigt.' },
+              { period: 'Maj – Juni', rating: 4, text: 'Fortfarande bra. Varmare men hanterbart. Fler turister.' },
+              { period: 'Juli – Augusti', rating: 2, text: 'För varmt (33–36°C). Spela bara tidigt 07:00–09:30.' },
+              { period: 'September – Oktober', rating: 4, text: 'Bra alternativ. Varmt hav, svalare luft. Bra priser.' },
             ].map((s, i) => (
               <div key={i} style={{ background: 'white', borderRadius: '12px', padding: '16px', border: '1px solid #ede5da' }}>
                 <p style={{ fontWeight: '700', color: '#1F2937', margin: '0 0 4px', fontSize: '0.9rem' }}>{s.period}</p>
-                <p style={{ margin: '0 0 6px', fontSize: '0.8rem' }}>{s.rating}</p>
+                <p style={{ margin: '0 0 6px', fontSize: '0.8rem', color: '#F59E0B', display: 'inline-flex' }}>{Array.from({ length: s.rating }).map((_, j) => <IconStar key={j} size={12} />)}</p>
                 <p style={{ margin: 0, fontSize: '0.82rem', color: '#6B7280', lineHeight: '1.5' }}>{s.text}</p>
               </div>
             ))}

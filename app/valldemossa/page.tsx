@@ -1,3 +1,5 @@
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+
 export default function Valldemossa() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -15,7 +17,7 @@ export default function Valldemossa() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Valldemossa</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Valldemossa är en av Mallorcas mest berömda byar, inte minst tack vare den polska tonsättaren Frédéric Chopin och hans älskarinna George Sand som tillbringade vintern 1838–39 i kartusianerklostret Real Cartuja. Byn är förtrollande vacker med stenhus täckta av blommor och smala gränder som slinrar sig uppför bergssluttningarna.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Kartusianerklostret är öppet för besökare och innehåller Chopins piano, George Sands originalhandskrifter och en privat kyrka med keramikkupoler. Byn är också känd för sina lokala bakelser – coca de patata – som säljs på torget.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Kom tidigt på morgonen – turistbussarna anländer efter 10</li>
               <li>Klostret stänger söndagar – planera runt det</li>
@@ -25,12 +27,12 @@ export default function Valldemossa() {
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
               <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Valldemossa</h2>
               {[
-                { icon: '⭐', text: 'Kartusianerklostret – Chopins piano och George Sands handskrifter' },
-                { icon: '🏛️', text: 'Chopins pianosalong – en unik glimt av 1800-talets konstliv' },
-                { icon: '📍', text: 'Utsikten från byplatsen – bergen och havet i samma vy' },
+                { Icon: IconStar, text: 'Kartusianerklostret – Chopins piano och George Sands handskrifter' },
+                { Icon: IconBuilding, text: 'Chopins pianosalong – en unik glimt av 1800-talets konstliv' },
+                { Icon: IconPin, text: 'Utsikten från byplatsen – bergen och havet i samma vy' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -38,7 +40,7 @@ export default function Valldemossa() {
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
-              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
                 <strong>Plats:</strong> Nordväst, 18 km från Palma<br/>
                 <strong>Bil:</strong> Ca 25 min från Palma<br/>

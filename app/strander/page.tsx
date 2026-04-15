@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './strander.module.css';
+import { IconMap } from '@/components/Icons';
 
 const beachSections = [
   {
@@ -293,7 +294,7 @@ export default function Strander() {
                         rel="noopener noreferrer"
                         className={styles.mapBtn}
                       >
-                        🗺️ Visa på karta
+                        <IconMap size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Visa på karta
                       </a>
                     </div>
                   </div>

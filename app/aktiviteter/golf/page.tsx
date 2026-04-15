@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
 
 const golfbanor = [
   { namn: 'Son Gual Golf', plats: 'Palma', region: 'Palma', hål: 18, svårighet: 'Medel', pris: '💰💰💰', beskrivning: 'En av Mallorcas mest prestigefyllda banor med fantastisk utsikt. Rankad på plats 51 i Europa, värd för Senior European Tour 2009.', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca', webb: 'https://www.golfsongual.com', tips: 'Boka minst 2 dagar i förväg – mycket populär', redaktionellt: { typ: 'bast', text: 'Bäst för: Serösa golfare som vill ha Mallorcas tuffaste utmaning' } },
@@ -134,15 +135,15 @@ export default function GolfPage() {
               <div style={{ padding: '22px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                   <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: '0 0 8px', lineHeight: '1.15' }}>{b.namn}</h3>
-                  <span style={{ fontSize: '0.9rem', flexShrink: 0, marginLeft: '8px' }}>{b.pris}</span>
+                  <span style={{ flexShrink: 0, marginLeft: '8px' }}><PriceTag tier={tierFromEmoji(b.pris)} /></span>
                 </div>
                 <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: '#666' }}>
-                  <span>📍 {b.plats}</span>
-                  <span>⛳ {b.hål} hål</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {b.plats}</span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconFlag size={12} /> {b.hål} hål</span>
                 </div>
                   <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{b.beskrivning}</p>
                 <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '10px 14px', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6', fontSize: '0.85rem', color: '#444' }}>
-                  💡 {b.tips}
+                  <IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {b.tips}
                 </div>
                 {b.redaktionellt && (
                   <div style={{
@@ -152,8 +153,8 @@ export default function GolfPage() {
                     borderLeft: `3px solid ${b.redaktionellt.typ === 'varning' ? '#f39c12' : b.redaktionellt.typ === 'tips' ? '#27ae60' : b.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
                     fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
                   }}>
-                    <span style={{ flexShrink: 0 }}>
-                      {b.redaktionellt.typ === 'varning' ? '⚠️' : b.redaktionellt.typ === 'tips' ? '⭐' : b.redaktionellt.typ === 'bast' ? '🏆' : '💡'}
+                    <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                      {b.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : b.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : b.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{b.redaktionellt.text}</span>
                   </div>

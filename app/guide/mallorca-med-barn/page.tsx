@@ -1,12 +1,22 @@
+import { IconWave, IconSparkle, IconBuilding } from '@/components/Icons';
+import type { ComponentType } from 'react';
+
 export const metadata = {
   title: 'Mallorca med barn 2026 – Komplett guide för barnfamiljer | MyMallorca',
   description: 'Allt du behöver veta för en lyckad barnfamiljesemester på Mallorca. Bästa stränder, vattenparker, hotell och aktiviteter för barn 0–15 år.',
 };
 
-const sektioner = [
+type Sektion = {
+  rubrik: string;
+  Icon: ComponentType<{ size?: number }>;
+  innehåll: string;
+  punkter: { namn: string; beskrivning: string }[];
+};
+
+const sektioner: Sektion[] = [
   {
     rubrik: 'Bästa barnvänliga stränderna',
-    emoji: '🏖️',
+    Icon: IconWave,
     innehåll: 'Mallorca har över 200 stränder men alla är inte lämpade för barn. De bästa barnvänliga stränderna kombinerar grunt vatten, sand (inte grus) och bekvämligheter nära till hands.',
     punkter: [
       { namn: 'Playa de Muro', beskrivning: 'Grunt, sandigt, lugnt – perfekt för de minsta. 5 km lång strand med toaletter och restauranger längs hela sträckan.' },
@@ -17,7 +27,7 @@ const sektioner = [
   },
   {
     rubrik: 'Vattenparker – vår ärliga recension',
-    emoji: '🎢',
+    Icon: IconSparkle,
     innehåll: 'Det finns tre stora vattenparker på Mallorca. Här är en ärlig jämförelse baserad på faktiska besök – inte PR-material.',
     punkter: [
       { namn: 'Aqualand El Arenal', beskrivning: 'Störst och bäst. Perfekt för barn 6–14 år. Räkna med 45–60 min kö på populära rutschbanor högsäsong. Tips: kom 30 min efter öppning.' },
@@ -27,7 +37,7 @@ const sektioner = [
   },
   {
     rubrik: 'Djurparker och naturupplevelser',
-    emoji: '🦁',
+    Icon: IconBuilding,
     innehåll: 'Mallorca erbjuder flera klassiska barnattraktioner som kombinerar natur och underhållning.',
     punkter: [
       { namn: 'Safari Zoo Porto Cristo', beskrivning: 'Mallorcas enda safaripark. Kör igenom med bil – barn älskar det. Bra för barn 4–12 år. 2–3 timmar.' },
@@ -37,7 +47,7 @@ const sektioner = [
   },
   {
     rubrik: 'Praktiska tips för barnfamiljer',
-    emoji: '🎯',
+    Icon: IconSparkle,
     innehåll: 'Saker vi önskar att vi visste från början – baserade på erfarenhet som förälder på ön.',
     punkter: [
       { namn: 'Bästa tid att resa med barn', beskrivning: 'Juni eller september. Varmare än maj, men utan juli–augustis barnvagnskaos och köer. Priser 20–30% lägre än högsäsong.' },
@@ -64,7 +74,7 @@ export default function MallorcaMedBarnGuide() {
 
         {/* Snabbval */}
         <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #F59E0B' }}>
-          <p style={{ fontWeight: '700', color: '#1F2937', marginBottom: '8px' }}>🎯 Snabbsvar – vad passar ditt barn?</p>
+          <p style={{ fontWeight: '700', color: '#1F2937', marginBottom: '8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={18} /> Snabbsvar – vad passar ditt barn?</p>
           <ul style={{ margin: 0, paddingLeft: '20px', color: '#374151', fontSize: '0.9rem', lineHeight: '2.2' }}>
             <li><strong>0–3 år:</strong> Playa de Muro (grunt, sandstrand, lugnt vatten)</li>
             <li><strong>4–8 år:</strong> Aqualand El Arenal + Coves del Drach</li>
@@ -75,8 +85,8 @@ export default function MallorcaMedBarnGuide() {
 
         {sektioner.map((sektion, i) => (
           <section key={i} style={{ marginBottom: '56px' }}>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,4vw,2.2rem)', letterSpacing: '0.05em', color: '#1F2937', marginBottom: '16px' }}>
-              {sektion.emoji} {sektion.rubrik}
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,4vw,2.2rem)', letterSpacing: '0.05em', color: '#1F2937', marginBottom: '16px', display: 'inline-flex', alignItems: 'center', gap: 12 }}>
+              <sektion.Icon size={24} /> {sektion.rubrik}
             </h2>
             <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', marginBottom: '24px' }}>{sektion.innehåll}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>

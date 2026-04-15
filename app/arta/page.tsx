@@ -1,3 +1,5 @@
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+
 export default function Arta() {
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -15,7 +17,7 @@ export default function Arta() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Artà</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Artà domineras av Santuari de Sant Salvador – ett fort och kloster högt uppe på kullen som vaktat staden i generationer. Promenaden uppför de gamla trapporna ger en magnifik panoramautsikt över hela östra Mallorca och havet bortom. Byn nedan är ett mysigt virrvarr av stensatta gränder och pittoreska torg.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>I närheten ligger Coves d&apos;Artà – en av öns mest imponerande grottor med enorma stalaktiter och stalagmiter. Tisdagsmarknaden lockar lokalbefolkning från hela regionen och är ett av de bästa tillfällena att uppleva äkta mallorcansk livsstil.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips 🌟</h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Borgen Santuari de Sant Salvador – fri entré och fantastisk utsikt</li>
               <li>Tisdagsmarknaden är en av öns mest autentiska – kom på förmiddagen</li>
@@ -25,12 +27,12 @@ export default function Arta() {
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
               <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Artà</h2>
               {[
-                { icon: '⭐', text: 'Santuari de Sant Salvador – medeltida borg med panoramautsikt, fri entré' },
-                { icon: '🏛️', text: "Coves d'Artà – en av öns vackraste grottor, kort biltur från byn" },
-                { icon: '📍', text: 'Tisdagsmarknaden – autentisk och lokal, en av öns bästa' },
+                { Icon: IconStar, text: 'Santuari de Sant Salvador – medeltida borg med panoramautsikt, fri entré' },
+                { Icon: IconBuilding, text: "Coves d'Artà – en av öns vackraste grottor, kort biltur från byn" },
+                { Icon: IconPin, text: 'Tisdagsmarknaden – autentisk och lokal, en av öns bästa' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ fontSize: '1.4rem', flexShrink: 0 }}>{item.icon}</span>
+                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -38,7 +40,7 @@ export default function Arta() {
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
-              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem' }}>📍 Praktisk info</h3>
+              <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
                 <strong>Plats:</strong> Öst, 80 km från Palma<br/>
                 <strong>Bil:</strong> Ca 60 min från Palma<br/>

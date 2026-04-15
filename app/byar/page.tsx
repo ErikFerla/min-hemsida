@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
+import { IconStar, IconBuilding, IconPin, IconBulb, IconMap } from '@/components/Icons';
 
 const städer = [
   { namn: 'Palma de Mallorca', href: '/palma-de-mallorca', region: 'Sydväst', beskrivning: 'Öns pulserande huvudstad med La Seu-katedralen, gamla stan och livlig restaurangscen', bild: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=600&q=75', tips: 'Bästa utsikten från Bellver slott', top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Bellver Slott'] },
@@ -63,20 +64,20 @@ export default function ByadSida() {
                 <div style={{ margin: '12px 0' }}>
                   {stad.top3.map((sak, j) => (
                     <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: j < 2 ? '1px solid #f0ebe3' : 'none' }}>
-                      <span style={{ fontSize: '0.9rem', flexShrink: 0 }}>
-                        {j === 0 ? '⭐' : j === 1 ? '🏛️' : '📍'}
+                      <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                        {j === 0 ? <IconStar size={16} /> : j === 1 ? <IconBuilding size={16} /> : <IconPin size={16} />}
                       </span>
                       <span style={{ fontSize: '0.85rem', color: '#374151' }}>{sak}</span>
                     </div>
                   ))}
                 </div>
                 <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}>
-                  💡 {stad.tips}
+                  <IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {stad.tips}
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
                     style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
-                    🗺️ Visa på karta
+                    <IconMap size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Visa på karta
                   </a>
                   <Link href={stad.href}
                     style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>

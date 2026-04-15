@@ -1,10 +1,18 @@
 'use client';
 import { useState } from 'react';
+import { IconWave, IconSparkle, IconFlag, IconBuilding, IconPin, IconUsers, IconBulb, IconMap, IconExternal } from '@/components/Icons';
+import type { ComponentType } from 'react';
 
-const kategorier = [
+type Kategori = {
+  titel: string;
+  Icon: ComponentType<{ size?: number }>;
+  aktiviteter: { namn: string; plats: string; ålder: string; tips: string; bild: string; lat: number; lon: number; webb: string }[];
+};
+
+const kategorier: Kategori[] = [
   {
     titel: 'Vattenparker',
-    emoji: '🌊',
+    Icon: IconWave,
     aktiviteter: [
       { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', tips: 'Kom tidigt för kortare köer', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80', lat: 39.4934, lon: 2.7356, webb: 'https://www.aqualand.es' },
       { namn: 'Hidropark Alcúdia', plats: 'Alcúdia', ålder: 'Alla åldrar', tips: 'Bra för yngre barn – lugnt och familjärt', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80', lat: 39.8234, lon: 3.1234, webb: 'https://www.hidropark.com' },
@@ -15,7 +23,7 @@ const kategorier = [
   },
   {
     titel: 'Djurparker & Akvarium',
-    emoji: '🦁',
+    Icon: IconSparkle,
     aktiviteter: [
       { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', tips: 'Hajbassängen är ett måste – boka online för rabatt', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
       { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Kamelridning och giraffutfodring ingår', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=600&q=80', lat: 39.5123, lon: 3.3456, webb: 'https://www.zoomalorca.com' },
@@ -26,7 +34,7 @@ const kategorier = [
   },
   {
     titel: 'Grottor & Naturäventyr',
-    emoji: '🦇',
+    Icon: IconSparkle,
     aktiviteter: [
       { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', tips: 'Boka biljetter online – öns populäraste attraktion', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80', lat: 39.5234, lon: 3.3312, webb: 'https://www.covesdeldrach.com' },
       { namn: "Coves d'Artà", plats: 'Capdepera', ålder: 'Alla åldrar', tips: 'Färre turister än Drach – lika imponerande', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80', lat: 39.7012, lon: 3.4523, webb: 'https://www.covesdarta.com' },
@@ -36,7 +44,7 @@ const kategorier = [
   },
   {
     titel: 'Äventyr & Aktiviteter',
-    emoji: '🎢',
+    Icon: IconSparkle,
     aktiviteter: [
       { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', tips: '4D-bio, spegellabyrint och minigolf – heldagsaktivitet', bild: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80', lat: 39.5012, lon: 2.5234, webb: 'https://www.katmandu.es' },
       { namn: 'Karting Magaluf', plats: 'Magaluf', ålder: '3+ år', tips: 'Olika banor för olika åldrar – säkert och roligt', bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80', lat: 39.5023, lon: 2.5178, webb: 'https://www.google.com/search?q=karting+magaluf' },
@@ -47,7 +55,7 @@ const kategorier = [
   },
   {
     titel: 'Minigolf & Lek',
-    emoji: '⛳',
+    Icon: IconFlag,
     aktiviteter: [
       { namn: 'Golf Fantasia Palma Nova', plats: 'Palma Nova', ålder: 'Alla åldrar', tips: 'Tre olika 18-hålsbanor i tropisk miljö', bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80', lat: 39.5023, lon: 2.5312, webb: 'https://www.golffantasia.com' },
       { namn: 'Crazy Golf Alcúdia', plats: 'Alcúdia', ålder: 'Alla åldrar', tips: 'Rolig kvällsaktivitet efter stranden', bild: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=600&q=80', lat: 39.8234, lon: 3.1234, webb: 'https://www.google.com/search?q=crazy+golf+Alcudia' },
@@ -56,7 +64,7 @@ const kategorier = [
   },
   {
     titel: 'Museer & Lärande',
-    emoji: '🏛️',
+    Icon: IconBuilding,
     aktiviteter: [
       { namn: 'Palma Akvarium Science Center', plats: 'Palma', ålder: '5+ år', tips: 'Interaktiva experiment – lärorikt och roligt', bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80', lat: 39.5234, lon: 2.7234, webb: 'https://www.palmaaquarium.com' },
       { namn: 'Museu de Mallorca', plats: 'Palma', ålder: '6+ år', tips: 'Gratis söndagar – historia från förhistorisk tid', bild: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80', lat: 39.5712, lon: 2.6523, webb: 'https://www.google.com/search?q=Museu+de+Mallorca' },
@@ -136,7 +144,7 @@ export default function BarnPage() {
               }}
             >
               <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                {kategori.emoji} {kategori.titel}
+                <kategori.Icon size={22} /> {kategori.titel}
                 <span style={{ fontSize: '0.85rem', opacity: 0.6, fontFamily: 'Inter, sans-serif', fontWeight: '400' }}>
                   ({kategori.aktiviteter.length} aktiviteter)
                 </span>
@@ -173,18 +181,18 @@ export default function BarnPage() {
                       <img src={a.bild} alt={a.namn} style={{ width: '100%', height: '160px', objectFit: 'cover' }} />
                       <div style={{ padding: '14px' }}>
                         <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', margin: '0 0 4px', color: '#111' }}>{a.namn}</h3>
-                        <p style={{ fontSize: '0.8rem', color: '#888', margin: '0 0 2px' }}>📍 {a.plats} · 👶 {a.ålder}</p>
+                        <p style={{ fontSize: '0.8rem', color: '#888', margin: '0 0 2px', display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {a.plats} · <IconUsers size={12} /> {a.ålder}</p>
                         <div style={{ fontSize: '0.8rem', color: '#555', background: '#f5f5f5', padding: '6px 8px', borderRadius: '6px', margin: '8px 0 12px', lineHeight: '1.5' }}>
-                          💡 {a.tips}
+                          <IconBulb size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {a.tips}
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
                             style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#F59E0B', color: '#1F2937', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
-                            🗺️ Karta
+                            <IconMap size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Karta
                           </a>
                           <a href={a.webb} target="_blank" rel="noopener noreferrer"
                             style={{ flex: 1, textAlign: 'center', padding: '8px', background: 'white', color: '#111', border: '2px solid #111', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
-                            🌐 Webb
+                            <IconExternal size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Webb
                           </a>
                         </div>
                       </div>
@@ -199,7 +207,7 @@ export default function BarnPage() {
         {/* Karta */}
         <section style={{ marginTop: '32px' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', letterSpacing: '0.05em', color: '#111', marginBottom: '16px', paddingBottom: '12px', borderBottom: '3px solid #F59E0B' }}>
-            🗺️ Karta – Barnaktiviteter på Mallorca
+            <IconMap size={22} style={{ verticalAlign: '-4px', marginRight: 8 }} /> Karta – Barnaktiviteter på Mallorca
           </h2>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m0!4v1!6m8!1m7!1sCAoSLEFGMVFpcE5IUGJQWG5wUEdFdlJaX3p6Q0lKd2J3X0JCVjBfN3FMQ1VpNkw!2m2!1d39.5696!2d2.6502!3f0!4f0!5f0.7820865974627469"
