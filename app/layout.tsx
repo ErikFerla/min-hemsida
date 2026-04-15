@@ -35,8 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Kolumn 1 — Varumärke */}
               <div>
-                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#FDF8F2', margin: '0 0 12px' }}>DIN GUIDE PÅ MALLORCA 🌴</p>
-                <p style={{ color: 'rgba(253,248,242,0.6)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.</p>
+                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 12px' }}>DIN GUIDE PÅ MALLORCA 🌴</p>
+                <p style={{ color: '#1f2937', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.</p>
                 <div style={{ display: 'flex', gap: '16px' }}>
                   <a href="#" aria-label="Instagram" className="footer-social-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -90,8 +90,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           {/* Footer bottom */}
           <div className="footer-bottom">
-            <p style={{ color: 'rgba(253,248,242,0.5)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
-            <p style={{ color: 'rgba(253,248,242,0.5)', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
+            <p style={{ color: '#1f2937', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
+            <p style={{ color: '#1f2937', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
           </div>
         </footer>
       </body>
