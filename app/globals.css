@@ -285,7 +285,7 @@ section li {
 html, body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
 }
@@ -293,7 +293,7 @@ html, body {
 @media (max-width: 768px) {
   html, body {
     width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   /* Förhindra att element sticker ut utanför skärmen */
