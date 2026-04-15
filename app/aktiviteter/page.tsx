@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AffiliateCard from '@/app/components/AffiliateCard';
-import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave } from '@/components/Icons';
+import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
 import type { ComponentType } from 'react';
 
 type Aktivitet = {
@@ -13,6 +13,19 @@ type Aktivitet = {
   bild: string;
   highlights: string[];
 };
+
+type BarnTips = { namn: string; plats: string; ålder: string; kategori: string; beskrivning: string; bild: string };
+
+const barnvanligt: BarnTips[] = [
+  { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 olika akvarium. Boka online för rabatt och kortare kö.', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=800&q=80' },
+  { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=800&q=80' },
+  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer — heldagsupplevelse.', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80' },
+  { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till heldags.', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80' },
+  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: '4D-bio, spegellabyrint och minigolf under samma tak. Perfekt vid regnväder.', bild: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80' },
+  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=800&q=80' },
+  { namn: 'Glassbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Familjevänliga turer på ca 1 timme.', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800&q=80' },
+  { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', kategori: 'Äventyr', beskrivning: 'Europas längsta ziplines i bergsmiljö. Kombinera med vandringen i naturparken.', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80' },
+];
 
 const aktiviteter: Aktivitet[] = [
   {
@@ -116,6 +129,37 @@ export default function AktiviteterPage() {
             </Link>
           ))}
         </div>
+
+        <section id="barnvanligt" style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 600, margin: '0 0 8px' }}>För hela familjen</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', margin: '0 0 10px', color: '#1F2937' }}>Barnvänligt</h2>
+          <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 28px', maxWidth: '60ch' }}>
+            Vattenparker, grottor, djurparker och äventyrsparker – Mallorca hör till Europas bästa resmål för barnfamiljer. Här är våra handplockade favoriter.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px,100%), 1fr))', gap: 16, marginBottom: 28 }}>
+            {barnvanligt.map(b => (
+              <article key={b.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
+                <div style={{ position: 'relative', width: '100%', height: 140 }}>
+                  <Image src={b.bild} alt={b.namn} fill sizes="(max-width:768px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
+                  <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b.kategori}</div>
+                </div>
+                <div style={{ padding: '14px 16px 16px' }}>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.04em', margin: '0 0 4px', color: '#1F2937', lineHeight: 1.15 }}>{b.namn}</h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {b.plats}</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconUsers size={11} /> {b.ålder}</span>
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: '#374151', lineHeight: 1.5, margin: 0 }}>{b.beskrivning}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <Link href="/barn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#1F2937', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+            Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
+          </Link>
+        </section>
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
           <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: '600', marginBottom: '8px' }}>BOKA DIREKT</p>

@@ -44,6 +44,7 @@ const navItems: NavItem[] = [
     href: '/aktiviteter',
     children: [
       { label: '\u00d6versikt', href: '/aktiviteter' },
+      { label: 'Barnv\u00e4nligt', href: '/barn' },
       { label: 'Golf', href: '/aktiviteter/golf' },
       { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
     ],
