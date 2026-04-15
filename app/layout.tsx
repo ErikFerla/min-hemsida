@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <WebSiteSchema />
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
-        <footer style={{ background: '#2C2018', color: 'white', padding: '0' }}>
+        <footer style={{ background: '#f5eee4', color: '#1f2937', padding: '0' }}>
           {/* Gold top line */}
           <div style={{ borderTop: '1px solid #c9a96e' }} />
 
