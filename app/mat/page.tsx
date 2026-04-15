@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import { IconPin, IconClock, IconMap, IconExternal, IconGlass, PriceTag, tierFromEmoji } from '@/components/Icons';
 
 const vingårdar = [
   { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
@@ -9,15 +10,6 @@ const vingårdar = [
   { namn: 'Ànima Negra', web: 'https://www.animanegra.com', plats: 'Felanitx', info: 'Producerar öns mest hyllade rödviner', vin: 'Prova: ÀN/2', prisklass: '💰💰💰', öppet: 'Endast med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Anima+Negra+Felanitx+Mallorca' },
   { namn: 'Can Majoral', web: 'https://www.canmajoral.com', plats: 'Algaida', info: 'Ekologisk vingård med unik terroar', vin: 'Prova: Entel', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Majoral+Algaida+Mallorca' },
   { namn: 'Vinya Taujana', web: 'https://www.vinyataujana.com', plats: 'Santa Eugènia', info: 'Liten boutique-vingård', vin: 'Prova: Taujana Rosat', prisklass: '💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Vinya+Taujana+Santa+Eugenia+Mallorca' },
-  { namn: 'Miquel Gelabert', web: 'https://www.miquelgelabert.com', plats: 'Manacor', info: 'Prisbelönt hantverksvingård', vin: 'Prova: Torrent Negre', prisklass: '💰💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Miquel+Gelabert+Manacor+Mallorca' },
-  { namn: 'Son Bordils', web: 'https://www.sonbordils.es', plats: 'Inca', info: 'Vackert gods med ekologisk produktion', vin: 'Prova: Son Bordils Blanc', prisklass: '💰💰', öppet: 'Mån–Fre 9–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Bordils+Inca+Mallorca' },
-  { namn: 'Bodegas Macià Batle', web: 'https://www.maciabatle.com', plats: 'Santa Maria', info: 'En av öns största producenter', vin: 'Prova: Anni Blanc de Blancs', prisklass: '💰💰', öppet: 'Mån–Lör 9–19, Sön 10–14', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Bodegas+Macia+Batle+Santa+Maria+Mallorca' },
-  { namn: 'Can Vidalet', web: 'https://www.canvidalet.com', plats: 'Llubí', info: 'Ekologisk, internationellt prisad', vin: 'Prova: Petit Fangar', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80', maps: 'https://maps.google.com/?q=Can+Vidalet+Llubi+Mallorca' },
-  { namn: 'Son Prim', web: 'https://www.sonprim.com', plats: 'Sencelles', info: 'Fokus på inhemska druvor', vin: 'Prova: Son Prim Merlot', prisklass: '💰💰', öppet: 'Mån–Fre 10–17', bild: 'https://images.unsplash.com/photo-1504279807002-09854ccc9b6c?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Prim+Sencelles+Mallorca' },
-  { namn: 'Celler Tianna Negre', web: 'https://www.tiannanegre.com', plats: 'Binissalem', info: 'Modern och innovativ', vin: 'Prova: Ses Nines Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1543418219-44e30b057fea?w=600&q=80', maps: 'https://maps.google.com/?q=Celler+Tianna+Negre+Binissalem+Mallorca' },
-  { namn: 'Son Sureda Rica', web: 'https://www.sonsurecirica.com', plats: 'Manacor', info: 'Liten och exklusiv', vin: 'Prova: Son Sureda Blanc', prisklass: '💰💰💰', öppet: 'Med bokning', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Son+Sureda+Rica+Manacor+Mallorca' },
-  { namn: 'Bodega Can Coleto', web: 'https://www.cancoleto.com', plats: 'Llucmajor', info: 'Familjegods med fantastisk utsikt', vin: 'Prova: Can Coleto Negre', prisklass: '💰💰', öppet: 'Mån–Lör 10–17', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Can+Coleto+Llucmajor+Mallorca' },
-  { namn: 'Vins Nadal', web: 'https://www.vinsnadal.com', plats: 'Binissalem', info: 'Traditionell familjevingård sedan 1944', vin: 'Prova: Nadal Rosat', prisklass: '💰', öppet: 'Mån–Lör 9–18', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
 ];
 
 const restauranger = [
@@ -31,8 +23,8 @@ const restauranger = [
   { namn: 'El Camino', plats: 'Palma', info: 'Trendig och livlig tapasbar i hjärtat av Palma', kategori: 'Tapas', prisklass: '💰💰', öppet: 'Dagligen 12–24', bild: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80', maps: 'https://maps.google.com/?q=El+Camino+Palma+Mallorca' },
   { namn: 'La Vieja', plats: 'Palma', info: 'Modern tolkning av det mallorquinska köket i elegant miljö', kategori: 'Lokalt', prisklass: '💰💰💰', öppet: 'Tis–Lör 13–15, 19–22', bild: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', maps: 'https://maps.google.com/?q=La+Vieja+Palma+Mallorca' },
   { namn: 'Aramis', plats: 'Palma', info: 'Elegant och klassisk restaurang med fokus på råvaror av högsta kvalitet', kategori: 'Lokalt', prisklass: '💰💰💰', öppet: 'Mån–Lör 19–22', bild: 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80', maps: 'https://maps.google.com/?q=Aramis+Palma+Mallorca' },
-  { namn: 'Restaurante Jardin', plats: "Port d'Alcúdia", info: 'Havsutsikt och dagsfärsk fisk i Port d\'Alcúdia', kategori: 'Fisk', prisklass: '💰💰💰', öppet: 'Dagligen 12–23', bild: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&q=80', maps: 'https://maps.google.com/?q=Restaurante+Jardin+Port+Alcudia+Mallorca' },
-  { namn: 'Stay', plats: "Port d'Andratx", info: 'Exklusiv restaurang med utsikt över Port d\'Andratx vackra marina', kategori: 'Utsikt', prisklass: '💰💰💰💰', öppet: 'Dagligen 13–16, 19–23', bild: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80', maps: 'https://maps.google.com/?q=Stay+Restaurant+Port+Andratx+Mallorca' },
+  { namn: 'Restaurante Jardin', plats: "Port d'Alcúdia", info: "Havsutsikt och dagsfärsk fisk i Port d'Alcúdia", kategori: 'Fisk', prisklass: '💰💰💰', öppet: 'Dagligen 12–23', bild: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&q=80', maps: 'https://maps.google.com/?q=Restaurante+Jardin+Port+Alcudia+Mallorca' },
+  { namn: 'Stay', plats: "Port d'Andratx", info: "Exklusiv restaurang med utsikt över Port d'Andratx vackra marina", kategori: 'Utsikt', prisklass: '💰💰💰💰', öppet: 'Dagligen 13–16, 19–23', bild: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80', maps: 'https://maps.google.com/?q=Stay+Restaurant+Port+Andratx+Mallorca' },
   { namn: "Es Racó d'es Teix", plats: 'Deià', info: 'Michelinstjärna i bergsby', kategori: 'Michelin', prisklass: '💰💰💰💰', öppet: 'Ons–Sön 19–22', bild: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', maps: 'https://maps.google.com/?q=Es+Raco+des+Teix+Deia+Mallorca' },
   { namn: 'Celler Sa Premsa', plats: 'Palma', info: 'Äkta mallorquinsk husmanskost i rustik källarmiljö sedan 1958', kategori: 'Lokalt', prisklass: '💰', öppet: 'Mån–Lör 13–16', bild: 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80', maps: 'https://maps.google.com/?q=Celler+Sa+Premsa+Palma+Mallorca' },
   { namn: 'La Bodeguita', plats: 'Palma', info: 'Mysig vinkällare med ett brett urval av lokala viner och vällagade tapas', kategori: 'Tapas', prisklass: '💰💰', öppet: 'Dagligen 12–24', bild: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&q=80', maps: 'https://maps.google.com/?q=La+Bodeguita+Palma+Mallorca' },
@@ -57,81 +49,108 @@ export default function MatPage() {
   const [filter, setFilter] = useState('Alla');
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
   const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
-  const kort = { background: 'white', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', overflow: 'hidden', transition: 'transform 0.2s ease, box-shadow 0.2s ease' } as React.CSSProperties;
-  const grid = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' } as React.CSSProperties;
-  const knapp = { display: 'inline-block', marginTop: '12px', padding: '6px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' } as React.CSSProperties;
+
+  const kort: React.CSSProperties = { background: 'white', borderRadius: 16, boxShadow: '0 4px 14px rgba(31,41,55,0.04)', overflow: 'hidden', border: '1px solid #ede5da' };
+  const grid: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 };
+
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
-      <div style={{
-        position: 'relative', height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end',
-        padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Mallorcas matkultur</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Mat & Vin på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.9rem,2.5vw,1.1rem)', marginTop: '12px', opacity: 0.9 }}>Från Michelinkrogar till lokala vingårdar – din guide till det bästa</p>
+      <div style={{ position: 'relative', minHeight: '52vh', backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(24px,6vw,60px) clamp(20px,5vw,80px)' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72))' }} />
+        <div style={{ position: 'relative', color: 'white', maxWidth: '640px' }}>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 14, opacity: 0.85 }}>Mallorcas matkultur</p>
+          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.4rem,8vw,5rem)', fontWeight: 400, letterSpacing: '0.02em', margin: 0, lineHeight: 0.95 }}>Mat & Vin på Mallorca</h1>
+          <p style={{ fontSize: 'clamp(0.95rem,3.2vw,1.1rem)', marginTop: 16, opacity: 0.92, lineHeight: 1.5 }}>Från Michelinkrogar till lokala vingårdar – din guide till det bästa</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginTop: '0', marginBottom: '24px', color: '#0E7490' }}>🍷 Bästa vingårdarna</h2>
-        <div style={grid}>
-          {vingårdar.map((v, i) => (
-            <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-              <Image src={v.bild} alt={v.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
-              <div style={{ padding: '16px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ color: '#0E7490', fontWeight: 'bold', fontSize: '0.8rem' }}>#{i + 1}</span>
-                  <span>{v.prisklass}</span>
-                </div>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', margin: '0 0 2px' }}>{v.namn}</h3>
-                <div style={{ color: '#888', fontSize: '0.8rem', marginBottom: '6px' }}>📍 {v.plats} · ⏰ {v.öppet}</div>
-                <p style={{ fontSize: '0.9rem', color: '#555', margin: '0 0 4px' }}>{v.info}</p>
-                <p style={{ fontSize: '0.85rem', color: '#0E7490', fontStyle: 'italic', margin: '0 0 8px' }}>🍾 {v.vin}</p>
-                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '12px' }}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '6px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' }}>Visa på karta</a>
-                  {v.web && (
-                    <a href={v.web} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '6px 14px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '6px', fontSize: '0.85rem', textDecoration: 'none', fontWeight: 'bold' }}>
-                      Hemsida →
-                    </a>
-                  )}
-                </div>
-              </div>
+
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,60px)' }}>
+        {/* Vingårdar kort teaser */}
+        <section style={{ marginBottom: 56, background: 'white', border: '1px solid #ede5da', borderRadius: 20, padding: 'clamp(20px,5vw,32px)', display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#0E7490', marginBottom: 10 }}>
+              <IconGlass size={14} stroke={1.8} />
+              <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Vinkultur</span>
             </div>
-          ))}
-        </div>
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginTop: '80px', marginBottom: '16px', color: '#0E7490' }}>🍽️ Topp 30 restauranger</h2>
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '24px' }}>
-          {kategorier.map(k => (
-            <button key={k} onClick={() => setFilter(k)} style={{ padding: '8px 18px', borderRadius: '20px', border: '2px solid #0E7490', background: filter === k ? '#0E7490' : '#FDF8F2', color: filter === k ? 'white' : '#0E7490', fontWeight: 'bold', cursor: 'pointer', fontSize: '0.9rem' }}>
-              {k}
-            </button>
-          ))}
-        </div>
-        <div style={grid}>
-          {filtreradeLista.map((r, i) => (
-            <div key={i} style={kort} onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }} onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
-              <Image src={r.bild} alt={r.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
-              <div style={{ padding: '16px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-                  <span style={{ background: '#0E7490', color: 'white', borderRadius: '4px', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold' }}>{r.kategori}</span>
-                  <span>{r.prisklass}</span>
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
+            <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '55ch' }}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
+          </div>
+          <div style={grid}>
+            {vingårdar.slice(0, 3).map(v => (
+              <article key={v.namn} style={kort}>
+                <div style={{ position: 'relative', width: '100%', height: 160 }}>
+                  <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
                 </div>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', margin: '8px 0 2px' }}>{r.namn}</h3>
-                <div style={{ color: '#888', fontSize: '0.8rem', marginBottom: '6px' }}>📍 {r.plats} · ⏰ {r.öppet}</div>
-                <p style={{ fontSize: '0.9rem', color: '#555', margin: '0 0 8px' }}>{r.info}</p>
-                <a href={r.maps} target="_blank" rel="noopener noreferrer" style={knapp}>Visa på karta</a>
-              </div>
-            </div>
-          ))}
-        </div>
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '60px 0 16px', color: '#0E7490' }}>🗺️ Utforska Mallorca</h2>
-        <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 20px rgba(0,0,0,0.15)' }}>
-          <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%' }} />
-        </div>
+                <div style={{ padding: 16 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 6 }}>
+                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937' }}>{v.namn}</h3>
+                    <PriceTag tier={tierFromEmoji(v.prisklass)} />
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {v.plats}</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {v.öppet}</span>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: '#374151', lineHeight: 1.5, margin: 0 }}>{v.info}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <a href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#1F2937', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+            Se alla vingårdar <IconExternal size={13} stroke={1.8} />
+          </a>
+        </section>
+
+        {/* Restauranger */}
+        <section style={{ marginBottom: 48 }}>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 700, margin: '0 0 6px' }}>Handplockat</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
+
+          <style>{`.mat-filter-scroll::-webkit-scrollbar { display: none; }`}</style>
+          <div className="mat-filter-scroll" style={{ display: 'flex', gap: 8, overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', padding: '2px 2px 4px', marginBottom: 24 }}>
+            {kategorier.map(k => {
+              const active = filter === k;
+              return (
+                <button key={k} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #1F2937' : '1px solid #E2D8C8', background: active ? '#1F2937' : 'white', color: active ? 'white' : '#1F2937', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
+                  {k}
+                </button>
+              );
+            })}
+          </div>
+          <p style={{ color: '#6B7280', fontSize: '0.82rem', margin: '0 0 20px' }}>{filtreradeLista.length} restauranger</p>
+
+          <div style={grid}>
+            {filtreradeLista.map(r => (
+              <article key={r.namn} style={kort}>
+                <div style={{ position: 'relative', width: '100%', height: 180 }}>
+                  <Image src={r.bild} alt={r.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
+                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{r.kategori}</div>
+                </div>
+                <div style={{ padding: 16 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 6 }}>
+                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937', lineHeight: 1.1 }}>{r.namn}</h3>
+                    <PriceTag tier={tierFromEmoji(r.prisklass)} />
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 10 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {r.plats}</span>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {r.öppet}</span>
+                  </div>
+                  <p style={{ fontSize: '0.88rem', color: '#374151', margin: '0 0 14px', lineHeight: 1.5 }}>{r.info}</p>
+                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
+                    <IconMap size={13} stroke={1.8} /> Visa på karta
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
+          <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', borderRadius: 16, overflow: 'hidden', boxShadow: '0 6px 22px rgba(0,0,0,0.1)' }}>
+            <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%', display: 'block' }} />
+          </div>
+        </section>
       </div>
     </div>
   );

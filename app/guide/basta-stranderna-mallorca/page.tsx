@@ -78,7 +78,7 @@ export default function BästaSträndernaGuide() {
 
         {/* Snabbguide */}
         <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #0E7490' }}>
-          <p style={{ fontWeight: '700', color: '#1F2937', marginBottom: '8px', fontSize: '0.95rem' }}>📋 Snabbguide – topp 5 för olika resenärer</p>
+          <p style={{ fontWeight: 700, color: '#1F2937', marginBottom: 8, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Snabbguide – topp 5 för olika resenärer</p>
           <ul style={{ margin: 0, paddingLeft: '20px', color: '#374151', fontSize: '0.9rem', lineHeight: '2' }}>
             <li><strong>Vackraste stranden:</strong> Cala des Moro (östkusten)</li>
             <li><strong>Bäst för familjer:</strong> Playa de Muro (norr)</li>
@@ -104,7 +104,7 @@ export default function BästaSträndernaGuide() {
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '24px' }}>{strand.beskrivning}</p>
 
             <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '20px 24px', marginBottom: '20px' }}>
-              <p style={{ fontWeight: '700', color: '#0E7490', marginBottom: '8px', fontSize: '0.85rem', letterSpacing: '0.05em' }}>💡 INSIDER-TIPS</p>
+              <p style={{ fontWeight: 700, color: '#0E7490', marginBottom: 8, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>Insider-tips</p>
               <p style={{ margin: 0, color: '#374151', fontSize: '0.95rem', lineHeight: '1.65' }}>{strand.insider}</p>
             </div>
 

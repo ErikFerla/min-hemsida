@@ -70,19 +70,19 @@ function StrandarContent() {
   });
 
   const chipStyle = (aktiv: boolean) => ({
-    minHeight: '44px',
-    padding: '0 18px',
-    borderRadius: '22px',
-    border: aktiv ? '1px solid #0E7490' : '1px solid #E2D8C8',
-    background: aktiv ? '#0E7490' : '#FFFFFF',
+    minHeight: '40px',
+    padding: '0 16px',
+    borderRadius: '999px',
+    border: aktiv ? '1px solid #1F2937' : '1px solid #E2D8C8',
+    background: aktiv ? '#1F2937' : '#FFFFFF',
     color: aktiv ? '#FFFFFF' : '#1F2937',
-    fontWeight: aktiv ? 700 : 600 as const,
+    fontWeight: 600 as const,
     cursor: 'pointer',
-    fontSize: '0.9rem',
+    fontSize: '0.88rem',
+    letterSpacing: '0.01em',
     whiteSpace: 'nowrap' as const,
     flexShrink: 0,
-    transition: 'all 0.18s ease',
-    boxShadow: aktiv ? '0 4px 12px rgba(14,116,144,0.25)' : '0 1px 2px rgba(0,0,0,0.03)',
+    transition: 'all 0.16s ease',
   });
 
   const scrollRowStyle = {
@@ -92,18 +92,19 @@ function StrandarContent() {
     overflowY: 'hidden' as const,
     WebkitOverflowScrolling: 'touch' as const,
     scrollbarWidth: 'none' as const,
-    padding: '4px 16px 8px',
-    margin: '0 -16px',
+    padding: '2px 2px 4px',
   };
 
   const filterLabelStyle = {
-    fontSize: '0.7rem',
+    fontSize: '0.68rem',
     fontWeight: 700,
-    letterSpacing: '0.18em',
+    letterSpacing: '0.2em',
     textTransform: 'uppercase' as const,
-    color: '#8B6F47',
-    margin: '0 0 8px',
+    color: '#9CA3AF',
+    margin: '0 0 10px',
   };
+
+  const hasActiveFilter = region !== 'Alla' || typ !== 'Alla typer' || filter !== '';
 
   return (
     <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
@@ -125,8 +126,13 @@ function StrandarContent() {
         <style>{`
           .strand-scroll-row::-webkit-scrollbar { display: none; }
         `}</style>
-        <div style={{ marginBottom: '32px' }}>
-          <p style={{ fontSize: '0.8rem', fontWeight: '700', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#F59E0B', marginBottom: '20px' }}>Filtrera stränder</p>
+        <div style={{ marginBottom: '32px', background: 'white', border: '1px solid #ede5da', borderRadius: '16px', padding: 'clamp(16px,4vw,22px)', boxShadow: '0 4px 14px rgba(31,41,55,0.03)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', gap: 12 }}>
+            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1F2937', margin: 0 }}>Filtrera stränder</p>
+            {hasActiveFilter && (
+              <button onClick={() => { setRegion('Alla'); setTyp('Alla typer'); setFilter(''); }} style={{ background: 'none', border: 'none', color: '#0E7490', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', padding: 6, minHeight: 32 }}>Rensa</button>
+            )}
+          </div>
 
           <div style={{ marginBottom: '18px' }}>
             <p style={filterLabelStyle}>Område</p>
@@ -222,7 +228,7 @@ function StrandarContent() {
               beskrivning="Guidad snorkeltur med liten grupp till Mallorcas klaraste vatten. Utrustning ingår."
               pris="från 495 kr"
               betyg={4.8}
-              badge="⭐ Vår favorit"
+              badge="Vår favorit"
               länk="https://www.getyourguide.com/mallorca-l234/snorkeling-tc63/?partner_id=DITT_ID"
               bild="https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=75"
             />
