@@ -218,25 +218,50 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
             aria-expanded={mobileOpen}
+            style={{
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '5px',
+              background: 'none',
+              border: '1.5px solid #993335',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              padding: '8px 10px',
+              zIndex: 1001,
+            }}
           >
+            <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+              <span style={{
+                display: 'block', width: '24px', height: '2.5px',
+                background: '#993335', borderRadius: '2px',
+                transition: 'transform 0.3s, opacity 0.3s',
+                transform: mobileOpen ? 'rotate(45deg) translate(4px, 5px)' : 'none',
+              }}/>
+              <span style={{
+                display: 'block', width: '24px', height: '2.5px',
+                background: '#993335', borderRadius: '2px',
+                transition: 'opacity 0.3s',
+                opacity: mobileOpen ? 0 : 1,
+              }}/>
+              <span style={{
+                display: 'block', width: '24px', height: '2.5px',
+                background: '#993335', borderRadius: '2px',
+                transition: 'transform 0.3s',
+                transform: mobileOpen ? 'rotate(-45deg) translate(4px, -5px)' : 'none',
+              }}/>
+            </span>
             <span style={{
-              display: 'block', width: '22px', height: '2px',
-              background: '#383a46', borderRadius: '2px',
-              transition: 'transform 0.3s, opacity 0.3s',
-              transform: mobileOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
-            }}/>
-            <span style={{
-              display: 'block', width: '22px', height: '2px',
-              background: '#383a46', borderRadius: '2px',
-              transition: 'opacity 0.3s',
-              opacity: mobileOpen ? 0 : 1,
-            }}/>
-            <span style={{
-              display: 'block', width: '22px', height: '2px',
-              background: '#383a46', borderRadius: '2px',
-              transition: 'transform 0.3s',
-              transform: mobileOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
-            }}/>
+              display: 'block',
+              fontSize: '0.55rem',
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#993335',
+              marginTop: '4px',
+              fontWeight: 600,
+              lineHeight: 1,
+            }}>
+              {mobileOpen ? 'St\u00e4ng' : 'Meny'}
+            </span>
           </button>
         </div>
       </nav>
