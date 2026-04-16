@@ -121,7 +121,7 @@ function EventGrid({ items }: { items: Evenemang[] }) {
               href={e.länk}
               target="_blank"
               rel="noopener noreferrer"
-              style={{ marginTop: 10, display: 'inline-block', padding: '7px 16px', background: '#F59E0B', color: '#383a46', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none', alignSelf: 'flex-start' }}
+              style={{ marginTop: 10, display: 'inline-block', padding: '7px 16px', background: '#993335', color: '#fefefb', borderRadius: 6, fontSize: '0.82rem', fontWeight: 600, textDecoration: 'none', alignSelf: 'flex-start' }}
             >
               Läs mer ↗
             </a>

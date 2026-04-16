@@ -76,7 +76,7 @@ export default function ByadSida() {
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
-                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
+                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
                     <IconMap size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Visa på karta
                   </a>
                   <Link href={stad.href}

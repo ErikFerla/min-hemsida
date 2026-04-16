@@ -187,7 +187,7 @@ export default function BarnPage() {
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
-                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#F59E0B', color: '#383a46', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
+                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#993335', color: '#fefefb', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
                             <IconMap size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Karta
                           </a>
                           <a href={a.webb} target="_blank" rel="noopener noreferrer"
@@ -206,7 +206,7 @@ export default function BarnPage() {
 
         {/* Karta */}
         <section style={{ marginTop: '32px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', letterSpacing: '0.05em', color: '#111', marginBottom: '16px', paddingBottom: '12px', borderBottom: '3px solid #F59E0B' }}>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', letterSpacing: '0.05em', color: '#111', marginBottom: '16px', paddingBottom: '12px', borderBottom: '3px solid #993335' }}>
             <IconMap size={22} style={{ verticalAlign: '-4px', marginRight: 8 }} /> Karta – Barnaktiviteter på Mallorca
           </h2>
           <iframe

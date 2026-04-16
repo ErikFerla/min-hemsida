@@ -265,15 +265,15 @@ function VaderContent() {
               <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet" className={styles.chartSvg} style={{ width: '100%', height: 'auto' }}>
                 <defs>
                   <linearGradient id="tempGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#993335" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#993335" stopOpacity="0" />
                   </linearGradient>
                 </defs>
                 <path d={fillPath} fill="url(#tempGradient)" />
-                <path d={path} fill="none" stroke="#F59E0B" strokeWidth="3" />
+                <path d={path} fill="none" stroke="#993335" strokeWidth="3" />
                 {points.map((point: { x: number; y: number }, i: number) => (
                   <g key={i}>
-                    <circle cx={point.x} cy={point.y} r="4" fill="#F59E0B" />
+                    <circle cx={point.x} cy={point.y} r="4" fill="#993335" />
                     <text x={point.x} y={point.y - 10} textAnchor="middle" className={styles.tempLabel}>
                       {Math.round(currentData[i].maxTemp)}°
                     </text>

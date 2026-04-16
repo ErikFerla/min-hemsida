@@ -159,7 +159,7 @@ export default function GolfPage() {
                     <span>{b.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta
                 </a>
                 <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>
@@ -177,7 +177,7 @@ export default function GolfPage() {
           <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>
             Vill du ha hjälp att boka greenfee, hyra utrustning eller kombinera golf med andra aktiviteter?
           </p>
-          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
+          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
             Planera min golfsemester →
           </Link>
         </div>

@@ -155,8 +155,8 @@ export default function HeroSlideshow() {
             boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
           }}
           onMouseEnter={e => {
-            e.currentTarget.style.background = '#F59E0B';
-            e.currentTarget.style.color = '#383a46';
+            e.currentTarget.style.background = '#993335';
+            e.currentTarget.style.color = '#fefefb';
           }}
           onMouseLeave={e => {
             e.currentTarget.style.background = 'white';

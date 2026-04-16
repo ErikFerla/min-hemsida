@@ -19,7 +19,7 @@
   /* Legacy aliases — kept for backward compatibility */
   --turkos: #993335;
   --turkos-dark: #ba4446;
-  --orange: #F59E0B;
+  --orange: #993335;
   --orange-dark: #D97706;
   --text: #383a46;
 
@@ -429,7 +429,7 @@ main {
 .section-divider {
   width: 48px !important;
   height: 2px !important;
-  background: #F59E0B !important;
+  background: #993335 !important;
   margin-bottom: 24px !important;
   margin-top: 12px !important;
   border-radius: 2px !important;

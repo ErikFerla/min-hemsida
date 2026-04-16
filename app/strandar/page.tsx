@@ -183,7 +183,7 @@ function StrandarContent() {
                   {s.längd} <span style={{ color: '#D4C7B5', margin: '0 8px' }}>•</span> {s.svårighet}
                 </p>
                 <p style={{ fontSize: '0.95rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{s.beskrivning}</p>
-                <div style={{ background: '#FDF6EC', borderLeft: '3px solid #F59E0B', borderRadius: '6px', padding: '10px 14px', fontSize: '0.88rem', color: '#4B3F2F', marginBottom: '14px', lineHeight: 1.55 }}>
+                <div style={{ background: '#FDF6EC', borderLeft: '3px solid #993335', borderRadius: '6px', padding: '10px 14px', fontSize: '0.88rem', color: '#4B3F2F', marginBottom: '14px', lineHeight: 1.55 }}>
                   <strong style={{ color: '#8B6F47', fontWeight: 700 }}>Tips:</strong> {s.tips}
                 </div>
                 {(s.familj || s.snorkling || s.nudist) && (
@@ -206,7 +206,7 @@ function StrandarContent() {
                     {s.redaktionellt.text}
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#F59E0B', color: '#383a46', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#993335', color: '#fefefb', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
                   Visa på karta →
                 </a>
               </div>

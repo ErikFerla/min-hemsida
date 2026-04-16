@@ -136,7 +136,7 @@ export default function VingardarPage() {
         </div>
 
         <div style={{ marginTop: 48, padding: '28px 24px', background: '#383a46', borderRadius: 18, color: 'white', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#F59E0B', marginBottom: 10 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 10 }}>
             <IconUsers size={16} stroke={1.8} />
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>Bra att veta</span>
           </div>

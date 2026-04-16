@@ -41,7 +41,7 @@ export default function AffiliateCard({ typ, titel, beskrivning, pris, betyg, l√
         </div>
         <p style={{ fontSize: '0.85rem', color: '#6B7280', lineHeight: '1.55', margin: '0 0 14px' }}>{beskrivning}</p>
         {betyg && (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '14px', color: '#F59E0B' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '14px', color: '#993335' }}>
             {Array.from({ length: Math.round(betyg) }).map((_, i) => <IconStar key={i} size={14} />)}
             <span style={{ fontSize: '0.8rem', color: '#6B7280', marginLeft: '4px' }}>{betyg.toFixed(1)}</span>
           </div>

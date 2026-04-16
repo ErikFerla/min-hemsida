@@ -221,7 +221,7 @@ export default function SectionPlanner() {
           disabled={!dagar || intressen.length === 0}
           style={{
             padding: '14px 40px',
-            background: dagar && intressen.length > 0 ? '#F59E0B' : '#d4c8bb',
+            background: dagar && intressen.length > 0 ? '#993335' : '#d4c8bb',
             color: dagar && intressen.length > 0 ? '#383a46' : '#888',
             border: 'none',
             borderRadius: '8px',

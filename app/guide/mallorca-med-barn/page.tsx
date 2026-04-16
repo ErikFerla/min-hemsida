@@ -97,13 +97,13 @@ export default function MallorcaMedBarnGuide() {
 
         {/* CTA */}
         <section style={{ background: '#383a46', borderRadius: 18, padding: 'clamp(28px,6vw,40px)', textAlign: 'center', color: 'white' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#F59E0B', marginBottom: 12 }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 12 }}>
             <IconMap size={16} stroke={1.8} />
             <span style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>Mer för familjen</span>
           </div>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
           <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se den kompletta barnguiden med alla aktiviteter, åldersrekommendationer och praktiska tips.</p>
-          <a href="/barn" style={{ display: 'inline-block', background: '#F59E0B', color: '#383a46', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</a>
+          <a href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</a>
         </section>
       </main>
 

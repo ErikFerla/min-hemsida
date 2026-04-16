@@ -121,7 +121,7 @@ export default function AktiviteterPage() {
                       <span key={j} style={{ background: '#F0EBE3', color: '#993335', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600' }}>{h}</span>
                     ))}
                   </div>
-                  <div style={{ display: 'inline-block', padding: '10px 24px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem' }}>
+                  <div style={{ display: 'inline-block', padding: '10px 24px', background: '#993335', color: '#fefefb', borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem' }}>
                     Utforska →
                   </div>
                 </div>

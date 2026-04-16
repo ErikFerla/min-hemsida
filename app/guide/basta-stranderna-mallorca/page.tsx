@@ -150,7 +150,7 @@ export default function BästaSträndernaGuide() {
         <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white', marginTop: '40px' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Vill du utforska alla 30 stränder?</h2>
           <p style={{ opacity: 0.85, marginBottom: '24px', fontSize: '1rem' }}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
-          <a href="/strandar" style={{ display: 'inline-block', background: '#F59E0B', color: '#383a46', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA 30 STRÄNDER →</a>
+          <a href="/strandar" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA 30 STRÄNDER →</a>
         </div>
       </div>
     </div>

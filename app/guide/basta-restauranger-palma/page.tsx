@@ -84,7 +84,7 @@ export default function BästaRestaurangerPalma() {
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Mer mat och vin på Mallorca</h2>
           <p style={{ opacity: 0.8, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/mat" style={{ display: 'inline-block', background: '#F59E0B', color: '#383a46', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE MATGUIDEN</a>
+            <a href="/mat" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE MATGUIDEN</a>
             <a href="/vingardar" style={{ display: 'inline-block', background: 'transparent', color: 'white', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700, border: '1px solid rgba(255,255,255,0.3)' }}>VINGÅRDAR</a>
           </div>
         </div>

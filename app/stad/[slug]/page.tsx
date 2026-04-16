@@ -206,7 +206,7 @@ export default function StadPage({ params }: { params: { slug: string } }) {
                 <p key={i} style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.6', margin: '0 0 8px', paddingBottom: '8px', borderBottom: i < stad.praktiskt.length - 1 ? '1px solid #f0ebe3' : 'none' }}>{info}</p>
               ))}
             </div>
-            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#F59E0B', color: '#383a46', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem', marginTop: '16px' }}>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#993335', color: '#fefefb', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem', marginTop: '16px' }}>
               <IconMap size={16} style={{ verticalAlign: '-3px', marginRight: 6 }} /> Visa på karta
             </a>
             <a href="/byar" style={{ display: 'block', textAlign: 'center', padding: '12px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '10px', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', marginTop: '10px' }}>

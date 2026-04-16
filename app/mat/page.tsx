@@ -135,7 +135,7 @@ export default function MatPage() {
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {r.öppet}</span>
                   </div>
                   <p style={{ fontSize: '0.88rem', color: '#374151', margin: '0 0 14px', lineHeight: 1.5 }}>{r.info}</p>
-                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#F59E0B', color: '#383a46', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
+                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#993335', color: '#fefefb', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
                     <IconMap size={13} stroke={1.8} /> Visa på karta
                   </a>
                 </div>

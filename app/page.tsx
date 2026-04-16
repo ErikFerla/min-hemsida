@@ -57,7 +57,7 @@ export default function Home() {
               <h2 className="section-title" style={{ letterSpacing: '-0.512px' }}>
                 En ö med allt – året om
               </h2>
-              <div style={{ width: '48px', height: '2px', background: '#F59E0B', marginBottom: '28px', borderRadius: '2px' }} />
+              <div style={{ width: '48px', height: '2px', background: '#993335', marginBottom: '28px', borderRadius: '2px' }} />
               <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '1.25rem', maxWidth: '65ch' }}>
                 Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>

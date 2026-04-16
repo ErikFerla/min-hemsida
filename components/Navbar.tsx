@@ -149,7 +149,7 @@ export default function Navbar() {
           <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#993335" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-              <circle cx="28" cy="10" r="3" fill="#F59E0B"/>
+              <circle cx="28" cy="10" r="3" fill="#993335"/>
             </svg>
             <div>
               <div style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: '700', color: '#383a46', letterSpacing: '0.02em', lineHeight: '1' }}>

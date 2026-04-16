@@ -130,7 +130,7 @@ export default function GolfMallorcaGuide() {
               <span style={{ background: '#993335', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{bana.rank}</span>
               <div>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46', lineHeight: 1 }}>{bana.namn}</h3>
-                <p style={{ margin: 0, color: '#993335', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px', display: 'inline-flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span style={{ display: 'inline-flex', color: '#F59E0B' }}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
+                <p style={{ margin: 0, color: '#993335', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px', display: 'inline-flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span style={{ display: 'inline-flex', color: '#993335' }}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
               </div>
             </div>
             <p style={{ fontSize: '0.98rem', lineHeight: '1.75', color: '#374151', marginBottom: '20px' }}>{bana.beskrivning}</p>
@@ -169,7 +169,7 @@ export default function GolfMallorcaGuide() {
                     <td style={{ padding: '11px 16px', color: '#6B7280' }}>{b.region}</td>
                     <td style={{ padding: '11px 16px', textAlign: 'center', color: '#6B7280' }}>{b.hål}</td>
                     <td style={{ padding: '11px 16px', color: '#374151' }}>{b.grönAvgift}</td>
-                    <td style={{ padding: '11px 16px', textAlign: 'center', color: '#F59E0B' }}><span style={{ display: 'inline-flex' }}>{Array.from({ length: b.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></td>
+                    <td style={{ padding: '11px 16px', textAlign: 'center', color: '#993335' }}><span style={{ display: 'inline-flex' }}>{Array.from({ length: b.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></td>
                   </tr>
                 ))}
               </tbody>
@@ -190,7 +190,7 @@ export default function GolfMallorcaGuide() {
             ].map((s, i) => (
               <div key={i} style={{ background: 'white', borderRadius: '12px', padding: '16px', border: '1px solid #ede5da' }}>
                 <p style={{ fontWeight: '700', color: '#383a46', margin: '0 0 4px', fontSize: '0.9rem' }}>{s.period}</p>
-                <p style={{ margin: '0 0 6px', fontSize: '0.8rem', color: '#F59E0B', display: 'inline-flex' }}>{Array.from({ length: s.rating }).map((_, j) => <IconStar key={j} size={12} />)}</p>
+                <p style={{ margin: '0 0 6px', fontSize: '0.8rem', color: '#993335', display: 'inline-flex' }}>{Array.from({ length: s.rating }).map((_, j) => <IconStar key={j} size={12} />)}</p>
                 <p style={{ margin: 0, fontSize: '0.82rem', color: '#6B7280', lineHeight: '1.5' }}>{s.text}</p>
               </div>
             ))}
@@ -201,7 +201,7 @@ export default function GolfMallorcaGuide() {
         <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Mer om golf på Mallorca</h2>
           <p style={{ opacity: 0.85, marginBottom: '24px' }}>Boka tider, läs mer om paketresor och golfhotell.</p>
-          <a href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#F59E0B', color: '#383a46', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE GOLFGUIDEN →</a>
+          <a href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE GOLFGUIDEN →</a>
         </div>
       </div>
     </div>
