@@ -173,7 +173,7 @@ export default function StadPage({ params }: { params: { slug: string } }) {
   const stad = stadsData[params.slug];
   if (!stad) notFound();
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ position: 'relative', height: '60vh', backgroundImage: `url(${stad.bild})`, backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
@@ -185,31 +185,31 @@ export default function StadPage({ params }: { params: { slug: string } }) {
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,40px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '40px' }}>
           <div>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#1F2937' }}>Om {stad.namn}</h2>
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46' }}>Om {stad.namn}</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '32px' }}>{stad.longDesc}</p>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#1F2937', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconStar size={22} /> Topp 3 att uppleva</h2>
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconStar size={22} /> Topp 3 att uppleva</h2>
             {stad.top3.map((sak, i) => (
               <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', padding: '12px 0', borderBottom: '1px solid #ede5da' }}>
-                <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>{i === 0 ? <IconStar size={18} /> : i === 1 ? <IconBuilding size={18} /> : <IconPin size={18} />}</span>
+                <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>{i === 0 ? <IconStar size={18} /> : i === 1 ? <IconBuilding size={18} /> : <IconPin size={18} />}</span>
                 <span style={{ fontSize: '1rem', color: '#374151', fontWeight: i === 0 ? '600' : '400' }}>{sak}</span>
               </div>
             ))}
           </div>
           <div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginBottom: '20px' }}>
-              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#0E7490', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconBulb size={18} /> Insider-tips</h3>
+              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#993335', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconBulb size={18} /> Insider-tips</h3>
               <p style={{ fontSize: '0.95rem', color: '#374151', lineHeight: '1.7', margin: 0 }}>{stad.tips}</p>
             </div>
             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#0E7490', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconMap size={18} /> Praktisk info</h3>
+              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#993335', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconMap size={18} /> Praktisk info</h3>
               {stad.praktiskt.map((info, i) => (
                 <p key={i} style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.6', margin: '0 0 8px', paddingBottom: '8px', borderBottom: i < stad.praktiskt.length - 1 ? '1px solid #f0ebe3' : 'none' }}>{info}</p>
               ))}
             </div>
-            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#F59E0B', color: '#1F2937', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem', marginTop: '16px' }}>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#F59E0B', color: '#383a46', borderRadius: '10px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem', marginTop: '16px' }}>
               <IconMap size={16} style={{ verticalAlign: '-3px', marginRight: 6 }} /> Visa på karta
             </a>
-            <a href="/byar" style={{ display: 'block', textAlign: 'center', padding: '12px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '10px', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', marginTop: '10px' }}>
+            <a href="/byar" style={{ display: 'block', textAlign: 'center', padding: '12px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '10px', textDecoration: 'none', fontWeight: '600', fontSize: '0.95rem', marginTop: '10px' }}>
               ← Alla städer
             </a>
           </div>

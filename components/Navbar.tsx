@@ -133,7 +133,7 @@ export default function Navbar() {
     <>
       <nav ref={navRef} style={{
         position: 'sticky', top: 0, zIndex: 1000,
-        background: 'white',
+        background: '#eeede4',
         borderBottom: '1px solid rgba(0,0,0,0.08)',
         boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
       }}>
@@ -147,14 +147,14 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#0E7490" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#993335" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="28" cy="10" r="3" fill="#F59E0B"/>
             </svg>
             <div>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: '700', color: '#1F2937', letterSpacing: '0.02em', lineHeight: '1' }}>
+              <div style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: '700', color: '#383a46', letterSpacing: '0.02em', lineHeight: '1' }}>
                 MyMallorca
               </div>
-              <div style={{ fontSize: '9px', color: '#0E7490', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
+              <div style={{ fontSize: '9px', color: '#993335', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
                 Din kompletta reseguide
               </div>
             </div>
@@ -221,19 +221,19 @@ export default function Navbar() {
           >
             <span style={{
               display: 'block', width: '22px', height: '2px',
-              background: '#1f2937', borderRadius: '2px',
+              background: '#383a46', borderRadius: '2px',
               transition: 'transform 0.3s, opacity 0.3s',
               transform: mobileOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
             }}/>
             <span style={{
               display: 'block', width: '22px', height: '2px',
-              background: '#1f2937', borderRadius: '2px',
+              background: '#383a46', borderRadius: '2px',
               transition: 'opacity 0.3s',
               opacity: mobileOpen ? 0 : 1,
             }}/>
             <span style={{
               display: 'block', width: '22px', height: '2px',
-              background: '#1f2937', borderRadius: '2px',
+              background: '#383a46', borderRadius: '2px',
               transition: 'transform 0.3s',
               transform: mobileOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
             }}/>
@@ -287,7 +287,7 @@ export default function Navbar() {
           <div style={{ padding: '20px 24px' }}>
             <a href="/kontakt" onClick={() => setMobileOpen(false)}
               style={{
-                display: 'block', textAlign: 'center', background: '#1f2937',
+                display: 'block', textAlign: 'center', background: '#383a46',
                 color: 'white', padding: '14px', borderRadius: '4px',
                 textDecoration: 'none', fontWeight: 600, letterSpacing: '0.08em',
                 textTransform: 'uppercase', fontSize: '0.85rem',

@@ -3,7 +3,7 @@ import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 
 export default function Soller() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
@@ -26,14 +26,14 @@ export default function Soller() {
               <li>Vandringen till Biniaraix – 45 min – är en av öns bästa korta leder</li>
             </ul>
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
-              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Sóller</h2>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#383a46' }}>Topp 3 i Sóller</h2>
               {[
                 { Icon: IconStar, text: 'Historiska spårvagnen ner till Port de Sóller – åk tur och retur' },
                 { Icon: IconBuilding, text: 'Apelsinlundarna – köp färskpressad juice direkt från bönderna' },
                 { Icon: IconPin, text: 'Firó-festivalen i maj – unikt historiskt skådespäl på gatorna' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
+                  <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}

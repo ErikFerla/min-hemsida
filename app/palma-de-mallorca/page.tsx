@@ -2,7 +2,7 @@
 
 export default function PalmaDeMallorca() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
@@ -25,14 +25,14 @@ export default function PalmaDeMallorca() {
               <li>Mercat de l'Olivar är bäst på fredags- och lördagsmorgon för färska råvaror</li>
             </ul>
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
-              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#1F2937' }}>Topp 3 i Palma</h2>
+              <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#383a46' }}>Topp 3 i Palma</h2>
               {[
                 { Icon: IconStar, text: 'La Seu-katedralen – gå dit innan kl 10 för gratis entré och bästa ljuset' },
                 { Icon: IconBuilding, text: 'Gamla stan (Casc Antic) – gå vilse i gränderna och hitta dolda barer' },
                 { Icon: IconPin, text: 'Bellver Slott – bästa utsikten över Palma, kom vid solnedgång' },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '14px 0', borderBottom: i < 2 ? '1px solid #ede5da' : 'none' }}>
-                  <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
+                  <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><item.Icon size={20} /></span>
                   <span style={{ fontSize: '1rem', color: '#374151', lineHeight: '1.6' }}>{item.text}</span>
                 </div>
               ))}
@@ -53,7 +53,7 @@ export default function PalmaDeMallorca() {
               Visa på karta →
             </a>
             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginTop: '20px', border: '1px solid #ede5da' }}>
-              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#1F2937', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={18} /> Boka upplevelser i Palma</h3>
+              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={18} /> Boka upplevelser i Palma</h3>
               {[
                 { text: 'Guidad tur i gamla stan (2h)', pris: 'från 295 kr', länk: 'https://www.getyourguide.com/palma-de-mallorca-l790/walking-tours-tc56/?partner_id=DITT_ID' },
                 { text: 'La Seu – guidad katedral-tur', pris: 'från 195 kr', länk: 'https://www.getyourguide.com/palma-de-mallorca-l790/la-seu-cathedral-tc257/?partner_id=DITT_ID' },
@@ -62,10 +62,10 @@ export default function PalmaDeMallorca() {
                 <a key={i} href={item.länk} target="_blank" rel="noopener noreferrer sponsored"
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: '12px 0', borderBottom: i < 2 ? '1px solid #f0ebe3' : 'none',
-                    textDecoration: 'none', color: '#1F2937' }}
+                    textDecoration: 'none', color: '#383a46' }}
                 >
                   <span style={{ fontSize: '0.9rem' }}>{item.text}</span>
-                  <span style={{ fontSize: '0.85rem', color: '#0E7490', fontWeight: '700', flexShrink: 0 }}>{item.pris} →</span>
+                  <span style={{ fontSize: '0.85rem', color: '#993335', fontWeight: '700', flexShrink: 0 }}>{item.pris} →</span>
                 </a>
               ))}
             </div>

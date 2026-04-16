@@ -152,7 +152,7 @@
 .personalCard p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
 .personalTag { font-size: 0.75rem; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; }
 .seasonSection {
-  background: #F5EEE4;
+  background: #eeede4;
   padding: 80px 40px;
   position: relative;
 }
@@ -160,14 +160,14 @@
 .seasonTitle { font-family: var(--font-playfair), 'Playfair Display', Georgia, serif; font-size: clamp(2rem, 3.2vw, 3.2rem); line-height: 1.1; color: var(--fg); letter-spacing: -0.02em; word-spacing: normal; font-weight: 700; margin-bottom: 8px; }
 .seasonSub { color: var(--muted); margin-bottom: 40px; font-size: 1rem; }
 .seasonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.seasonCard { background: #FDF8F2; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.seasonCard { background: #fefefb; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
 .seasonEmoji { font-size: 2.5rem; display: block; margin-bottom: 12px; }
 .seasonName { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 4px; }
 .seasonMonths { font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
 .seasonList { list-style: none; padding: 0; margin-bottom: 20px; }
 .seasonList li { font-size: 0.82rem; color: var(--fg); padding: 4px 0; border-bottom: 1px solid var(--border); }
 .seasonBadge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 20px; }
-.plannerSection { background: #F5EEE4; padding: 80px 60px; border-top: 1px solid var(--border); }
+.plannerSection { background: #eeede4; padding: 80px 60px; border-top: 1px solid var(--border); }
 .plannerInner { max-width: 1400px; margin: 0 auto; }
 .plannerTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .plannerSub { color: var(--muted); margin-bottom: 40px; }
@@ -175,12 +175,12 @@
 .plannerStep { margin-bottom: 32px; }
 .plannerStepTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
 .daysRow { display: flex; gap: 12px; flex-wrap: wrap; }
-.dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #FDF8F2; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #fefefb; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .dayBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
 .interestRow { display: flex; gap: 12px; flex-wrap: wrap; }
-.interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #FDF8F2; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+.interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #fefefb; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .interestBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
-.plannerResult { background: #FDF8F2; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
+.plannerResult { background: #fefefb; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
 .plannerResultTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--fg); margin-bottom: 20px; letter-spacing: 0.05em; }
 .plannerList { list-style: none; padding: 0; }
 .plannerItem { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
@@ -194,7 +194,7 @@
 .insiderTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .insiderSub { color: var(--muted); margin-bottom: 40px; }
 .insiderGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
-.insiderCard { background: #FDF8F2; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.insiderCard { background: #fefefb; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
 .insiderCity { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #1a3a5c; letter-spacing: 0.05em; margin-bottom: 20px; }
 .insiderList { list-style: none; padding: 0; }
 .insiderList li { font-size: 0.875rem; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--fg); }

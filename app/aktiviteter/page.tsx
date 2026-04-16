@@ -80,7 +80,7 @@ const aktiviteter: Aktivitet[] = [
 
 export default function AktiviteterPage() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
       <div style={{
         position: 'relative', height: '55vh',
@@ -113,15 +113,15 @@ export default function AktiviteterPage() {
               >
                 <Image src={a.bild} alt={a.titel} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ padding: '24px' }}>
-                  <div style={{ marginBottom: '8px', color: '#1f2937' }}><a.Icon size={28} /></div>
-                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#1F2937' }}>{a.titel}</h2>
+                  <div style={{ marginBottom: '8px', color: '#383a46' }}><a.Icon size={28} /></div>
+                  <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#383a46' }}>{a.titel}</h2>
                   <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 16px' }}>{a.beskrivning}</p>
                   <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
                     {a.highlights.map((h, j) => (
-                      <span key={j} style={{ background: '#F0EBE3', color: '#0E7490', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600' }}>{h}</span>
+                      <span key={j} style={{ background: '#F0EBE3', color: '#993335', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600' }}>{h}</span>
                     ))}
                   </div>
-                  <div style={{ display: 'inline-block', padding: '10px 24px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem' }}>
+                  <div style={{ display: 'inline-block', padding: '10px 24px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem' }}>
                     Utforska →
                   </div>
                 </div>
@@ -131,8 +131,8 @@ export default function AktiviteterPage() {
         </div>
 
         <section id="barnvanligt" style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 600, margin: '0 0 8px' }}>För hela familjen</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', margin: '0 0 10px', color: '#1F2937' }}>Barnvänligt</h2>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 8px' }}>För hela familjen</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', margin: '0 0 10px', color: '#383a46' }}>Barnvänligt</h2>
           <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 28px', maxWidth: '60ch' }}>
             Vattenparker, grottor, djurparker och äventyrsparker – Mallorca hör till Europas bästa resmål för barnfamiljer. Här är våra handplockade favoriter.
           </p>
@@ -142,10 +142,10 @@ export default function AktiviteterPage() {
               <article key={b.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
                 <div style={{ position: 'relative', width: '100%', height: 140 }}>
                   <Image src={b.bild} alt={b.namn} fill sizes="(max-width:768px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
-                  <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b.kategori}</div>
+                  <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b.kategori}</div>
                 </div>
                 <div style={{ padding: '14px 16px 16px' }}>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.04em', margin: '0 0 4px', color: '#1F2937', lineHeight: 1.15 }}>{b.namn}</h3>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.04em', margin: '0 0 4px', color: '#383a46', lineHeight: 1.15 }}>{b.namn}</h3>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {b.plats}</span>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconUsers size={11} /> {b.ålder}</span>
@@ -156,14 +156,14 @@ export default function AktiviteterPage() {
             ))}
           </div>
 
-          <Link href="/barn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#1F2937', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+          <Link href="/barn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
             Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
           </Link>
         </section>
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: '600', marginBottom: '8px' }}>BOKA DIREKT</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#1F2937' }}>Populära upplevelser just nu</h2>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>BOKA DIREKT</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Populära upplevelser just nu</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
             <AffiliateCard
               typ="aktivitet"

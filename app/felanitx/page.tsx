@@ -2,7 +2,7 @@ import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 
 export default function Felanitx() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>
@@ -28,16 +28,16 @@ export default function Felanitx() {
               <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '16px' }}>Höjdpunkter</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: 'white', borderRadius: '10px', padding: '14px 18px', boxShadow: '0 1px 6px rgba(0,0,0,0.07)' }}>
-                  <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><IconStar size={20} /></span>
-                  <span style={{ fontSize: '1rem', color: '#1F2937', lineHeight: '1.5' }}>Söndagsmarknaden med lokal keramik</span>
+                  <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><IconStar size={20} /></span>
+                  <span style={{ fontSize: '1rem', color: '#383a46', lineHeight: '1.5' }}>Söndagsmarknaden med lokal keramik</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: 'white', borderRadius: '10px', padding: '14px 18px', boxShadow: '0 1px 6px rgba(0,0,0,0.07)' }}>
-                  <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><IconBuilding size={20} /></span>
-                  <span style={{ fontSize: '1rem', color: '#1F2937', lineHeight: '1.5' }}>Castell de Santueri med panoramautsikt</span>
+                  <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><IconBuilding size={20} /></span>
+                  <span style={{ fontSize: '1rem', color: '#383a46', lineHeight: '1.5' }}>Castell de Santueri med panoramautsikt</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: 'white', borderRadius: '10px', padding: '14px 18px', boxShadow: '0 1px 6px rgba(0,0,0,0.07)' }}>
-                  <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><IconPin size={20} /></span>
-                  <span style={{ fontSize: '1rem', color: '#1F2937', lineHeight: '1.5' }}>Lokalt vin från Felanitx-vingårdarna</span>
+                  <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><IconPin size={20} /></span>
+                  <span style={{ fontSize: '1rem', color: '#383a46', lineHeight: '1.5' }}>Lokalt vin från Felanitx-vingårdarna</span>
                 </div>
               </div>
             </div>

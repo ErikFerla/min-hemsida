@@ -14,7 +14,7 @@ export default function Home() {
       <HeroSlideshow />
 
       <div className={styles.container}>
-        <section style={{ background: '#FDF8F2', padding: 'var(--section-padding-md, 6rem 0)' }}>
+        <section style={{ background: '#fefefb', padding: 'var(--section-padding-md, 6rem 0)' }}>
           <div className="section-inner">
             <p className="section-label">VAD VILL DU UPPLEVA?</p>
             <h2 className="section-title">Upptäck Mallorca</h2>
@@ -47,7 +47,7 @@ export default function Home() {
 
         <section
           className="page-section"
-          style={{background:'#fdf8f2', overflow:'hidden'}}
+          style={{background:'#fefefb', overflow:'hidden'}}
         >
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
             <div>
@@ -72,7 +72,7 @@ export default function Home() {
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
                 ].map((s, i) => (
                   <a key={i} href={s.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                    <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#1F2937', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
+                    <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#383a46', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
                     <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
                   </a>
                 ))}
@@ -83,7 +83,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="page-section" style={{background:'#fdf8f2'}}>
+        <section className="page-section" style={{background:'#fefefb'}}>
           <div className="din-guide-grid" style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
                        gap:'80px', alignItems:'center'}}>
 
@@ -106,7 +106,7 @@ export default function Home() {
               <h2 className="section-title">
                 Din guide till Mallorca — inifrån och ut
               </h2>
-              <div className="section-divider" style={{background:'#c9a96e'}} />
+              <div className="section-divider" style={{background:'#993335'}} />
               <p style={{lineHeight:1.75, color:'#4b5563',
                          marginBottom:'20px', maxWidth:'52ch'}}>
                 De flesta reser till Mallorca. Vi hjälper dig att uppleva den.
@@ -129,7 +129,7 @@ export default function Home() {
         <div className="mobile-order-7"><SectionSeason /></div>
         <div className="mobile-order-4"><SectionPlanner /></div>
         <div className="mobile-order-6"><SectionEvents /></div>
-        <section className="page-section" style={{background:'#fdf8f2'}}>
+        <section className="page-section" style={{background:'#fefefb'}}>
           <div style={{maxWidth:'1280px', margin:'0 auto'}}>
             <p className="section-label" style={{textAlign:'center'}}>
               UTFORSKA ÖN

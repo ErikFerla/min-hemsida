@@ -32,7 +32,7 @@ const golfbanor = [
 const svårighetFärg: Record<string, string> = {
   'Lätt': '#27ae60',
   'Medel': '#f39c12',
-  'Svår': '#0E7490',
+  'Svår': '#993335',
 };
 
 const regioner = ['Alla', 'Palma', 'Norr', 'Öst', 'Syd', 'Sydväst'];
@@ -47,8 +47,8 @@ export default function GolfPage() {
   const knappAktiv = {
     padding: '8px 20px',
     borderRadius: '20px',
-    border: '2px solid #0E7490',
-    background: '#0E7490',
+    border: '2px solid #993335',
+    background: '#993335',
     color: 'white',
     fontWeight: '600' as const,
     cursor: 'pointer',
@@ -67,7 +67,7 @@ export default function GolfPage() {
   };
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{
         position: 'relative',
         height: '60vh',
@@ -153,16 +153,16 @@ export default function GolfPage() {
                     borderLeft: `3px solid ${b.redaktionellt.typ === 'varning' ? '#f39c12' : b.redaktionellt.typ === 'tips' ? '#27ae60' : b.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
                     fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
                   }}>
-                    <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                    <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
                       {b.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : b.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : b.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{b.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta
                 </a>
-                <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>
+                <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>
                   Besök hemsida →
                 </a>
               </div>
@@ -177,7 +177,7 @@ export default function GolfPage() {
           <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>
             Vill du ha hjälp att boka greenfee, hyra utrustning eller kombinera golf med andra aktiviteter?
           </p>
-          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
+          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
             Planera min golfsemester →
           </Link>
         </div>

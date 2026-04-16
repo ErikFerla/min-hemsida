@@ -29,7 +29,7 @@ export default function FlygPage() {
   };
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
       <div style={{
         position: 'relative', height: '55vh',
@@ -115,7 +115,7 @@ export default function FlygPage() {
 
           <button
             onClick={sökFlyg}
-            style={{ width: '100%', padding: '16px', background: '#F59E0B', color: '#1F2937', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.1em', cursor: 'pointer' }}
+            style={{ width: '100%', padding: '16px', background: '#F59E0B', color: '#383a46', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.1em', cursor: 'pointer' }}
           >
             SÖK FLYG PÅ SKYSCANNER →
           </button>
@@ -131,12 +131,12 @@ export default function FlygPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {flygplatser.map(f => (
             <div key={f.kod} style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-              <div style={{ marginBottom: '8px', color: '#1f2937' }}><IconPlane size={28} /></div>
+              <div style={{ marginBottom: '8px', color: '#383a46' }}><IconPlane size={28} /></div>
               <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', margin: '0 0 4px', color: '#111' }}>{f.namn}</h3>
               <p style={{ fontSize: '0.85rem', color: '#888', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
               <button
                 onClick={() => snabbSök(f.kod)}
-                style={{ width: '100%', padding: '10px', background: '#F59E0B', color: '#1F2937', border: 'none', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}
+                style={{ width: '100%', padding: '10px', background: '#F59E0B', color: '#383a46', border: 'none', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer' }}
               >
                 Sök flyg →
               </button>

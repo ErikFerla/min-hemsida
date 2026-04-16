@@ -138,7 +138,7 @@ const sevardheter = [
 
 export default function SevardheterPage() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{
         position: 'relative',
         height: '55vh',
@@ -165,7 +165,7 @@ export default function SevardheterPage() {
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <div style={{ position: 'relative' }}>
                 <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>
+                <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#993335', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>
               </div>
               <div style={{ padding: '22px' }}>
                 <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{s.namn}</h2>
@@ -180,13 +180,13 @@ export default function SevardheterPage() {
                     borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
                     fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
                   }}>
-                    <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                    <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
                       {s.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : s.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : s.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{s.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
                   Visa på karta →
                 </a>
               </div>

@@ -72,7 +72,7 @@ export default function KontaktPage() {
     return (
       <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 20px' }}>
         <div style={{ textAlign: 'center', maxWidth: '500px' }}>
-          <div style={{ marginBottom: '24px', color: '#1f2937', display: 'flex', justifyContent: 'center' }}><IconPalm size={56} /></div>
+          <div style={{ marginBottom: '24px', color: '#383a46', display: 'flex', justifyContent: 'center' }}><IconPalm size={56} /></div>
           <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '16px' }}>
             Tack {formData.namn}!
           </h1>
@@ -88,7 +88,7 @@ export default function KontaktPage() {
   }
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ background: '#111', color: 'white', padding: '80px 40px', textAlign: 'center' }}>
         <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: '3rem', fontWeight: '700', letterSpacing: '-0.04em', marginBottom: '16px' }}>
           Planera din resa

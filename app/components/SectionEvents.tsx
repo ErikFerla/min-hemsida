@@ -71,7 +71,7 @@ export const evenemang = [
 
 export default function SectionEvents() {
   return (
-    <section className="page-section" style={{ background: '#F5EEE4' }}>
+    <section className="page-section" style={{ background: '#eeede4' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <div className="events-header-grid">
           <div>
@@ -88,7 +88,7 @@ export default function SectionEvents() {
               <div key={i} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
                 <div style={{ position: 'relative' }}>
                   <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '140px', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#F59E0B', color: '#1F2937', padding: '3px 8px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
+                  <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#F59E0B', color: '#383a46', padding: '3px 8px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
                     {e.kategori}
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function SectionEvents() {
                   <p style={{ fontSize: '0.75rem', color: '#888', margin: '0 0 4px', display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconCalendar size={12} /> {e.datum} · <IconPin size={12} /> {e.plats}</p>
                   <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.05em', margin: '0 0 6px', color: '#111', lineHeight: 1.2 }}>{e.namn}</h3>
                   <p style={{ fontSize: '0.8rem', color: '#666', lineHeight: '1.5', margin: '0 0 12px' }}>{e.beskrivning}</p>
-                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
+                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '7px', background: '#F59E0B', color: '#383a46', borderRadius: '6px', textDecoration: 'none', fontSize: '0.8rem', fontWeight: '600' }}>
                     Läs mer →
                   </a>
                 </div>
@@ -108,21 +108,21 @@ export default function SectionEvents() {
               <div key={i} className="events-mobile-card">
                 <div style={{ position: 'relative' }}>
                   <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '160px', objectFit: 'cover' }} />
-                  <div style={{ position: 'absolute', top: '10px', left: '10px', background: '#F59E0B', color: '#1F2937', padding: '4px 10px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
+                  <div style={{ position: 'absolute', top: '10px', left: '10px', background: '#F59E0B', color: '#383a46', padding: '4px 10px', borderRadius: '8px', fontSize: '0.7rem', fontWeight: '700' }}>
                     {e.kategori}
                   </div>
                 </div>
                 <div style={{ padding: '16px' }}>
-                  <p style={{ fontSize: '0.78rem', color: '#0E7490', fontWeight: '600', margin: '0 0 6px', letterSpacing: '0.03em' }}>
+                  <p style={{ fontSize: '0.78rem', color: '#993335', fontWeight: '600', margin: '0 0 6px', letterSpacing: '0.03em' }}>
                     <IconCalendar size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {e.datum}
                   </p>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.05em', margin: '0 0 8px', color: '#1F2937', lineHeight: 1.2 }}>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.05em', margin: '0 0 8px', color: '#383a46', lineHeight: 1.2 }}>
                     {e.namn}
                   </h3>
                   <p style={{ fontSize: '0.85rem', color: '#555', lineHeight: '1.5', margin: '0 0 14px', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as const, overflow: 'hidden' }}>
                     {e.beskrivning}
                   </p>
-                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '0.05em' }}>
+                  <a href={e.länk} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '0.05em' }}>
                     LÄS MER →
                   </a>
                 </div>

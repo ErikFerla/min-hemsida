@@ -23,21 +23,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80" />
       </head>
-      <body className={`${inter.variable} ${playfair.variable}`} style={{ margin: 0, background: '#FDF8F2', color: '#1F2937' }}>
+      <body className={`${inter.variable} ${playfair.variable}`} style={{ margin: 0, background: '#fefefb', color: '#383a46' }}>
         <Navbar />
         <WebSiteSchema />
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
-        <footer style={{ background: '#f5eee4', color: '#1f2937', padding: '0' }}>
+        <footer style={{ background: '#383a46', color: '#fefefb', padding: '0' }}>
           {/* Gold top line */}
-          <div style={{ borderTop: '1px solid #c9a96e' }} />
+          <div style={{ borderTop: '1px solid #993335' }} />
 
           <div className="footer-inner">
             <div className="footer-desktop-grid">
 
               {/* Kolumn 1 — Varumärke */}
               <div>
-                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#1f2937', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>DIN GUIDE PÅ MALLORCA <IconPalm size={22} /></p>
-                <p style={{ color: '#1f2937', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.</p>
+                <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>DIN GUIDE PÅ MALLORCA <IconPalm size={22} /></p>
+                <p style={{ color: 'rgba(254,254,251,0.75)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.</p>
                 <div style={{ display: 'flex', gap: '16px' }}>
                   <a href="#" aria-label="Instagram" className="footer-social-link">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Kolumn 2 — UTFORSKA */}
               <div>
-                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c9a96e', fontWeight: 600, margin: '0 0 16px' }}>UTFORSKA</p>
+                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 16px' }}>UTFORSKA</p>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   {[['Städer & Byar', '/byar'], ['Stränder', '/strandar'], ['Sevärdheter', '/sevardheter'], ['Mat & Vin', '/mat'], ['Golf', '/aktiviteter/golf'], ['Aktiviteter', '/aktiviteter']].map(([text, href]) => (
                     <a key={href} href={href} className="footer-nav-link">{text}</a>
@@ -66,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Kolumn 3 — POPULÄRT */}
               <div>
-                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c9a96e', fontWeight: 600, margin: '0 0 16px' }}>POPULÄRT</p>
+                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 16px' }}>POPULÄRT</p>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   {[['Väder', '/vader'], ['Evenemang', '/evenemang'], ['Sevärdheter', '/sevardheter'], ['Planera din resa', '/kontakt'], ['Se alla stränder', '/strandar']].map(([text, href]) => (
                     <a key={text} href={href} className="footer-nav-link">{text}</a>
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
               {/* Kolumn 4 — STÄDER */}
               <div>
-                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#c9a96e', fontWeight: 600, margin: '0 0 16px' }}>STÄDER</p>
+                <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 16px' }}>STÄDER</p>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   {[['Palma de Mallorca', '/palma-de-mallorca'], ['Sóller', '/soller'], ['Valldemossa', '/valldemossa'], ['Alcúdia', '/alcudia'], ['Pollença', '/pollenca'], ['Porto Colom', '/porto-colom'], ['Se alla städer →', '/byar']].map(([text, href]) => (
                     <a key={href} href={href} className="footer-nav-link">{text}</a>
@@ -91,8 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           {/* Footer bottom */}
           <div className="footer-bottom">
-            <p style={{ color: '#1f2937', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
-            <p style={{ color: '#1f2937', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
+            <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
+            <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
           </div>
         </footer>
       </body>

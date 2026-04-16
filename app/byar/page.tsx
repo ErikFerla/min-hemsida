@@ -26,7 +26,7 @@ const städer = [
 
 export default function ByadSida() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{
         position: 'relative',
         height: '55vh',
@@ -54,7 +54,7 @@ export default function ByadSida() {
               onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
               <div style={{ position: 'relative' }}>
                 <Image src={stad.bild} alt={stad.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#0E7490', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+                <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#993335', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
                   {stad.region}
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function ByadSida() {
                 <div style={{ margin: '12px 0' }}>
                   {stad.top3.map((sak, j) => (
                     <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: j < 2 ? '1px solid #f0ebe3' : 'none' }}>
-                      <span style={{ flexShrink: 0, color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}>
+                      <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
                         {j === 0 ? <IconStar size={16} /> : j === 1 ? <IconBuilding size={16} /> : <IconPin size={16} />}
                       </span>
                       <span style={{ fontSize: '0.85rem', color: '#374151' }}>{sak}</span>
@@ -76,11 +76,11 @@ export default function ByadSida() {
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
-                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#F59E0B', color: '#1F2937', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
+                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#F59E0B', color: '#383a46', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
                     <IconMap size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Visa på karta
                   </a>
                   <Link href={stad.href}
-                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: 'white', color: '#0E7490', border: '2px solid #0E7490', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
+                    style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
                     Utforska →
                   </Link>
                 </div>

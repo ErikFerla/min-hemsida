@@ -1,31 +1,31 @@
-.page { min-height: 100vh; background: #FDF8F2 !important; }
-.container { max-width: 1100px; margin: 0 auto; padding: 40px 40px; background: #FDF8F2 !important; }
-.tabs { display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 2px solid #ede5da; background: #FDF8F2 !important; }
-.tab { background: none; border: none; padding: 16px 28px; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; transition: all 0.3s; color: #1F2937; }
-.tab:hover { background-color: #F0EBE3; color: #0E7490; }
-.tab.active { border-bottom-color: #0E7490; color: #0E7490; font-weight: 700; }
+.page { min-height: 100vh; background: #fefefb !important; }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 40px; background: #fefefb !important; }
+.tabs { display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 2px solid #ede5da; background: #fefefb !important; }
+.tab { background: none; border: none; padding: 16px 28px; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; transition: all 0.3s; color: #383a46; }
+.tab:hover { background-color: #F0EBE3; color: #993335; }
+.tab.active { border-bottom-color: #993335; color: #993335; font-weight: 700; }
 .loading { text-align: center; padding: 2rem; }
-.spinner { border: 4px solid #ede5da; border-top: 4px solid #0E7490; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+.spinner { border: 4px solid #ede5da; border-top: 4px solid #993335; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .error { color: #c0392b; text-align: center; font-size: 1.2rem; padding: 2rem; }
 .weatherWidget { background: white !important; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #ede5da; padding: 2.25rem; margin-bottom: 2rem; }
 .currentWeather { text-align: center; margin-bottom: 2rem; }
-.locationDate h2 { margin: 0; font-size: 1.8rem; color: #1F2937; }
+.locationDate h2 { margin: 0; font-size: 1.8rem; color: #383a46; }
 .locationDate p { margin: 0.5rem 0; color: #888; font-size: 0.9rem; }
 .tempIcon { display: flex; align-items: center; justify-content: center; margin: 1rem 0; }
-.currentTemp { font-size: 4rem; font-weight: 700; color: #1F2937; margin-right: 0.5rem; }
+.currentTemp { font-size: 4rem; font-weight: 700; color: #383a46; margin-right: 0.5rem; }
 .currentIcon { font-size: 3.5rem; }
 .description { font-size: 1.3rem; color: #666; margin: 0.5rem 0; }
 .details { display: flex; justify-content: space-around; margin-top: 1rem; font-size: 0.9rem; color: #555; }
 .tempChart { margin: 2rem 0; overflow-x: auto; }
 .chartSvg { display: block; margin: 0 auto; }
-.tempLabel { font-size: 0.8rem; font-weight: 700; fill: #1F2937; }
+.tempLabel { font-size: 0.8rem; font-weight: 700; fill: #383a46; }
 .dayLabel { font-size: 0.7rem; fill: #666; }
 .emojiLabel { font-size: 1rem; }
 .dayCards { display: flex; gap: 0.4rem; padding: 1rem 0; scrollbar-width: thin; scrollbar-color: #ede5da transparent; justify-content: space-between; }
 .dayCard { flex-shrink: 0; background: white; border: 1px solid #ede5da; border-radius: 10px; padding: 0.7rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 70px; max-width: 80px; flex: 1; }
-.dayCard:hover { background: #F0EBE3; border-color: #0E7490; }
-.dayCard.selected { background: #0E7490; color: white; border-color: #0E7490; }
+.dayCard:hover { background: #F0EBE3; border-color: #993335; }
+.dayCard.selected { background: #993335; color: white; border-color: #993335; }
 .dayName { margin: 0; font-size: 0.8rem; font-weight: 700; }
 .dayIcon { font-size: 1.5rem; margin: 0.5rem 0; }
 .dayTemp { margin: 0; font-size: 1rem; font-weight: 700; }

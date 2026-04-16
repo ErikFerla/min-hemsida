@@ -16,7 +16,7 @@ interface AffiliateCardProps {
 export default function AffiliateCard({ typ, titel, beskrivning, pris, betyg, l채nk, bild, badge }: AffiliateCardProps) {
   const ikoner: Record<AffiliateCardProps['typ'], ComponentType<{ size?: number }>> = { aktivitet: IconSparkle, hotell: IconBuilding, hyrbil: IconSparkle, transfer: IconPlane };
   const Ikon = ikoner[typ];
-  const f채rger = { aktivitet: '#0E7490', hotell: '#7C3AED', hyrbil: '#EA580C', transfer: '#0E7490' };
+  const f채rger = { aktivitet: '#993335', hotell: '#7C3AED', hyrbil: '#EA580C', transfer: '#993335' };
 
   return (
     <a href={l채nk} target="_blank" rel="noopener noreferrer sponsored"
@@ -36,7 +36,7 @@ export default function AffiliateCard({ typ, titel, beskrivning, pris, betyg, l�
         )}
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '8px' }}>
           <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.15rem', letterSpacing: '0.05em',
-            color: '#1F2937', margin: 0, lineHeight: 1.2, flex: 1, display: 'inline-flex', alignItems: 'center', gap: 8 }}><Ikon size={18} /> {titel}</h3>
+            color: '#383a46', margin: 0, lineHeight: 1.2, flex: 1, display: 'inline-flex', alignItems: 'center', gap: 8 }}><Ikon size={18} /> {titel}</h3>
           {pris && <span style={{ fontWeight: '700', color: f채rger[typ], fontSize: '0.95rem', flexShrink: 0, marginLeft: '8px' }}>{pris}</span>}
         </div>
         <p style={{ fontSize: '0.85rem', color: '#6B7280', lineHeight: '1.55', margin: '0 0 14px' }}>{beskrivning}</p>

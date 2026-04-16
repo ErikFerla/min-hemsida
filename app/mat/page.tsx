@@ -54,7 +54,7 @@ export default function MatPage() {
   const grid: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 };
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ position: 'relative', minHeight: '52vh', backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(24px,6vw,60px) clamp(20px,5vw,80px)' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72))' }} />
         <div style={{ position: 'relative', color: 'white', maxWidth: '640px' }}>
@@ -68,11 +68,11 @@ export default function MatPage() {
         {/* Vingårdar kort teaser */}
         <section style={{ marginBottom: 56, background: 'white', border: '1px solid #ede5da', borderRadius: 20, padding: 'clamp(20px,5vw,32px)', display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#0E7490', marginBottom: 10 }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 10 }}>
               <IconGlass size={14} stroke={1.8} />
               <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Vinkultur</span>
             </div>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
+            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
             <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '55ch' }}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
           </div>
           <div style={grid}>
@@ -83,7 +83,7 @@ export default function MatPage() {
                 </div>
                 <div style={{ padding: 16 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937' }}>{v.namn}</h3>
+                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#383a46' }}>{v.namn}</h3>
                     <PriceTag tier={tierFromEmoji(v.prisklass)} />
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
@@ -95,22 +95,22 @@ export default function MatPage() {
               </article>
             ))}
           </div>
-          <a href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#1F2937', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+          <a href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
             Se alla vingårdar <IconExternal size={13} stroke={1.8} />
           </a>
         </section>
 
         {/* Restauranger */}
         <section style={{ marginBottom: 48 }}>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 700, margin: '0 0 6px' }}>Handplockat</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Handplockat</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
 
           <style>{`.mat-filter-scroll::-webkit-scrollbar { display: none; }`}</style>
           <div className="mat-filter-scroll" style={{ display: 'flex', gap: 8, overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', padding: '2px 2px 4px', marginBottom: 24 }}>
             {kategorier.map(k => {
               const active = filter === k;
               return (
-                <button key={k} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #1F2937' : '1px solid #E2D8C8', background: active ? '#1F2937' : 'white', color: active ? 'white' : '#1F2937', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
+                <button key={k} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #383a46' : '1px solid #E2D8C8', background: active ? '#383a46' : 'white', color: active ? 'white' : '#383a46', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
                   {k}
                 </button>
               );
@@ -123,11 +123,11 @@ export default function MatPage() {
               <article key={r.namn} style={kort}>
                 <div style={{ position: 'relative', width: '100%', height: 180 }}>
                   <Image src={r.bild} alt={r.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
-                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{r.kategori}</div>
+                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{r.kategori}</div>
                 </div>
                 <div style={{ padding: 16 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937', lineHeight: 1.1 }}>{r.namn}</h3>
+                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
                     <PriceTag tier={tierFromEmoji(r.prisklass)} />
                   </div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 10 }}>
@@ -135,7 +135,7 @@ export default function MatPage() {
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {r.öppet}</span>
                   </div>
                   <p style={{ fontSize: '0.88rem', color: '#374151', margin: '0 0 14px', lineHeight: 1.5 }}>{r.info}</p>
-                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#F59E0B', color: '#1F2937', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
+                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#F59E0B', color: '#383a46', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
                     <IconMap size={13} stroke={1.8} /> Visa på karta
                   </a>
                 </div>
@@ -145,8 +145,8 @@ export default function MatPage() {
         </section>
 
         <section>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#1F2937', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
           <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', borderRadius: 16, overflow: 'hidden', boxShadow: '0 6px 22px rgba(0,0,0,0.1)' }}>
             <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%', display: 'block' }} />
           </div>

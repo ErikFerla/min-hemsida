@@ -222,7 +222,7 @@ export default function SectionPlanner() {
           style={{
             padding: '14px 40px',
             background: dagar && intressen.length > 0 ? '#F59E0B' : '#d4c8bb',
-            color: dagar && intressen.length > 0 ? '#1F2937' : '#888',
+            color: dagar && intressen.length > 0 ? '#383a46' : '#888',
             border: 'none',
             borderRadius: '8px',
             fontSize: '1.1rem',
@@ -243,7 +243,7 @@ export default function SectionPlanner() {
             </h3>
             {resplan.map((dag, i) => (
               <div key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
-                <div style={{ minWidth: '36px', height: '36px', background: '#0E7490', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
+                <div style={{ minWidth: '36px', height: '36px', background: '#993335', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
                   {i + 1}
                 </div>
                 <div style={{ paddingTop: '6px' }}>
@@ -270,7 +270,7 @@ export default function SectionPlanner() {
             className="planner-side-image"
           />
           <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
-            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#1F2937', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
+            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#383a46', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
             <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: '1.65', margin: 0 }}>
               "Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet."
             </p>

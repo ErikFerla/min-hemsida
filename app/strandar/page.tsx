@@ -42,7 +42,7 @@ const typer = ['Alla typer', 'Sandstrand', 'Vik', 'Stenstrand'];
 
 export default function StrandarPage() {
   return (
-    <Suspense fallback={<div style={{ background: '#FDF8F2', minHeight: '100vh' }} />}>
+    <Suspense fallback={<div style={{ background: '#fefefb', minHeight: '100vh' }} />}>
       <StrandarContent />
     </Suspense>
   );
@@ -73,9 +73,9 @@ function StrandarContent() {
     minHeight: '40px',
     padding: '0 16px',
     borderRadius: '999px',
-    border: aktiv ? '1px solid #1F2937' : '1px solid #E2D8C8',
-    background: aktiv ? '#1F2937' : '#FFFFFF',
-    color: aktiv ? '#FFFFFF' : '#1F2937',
+    border: aktiv ? '1px solid #383a46' : '1px solid #E2D8C8',
+    background: aktiv ? '#383a46' : '#FFFFFF',
+    color: aktiv ? '#FFFFFF' : '#383a46',
     fontWeight: 600 as const,
     cursor: 'pointer',
     fontSize: '0.88rem',
@@ -107,7 +107,7 @@ function StrandarContent() {
   const hasActiveFilter = region !== 'Alla' || typ !== 'Alla typer' || filter !== '';
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{
         position: 'relative', height: 'clamp(320px, 48vh, 560px)',
         backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90)',
@@ -128,9 +128,9 @@ function StrandarContent() {
         `}</style>
         <div style={{ marginBottom: '32px', background: 'white', border: '1px solid #ede5da', borderRadius: '16px', padding: 'clamp(16px,4vw,22px)', boxShadow: '0 4px 14px rgba(31,41,55,0.03)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', gap: 12 }}>
-            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#1F2937', margin: 0 }}>Filtrera stränder</p>
+            <p style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#383a46', margin: 0 }}>Filtrera stränder</p>
             {hasActiveFilter && (
-              <button onClick={() => { setRegion('Alla'); setTyp('Alla typer'); setFilter(''); }} style={{ background: 'none', border: 'none', color: '#0E7490', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', padding: 6, minHeight: 32 }}>Rensa</button>
+              <button onClick={() => { setRegion('Alla'); setTyp('Alla typer'); setFilter(''); }} style={{ background: 'none', border: 'none', color: '#993335', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', padding: 6, minHeight: 32 }}>Rensa</button>
             )}
           </div>
 
@@ -164,7 +164,7 @@ function StrandarContent() {
           <p style={{ margin: 0, fontSize: '0.92rem', color: '#374151', lineHeight: 1.5, flex: '1 1 220px' }}>
             <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
           </p>
-          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#0E7490', color: 'white', padding: '0 20px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', borderRadius: '8px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
+          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#993335', color: 'white', padding: '0 20px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', borderRadius: '8px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
             Läs guiden →
           </a>
         </div>
@@ -210,7 +210,7 @@ function StrandarContent() {
                     {s.redaktionellt.text}
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#F59E0B', color: '#1F2937', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#F59E0B', color: '#383a46', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
                   Visa på karta →
                 </a>
               </div>
@@ -219,8 +219,8 @@ function StrandarContent() {
         </div>
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#0E7490', fontWeight: '600', marginBottom: '8px' }}>PLANERA VIDARE</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#1F2937' }}>Boka upplevelser vid stranden</h2>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>PLANERA VIDARE</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Boka upplevelser vid stranden</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
             <AffiliateCard
               typ="aktivitet"

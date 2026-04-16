@@ -42,11 +42,11 @@ export const metadata = {
 };
 
 const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0, lineHeight: 1.2 };
-const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#1F2937', margin: '1px 0 0', lineHeight: 1.3 };
+const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#383a46', margin: '1px 0 0', lineHeight: 1.3 };
 
 export default function VingardarPage() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{
         position: 'relative', minHeight: '52vh',
         backgroundImage: 'url(https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&q=90)',
@@ -63,9 +63,9 @@ export default function VingardarPage() {
       </div>
 
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, color: '#0E7490' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, color: '#993335' }}>
           <IconGlass size={18} />
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,5vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#1F2937' }}>15 vingårdar att besöka</h2>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,5vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46' }}>15 vingårdar att besöka</h2>
         </div>
         <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.65, marginTop: 0, marginBottom: 36, maxWidth: '60ch' }}>
           Mallorca har över 70 registrerade vingårdar, främst i Binissalem- och Pla i Llevant-regionerna. De flesta erbjuder provning — men boka alltid i förväg för de mindre.
@@ -76,7 +76,7 @@ export default function VingardarPage() {
             <article key={v.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
               <div style={{ position: 'relative', width: '100%', height: 160 }}>
                 <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 860px" style={{ objectFit: 'cover' }} loading={i < 2 ? 'eager' : 'lazy'} />
-                <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#1F2937', padding: '3px 9px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em' }}>#{i + 1}</div>
+                <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '3px 9px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em' }}>#{i + 1}</div>
                 {v.eko && (
                   <div style={{ position: 'absolute', top: 10, right: 10, display: 'inline-flex', alignItems: 'center', gap: 4, background: 'rgba(15,118,110,0.94)', color: 'white', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                     <IconLeaf size={10} stroke={2} /> Eko
@@ -86,7 +86,7 @@ export default function VingardarPage() {
 
               <div style={{ padding: '14px 16px 16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 4 }}>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#1F2937', lineHeight: 1.1 }}>{v.namn}</h3>
+                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{v.namn}</h3>
                   <PriceTag tier={v.prisnivå} />
                 </div>
 
@@ -116,16 +116,16 @@ export default function VingardarPage() {
                   </div>
                   <div style={{ gridColumn: '1 / -1' }}>
                     <p style={META_LABEL}>Signaturvin</p>
-                    <p style={{ ...META_VALUE, fontStyle: 'italic', color: '#0E7490' }}>{v.signaturvin}</p>
+                    <p style={{ ...META_VALUE, fontStyle: 'italic', color: '#993335' }}>{v.signaturvin}</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', background: '#1F2937', color: 'white', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 600, minHeight: 36 }}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', background: '#383a46', color: 'white', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 600, minHeight: 36 }}>
                     <IconMap size={14} stroke={1.8} /> Visa på karta
                   </a>
                   {v.web && (
-                    <a href={v.web} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 16px', background: 'white', color: '#1F2937', border: '1px solid #d9cfc1', borderRadius: 10, fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600, minHeight: 40 }}>
+                    <a href={v.web} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 16px', background: 'white', color: '#383a46', border: '1px solid #d9cfc1', borderRadius: 10, fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600, minHeight: 40 }}>
                       Hemsida <IconExternal size={13} stroke={1.8} />
                     </a>
                   )}
@@ -135,7 +135,7 @@ export default function VingardarPage() {
           ))}
         </div>
 
-        <div style={{ marginTop: 48, padding: '28px 24px', background: '#1F2937', borderRadius: 18, color: 'white', textAlign: 'center' }}>
+        <div style={{ marginTop: 48, padding: '28px 24px', background: '#383a46', borderRadius: 18, color: 'white', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#F59E0B', marginBottom: 10 }}>
             <IconUsers size={16} stroke={1.8} />
             <span style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>Bra att veta</span>

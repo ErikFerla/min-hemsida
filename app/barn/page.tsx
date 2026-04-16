@@ -84,7 +84,7 @@ export default function BarnPage() {
   };
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
       <div style={{
         position: 'relative',
@@ -133,9 +133,9 @@ export default function BarnPage() {
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                background: oppna.includes(kategori.titel) ? '#0E7490' : 'white',
-                color: oppna.includes(kategori.titel) ? 'white' : '#1F2937',
-                border: '2px solid #0E7490',
+                background: oppna.includes(kategori.titel) ? '#993335' : 'white',
+                color: oppna.includes(kategori.titel) ? 'white' : '#383a46',
+                border: '2px solid #993335',
                 borderRadius: oppna.includes(kategori.titel) ? '12px 12px 0 0' : '12px',
                 padding: '16px 24px',
                 cursor: 'pointer',
@@ -187,7 +187,7 @@ export default function BarnPage() {
                         </div>
                         <div style={{ display: 'flex', gap: '8px' }}>
                           <a href={`https://www.google.com/maps?q=${a.lat},${a.lon}`} target="_blank" rel="noopener noreferrer"
-                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#F59E0B', color: '#1F2937', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
+                            style={{ flex: 1, textAlign: 'center', padding: '8px', background: '#F59E0B', color: '#383a46', fontSize: '0.8rem', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
                             <IconMap size={12} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Karta
                           </a>
                           <a href={a.webb} target="_blank" rel="noopener noreferrer"

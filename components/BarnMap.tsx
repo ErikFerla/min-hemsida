@@ -35,9 +35,9 @@ export default function BarnMap() {
           className: '',
           html: `<div style="display:flex;flex-direction:column;align-items:center;">
             <svg width="18" height="18" viewBox="0 0 14 14">
-              <circle cx="7" cy="7" r="6" fill="#0E7490" stroke="white" stroke-width="2.5"/>
+              <circle cx="7" cy="7" r="6" fill="#993335" stroke="white" stroke-width="2.5"/>
             </svg>
-            <span style="font-family:sans-serif;font-size:10px;font-weight:600;color:#1f2937;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white">${a.name}</span>
+            <span style="font-family:sans-serif;font-size:10px;font-weight:600;color:#383a46;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white">${a.name}</span>
           </div>`,
           iconAnchor: [9, 9],
           popupAnchor: [0, -14],

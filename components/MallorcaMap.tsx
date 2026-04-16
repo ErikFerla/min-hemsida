@@ -38,7 +38,7 @@ export default function MallorcaMap() {
       }).addTo(map)
 
       cities.forEach((city) => {
-        const color = city.main ? '#1f2937' : '#c9a96e'
+        const color = city.main ? '#383a46' : '#993335'
         const size = city.main ? 22 : 16
         const icon = Lm.divIcon({
           className: '',
@@ -47,7 +47,7 @@ export default function MallorcaMap() {
               <circle cx="7" cy="7" r="6" fill="${color}" stroke="white" stroke-width="2.5"/>
               ${city.main ? '<circle cx="7" cy="7" r="3" fill="white" opacity="0.7"/>' : ''}
             </svg>
-            <span style="font-family:sans-serif;font-size:10px;font-weight:600;color:#1f2937;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white">${city.name}</span>
+            <span style="font-family:sans-serif;font-size:10px;font-weight:600;color:#383a46;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white">${city.name}</span>
           </div>`,
           iconAnchor: [city.main ? 11 : 8, city.main ? 11 : 8],
           popupAnchor: [0, -14],
@@ -58,7 +58,7 @@ export default function MallorcaMap() {
           .bindPopup(
             `<b style="font-size:13px">${city.name}</b><br>` +
             `<span style="color:#6b7280;font-size:12px">${city.desc}</span><br>` +
-            `<a href="${city.href}" style="display:inline-block;margin-top:8px;background:#1f2937;color:white;padding:5px 12px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase">Utforska →</a>`
+            `<a href="${city.href}" style="display:inline-block;margin-top:8px;background:#383a46;color:white;padding:5px 12px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase">Utforska →</a>`
           )
       })
     })

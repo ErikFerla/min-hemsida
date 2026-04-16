@@ -63,7 +63,7 @@ const stränder = [
 
 export default function BästaSträndernaGuide() {
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
       <div style={{ position: 'relative', height: '55vh', backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7))' }} />
@@ -77,8 +77,8 @@ export default function BästaSträndernaGuide() {
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,40px)' }}>
 
         {/* Snabbguide */}
-        <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #0E7490' }}>
-          <p style={{ fontWeight: 700, color: '#1F2937', marginBottom: 8, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Snabbguide – topp 5 för olika resenärer</p>
+        <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #993335' }}>
+          <p style={{ fontWeight: 700, color: '#383a46', marginBottom: 8, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Snabbguide – topp 5 för olika resenärer</p>
           <ul style={{ margin: 0, paddingLeft: '20px', color: '#374151', fontSize: '0.9rem', lineHeight: '2' }}>
             <li><strong>Vackraste stranden:</strong> Cala des Moro (östkusten)</li>
             <li><strong>Bäst för familjer:</strong> Playa de Muro (norr)</li>
@@ -92,10 +92,10 @@ export default function BästaSträndernaGuide() {
         {stränder.map((strand) => (
           <article key={strand.rank} style={{ marginBottom: '64px', paddingBottom: '64px', borderBottom: '1px solid #ede5da' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <span style={{ background: '#0E7490', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{strand.rank}</span>
+              <span style={{ background: '#993335', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{strand.rank}</span>
               <div>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', margin: 0, color: '#1F2937', lineHeight: 1 }}>{strand.namn}</h2>
-                <p style={{ margin: 0, color: '#0E7490', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px' }}>{strand.region} · {strand.typ}</p>
+                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46', lineHeight: 1 }}>{strand.namn}</h2>
+                <p style={{ margin: 0, color: '#993335', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px' }}>{strand.region} · {strand.typ}</p>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ export default function BästaSträndernaGuide() {
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '24px' }}>{strand.beskrivning}</p>
 
             <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '20px 24px', marginBottom: '20px' }}>
-              <p style={{ fontWeight: 700, color: '#0E7490', marginBottom: 8, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>Insider-tips</p>
+              <p style={{ fontWeight: 700, color: '#993335', marginBottom: 8, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>Insider-tips</p>
               <p style={{ margin: 0, color: '#374151', fontSize: '0.95rem', lineHeight: '1.65' }}>{strand.insider}</p>
             </div>
 
@@ -123,7 +123,7 @@ export default function BästaSträndernaGuide() {
 
         {/* Stränder 6–15: kompaktlista */}
         <section style={{ marginBottom: '64px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#1F2937', marginBottom: '24px' }}>Stränder 6–15: Komplett lista</h2>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '24px' }}>Stränder 6–15: Komplett lista</h2>
           {[
             { rank: 6, namn: 'Cala Agulla', region: 'Nordöst · Capdepera', tips: 'Skyddad nationalpark, bra surfa tidiga morgnar.' },
             { rank: 7, namn: 'Cala Pi', region: 'Sydkust · Llucmajor', tips: 'Smal vik med klippväggar – en av öns vackraste silhuetter.' },
@@ -137,9 +137,9 @@ export default function BästaSträndernaGuide() {
             { rank: 15, namn: 'Es Caragol', region: 'Sydkust (kräver 40 min vandring)', tips: 'Mallorcas mest orörda strand. Inga vägar dit – ta med vatten.' },
           ].map((s) => (
             <div key={s.rank} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', padding: '16px 0', borderBottom: '1px solid #ede5da' }}>
-              <span style={{ background: '#EDE4D8', color: '#0E7490', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', flexShrink: 0, fontWeight: '700' }}>#{s.rank}</span>
+              <span style={{ background: '#EDE4D8', color: '#993335', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', flexShrink: 0, fontWeight: '700' }}>#{s.rank}</span>
               <div>
-                <p style={{ fontWeight: '700', color: '#1F2937', margin: '0 0 4px' }}>{s.namn} <span style={{ fontWeight: '400', color: '#6B7280', fontSize: '0.85rem' }}>· {s.region}</span></p>
+                <p style={{ fontWeight: '700', color: '#383a46', margin: '0 0 4px' }}>{s.namn} <span style={{ fontWeight: '400', color: '#6B7280', fontSize: '0.85rem' }}>· {s.region}</span></p>
                 <p style={{ margin: 0, color: '#6B7280', fontSize: '0.88rem' }}>{s.tips}</p>
               </div>
             </div>
@@ -147,10 +147,10 @@ export default function BästaSträndernaGuide() {
         </section>
 
         {/* CTA */}
-        <div style={{ background: '#0E7490', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white', marginTop: '40px' }}>
+        <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white', marginTop: '40px' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Vill du utforska alla 30 stränder?</h2>
           <p style={{ opacity: 0.85, marginBottom: '24px', fontSize: '1rem' }}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
-          <a href="/strandar" style={{ display: 'inline-block', background: '#F59E0B', color: '#1F2937', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA 30 STRÄNDER →</a>
+          <a href="/strandar" style={{ display: 'inline-block', background: '#F59E0B', color: '#383a46', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA 30 STRÄNDER →</a>
         </div>
       </div>
     </div>

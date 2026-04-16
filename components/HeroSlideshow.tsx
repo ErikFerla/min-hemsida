@@ -143,7 +143,7 @@ export default function HeroSlideshow() {
             marginTop: '28px',
             padding: '13px 30px',
             background: 'white',
-            color: '#1F2937',
+            color: '#383a46',
             borderRadius: '3px',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',
             fontSize: '0.9rem',
@@ -156,11 +156,11 @@ export default function HeroSlideshow() {
           }}
           onMouseEnter={e => {
             e.currentTarget.style.background = '#F59E0B';
-            e.currentTarget.style.color = '#1F2937';
+            e.currentTarget.style.color = '#383a46';
           }}
           onMouseLeave={e => {
             e.currentTarget.style.background = 'white';
-            e.currentTarget.style.color = '#1F2937';
+            e.currentTarget.style.color = '#383a46';
           }}
         >
           {bild.cta} →

@@ -1,7 +1,7 @@
 'use client';
 import type { ReactNode } from 'react';
 
-const svgProps = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: '#1f2937', strokeWidth: 1.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+const svgProps = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: '#383a46', strokeWidth: 1.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 
 const cards: { icon: ReactNode; title: string; desc: string; href: string }[] = [
   { icon: <svg {...svgProps}><path d="M2 12c0-5.5 4-10 10-10s10 4.5 10 10"/><path d="M4.5 17.5C6 16 8 15 10 16s4 2 6 1 4-2 4-2"/></svg>, title: 'Stränder', desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder', href: '/strandar' },
@@ -46,7 +46,7 @@ export default function MobileFeatureCards() {
             <div style={{
               fontSize: '0.875rem',
               fontWeight: 600,
-              color: '#1f2937',
+              color: '#383a46',
               marginBottom: '2px',
               lineHeight: 1.2,
             }}>

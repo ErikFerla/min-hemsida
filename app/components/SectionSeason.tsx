@@ -76,7 +76,7 @@ export default function SectionSeason() {
         <div className={`${styles.seasonGrid} season-desktop`}>
           {säsonger.map((s, i) => (
             <div key={i} className={styles.seasonCard} style={{ borderTop: `4px solid ${s.borderColor}` }}>
-              <span className={styles.seasonEmoji} style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={28} /></span>
+              <span className={styles.seasonEmoji} style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={28} /></span>
               <h3 className={styles.seasonName}>{s.namn}</h3>
               <p className={styles.seasonMonths}>{s.månader}</p>
               <ul className={styles.seasonList}>
@@ -99,13 +99,13 @@ export default function SectionSeason() {
                 onClick={() => setÖppen(öppen === i ? null : i)}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ color: '#1f2937', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={22} /></span>
+                  <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={22} /></span>
                   <span>
                     <span className="season-accordion-title">{s.namn}</span>
                     <span className="season-accordion-months">{s.månader}</span>
                   </span>
                 </span>
-                <span style={{ fontSize: '0.8rem', color: '#0E7490', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }}>▼</span>
+                <span style={{ fontSize: '0.8rem', color: '#993335', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }}>▼</span>
               </button>
 
               {öppen === i && (

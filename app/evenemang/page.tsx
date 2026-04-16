@@ -19,7 +19,7 @@ export default function EvenemangPage() {
   const filtrerade = aktiv === 'Alla' ? evenemang : evenemang.filter(e => e.kategori === aktiv);
 
   return (
-    <div style={{ background: '#FDF8F2', minHeight: '100vh' }}>
+    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <div style={{ background: '#111', padding: '80px 80px 60px', color: 'white' }}>
         <p style={{ fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', opacity: 0.6, marginBottom: '12px' }}>Mallorca 2026</p>
         <h1 style={{ fontFamily: '"Bebas Neue", var(--font-bebas), sans-serif', fontSize: '4.5rem', fontWeight: '400', letterSpacing: '0.05em', margin: '0 0 16px', lineHeight: 1 }}>EVENEMANG</h1>
@@ -35,8 +35,8 @@ export default function EvenemangPage() {
               style={{
                 padding: '8px 20px',
                 borderRadius: '24px',
-                border: '2px solid ' + (aktiv === k ? '#0E7490' : '#bbb'),
-                background: aktiv === k ? '#0E7490' : 'white',
+                border: '2px solid ' + (aktiv === k ? '#993335' : '#bbb'),
+                background: aktiv === k ? '#993335' : 'white',
                 color: aktiv === k ? 'white' : '#333',
                 fontWeight: '600',
                 fontSize: '0.85rem',
@@ -54,7 +54,7 @@ export default function EvenemangPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
           {filtrerade.map((e, i) => (
-            <div key={i} style={{ background: '#FDF8F2', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column' }}>
+            <div key={i} style={{ background: '#fefefb', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative' }}>
                 <img src={e.bild} alt={e.namn} style={{ width: '100%', height: '180px', objectFit: 'cover', display: 'block' }} />
                 <span style={{
@@ -77,7 +77,7 @@ export default function EvenemangPage() {
                   href={e.länk}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ marginTop: '10px', display: 'inline-block', padding: '7px 16px', background: '#F59E0B', color: '#1F2937', borderRadius: '6px', fontSize: '0.82rem', fontWeight: '600', textDecoration: 'none' }}
+                  style={{ marginTop: '10px', display: 'inline-block', padding: '7px 16px', background: '#F59E0B', color: '#383a46', borderRadius: '6px', fontSize: '0.82rem', fontWeight: '600', textDecoration: 'none' }}
                 >
                   Läs mer ↗
                 </a>

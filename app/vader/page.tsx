@@ -129,7 +129,7 @@ const generateTempCurve = (data: ForecastData[], width: number, height: number) 
 
 export default function Vader() {
   return (
-    <Suspense fallback={<div style={{ background: '#FDF8F2', minHeight: '100vh' }} />}>
+    <Suspense fallback={<div style={{ background: '#fefefb', minHeight: '100vh' }} />}>
       <VaderContent />
     </Suspense>
   );
@@ -219,7 +219,7 @@ function VaderContent() {
             <button
               onClick={() => setRetryCount(c => c + 1)}
               style={{
-                marginTop: '12px', padding: '10px 24px', background: '#1f2937',
+                marginTop: '12px', padding: '10px 24px', background: '#383a46',
                 color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
                 fontWeight: 600, fontSize: '0.9rem',
               }}
@@ -234,7 +234,7 @@ function VaderContent() {
             <button
               onClick={() => setRetryCount(c => c + 1)}
               style={{
-                marginTop: '12px', padding: '10px 24px', background: '#1f2937',
+                marginTop: '12px', padding: '10px 24px', background: '#383a46',
                 color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
                 fontWeight: 600, fontSize: '0.9rem',
               }}
