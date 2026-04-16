@@ -108,21 +108,17 @@ function StrandarContent() {
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{
-        position: 'relative', height: 'clamp(320px, 48vh, 560px)',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=90)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end', padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.8 }}>Mallorcas vackraste platser</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.04em', margin: 0, lineHeight: '1' }}>Stränder på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85 }}>30 utvalda stränder – från folktomma paradisvikar till långa familjesandstränder</p>
-        </div>
-      </div>
+      <header style={{ background: '#eeede4', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,80px) clamp(36px,5vw,56px)', textAlign: 'center' }}>
+        <p style={{ fontSize: 'clamp(0.7rem,1.5vw,0.8rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 14px' }}>Mallorcas vackraste platser</p>
+        <h1 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(1.75rem,6vw,3rem)', fontWeight: 500, letterSpacing: '-0.012em', margin: '0 auto 16px', lineHeight: 1.1, color: '#383a46', maxWidth: '16ch' }}>Stränder på Mallorca</h1>
+        <div style={{ width: 48, height: 2, background: '#993335', margin: '0 auto 20px', borderRadius: 2 }} />
+        <p style={{ fontSize: 'clamp(0.95rem,2.2vw,1.1rem)', color: '#374151', margin: '0 auto', maxWidth: '60ch', lineHeight: 1.6 }}>30 utvalda stränder – från folktomma paradisvikar till långa familjesandstränder.</p>
+      </header>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
+        <p style={{ color: '#4B5563', fontSize: '0.95rem', lineHeight: 1.65, margin: '0 0 24px', maxWidth: '62ch' }}>
+          Använd filtren nedan för att hitta rätt strand för dig. Filtrera på område, strandtyp eller kännetecken som familjevänlighet eller snorkling.
+        </p>
         <style>{`
           .strand-scroll-row::-webkit-scrollbar { display: none; }
         `}</style>
