@@ -47,6 +47,8 @@ const navItems: NavItem[] = [
       { label: 'Barnv\u00e4nligt', href: '/barn' },
       { label: 'Golf', href: '/aktiviteter/golf' },
       { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
+      { label: 'Evenemang', href: '/evenemang' },
     ],
   },
   {
@@ -65,8 +67,7 @@ const navItems: NavItem[] = [
     href: '/flyg',
     children: [
       { label: 'Flyg', href: '/flyg' },
-      { label: 'Evenemang', href: '/evenemang' },
-      { label: 'Sevärdheter', href: '/sevardheter' },
+      { label: 'Kontakt', href: '/kontakt' },
     ],
   },
   {
