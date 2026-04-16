@@ -3,20 +3,20 @@ import { useState, useEffect } from 'react';
 
 const bilder = [
   {
-    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
-    rubrik: 'Kristallklara stränder',
-    undertext: 'Från dolda paradisvikar till långa familjesandstränder',
-    plats: 'Es Trenc · Södra Mallorca',
-    lank: '/strandar',
-    cta: 'UTFORSKA STRÄNDERNA',
-  },
-  {
     url: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=85',
     rubrik: 'Palma de Mallorca',
     undertext: 'Gotisk katedral, kulinarisk scen och levande gamla stan',
     plats: 'Palma · Huvudstaden',
     lank: '/palma-de-mallorca',
     cta: 'UTFORSKA PALMA',
+  },
+  {
+    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
+    rubrik: 'Kristallklara stränder',
+    undertext: 'Från dolda paradisvikar till långa familjesandstränder',
+    plats: 'Es Trenc · Södra Mallorca',
+    lank: '/strandar',
+    cta: 'UTFORSKA STRÄNDERNA',
   },
   {
     url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=80',
