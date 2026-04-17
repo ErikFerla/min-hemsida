@@ -57,7 +57,7 @@ const stränder = [
     insider: 'Undvik hotellsektionen mitt på stranden – gå 500 m söderut mot Cap des Pinar för lugnare och vackrare avsnitt med färre turister.',
     gps: '39.8201° N, 3.1142° E',
     bästaTid: 'Maj–oktober. Håller kusten jämn temperatur hela säsongen.',
-    bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80',
+    bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80',
   },
 ];
 

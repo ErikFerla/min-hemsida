@@ -7,7 +7,7 @@ const stadsData: Record<string, {
 }> = {
   'palma-de-mallorca': {
     namn: 'Palma de Mallorca', region: 'Sydväst',
-    bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85',
+    bild: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85',
     beskrivning: 'Öns pulserande huvudstad med La Seu-katedralen, gamla stan och livlig restaurangscen',
     tips: 'Bästa utsikten från Bellver slott',
     top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Bellver Slott'],
@@ -88,7 +88,7 @@ const stadsData: Record<string, {
   },
   'andratx': {
     namn: 'Andratx', region: 'Sydväst',
-    bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=1600&q=90',
+    bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1600&q=90',
     beskrivning: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina",
     tips: "Port d'Andratx har öns snyggaste marina",
     top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'],
@@ -124,7 +124,7 @@ const stadsData: Record<string, {
   },
   'manacor': {
     namn: 'Manacor', region: 'Öst',
-    bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85',
+    bild: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85',
     beskrivning: 'Mallorcas näst största stad – känd för pärlor, möbler och Rafael Nadal',
     tips: 'Besök en pärlafabrik och se hur de tillverkas',
     top3: ['Majórica pärlafabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'],

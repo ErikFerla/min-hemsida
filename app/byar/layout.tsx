@@ -5,7 +5,7 @@ export const metadata = {
   openGraph: {
     title: 'Mallorcas vackraste städer och byar – Guide 2026',
     description: '18 destinationer med lokala tips, top 3 och praktisk info.',
-    images: ['https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85'],
+    images: ['https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85'],
   },
 };
 

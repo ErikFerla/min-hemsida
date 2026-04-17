@@ -10,7 +10,7 @@ const flygplatser = [
 ];
 
 const destinations = [
-  { kod: 'PMI', namn: 'Palma de Mallorca', bild: 'https://images.unsplash.com/photo-1499678329028-101435549a02?w=1600&q=85' },
+  { kod: 'PMI', namn: 'Palma de Mallorca', bild: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85' },
 ];
 
 export default function FlygPage() {

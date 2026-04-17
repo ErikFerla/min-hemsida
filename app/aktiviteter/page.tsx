@@ -17,12 +17,12 @@ type Aktivitet = {
 type BarnTips = { namn: string; plats: string; ålder: string; kategori: string; beskrivning: string; bild: string };
 
 const barnvanligt: BarnTips[] = [
-  { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 olika akvarium. Boka online för rabatt och kortare kö.', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=800&q=80' },
+  { namn: 'Palma Akvarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 olika akvarium. Boka online för rabatt och kortare kö.', bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80' },
   { namn: 'Coves del Drach', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=800&q=80' },
-  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer — heldagsupplevelse.', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80' },
-  { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till heldags.', bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=800&q=80' },
+  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer — heldagsupplevelse.', bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80' },
+  { namn: 'Marineland', plats: 'Costa de Blanes', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till heldags.', bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80' },
   { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: '4D-bio, spegellabyrint och minigolf under samma tak. Perfekt vid regnväder.', bild: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80' },
-  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://images.unsplash.com/photo-1504194104404-433180773017?w=800&q=80' },
+  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80' },
   { namn: 'Glassbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Familjevänliga turer på ca 1 timme.', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800&q=80' },
   { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', kategori: 'Äventyr', beskrivning: 'Europas längsta ziplines i bergsmiljö. Kombinera med vandringen i naturparken.', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80' },
 ];
@@ -57,7 +57,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
     Icon: IconUsers,
     href: '/barn',
-    bild: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600&q=80',
+    bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=600&q=80',
     highlights: ['Vattenparker', 'Djurparker', 'Grottor'],
   },
   {
