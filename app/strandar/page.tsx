@@ -4,6 +4,18 @@ import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import AffiliateCard from '@/app/components/AffiliateCard';
 
+// HERO-BILD: Caló des Moro (södra Mallorca) – Unsplash
+// TODO: Byt ut till canonical CDN-URL för Chloé Lefleurs foto F0ZUIUeW490
+// (https://unsplash.com/photos/a-blue-lagoon-surrounded-by-trees-on-a-sunny-day-F0ZUIUeW490)
+// när fotografens URL är bekräftad. Tills dess används en befintlig Caló des Moro-bild.
+const HERO_BASE = 'https://images.unsplash.com/photo-1560243360-0eb6e88f0d08';
+const HERO_Q = 'q=80&auto=format&fm=webp&fit=crop';
+const HERO_SRC = `${HERO_BASE}?w=1600&${HERO_Q}`;
+const HERO_SRCSET = [640, 960, 1280, 1600, 2000]
+  .map(w => `${HERO_BASE}?w=${w}&${HERO_Q} ${w}w`)
+  .join(', ');
+const HERO_ALT = 'Caló des Moro på södra Mallorca – turkost vatten, kalkstensklippor och pinjeskog vid en dold vik';
+
 const stränder = [
   { namn: 'Caló des Moro', region: 'Syd', typ: 'Vik', svårighet: 'Promenad krävs', längd: '40m', beskrivning: 'Topprankad år efter år som Spaniens vackraste vik. Turkost vatten likt en pool, omgiven av klippor och tallskog. Inga faciliteter – kom tidigt!', tips: 'Kom före kl 9 på morgonen – fullsatt redan kl 10 på sommaren', maps: 'https://maps.google.com/?q=Calo+des+Moro+Mallorca', bild: 'https://images.unsplash.com/photo-1560243360-0eb6e88f0d08?w=600&q=80', familj: false, snorkling: true, nudist: false, redaktionellt: { typ: 'varning', text: 'Kom INTE efter kl 10 på sommaren – stranden är fullsatt och parkeringen stängd' } },
   { namn: 'Es Trenc', region: 'Syd', typ: 'Sandstrand', svårighet: 'Enkel', längd: '2,1 km', beskrivning: 'Mallorcas Karibien – 2 km kritvit sandstrand och turkost vatten i ett naturreservat. Ingen storskalig bebyggelse. Nudistsektion finns.', tips: 'Ta bussen från Campos – parkeringen kostar 8€ och fylls snabbt', maps: 'https://maps.google.com/?q=Es+Trenc+Mallorca', bild: 'https://images.unsplash.com/photo-1608126313950-b17430292454?w=600&q=80', familj: true, snorkling: false, nudist: true, redaktionellt: { typ: 'bast', text: 'Bäst för: Långa stranddagar och äkta Mallorca-känsla utan hotellkomplex' } },
@@ -108,11 +120,76 @@ function StrandarContent() {
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <header style={{ background: '#eeede4', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,80px) clamp(36px,5vw,56px)', textAlign: 'center' }}>
-        <p style={{ fontSize: 'clamp(0.7rem,1.5vw,0.8rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 14px' }}>Mallorcas vackraste platser</p>
-        <h1 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(1.75rem,6vw,3rem)', fontWeight: 500, letterSpacing: '-0.012em', margin: '0 auto 16px', lineHeight: 1.1, color: '#383a46', maxWidth: '16ch' }}>Stränder på Mallorca</h1>
-        <div style={{ width: 48, height: 2, background: '#993335', margin: '0 auto 20px', borderRadius: 2 }} />
-        <p style={{ fontSize: 'clamp(0.95rem,2.2vw,1.1rem)', color: '#374151', margin: '0 auto', maxWidth: '60ch', lineHeight: 1.6 }}>30 utvalda stränder – från folktomma paradisvikar till långa familjesandstränder.</p>
+      <header>
+        {/* Hero-bild – LCP-element, eager-laddad med srcset och fetchpriority="high" */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          height: 'clamp(360px, 58vh, 620px)',
+          overflow: 'hidden',
+          background: '#0b1f2a',
+        }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={HERO_SRC}
+            srcSet={HERO_SRCSET}
+            sizes="100vw"
+            alt={HERO_ALT}
+            width={2000}
+            height={1333}
+            // @ts-expect-error – fetchpriority är giltigt HTML-attribut men ännu inte i Reacts DOM-typer i alla versioner
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center 55%',
+              display: 'block',
+            }}
+          />
+          <div aria-hidden="true" style={{
+            position: 'absolute', inset: 0,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.55) 100%)',
+          }} />
+          <div style={{
+            position: 'absolute', left: 0, right: 0, bottom: 0,
+            padding: 'clamp(24px,5vw,56px) clamp(20px,5vw,80px)',
+            color: '#fff',
+          }}>
+            <p style={{ fontSize: 'clamp(0.7rem,1.5vw,0.8rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#fff', fontWeight: 700, margin: '0 0 12px', opacity: 0.92, textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+              Upptäck kusten
+            </p>
+            <h1 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(2rem,6vw,3.4rem)', fontWeight: 600, letterSpacing: '-0.015em', margin: '0 0 6px', lineHeight: 1.05, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.45)' }}>
+              Stränder på Mallorca
+            </h1>
+            <div style={{ width: 48, height: 2, background: '#fff', opacity: 0.9, margin: '14px 0 0', borderRadius: 2 }} />
+          </div>
+          <p style={{
+            position: 'absolute', right: 10, bottom: 8,
+            margin: 0, fontSize: '0.68rem', color: 'rgba(255,255,255,0.78)',
+            letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0,0,0,0.6)',
+          }}>
+            Foto: Chloé Lefleur / Unsplash
+          </p>
+        </div>
+
+        {/* Intro – geografisk översikt med interna länkar */}
+        <div style={{ background: '#fefefb', padding: 'clamp(32px,5vw,56px) clamp(20px,5vw,80px) clamp(16px,3vw,32px)' }}>
+          <div style={{ maxWidth: '68ch', margin: '0 auto' }}>
+            <p style={{ fontSize: 'clamp(1rem, 1.6vw, 1.1rem)', color: '#374151', lineHeight: 1.75, margin: '0 0 18px' }}>
+              Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. På ostkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och pinjeskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
+              <a href="/alcudia" style={{ color: '#993335', textDecoration: 'underline', textDecorationThickness: '1px', textUnderlineOffset: '3px' }}>Alcúdia</a>
+              {' '}och{' '}
+              <a href="/pollenca" style={{ color: '#993335', textDecoration: 'underline', textDecorationThickness: '1px', textUnderlineOffset: '3px' }}>Pollença</a>
+              {' '}– perfekta för barnfamiljer. Västkusten domineras av Serra de Tramuntanas dramatiska klippor som faller rakt ner i havet – få stränder, men desto fler hemliga vikar och båtankringsplatser. Och söderut öppnar sig de långa sandstränderna kring Es Trenc, med ett Karibien-liknande vatten.
+            </p>
+            <p style={{ fontSize: 'clamp(1rem, 1.6vw, 1.1rem)', color: '#374151', lineHeight: 1.75, margin: 0 }}>
+              Här är våra 30 favoriter – handplockade efter vatten, atmosfär och vad som gör varje plats unik.
+            </p>
+          </div>
+        </div>
       </header>
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
