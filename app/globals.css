@@ -1092,12 +1092,7 @@ h1 {
   }
 }
 
-/* Leaflet-karta — lägre höjd på mobil */
-@media (max-width: 768px) {
-  #mallorca-map {
-    height: 350px !important;
-  }
-}
+/* Leaflet-karta — höjd styrs numera av InteractiveMap-komponentens height-prop (clamp) */
 
 /* === RESPLANSBYGGARE – MOBILANPASSNING === */
 @media (max-width: 768px) {
