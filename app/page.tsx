@@ -39,26 +39,29 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Sektionsbild — synlig på mobil, mellan "Upptäck Mallorca" och "Varför Mallorca" */}
-        <div className="mobile-hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1200&q=80&auto=format"
-            srcSet="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1600&q=80&auto=format 1600w"
-            sizes="(max-width: 768px) calc(100vw - 32px), 100vw"
-            alt="Olivlundar och medeltida bergsby på Mallorca – typisk natur i Serra de Tramuntana"
-            width={1200}
-            height={1600}
-            loading="lazy"
-            decoding="async"
-            className="section-portrait-image"
-          />
-        </div>
-
         <section
           className="page-section"
           style={{background:'#fefefb', overflow:'hidden'}}
         >
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
+
+            {/* BILD VÄNSTER — Palmas gamla stan (Foto: Luca / Unsplash) */}
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format"
+                srcSet="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=640&q=80&fm=webp&auto=format 640w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=960&q=80&fm=webp&auto=format 960w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format 1280w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1600&q=80&fm=webp&auto=format 1600w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=2000&q=80&fm=webp&auto=format 2000w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Stentrappa i Palmas gamla stan med gyllene sandstensfasader, blommor och en kyrka i fjärran"
+                title="Foto: Luca / Unsplash"
+                width={1280}
+                height={1600}
+                loading="lazy"
+                decoding="async"
+                className="section-portrait-image"
+              />
+            </div>
+
+            {/* TEXT HÖGER */}
             <div>
               <p className="section-label">
                 VARFÖR MALLORCA
@@ -99,17 +102,15 @@ export default function Home() {
             {/* BILD VÄNSTER */}
             <div>
               <img
-                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1200&q=80&auto=format"
-                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1600&q=80&auto=format 1600w"
+                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&fm=webp&auto=format"
+                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80&fm=webp&auto=format 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=960&q=80&fm=webp&auto=format 960w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&fm=webp&auto=format 1280w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1600&q=80&fm=webp&auto=format 1600w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=2000&q=80&fm=webp&auto=format 2000w"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Solig terrassvy med utsikt över Mallorcas kust och olivlundar"
-                width={1200}
+                width={1280}
                 height={1600}
                 loading="lazy"
                 decoding="async"
                 className="section-portrait-image"
-                style={{width:'100%', aspectRatio:'3 / 4', objectFit:'cover',
-                        borderRadius:'4px', display:'block'}}
               />
             </div>
 

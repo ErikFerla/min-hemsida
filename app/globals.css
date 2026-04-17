@@ -1183,13 +1183,13 @@ h1 {
   margin-bottom: 36px;
 }
 
-/* ── Section portrait images — consistent 3:4 ratio, never overflow ── */
+/* ── Section portrait images — consistent 4:5 ratio, never overflow ── */
 .section-portrait-image {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center;
   border-radius: 4px;
@@ -1354,7 +1354,7 @@ section > div {
   }
 
   .section-portrait-image {
-    aspect-ratio: 3 / 4 !important;
+    aspect-ratio: 4 / 5 !important;
   }
 
   .planner-side-image {
@@ -1373,30 +1373,7 @@ section > div {
 }
 
 
-/* Mobilbild — dölj på desktop, full bredd utan overflow på mobil */
-.mobile-hero-image {
-  display: none;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .mobile-hero-image {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-  .mobile-hero-image .section-portrait-image {
-    aspect-ratio: 3 / 4;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: cover;
-    object-position: center 40%;
-  }
-}
+/* .mobile-hero-image — deprecated. Ersatt av 2-kolumns bild-i-grid i VARFÖR MALLORCA. */
 
 /* Desktop — 2 kolumner */
 @media (min-width: 769px) {
@@ -1415,7 +1392,7 @@ section > div {
   }
   .varfor-mallorca-grid .section-portrait-image,
   .din-guide-grid .section-portrait-image {
-    aspect-ratio: 3 / 4 !important;
+    aspect-ratio: 4 / 5 !important;
     width: 100% !important;
     height: auto !important;
   }
