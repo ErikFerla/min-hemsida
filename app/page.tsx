@@ -44,21 +44,13 @@ export default function Home() {
           <img
             src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1200&q=80&auto=format"
             srcSet="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1600&q=80&auto=format 1600w"
-            sizes="100vw"
+            sizes="(max-width: 768px) calc(100vw - 32px), 100vw"
             alt="Olivlundar och medeltida bergsby på Mallorca – typisk natur i Serra de Tramuntana"
             width={1200}
             height={1600}
             loading="lazy"
             decoding="async"
             className="section-portrait-image"
-            style={{
-              width: '100%',
-              aspectRatio: '3 / 4',
-              objectFit: 'cover',
-              objectPosition: 'center 40%',
-              borderRadius: '4px',
-              display: 'block',
-            }}
           />
         </div>
 

@@ -1188,10 +1188,15 @@ h1 {
   margin-bottom: 36px;
 }
 
-/* ── Section portrait images — consistent 3:4 ratio ── */
+/* ── Section portrait images — consistent 3:4 ratio, never overflow ── */
 .section-portrait-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center;
   border-radius: 4px;
 }
 
@@ -1373,7 +1378,7 @@ section > div {
 }
 
 
-/* Mobilbild — dölj på desktop */
+/* Mobilbild — dölj på desktop, full bredd utan overflow på mobil */
 .mobile-hero-image {
   display: none;
   overflow: hidden;
@@ -1382,7 +1387,19 @@ section > div {
 @media (max-width: 768px) {
   .mobile-hero-image {
     display: block;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  .mobile-hero-image .section-portrait-image {
+    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center 40%;
   }
 }
 
