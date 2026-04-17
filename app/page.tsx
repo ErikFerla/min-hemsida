@@ -7,6 +7,7 @@ import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
+import FullBleedImage from '@/components/FullBleedImage';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 
 export const metadata: Metadata = {
@@ -39,20 +40,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mobilbild — endast synlig på mobil */}
-        <div className="mobile-hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=800&q=85"
-            alt="Mallorca — olivlundar och medeltida bergsby"
-            style={{
-              width: '100%',
-              height: '260px',
-              objectFit: 'cover',
-              objectPosition: 'center 50%',
-              display: 'block',
-            }}
-          />
-        </div>
+        <FullBleedImage
+          src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1600&q=80"
+          alt="Olivlundar och medeltida bergsby på Mallorca – typisk natur i Serra de Tramuntana"
+          aspectRatio="16 / 6"
+          width={1600}
+          height={600}
+          objectPosition="center 40%"
+        />
 
         <section
           className="page-section"
@@ -100,7 +95,13 @@ export default function Home() {
             <div>
               <img
                 src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80"
-                alt="Mallorca — solig terrassdag"
+                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80 800w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1200&q=80 1200w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Solig terrassvy med utsikt över Mallorcas kust och olivlundar"
+                width={800}
+                height={600}
+                loading="lazy"
+                decoding="async"
                 className="din-guide-image"
                 style={{width:'100%', objectFit:'cover',
                         borderRadius:'4px', display:'block'}}
