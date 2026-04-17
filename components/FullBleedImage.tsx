@@ -5,6 +5,9 @@
  * using the calc(-50vw + 50%) technique. Vertical spacing scales
  * from 48px (mobile) to 96px (desktop) via clamp().
  *
+ * For Unsplash URLs, automatically generates srcset at 5 breakpoints
+ * and appends auto=format for WebP/AVIF negotiation.
+ *
  * Usage:
  *   <FullBleedImage
  *     src="https://images.unsplash.com/photo-xxx?w=1600&q=80"
@@ -14,11 +17,18 @@
  */
 
 function unsplashSrcSet(src: string): string {
-  const base = src.replace(/[?&]w=\d+/, '').replace(/[?&]q=\d+/, '');
+  // Strip existing w= and q= params, keep everything else
+  const base = src.replace(/[?&]w=\d+/g, '').replace(/[?&]q=\d+/g, '').replace(/[?&]fm=\w+/g, '').replace(/[?&]auto=\w+/g, '');
   const sep = base.includes('?') ? '&' : '?';
-  return [640, 1024, 1600, 2400]
-    .map(w => `${base}${sep}w=${w}&q=80 ${w}w`)
+  return [640, 960, 1280, 1600, 2000]
+    .map(w => `${base}${sep}w=${w}&q=80&auto=format ${w}w`)
     .join(', ');
+}
+
+function unsplashSrc(src: string, width: number = 1200): string {
+  const base = src.replace(/[?&]w=\d+/g, '').replace(/[?&]q=\d+/g, '').replace(/[?&]fm=\w+/g, '').replace(/[?&]auto=\w+/g, '');
+  const sep = base.includes('?') ? '&' : '?';
+  return `${base}${sep}w=${width}&q=80&auto=format`;
 }
 
 interface FullBleedImageProps {
@@ -51,12 +61,14 @@ export default function FullBleedImage({
   className = '',
   objectPosition = 'center',
 }: FullBleedImageProps) {
-  const srcSet = src.includes('unsplash.com') ? unsplashSrcSet(src) : undefined;
+  const isUnsplash = src.includes('unsplash.com');
+  const resolvedSrc = isUnsplash ? unsplashSrc(src) : src;
+  const srcSet = isUnsplash ? unsplashSrcSet(src) : undefined;
 
   return (
     <figure className={`full-bleed-image ${className}`.trim()}>
       <img
-        src={src}
+        src={resolvedSrc}
         srcSet={srcSet}
         sizes="100vw"
         alt={alt}

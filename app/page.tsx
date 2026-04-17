@@ -94,12 +94,12 @@ export default function Home() {
             {/* BILD VÄNSTER */}
             <div>
               <img
-                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80"
-                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=800&q=80 800w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1200&q=80 1200w"
+                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1200&q=80&auto=format"
+                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1600&q=80&auto=format 1600w"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Solig terrassvy med utsikt över Mallorcas kust och olivlundar"
-                width={800}
-                height={600}
+                width={1600}
+                height={1067}
                 loading="lazy"
                 decoding="async"
                 className="din-guide-image"

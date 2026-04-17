@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const bilder = [
   {
-    url: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=85',
+    url: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=2000&q=80&auto=format',
     rubrik: 'Palma de Mallorca',
     undertext: 'Gotisk katedral, kulinarisk scen och levande gamla stan',
     plats: 'Palma · Huvudstaden',
@@ -11,7 +11,7 @@ const bilder = [
     cta: 'UTFORSKA PALMA',
   },
   {
-    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2000&q=80&auto=format',
     rubrik: 'Kristallklara stränder',
     undertext: 'Från dolda paradisvikar till långa familjesandstränder',
     plats: 'Es Trenc · Södra Mallorca',
@@ -19,7 +19,7 @@ const bilder = [
     cta: 'UTFORSKA STRÄNDERNA',
   },
   {
-    url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=2000&q=80&auto=format',
     rubrik: 'Världsklassigt golf',
     undertext: '22 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
     plats: 'Son Gual Golf · Palma',
@@ -27,7 +27,7 @@ const bilder = [
     cta: 'SE GOLFBANORNA',
   },
   {
-    url: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=1600&q=85',
+    url: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=2000&q=80&auto=format',
     rubrik: 'Valldemossa',
     undertext: 'Charmiga gränder, klosterhistoria och UNESCO-skyddad bergsnatur',
     plats: 'Valldemossa · Västra Mallorca',
@@ -35,7 +35,7 @@ const bilder = [
     cta: 'UTFORSKA VALLDEMOSSA',
   },
   {
-    url: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1600&q=85',
+    url: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=2000&q=80&auto=format',
     rubrik: 'Port de Sóller',
     undertext: 'Pittoresk hamn omgiven av Tramuntana-bergen – nås med historisk spårvagn',
     plats: 'Port de Sóller · Nordväst',
@@ -43,7 +43,7 @@ const bilder = [
     cta: 'UTFORSKA SÓLLER',
   },
   {
-    url: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80',
+    url: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=2000&q=80&auto=format',
     rubrik: 'Mat & Vin på Mallorca',
     undertext: 'Michelinkrogar, lokala vingårdar och färsk fisk direkt från havet',
     plats: 'Hela ön · Kulinarisk upplevelse',

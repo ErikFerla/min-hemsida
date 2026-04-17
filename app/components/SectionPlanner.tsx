@@ -263,9 +263,14 @@ export default function SectionPlanner() {
         {/* Höger: Stämningsbild */}
         <div style={{ position: 'sticky', top: '100px' }} className="planner-image-col">
           <img
-            src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=900&q=85"
-            alt="Mallorca – planera din resa"
+            src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&q=80&auto=format"
+            srcSet="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=80&auto=format 1600w"
+            sizes="(max-width: 768px) 100vw, 45vw"
+            alt="Utsikt över Palmas hamn och katedral – planera din resa till Mallorca"
+            width={1600}
+            height={1067}
             loading="lazy"
+            decoding="async"
             style={{ width: '100%', objectFit: 'cover', borderRadius: '4px', display: 'block', marginBottom: '16px' }}
             className="planner-side-image"
           />
