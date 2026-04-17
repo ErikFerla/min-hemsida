@@ -1373,6 +1373,19 @@ section > div {
 }
 
 
+/* Mobilbild — dölj på desktop */
+.mobile-hero-image {
+  display: none;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .mobile-hero-image {
+    display: block;
+    margin: 0;
+  }
+}
+
 /* Desktop — 2 kolumner */
 @media (min-width: 769px) {
   .varfor-mallorca-grid,
