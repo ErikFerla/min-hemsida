@@ -7,7 +7,6 @@ import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
-import FullBleedImage from '@/components/FullBleedImage';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 
 export const metadata: Metadata = {
@@ -39,15 +38,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <FullBleedImage
-          src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1600&q=80"
-          alt="Olivlundar och medeltida bergsby på Mallorca – typisk natur i Serra de Tramuntana"
-          aspectRatio="16 / 6"
-          width={1600}
-          height={600}
-          objectPosition="center 40%"
-        />
 
         <section
           className="page-section"
@@ -85,6 +75,21 @@ export default function Home() {
                 UTFORSKA ÖN →
               </a>
             </div>
+            <div>
+              <img
+                src="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1200&q=80&auto=format"
+                srcSet="https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1617532189645-ff762b19c6f7?w=1600&q=80&auto=format 1600w"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Olivlundar och medeltida bergsby på Mallorca – typisk natur i Serra de Tramuntana"
+                width={1200}
+                height={1600}
+                loading="lazy"
+                decoding="async"
+                className="section-portrait-image"
+                style={{width:'100%', aspectRatio:'3 / 4', objectFit:'cover', objectPosition:'center 40%',
+                        borderRadius:'4px', display:'block'}}
+              />
+            </div>
           </div>
         </section>
         <section className="page-section" style={{background:'#fefefb'}}>
@@ -98,12 +103,12 @@ export default function Home() {
                 srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1600&q=80&auto=format 1600w"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Solig terrassvy med utsikt över Mallorcas kust och olivlundar"
-                width={1600}
-                height={1067}
+                width={1200}
+                height={1600}
                 loading="lazy"
                 decoding="async"
-                className="din-guide-image"
-                style={{width:'100%', objectFit:'cover',
+                className="section-portrait-image"
+                style={{width:'100%', aspectRatio:'3 / 4', objectFit:'cover',
                         borderRadius:'4px', display:'block'}}
               />
             </div>

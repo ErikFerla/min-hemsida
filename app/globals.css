@@ -1188,9 +1188,11 @@ h1 {
   margin-bottom: 36px;
 }
 
-/* ── Din guide image — responsive height ── */
-.din-guide-image {
-  height: clamp(320px, 40vw, 520px);
+/* ── Section portrait images — consistent 3:4 ratio ── */
+.section-portrait-image {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
 /* ── Planner side image — responsive height ── */
@@ -1351,8 +1353,8 @@ section > div {
     gap: 20px !important;
   }
 
-  .din-guide-image {
-    height: 260px !important;
+  .section-portrait-image {
+    aspect-ratio: 3 / 4 !important;
   }
 
   .planner-side-image {
@@ -1370,18 +1372,6 @@ section > div {
   }
 }
 
-/* Mobilbild — dölj på desktop */
-.mobile-hero-image {
-  display: none;
-  overflow: hidden;
-}
-
-@media (max-width: 768px) {
-  .mobile-hero-image {
-    display: block;
-    margin: 0;
-  }
-}
 
 /* Desktop — 2 kolumner */
 @media (min-width: 769px) {
@@ -1398,10 +1388,11 @@ section > div {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
   }
-  .varfor-mallorca-grid img,
-  .din-guide-grid img {
-    height: 260px !important;
+  .varfor-mallorca-grid .section-portrait-image,
+  .din-guide-grid .section-portrait-image {
+    aspect-ratio: 3 / 4 !important;
     width: 100% !important;
+    height: auto !important;
   }
 }
 
@@ -1618,32 +1609,6 @@ section > div {
 
 @media (max-width: 380px) {
   h1 { word-break: break-word; }
-}
-
-/* ── Full-bleed image — breaks out of centered container ── */
-.full-bleed-image {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  margin-left: -50vw;
-  margin-top: clamp(48px, 6vw, 96px);
-  margin-bottom: clamp(48px, 6vw, 96px);
-  margin-right: 0;
-  padding: 0;
-  overflow: hidden;
-}
-.full-bleed-image img {
-  display: block;
-  width: 100%;
-}
-.full-bleed-caption {
-  max-width: 1400px;
-  margin: 10px auto 0;
-  padding: 0 clamp(16px, 4vw, 60px);
-  font-size: 0.78rem;
-  color: #9CA3AF;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
 }
 
 /* Screen-reader only — visually hidden but accessible */
