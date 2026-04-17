@@ -1,4 +1,5 @@
-﻿import styles from './page.module.css';
+﻿import type { Metadata } from 'next';
+import styles from './page.module.css';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
@@ -6,11 +7,19 @@ import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
+import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+
+export const metadata: Metadata = {
+  title: 'Mallorca guide på svenska 2026 – Stränder, städer & tips | MyMallorca',
+  description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insider-tips från Mallorca 2026.',
+  alternates: { canonical: '/' },
+};
 
 export default function Home() {
   return (
     <div className={styles.page}>
-      {/* Updated: carousel title and section-black color - redeploy 2026-04-07 */}
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }]} />
+      <h1 className="sr-only">Guide till Mallorca på svenska 2026</h1>
       <HeroSlideshow />
 
       <div className={styles.container}>

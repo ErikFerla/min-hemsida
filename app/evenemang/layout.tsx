@@ -1,9 +1,16 @@
+import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+
 export const metadata = {
-  title: 'Evenemang på Mallorca 2026 – Festivaler, marknader och sport | MyMallorca',
-  description: '60+ evenemang på Mallorca 2026. Cykellopp, jazzfestivaler, vinmarknader, kulturhögtider och lokala marknader – komplett kalender på svenska.',
+  title: 'Evenemang på Mallorca 2026 – Festivaler, sport & kultur',
+  description: 'Komplett guide till evenemang på Mallorca 2026. Festivaler, marknader, sportevenemang och kulturupplevelser. Planera din resa.',
   keywords: 'evenemang Mallorca 2026, festival Mallorca, marknad Mallorca, Mallorca 312',
 };
 
 export default function EvenemangLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Evenemang', url: '/evenemang' }]} />
+      {children}
+    </>
+  );
 }

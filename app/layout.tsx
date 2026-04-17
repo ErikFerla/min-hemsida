@@ -12,9 +12,9 @@ const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfa
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mymallorca.se'),
   alternates: { canonical: '/' },
-  title: 'Mymallorca.se – Din personliga guide till Mallorcas bästa hemligheter',
-  description: 'Din personliga guide till Mallorcas bästa hemligheter på svenska. Stränder, mat, golf, sevärdheter och insider-tips från en som kan ön utan och innan.',
-  keywords: 'Mallorca, reseguide, stränder, restauranger, golf, aktiviteter, Palma',
+  title: 'Mallorca guide på svenska 2026 – Stränder, städer & tips | MyMallorca',
+  description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insider-tips från Mallorca 2026.',
+  keywords: 'Mallorca guide svenska, resa till Mallorca, Mallorca tips, Mallorca stränder 2026, Mallorca familjesemester',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

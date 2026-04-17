@@ -1,3 +1,5 @@
+import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+
 export const metadata = {
   title: 'Flyg till Mallorca 2026 – Billiga flyg från Sverige | MyMallorca',
   description: 'Hitta billiga flyg till Mallorca från Stockholm, Göteborg och Malmö. Jämför priser och boka direkt. Tips för bästa tid att boka.',
@@ -5,5 +7,10 @@ export const metadata = {
 };
 
 export default function FlygLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Flyg', url: '/flyg' }]} />
+      {children}
+    </>
+  );
 }

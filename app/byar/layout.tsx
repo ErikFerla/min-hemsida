@@ -1,6 +1,8 @@
+import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+
 export const metadata = {
-  title: 'Städer och byar på Mallorca – Komplett guide 2026 | MyMallorca',
-  description: 'Utforska 18 av Mallorcas vackraste städer och byar. Palma, Valldemossa, Deià, Sóller och mer – med insider-tips, top 3 och praktisk info.',
+  title: 'Städer och byar på Mallorca 2026 – Guide till Palma, Sóller & mer',
+  description: 'Utforska Mallorcas vackraste städer och bergbyar. Komplett guide till Palma, Sóller, Valldemossa, Alcúdia och 14 andra destinationer.',
   keywords: 'städer Mallorca, byar Mallorca, Palma guide, Valldemossa, Deià, Sóller Mallorca',
   openGraph: {
     title: 'Mallorcas vackraste städer och byar – Guide 2026',
@@ -10,5 +12,10 @@ export const metadata = {
 };
 
 export default function ByarLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Städer & byar', url: '/byar' }]} />
+      {children}
+    </>
+  );
 }
