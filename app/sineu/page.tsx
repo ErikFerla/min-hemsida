@@ -11,8 +11,8 @@ export default function Sineu() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Mallorcas geografiska hjärta med öns äldsta marknad – sedan kung Jaume II år 1306</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Sineu</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Sineu är beläget i exakt centrum av Mallorca – geografiskt och kulturellt. Onsdagsmarknaden har pågått sedan kung Jaume II utfärdade privilegiet år 1306, vilket gör den till öns äldsta. Levande djur, lokala produkter, hantverk och grönsaker säljs sida vid sida på stadens olika torg.</p>

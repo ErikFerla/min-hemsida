@@ -11,8 +11,8 @@ export default function PortDeSoller() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>En av Mallorcas mest pittoreska hamnbyar med naturlig vik – nådd med historisk spårvagn från Sóller</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Port de Sóller</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Port de Sóller är en av Mallorcas mest pittoreska hamnbyar med en naturlig rundad vik omgiven av Tramuntana-bergen. Nås med den historiska spårvagnen från Sóller – en upplevelse i sig.</p>
@@ -49,7 +49,7 @@ export default function PortDeSoller() {
                 <strong>Plats:</strong> Nordväst, 30 km från Palma<br/>
                 <strong>Spårvagn:</strong> 15 min från Sóller<br/>
                 <strong>Känd för:</strong> Hamn, spårvagn, natur<br/>
-                <strong>Stränder nearby:</strong> Platja de Port de Sóller
+                <strong>Stränder i närheten:</strong> Platja de Port de Sóller
               </p>
             </div>
             <a href="https://maps.google.com/?q=Port+de+Soller+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

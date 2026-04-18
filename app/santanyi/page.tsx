@@ -11,8 +11,8 @@ export default function Santanyi() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Charmig marknadsby i söder, känd för sin onsdagsmarknad och närheten till Cala Llombards</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Santanyi</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Santanyi är en av Mallorcas mest charmiga byar, byggd i den karakteristiska gulbruna sandstenen som kallas ”mares”. Byn har ett levande torgliv, ett starkt konsthantverk och en avslappnad atmosfär som lockar tillbaka besökare år efter år.</p>
@@ -33,7 +33,7 @@ export default function Santanyi() {
                 <strong>Bil:</strong> Ca 55 min från Palma<br/>
                 <strong>Marknad:</strong> Onsdag &amp; lördag fm<br/>
                 <strong>Känd för:</strong> Marknad, sandstensarkitektur<br/>
-                <strong>Stränder nearby:</strong> Cala Llombards, Cala Santanyi
+                <strong>Stränder i närheten:</strong> Cala Llombards, Cala Santanyi
               </p>
             </div>
             <a href="https://maps.google.com/?q=Santanyi+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

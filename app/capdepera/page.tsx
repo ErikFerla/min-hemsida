@@ -11,8 +11,8 @@ export default function Capdepera() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Pittoresk by dominerad av ett mäktigt medeltida fort med panoramautsikt över nordöstra Mallorca</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Capdepera</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Capdepera domineras av Castell de Capdepera – ett enormt medeltida fort som kröner kullen ovanför byn. Inifrån murarna har man en fantastisk panoramautsikt över hela nordöstra hörnet av Mallorca, havet och bortom. Byn nedan är charmig med vita hus och blomsterprydda gränder.</p>

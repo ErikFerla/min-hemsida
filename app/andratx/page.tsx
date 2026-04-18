@@ -11,8 +11,8 @@ export default function Andratx() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Lugn stadskärna i sydväst med exklusiv marina och dramatisk bergskuliss</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Andratx</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Andratx är en dubbel destination – den lugna stadskärnan uppe i en dal och den exklusiva Port d&apos;Andratx nere vid havet. Stadskärnan har en avslappnad autenticitet med en onsdagsmarknad och ett levande torgliv, medan hamnen är en av Mallorcas snyggaste med lyxiga segelbåtar och exklusiva restauranger.</p>

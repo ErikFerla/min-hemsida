@@ -11,8 +11,8 @@ export default function PalmaDeMallorca() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Öns pulserande huvudstad med La Seu, historisk gamla stan och livlig restaurangscen</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Palma de Mallorca</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Palma är en av Medelhavseuropas mest dynamiska städer – en plats där gotisk katedral möter modernistisk arkitektur, och där lokala tapasrestauranger samsas med internationellt erkända kockars krogar. Många som kom för en vecka stannade för ett liv.</p>
@@ -46,7 +46,7 @@ export default function PalmaDeMallorca() {
                 <strong>Flyg:</strong> 15 min från PMI-flygplatsen<br/>
                 <strong>Bästa tid:</strong> Maj, juni, september<br/>
                 <strong>Känd för:</strong> La Seu, gamla stan, restauranger<br/>
-                <strong>Stränder nearby:</strong> Platja de Palma, Cala Major
+                <strong>Stränder i närheten:</strong> Platja de Palma, Cala Major
               </p>
             </div>
             <a href="https://maps.google.com/?q=Palma+de+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

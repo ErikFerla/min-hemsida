@@ -12,8 +12,8 @@ export default function Soller() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Bergsby med historisk spårvagn, omgiven av apelsinlundar och Serra de Tramuntana</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Sóller</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Sóller ligger inbäddad i en frodig dal omgiven av Tramuntanabergens dramatiska siluetter. Det är en bergsby med franskt inflytande – en gång välbärgad tack vare handel med apelsiner och citrus, vilket syns i de modernistiska byggnaderna runt torget.</p>
@@ -47,7 +47,7 @@ export default function Soller() {
                 <strong>Tåg:</strong> Från Palma (Ferrocarril de Sóller)<br/>
                 <strong>Bästa tid:</strong> April–juni, september<br/>
                 <strong>Känd för:</strong> Spårvagn, apelsiner, Tramuntana<br/>
-                <strong>Stränder nearby:</strong> Port de Sóller, Platja d'en Repic
+                <strong>Stränder i närheten:</strong> Port de Sóller, Platja d'en Repic
               </p>
             </div>
             <a href="https://maps.google.com/?q=Soller+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

@@ -11,8 +11,8 @@ export default function Felanitx() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Felanitx</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Felanitx är en autentisk inland-stad känd för sin fina keramik, lokala viner och en livlig söndagsmarknad. Nära Cala d&apos;Or och Portocolom – ett perfekt mellanstopp på en dag längs östkusten.</p>
@@ -50,7 +50,7 @@ export default function Felanitx() {
                 <strong>Bil:</strong> Ca 45 min från Palma<br/>
                 <strong>Marknad:</strong> Söndag<br/>
                 <strong>Känd för:</strong> Keramik, vin, medeltida borg<br/>
-                <strong>Stränder nearby:</strong> Cala d&apos;Or, Portocolom
+                <strong>Stränder i närheten:</strong> Cala d&apos;Or, Portocolom
               </p>
             </div>
             <a href="https://maps.google.com/?q=Felanitx+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

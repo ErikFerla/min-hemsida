@@ -11,8 +11,8 @@ export default function PortoPetro() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Exklusiv och lugn marinaby i sydost, populär bland segelbåtar och fridfulla resenärer</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Porto Petro</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Porto Petro är en av Mallorcas mest exklusiva och minst kända marinabyer. Belägen längs sydkusten har den lyckats undfly massturismen och bevarat sin karaktär av ett stilla fiskesamhälle – nu befolkat av segelbåtar och stillsamma flanörer.</p>
@@ -33,7 +33,7 @@ export default function PortoPetro() {
                 <strong>Bil:</strong> Ca 55 min från Palma<br/>
                 <strong>Bästa tid:</strong> Maj–september<br/>
                 <strong>Känd för:</strong> Marinan, lugn, snorkling<br/>
-                <strong>Stränder nearby:</strong> Cala Mondragó, Cala Egos
+                <strong>Stränder i närheten:</strong> Cala Mondragó, Cala Egos
               </p>
             </div>
             <a href="https://maps.google.com/?q=Porto+Petro+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

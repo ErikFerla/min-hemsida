@@ -11,8 +11,8 @@ export default function Alcudia() {
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>En av Mallorcas bäst bevarade medeltida städer med imponerande stadsmurer och romersk teater</p>
         </div>
       </div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+      <div className="city-page-container">
+        <div className="city-page-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Alcúdia</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Alcúdia är en av Mallorcas bäst bevarade medeltida städer med imponerande stadsmurer från 1300-talet, en romersk teater och en av öns vackraste sandstränder alldeles intill.</p>
@@ -50,7 +50,7 @@ export default function Alcudia() {
                 <strong>Bil:</strong> Ca 50 min från Palma<br/>
                 <strong>Marknad:</strong> Tisdag &amp; söndag<br/>
                 <strong>Känd för:</strong> Medeltida murar, strand, historia<br/>
-                <strong>Stränder nearby:</strong> Playa de Muro, Playa d&apos;Alcúdia
+                <strong>Stränder i närheten:</strong> Playa de Muro, Playa d&apos;Alcúdia
               </p>
             </div>
             <a href="https://maps.google.com/?q=Alcudia+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
