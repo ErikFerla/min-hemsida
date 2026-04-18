@@ -1094,6 +1094,56 @@ h1 {
 
 /* Leaflet-karta — höjd styrs numera av InteractiveMap-komponentens height-prop (clamp) */
 
+/* ============================================================
+   CITY PAGE LAYOUT — delas av alla 16 stadssidor
+   Mobile-first: en kolumn <768px, 2-kolumn (brödtext + aside) ≥768px
+   ============================================================ */
+.city-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 60px) clamp(16px, 4vw, 40px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.city-page-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .city-page-grid {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .city-page-grid {
+    gap: 60px;
+  }
+}
+
+/* Grid-barn får aldrig spilla över sin kolumn (min-width: 0 löser overflow-bug) */
+.city-page-grid > div {
+  min-width: 0;
+}
+
+/* Aside (sidokolumn): kort ska hålla sig inom kolumnbredd */
+.city-page-grid > div:last-child > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Brödtext: läsbar radlängd och normal line-height (överstyr inline 1.8) */
+.city-page-grid > div:first-child p,
+.city-page-grid > div:first-child ul {
+  max-width: 65ch;
+  line-height: 1.65 !important;
+}
+
 /* === RESPLANSBYGGARE – MOBILANPASSNING === */
 @media (max-width: 768px) {
   .planner-dag-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; }
