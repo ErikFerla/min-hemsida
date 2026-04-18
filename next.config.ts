@@ -20,6 +20,13 @@ const nextConfig: NextConfig = {
     deviceSizes: [390, 768, 1024, 1280, 1600],
     imageSizes: [64, 128, 256, 384, 600],
   },
+  async redirects() {
+    return [
+      // Kanonisk slug är /strandar (svenska). /strander var en tidig variant.
+      { source: '/strander', destination: '/strandar', permanent: true },
+      { source: '/strander/:path*', destination: '/strandar/:path*', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
