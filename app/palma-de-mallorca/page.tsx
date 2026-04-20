@@ -12,12 +12,12 @@ export default function PalmaDeMallorca() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Palma de Mallorca</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Palma är en av Medelhavseuropas mest dynamiska städer – en plats där gotisk katedral möter modernistisk arkitektur, och där lokala tapasrestauranger samsas med internationellt erkända kockars krogar. Många som kom för en vecka stannade för ett liv.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>La Seu-katedralen, som reser sig majestätiskt ur havet, dominerar stadsbilden och är ett av Spaniens vackraste gotiska mästerverk. Inne i gamla stan snirklar sig smala gränder förbi mörka patiohus, konstgallerier och välgömda restauranger med bara tio sittplatser.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Insider-tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Besök La Seu på en vardag tidig morgon – inga köer och ljuset är magiskt</li>
               <li>Santa Catalina-kvarteret är det bästa för mat och nattliv – gå dit på kvällen</li>
@@ -38,7 +38,7 @@ export default function PalmaDeMallorca() {
               ))}
             </div>
           </div>
-          <div>
+          <aside>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
               <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
@@ -46,7 +46,7 @@ export default function PalmaDeMallorca() {
                 <strong>Flyg:</strong> 15 min från PMI-flygplatsen<br/>
                 <strong>Bästa tid:</strong> Maj, juni, september<br/>
                 <strong>Känd för:</strong> La Seu, gamla stan, restauranger<br/>
-                <strong>Stränder nearby:</strong> Platja de Palma, Cala Major
+                <strong>Stränder i närheten:</strong> Platja de Palma, Cala Major
               </p>
             </div>
             <a href="https://maps.google.com/?q=Palma+de+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
@@ -69,7 +69,7 @@ export default function PalmaDeMallorca() {
                 </a>
               ))}
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

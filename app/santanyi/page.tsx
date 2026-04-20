@@ -12,12 +12,12 @@ export default function Santanyi() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Santanyi</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Santanyi är en av Mallorcas mest charmiga byar, byggd i den karakteristiska gulbruna sandstenen som kallas ”mares”. Byn har ett levande torgliv, ett starkt konsthantverk och en avslappnad atmosfär som lockar tillbaka besökare år efter år.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Onsdags- och lördagsmarknaden är en av öns bästa – här blandas lokala producenter med konsthantverk, textilier och olivoljor. Under sommaren tar arkaderna skugga och det är perfekt att ta en pausa på något av kafeteriorna runt torget.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Insider-tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Onsdagsmarknaden är bättre än lördagens – mindre folk, mer lokalt</li>
               <li>Cala Llombards (15 min bort) är en av öns vackraste privatstränder</li>
@@ -25,7 +25,7 @@ export default function Santanyi() {
               <li>Glöm inte galleriet Sa Quartera – gratis och riktigt bra samtidskonst</li>
             </ul>
           </div>
-          <div>
+          <aside>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
               <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
@@ -33,13 +33,13 @@ export default function Santanyi() {
                 <strong>Bil:</strong> Ca 55 min från Palma<br/>
                 <strong>Marknad:</strong> Onsdag &amp; lördag fm<br/>
                 <strong>Känd för:</strong> Marknad, sandstensarkitektur<br/>
-                <strong>Stränder nearby:</strong> Cala Llombards, Cala Santanyi
+                <strong>Stränder i närheten:</strong> Cala Llombards, Cala Santanyi
               </p>
             </div>
             <a href="https://maps.google.com/?q=Santanyi+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
               Visa på karta →
             </a>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
