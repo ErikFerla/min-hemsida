@@ -1,4 +1,5 @@
 import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 
 export const metadata = {
   title: 'Golf på Mallorca 2026 – Komplett guide till alla 22 banor | MyMallorca',
@@ -97,14 +98,14 @@ export default function GolfMallorcaGuide() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
-      <div style={{ position: 'relative', height: '55vh', backgroundImage: 'url(https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Golfguide · Uppdaterad 2026</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.04em', margin: 0, lineHeight: 1 }}>Golf på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)', marginTop: '16px', opacity: 0.9, maxWidth: '600px' }}>Komplett guide till alla 22 golfbanor. De 5 bästa djupanalyserade med grön-avgifter, insider-tips och info om bästa säsong.</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
+        alt="Golfbana på Mallorca med välklippt green, palmer och havsutsikt"
+        kicker="Golfguide · Uppdaterad 2026"
+        title="Golf på Mallorca"
+        subtitle="Komplett guide till alla 22 golfbanor. De 5 bästa djupanalyserade med grön-avgifter, insider-tips och info om bästa säsong."
+        height="55vh"
+      />
 
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,40px)' }}>
 

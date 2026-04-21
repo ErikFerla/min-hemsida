@@ -1,6 +1,7 @@
 import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 import { CITIES, buildCityMetadata } from '@/app/lib/city-seo';
 import { CityJsonLd } from '@/app/lib/CityJsonLd';
+import HeroImage from '@/components/HeroImage';
 
 const city = CITIES['valldemossa'];
 export const metadata = buildCityMetadata(city);
@@ -9,14 +10,14 @@ export default function Valldemossa() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <CityJsonLd city={city} />
-      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Nordvästra Mallorca · Tramuntana</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Valldemossa</h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>UNESCO-skyddad bergsby känd för Chopins vistelse och det magnifika kartusianerklostret</p>
-        </div>
-      </div>
+      {/* TODO: hero photo is a generic Tramuntana image shared with Deià/Pollença/Artà — replace with Valldemossa-specific (klostret / ockrafärgade fasader) */}
+      <HeroImage
+        src="https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec"
+        alt="Stenbelagda gränder i Valldemossa – UNESCO-skyddad bergsby i Serra de Tramuntana"
+        kicker="Nordvästra Mallorca · Tramuntana"
+        title="Valldemossa"
+        subtitle="UNESCO-skyddad bergsby känd för Chopins vistelse och det magnifika kartusianerklostret"
+      />
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
         <div className="city-grid">
           <div>

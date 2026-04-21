@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { IconPin, IconClock, IconExternal, IconMap, IconGlass, IconLeaf, IconUsers, PriceTag } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 
 type Vingard = {
   namn: string;
@@ -47,20 +48,14 @@ const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#383a46',
 export default function VingardarPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{
-        position: 'relative', minHeight: '52vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1600&q=90)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end',
-        padding: 'clamp(24px,6vw,60px) clamp(20px,5vw,80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.72))' }} />
-        <div style={{ position: 'relative', color: 'white', maxWidth: '640px' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.85 }}>Mallorcas vinkultur</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.4rem,8vw,4.8rem)', fontWeight: 400, letterSpacing: '0.02em', margin: 0, lineHeight: 0.95 }}>Vingårdar på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem,3.2vw,1.1rem)', marginTop: '16px', opacity: 0.92, lineHeight: 1.5 }}>15 handplockade bodegas – från anrika familjegods till ekologiska nykomlingar. Med tips om bokning, provning och vem varje plats passar för.</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb"
+        alt="Vinrankor och druvklasar i en mallorcansk vingård – öns vinkultur"
+        kicker="Mallorcas vinkultur"
+        title="Vingårdar på Mallorca"
+        subtitle="15 handplockade bodegas – från anrika familjegods till ekologiska nykomlingar. Med tips om bokning, provning och vem varje plats passar för."
+        height="52vh"
+      />
 
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, color: '#993335' }}>

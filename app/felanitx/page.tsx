@@ -1,6 +1,7 @@
 import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 import { CITIES, buildCityMetadata } from '@/app/lib/city-seo';
 import { CityJsonLd } from '@/app/lib/CityJsonLd';
+import HeroImage from '@/components/HeroImage';
 
 const city = CITIES['felanitx'];
 export const metadata = buildCityMetadata(city);
@@ -9,14 +10,14 @@ export default function Felanitx() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <CityJsonLd city={city} />
-      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>ÖSTRA MALLORCA · KERAMIK &amp; MARKNAD</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Felanitx</h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad</p>
-        </div>
-      </div>
+      {/* TODO: hero photo reused across multiple towns — replace with Felanitx-specific (keramik / vingård / Castell de Santueri) */}
+      <HeroImage
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+        alt="Traditionell inlandsstad Felanitx i östra Mallorca känd för keramik och vinodling"
+        kicker="Östra Mallorca · Keramik & marknad"
+        title="Felanitx"
+        subtitle="Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad"
+      />
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
         <div className="city-grid">
           <div>

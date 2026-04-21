@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AffiliateCard from '@/app/components/AffiliateCard';
 import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 
 type Aktivitet = {
@@ -82,20 +83,14 @@ export default function AktiviteterPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
-      <div style={{
-        position: 'relative', height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1600&q=90)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end',
-        padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.8 }}>Upplev Mallorca</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.04em', margin: 0, lineHeight: '1' }}>Aktiviteter på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85 }}>Golf, vandring, vattensport och mycket mer – för alla smaker</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1533105079780-92b9be482077"
+        alt="Vandrare på en bergstig i Serra de Tramuntana – Mallorcas aktiva sida"
+        kicker="Upplev Mallorca"
+        title="Aktiviteter på Mallorca"
+        subtitle="Golf, vandring, vattensport och mycket mer – för alla smaker"
+        height="55vh"
+      />
 
       {/* Innehåll */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,60px)' }}>

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { IconPin, IconClock, IconMap, IconExternal, IconGlass, PriceTag, tierFromEmoji } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 
 const vingårdar = [
   { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
@@ -55,14 +56,14 @@ export default function MatPage() {
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{ position: 'relative', minHeight: '52vh', backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=90)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(24px,6vw,60px) clamp(20px,5vw,80px)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72))' }} />
-        <div style={{ position: 'relative', color: 'white', maxWidth: '640px' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 14, opacity: 0.85 }}>Mallorcas matkultur</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.4rem,8vw,5rem)', fontWeight: 400, letterSpacing: '0.02em', margin: 0, lineHeight: 0.95 }}>Mat & Vin på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem,3.2vw,1.1rem)', marginTop: 16, opacity: 0.92, lineHeight: 1.5 }}>Från Michelinkrogar till lokala vingårdar – din guide till det bästa</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
+        alt="Dukat matbord med tapas och färska råvaror – mallorcansk matkultur på bordet"
+        kicker="Mallorcas matkultur"
+        title="Mat & Vin på Mallorca"
+        subtitle="Från Michelinkrogar till lokala vingårdar – din guide till det bästa"
+        height="52vh"
+      />
 
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,60px)' }}>
         {/* Vingårdar kort teaser */}

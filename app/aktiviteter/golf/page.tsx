@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
 import GolfMapWrapper from '@/components/GolfMapWrapper';
+import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
 
 const svårighetFärg: Record<string, string> = {
@@ -45,29 +46,13 @@ export default function GolfPage() {
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{
-        position: 'relative',
-        height: '60vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1600&q=90)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
-            Aktiviteter på Mallorca
-          </p>
-          <h1 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
-            22 golfbanor på Mallorca
-          </h1>
-          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85, maxWidth: '600px' }}>
-            Komplett guide till alla golfbanor – för alla nivåer och budgetar
-          </p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
+        alt="Välklippt green med havsutsikt vid en golfbana på Mallorca"
+        kicker="Aktiviteter på Mallorca"
+        title="22 golfbanor på Mallorca"
+        subtitle="Komplett guide till alla golfbanor – för alla nivåer och budgetar"
+      />
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
 

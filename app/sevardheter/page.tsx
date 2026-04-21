@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 const sevardheter = [
   {
     namn: 'La Seu – Palmas katedral',
@@ -139,23 +140,14 @@ const sevardheter = [
 export default function SevardheterPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{
-        position: 'relative',
-        height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: 'clamp(30px, 5vw, 60px) clamp(20px, 5vw, 80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: 'clamp(0.7rem, 1.5vw, 0.85rem)', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.8 }}>Historia, natur och kultur</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem, 7vw, 5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Sevärdheter på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', marginTop: '16px', lineHeight: '1.6', opacity: 0.85 }}>12 utvalda pärlor – från gotiska katedraler till dramatiska grottor</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1548783300-a25c9c4fad6a"
+        alt="La Seu-katedralen i Palma – en av öns mest ikoniska sevärdheter"
+        kicker="Historia, natur och kultur"
+        title="Sevärdheter på Mallorca"
+        subtitle="12 utvalda pärlor – från gotiska katedraler till dramatiska grottor"
+        height="55vh"
+      />
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
