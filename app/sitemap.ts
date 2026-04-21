@@ -34,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/port-de-soller`, priority: 0.65, changeFrequency: 'monthly' },
     { url: `${baseUrl}/arta`, priority: 0.65, changeFrequency: 'monthly' },
     { url: `${baseUrl}/porto-petro`, priority: 0.65, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/manacor`, priority: 0.7, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/campos`, priority: 0.65, changeFrequency: 'monthly' },
     { url: `${baseUrl}/guide/basta-stranderna-mallorca`, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${baseUrl}/guide/mallorca-med-barn`, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${baseUrl}/guide/basta-restauranger-palma`, priority: 0.85, changeFrequency: 'monthly' },
