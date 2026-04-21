@@ -61,27 +61,10 @@ export default function AgeFilter({ totalCount, visibleCount }: AgeFilterProps) 
                 type="button"
                 onClick={() => toggle(g.id)}
                 aria-pressed={isActive}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 14px',
-                  background: isActive ? '#383a46' : 'white',
-                  color: isActive ? '#fefefb' : '#383a46',
-                  border: `1.5px solid ${isActive ? '#383a46' : 'rgba(0,0,0,0.12)'}`,
-                  borderRadius: '999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  letterSpacing: '0.01em',
-                  transition: 'background 0.15s, color 0.15s, border-color 0.15s',
-                  minHeight: '44px',
-                }}
+                className={`age-filter-btn${isActive ? ' is-active' : ''}`}
               >
-                {g.label}
-                <span style={{ fontSize: '0.72rem', opacity: 0.7, fontWeight: 500 }}>
-                  {g.caption}
-                </span>
+                <span className="age-filter-btn-label">{g.label}</span>
+                <span className="age-filter-btn-caption">{g.caption}</span>
               </button>
             );
           })}
