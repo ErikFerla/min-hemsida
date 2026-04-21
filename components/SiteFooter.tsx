@@ -40,6 +40,15 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
       ['Se alla städer →', '/byar'],
     ],
   },
+  {
+    heading: 'BARNVÄNLIGT',
+    links: [
+      ['Mallorca med barn', '/barn'],
+      ['Vattenparker', '/barn/vattenparker'],
+      ['Djurparker & akvarier', '/barn/djurparker-och-akvarier'],
+      ['Inomhus & regn', '/barn/inomhus-och-regn'],
+    ],
+  },
 ];
 
 export default function SiteFooter() {

@@ -1223,7 +1223,7 @@ h1 {
 /* ── Footer desktop grid — responsive ── */
 .footer-desktop-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: clamp(24px, 4vw, 60px);
 }
 
@@ -1243,16 +1243,11 @@ h1 {
    ============================================================ */
 @media (min-width: 769px) and (max-width: 1024px) {
   .footer-desktop-grid {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
-  .footer-desktop-grid > div:last-child {
+  /* Brand column spans full width on tablet; remaining sections auto-flow 2×n below */
+  .footer-desktop-grid > div:first-child {
     grid-column: 1 / -1;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 32px;
-  }
-  .footer-desktop-grid > div:last-child a {
-    flex: 0 0 auto;
   }
   .din-guide-grid {
     gap: 40px !important;
