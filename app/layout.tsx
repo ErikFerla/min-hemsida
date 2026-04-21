@@ -3,7 +3,7 @@ import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import SiteFooter from '@/components/SiteFooter';
-import { WebSiteSchema } from '@/app/components/SchemaOrg';
+import { OrganizationSchema, WebSiteSchema } from '@/app/components/SchemaOrg';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair', display: 'swap' });
@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.variable} ${playfair.variable}`} style={{ margin: 0, background: '#fefefb', color: '#383a46' }}>
         <Navbar />
+        <OrganizationSchema />
         <WebSiteSchema />
         <main style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
         <SiteFooter />

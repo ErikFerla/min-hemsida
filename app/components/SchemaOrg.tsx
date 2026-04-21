@@ -29,6 +29,24 @@ export function TouristDestinationSchema({ name, description, image, url, lat, l
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
+export function OrganizationSchema() {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'TravelAgency',
+    name: 'MyMallorca',
+    url: 'https://www.mymallorca.se',
+    description: 'Din kompletta reseguide till Mallorca på svenska',
+    inLanguage: 'sv-SE',
+    areaServed: {
+      '@type': 'Place',
+      name: 'Mallorca, Spain',
+    },
+    // logo & sameAs intentionally omitted — add when a real logo asset exists in
+    // public/ and when public social channels go live (avoid placeholder URLs).
+  };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+}
+
 export function WebSiteSchema() {
   const schema = {
     '@context': 'https://schema.org',
