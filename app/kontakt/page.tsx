@@ -73,9 +73,9 @@ export default function KontaktPage() {
       <div style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '60px 20px' }}>
         <div style={{ textAlign: 'center', maxWidth: '500px' }}>
           <div style={{ marginBottom: '24px', color: '#383a46', display: 'flex', justifyContent: 'center' }}><IconPalm size={56} /></div>
-          <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', marginBottom: '16px' }}>
             Tack {formData.namn}!
-          </h1>
+          </h2>
           <p style={{ fontSize: '1.1rem', color: '#555', lineHeight: '1.7', marginBottom: '32px' }}>
             Vi har tagit emot din förfrågan och återkommer inom 24 timmar med ett skräddarsytt förslag för din Mallorca-resa!
           </p>
