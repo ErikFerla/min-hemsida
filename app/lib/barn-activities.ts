@@ -38,10 +38,10 @@ export interface Activity {
 export type CategoryMeta = {
   slug: Category;
   label: string;
-  emoji: string;
   shortTagline: string;
   href: string;
   available: boolean;
+  heroImage?: string;
 };
 
 /**
@@ -49,20 +49,20 @@ export type CategoryMeta = {
  * `available: false` = placeholder card on hub (Leverans 2).
  */
 export const CATEGORIES: CategoryMeta[] = [
-  { slug: 'vattenparker',            label: 'Vattenparker',           emoji: '🌊', shortTagline: 'Mallorcas största vattenparker och familjefavoriter', href: '/barn/vattenparker',            available: true  },
-  { slug: 'djurparker-och-akvarier', label: 'Djurparker & akvarier',  emoji: '🐬', shortTagline: 'Från hajar i Palma Aquarium till tigrar på Natura Parc', href: '/barn/djurparker-och-akvarier', available: true  },
-  { slug: 'inomhus-och-regn',        label: 'Inomhus & regn',         emoji: '☁️', shortTagline: 'När molnen kommer — eller när solen är för stark', href: '/barn/inomhus-och-regn',        available: true  },
-  { slug: 'aventyrsparker',          label: 'Äventyrsparker',         emoji: '🧗', shortTagline: 'Klätterbanor bland trädtopparna',                 href: '/barn/aventyrsparker',          available: false },
-  { slug: 'grottor',                 label: 'Grottor',                emoji: '🕳️', shortTagline: 'Drach, Artà och Hams — Mallorcas underjord',     href: '/barn/grottor',                 available: false },
-  { slug: 'museer-och-kultur',       label: 'Museer & kultur',        emoji: '🎨', shortTagline: 'Sport, konst och historia för nyfikna barn',    href: '/barn/museer-och-kultur',       available: false },
-  { slug: 'natur-och-utomhus',       label: 'Natur & utomhus',        emoji: '🌲', shortTagline: 'Vandringar och parker för energiska barn',      href: '/barn/natur-och-utomhus',       available: false },
+  { slug: 'vattenparker',            label: 'Vattenparker',           shortTagline: 'Mallorcas största vattenparker och familjefavoriter', href: '/barn/vattenparker',            available: true,  heroImage: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834' },
+  { slug: 'djurparker-och-akvarier', label: 'Djurparker & akvarier',  shortTagline: 'Från hajar i Palma Aquarium till tigrar på Natura Parc', href: '/barn/djurparker-och-akvarier', available: true,  heroImage: 'https://images.unsplash.com/photo-1551632811-561732d1e306' },
+  { slug: 'inomhus-och-regn',        label: 'Inomhus & regn',         shortTagline: 'När molnen kommer — eller när solen är för stark', href: '/barn/inomhus-och-regn',        available: true,  heroImage: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30' },
+  { slug: 'aventyrsparker',          label: 'Äventyrsparker',         shortTagline: 'Klätterbanor bland trädtopparna',                 href: '/barn/aventyrsparker',          available: false },
+  { slug: 'grottor',                 label: 'Grottor',                shortTagline: 'Drach, Artà och Hams — Mallorcas underjord',     href: '/barn/grottor',                 available: false },
+  { slug: 'museer-och-kultur',       label: 'Museer & kultur',        shortTagline: 'Sport, konst och historia för nyfikna barn',    href: '/barn/museer-och-kultur',       available: false },
+  { slug: 'natur-och-utomhus',       label: 'Natur & utomhus',        shortTagline: 'Vandringar och parker för energiska barn',      href: '/barn/natur-och-utomhus',       available: false },
 ];
 
-export const AGE_GROUPS: { id: AgeGroup; emoji: string; label: string; caption: string }[] = [
-  { id: '0-3',  emoji: '🍼', label: '0–3 år',  caption: 'småbarn' },
-  { id: '4-7',  emoji: '🧒', label: '4–7 år',  caption: 'förskola' },
-  { id: '8-12', emoji: '👦', label: '8–12 år', caption: 'mellanstadiet' },
-  { id: '13+',  emoji: '🧑', label: '13+ år',  caption: 'tonåringar' },
+export const AGE_GROUPS: { id: AgeGroup; label: string; caption: string }[] = [
+  { id: '0-3',  label: '0–3 år',  caption: 'småbarn' },
+  { id: '4-7',  label: '4–7 år',  caption: 'förskola' },
+  { id: '8-12', label: '8–12 år', caption: 'mellanstadiet' },
+  { id: '13+',  label: '13+ år',  caption: 'tonåringar' },
 ];
 
 /**

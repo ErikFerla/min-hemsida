@@ -78,7 +78,7 @@ export default function AgeFilter({ totalCount, visibleCount }: AgeFilterProps) 
                   minHeight: '44px',
                 }}
               >
-                <span aria-hidden="true">{g.emoji}</span> {g.label}
+                {g.label}
                 <span style={{ fontSize: '0.72rem', opacity: 0.7, fontWeight: 500 }}>
                   {g.caption}
                 </span>
