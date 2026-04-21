@@ -132,7 +132,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav ref={navRef} style={{
+      <nav ref={navRef} aria-label="Huvudnavigation" style={{
         position: 'sticky', top: 0, zIndex: 1000,
         background: '#eeede4',
         borderBottom: '1px solid rgba(0,0,0,0.08)',
