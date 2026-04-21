@@ -28,7 +28,7 @@ export default function Manacor() {
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Åk tåget från Palma till Manacor – en timme, 8 euro, och du slipper bilköerna på östkustens småvägar</li>
               <li>Kombinera morgon i Manacor (marknaden på måndagar) med eftermiddag i Drach-grottorna, 20 minuter bort</li>
-              <li>Rafa Nadal Museum Xperience är värt det om du är sportintresserad – men om du bara vill se trofeer räcker fönstertittandet</li>
+              <li>Rafa Nadal Museum Xperience är värt det om du är sportintresserad – men om du bara vill se trofeer räcker fönstertittandet. <a href="/barn/inomhus-och-regn#rafa-nadal-museum-xperience" style={{ color: '#993335', fontWeight: 600, textDecoration: 'underline' }}>Se familjeanpassad guide →</a></li>
               <li>Vineriet Bodega Miquel Gelabert bokas i förväg – små produktioner och personlig tasting</li>
             </ul>
             <div style={{ marginTop: '32px', marginBottom: '32px' }}>
