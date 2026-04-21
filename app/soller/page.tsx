@@ -1,9 +1,15 @@
 // verified 2026-04-07
 import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
+import { CITIES, buildCityMetadata } from '@/app/lib/city-seo';
+import { CityJsonLd } from '@/app/lib/CityJsonLd';
+
+const city = CITIES['soller'];
+export const metadata = buildCityMetadata(city);
 
 export default function Soller() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+      <CityJsonLd city={city} />
       <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
         <div style={{ position: 'relative', color: 'white' }}>

@@ -1,5 +1,14 @@
-export function TouristDestinationSchema({ name, description, image }: { name: string; description: string; image: string }) {
-  const schema = {
+type TouristDestinationSchemaProps = {
+  name: string;
+  description: string;
+  image: string;
+  url?: string;
+  lat?: number;
+  lon?: number;
+};
+
+export function TouristDestinationSchema({ name, description, image, url, lat, lon }: TouristDestinationSchemaProps) {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
     name,
@@ -7,7 +16,16 @@ export function TouristDestinationSchema({ name, description, image }: { name: s
     image,
     touristType: ['Family', 'Couple', 'Solo traveler'],
     includesAttraction: [],
+    containedInPlace: {
+      '@type': 'Island',
+      name: 'Mallorca',
+      containedInPlace: { '@type': 'Country', name: 'Spain' },
+    },
   };
+  if (url) schema.url = url;
+  if (typeof lat === 'number' && typeof lon === 'number') {
+    schema.geo = { '@type': 'GeoCoordinates', latitude: lat, longitude: lon };
+  }
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }
 
