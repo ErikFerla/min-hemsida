@@ -284,7 +284,7 @@ function StrandarContent() {
                   </div>
                 )}
                 <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '48px', background: '#993335', color: '#fefefb', borderRadius: '10px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', letterSpacing: '0.01em' }}>
-                  Visa på karta →
+                  Visa på karta ↗
                 </a>
               </div>
             </div>

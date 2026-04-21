@@ -179,7 +179,7 @@ export default function SevardheterPage() {
                   </div>
                 )}
                 <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
-                  Visa på karta →
+                  Visa på karta ↗
                 </a>
               </div>
             </div>

@@ -160,7 +160,7 @@ export default function GolfPage() {
                   </div>
                 )}
                 <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
-                  Visa på karta
+                  Visa på karta ↗
                 </a>
                 <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>
                   Besök hemsida →
