@@ -58,7 +58,7 @@ export default function Campos() {
               </p>
             </div>
             <a href="https://maps.google.com/?q=Campos+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
-              Visa på karta →
+              Visa på karta ↗
             </a>
             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginTop: '20px', border: '1px solid #ede5da' }}>
               <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={18} /> Boka upplevelser i Campos</h3>

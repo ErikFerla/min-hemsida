@@ -58,7 +58,7 @@ export default function Inca() {
               </p>
             </div>
             <a href="https://maps.google.com/?q=Inca+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
-              Visa på karta →
+              Visa på karta ↗
             </a>
           </aside>
         </div>

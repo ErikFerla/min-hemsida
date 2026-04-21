@@ -55,23 +55,9 @@ export default function SiteFooter() {
             <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               DIN GUIDE PÅ MALLORCA <IconPalm size={22} />
             </p>
-            <p style={{ color: 'rgba(254,254,251,0.75)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: '24px' }}>
+            <p style={{ color: 'rgba(254,254,251,0.75)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: 0 }}>
               Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.
             </p>
-            <div style={{ display: 'flex', gap: '16px' }}>
-              <a href="#" aria-label="Instagram" className="footer-social-link">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                  <circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
-                </svg>
-              </a>
-              <a href="#" aria-label="Facebook" className="footer-social-link">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                </svg>
-              </a>
-            </div>
           </div>
 
           {/* Columns 2–4 — rendered from shared FOOTER_SECTIONS */}
