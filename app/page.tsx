@@ -159,7 +159,12 @@ export default function Home() {
               Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
             </p>
             <MallorcaMapWrapper />
-            <CityLinksList />
+            {/* City links visually hidden but kept in DOM — SEO fallback from PR #9:
+                Googlebot and screen readers still get all 18 city anchors even
+                though MallorcaMap itself is client-only (ssr: false). */}
+            <div className="sr-only">
+              <CityLinksList />
+            </div>
           </div>
         </section>
       </div>
