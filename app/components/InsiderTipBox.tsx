@@ -1,5 +1,3 @@
-import { IconBulb } from '@/components/Icons';
-
 export type InsiderTipBoxProps = {
   /** Optional heading above the tip(s). Default: "Insider-tips". */
   heading?: string;
@@ -34,9 +32,6 @@ export default function InsiderTipBox({
     >
       <p
         style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
           fontFamily: isCompact ? 'inherit' : '"Bebas Neue", sans-serif',
           fontSize: isCompact ? '0.72rem' : '1.1rem',
           letterSpacing: isCompact ? '0.14em' : '0.08em',
@@ -46,7 +41,7 @@ export default function InsiderTipBox({
           margin: `0 0 ${isCompact ? '6px' : '12px'}`,
         }}
       >
-        <IconBulb size={isCompact ? 14 : 18} /> {heading}
+        {heading}
       </p>
 
       {tip && (

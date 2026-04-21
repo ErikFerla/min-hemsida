@@ -316,7 +316,7 @@ export default async function BarnHubPage({ searchParams }: Props) {
             Insider-tips från lokalkännare
           </h2>
           <InsiderTipBox
-            heading="5 råd från en lokalbo"
+            heading="5 RÅD FRÅN ERIK"
             tips={INSIDER_TIPS}
           />
         </section>

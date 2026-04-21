@@ -1,4 +1,4 @@
-import { IconPin, IconClock, IconExternal, IconMap, IconBulb } from '@/components/Icons';
+import { IconPin, IconClock, IconExternal, IconMap } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
 import type { Activity } from '@/app/lib/barn-activities';
 
@@ -166,9 +166,6 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
           >
             <p
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
                 fontSize: '0.72rem',
                 letterSpacing: '0.14em',
                 textTransform: 'uppercase',
@@ -177,7 +174,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
                 margin: '0 0 6px',
               }}
             >
-              <IconBulb size={14} /> Insider-tips
+              Insider-tips
             </p>
             <p style={{ fontSize: '0.92rem', lineHeight: 1.6, color: '#374151', margin: 0 }}>
               {activity.insiderTip}
