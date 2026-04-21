@@ -1,3 +1,5 @@
+import HeroImage from '@/components/HeroImage';
+
 export const metadata = {
   title: 'De 15 bästa stränderna på Mallorca 2026 – Rankade av en lokal | MyMallorca',
   description: 'Vi har besökt och rankat Mallorcas 15 bästa stränder. Från dolda paradisvikar till barnvänliga sandstränder – med GPS, parkering och insider-tips.',
@@ -65,14 +67,14 @@ export default function BästaSträndernaGuide() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
-      <div style={{ position: 'relative', height: '55vh', backgroundImage: 'url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.85rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Lokal guide · Uppdaterad 2026</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.04em', margin: 0, lineHeight: 1 }}>De 15 bästa stränderna på Mallorca</h1>
-          <p style={{ fontSize: 'clamp(0.95rem,2vw,1.1rem)', marginTop: '16px', opacity: 0.9, maxWidth: '600px' }}>Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem.</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+        alt="Turkost vatten och vit sandstrand på Mallorca – öns vackraste stränder"
+        kicker="Lokal guide · Uppdaterad 2026"
+        title="De 15 bästa stränderna på Mallorca"
+        subtitle="Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
+        height="55vh"
+      />
 
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,40px)' }}>
 

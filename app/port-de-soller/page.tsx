@@ -1,6 +1,7 @@
 import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 import { CITIES, buildCityMetadata } from '@/app/lib/city-seo';
 import { CityJsonLd } from '@/app/lib/CityJsonLd';
+import HeroImage from '@/components/HeroImage';
 
 const city = CITIES['port-de-soller'];
 export const metadata = buildCityMetadata(city);
@@ -9,14 +10,14 @@ export default function PortDeSoller() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <CityJsonLd city={city} />
-      <div style={{ position: 'relative', height: '60vh', backgroundImage: 'url(https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1600&q=85)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: '60px 80px' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>NORDVÄSTRA MALLORCA · VACKER HAMNBY</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '5rem', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>Port de Sóller</h1>
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>En av Mallorcas mest pittoreska hamnbyar med naturlig vik – nådd med historisk spårvagn från Sóller</p>
-        </div>
-      </div>
+      {/* TODO: hero photo reused across multiple towns — replace with Port de Sóller-specific (cirkelformad vik / spårvagn) */}
+      <HeroImage
+        src="https://images.unsplash.com/photo-1566815687825-39bd872e6e09"
+        alt="Hamnby i Tramuntana – Port de Sóller med cirkelformad vik och fiskebåtar"
+        kicker="Nordvästra Mallorca · Vacker hamnby"
+        title="Port de Sóller"
+        subtitle="En av Mallorcas mest pittoreska hamnbyar med naturlig vik – nådd med historisk spårvagn från Sóller"
+      />
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
         <div className="city-grid">
           <div>

@@ -1,4 +1,5 @@
 import { IconPin, IconInfo, IconBookmark, IconUsers, PriceTag, tierFromEmoji } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 
 export const metadata = {
   title: '15 bästa restaurangerna i Palma 2026 – Lokal guide | MyMallorca',
@@ -50,14 +51,14 @@ const sections = [
 export default function BästaRestaurangerPalma() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <div style={{ position: 'relative', minHeight: '52vh', backgroundImage: 'url(https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', alignItems: 'flex-end', padding: 'clamp(24px,6vw,60px) clamp(20px,5vw,80px)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.72))' }} />
-        <div style={{ position: 'relative', color: 'white', maxWidth: '640px' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: '14px', opacity: 0.85 }}>Matguide · 2026</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.4rem,8vw,4.8rem)', fontWeight: 400, letterSpacing: '0.02em', margin: 0, lineHeight: 0.95 }}>15 bästa restaurangerna i Palma</h1>
-          <p style={{ fontSize: 'clamp(0.95rem,3.2vw,1.1rem)', marginTop: '16px', opacity: 0.92, lineHeight: 1.5 }}>Handplockade av en lokal – inte TripAdvisor-rankade. Från Michelinstjärnor till 1 €-frukost.</p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
+        alt="Dukat restaurangbord med mallorcanska tapas och färska råvaror i Palma"
+        kicker="Matguide · 2026"
+        title="15 bästa restaurangerna i Palma"
+        subtitle="Handplockade av en lokal – inte TripAdvisor-rankade. Från Michelinstjärnor till 1 €-frukost."
+        height="52vh"
+      />
 
       <div style={{ maxWidth: '820px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
         <div style={{ background: 'white', border: '1px solid #ede5da', borderRadius: 16, padding: '18px 20px', marginBottom: 40 }}>

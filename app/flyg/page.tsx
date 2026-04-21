@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { IconPlane, IconPalm, IconSparkle, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 
 const flygplatser = [
   { kod: 'GOT', namn: 'Göteborg Landvetter' },
@@ -31,24 +32,14 @@ export default function FlygPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
-      <div style={{
-        position: 'relative', height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=90)',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-        display: 'flex', alignItems: 'flex-end',
-        padding: 'clamp(20px,5vw,60px) clamp(16px,5vw,80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: '0.9rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>Res till Mallorca</p>
-          <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(2.5rem,7vw,5rem)', fontWeight: '400', letterSpacing: '0.05em', margin: 0, lineHeight: 1 }}>
-            Hitta flyg till Palma
-          </h1>
-          <p style={{ fontSize: 'clamp(0.9rem,2.5vw,1.1rem)', marginTop: '12px', opacity: 0.9 }}>
-            Sök och jämför flyg från Sverige till Mallorca
-          </p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
+        alt="Flygplan över moln ovanför Medelhavet på väg till Palma de Mallorca"
+        kicker="Res till Mallorca"
+        title="Hitta flyg till Palma"
+        subtitle="Sök och jämför flyg från Sverige till Mallorca"
+        height="55vh"
+      />
 
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(24px,4vw,60px) clamp(16px,4vw,40px)' }}>
 

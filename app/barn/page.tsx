@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { IconWave, IconSparkle, IconFlag, IconBuilding, IconPin, IconUsers, IconBulb, IconMap, IconExternal } from '@/components/Icons';
+import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 
 type Kategori = {
@@ -86,36 +87,14 @@ export default function BarnPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       {/* Hero */}
-      <div style={{
-        position: 'relative',
-        height: '55vh',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1600&q=90)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: 'clamp(20px, 5vw, 60px) clamp(16px, 5vw, 80px)',
-      }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))' }} />
-        <div style={{ position: 'relative', color: 'white' }}>
-          <p style={{ fontSize: 'clamp(0.7rem, 2vw, 0.9rem)', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '12px', opacity: 0.8 }}>
-            Roliga upplevelser för hela familjen
-          </p>
-          <h1 style={{
-            fontFamily: '"Bebas Neue", sans-serif',
-            fontSize: 'clamp(2.2rem, 7vw, 5rem)',
-            fontWeight: '400',
-            letterSpacing: '0.05em',
-            margin: 0,
-            lineHeight: 1,
-          }}>
-            Barnvänligt på Mallorca
-          </h1>
-          <p style={{ fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)', marginTop: '12px', opacity: 0.9 }}>
-            Allt för barnfamiljen – vattenparker, djur, grottor och äventyr
-          </p>
-        </div>
-      </div>
+      <HeroImage
+        src="https://images.unsplash.com/photo-1530870110042-98b2cb110834"
+        alt="Barn som leker i poolen på en vattenpark – familjeupplevelser på Mallorca"
+        kicker="Roliga upplevelser för hela familjen"
+        title="Barnvänligt på Mallorca"
+        subtitle="Allt för barnfamiljen – vattenparker, djur, grottor och äventyr"
+        height="55vh"
+      />
 
       {/* Innehåll */}
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(24px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
