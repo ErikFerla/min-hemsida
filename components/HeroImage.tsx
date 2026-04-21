@@ -13,8 +13,6 @@ export type HeroImageProps = {
   subtitle?: string;
   /** Hero height. Default 60vh. */
   height?: string;
-  /** Photo credit line in bottom-right, e.g. "Foto: Luca / Unsplash" */
-  photoCredit?: string;
 };
 
 const SRCSET_WIDTHS = [640, 960, 1280, 1600, 2000];
@@ -35,7 +33,6 @@ export default function HeroImage({
   kicker,
   subtitle,
   height = '60vh',
-  photoCredit,
 }: HeroImageProps) {
   const heroStyle: CSSProperties = {
     position: 'relative',
@@ -107,22 +104,6 @@ export default function HeroImage({
           <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{subtitle}</p>
         )}
       </div>
-      {photoCredit && (
-        <p
-          style={{
-            position: 'absolute',
-            right: 10,
-            bottom: 8,
-            margin: 0,
-            fontSize: '0.68rem',
-            color: 'rgba(255,255,255,0.78)',
-            letterSpacing: '0.04em',
-            textShadow: '0 1px 3px rgba(0,0,0,0.6)',
-          }}
-        >
-          {photoCredit}
-        </p>
-      )}
     </section>
   );
 }

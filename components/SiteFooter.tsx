@@ -90,7 +90,10 @@ export default function SiteFooter() {
 
       <div className="footer-bottom">
         <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
-        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
+        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>
+          <a href="/bildkrediter" style={{ color: 'inherit', textDecoration: 'none' }}>Bildkrediter</a>
+          {' · '}Integritetspolicy · Cookies
+        </p>
       </div>
     </footer>
   );

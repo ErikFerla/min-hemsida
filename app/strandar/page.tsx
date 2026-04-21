@@ -166,13 +166,6 @@ function StrandarContent() {
             </h1>
             <div style={{ width: 48, height: 2, background: '#fff', opacity: 0.9, margin: '14px 0 0', borderRadius: 2 }} />
           </div>
-          <p style={{
-            position: 'absolute', right: 10, bottom: 8,
-            margin: 0, fontSize: '0.68rem', color: 'rgba(255,255,255,0.78)',
-            letterSpacing: '0.04em', textShadow: '0 1px 3px rgba(0,0,0,0.6)',
-          }}>
-            Foto: Chloé Lefleur / Unsplash
-          </p>
         </div>
 
         {/* Intro – geografisk översikt med interna länkar */}
