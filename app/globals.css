@@ -1103,16 +1103,20 @@ h1 {
   .planner-cta-btn { width: 100% !important; min-height: 52px !important; font-size: 1.1rem !important; padding: 16px 24px !important; border-radius: 12px !important; }
 }
 
-/* === EVENTS MOBILSLIDER === */
-.events-mobile-slider { display: none; }
+/* === EVENTS — unified responsive grid ===
+   Desktop (>=769px): 3-column grid
+   Mobile (<=768px): horizontal scroll-snap carousel
+   Single DOM, responsive layout. No duplicate cards. */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
 @media (max-width: 768px) {
-  /* Göm desktop-grid */
-  .events-desktop-grid { display: none !important; }
-
-  /* Visa mobilslider */
-  .events-mobile-slider {
+  .events-grid {
     display: flex !important;
+    grid-template-columns: unset !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory !important;
     gap: 12px !important;
@@ -1121,25 +1125,14 @@ h1 {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
   }
+  .events-grid::-webkit-scrollbar { display: none !important; }
 
-  .events-mobile-slider::-webkit-scrollbar {
-    display: none !important;
-  }
-
-  .events-mobile-card {
+  .events-card {
     flex: 0 0 82vw !important;
     min-width: 82vw !important;
     scroll-snap-align: start !important;
-    background: white !important;
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
     box-sizing: border-box !important;
   }
-
-  /* Göm vänster kolumn på mobil i events-sektionen */
-  .events-mobile-slider ~ div,
-  .events-desktop-grid ~ * { display: none !important; }
 
   /* Gör events-sektionen mer kompakt på mobil */
   section[style*="background: '#eeede4'"],
@@ -1276,7 +1269,7 @@ h1 {
 
 /* Förhindra layout shift – sätt aspect-ratio på kortbilder */
 .personal-mobile-card img,
-.events-mobile-card img,
+.events-card img,
 [class*="slide"] img {
   aspect-ratio: 16/9;
   width: 100%;

@@ -16,4 +16,7 @@ export const cities: MapMarker[] = [
   { name: 'Porto Colom', lat: 39.4180, lng: 3.2570, href: '/porto-colom', desc: 'Pittoresk fiskeby på östkusten' },
   { name: 'Santanyí', lat: 39.3580, lng: 3.1273, href: '/santanyi', desc: 'Charmig marknadsby i söder' },
   { name: 'Porto Petro', lat: 39.3620, lng: 3.2195, href: '/porto-petro', desc: 'Exklusiv och lugn marinaby' },
+  { name: 'Port de Sóller', lat: 39.7957, lng: 2.6938, href: '/port-de-soller', desc: 'Hamnby nådd med historisk spårvagn' },
+  { name: 'Manacor', lat: 39.5700, lng: 3.2090, href: '/manacor', desc: 'Öns näst största stad — pärlor och Rafa Nadal' },
+  { name: 'Campos', lat: 39.4333, lng: 3.0167, href: '/campos', desc: 'Saltstaden nära Es Trenc' },
 ];

@@ -5,6 +5,7 @@ import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
 import SectionEvents from './components/SectionEvents';
 import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
+import CityLinksList from './components/CityLinksList';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
@@ -158,6 +159,7 @@ export default function Home() {
               Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
             </p>
             <MallorcaMapWrapper />
+            <CityLinksList />
           </div>
         </section>
       </div>
