@@ -163,85 +163,144 @@ export default async function BarnHubPage({ searchParams }: Props) {
           >
             {countsByCategory.map((c) => {
               const isComingSoon = !c.available;
-              const cardInner = (
-                <>
-                  <div
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                      marginBottom: '8px',
-                    }}
-                  >
-                    <span style={{ fontSize: '1.8rem', lineHeight: 1 }} aria-hidden="true">
-                      {c.emoji}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily: '"Bebas Neue", sans-serif',
-                        fontSize: '1.25rem',
-                        letterSpacing: '0.04em',
-                        color: '#383a46',
-                      }}
-                    >
-                      {c.label}{' '}
-                      {c.available ? (
-                        <span style={{ color: '#993335' }}>({c.count})</span>
-                      ) : (
-                        <span style={{ color: '#9ca3af', fontSize: '0.85rem', fontWeight: 500, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                          Kommer snart
-                        </span>
-                      )}
-                    </span>
-                  </div>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: '0.9rem',
-                      lineHeight: 1.55,
-                      color: '#4b5563',
-                    }}
-                  >
-                    {c.shortTagline}
-                  </p>
-                </>
-              );
 
-              return (
-                <li key={c.slug}>
-                  {isComingSoon ? (
+              if (isComingSoon) {
+                return (
+                  <li key={c.slug}>
                     <div
                       aria-disabled="true"
                       style={{
-                        display: 'block',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
                         padding: '20px 22px',
                         background: '#f5f3ee',
                         border: '1px dashed rgba(0,0,0,0.12)',
                         borderRadius: '14px',
-                        opacity: 0.65,
+                        opacity: 0.7,
                         cursor: 'not-allowed',
+                        height: '100%',
                       }}
                     >
-                      {cardInner}
+                      <div
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'baseline',
+                          gap: '10px',
+                          flexWrap: 'wrap',
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily: '"Bebas Neue", sans-serif',
+                            fontSize: '1.25rem',
+                            letterSpacing: '0.04em',
+                            color: '#383a46',
+                          }}
+                        >
+                          {c.label}
+                        </span>
+                        <span
+                          style={{
+                            color: '#9ca3af',
+                            fontSize: '0.72rem',
+                            fontWeight: 600,
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase',
+                          }}
+                        >
+                          Kommer snart
+                        </span>
+                      </div>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontSize: '0.9rem',
+                          lineHeight: 1.55,
+                          color: '#4b5563',
+                        }}
+                      >
+                        {c.shortTagline}
+                      </p>
                     </div>
-                  ) : (
-                    <a
-                      href={c.href}
-                      style={{
-                        display: 'block',
-                        padding: '20px 22px',
-                        background: 'white',
-                        border: '1px solid rgba(0,0,0,0.06)',
-                        borderRadius: '14px',
-                        textDecoration: 'none',
-                        color: 'inherit',
-                        boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                        transition: 'transform 0.2s, box-shadow 0.2s',
-                      }}
-                    >
-                      {cardInner}
-                    </a>
-                  )}
+                  </li>
+                );
+              }
+
+              return (
+                <li key={c.slug}>
+                  <a
+                    href={c.href}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      background: 'white',
+                      border: '1px solid rgba(0,0,0,0.06)',
+                      borderRadius: '14px',
+                      overflow: 'hidden',
+                      textDecoration: 'none',
+                      color: 'inherit',
+                      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
+                      transition: 'transform 0.2s, box-shadow 0.2s',
+                      height: '100%',
+                    }}
+                  >
+                    {c.heroImage && (
+                      <div
+                        style={{
+                          aspectRatio: '16 / 10',
+                          background: '#eeede4',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <img
+                          src={`${c.heroImage}?w=640&q=80&fm=webp&auto=format`}
+                          srcSet={`${c.heroImage}?w=320&q=80&fm=webp&auto=format 320w, ${c.heroImage}?w=480&q=80&fm=webp&auto=format 480w, ${c.heroImage}?w=640&q=80&fm=webp&auto=format 640w, ${c.heroImage}?w=960&q=80&fm=webp&auto=format 960w`}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          alt=""
+                          width={640}
+                          height={400}
+                          loading="lazy"
+                          decoding="async"
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                        />
+                      </div>
+                    )}
+                    <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flexGrow: 1 }}>
+                      <div
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'baseline',
+                          gap: '8px',
+                          flexWrap: 'wrap',
+                        }}
+                      >
+                        <span
+                          style={{
+                            fontFamily: '"Bebas Neue", sans-serif',
+                            fontSize: '1.25rem',
+                            letterSpacing: '0.04em',
+                            color: '#383a46',
+                          }}
+                        >
+                          {c.label}
+                        </span>
+                        <span style={{ color: '#993335', fontSize: '0.9rem', fontWeight: 600 }}>
+                          ({c.count})
+                        </span>
+                      </div>
+                      <p
+                        style={{
+                          margin: 0,
+                          fontSize: '0.9rem',
+                          lineHeight: 1.55,
+                          color: '#4b5563',
+                        }}
+                      >
+                        {c.shortTagline}
+                      </p>
+                    </div>
+                  </a>
                 </li>
               );
             })}

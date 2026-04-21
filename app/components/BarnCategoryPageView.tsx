@@ -193,7 +193,7 @@ export default function BarnCategoryPageView({
                   fontSize: '0.9rem',
                 }}
               >
-                <span aria-hidden="true">{c.emoji}</span> {c.label}
+                {c.label}
               </a>
             ))}
           </div>

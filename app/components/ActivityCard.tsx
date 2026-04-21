@@ -73,7 +73,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
               letterSpacing: '0.03em',
             }}
           >
-            {meta.emoji} {meta.label}
+            {meta.label}
           </span>
         )}
         {activity.indoors && (
