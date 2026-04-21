@@ -17,12 +17,12 @@ export default function Inca() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Inca</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Inca är Mallorcas näst folkrikaste stad och känd som öns läderhuvudstad. Läderfabriker och butiker har producerat skor, väskor och bälten här i generationer, och torsdagsmarknaden – öns näst största – lockar köpare från hela Mallorca. Priserna på kvalitetsskor är ofta långt under det du betalar i Stockholm.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Celler-restaurangerna är en unik inkansk tradition – källare under gamla stadshus som börjat som vinförråd och nu serverar traditionell mallorquinska mat. Dijous Bo i november är Mallorcas största marknadshändelse med hundratusentals besökare.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Insider-tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Torsdagsmarknaden – kom 08:30 för bästa urval av skor och läder</li>
               <li>Celler-restaurang till lunch – ärlig mallorcansk mat i vinkällare</li>
@@ -39,7 +39,7 @@ export default function Inca() {
               ))}
             </div>
           </div>
-          <div>
+          <aside>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
               <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
@@ -53,7 +53,7 @@ export default function Inca() {
             <a href="https://maps.google.com/?q=Inca+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
               Visa på karta →
             </a>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

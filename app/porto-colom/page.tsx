@@ -16,12 +16,12 @@ export default function PortoColom() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Porto Colom</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Porto Colom är en av Mallorcas mest autentiska fiskebyar, belägen på östkusten. Till skillnad från många andra kustorter har Porto Colom lyckats bevara sin ursprungliga karaktär med färglada fiskarbåtar, vita hus och en avslappnad atmosfär som tar dig tillbaka i tiden.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Hamnen är en av de vackraste naturliga hamnarna på ön och är omgiven av pittoreska byggnader i ockra och rosa toner. På morgonen kan du se fiskarna lossa sin fångst – och om du frågar snällt säljer de direkt från båten.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Grytes tips <IconStar size={20} /></h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px' }}>Insider-tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Skippa turistkrogarna vid hamnen – gå till baksidan av torget</li>
               <li>Fråga efter “el peix del dia” – färsk fisk fångad samma dag</li>
@@ -42,7 +42,7 @@ export default function PortoColom() {
               ))}
             </div>
           </div>
-          <div>
+          <aside>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
               <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
@@ -50,13 +50,13 @@ export default function PortoColom() {
                 <strong>Bil:</strong> Ca 50 min från Palma<br/>
                 <strong>Bästa tid:</strong> Maj–oktober<br/>
                 <strong>Känd för:</strong> Fiske, autentisk atmosfär<br/>
-                <strong>Stränder nearby:</strong> Cala Marçal, Cala Sa Nau
+                <strong>Stränder i närheten:</strong> Cala Marçal, Cala Sa Nau
               </p>
             </div>
             <a href="https://maps.google.com/?q=Porto+Colom+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
               Visa på karta →
             </a>
-          </div>
+          </aside>
         </div>
       </div>
     </div>

@@ -183,7 +183,7 @@ export default function StadPage({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,40px)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '40px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46' }}>Om {stad.namn}</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '32px' }}>{stad.longDesc}</p>

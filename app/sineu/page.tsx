@@ -12,12 +12,12 @@ export default function Sineu() {
         </div>
       </div>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '60px' }}>
+        <div className="city-grid">
           <div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om Sineu</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Sineu är beläget i exakt centrum av Mallorca – geografiskt och kulturellt. Onsdagsmarknaden har pågått sedan kung Jaume II utfärdade privilegiet år 1306, vilket gör den till öns äldsta. Levande djur, lokala produkter, hantverk och grönsaker säljs sida vid sida på stadens olika torg.</p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>Kyrkan Mare de Déu dels Àngels dominerar stadsbilden med sin imponerande fasad och torn. Sa Plaça är torgets hjärta med caféer och barer som serverar ärlig mat till ärliga priser – utan turistpåslag. Det är Mallorca som det en gång var.</p>
-            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Grytes tips <IconStar size={20} /></h3>
+            <h3 style={{ fontSize: '1.3rem', fontWeight: '700', marginBottom: '12px', marginTop: '32px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>Insider-tips <IconStar size={20} /></h3>
             <ul style={{ fontSize: '1rem', lineHeight: '2', color: '#444', paddingLeft: '20px' }}>
               <li>Onsdagsmarknaden – kom 08:00 för bästa upplevelsen, fullt efter 10</li>
               <li>Fråga lokalt om djurmarknaden – hålls på ett separat torg</li>
@@ -38,7 +38,7 @@ export default function Sineu() {
               ))}
             </div>
           </div>
-          <div>
+          <aside>
             <div style={{ background: 'white', borderRadius: '16px', padding: '28px', boxShadow: '0 2px 16px rgba(0,0,0,0.08)', marginBottom: '20px' }}>
               <h3 style={{ fontWeight: '700', marginBottom: '16px', fontSize: '1.1rem', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={16} /> Praktisk info</h3>
               <p style={{ fontSize: '0.9rem', color: '#555', lineHeight: '1.8' }}>
@@ -52,7 +52,7 @@ export default function Sineu() {
             <a href="https://maps.google.com/?q=Sineu+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>
               Visa på karta →
             </a>
-          </div>
+          </aside>
         </div>
       </div>
     </div>
