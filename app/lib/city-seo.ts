@@ -143,6 +143,22 @@ export const CITIES: Record<string, City> = {
     lat: 39.6433,
     lon: 2.9911,
   },
+  'manacor': {
+    slug: 'manacor',
+    name: 'Manacor',
+    description: 'Manacor – Mallorcas näst största stad på östkusten. Pärlor, Rafa Nadals hemstad och porten till Drach-grottorna. Insider-tips från lokalkännare.',
+    heroImage: 'https://images.unsplash.com/photo-1474722883778-792e7990302f',
+    lat: 39.5700,
+    lon: 3.2090,
+  },
+  'campos': {
+    slug: 'campos',
+    name: 'Campos',
+    description: 'Campos – saltstaden i södra Mallorca med två marknadsdagar, Es Trenc runt hörnet och Flor de Sal som skördas för hand. Autentisk reseguide på svenska.',
+    heroImage: 'https://images.unsplash.com/photo-1533105079780-92b9be482077',
+    lat: 39.4333,
+    lon: 3.0167,
+  },
 };
 
 export function cityTitle(c: City): string {
