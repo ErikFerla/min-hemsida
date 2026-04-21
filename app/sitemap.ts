@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/flyg`, priority: 0.7, changeFrequency: 'weekly' },
     { url: `${baseUrl}/vingardar`, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${baseUrl}/kontakt`, priority: 0.5, changeFrequency: 'monthly' },
+    { url: `${baseUrl}/bildkrediter`, priority: 0.3, changeFrequency: 'yearly' },
     { url: `${baseUrl}/palma-de-mallorca`, priority: 0.85, changeFrequency: 'monthly' },
     { url: `${baseUrl}/soller`, priority: 0.75, changeFrequency: 'monthly' },
     { url: `${baseUrl}/porto-colom`, priority: 0.75, changeFrequency: 'monthly' },
