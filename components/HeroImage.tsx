@@ -48,81 +48,82 @@ export default function HeroImage({
   };
 
   return (
-    <section style={heroStyle}>
-      <img
-        src={buildUrl(src, SRC_WIDTH)}
-        srcSet={buildSrcSet(src)}
-        sizes="100vw"
-        alt={alt}
-        width={2000}
-        height={1125}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center',
-          display: 'block',
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))',
-        }}
-      />
-      <div style={{ position: 'relative', color: 'white' }}>
-        {kicker && (
-          <p
+    <>
+      <section style={heroStyle}>
+        <img
+          src={buildUrl(src, SRC_WIDTH)}
+          srcSet={buildSrcSet(src)}
+          sizes="100vw"
+          alt={alt}
+          width={2000}
+          height={1125}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            display: 'block',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))',
+          }}
+        />
+        <div style={{ position: 'relative', color: 'white' }}>
+          {kicker && (
+            <p
+              style={{
+                fontSize: '0.9rem',
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                marginBottom: '12px',
+                opacity: 0.8,
+              }}
+            >
+              {kicker}
+            </p>
+          )}
+          <h1
             style={{
-              fontSize: '0.9rem',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-              opacity: 0.8,
+              fontFamily: '"Bebas Neue", sans-serif',
+              fontSize: '5rem',
+              fontWeight: 400,
+              letterSpacing: '0.05em',
+              margin: 0,
+              lineHeight: 1,
             }}
           >
-            {kicker}
-          </p>
-        )}
-        <h1
-          style={{
-            fontFamily: '"Bebas Neue", sans-serif',
-            fontSize: '5rem',
-            fontWeight: 400,
-            letterSpacing: '0.05em',
-            margin: 0,
-            lineHeight: 1,
-          }}
-        >
-          {title}
-        </h1>
-        {subtitle && (
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{subtitle}</p>
-        )}
-      </div>
+            {title}
+          </h1>
+          {subtitle && (
+            <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{subtitle}</p>
+          )}
+        </div>
+      </section>
       {photoCredit && (
         <p
           style={{
-            position: 'absolute',
-            right: 10,
-            bottom: 8,
-            margin: 0,
-            fontSize: '0.68rem',
-            color: 'rgba(255,255,255,0.78)',
-            letterSpacing: '0.04em',
-            textShadow: '0 1px 3px rgba(0,0,0,0.6)',
+            margin: '8px 0 20px',
+            padding: '0 clamp(16px, 4vw, 40px)',
+            fontSize: '0.75rem',
+            color: '#6b7280',
+            textAlign: 'right',
+            letterSpacing: '0.02em',
+            lineHeight: 1.4,
           }}
         >
           {photoCredit}
         </p>
       )}
-    </section>
+    </>
   );
 }

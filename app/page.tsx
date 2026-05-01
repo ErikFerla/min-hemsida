@@ -46,20 +46,29 @@ export default function Home() {
         >
           <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
 
-            {/* BILD VÄNSTER — Palmas gamla stan (Foto: Luca / Unsplash) */}
+            {/* BILD VÄNSTER — Palmas gamla stan */}
             <div>
               <img
                 src="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format"
                 srcSet="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=640&q=80&fm=webp&auto=format 640w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=960&q=80&fm=webp&auto=format 960w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format 1280w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1600&q=80&fm=webp&auto=format 1600w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=2000&q=80&fm=webp&auto=format 2000w"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 alt="Stentrappa i Palmas gamla stan med gyllene sandstensfasader, blommor och en kyrka i fjärran"
-                title="Foto: Luca / Unsplash"
                 width={1280}
                 height={1600}
                 loading="lazy"
                 decoding="async"
                 className="section-portrait-image"
               />
+              <p style={{
+                margin: '8px 0 0',
+                fontSize: '0.75rem',
+                color: '#6b7280',
+                textAlign: 'right',
+                letterSpacing: '0.02em',
+                lineHeight: 1.4,
+              }}>
+                Foto: Luca / Unsplash
+              </p>
             </div>
 
             {/* TEXT HÖGER */}
