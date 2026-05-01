@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { evenemang } from '@/app/components/SectionEvents';
+import { evenemang, isUpcoming, type Evenemang } from '@/app/components/SectionEvents';
 import { IconCalendar, IconPin } from '@/components/Icons';
 
 const kategorier = ['Alla', 'Sport', 'Musik', 'Kultur', 'Mat & Dryck', 'Marknad', 'Familj'];
@@ -14,8 +14,6 @@ const kategoriColor: Record<string, string> = {
   'Familj': '#db2777',
 };
 
-type Evenemang = { namn: string; datum: string; plats: string; kategori: string; beskrivning: string; länk: string; bild: string };
-
 const sektioner: { rubrik: string; kategorier: string[] }[] = [
   { rubrik: 'Sport', kategorier: ['Sport'] },
   { rubrik: 'Musik & Kultur', kategorier: ['Musik', 'Kultur'] },
@@ -26,7 +24,8 @@ const sektioner: { rubrik: string; kategorier: string[] }[] = [
 
 export default function EvenemangPage() {
   const [aktiv, setAktiv] = useState('Alla');
-  const filtrerade = aktiv === 'Alla' ? evenemang : evenemang.filter(e => e.kategori === aktiv);
+  const upcoming = evenemang.filter(e => isUpcoming(e));
+  const filtrerade = aktiv === 'Alla' ? upcoming : upcoming.filter(e => e.kategori === aktiv);
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
@@ -77,7 +76,7 @@ export default function EvenemangPage() {
 
         {aktiv === 'Alla' ? (
           sektioner.map(sektion => {
-            const items = evenemang.filter(e => sektion.kategorier.includes(e.kategori));
+            const items = upcoming.filter(e => sektion.kategorier.includes(e.kategori));
             if (items.length === 0) return null;
             return (
               <section key={sektion.rubrik} style={{ marginBottom: 56 }}>
