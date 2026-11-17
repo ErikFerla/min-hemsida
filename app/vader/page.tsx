@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import WeatherForecast from './WeatherForecast';
+import { WEATHER_LOCATIONS } from './locations';
 import styles from './vader.module.css';
 
 export default function Vader() {
@@ -31,6 +32,17 @@ export default function Vader() {
         >
           <WeatherForecast />
         </Suspense>
+        <section className={styles.places} aria-labelledby="orter-heading">
+          <h2 id="orter-heading">Orterna i prognosen</h2>
+          <ul className={styles.placeList}>
+            {WEATHER_LOCATIONS.map((loc) => (
+              <li key={loc.slug}>
+                <strong>{loc.name}</strong>
+                {loc.fact}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );
