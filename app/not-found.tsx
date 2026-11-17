@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { IconPalm } from '@/components/Icons';
 
@@ -85,7 +86,7 @@ export default function NotFound() {
           >
             {popularaLankar.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   style={{
                     display: 'block',
@@ -114,7 +115,7 @@ export default function NotFound() {
                   <span style={{ display: 'block', fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.45 }}>
                     {l.beskrivning}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

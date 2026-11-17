@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import HeroImage from '@/components/HeroImage';
@@ -113,7 +114,7 @@ export default function GuiderPage() {
           >
             {guider.map(({ href, title, passar, text, Icon }) => (
               <li key={href} style={{ display: 'flex' }}>
-                <a
+                <Link
                   href={href}
                   style={{
                     display: 'flex',
@@ -141,7 +142,7 @@ export default function GuiderPage() {
                   <span style={{ fontSize: '0.9rem', fontWeight: 600, color: '#993335' }}>
                     Läs guiden →
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -160,12 +161,12 @@ export default function GuiderPage() {
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             {merAttUtforska.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', padding: '0 16px', background: 'white', border: '1px solid #ede5da', borderRadius: '999px', color: '#383a46', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 500 }}
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

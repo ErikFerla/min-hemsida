@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/components/Icons';
 import BarnMapWrapper from '@/components/BarnMapWrapper';
 import type { ComponentType } from 'react';
@@ -98,7 +99,7 @@ export default function MallorcaMedBarnGuide() {
           </div>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
           <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se den kompletta barnguiden med alla aktiviteter, åldersrekommendationer och praktiska tips.</p>
-          <a href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</a>
+          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</Link>
         </section>
       </div>
 

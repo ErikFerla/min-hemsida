@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { featureItems as cards } from '@/app/components/FeatureCards';
 
 // Samma kort som desktop (FeatureCards) så att mobil och desktop visar samma innehåll.
@@ -11,7 +12,7 @@ export default function MobileFeatureCards() {
       marginTop: '16px',
     }}>
       {cards.map(card => (
-        <a
+        <Link
           key={card.href}
           href={card.href}
           style={{
@@ -49,7 +50,7 @@ export default function MobileFeatureCards() {
               {card.desc}
             </div>
           </div>
-        </a>
+        </Link>
       ))}
     </div>
   );

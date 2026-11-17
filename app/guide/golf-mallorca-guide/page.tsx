@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 
@@ -197,7 +198,7 @@ export default function GolfMallorcaGuide() {
         <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Mer om golf på Mallorca</h2>
           <p style={{ opacity: 0.85, marginBottom: '24px' }}>Boka tider, läs mer om paketresor och golfhotell.</p>
-          <a href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE GOLFGUIDEN →</a>
+          <Link href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE GOLFGUIDEN →</Link>
         </div>
       </div>
     </div>

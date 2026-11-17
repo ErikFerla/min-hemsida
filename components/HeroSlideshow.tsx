@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 
 type Bild = {
@@ -179,8 +180,9 @@ export default function HeroSlideshow() {
       />
 
       {/* Klickbar yta för mus – dold för tangentbord och skärmläsare (CTA-länken nedan är den riktiga länken) */}
-      <a
+      <Link
         href={bild.lank}
+        prefetch={false}
         tabIndex={-1}
         aria-hidden="true"
         style={{ position: 'absolute', inset: 0, zIndex: 1 }}
@@ -232,7 +234,7 @@ export default function HeroSlideshow() {
           {bild.undertext}
         </p>
 
-        <a
+        <Link
           href={bild.lank}
           style={{
             display: 'inline-block',
@@ -260,7 +262,7 @@ export default function HeroSlideshow() {
           }}
         >
           {bild.cta} <span aria-hidden="true">→</span>
-        </a>
+        </Link>
       </div>
 
       {/* Kontroller: paus + bildväljare (klickytor ≥24 px) */}

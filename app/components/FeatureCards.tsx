@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 const svgProps = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: '#383a46', strokeWidth: 1.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -21,7 +22,7 @@ export default function FeatureCards() {
       marginTop: '8px',
     }}>
       {featureItems.map((item) => (
-        <a
+        <Link
           key={item.title}
           href={item.href}
           style={{
@@ -64,7 +65,7 @@ export default function FeatureCards() {
             letterSpacing: 'var(--btn-letter-spacing, 0.08em)',
             textTransform: 'uppercase',
           }}>LÄS MER →</div>
-        </a>
+        </Link>
       ))}
     </div>
   );

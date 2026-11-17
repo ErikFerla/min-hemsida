@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { useState } from 'react';
 import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconMap, IconBulb, IconPalm } from '@/components/Icons';
 import type { ComponentType } from 'react';
@@ -254,7 +255,7 @@ export default function SectionPlanner() {
             ))}
             <div style={{ marginTop: '32px', padding: '20px', background: '#f5f5f5', borderRadius: '10px' }}>
               <p style={{ margin: 0, fontSize: '0.9rem', color: '#666' }}>
-                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <a href="/guider" style={{ color: '#993335', fontWeight: 600 }}>våra guider</a> hittar du stränder, mat, golf och Mallorca med barn.
+                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <Link href="/guider" style={{ color: '#993335', fontWeight: 600 }}>våra guider</Link> hittar du stränder, mat, golf och Mallorca med barn.
               </p>
             </div>
           </div>
