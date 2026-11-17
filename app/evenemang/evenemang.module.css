@@ -53,7 +53,7 @@
 
 .disclaimer {
   font-size: 0.85rem;
-  color: #4b5563;
+  color: var(--color-text-muted);
   margin: 12px auto 0;
   max-width: 60ch;
   line-height: 1.7;

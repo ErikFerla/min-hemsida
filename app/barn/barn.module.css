@@ -118,7 +118,7 @@
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #4b5563;
+  color: var(--color-text-muted);
 }
 
 /* ── Aktiviteter ── */

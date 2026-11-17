@@ -234,7 +234,7 @@
   margin-bottom: 14px;
   line-height: 1.6;
   font-size: 0.85rem;
-  color: #444;
+  color: var(--color-text);
 }
 
 .tipIcon {
@@ -253,7 +253,7 @@
   background: #f3e5f5;
   border-left: 3px solid #8e44ad;
   font-size: 0.82rem;
-  color: #333;
+  color: var(--color-text);
   line-height: 1.5;
 }
 
@@ -305,7 +305,7 @@
 /* ── Golfguiden ── */
 .cta {
   margin-top: 60px;
-  background: #111;
+  background: var(--color-ink-strong);
   border-radius: 16px;
   padding: 40px;
   color: #fff;
@@ -313,7 +313,7 @@
 }
 
 .ctaText {
-  color: #aaa;
+  color: var(--color-on-dark-muted);
   font-size: 1rem;
   line-height: 1.7;
   max-width: 500px;

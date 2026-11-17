@@ -61,7 +61,7 @@
 }
 
 .empty {
-  color: #4b5563;
+  color: var(--color-text-muted);
   line-height: 1.7;
   margin: 0 0 40px;
 }
@@ -81,7 +81,7 @@
 }
 
 .archiveText {
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin: 12px 0 24px;
   line-height: 1.7;
@@ -185,7 +185,7 @@
 
 .description {
   font-size: 0.875rem;
-  color: #4b5563;
+  color: var(--color-text-muted);
   line-height: 1.7;
   margin: 0;
   flex: 1;

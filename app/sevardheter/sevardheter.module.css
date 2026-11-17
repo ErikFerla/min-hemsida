@@ -93,7 +93,7 @@
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 0.85rem;
-  color: #444;
+  color: var(--color-text);
   margin-top: 10px;
   margin-bottom: 14px;
   line-height: 1.6;
@@ -115,7 +115,7 @@
   background: #f3e5f5;
   border-left: 3px solid #8e44ad;
   font-size: 0.82rem;
-  color: #333;
+  color: var(--color-text);
   line-height: 1.5;
 }
 
