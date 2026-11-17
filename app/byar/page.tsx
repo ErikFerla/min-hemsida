@@ -1,76 +1,74 @@
-'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconStar, IconBuilding, IconPin, IconBulb, IconMap } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import JsonLd from '@/app/components/JsonLd';
+import { cities, cityPath } from '@/data/cities';
+import { cityUrl } from '@/app/lib/city-seo';
 
-const städer = [
-  { namn: 'Palma de Mallorca', href: '/palma-de-mallorca', region: 'Sydväst', beskrivning: 'Öns pulserande huvudstad med La Seu-katedralen, gamla stan och livlig restaurangscen', bild: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=600&q=75', tips: 'Bästa utsikten från Bellver slott', top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Bellver Slott'] },
-  { namn: 'Sóller', href: '/soller', region: 'Nordväst', beskrivning: 'Bergsby omgiven av apelsinlundar med historisk spårvagn ner till havet', bild: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=600&q=75', tips: 'Ta spårvagnen till Port de Sóller', top3: ['Historiska spårvagnen', 'Apelsinlundarna', 'Firó-festivalen i maj'] },
-  { namn: 'Porto Colom', href: '/porto-colom', region: 'Öst', beskrivning: 'Pittoresk fiskeby med en av Mallorcas vackraste naturliga hamnar', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75', tips: 'Fiskarna säljer direkt från båten på morgonen', top3: ['Naturhamnen', 'Färska fisken på morgonen', 'Kvällspromenaden längs vattnet'] },
-  { namn: 'Santanyí', href: '/santanyi', region: 'Syd', beskrivning: 'Charmig marknadsby känd för onsdagsmarknaden och närheten till Cala Llombards', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=75', tips: 'Onsdagsmarknaden är bättre än lördagen', top3: ['Onsdagsmarknaden', 'Cala Llombards (5 min)', 'Gallerierna i gamla stan'] },
-  { namn: 'Porto Petro', href: '/porto-petro', region: 'Syd', beskrivning: 'Exklusiv och lugn marinaby i sydost, populär bland segelbåtar', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=75', tips: 'Perfekt för kvällspromenad längs hamnen', top3: ['Marinan med lyxbåtar', 'Kvällspromenaden', 'Cala Mondragó (10 min)'] },
-  { namn: 'Alcúdia', href: '/alcudia', region: 'Norr', beskrivning: 'Historisk kuststad med välbevarade medeltida murar och romarteater', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75', tips: 'Besök den romerska teatern och gamla stan', top3: ['Medeltida stadsmurarna', 'Romerska teatern Pollentia', 'Playa de Muro (5 min)'] },
-  { namn: 'Valldemossa', href: '/valldemossa', region: 'Nordväst', beskrivning: 'UNESCO-skyddad bergsby känt för Chopin och George Sands vistelse', bild: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=600&q=75', tips: 'Besök kartusianerklostret tidigt på morgonen', top3: ['Kartusianerklostret', 'Chopins pianosalong', 'Utsikten från byplatsen'] },
-  { namn: 'Deià', href: '/deia', region: 'Nordväst', beskrivning: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och havsutsikt', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75', tips: 'Robert Graves museum är ett måste', top3: ['Robert Graves museum', 'Cala Deià (bad)', 'Utsikten från kyrkan'] },
-  { namn: 'Artà', href: '/arta', region: 'Öst', beskrivning: 'Historisk bergsstad med imponerande borg och vackra gränder', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=75', tips: 'Besök borgen Santuari de Sant Salvador', top3: ["Santuari de Sant Salvador", "Coves d'Artà (nära)", 'Tisdagsmarknaden'] },
-  { namn: 'Andratx', href: '/andratx', region: 'Sydväst', beskrivning: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina", bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=75', tips: "Port d'Andratx har öns snyggaste marina", top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'] },
-  { namn: 'Pollença', href: '/pollenca', region: 'Norr', beskrivning: 'Autentisk by med romersk bro, konstmarknad och 365 trappsteg till Calvari', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75', tips: 'Klättra upp till Calvari för fantastisk utsikt', top3: ['365 trappsteg till Calvari', 'Söndagsmarknaden', 'Jazz-festivalen i juli'] },
-  { namn: 'Sineu', href: '/sineu', region: 'Inland', beskrivning: 'Mallorcas geografiska hjärta med öns äldsta marknad sedan 1306', bild: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85', tips: 'Onsdagsmarknaden – kom tidigt för bästa upplevelsen', top3: ['Onsdagsmarknaden (sedan 1306)', 'Sa Placa-torget', 'Kyrkan Mare de Déu dels Àngels'] },
-  { namn: 'Felanitx', href: '/felanitx', region: 'Öst', beskrivning: 'Traditionell stad känd för keramik, vin och söndagsmarknad', bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75', tips: 'Köp lokal keramik direkt från hantverkarna', top3: ['Lokal keramik & hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'] },
-  { namn: 'Manacor', href: '/manacor', region: 'Öst', beskrivning: 'Mallorcas näst största stad – känd för pärlor, möbler och Rafael Nadal', bild: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85', tips: 'Besök en pärlafabrik och se hur de tillverkas', top3: ['Majórica pärlafabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'] },
-  { namn: 'Inca', href: '/inca', region: 'Inland', beskrivning: 'Läderstaden med berömd torsdagsmarknad och källarviner', bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=75', tips: 'November – kom på den stora lädermässan', top3: ['Torsdagsmarknaden', 'Läderskor & väskor till rea', 'Cellers (källarrestauranger)'] },
-  { namn: 'Capdepera', href: '/capdepera', region: 'Öst', beskrivning: 'Medeltida borg och pittoresk by i nordöst med panoramautsikt över havet', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=600&q=75', tips: 'Besök Castell de Capdepera i solnedgången', top3: ['Castell de Capdepera', 'Cala Rajada (nära)', 'Utsikten vid solnedgång'] },
-  { namn: 'Port de Sóller', href: '/port-de-soller', region: 'Nordväst', beskrivning: 'Charmig hamnby med en av Mallorcas vackraste vikar, nådd med historisk spårvagn', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75', tips: 'Ta den historiska spårvagnen från Sóller', top3: ['Spårvagnsresan från Sóller', 'Solnedgången vid hamnen', 'Snorkling i viken'] },
-  { namn: 'Campos', href: '/campos', region: 'Syd', beskrivning: 'Lantlig stad nära Es Trenc känd för salt, kapers och lördagsmarknad', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75', tips: 'Perfekt stopp på väg till Es Trenc', top3: ['Es Trenc-stranden (10 min)', 'Saltpannorna Salines', 'Lördagsmarknaden'] },
-];
+const TOP3_ICONS = [IconStar, IconBuilding, IconPin] as const;
 
-export default function ByadSida() {
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Städer och byar på Mallorca',
+  numberOfItems: cities.length,
+  itemListElement: cities.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    url: cityUrl(c),
+  })),
+};
+
+export default function ByarSida() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+      <JsonLd data={itemList} />
       <HeroImage
         src="https://images.unsplash.com/photo-1566815687825-39bd872e6e09"
         alt="Panoramabild över Mallorca med vita stenhus och Tramuntanabergen – översikt över öns städer och byar"
         kicker="Utforska Mallorca"
         title="Städer och Byar"
-        subtitle={`${städer.length} utvalda destinationer runt hela ön`}
+        subtitle={`${cities.length} utvalda destinationer runt hela ön`}
         height="55vh"
       />
 
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
-          {städer.map((stad, i) => (
-            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
+          {cities.map((stad) => (
+            <div key={stad.slug} className="byar-card" style={{ background: 'white', borderRadius: '16px', overflow: 'hidden' }}>
               <div style={{ position: 'relative' }}>
-                <Image src={stad.bild} alt={stad.namn} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
+                <Image src={stad.card.image} alt={stad.name} width={600} height={180} style={{ width: '100%', height: '180px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: '8px', left: '8px', background: '#993335', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
                   {stad.region}
                 </div>
               </div>
               <div style={{ padding: '22px' }}>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{stad.namn}</h2>
-                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{stad.beskrivning}</p>
+                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{stad.name}</h2>
+                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{stad.card.description}</p>
                 <div style={{ margin: '12px 0' }}>
-                  {stad.top3.map((sak, j) => (
-                    <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: j < 2 ? '1px solid #f0ebe3' : 'none' }}>
-                      <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
-                        {j === 0 ? <IconStar size={16} /> : j === 1 ? <IconBuilding size={16} /> : <IconPin size={16} />}
-                      </span>
-                      <span style={{ fontSize: '0.85rem', color: '#374151' }}>{sak}</span>
-                    </div>
-                  ))}
+                  {stad.card.top3.map((sak, j) => {
+                    const Icon = TOP3_ICONS[j];
+                    return (
+                      <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0', borderBottom: j < 2 ? '1px solid #f0ebe3' : 'none' }}>
+                        <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
+                          <Icon size={16} />
+                        </span>
+                        <span style={{ fontSize: '0.85rem', color: '#374151' }}>{sak}</span>
+                      </div>
+                    );
+                  })}
                 </div>
                 <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}>
-                  <IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {stad.tips}
+                  <IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {stad.card.tip}
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.namn + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer"
                     style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
                     <IconMap size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> Visa på karta
                   </a>
-                  <Link href={stad.href}
+                  <Link href={cityPath(stad)}
                     style={{ flex: 1, textAlign: 'center', padding: '8px 12px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.85rem' }}>
                     Utforska →
                   </Link>
