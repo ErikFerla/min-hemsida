@@ -50,7 +50,7 @@ export type City = {
   about: string[];
   tips: CityTip[];
   /**
-   * Tre höjdpunkter. "list" = rubrik i Bebas Neue med avdelare,
+   * Tre höjdpunkter. "list" = h2-rubrik med avdelare,
    * "cards" = mindre rubrik med vita kort. Valfri.
    */
   highlights?: { variant: 'list' | 'cards'; heading: string; items: [string, string, string] };

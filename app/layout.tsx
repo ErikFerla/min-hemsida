@@ -22,20 +22,6 @@ const playfair = localFont({
   display: 'swap',
   adjustFontFallback: 'Times New Roman',
 });
-// Familjenamnet sätts till "Bebas Neue" så att befintliga font-family-regler
-// ('Bebas Neue', sans-serif) träffar den self-hostade filen. --font-bebas sätts
-// här på <body>: next/font:s `variable` och style.fontFamily använder det genererade
-// namnet ("bebas"), som inte matchar declarations – därför läggs "Bebas Neue" först
-// och den genererade listan efter (ger den metrikjusterade reservfonten).
-const bebas = localFont({
-  src: './fonts/bebas-neue-latin-400-normal.woff2',
-  weight: '400',
-  style: 'normal',
-  display: 'swap',
-  declarations: [{ prop: 'font-family', value: 'Bebas Neue' }],
-});
-const fontVars = { '--font-bebas': `"Bebas Neue", ${bebas.style.fontFamily}` } as React.CSSProperties;
-
 const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
 const DEFAULT_DESCRIPTION =
@@ -70,12 +56,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
-      <body className={`${inter.variable} ${playfair.variable}`} style={{ ...fontVars, margin: 0, background: '#fefefb', color: '#383a46' }}>
+      <body className={`${inter.variable} ${playfair.variable}`}>
         <a href="#main" className="skip-link">Hoppa till innehållet</a>
         <Navbar />
         <OrganizationSchema />
         <WebSiteSchema />
-        <main id="main" tabIndex={-1} style={{ width: '100%', overflowX: 'hidden' }}>{children}</main>
+        <main id="main" tabIndex={-1}>{children}</main>
         <SiteFooter />
       </body>
     </html>
