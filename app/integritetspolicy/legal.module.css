@@ -1,13 +1,13 @@
 /* Gemensamma stilar för /integritetspolicy och /cookies */
 .page {
-  background: #fefefb;
+  background: var(--color-bg);
   padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 40px) clamp(56px, 8vw, 104px);
 }
 
 .article {
   max-width: 720px;
   margin: 0 auto;
-  color: #383a46;
+  color: var(--color-ink);
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -17,7 +17,7 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #993335;
+  color: var(--color-accent);
   margin: 0 0 12px;
 }
 
@@ -38,7 +38,7 @@
 .article p,
 .article ul {
   margin: 0 0 16px;
-  color: #4b5563;
+  color: var(--color-text-soft);
 }
 
 .article ul {
@@ -50,7 +50,7 @@
 }
 
 .article a {
-  color: #993335;
+  color: var(--color-accent);
   font-weight: 600;
 }
 
