@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { WEATHER_LOCATIONS as locations } from './locations';
 import styles from './vader.module.css';
+import h from '../guide/headings.module.css';
 
 type ForecastData = {
   date: string;
@@ -333,7 +334,7 @@ export default function WeatherForecast() {
         <div className={styles.weatherWidget}>
           <div className={styles.currentWeather}>
             <div className={styles.locationDate}>
-              <h2>{currentLocation.name}</h2>
+              <h2 className={h.h2}>{currentLocation.name}</h2>
               <p className={styles.fact}>{currentLocation.fact}</p>
               <p>{currentDay.dateLabel}</p>
             </div>
@@ -356,7 +357,6 @@ export default function WeatherForecast() {
               viewBox={`0 0 ${CHART_WIDTH} ${CHART_HEIGHT}`}
               preserveAspectRatio="xMidYMid meet"
               className={styles.chartSvg}
-              style={{ width: '100%', height: 'auto' }}
               role="img"
               aria-label={`Högsta temperatur per dag i ${currentLocation.name}: ${currentData
                 .map(d => `${d.shortDay} ${Math.round(d.maxTemp)}°`)

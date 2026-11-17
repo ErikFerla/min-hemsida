@@ -4,6 +4,8 @@ import Map from '@/components/Map';
 import { barnMapMarkers } from '@/data/barn-map';
 import HubLink from '../HubLink';
 import type { ComponentType } from 'react';
+import h from '../headings.module.css';
+import styles from './page.module.css';
 
 type Sektion = {
   rubrik: string;
@@ -41,16 +43,16 @@ const sektioner: Sektion[] = [
 
 export default function MallorcaMedBarnGuide() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       {/* Hero */}
-      <section style={{ background: '#fefefb', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,60px) clamp(32px,5vw,48px)', textAlign: 'center' }}>
-        <p style={{ fontSize: '0.78rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 14px' }}>Familjereseguide · 2026</p>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem,6vw,2.5rem)', fontWeight: 400, letterSpacing: '0.03em', margin: '0 0 16px', lineHeight: 1.05, color: '#383a46' }}>Familjesemester på Mallorca</h1>
-        <p style={{ fontSize: 'clamp(1rem,2.4vw,1.2rem)', color: '#374151', margin: '0 auto', maxWidth: '560px', lineHeight: 1.55 }}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
-        <div style={{ width: 56, height: 3, background: '#993335', margin: '24px auto 0', borderRadius: 2 }} />
+      <section className={styles.hero}>
+        <p className={styles.heroKicker}>Familjereseguide · 2026</p>
+        <h1 className={styles.title}>Familjesemester på Mallorca</h1>
+        <p className={styles.heroLead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
+        <div className={styles.heroRule} />
       </section>
 
-      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: 'clamp(40px,6vw,60px) clamp(20px,5vw,60px) clamp(48px,7vw,80px)' }}>
+      <div className={styles.container}>
 
         <HubLink
           text="Letar du efter barnaktiviteter? Alla vattenparker, djurparker och tips för regniga dagar finns samlade på vår barnsida, där du kan filtrera efter ålder."
@@ -59,28 +61,28 @@ export default function MallorcaMedBarnGuide() {
         />
 
         {/* Snabbval */}
-        <section style={{ background: 'white', borderRadius: 16, padding: 'clamp(20px,4vw,28px)', marginBottom: 48, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-          <p style={{ fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#993335', margin: '0 0 14px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={16} /> Snabbsvar – vad passar ditt barn?</p>
-          <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px 20px', color: '#374151', fontSize: '0.9rem', lineHeight: 1.5 }}>
-            <li><strong style={{ color: '#383a46' }}>0–3 år:</strong> Playa de Muro</li>
-            <li><strong style={{ color: '#383a46' }}>4–8 år:</strong> Aqualand + Coves del Drach</li>
-            <li><strong style={{ color: '#383a46' }}>9–12 år:</strong> Kayak, snorkling, Safari Zoo</li>
-            <li><strong style={{ color: '#383a46' }}>13+ år:</strong> Wakeboard, klipphopp, street food</li>
+        <section className={styles.quick}>
+          <p className={styles.quickLabel}><IconSparkle size={16} /> Snabbsvar – vad passar ditt barn?</p>
+          <ul className={styles.quickList}>
+            <li><strong>0–3 år:</strong> Playa de Muro</li>
+            <li><strong>4–8 år:</strong> Aqualand + Coves del Drach</li>
+            <li><strong>9–12 år:</strong> Kayak, snorkling, Safari Zoo</li>
+            <li><strong>13+ år:</strong> Wakeboard, klipphopp, street food</li>
           </ul>
         </section>
 
         {/* Aktivitetskort */}
-        <section style={{ marginBottom: 48 }}>
+        <section className={styles.block}>
           <SectionHeading kicker="Vad ni kan göra" titel="Aktiviteter för hela familjen" />
-          <div className="barn-card-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className={styles.cardGrid}>
             {sektioner.map((s) => (
-              <article key={s.rubrik} style={{ background: 'white', borderRadius: 12, padding: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #ede5da' }}>
-                <div style={{ color: '#383a46', marginBottom: 14 }}><s.Icon size={28} /></div>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', letterSpacing: '0.04em', margin: '0 0 10px', color: '#383a46', lineHeight: 1.1 }}>{s.rubrik}</h3>
-                <p style={{ fontSize: '0.92rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{s.kortText}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              <article key={s.rubrik} className={styles.card}>
+                <div className={styles.cardIcon}><s.Icon size={28} /></div>
+                <h3 className={`${h.h3} ${styles.cardTitle}`}>{s.rubrik}</h3>
+                <p className={styles.cardText}>{s.kortText}</p>
+                <div className={styles.tags}>
                   {s.punkter.map(p => (
-                    <span key={p} style={{ background: '#F3EFE8', color: '#383a46', padding: '4px 10px', borderRadius: 999, fontSize: '0.75rem', fontWeight: 500 }}>{p}</span>
+                    <span key={p} className={styles.tag}>{p}</span>
                   ))}
                 </div>
               </article>
@@ -89,12 +91,12 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         {/* Karta */}
-        <section style={{ marginBottom: 48 }}>
+        <section className={styles.block}>
           <SectionHeading kicker="Hitta dit" titel="Barnvänliga aktiviteter på kartan" />
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 20px', maxWidth: '60ch' }}>
+          <p className={styles.mapText}>
             Här ser du de mest populära familjeaktiviteterna utspridda över ön — från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
           </p>
-          <div style={{ background: 'white', padding: 8, borderRadius: 14, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+          <div className={styles.mapFrame}>
             <Map
               markers={barnMapMarkers}
               height="clamp(320px, 60vh, 450px)"
@@ -105,36 +107,29 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         {/* CTA */}
-        <section style={{ background: '#383a46', borderRadius: 18, padding: 'clamp(28px,6vw,40px)', textAlign: 'center', color: 'white' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 12 }}>
+        <section className={styles.cta}>
+          <div className={styles.ctaKicker}>
             <IconMap size={16} stroke={1.8} />
-            <span style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>Mer för familjen</span>
+            <span className={styles.ctaKickerText}>Mer för familjen</span>
           </div>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
-          <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
-          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE ALLA BARNAKTIVITETER</Link>
-          <p style={{ margin: '16px 0 0', fontSize: '0.95rem' }}>
-            <Link href="/?dagar=7&intressen=familj#resplanerare" style={{ color: '#fefefb', fontWeight: 600 }}>Gör en resplan för familjen</Link>
+          <h2 className={h.h2}>Planera din familjeresa</h2>
+          <p className={styles.ctaText}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
+          <Link href="/barn" className={styles.ctaButton}>SE ALLA BARNAKTIVITETER</Link>
+          <p className={styles.ctaSub}>
+            <Link href="/?dagar=7&intressen=familj#resplanerare" className={styles.ctaSubLink}>Gör en resplan för familjen</Link>
           </p>
         </section>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .barn-card-grid { grid-template-columns: 1fr !important; }
-          .barn-map-container { height: 320px !important; }
-        }
-      `}</style>
     </div>
   );
 }
 
 function SectionHeading({ kicker, titel }: { kicker: string; titel: string }) {
   return (
-    <div style={{ marginBottom: 24 }}>
-      <p style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 8px' }}>{kicker}</p>
-      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,4.5vw,2.2rem)', letterSpacing: '0.04em', color: '#383a46', margin: '0 0 12px', lineHeight: 1 }}>{titel}</h2>
-      <div style={{ width: 48, height: 3, background: '#993335', borderRadius: 2 }} />
+    <div className={styles.sectionHeading}>
+      <p className={styles.kicker}>{kicker}</p>
+      <h2 className={`${h.h2} ${styles.sectionTitle}`}>{titel}</h2>
+      <div className={styles.rule} />
     </div>
   );
 }

@@ -688,8 +688,7 @@ h1 {
   div[style*="height: 55vh"],
   div[style*="height: 60vh"],
   div[style*="height: 50vh"],
-  div[style*="height: 90vh"],
-  div[style*="820px"] {
+  div[style*="height: 90vh"] {
     height: 55vw !important;
     min-height: 260px !important;
     max-height: 420px !important;
@@ -768,11 +767,6 @@ h1 {
     grid-template-columns: 1fr !important;
   }
 
-  /* === MAT & VIN GRID === */
-  div[style*="minmax(280px"] {
-    grid-template-columns: 1fr !important;
-  }
-
   /* === GOLF GRID === */
   div[style*="minmax(340px"] {
     grid-template-columns: 1fr !important;
@@ -789,12 +783,6 @@ h1 {
   /* === KARUSELL === */
   div[style*="minWidth: '260px'"] {
     min-width: 85vw !important;
-  }
-
-  /* === VÄDER-TABS === */
-  div[style*="display: flex"][style*="gap: '8px'"] button {
-    padding: 6px 10px !important;
-    font-size: 0.8rem !important;
   }
 }
 
@@ -886,12 +874,6 @@ h1 {
     max-width: 100% !important;
   }
 
-  /* Kortpadding på mobil */
-  div[style*="border-radius: 16px"] > div,
-  div[style*="borderRadius: 16px"] > div {
-    padding: 16px !important;
-  }
-
   /* Padding på innehållssidor */
   div[style*="padding: 'clamp(30px"],
   div[style*="maxWidth: '1400px'"] {
@@ -915,7 +897,6 @@ h1 {
   /* Inline-style override för kortbeskrivningar */
   [style*="fontSize: '0.9rem'"],
   [style*="fontSize: '0.88rem'"],
-  [style*="font-size: 0.9rem"],
   [style*="font-size: 0.88rem"] {
     font-size: 15px !important;
     line-height: 1.6 !important;
@@ -1596,14 +1577,6 @@ section > div {
   .mobile-menu-drawer { display: block; }
   .mobile-menu-overlay { display: block; }
   .nav-dropdown-menu { display: none !important; }
-}
-
-/* === Mobile guide polish (beaches/restaurants/wineries) === */
-@media (max-width: 480px) {
-  .strand-scroll-row {
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 20px), transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 20px), transparent 100%);
-  }
 }
 
 @media (max-width: 380px) {
