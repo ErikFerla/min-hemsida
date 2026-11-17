@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 
 const SITE = 'https://www.mymallorca.se';
@@ -46,7 +47,7 @@ function TouristAttractionSchema() {
       longitude: 3.0176,
     },
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export default function StrandarLayout({ children }: { children: React.ReactNode }) {

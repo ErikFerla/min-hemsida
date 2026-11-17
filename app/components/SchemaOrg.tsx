@@ -1,3 +1,5 @@
+import JsonLd from './JsonLd';
+
 type TouristDestinationSchemaProps = {
   name: string;
   description: string;
@@ -25,7 +27,7 @@ export function TouristDestinationSchema({ name, description, image, url, lat, l
   if (typeof lat === 'number' && typeof lon === 'number') {
     schema.geo = { '@type': 'GeoCoordinates', latitude: lat, longitude: lon };
   }
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export function OrganizationSchema() {
@@ -38,7 +40,7 @@ export function OrganizationSchema() {
     // logo & sameAs intentionally omitted — add when a real logo asset exists in
     // public/ and when public social channels go live (avoid placeholder URLs).
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export function WebSiteSchema() {
@@ -51,7 +53,7 @@ export function WebSiteSchema() {
     inLanguage: 'sv-SE',
     publisher: { '@type': 'Organization', name: 'MyMallorca', url: 'https://www.mymallorca.se' },
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export function BreadcrumbSchema({ items }: { items: { name: string; url: string }[] }) {
@@ -65,5 +67,5 @@ export function BreadcrumbSchema({ items }: { items: { name: string; url: string
       item: `https://www.mymallorca.se${item.url}`,
     })),
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
