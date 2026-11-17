@@ -1,3 +1,5 @@
+import styles from './Breadcrumbs.module.css';
+
 export type BreadcrumbItem = { name: string; url: string };
 
 /**
@@ -5,41 +7,22 @@ export type BreadcrumbItem = { name: string; url: string };
  */
 export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav
-      aria-label="Brödsmulor"
-      style={{ fontSize: '0.82rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}
-    >
-      <ol
-        style={{
-          listStyle: 'none',
-          padding: 0,
-          margin: 0,
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '4px',
-          alignItems: 'center',
-        }}
-      >
+    <nav aria-label="Brödsmulor" className={styles.nav}>
+      <ol className={styles.list}>
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
           return (
-            <li
-              key={`${item.url}-${i}`}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}
-            >
+            <li key={`${item.url}-${i}`} className={styles.item}>
               {!isLast ? (
-                <a
-                  href={item.url}
-                  style={{ color: 'var(--color-text-muted)', textDecoration: 'none', borderBottom: '1px solid transparent' }}
-                >
+                <a href={item.url} className={styles.link}>
                   {item.name}
                 </a>
               ) : (
-                <span aria-current="page" style={{ color: '#383a46', fontWeight: 600 }}>
+                <span aria-current="page" className={styles.current}>
                   {item.name}
                 </span>
               )}
-              {!isLast && <span style={{ opacity: 0.5 }}>›</span>}
+              {!isLast && <span className={styles.separator} aria-hidden="true">›</span>}
             </li>
           );
         })}

@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import styles from './HeroImage.module.css';
 
 export type HeroImageProps = {
   /** Base Unsplash URL without query string, e.g. "https://images.unsplash.com/photo-XXX" */
@@ -37,18 +38,8 @@ export default function HeroImage({
   height = '60vh',
   photoCredit,
 }: HeroImageProps) {
-  const heroStyle: CSSProperties = {
-    position: 'relative',
-    height,
-    overflow: 'hidden',
-    display: 'flex',
-    alignItems: 'flex-end',
-    padding: '60px 80px',
-    background: '#0b1f2a',
-  };
-
   return (
-    <section style={heroStyle}>
+    <section className={styles.hero} style={{ '--hero-height': height } as CSSProperties}>
       <img
         src={buildUrl(src, SRC_WIDTH)}
         srcSet={buildSrcSet(src)}
@@ -59,70 +50,15 @@ export default function HeroImage({
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center',
-          display: 'block',
-        }}
+        className={styles.image}
       />
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6))',
-        }}
-      />
-      <div style={{ position: 'relative', color: 'white' }}>
-        {kicker && (
-          <p
-            style={{
-              fontSize: '0.9rem',
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-              opacity: 0.8,
-            }}
-          >
-            {kicker}
-          </p>
-        )}
-        <h1
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '5rem',
-            fontWeight: 400,
-            letterSpacing: '0.05em',
-            margin: 0,
-            lineHeight: 1,
-          }}
-        >
-          {title}
-        </h1>
-        {subtitle && (
-          <p style={{ fontSize: '1.1rem', marginTop: '16px', opacity: 0.9 }}>{subtitle}</p>
-        )}
+      <div aria-hidden="true" className={styles.overlay} />
+      <div className={styles.content}>
+        {kicker && <p className={styles.kicker}>{kicker}</p>}
+        <h1 className={styles.title}>{title}</h1>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </div>
-      {photoCredit && (
-        <p
-          style={{
-            position: 'absolute',
-            right: 10,
-            bottom: 8,
-            margin: 0,
-            fontSize: '0.68rem',
-            color: 'rgba(255,255,255,0.78)',
-            letterSpacing: '0.04em',
-            textShadow: '0 1px 3px rgba(0,0,0,0.6)',
-          }}
-        >
-          {photoCredit}
-        </p>
-      )}
+      {photoCredit && <p className={styles.credit}>{photoCredit}</p>}
     </section>
   );
 }
