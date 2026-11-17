@@ -23,7 +23,7 @@ const säsonger: Sasong[] = [
     månader: 'Mars – Maj',
     färg: '#a8e6a3',
     textFärg: '#1a5c1a',
-    fördelar: ['Mandelblomning i februari', 'Perfekt för vandring i Tramuntana', 'Få turister och lägre priser', 'Behagliga 18–22 grader'],
+    fördelar: ['Perfekt för vandring i Tramuntana', 'Blommande landskap och gröna dalar', 'Färre turister och lägre priser', 'Behagliga 18–22 grader'],
     nackdel: 'Lite kyligt för bad',
     bästFör: 'Natur & vandring',
     borderColor: '#a8e6a3',
@@ -34,9 +34,9 @@ const säsonger: Sasong[] = [
     månader: 'Juni – Augusti',
     färg: '#ffc400',
     textFärg: '#5c3d00',
-    fördelar: ['28–32 grader, garanterat sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
+    fördelar: ['28–32 grader och nästan alltid sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
     nackdel: 'Mest turister och högsta priser',
-    bästFör: 'Bad & nöjesliv',
+    bästFör: 'Bad & familjesemester',
     borderColor: '#ffc400',
   },
   {
@@ -45,7 +45,7 @@ const säsonger: Sasong[] = [
     månader: 'September – November',
     färg: '#f5a623',
     textFärg: '#5c2d00',
-    fördelar: ['Havet fortfarande varmt (24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
+    fördelar: ['Havet är varmt i september (cirka 24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
     nackdel: 'Regnigare i oktober',
     bästFör: 'Mat & kultur',
     borderColor: '#f5a623',
@@ -56,7 +56,7 @@ const säsonger: Sasong[] = [
     månader: 'December – Februari',
     färg: '#90caf9',
     textFärg: '#0a2a5c',
-    fördelar: ['Lugnt och autentiskt', 'Billigaste priserna', 'Cyklister och vandrare', 'Mild 14–18 grader'],
+    fördelar: ['Lugnt och autentiskt', 'Mandelblomning i februari', 'Bra för cykling och vandring', 'Milt, ofta 14–17 grader dagtid'],
     nackdel: 'Många affärer stängda',
     bästFör: 'Avkoppling & cykling',
     borderColor: '#90caf9',
@@ -95,7 +95,9 @@ export default function SectionSeason() {
           {säsonger.map((s, i) => (
             <div key={i} className="season-accordion-item" style={{ borderLeft: `4px solid ${s.borderColor}` }}>
               <button
+                type="button"
                 className="season-accordion-header"
+                aria-expanded={öppen === i}
                 onClick={() => setÖppen(öppen === i ? null : i)}
               >
                 <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -105,7 +107,7 @@ export default function SectionSeason() {
                     <span className="season-accordion-months">{s.månader}</span>
                   </span>
                 </span>
-                <span style={{ fontSize: '0.8rem', color: '#993335', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }}>▼</span>
+                <span style={{ fontSize: '0.8rem', color: '#993335', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }} aria-hidden="true">▼</span>
               </button>
 
               {öppen === i && (

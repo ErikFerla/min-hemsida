@@ -1,24 +1,20 @@
+import Link from 'next/link';
 import { IconStar, IconSun, PriceTag, IconSparkle } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 
-export const metadata = {
-  title: 'Bästa tiden att resa till Mallorca – Månadsguide 2026 | MyMallorca',
-  description: 'Månad-för-månad guide till Mallorcas klimat, turisttryck och priser. Hitta din bästa reseperiod utifrån vad du söker – strand, avkoppling eller aktiviteter.',
-};
-
 const månader = [
   { namn: 'Januari', temp: '14°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Öns lugna säsong. Nästan inga turister, låga priser och behagligt väder för vandring och kultur. Perfekt för dig som vill se Palma utan köer.' },
-  { namn: 'Februari', temp: '15°C', sol: '7h/dag', turisttryck: 1, pris: 1, text: 'Mandelblomsningen – Mallorcas mest fotogeniska månad. Tusentals mandelträd blommar i vitt och rosa. Göm detta råd – ännu är det få som vet.' },
+  { namn: 'Februari', temp: '15°C', sol: '7h/dag', turisttryck: 1, pris: 1, text: 'Mandelblomsningen – Mallorcas mest fotogeniska månad. Tusentals mandelträd blommar i vitt och rosa, oftast från slutet av januari till mitten av februari. Fortfarande få turister.' },
   { namn: 'Mars', temp: '17°C', sol: '7h/dag', turisttryck: 2, pris: 2, text: 'Vackra dagar, grön natur och nästan tomt på turister. Bra för vandring i Tramuntana. Kallt för bad men perfekt för allt annat.' },
   { namn: 'April', temp: '19°C', sol: '8h/dag', turisttryck: 3, pris: 2, text: 'En av årets bästa månader. Stabilt väder, blommig natur, öppna restauranger. Påsk kan ge köer – boka i god tid. Magisk stämning.' },
-  { namn: 'Maj', temp: '22°C', sol: '9h/dag', turisttryck: 3, pris: 2, text: 'Sista chansen till skuldersäsong. Vattnet börjar bli badbart (20–22°C), priserna är fortfarande rimliga och turisttrycket lågt. Favoritperiod för många.' },
-  { namn: 'Juni', temp: '27°C', sol: '10h/dag', turisttryck: 4, pris: 3, text: 'Sommarens start. Varmt vatten, perfekta stranddagar och livlig stämning. Antalet turister ökar men inte till juliogusts nivåer. Bra balans.' },
-  { namn: 'Juli', temp: '32°C', sol: '11h/dag', turisttryck: 5, pris: 4, text: 'Högsäsong. Full beläggning, långa köer och höga priser. Dyk dock fortfarande ner – vattnet är ljummet och kvällarna i Palma är fantastiska. Kom med öppna ögon.' },
+  { namn: 'Maj', temp: '22°C', sol: '9h/dag', turisttryck: 3, pris: 2, text: 'Försäsong med sommarkänsla i luften. Havet är fortfarande friskt (omkring 18–19 °C) – badbart för de tåliga. Priserna är rimliga och det är sällan trångt. Favoritperiod för många.' },
+  { namn: 'Juni', temp: '27°C', sol: '10h/dag', turisttryck: 4, pris: 3, text: 'Sommarens start. Varmt vatten, perfekta stranddagar och livlig stämning. Antalet turister ökar men når inte juli och augustis nivåer. Bra balans.' },
+  { namn: 'Juli', temp: '32°C', sol: '11h/dag', turisttryck: 5, pris: 4, text: 'Högsäsong. Full beläggning, långa köer och höga priser. Samtidigt är vattnet ljummet och kvällarna i Palma fantastiska – boka tidigt och var på stranden tidigt på dagen.' },
   { namn: 'Augusti', temp: '33°C', sol: '11h/dag', turisttryck: 5, pris: 4, text: 'Som juli men hetare. Undvik juli och augusti om du vill ha ro på stranden. Men om stämning och nattliv är prioritet – detta är din månad.' },
-  { namn: 'September', temp: '28°C', sol: '9h/dag', turisttryck: 3, pris: 3, text: 'Bästa månaden för de flesta. Varmt och badbart vatten (27°C), dramatiskt minskade turister efter 1 sep och lägre priser. Öns hemliga högsäsong.' },
+  { namn: 'September', temp: '28°C', sol: '9h/dag', turisttryck: 3, pris: 3, text: 'Bästa månaden för många. Havet håller fortfarande sommarvärme (omkring 25–26 °C) och när skolorna har börjat blir det färre barnfamiljer. September är ändå en populär månad – boka i god tid.' },
   { namn: 'Oktober', temp: '23°C', sol: '7h/dag', turisttryck: 2, pris: 2, text: 'Höstens vackraste nyanser, relativt varmt hav och lugnt. Regnskurar kan förekomma. Bra för golf, vandring och kulinariska resor.' },
-  { namn: 'November', temp: '17°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Lugnt och vackert. Inga badturister, öppna hotell och restauranger med tomma bord. Regn förekommer men sällan flera dagar i rad. Promenad i Palma en soldag i november – total harmoni.' },
-  { namn: 'December', temp: '14°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Jul på Mallorca är en dold upplevelse. Städerna dekoreras, lokala marknader öppnar och temperaturen är de 14–16°C. Perfekt kulturresa – inte strandresa.' },
+  { namn: 'November', temp: '17°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Lugnt och vackert. Inga badturister och gott om plats på restaurangerna. Många hotell på kustorterna stänger för säsongen, men i Palma och de större orterna finns det mesta öppet. Regn förekommer men sällan flera dagar i rad. Promenad i Palma en soldag i november – total harmoni.' },
+  { namn: 'December', temp: '14°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Jul på Mallorca är en dold upplevelse. Städerna dekoreras, lokala marknader öppnar och dagstemperaturen ligger ofta kring 14–16 °C. Perfekt kulturresa – inte strandresa.' },
 ];
 
 export default function BästaTidResaMallorca() {
@@ -28,7 +24,7 @@ export default function BästaTidResaMallorca() {
       <HeroImage
         src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
         alt="Solig strand och turkost vatten på Mallorca – klassisk badsäsong"
-        kicker="Reseplanering · 2026"
+        kicker="Reseplanering · Månad för månad"
         title="Bästa tiden att resa till Mallorca"
         subtitle="Månadsguide med temperatur, turisttryck och prisnivå. Hitta din perfekta period."
         height="55vh"
@@ -47,7 +43,7 @@ export default function BästaTidResaMallorca() {
               <div><strong>Golf:</strong><br />November – april</div>
               <div><strong>Vandring:</strong><br />Mars, april, oktober</div>
               <div><strong>Bäst pris:</strong><br />November – mars</div>
-              <div><strong>Nightlife + stämning:</strong><br />Juli, augusti</div>
+              <div><strong>Nattliv + stämning:</strong><br />Juli, augusti</div>
               <div><strong>Mat & kultur:</strong><br />Oktober, november, april</div>
             </div>
           </div>
@@ -93,22 +89,22 @@ export default function BästaTidResaMallorca() {
 
         {/* September-sektionen */}
         <div style={{ background: '#EDE4D8', borderRadius: '20px', padding: '32px', marginBottom: '48px', borderLeft: '4px solid #993335' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconSparkle size={22} /> Hemligheten: Åk i september</h2>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconSparkle size={22} /> Vårt tips: Åk i september</h2>
           <p style={{ fontSize: '1rem', lineHeight: '1.8', color: '#374151', margin: 0 }}>
-            September är Mallorcas bäst bevarade hemlighet. Havet är som varmast (27°C), 80% av turisterna har åkt hem och priserna faller 20–35% jämfört med juli. Restaurangerna är avslappnade igen, stränderna har plats och lokalbefolkningen tar tillbaka sin ö. Om du kan välja fritt – välj september.
+            Havet håller fortfarande sommarvärme (omkring 25–26 °C), barnfamiljerna har åkt hem när skolorna börjat och priserna brukar vara lägre än i juli och augusti. Det är fortfarande en välbesökt månad, men lugnare än högsommaren – särskilt mot slutet av månaden. Om du kan välja fritt och inte är bunden till skollov – välj september.
           </p>
         </div>
 
         {/* CTA */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
-          <a href="/vader" style={{ display: 'block', background: '#993335', borderRadius: '16px', padding: '28px', textAlign: 'center', color: 'white', textDecoration: 'none' }}>
+          <Link href="/vader" style={{ display: 'block', background: '#993335', borderRadius: '16px', padding: '28px', textAlign: 'center', color: 'white', textDecoration: 'none' }}>
             <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.08em', margin: '0 0 8px' }}>Se väderprognos</p>
             <p style={{ margin: 0, opacity: 0.8, fontSize: '0.88rem' }}>10-dagarsprognos för 7 städer</p>
-          </a>
-          <a href="/evenemang" style={{ display: 'block', background: '#993335', borderRadius: '16px', padding: '28px', textAlign: 'center', color: '#383a46', textDecoration: 'none' }}>
-            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.08em', margin: '0 0 8px' }}>60+ evenemang 2026</p>
-            <p style={{ margin: 0, opacity: 0.7, fontSize: '0.88rem' }}>Festivaler, marknader och sport</p>
-          </a>
+          </Link>
+          <Link href="/evenemang" style={{ display: 'block', background: '#993335', borderRadius: '16px', padding: '28px', textAlign: 'center', color: 'white', textDecoration: 'none' }}>
+            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.08em', margin: '0 0 8px' }}>Evenemang på Mallorca</p>
+            <p style={{ margin: 0, opacity: 0.8, fontSize: '0.88rem' }}>Festivaler, marknader och sport</p>
+          </Link>
         </div>
       </div>
     </div>

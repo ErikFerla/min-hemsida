@@ -1,5 +1,6 @@
 ﻿'use client'
 import { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
 
 interface NavItem {
   label: string
@@ -53,8 +54,9 @@ const navItems: NavItem[] = [
   },
   {
     label: 'Guider',
-    href: '/guide/basta-tid-resa-mallorca',
+    href: '/guider',
     children: [
+      { label: 'Alla guider', href: '/guider' },
       { label: 'B\u00e4sta restid', href: '/guide/basta-tid-resa-mallorca' },
       { label: 'Mallorca med barn', href: '/guide/mallorca-med-barn' },
       { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
@@ -67,7 +69,8 @@ const navItems: NavItem[] = [
     href: '/flyg',
     children: [
       { label: 'Flyg', href: '/flyg' },
-      { label: 'Kontakt', href: '/kontakt' },
+      { label: 'B\u00e4sta tiden att resa', href: '/guide/basta-tid-resa-mallorca' },
+      { label: 'Evenemang', href: '/evenemang' },
     ],
   },
   {
@@ -146,7 +149,7 @@ export default function Navbar() {
         }}>
 
           {/* Logo */}
-          <a href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#993335" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="28" cy="10" r="3" fill="#993335"/>
@@ -159,7 +162,7 @@ export default function Navbar() {
                 Din kompletta reseguide
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop nav with dropdowns */}
           <div className="navbar-desktop-links">
@@ -170,28 +173,34 @@ export default function Navbar() {
                 onMouseEnter={() => item.children ? handleMouseEnter(i) : undefined}
                 onMouseLeave={item.children ? handleMouseLeave : undefined}
               >
-                <button
-                  className={`navbar-desktop-link nav-dropdown-trigger${openDropdown === i ? ' active' : ''}`}
-                  onClick={() => {
-                    if (item.children) {
-                      setOpenDropdown(openDropdown === i ? null : i)
-                    } else {
-                      window.location.href = item.href
-                    }
-                  }}
-                  aria-expanded={item.children ? openDropdown === i : undefined}
-                  aria-haspopup={item.children ? 'true' : undefined}
-                >
-                  {item.label}
-                  {item.children && (
-                    <svg className="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" style={{ marginLeft: '4px', transition: 'transform 0.2s', transform: openDropdown === i ? 'rotate(180deg)' : 'none' }}>
+                {item.children ? (
+                  <button
+                    type="button"
+                    className={`navbar-desktop-link nav-dropdown-trigger${openDropdown === i ? ' active' : ''}`}
+                    onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
+                    aria-expanded={openDropdown === i}
+                    aria-controls={`nav-menu-${i}`}
+                  >
+                    {item.label}
+                    <svg className="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style={{ marginLeft: '4px', transition: 'transform 0.2s', transform: openDropdown === i ? 'rotate(180deg)' : 'none' }}>
                       <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  )}
-                </button>
+                  </button>
+                ) : (
+                  <a href={item.href} className="navbar-desktop-link nav-dropdown-trigger">
+                    {item.label}
+                  </a>
+                )}
 
-                {item.children && openDropdown === i && (
-                  <div className="nav-dropdown-menu" onMouseEnter={() => handleMouseEnter(i)} onMouseLeave={handleMouseLeave}>
+                {/* Alltid i DOM:en (\u00e4ven i SSR) \u2013 d\u00f6ljs med hidden n\u00e4r menyn \u00e4r st\u00e4ngd */}
+                {item.children && (
+                  <div
+                    id={`nav-menu-${i}`}
+                    className="nav-dropdown-menu"
+                    hidden={openDropdown !== i}
+                    onMouseEnter={() => handleMouseEnter(i)}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     {item.children.map(child => (
                       <a
                         key={child.href}
@@ -208,15 +217,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <a href="/kontakt" className="navbar-desktop-cta">
-            PLANERA DIN RESA
-          </a>
-
           {/* Hamburger button — mobile only */}
           <button
             className="hamburger"
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-controls="mobilmeny"
             aria-label={mobileOpen ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
             aria-expanded={mobileOpen}
             style={{
@@ -268,24 +274,25 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile fullscreen menu with accordion */}
-      {mobileOpen && (
-        <div className="mobile-menu-fullscreen">
+      {/* Mobilmenyn renderas alltid (SSR-synliga l\u00e4nkar) och d\u00f6ljs med hidden n\u00e4r den \u00e4r st\u00e4ngd */}
+      <div id="mobilmeny" className="mobile-menu-fullscreen" hidden={!mobileOpen}>
           {navItems.map((item, i) => (
             <div key={item.href} className="mobile-menu-group">
               {item.children ? (
                 <>
                   <button
+                    type="button"
                     className="mobile-menu-trigger"
                     onClick={() => setMobileAccordion(mobileAccordion === i ? null : i)}
                     aria-expanded={mobileAccordion === i}
+                    aria-controls={`mobilmeny-${i}`}
                   >
                     <span>{item.label}</span>
-                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" style={{ transition: 'transform 0.2s', transform: mobileAccordion === i ? 'rotate(180deg)' : 'none' }}>
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true" style={{ transition: 'transform 0.2s', transform: mobileAccordion === i ? 'rotate(180deg)' : 'none' }}>
                       <path d="M1 1l5 5 5-5" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  {mobileAccordion === i && (
-                    <div className="mobile-menu-subitems">
+                  <div id={`mobilmeny-${i}`} className="mobile-menu-subitems" hidden={mobileAccordion !== i}>
                       {item.children.map(child => (
                         <a
                           key={child.href}
@@ -296,8 +303,7 @@ export default function Navbar() {
                           {child.label}
                         </a>
                       ))}
-                    </div>
-                  )}
+                  </div>
                 </>
               ) : (
                 <a
@@ -310,20 +316,7 @@ export default function Navbar() {
               )}
             </div>
           ))}
-          <div style={{ padding: '20px 24px' }}>
-            <a href="/kontakt" onClick={() => setMobileOpen(false)}
-              style={{
-                display: 'block', textAlign: 'center', background: '#383a46',
-                color: 'white', padding: '14px', borderRadius: '4px',
-                textDecoration: 'none', fontWeight: 600, letterSpacing: '0.08em',
-                textTransform: 'uppercase', fontSize: '0.85rem',
-              }}
-            >
-              Planera din resa
-            </a>
-          </div>
-        </div>
-      )}
+      </div>
     </>
   )
 }

@@ -1,8 +1,8 @@
 'use client';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
-import AffiliateCard from '@/app/components/AffiliateCard';
+import Link from 'next/link';
 
 // HERO-BILD: Caló des Moro (södra Mallorca) – Unsplash
 // TODO: Byt ut till canonical CDN-URL för Chloé Lefleurs foto F0ZUIUeW490
@@ -20,7 +20,7 @@ const stränder = [
   { namn: 'Caló des Moro', region: 'Syd', typ: 'Vik', svårighet: 'Promenad krävs', längd: '40m', beskrivning: 'Topprankad år efter år som Spaniens vackraste vik. Turkost vatten likt en pool, omgiven av klippor och tallskog. Inga faciliteter – kom tidigt!', tips: 'Kom före kl 9 på morgonen – fullsatt redan kl 10 på sommaren', maps: 'https://maps.google.com/?q=Calo+des+Moro+Mallorca', bild: 'https://images.unsplash.com/photo-1560243360-0eb6e88f0d08?w=600&q=80', familj: false, snorkling: true, nudist: false, redaktionellt: { typ: 'varning', text: 'Kom INTE efter kl 10 på sommaren – stranden är fullsatt och parkeringen stängd' } },
   { namn: 'Es Trenc', region: 'Syd', typ: 'Sandstrand', svårighet: 'Enkel', längd: '2,1 km', beskrivning: 'Mallorcas Karibien – 2 km kritvit sandstrand och turkost vatten i ett naturreservat. Ingen storskalig bebyggelse. Nudistsektion finns.', tips: 'Ta bussen från Campos – parkeringen kostar 8€ och fylls snabbt', maps: 'https://maps.google.com/?q=Es+Trenc+Mallorca', bild: 'https://images.unsplash.com/photo-1608126313950-b17430292454?w=600&q=80', familj: true, snorkling: false, nudist: true, redaktionellt: { typ: 'bast', text: 'Bäst för: Långa stranddagar och äkta Mallorca-känsla utan hotellkomplex' } },
   { namn: 'Cala Figuera (Formentor)', region: 'Norr', typ: 'Stenstrand', svårighet: 'Promenad krävs', längd: '30m', beskrivning: 'Rankad #1 av Holidu. Avskild vik på Formentorhalvön med kristallklart vatten och rik marin miljö. Perfekt för snorkling.', tips: '1,5 km promenad från parkeringen – ta med vattenskor', maps: 'https://maps.google.com/?q=Cala+Figuera+Formentor+Mallorca', bild: 'https://images.unsplash.com/photo-1593174898997-488a0443e852?w=600&q=80', familj: false, snorkling: true, nudist: false, redaktionellt: { typ: 'tips', text: 'Ta med vattenskor – bottnen är stenig men vattnet är helt fantastiskt' } },
-  { namn: 'Cala Llombards', region: 'Syd', typ: 'Vik', svårighet: 'Enkel', längd: '80m', beskrivning: 'Vacker avskild vik nära Santanyi med brant klippomgivning och kristallklart turkost vatten. Liten strandbar på plats.', tips: 'Bäst på morgonen – populär men inte överfull om man kommer tidigt', maps: 'https://maps.google.com/?q=Cala+Llombards+Mallorca', bild: 'https://images.unsplash.com/photo-1560243360-0eb6e88f0d08?w=600&q=80', familj: true, snorkling: true, nudist: false, redaktionellt: { typ: 'info', text: 'Liten parkering som fylls tidigt – cykla dit om du bor i närheten' } },
+  { namn: 'Cala Llombards', region: 'Syd', typ: 'Vik', svårighet: 'Enkel', längd: '80m', beskrivning: 'Vacker avskild vik nära Santanyí med brant klippomgivning och kristallklart turkost vatten. Liten strandbar på plats.', tips: 'Bäst på morgonen – populär men inte överfull om man kommer tidigt', maps: 'https://maps.google.com/?q=Cala+Llombards+Mallorca', bild: 'https://images.unsplash.com/photo-1560243360-0eb6e88f0d08?w=600&q=80', familj: true, snorkling: true, nudist: false, redaktionellt: { typ: 'info', text: 'Liten parkering som fylls tidigt – cykla dit om du bor i närheten' } },
   { namn: 'Cala Mesquida', region: 'Öst', typ: 'Sandstrand', svårighet: 'Enkel', längd: '350m', beskrivning: 'Vacker naturstrand i naturreservat nära Capdepera med vita sanddyner och tallskog. Extra populär bland surfare tack vare bra vågor.', tips: 'Parkering 100m från stranden – kom tidigt på helger', maps: 'https://maps.google.com/?q=Cala+Mesquida+Mallorca', bild: 'https://images.unsplash.com/photo-1608126313950-b17430292454?w=600&q=80', familj: true, snorkling: false, nudist: false, redaktionellt: { typ: 'bast', text: 'Bäst för: Surfare och de som vill ha naturstrand utan lyxhotell' } },
   { namn: 'Cala Agulla', region: 'Öst', typ: 'Sandstrand', svårighet: 'Enkel', längd: '400m', beskrivning: 'Blåflagg-strand i naturreservat nära Cala Ratjada med klarblått vatten och tallskogsbakgrund. Perfekt för familjer och vattensporter.', tips: 'En av öns renaste stränder – vattnet är grunt och perfekt för barn', maps: 'https://maps.google.com/?q=Cala+Agulla+Mallorca', bild: 'https://images.unsplash.com/photo-1606729734060-3d6de0048e43?w=600&q=80', familj: true, snorkling: true, nudist: false, redaktionellt: { typ: 'tips', text: 'Blåflagg varje år – ett av öns renaste vatten, grunt och perfekt för barn' } },
   { namn: "Cala Mondragó / S'Aramador", region: 'Syd', typ: 'Sandstrand', svårighet: 'Enkel', längd: '75m', beskrivning: "S'Aramador har utsetts till Europas bästa strand. Naturpark med välskyddad vik, grunt barnvänligt vatten och fin ljus sand.", tips: 'Ta turisttåget från Porto Petro på sommaren – enkelt och smidigt', maps: 'https://maps.google.com/?q=Cala+Mondrago+Mallorca', bild: 'https://images.unsplash.com/photo-1606729734060-3d6de0048e43?w=600&q=80', familj: true, snorkling: true, nudist: false, redaktionellt: { typ: 'info', text: 'Naturreservat – ta inte med engångsgrillar eller husdjur' } },
@@ -54,7 +54,14 @@ const typer = ['Alla typer', 'Sandstrand', 'Vik', 'Stenstrand'];
 
 export default function StrandarPage() {
   return (
-    <Suspense fallback={<div style={{ background: '#fefefb', minHeight: '100vh' }} />}>
+    <Suspense fallback={
+      // Visas i serverrenderingen tills filtret (useSearchParams) har laddats i klienten.
+      <div style={{ background: '#fefefb', minHeight: '100vh', padding: 'clamp(24px,5vw,56px) clamp(20px,5vw,80px)' }}>
+        <h1 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(2rem,6vw,3.4rem)', fontWeight: 600, margin: 0, color: '#383a46' }}>
+          Stränder på Mallorca
+        </h1>
+      </div>
+    }>
       <StrandarContent />
     </Suspense>
   );
@@ -64,13 +71,15 @@ function StrandarContent() {
   const searchParams = useSearchParams();
   const regionParam = searchParams.get('region');
 
-  const [region, setRegion] = useState('Alla');
+  const [region, setRegion] = useState(regionParam ?? 'Alla');
+  // Synka regionfiltret när ?region= ändras (justering under rendering i stället för i en effekt).
+  const [prevRegionParam, setPrevRegionParam] = useState(regionParam);
+  if (regionParam !== prevRegionParam) {
+    setPrevRegionParam(regionParam);
+    if (regionParam) setRegion(regionParam);
+  }
   const [typ, setTyp] = useState('Alla typer');
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    if (regionParam) setRegion(regionParam);
-  }, [regionParam]);
 
   const visade = stränder.filter(s => {
     if (region !== 'Alla' && s.region !== region) return false;
@@ -237,9 +246,9 @@ function StrandarContent() {
           <p style={{ margin: 0, fontSize: '0.92rem', color: '#374151', lineHeight: 1.5, flex: '1 1 220px' }}>
             <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
           </p>
-          <a href="/guide/basta-stranderna-mallorca" style={{ background: '#993335', color: 'white', padding: '0 20px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', borderRadius: '8px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
+          <Link href="/guide/basta-stranderna-mallorca" style={{ background: '#993335', color: 'white', padding: '0 20px', minHeight: '44px', display: 'inline-flex', alignItems: 'center', borderRadius: '8px', textDecoration: 'none', fontSize: '0.9rem', fontWeight: '700', whiteSpace: 'nowrap' }}>
             Läs guiden →
-          </a>
+          </Link>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '20px' }}>
@@ -293,37 +302,19 @@ function StrandarContent() {
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
           <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>PLANERA VIDARE</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Boka upplevelser vid stranden</h2>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Inför stranddagen</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
-            <AffiliateCard
-              typ="aktivitet"
-              titel="Snorkeltur till Cala des Moro"
-              beskrivning="Guidad snorkeltur med liten grupp till Mallorcas klaraste vatten. Utrustning ingår."
-              pris="från 495 kr"
-              betyg={4.8}
-              badge="Vår favorit"
-              länk="https://www.getyourguide.com/mallorca-l234/snorkeling-tc63/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1606729734060-3d6de0048e43?w=600&q=75"
-            />
-            <AffiliateCard
-              typ="aktivitet"
-              titel="Kayakpaddling längs nordkusten"
-              beskrivning="Paddla längs dramatiska klippor och in i dolda grottor. Perfekt för nybörjare."
-              pris="från 695 kr"
-              betyg={4.7}
-              länk="https://www.getyourguide.com/mallorca-l234/kayaking-tc99/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1560243360-0eb6e88f0d08?w=600&q=75"
-            />
-            <AffiliateCard
-              typ="transfer"
-              titel="Transfer flygplats ↔ hotell"
-              beskrivning="Privat transfer från PMI. Fast pris, ingen stress. Chauffören väntar med namnskylt."
-              pris="från 349 kr"
-              betyg={4.9}
-              badge="Populärt val"
-              länk="https://www.getyourguide.com/palma-de-mallorca-l790/transfers-tc188/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1608126313950-b17430292454?w=600&q=75"
-            />
+            {[
+              { titel: 'Kolla vinden först', text: 'Blåser det från norr är sydkustens vikar ofta lugnast – och tvärtom. En snabb titt på prognosen kan rädda dagen.', href: '/vader', cta: 'Se väderprognosen' },
+              { titel: 'Stranddag med barn', text: 'Grunt vatten, skugga och toaletter i närheten? Filtrera på Familjevänlig ovan – och hitta fler upplevelser för barnen.', href: '/barn', cta: 'Mallorca med barn' },
+              { titel: 'När är vattnet varmast?', text: 'Havet är som varmast från juli till september. Läs mer om vilken månad som passar dig bäst.', href: '/guide/basta-tid-resa-mallorca', cta: 'Bästa tiden att resa' },
+            ].map(t => (
+              <Link key={t.href} href={t.href} style={{ display: 'block', textDecoration: 'none', background: 'white', borderRadius: '16px', padding: '24px', border: '1px solid #ede5da', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px', lineHeight: 1.2 }}>{t.titel}</h3>
+                <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{t.text}</p>
+                <span style={{ color: '#993335', fontWeight: 700, fontSize: '0.9rem' }}>{t.cta} →</span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

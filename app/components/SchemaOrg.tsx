@@ -15,7 +15,6 @@ export function TouristDestinationSchema({ name, description, image, url, lat, l
     description,
     image,
     touristType: ['Family', 'Couple', 'Solo traveler'],
-    includesAttraction: [],
     containedInPlace: {
       '@type': 'Island',
       name: 'Mallorca',
@@ -32,15 +31,10 @@ export function TouristDestinationSchema({ name, description, image, url, lat, l
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'TravelAgency',
+    '@type': 'Organization',
     name: 'MyMallorca',
     url: 'https://www.mymallorca.se',
-    description: 'Din kompletta reseguide till Mallorca på svenska',
-    inLanguage: 'sv-SE',
-    areaServed: {
-      '@type': 'Place',
-      name: 'Mallorca, Spain',
-    },
+    description: 'Ideell, redaktionell reseguide till Mallorca på svenska – skriven av passion för ön, inte för att sälja resor.',
     // logo & sameAs intentionally omitted — add when a real logo asset exists in
     // public/ and when public social channels go live (avoid placeholder URLs).
   };
@@ -53,13 +47,9 @@ export function WebSiteSchema() {
     '@type': 'WebSite',
     name: 'MyMallorca',
     url: 'https://www.mymallorca.se',
-    description: 'Din personliga guide till Mallorca på svenska',
+    description: 'Svensk guide till Mallorca – stränder, byar, mat, golf och barnaktiviteter',
     inLanguage: 'sv-SE',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: 'https://www.mymallorca.se/strandar?q={search_term_string}',
-      'query-input': 'required name=search_term_string',
-    },
+    publisher: { '@type': 'Organization', name: 'MyMallorca', url: 'https://www.mymallorca.se' },
   };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
 }

@@ -10,22 +10,26 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
   {
     heading: 'UTFORSKA',
     links: [
-      ['Städer & Byar', '/byar'],
+      ['Städer & byar', '/byar'],
       ['Stränder', '/strandar'],
       ['Sevärdheter', '/sevardheter'],
-      ['Mat & Vin', '/mat'],
+      ['Mat & vin', '/mat'],
+      ['Vingårdar', '/vingardar'],
       ['Golf', '/aktiviteter/golf'],
       ['Aktiviteter', '/aktiviteter'],
+      ['Evenemang', '/evenemang'],
+      ['Väder', '/vader'],
     ],
   },
   {
-    heading: 'POPULÄRT',
+    heading: 'GUIDER',
     links: [
-      ['Väder', '/vader'],
-      ['Evenemang', '/evenemang'],
-      ['Sevärdheter', '/sevardheter'],
-      ['Planera din resa', '/kontakt'],
-      ['Se alla stränder', '/strandar'],
+      ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
+      ['Mallorca med barn', '/guide/mallorca-med-barn'],
+      ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
+      ['Restauranger i Palma', '/guide/basta-restauranger-palma'],
+      ['Golf på Mallorca', '/guide/golf-mallorca-guide'],
+      ['Alla guider →', '/guider'],
     ],
   },
   {
@@ -72,7 +76,7 @@ export default function SiteFooter() {
           {/* Columns 2–4 — rendered from shared FOOTER_SECTIONS */}
           {FOOTER_SECTIONS.map((section) => (
             <div key={section.heading}>
-              <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 16px' }}>
+              <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f08a9a', fontWeight: 600, margin: '0 0 16px' }}>
                 {section.heading}
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>

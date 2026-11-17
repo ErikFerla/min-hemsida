@@ -3,7 +3,7 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
-  title: 'Vattenparker på Mallorca – 5 bästa för barnfamiljen | MyMallorca',
+  title: 'Vattenparker på Mallorca – 5 bästa för barn',
   description:
     'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips för familjer med barn i olika åldrar.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/vattenparker' },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://www.mymallorca.se/barn/vattenparker',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Vattenparker på Mallorca – 5 bästa för barnfamiljen | MyMallorca',
+    title: 'Vattenparker på Mallorca – 5 bästa för barn',
     description:
       'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips för familjer med barn i olika åldrar.',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vattenparker på Mallorca – 5 bästa för barnfamiljen | MyMallorca',
+    title: 'Vattenparker på Mallorca – 5 bästa för barn',
     description:
       'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips.',
     images: ['https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85'],

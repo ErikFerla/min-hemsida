@@ -11,7 +11,8 @@ const popularaLankar: { label: string; href: string; beskrivning: string }[] = [
   { label: 'Förstasidan', href: '/', beskrivning: 'Börja om från startsidan' },
   { label: 'Städer & byar', href: '/byar', beskrivning: '18 utvalda destinationer på ön' },
   { label: 'Stränder', href: '/strandar', beskrivning: 'Från Es Trenc till dolda vikar' },
-  { label: 'Planera din resa', href: '/kontakt', beskrivning: 'Skräddarsydda tips från lokalkännare' },
+  { label: 'Guider', href: '/guider', beskrivning: 'Restid, barn, stränder, restauranger och golf' },
+  { label: 'Aktiviteter', href: '/aktiviteter', beskrivning: 'Barnaktiviteter, golf, sevärdheter och evenemang' },
 ];
 
 export default function NotFound() {

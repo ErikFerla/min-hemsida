@@ -2,11 +2,6 @@ import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/compon
 import BarnMapWrapper from '@/components/BarnMapWrapper';
 import type { ComponentType } from 'react';
 
-export const metadata = {
-  title: 'Mallorca med barn 2026 – Komplett guide för barnfamiljer | MyMallorca',
-  description: 'Allt du behöver veta för en lyckad barnfamiljesemester på Mallorca. Bästa stränder, vattenparker, hotell och aktiviteter för barn 0–15 år.',
-};
-
 type Sektion = {
   rubrik: string;
   Icon: ComponentType<{ size?: number }>;
@@ -52,7 +47,7 @@ export default function MallorcaMedBarnGuide() {
         <div style={{ width: 56, height: 3, background: '#993335', margin: '24px auto 0', borderRadius: 2 }} />
       </section>
 
-      <main style={{ maxWidth: '1100px', margin: '0 auto', padding: 'clamp(40px,6vw,60px) clamp(20px,5vw,60px) clamp(48px,7vw,80px)' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: 'clamp(40px,6vw,60px) clamp(20px,5vw,60px) clamp(48px,7vw,80px)' }}>
 
         {/* Snabbval */}
         <section style={{ background: 'white', borderRadius: 16, padding: 'clamp(20px,4vw,28px)', marginBottom: 48, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
@@ -105,7 +100,7 @@ export default function MallorcaMedBarnGuide() {
           <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se den kompletta barnguiden med alla aktiviteter, åldersrekommendationer och praktiska tips.</p>
           <a href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</a>
         </section>
-      </main>
+      </div>
 
       <style>{`
         @media (max-width: 768px) {

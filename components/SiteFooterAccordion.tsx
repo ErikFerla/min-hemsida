@@ -26,7 +26,7 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '16px 0', background: 'none', border: 'none', cursor: 'pointer',
               fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.1em',
-              color: '#e86c7f', minHeight: '44px',
+              color: '#f08a9a', minHeight: '44px',
             }}
           >
             {section.heading}

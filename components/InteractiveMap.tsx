@@ -67,17 +67,17 @@ export default function InteractiveMap({
   ariaLabel = 'Interaktiv karta över Mallorca',
   ctaLabel = 'Utforska',
 }: Props) {
-  const idRef = useRef<string>(`imap-${Math.random().toString(36).slice(2, 10)}`)
+  const elRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     let cancelled = false
     import('leaflet').then((L) => {
       if (cancelled) return
       const Lm = (L as unknown as { default?: typeof L } & typeof L).default || L
-      const el = document.getElementById(idRef.current) as (HTMLElement & { _leaflet_id?: number }) | null
+      const el = elRef.current as (HTMLDivElement & { _leaflet_id?: number }) | null
       if (!el || el._leaflet_id) return
 
-      const map = Lm.map(idRef.current, { center, zoom, scrollWheelZoom: false })
+      const map = Lm.map(el, { center, zoom, scrollWheelZoom: false })
       Lm.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap',
       }).addTo(map)
@@ -113,7 +113,7 @@ export default function InteractiveMap({
 
   return (
     <div
-      id={idRef.current}
+      ref={elRef}
       role="region"
       aria-label={ariaLabel}
       style={{

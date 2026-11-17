@@ -21,7 +21,9 @@ export default function InsiderTipBox({
   const isCompact = variant === 'compact';
 
   return (
-    <aside
+    <div
+      role="note"
+      aria-label={heading}
       className="insider-tip-box"
       style={{
         background: isCompact ? 'rgba(153,51,53,0.06)' : 'white',
@@ -72,6 +74,6 @@ export default function InsiderTipBox({
         </ul>
       )}
       {children}
-    </aside>
+    </div>
   );
 }

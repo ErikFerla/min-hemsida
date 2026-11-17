@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import AffiliateCard from '@/app/components/AffiliateCard';
 import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
@@ -157,38 +156,20 @@ export default function AktiviteterPage() {
         </section>
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>BOKA DIREKT</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Populära upplevelser just nu</h2>
+          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>LÄS VIDARE</p>
+          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Fördjupa dig</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
-            <AffiliateCard
-              typ="aktivitet"
-              titel="Helikoptertur över Mallorca"
-              beskrivning="Se hela ön från ovan. 30 minuters privat rundflygning med plats för 3 personer."
-              pris="från 2 450 kr/pers"
-              betyg={4.9}
-              badge="Premiumupplevelse"
-              länk="https://www.getyourguide.com/mallorca-l234/helicopter-tours-tc253/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75"
-            />
-            <AffiliateCard
-              typ="aktivitet"
-              titel="Vandring i Tramuntana med guide"
-              beskrivning="Lokal guide tar dig på GR-221 med lunch och transport inkluderat."
-              pris="från 895 kr"
-              betyg={4.8}
-              länk="https://www.getyourguide.com/mallorca-l234/hiking-tc133/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85"
-            />
-            <AffiliateCard
-              typ="aktivitet"
-              titel="Båttur till okända vikar"
-              beskrivning="Heldagstur med liten grupp (max 12 pers). Lunch, snorkling och frisvimmning ingår."
-              pris="från 1 195 kr"
-              betyg={4.9}
-              badge="Slutsåld senaste veckan"
-              länk="https://www.getyourguide.com/mallorca-l234/boat-tours-tc55/?partner_id=DITT_ID"
-              bild="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75"
-            />
+            {[
+              { titel: 'Golfguiden', text: 'Vilka banor passar din nivå, och vilka är värda en extra resdag? Vår genomgång av öns golfbanor.', href: '/guide/golf-mallorca-guide' },
+              { titel: 'Vingårdar på Mallorca', text: 'Binissalem, Pla i Llevant och små familjeägda bodegas – perfekt för en lugn dag för två.', href: '/vingardar' },
+              { titel: 'Mallorca med barn', text: 'Vattenparker, grottor och djurparker, med tips om vilken ålder varje upplevelse passar för.', href: '/guide/mallorca-med-barn' },
+            ].map(t => (
+              <Link key={t.href} href={t.href} style={{ display: 'block', textDecoration: 'none', background: 'white', borderRadius: '16px', padding: '24px', border: '1px solid #ede5da', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px', lineHeight: 1.2 }}>{t.titel}</h3>
+                <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{t.text}</p>
+                <span style={{ color: '#993335', fontWeight: 700, fontSize: '0.9rem' }}>Läs mer →</span>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

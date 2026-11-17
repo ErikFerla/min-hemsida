@@ -38,7 +38,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca',
     webb: 'https://www.golfsongual.com',
     tips: 'Boka minst 2 dagar i förväg – mycket populär',
-    redaktionellt: { typ: 'bast', text: 'Bäst för: Serösa golfare som vill ha Mallorcas tuffaste utmaning' },
+    redaktionellt: { typ: 'bast', text: 'Bäst för: Seriösa golfare som vill ha Mallorcas tuffaste utmaning' },
   },
   {
     slug: 'club-de-golf-alcanada',
@@ -55,8 +55,8 @@ export const golfbanor: GolfCourse[] = [
     bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80',
     maps: 'https://maps.google.com/?q=Club+de+Golf+Alcanada+Alcudia+Mallorca',
     webb: 'https://www.golf-alcanada.com',
-    tips: 'Hål 12 med utsikt mot fyren är ett av Europas vackraste hål',
-    redaktionellt: { typ: 'tips', text: 'Hål 18 med utsikt över fyrtornet är ett av Europas vackraste avslutningar' },
+    tips: 'Fyren på Illa d’Alcanada syns från stora delar av banan – ta god tid på dig och njut av kulissen',
+    redaktionellt: { typ: 'tips', text: 'Utsikten mot fyren och Alcúdiabukten gör banan till en av Europas vackraste' },
   },
   {
     slug: 'son-muntaner-golf',

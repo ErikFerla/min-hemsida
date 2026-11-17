@@ -54,7 +54,7 @@ export default function Soller() {
                 <strong>Tåg:</strong> Från Palma (Ferrocarril de Sóller)<br/>
                 <strong>Bästa tid:</strong> April–juni, september<br/>
                 <strong>Känd för:</strong> Spårvagn, apelsiner, Tramuntana<br/>
-                <strong>Stränder i närheten:</strong> Port de Sóller, Platja d'en Repic
+                <strong>Stränder i närheten:</strong> Port de Sóller, Platja d’en Repic
               </p>
             </div>
             <a href="https://maps.google.com/?q=Soller+Mallorca" target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '14px', background: '#111', color: 'white', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '0.95rem' }}>

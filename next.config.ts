@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
       // Kanonisk slug är /strandar (svenska). /strander var en tidig variant.
       { source: '/strander', destination: '/strandar', permanent: true },
       { source: '/strander/:path*', destination: '/strandar/:path*', permanent: true },
+      // /stad/[slug] är borttagen – stadssidorna ligger på /:slug.
+      { source: '/stad', destination: '/byar', permanent: true },
+      { source: '/stad/:slug', destination: '/:slug', permanent: true },
+      // Kontaktsidan är borttagen (ingen personlig reseplanering).
+      { source: '/kontakt', destination: '/', permanent: true },
     ];
   },
 };

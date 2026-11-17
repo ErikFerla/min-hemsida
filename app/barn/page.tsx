@@ -16,19 +16,23 @@ import {
   stringifyJsonLd,
 } from '@/app/lib/barn-jsonld';
 
+const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
+
+const META_TITLE = `Mallorca med barn – ${ACTIVITIES.length} barnaktiviteter`;
+const META_DESCRIPTION =
+  'Barnaktiviteter på Mallorca som inte handlar om stranden – vattenparker, djurparker, akvarier och tips för regniga dagar. Filtrera efter ålder. Svensk guide.';
+
 export const metadata: Metadata = {
-  title: 'Mallorca med barn 2026 – 70 aktiviteter utöver stranden | MyMallorca',
-  description:
-    'Mallorca har över 70 barnaktiviteter som inte handlar om stranden – vattenparker, grottor, djurparker, museer och mer. Filtrera efter ålder. Svensk guide.',
+  title: META_TITLE,
+  description: META_DESCRIPTION,
   alternates: { canonical: 'https://www.mymallorca.se/barn' },
   openGraph: {
     type: 'website',
     url: 'https://www.mymallorca.se/barn',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Mallorca med barn 2026 – 70 aktiviteter utöver stranden | MyMallorca',
-    description:
-      'Mallorca har över 70 barnaktiviteter som inte handlar om stranden. Filtrera efter ålder. Svensk guide.',
+    title: META_TITLE,
+    description: META_DESCRIPTION,
     images: [
       {
         url: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85',
@@ -40,9 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mallorca med barn 2026 – 70 aktiviteter utöver stranden',
-    description:
-      'Mallorca har över 70 barnaktiviteter som inte handlar om stranden. Svensk guide med ålderfilter.',
+    title: META_TITLE,
+    description: META_DESCRIPTION,
     images: ['https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85'],
   },
 };
@@ -52,7 +55,7 @@ type Props = {
 };
 
 const INSIDER_TIPS: string[] = [
-  'Bokning: vattenparker och Palma Aquarium — köp online, 10 % billigare och ni slipper köer.',
+  'Bokning: vattenparker och Palma Aquarium — köp biljetterna online, ofta blir det billigare och ni slipper köerna.',
   'Bästa tid: besök Katmandu-parken efter lunch — morgonen är packad med bussgrupper.',
   'Regnplan: när det regnar, boka Palma Jump eller Kids Republik samma morgon — tiderna tar slut snabbt.',
   'Småbarn: Hidropark i norr är mycket lugnare än parkerna i Palma — värt 45 min bilresa om ni har 2–5-åringar.',
@@ -76,12 +79,10 @@ export default async function BarnHubPage({ searchParams }: Props) {
   );
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbs);
 
-  // Count activities per category (same count the spec expects: 5/4/8)
-  const countsByCategory = CATEGORIES.map((c) => ({
+  // Visa bara kategorier som har innehåll – tomma "Kommer snart"-kategorier döljs.
+  const countsByCategory = AVAILABLE_CATEGORIES.map((c) => ({
     ...c,
-    count: c.available
-      ? ACTIVITIES.filter((a) => a.categories.includes(c.slug)).length
-      : 0,
+    count: ACTIVITIES.filter((a) => a.categories.includes(c.slug)).length,
   }));
 
   return (
@@ -97,10 +98,10 @@ export default async function BarnHubPage({ searchParams }: Props) {
 
       <CategoryHero
         imageSrc="https://images.unsplash.com/photo-1530870110042-98b2cb110834"
-        imageAlt="Barnfamilj vid en vattenpark på Mallorca – 70+ familjeaktiviteter utöver stranden"
+        imageAlt="Barnfamilj vid en vattenpark på Mallorca"
         kicker="Familjeresan"
         title="Mallorca med barn"
-        subtitle="Över 70 aktiviteter långt från stranden – testade, organiserade och uppdaterade för 2026"
+        subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker och planer för regniga dagar"
       />
 
       <div
@@ -123,10 +124,10 @@ export default async function BarnHubPage({ searchParams }: Props) {
             }}
           >
             <p style={{ marginTop: 0 }}>
-              På Mallorca bor 900 000 människor året runt — de flesta med barn. Det betyder att ön är
-              fullpackad med aktiviteter för familjer, varav de flesta inte har med stranden att göra.
-              Vattenparker, akvarier, trampolinparker, äventyrsparker, grottor, djurparker, museer,
-              historiska tåg — listan slutar inte.
+              Mallorca är ett av Europas mest barnvänliga resmål, och ön har gott om aktiviteter för
+              familjer som inte har med stranden att göra. Vattenparker, akvarier, trampolinparker,
+              äventyrsparker, grottor, djurparker, museer och historiska tåg — det finns något för
+              alla åldrar.
             </p>
             <p>
               Här har vi samlat Mallorcas bästa barnaktiviteter, sorterade efter typ och åldersgrupp.
@@ -162,71 +163,6 @@ export default async function BarnHubPage({ searchParams }: Props) {
             }}
           >
             {countsByCategory.map((c) => {
-              const isComingSoon = !c.available;
-
-              if (isComingSoon) {
-                return (
-                  <li key={c.slug}>
-                    <div
-                      aria-disabled="true"
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '8px',
-                        padding: '20px 22px',
-                        background: '#f5f3ee',
-                        border: '1px dashed rgba(0,0,0,0.12)',
-                        borderRadius: '14px',
-                        opacity: 0.7,
-                        cursor: 'not-allowed',
-                        height: '100%',
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'baseline',
-                          gap: '10px',
-                          flexWrap: 'wrap',
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontFamily: '"Bebas Neue", sans-serif',
-                            fontSize: '1.25rem',
-                            letterSpacing: '0.04em',
-                            color: '#383a46',
-                          }}
-                        >
-                          {c.label}
-                        </span>
-                        <span
-                          style={{
-                            color: '#9ca3af',
-                            fontSize: '0.72rem',
-                            fontWeight: 600,
-                            letterSpacing: '0.1em',
-                            textTransform: 'uppercase',
-                          }}
-                        >
-                          Kommer snart
-                        </span>
-                      </div>
-                      <p
-                        style={{
-                          margin: 0,
-                          fontSize: '0.9rem',
-                          lineHeight: 1.55,
-                          color: '#4b5563',
-                        }}
-                      >
-                        {c.shortTagline}
-                      </p>
-                    </div>
-                  </li>
-                );
-              }
-
               return (
                 <li key={c.slug}>
                   <a
@@ -257,7 +193,7 @@ export default async function BarnHubPage({ searchParams }: Props) {
                           src={`${c.heroImage}?w=640&q=80&fm=webp&auto=format`}
                           srcSet={`${c.heroImage}?w=320&q=80&fm=webp&auto=format 320w, ${c.heroImage}?w=480&q=80&fm=webp&auto=format 480w, ${c.heroImage}?w=640&q=80&fm=webp&auto=format 640w, ${c.heroImage}?w=960&q=80&fm=webp&auto=format 960w`}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          alt=""
+                          alt={`${c.label} – barnaktiviteter på Mallorca`}
                           width={640}
                           height={400}
                           loading="lazy"
@@ -336,7 +272,7 @@ export default async function BarnHubPage({ searchParams }: Props) {
             Alla aktiviteter
           </h2>
           <p style={{ fontSize: '0.95rem', color: '#6b7280', margin: '0 0 24px', maxWidth: '60ch' }}>
-            {ACTIVITIES.length} handplockade aktiviteter från tre aktiva kategorier. Filtrera efter ålder
+            {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. Filtrera efter ålder
             eller klicka dig vidare till respektive kategorisida för mer detaljer.
           </p>
 

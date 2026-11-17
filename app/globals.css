@@ -1055,13 +1055,6 @@ h1 {
    MOBIL — EXTRA OPTIMERINGAR
    ============================================== */
 
-/* Dölj desktop-CTA i navbar vid riktigt liten skärm */
-@media (max-width: 480px) {
-  .navbar-desktop-cta {
-    display: none !important;
-  }
-}
-
 /* Sektioner med inline padding 80px 60px — t.ex. evenemang och Din guide */
 @media (max-width: 768px) {
   [style*="padding: 80px 60px"],
@@ -1465,17 +1458,6 @@ section > div {
 .navbar-desktop-link:hover {
   background: rgba(0,0,0,0.04);
 }
-.navbar-desktop-cta {
-  background: #383a46;
-  color: white !important;
-  padding: 10px 22px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-decoration: none !important;
-  white-space: nowrap;
-}
 
 /* ===== MOBILE FULLSCREEN MENU ===== */
 .mobile-menu-fullscreen {
@@ -1581,7 +1563,6 @@ section > div {
 /* Mobil breakpoint */
 @media (max-width: 768px) {
   .navbar-desktop-links { display: none !important; }
-  .navbar-desktop-cta { display: none !important; }
   .hamburger-btn { display: flex !important; }
   .mobile-menu-drawer { display: block; }
   .mobile-menu-overlay { display: block; }
@@ -1607,7 +1588,7 @@ section > div {
    single column on mobile. Applied on /palma-de-mallorca, /soller,
    /valldemossa, /alcudia, /deia, /pollenca, /port-de-soller,
    /porto-colom, /porto-petro, /santanyi, /andratx, /arta,
-   /capdepera, /felanitx, /inca, /sineu and the /stad/[slug] alias.
+   /capdepera, /felanitx, /inca and /sineu.
    ============================================================ */
 .city-grid {
   display: grid;
@@ -1633,4 +1614,50 @@ section > div {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ============================================================
+   TILLGÄNGLIGHET — hopplänk och synligt tangentbordsfokus
+   ============================================================ */
+
+/* "Hoppa till innehållet": dold tills den får fokus (första tabbstoppet) */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-weight: 600;
+  text-decoration: underline;
+  border-radius: 0 0 var(--btn-border-radius) 0;
+  transform: translateY(-120%);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid var(--accent-light);
+  outline-offset: 0;
+}
+
+/* Global, tydlig fokusring för tangentbord (musklick påverkas inte) */
+:focus-visible {
+  outline: 3px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Ljus variant på mörk bakgrund (footern) */
+footer :focus-visible {
+  outline-color: var(--text-light);
+}
+
+/* <main> får fokus via hopplänken – ingen ring runt hela innehållet */
+#main:focus {
+  outline: none;
+}
+
+/* Leaflet-attribution: understrukna länkar så de skiljer sig från texten (WCAG 1.4.1) */
+.leaflet-container .leaflet-control-attribution a {
+  text-decoration: underline;
 }

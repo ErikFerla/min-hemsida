@@ -3,7 +3,7 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
-  title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+  title: 'Djurparker & akvarier på Mallorca för barn',
   description:
     'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn. Priser, tips och åldersrekommendationer.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/djurparker-och-akvarier' },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: 'https://www.mymallorca.se/barn/djurparker-och-akvarier',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+    title: 'Djurparker & akvarier på Mallorca för barn',
     description:
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+    title: 'Djurparker & akvarier på Mallorca för barn',
     description:
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
     images: ['https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=630&fit=crop&q=85'],

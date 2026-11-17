@@ -172,13 +172,13 @@ export default function GolfPage() {
 
         <div style={{ marginTop: '60px', background: '#111', borderRadius: '16px', padding: '40px', color: 'white', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
-            Planera din golfsemester
+            Mer om golf på Mallorca
           </h2>
           <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>
-            Vill du ha hjälp att boka greenfee, hyra utrustning eller kombinera golf med andra aktiviteter?
+            Vill du veta mer om banorna, säsongen och greenfee? Läs vår kompletta golfguide.
           </p>
-          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
-            Planera min golfsemester →
+          <Link href="/guide/golf-mallorca-guide" style={{ display: 'inline-block', padding: '14px 40px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
+            Läs vår golfguide →
           </Link>
         </div>
       </div>

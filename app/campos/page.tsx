@@ -1,4 +1,4 @@
-import { IconStar, IconBuilding, IconPin, IconSparkle } from '@/components/Icons';
+import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 import { CITIES, buildCityMetadata } from '@/app/lib/city-seo';
 import { CityJsonLd } from '@/app/lib/CityJsonLd';
 import HeroImage from '@/components/HeroImage';
@@ -61,19 +61,19 @@ export default function Campos() {
               Visa på karta ↗
             </a>
             <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginTop: '20px', border: '1px solid #ede5da' }}>
-              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconSparkle size={18} /> Boka upplevelser i Campos</h3>
+              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={18} /> Hitta hit i Campos</h3>
               {[
-                { text: 'Guidad tur i Salines d\u2019Es Trenc', pris: 'från 10 €', länk: 'https://www.getyourguide.com/campos-l173478/salines-tc56/?partner_id=DITT_ID' },
-                { text: 'Kajakpaddling vid Es Trenc-kusten', pris: 'från 35 €', länk: 'https://www.getyourguide.com/campos-l173478/kayaking-tc55/?partner_id=DITT_ID' },
-                { text: 'Flor de Sal provsmakning och workshop', pris: 'från 25 €', länk: 'https://www.getyourguide.com/campos-l173478/food-workshops-tc96/?partner_id=DITT_ID' },
+                { text: 'Salines d’Es Trenc', länk: 'https://maps.google.com/?q=Salines+d%27Es+Trenc+Mallorca' },
+                { text: 'Es Trenc-stranden', länk: 'https://maps.google.com/?q=Platja+des+Trenc+Mallorca' },
+                { text: 'Plaça Major, Campos', länk: 'https://maps.google.com/?q=Placa+Major+Campos+Mallorca' },
               ].map((item, i) => (
-                <a key={i} href={item.länk} target="_blank" rel="noopener noreferrer sponsored"
+                <a key={i} href={item.länk} target="_blank" rel="noopener noreferrer"
                   style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: '12px 0', borderBottom: i < 2 ? '1px solid #f0ebe3' : 'none',
                     textDecoration: 'none', color: '#383a46' }}
                 >
                   <span style={{ fontSize: '0.9rem' }}>{item.text}</span>
-                  <span style={{ fontSize: '0.85rem', color: '#993335', fontWeight: '700', flexShrink: 0 }}>{item.pris} →</span>
+                  <span style={{ fontSize: '0.85rem', color: '#993335', fontWeight: '700', flexShrink: 0 }}>Karta ↗</span>
                 </a>
               ))}
             </div>

@@ -1,10 +1,5 @@
-import { IconPin, IconInfo, IconBookmark, IconUsers, PriceTag, tierFromEmoji } from '@/components/Icons';
+import { IconPin, IconInfo, IconBookmark, PriceTag, tierFromEmoji } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
-
-export const metadata = {
-  title: '15 bästa restaurangerna i Palma 2026 – Lokal guide | MyMallorca',
-  description: 'Rankade av en lokal: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, bästa tapas, fisk och skaldjur, och dolda pärlor utan turistpriser.',
-};
 
 type Restaurant = {
   namn: string;

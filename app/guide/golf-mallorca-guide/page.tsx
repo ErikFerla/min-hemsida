@@ -1,11 +1,6 @@
 import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 
-export const metadata = {
-  title: 'Golf på Mallorca 2026 – Komplett guide till alla 22 banor | MyMallorca',
-  description: 'Komplett golfguide för Mallorca. De 5 bästa banorna djupanalyserade + komplett lista på alla 22 banor med grön-avgift, svårighet och kontakt.',
-};
-
 const toppBanor = [
   {
     rank: 1,
@@ -103,7 +98,7 @@ export default function GolfMallorcaGuide() {
         alt="Golfbana på Mallorca med välklippt green, palmer och havsutsikt"
         kicker="Golfguide · Uppdaterad 2026"
         title="Golf på Mallorca"
-        subtitle="Komplett guide till alla 22 golfbanor. De 5 bästa djupanalyserade med grön-avgifter, insider-tips och info om bästa säsong."
+        subtitle="Komplett guide till alla 22 golfbanor. De 5 bästa djupanalyserade med greenfee, insidertips och info om bästa säsong."
         height="55vh"
       />
 

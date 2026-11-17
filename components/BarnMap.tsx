@@ -16,8 +16,8 @@ const barnAktiviteter = [
 export default function BarnMap() {
   useEffect(() => {
     import('leaflet').then((L) => {
-      const Lm = (L as any).default || L
-      const container = document.getElementById('barn-map') as any
+      const Lm = (L as unknown as { default?: typeof L } & typeof L).default || L
+      const container = document.getElementById('barn-map') as (HTMLElement & { _leaflet_id?: number }) | null
       if (!container || container._leaflet_id) return
 
       const map = Lm.map('barn-map', {

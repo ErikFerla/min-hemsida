@@ -24,7 +24,7 @@ export default function SectionInsider() {
               <li>La Seu är gratis att besöka på vardagsmorgnar före kl 10</li>
               <li>Bästa utsikten över Palma är från Castell de Bellver - inte från katedralen</li>
               <li>Parkera vid Parc de la Mar och gå in i gamla stan till fots</li>
-              <li>Frukostera på Mercat de l'Olivar - lokalerna äter där, inte på turistkaféen</li>
+              <li>Frukostera på Mercat de l’Olivar – lokalerna äter där, inte på turistkaféen</li>
             </ul>
           </div>
           <div className={styles.insiderCard}>

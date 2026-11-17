@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
 import ReactDOM from 'react-dom';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import { buildPageMetadata } from '@/app/lib/city-seo';
 
 const SITE = 'https://www.mymallorca.se';
 const PAGE_URL = `${SITE}/strandar`;
@@ -14,32 +14,15 @@ const HERO_SRCSET = [640, 960, 1280, 1600, 2000]
   .map(w => `${HERO_BASE}?w=${w}&${HERO_Q} ${w}w`)
   .join(', ');
 
-export const metadata: Metadata = {
-  title: 'Stränder på Mallorca 2026 – 30 bästa vikarna & sandstränderna | MyMallorca',
-  description: 'Upptäck Mallorcas 30 bästa stränder – från ostkustens turkosa calas till västkustens dramatiska klippor. Handplockad guide från lokalkännare.',
-  keywords: 'stränder Mallorca, bästa strand Mallorca, bästa stränderna Mallorca, Es Trenc, Cala Mondragó, familjevänlig strand Mallorca, Caló des Moro',
-  alternates: { canonical: '/strandar' },
-  openGraph: {
-    title: 'Stränder på Mallorca 2026 – 30 bästa vikarna & sandstränderna',
-    description: 'Upptäck Mallorcas 30 bästa stränder – från ostkustens turkosa calas till västkustens dramatiska klippor. Handplockad guide från lokalkännare.',
-    url: PAGE_URL,
-    siteName: 'MyMallorca',
-    locale: 'sv_SE',
-    type: 'website',
-    images: [{
-      url: HERO_1600,
-      width: 1600,
-      height: 1067,
-      alt: 'Caló des Moro på södra Mallorca – turkost vatten, kalkstensklippor och pinjeskog vid en dold vik',
-    }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Stränder på Mallorca 2026 – 30 bästa vikarna & sandstränderna',
-    description: 'Upptäck Mallorcas 30 bästa stränder – handplockad guide från lokalkännare.',
-    images: [HERO_1600],
-  },
-};
+export const metadata = buildPageMetadata({
+  path: '/strandar',
+  title: 'Stränder på Mallorca – 30 vikar & sandstränder',
+  description: 'Upptäck Mallorcas 30 bästa stränder – från östkustens turkosa calas till västkustens dramatiska klippor. Handplockad guide från lokalkännare.',
+  image: HERO_1600,
+  imageWidth: 1600,
+  imageHeight: 1067,
+  imageAlt: 'Caló des Moro på södra Mallorca – turkost vatten, kalkstensklippor och pinjeskog vid en dold vik',
+});
 
 function TouristAttractionSchema() {
   const schema = {

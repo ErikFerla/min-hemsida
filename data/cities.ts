@@ -3,7 +3,7 @@ import type { MapMarker } from '@/components/InteractiveMap';
 export const cities: MapMarker[] = [
   { name: 'Palma de Mallorca', lat: 39.5696, lng: 2.6502, href: '/palma-de-mallorca', desc: 'Mallorcas pulserande huvudstad', main: true },
   { name: 'Sóller', lat: 39.7670, lng: 2.7153, href: '/soller', desc: 'Bergsby med historisk spårvagn' },
-  { name: 'Valldemossa', lat: 39.7126, lng: 2.6228, href: '/valldemossa', desc: 'UNESCO-skyddat världsarv' },
+  { name: 'Valldemossa', lat: 39.7126, lng: 2.6228, href: '/valldemossa', desc: 'Bergsby i världsarvet Serra de Tramuntana' },
   { name: 'Deià', lat: 39.7480, lng: 2.6480, href: '/deia', desc: 'Konstnärsby vid NV-kusten' },
   { name: 'Andratx', lat: 39.5742, lng: 2.4251, href: '/andratx', desc: 'Charmig by i sydväst' },
   { name: 'Pollença', lat: 39.8724, lng: 3.0139, href: '/pollenca', desc: 'Historisk stad i norr' },

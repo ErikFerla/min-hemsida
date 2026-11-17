@@ -1,10 +1,5 @@
 import HeroImage from '@/components/HeroImage';
 
-export const metadata = {
-  title: 'De 15 bästa stränderna på Mallorca 2026 – Rankade av en lokal | MyMallorca',
-  description: 'Vi har besökt och rankat Mallorcas 15 bästa stränder. Från dolda paradisvikar till barnvänliga sandstränder – med GPS, parkering och insider-tips.',
-};
-
 const stränder = [
   {
     rank: 1,

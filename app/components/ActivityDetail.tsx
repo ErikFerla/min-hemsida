@@ -210,7 +210,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
             <a
               href={activity.bookingUrl}
               target="_blank"
-              rel="noopener noreferrer sponsored"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

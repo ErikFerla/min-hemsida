@@ -12,11 +12,11 @@ const resplaner: Record<string, Record<string, string[]>> = {
     ],
     'Kultur': [
       'Dag 1: Palma gamla stan – La Seu katedralen, Bellver slott, tapas på kvällen',
-      'Dag 2: Valldemossa – Robert Graves museum i Deià, lunch i Sóller',
+      'Dag 2: Valldemossa och Deià – klostret, Robert Graves hus och lunch i Sóller',
       'Dag 3: Alcúdia – romerska ruiner, medeltida stadsmur, marknad',
     ],
     'Mat': [
-      'Dag 1: Palma – Mercat de lOlivar frukost, Marc Fosh lunch, Pa amb oli middag',
+      'Dag 1: Palma – Mercat de l’Olivar frukost, Marc Fosh lunch, Pa amb oli middag',
       'Dag 2: Binissalem vingårdstur – Bodega Ribas + José L. Ferrer, vinprovning',
       'Dag 3: Fiskmarknad Porto Colom på morgonen, caldereta de llagosta till lunch',
     ],
@@ -40,18 +40,18 @@ const resplaner: Record<string, Record<string, string[]>> = {
       'Dag 5: Cala Llombards – hemlig vik, perfekt för sista baddag',
     ],
     'Kultur': [
-      'Dag 1: Palma – La Seu, Palau de lAlmudaina, kvällspromenad i gamla stan',
+      'Dag 1: Palma – La Seu, Palau de l’Almudaina, kvällspromenad i gamla stan',
       'Dag 2: Valldemossa och Deià – Robert Graves, terrasser, lunch med utsikt',
       'Dag 3: Sóller – spårvagn till Port de Sóller, oranger och gammal arkitektur',
       'Dag 4: Alcúdia – romerska teatern, medeltida murar, marknad',
       'Dag 5: Sineu marknad på onsdagar, Manacor – pärlfabriker',
     ],
     'Mat': [
-      'Dag 1: Palma – Mercat de lOlivar, tapas-crawl i El Born-kvarteret',
+      'Dag 1: Palma – Mercat de l’Olivar, tapas-crawl i El Born-kvarteret',
       'Dag 2: Binissalem – vingårdstur och vinprovning, lunch på Can Arabí',
       'Dag 3: Porto Colom – fiskmarknad, caldereta de llagosta, lokalt café',
       'Dag 4: Sóller – citrusmarmelad, olivolja-provning, middag vid hamnen',
-      'Dag 5: Palma – avslutningmiddag på Marc Fosh eller Simply Fosh',
+      'Dag 5: Palma – avslutningsmiddag på Marc Fosh eller Simply Fosh',
     ],
     'Aventyr': [
       'Dag 1: Kayak i Cala Barques och Cala Sant Vicenç',
@@ -84,11 +84,11 @@ const resplaner: Record<string, Record<string, string[]>> = {
       'Dag 3: Valldemossa och Deià – kultur och utsikter',
       'Dag 4: Sóller – spårvagn, orangerlundar, hamn',
       'Dag 5: Alcúdia – romerska ruiner och medeltida mur',
-      'Dag 6: Sineu och Petra – autentiska inlandbyar',
+      'Dag 6: Sineu och Petra – autentiska inlandsbyar',
       'Dag 7: Sista shopping i Palma, hemresa',
     ],
     'Mat': [
-      'Dag 1: Palma – Mercat de lOlivar, kvällstapas',
+      'Dag 1: Palma – Mercat de l’Olivar, kvällstapas',
       'Dag 2: Binissalem vingårdsrunda – 3 vingårdar',
       'Dag 3: Porto Colom – fiskmarknad och färsk fisk',
       'Dag 4: Matlagningskurs med lokal kock i Palma',
@@ -123,10 +123,10 @@ const resplaner: Record<string, Record<string, string[]>> = {
     'Familj': ['Dag 1-10: Familjepaket – vattenparker, grottor, djurparker, stränder, båtturer och kulturupplevelser för alla åldrar'],
   },
   '14': {
-    'Strand': ['Dag 1-14: Ultimat strandupplevelse – besök ALLA Mallorcas 50 bästa stränder och vikar, från norr till söder'],
-    'Kultur': ['Dag 1-14: Komplett kulturresa – varje by, museum, kloster och historisk plats på ön'],
-    'Mat': ['Dag 1-14: Gastronomisk expedition – alla Michelinkrogar, alla vingårdar, alla marknader'],
-    'Aventyr': ['Dag 1-14: Ultimat äventyr – hela GR221 vandringsledan + alla aktiviteter'],
+    'Strand': ['Dag 1-14: Strandresa runt hela ön i lugn takt – från Formentor i norr till Es Trenc i söder'],
+    'Kultur': ['Dag 1-14: Kulturresa i lugn takt – bergsbyar, museer, kloster och historiska platser över hela ön'],
+    'Mat': ['Dag 1-14: Gastronomisk resa – vingårdar, marknader, fiskhamnar och några av öns stjärnkrogar'],
+    'Aventyr': ['Dag 1-14: Längre äventyr – flera etapper av GR221 kombinerat med kajak, klättring och cykling'],
     'Familj': ['Dag 1-14: Drömfamiljesemester – allt för barn och vuxna, inget stressigt'],
   },
 };
@@ -183,18 +183,18 @@ export default function SectionPlanner() {
 
         {/* Vänster: Hela planner-innehållet */}
         <div>
-        <p className="section-label">PLANERA DIN RESA</p>
+        <p className="section-label">RESPLANERARE</p>
         <h2 className="section-title">Skräddarsy din resa</h2>
         <div className="section-divider"></div>
         <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '40px' }}>
-          Berätta vad du gillar – få en personlig resplan för Mallorca
+          Berätta vad du gillar – få ett förslag på resplan för Mallorca
         </p>
 
         <div style={{ marginBottom: '32px' }}>
           <p style={{ fontWeight: '600', fontSize: '1rem', marginBottom: '12px' }}>Hur länge reser du?</p>
           <div className="planner-dag-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {dagval.map(d => (
-              <button key={d} onClick={() => { setDagar(d); setVisar(false); }} style={knappStyle(dagar === d)}>
+              <button key={d} type="button" aria-pressed={dagar === d} onClick={() => { setDagar(d); setVisar(false); }} style={knappStyle(dagar === d)}>
                 {d} dagar
               </button>
             ))}
@@ -207,7 +207,7 @@ export default function SectionPlanner() {
             {intresseVal.map(i => {
               const Ikon = intressenIkon[i];
               return (
-                <button key={i} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
+                <button key={i} type="button" aria-pressed={intressen.includes(i)} onClick={() => toggleIntresse(i)} style={knappStyle(intressen.includes(i))}>
                   <Ikon size={18} /> {i}
                 </button>
               );
@@ -216,13 +216,14 @@ export default function SectionPlanner() {
         </div>
 
         <button
+          type="button"
           className="planner-cta-btn"
           onClick={genereraResplan}
           disabled={!dagar || intressen.length === 0}
           style={{
             padding: '14px 40px',
-            background: dagar && intressen.length > 0 ? '#993335' : '#d4c8bb',
-            color: dagar && intressen.length > 0 ? '#383a46' : '#888',
+            background: dagar && intressen.length > 0 ? '#993335' : '#e8e1d8',
+            color: dagar && intressen.length > 0 ? '#fefefb' : '#5f5f5f',
             border: 'none',
             borderRadius: '8px',
             fontSize: '1.1rem',
@@ -239,7 +240,7 @@ export default function SectionPlanner() {
         {visar && resplan.length > 0 && (
           <div style={{ marginTop: '48px', background: 'white', borderRadius: '16px', padding: '40px', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
             <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '24px' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>Din personliga {dagar}-dagarsplan <IconMap size={20} /></span>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>Förslag: {dagar} dagar på Mallorca <IconMap size={20} /></span>
             </h3>
             {resplan.map((dag, i) => (
               <div key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
@@ -253,7 +254,7 @@ export default function SectionPlanner() {
             ))}
             <div style={{ marginTop: '32px', padding: '20px', background: '#f5f5f5', borderRadius: '10px' }}>
               <p style={{ margin: 0, fontSize: '0.9rem', color: '#666' }}>
-                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du ha ännu mer personliga rekommendationer? Klicka på "Planera din resa" i menyn så hjälper vi dig vidare!
+                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <a href="/guider" style={{ color: '#993335', fontWeight: 600 }}>våra guider</a> hittar du stränder, mat, golf och Mallorca med barn.
               </p>
             </div>
           </div>
@@ -277,7 +278,7 @@ export default function SectionPlanner() {
           <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
             <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#383a46', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
             <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: '1.65', margin: 0 }}>
-              "Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet."
+              ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
             </p>
             <p style={{ fontSize: '0.75rem', color: '#9CA3AF', margin: '10px 0 0', fontWeight: 600 }}>— Erik, MyMallorca</p>
           </div>

@@ -7,6 +7,7 @@ export type City = {
   heroImage: string;
   lat: number;
   lon: number;
+  /** Titel utan sajtnamn – root-layoutens title.template lägger till " | MyMallorca". */
   titleOverride?: string;
 };
 
@@ -17,7 +18,7 @@ export const CITIES: Record<string, City> = {
   'palma-de-mallorca': {
     slug: 'palma-de-mallorca',
     name: 'Palma de Mallorca',
-    titleOverride: 'Palma de Mallorca – Komplett reseguide | MyMallorca',
+    titleOverride: 'Palma de Mallorca – komplett reseguide',
     description: 'Palma de Mallorca – öns pulserande huvudstad med gotiska La Seu, livlig gamla stan och kulinarisk scen i världsklass. Insider-tips från lokalkännare.',
     heroImage: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e',
     lat: 39.5696,
@@ -161,8 +162,9 @@ export const CITIES: Record<string, City> = {
   },
 };
 
+/** Sidtitel utan sajtnamn (≤47 tecken); title.template i app/layout.tsx lägger till " | MyMallorca". */
 export function cityTitle(c: City): string {
-  return c.titleOverride ?? `${c.name} på Mallorca – Komplett reseguide | ${SITE_NAME}`;
+  return c.titleOverride ?? `${c.name} på Mallorca – reseguide`;
 }
 
 export function cityUrl(c: City): string {
@@ -200,3 +202,42 @@ export function buildCityMetadata(c: City): Metadata {
     },
   };
 }
+
+type PageSeo = {
+  /** Sökväg som börjar med "/", t.ex. "/strandar". Används för självrefererande canonical och og:url. */
+  path: string;
+  /** Titel utan sajtnamn (≤47 tecken) – title.template lägger till " | MyMallorca". */
+  title: string;
+  /** 120–160 tecken. */
+  description: string;
+  image: string;
+  imageAlt: string;
+  imageWidth?: number;
+  imageHeight?: number;
+};
+
+/** Gemensam metadata för vanliga innehållssidor: titel, beskrivning, canonical, Open Graph och Twitter. */
+export function buildPageMetadata(p: PageSeo): Metadata {
+  const url = `${BASE_URL}${p.path}`;
+  return {
+    title: p.title,
+    description: p.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: 'website',
+      url,
+      siteName: SITE_NAME,
+      locale: 'sv_SE',
+      title: p.title,
+      description: p.description,
+      images: [{ url: p.image, width: p.imageWidth ?? 1200, height: p.imageHeight ?? 630, alt: p.imageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: p.title,
+      description: p.description,
+      images: [p.image],
+    },
+  };
+}
+

@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next';
+import Link from 'next/link';
 import styles from './page.module.css';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
@@ -10,8 +11,11 @@ import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 
+// Startsidans "Kommande evenemang" beror på dagens datum – bygg om sidan en gång per dygn.
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
-  title: 'Mallorca guide på svenska 2026 – Stränder, städer & tips | MyMallorca',
+  title: 'Mallorca-guide på svenska – stränder & byar | MyMallorca',
   description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insider-tips från Mallorca 2026.',
   alternates: { canonical: '/' },
 };
@@ -126,20 +130,21 @@ export default function Home() {
               <div className="section-divider" style={{background:'#993335'}} />
               <p style={{lineHeight:1.75, color:'#4b5563',
                          marginBottom:'20px', maxWidth:'52ch'}}>
-                De flesta reser till Mallorca. Vi hjälper dig att uppleva den.
-                Det är skillnaden mellan ett hotellpool-semester och en morgon
+                De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
+                Det är skillnaden mellan en semester vid hotellpoolen och en morgon
                 på en okänd strand i nordväst — där vattnet är turkost och du
                 är ensam om den.
               </p>
               <p style={{lineHeight:1.75, color:'#4b5563',
                          marginBottom:'32px', maxWidth:'52ch'}}>
-                MyMallorca är byggt av människor som älskar ön på riktigt —
-                inte av resebolag med provision. Guider, stränder och
-                upplevelser som faktiskt håller. Utvalda med omdöme.
+                MyMallorca drivs av kärlek till ön, inte av försäljning. Här
+                samlar vi stränder, byar, barnaktiviteter, vingårdar och
+                smultronställen som vi själva återvänder till – för dig som
+                reser med familjen, som par eller har ditt andra hem på ön.
               </p>
-              <a href="/guider" className="btn-primary">
+              <Link href="/guider" className="btn-primary">
                 SE VÅRA GUIDER →
-              </a>
+              </Link>
             </div>
           </div>
         </section>

@@ -37,11 +37,6 @@ const vingårdar: Vingard[] = [
   { namn: 'Vins Nadal', plats: 'Binissalem', prisnivå: 1, typ: 'Traditionell familjevingård', passarFör: 'Budgetmedvetna', upplevelse: 'Enkel provning, varm atmosfär', bokning: 'Drop-in välkomnas', öppet: 'Mån–Lör 9–18', info: 'Traditionell familjevingård sedan 1944. Enkel, ärlig och prisvärd.', signaturvin: 'Nadal Rosat', web: 'https://www.vinsnadal.com', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=800&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
 ];
 
-export const metadata = {
-  title: 'Vingårdar på Mallorca – Guide till öns 15 bästa bodegas',
-  description: 'Upptäck Mallorcas vingårdar. Från familjedrivna bodegas till ekologiska producenter — med tips om bokning, provning och vem varje vingård passar för.',
-};
-
 const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0, lineHeight: 1.2 };
 const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#383a46', margin: '1px 0 0', lineHeight: 1.3 };
 

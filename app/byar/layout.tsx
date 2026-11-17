@@ -1,15 +1,13 @@
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import { buildPageMetadata } from '@/app/lib/city-seo';
 
-export const metadata = {
-  title: 'Städer och byar på Mallorca 2026 – Guide till Palma, Sóller & mer',
-  description: 'Utforska Mallorcas vackraste städer och bergbyar. Komplett guide till Palma, Sóller, Valldemossa, Alcúdia och 14 andra destinationer.',
-  keywords: 'städer Mallorca, byar Mallorca, Palma guide, Valldemossa, Deià, Sóller Mallorca',
-  openGraph: {
-    title: 'Mallorcas vackraste städer och byar – Guide 2026',
-    description: '18 destinationer med lokala tips, top 3 och praktisk info.',
-    images: ['https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1600&q=85'],
-  },
-};
+export const metadata = buildPageMetadata({
+  path: '/byar',
+  title: 'Mallorcas städer och byar – Palma, Sóller m.fl.',
+  description: 'Utforska Mallorcas städer och bergsbyar – Palma, Sóller, Valldemossa, Deià, Alcúdia och fler. Lokala tips, sevärdheter och praktisk info för varje ort.',
+  image: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1200&h=630&fit=crop&q=85',
+  imageAlt: 'Palma de Mallorca med katedralen La Seu',
+});
 
 export default function ByarLayout({ children }: { children: React.ReactNode }) {
   return (
