@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import styles from './FeatureCards.module.css';
 
-const svgProps = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: '#383a46', strokeWidth: 1.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+const svgProps = { width: 28, height: 28, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 
 export const featureItems: { icon: ReactNode; title: string; desc: string; href: string }[] = [
   { icon: <svg {...svgProps}><path d="M2 12c0-5.5 4-10 10-10s10 4.5 10 10"/><path d="M4.5 17.5C6 16 8 15 10 16s4 2 6 1 4-2 4-2"/></svg>, title: 'Stränder', desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder', href: '/strandar' },
@@ -13,58 +14,21 @@ export const featureItems: { icon: ReactNode; title: string; desc: string; href:
 ];
 
 export default function FeatureCards() {
-  // Visas bara på desktop (.desktop-only i app/page.tsx). Mobil använder MobileFeatureCards.
+  // Visas bara på desktop (.desktopOnly i app/page.tsx). Mobil använder MobileFeatureCards.
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-      gap: '24px',
-      marginTop: '8px',
-    }}>
+    <div className={styles.grid}>
       {featureItems.map((item) => (
-        <Link
-          key={item.title}
-          href={item.href}
-          style={{
-            display: 'block',
-            padding: '28px 24px',
-            background: 'white',
-            borderRadius: '12px',
-            textDecoration: 'none',
-            border: '1px solid rgba(0,0,0,0.06)',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-            transition: 'transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.22s cubic-bezier(0.25,0.46,0.45,0.94)',
-          }}
-        >
+        <Link key={item.title} href={item.href} className={styles.card}>
           {/* Ikon */}
-          <div aria-hidden="true" style={{ marginBottom: '12px', lineHeight: 1 }}>{item.icon}</div>
+          <div aria-hidden="true" className={styles.icon}>{item.icon}</div>
 
           {/* Titel + beskrivning */}
           <div>
-            <div style={{
-              fontSize: '1rem',
-              fontWeight: 700,
-              color: '#383a46',
-              marginBottom: '8px',
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-            }}>{item.title}</div>
-
-            <div style={{
-              fontSize: '0.88rem',
-              color: 'var(--color-text-muted)',
-              lineHeight: 1.4,
-            }}>{item.desc}</div>
+            <div className={styles.title}>{item.title}</div>
+            <div className={styles.desc}>{item.desc}</div>
           </div>
 
-          <div aria-hidden="true" style={{
-            marginTop: '16px',
-            fontSize: 'var(--btn-font-size, 0.8125rem)',
-            color: 'var(--color-accent)',
-            fontWeight: 700,
-            letterSpacing: 'var(--btn-letter-spacing, 0.08em)',
-            textTransform: 'uppercase',
-          }}>LÄS MER →</div>
+          <div aria-hidden="true" className={styles.more}>LÄS MER →</div>
         </Link>
       ))}
     </div>

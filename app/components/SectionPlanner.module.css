@@ -1,0 +1,334 @@
+/* Startsidans resplanerare. */
+
+.section {
+  padding: var(--section-padding-md);
+  background: var(--color-bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  align-items: start;
+  gap: clamp(40px, 6vw, 80px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(60px, 8vw, 100px) clamp(16px, 5vw, 80px);
+}
+
+.intro {
+  color: var(--color-text-soft);
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0 0 32px;
+  padding: 0;
+  border: 0;
+}
+
+.fieldsetLast {
+  margin-bottom: 40px;
+}
+
+.legend {
+  margin-bottom: 12px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid var(--color-ink-strong);
+  border-radius: 8px;
+  color: var(--color-ink-strong);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option[aria-pressed='true'] {
+  background: var(--color-ink-strong);
+  color: var(--color-white);
+}
+
+.error {
+  margin-top: 0;
+}
+
+.errorShown {
+  margin-top: 10px;
+  color: var(--color-error);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.submit {
+  min-height: 52px;
+  padding: 14px 40px;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-on-dark);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Resultat */
+.plan {
+  margin-top: 48px;
+  padding: clamp(20px, 4vw, 40px);
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.planTitleText {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary {
+  margin-top: 0;
+  color: var(--color-text-soft);
+}
+
+.days {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.dayNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.dayBody {
+  padding-top: 6px;
+}
+
+.dayText {
+  margin-top: 0;
+  color: var(--color-ink-strong);
+}
+
+.dayMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 6px;
+  color: var(--color-text-soft);
+}
+
+.tags {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.link {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.copy {
+  min-height: 44px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.shareNote {
+  margin-top: 0;
+  color: var(--color-text-soft);
+}
+
+.tip {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+.tipText {
+  margin-top: 0;
+  color: var(--color-text-soft);
+}
+
+.bulb {
+  margin-right: 4px;
+  vertical-align: -3px;
+}
+
+/* Höger: stämningsbild (döljs ≤1024 px) */
+.aside {
+  position: sticky;
+  top: 100px;
+}
+
+.asideImage {
+  display: block;
+  width: 100%;
+  height: clamp(380px, 40vw, 520px);
+  margin-bottom: 16px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.local {
+  padding: 20px 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+}
+
+.localLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+}
+
+.localQuote {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.localSign {
+  margin: 10px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* Desktop: storlekar och marginaler (på mobil gäller basens p-regel: 16px och 1,25rem) */
+@media (min-width: 769px) {
+  .intro {
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+  }
+
+  .error,
+  .errorShown,
+  .dayText,
+  .dayMeta,
+  .shareNote,
+  .tipText {
+    margin-bottom: 0;
+  }
+
+  .summary {
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+
+  .dayText {
+    font-size: 1rem;
+  }
+
+  .dayMeta,
+  .shareNote {
+    font-size: 0.85rem;
+  }
+
+  .tipText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px 16px;
+  }
+
+  .optionsDays {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .optionsInterests {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .optionsDays .option,
+  .optionsInterests .option {
+    justify-content: center;
+    width: 100%;
+    min-height: 52px;
+    font-size: 1rem;
+  }
+
+  .optionsInterests .option {
+    padding: 14px 16px;
+  }
+
+  .errorShown,
+  .tipText {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .submit {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 12px;
+  }
+}

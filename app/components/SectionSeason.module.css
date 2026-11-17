@@ -1,0 +1,203 @@
+/* Startsidans "När ska du åka?". Rubriker (h2/h3) får storlek från basreglerna i globals.css. */
+
+.section {
+  position: relative;
+  padding: 80px 40px;
+  background: var(--color-surface);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sub {
+  font-size: 1rem;
+}
+
+/* Desktop: fyra kort */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 28px 24px;
+  background: var(--color-bg);
+  border-top: 4px solid var(--season-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 2.5rem;
+  color: var(--color-ink);
+}
+
+.months {
+  font-size: 0.8rem;
+}
+
+.list {
+  margin-bottom: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  padding: 4px 0;
+  font-size: 0.82rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--season-color);
+  color: var(--season-text);
+}
+
+/* Mobil: accordion */
+.accordion {
+  display: none;
+}
+
+.item {
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--season-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.headerText {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerIcon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-ink);
+}
+
+.itemTitle {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-ink);
+}
+
+.itemMonths {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.chevron {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  transition: transform 0.2s;
+}
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.body {
+  padding: 0 20px 20px;
+  border-top: 1px solid #f0ebe3;
+}
+
+.bodyList {
+  margin: 0;
+  padding: 12px 0;
+  list-style: none;
+}
+
+.pro,
+.con {
+  padding: 5px 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pro {
+  color: var(--color-text);
+}
+
+.con {
+  margin-top: 4px;
+  border-top: 1px solid #f0ebe3;
+  color: var(--color-text-muted);
+}
+
+.itemBadge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--season-color);
+  color: var(--season-text);
+}
+
+@media (min-width: 769px) {
+  .sub {
+    margin-bottom: 40px;
+  }
+
+  .months {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevron {
+    transition: none;
+  }
+}

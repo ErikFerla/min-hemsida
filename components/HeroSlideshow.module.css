@@ -1,0 +1,166 @@
+/* Startsidans bildspel (1.8). Dynamiska värden (aktiv bild, övergång) ligger kvar som klasser/inline-variabler. */
+.hero {
+  position: relative;
+  width: 100%;
+  height: clamp(500px, 85vh, 900px);
+  overflow: hidden;
+  background: #0b1f2a;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.slideActive {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.clickArea {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.text {
+  position: absolute;
+  bottom: 18%;
+  left: 8%;
+  right: 8%;
+  z-index: 2;
+  max-width: 640px;
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+.place {
+  margin-bottom: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.sub {
+  margin-top: 16px;
+  margin-bottom: 20px;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 13px 30px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  border-radius: 3px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  pointer-events: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s, color 0.2s;
+}
+.cta:hover {
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+}
+
+.controls {
+  position: absolute;
+  bottom: 16px;
+  left: calc(8% - 8px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pause {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 8px;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.dotBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 32px;
+  padding: 0 4px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.dot {
+  display: block;
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.55);
+  transition: all 0.35s ease;
+}
+.dotActive {
+  width: 36px;
+  background: var(--color-white);
+}
+
+.counter {
+  position: absolute;
+  bottom: 24px;
+  right: 5%;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .dot {
+    transition: none;
+  }
+}
