@@ -1700,4 +1700,13 @@ footer :focus-visible {
   .byar-card { transition: none; }
   .byar-card:hover,
   .byar-card:focus-within { transform: none; }
+/* === A4-nav === */
+/* Länkarna till integritetspolicy och cookies i footerns nederkant */
+.footer-legal-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-legal-link:hover {
+  color: #e86c7f;
 }

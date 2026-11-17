@@ -1,14 +1,24 @@
+import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
+import { GUIDES, guideJsonLd } from '../guides';
+
+const SLUG = 'basta-stranderna-mallorca';
+const guide = GUIDES[SLUG];
 
 // Canonical, Open Graph och Twitter för guiden. Titel/beskrivning i page.tsx har företräde om de finns där.
 export const metadata = buildPageMetadata({
-  path: '/guide/basta-stranderna-mallorca',
-  title: 'De 15 bästa stränderna på Mallorca',
-  description: 'Vi har besökt och rankat Mallorcas 15 bästa stränder. Från dolda paradisvikar till barnvänliga sandstränder – med GPS, parkering och insider-tips.',
-  image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Turkost vatten och vit sandstrand på Mallorca',
+  path: `/guide/${SLUG}`,
+  title: guide.title,
+  description: guide.description,
+  image: guide.image,
+  imageAlt: guide.imageAlt,
 });
 
 export default function GuideLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <JsonLd data={guideJsonLd(SLUG)} />
+      {children}
+    </>
+  );
 }

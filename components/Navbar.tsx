@@ -1,6 +1,8 @@
-﻿'use client'
-import { useState, useEffect, useRef } from 'react'
+'use client'
+import { useState, useEffect, useRef, useCallback, type FocusEvent } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import styles from './Navbar.module.css'
 
 interface NavItem {
   label: string
@@ -47,7 +49,7 @@ const navItems: NavItem[] = [
       { label: '\u00d6versikt', href: '/aktiviteter' },
       { label: 'Barnv\u00e4nligt', href: '/barn' },
       { label: 'Golf', href: '/aktiviteter/golf' },
-      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
       { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
       { label: 'Evenemang', href: '/evenemang' },
     ],
@@ -58,10 +60,10 @@ const navItems: NavItem[] = [
     children: [
       { label: 'Alla guider', href: '/guider' },
       { label: 'B\u00e4sta restid', href: '/guide/basta-tid-resa-mallorca' },
-      { label: 'Mallorca med barn', href: '/guide/mallorca-med-barn' },
+      { label: 'Familjesemester', href: '/guide/mallorca-med-barn' },
       { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
       { label: 'Restauranger Palma', href: '/guide/basta-restauranger-palma' },
-      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
     ],
   },
   {
@@ -79,49 +81,116 @@ const navItems: NavItem[] = [
   },
 ]
 
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+/** Synliga, fokuserbara element i en behållare (dolda undermenyer räknas inte). */
+function getFocusable(container: HTMLElement): HTMLElement[] {
+  return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+    el => el.getClientRects().length > 0,
+  )
+}
+
+function isCurrent(pathname: string | null, href: string) {
+  return pathname === href
+}
+
 export default function Navbar() {
+  const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<number | null>(null)
   const [mobileAccordion, setMobileAccordion] = useState<number | null>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const navRef = useRef<HTMLElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const wrapperRefs = useRef<(HTMLDivElement | null)[]>([])
 
-  // Close mobile menu on resize to desktop
+  const closeMobile = useCallback((returnFocus: boolean) => {
+    setMobileOpen(false)
+    setMobileAccordion(null)
+    if (returnFocus) hamburgerRef.current?.focus()
+  }, [])
+
+  // Stäng mobilmenyn när fönstret blir desktopbrett
   useEffect(() => {
+    if (!mobileOpen) return
     const handleResize = () => {
-      if (window.innerWidth > 768) {
-        setMobileOpen(false)
-        setMobileAccordion(null)
-      }
+      if (window.innerWidth > 768) closeMobile(false)
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [mobileOpen, closeMobile])
 
-  // Lock body scroll when mobile menu open
+  // Mobilmenyn är en modal dialog: lås sidans scroll, flytta in fokus och fånga Tab
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
+    if (!mobileOpen) return
+    const menu = mobileMenuRef.current
+    const { body, documentElement } = document
+    const prevBody = body.style.overflow
+    const prevHtml = documentElement.style.overflow
+    body.style.overflow = 'hidden'
+    documentElement.style.overflow = 'hidden'
 
-  // Close desktop dropdown on outside click
+    if (menu) getFocusable(menu)[0]?.focus()
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault()
+        closeMobile(true)
+        return
+      }
+      if (e.key !== 'Tab' || !menu) return
+      const items = getFocusable(menu)
+      if (items.length === 0) return
+      const first = items[0]
+      const last = items[items.length - 1]
+      const active = document.activeElement
+      if (!menu.contains(active)) {
+        e.preventDefault()
+        ;(e.shiftKey ? last : first).focus()
+      } else if (e.shiftKey && active === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && active === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('keydown', handleKey)
+      body.style.overflow = prevBody
+      documentElement.style.overflow = prevHtml
+    }
+  }, [mobileOpen, closeMobile])
+
+  // Desktop: stäng dropdown vid klick utanför och med Esc (fokus tillbaka till triggern)
   useEffect(() => {
+    if (openDropdown === null) return
     const handleClick = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenDropdown(null)
       }
     }
-    document.addEventListener('click', handleClick)
-    return () => document.removeEventListener('click', handleClick)
-  }, [])
-
-  // Close desktop dropdown on Escape
-  useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenDropdown(null)
+      if (e.key !== 'Escape') return
+      const wrapper = wrapperRefs.current[openDropdown]
+      if (wrapper && wrapper.contains(document.activeElement)) {
+        triggerRefs.current[openDropdown]?.focus()
+      }
+      setOpenDropdown(null)
     }
+    document.addEventListener('click', handleClick)
     document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
+    return () => {
+      document.removeEventListener('click', handleClick)
+      document.removeEventListener('keydown', handleKey)
+    }
+  }, [openDropdown])
+
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
   }, [])
 
   const handleMouseEnter = (i: number) => {
@@ -131,6 +200,14 @@ export default function Navbar() {
 
   const handleMouseLeave = () => {
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
+
+  // Stäng dropdownen när fokus lämnar den (t.ex. Tab vidare till nästa menypunkt)
+  const handleWrapperBlur = (i: number) => (e: FocusEvent<HTMLDivElement>) => {
+    const next = e.relatedTarget as Node | null
+    if (!next || !e.currentTarget.contains(next)) {
+      setOpenDropdown(current => (current === i ? null : current))
+    }
   }
 
   return (
@@ -149,8 +226,8 @@ export default function Navbar() {
         }}>
 
           {/* Logo */}
-          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <Link href="/" onClick={() => closeMobile(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#993335" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
               <circle cx="28" cy="10" r="3" fill="#993335"/>
             </svg>
@@ -169,12 +246,15 @@ export default function Navbar() {
             {navItems.map((item, i) => (
               <div
                 key={item.href}
+                ref={el => { wrapperRefs.current[i] = el }}
                 className="nav-dropdown-wrapper"
-                onMouseEnter={() => item.children ? handleMouseEnter(i) : undefined}
+                onMouseEnter={item.children ? () => handleMouseEnter(i) : undefined}
                 onMouseLeave={item.children ? handleMouseLeave : undefined}
+                onBlur={item.children ? handleWrapperBlur(i) : undefined}
               >
                 {item.children ? (
                   <button
+                    ref={el => { triggerRefs.current[i] = el }}
                     type="button"
                     className={`navbar-desktop-link nav-dropdown-trigger${openDropdown === i ? ' active' : ''}`}
                     onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
@@ -187,12 +267,16 @@ export default function Navbar() {
                     </svg>
                   </button>
                 ) : (
-                  <a href={item.href} className="navbar-desktop-link nav-dropdown-trigger">
+                  <Link
+                    href={item.href}
+                    className="navbar-desktop-link nav-dropdown-trigger"
+                    aria-current={isCurrent(pathname, item.href) ? 'page' : undefined}
+                  >
                     {item.label}
-                  </a>
+                  </Link>
                 )}
 
-                {/* Alltid i DOM:en (\u00e4ven i SSR) \u2013 d\u00f6ljs med hidden n\u00e4r menyn \u00e4r st\u00e4ngd */}
+                {/* Alltid i DOM:en (även i SSR) – döljs med hidden när menyn är stängd */}
                 {item.children && (
                   <div
                     id={`nav-menu-${i}`}
@@ -202,14 +286,15 @@ export default function Navbar() {
                     onMouseLeave={handleMouseLeave}
                   >
                     {item.children.map(child => (
-                      <a
+                      <Link
                         key={child.href}
                         href={child.href}
                         className="nav-dropdown-item"
+                        aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
                         onClick={() => setOpenDropdown(null)}
                       >
                         {child.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -219,11 +304,12 @@ export default function Navbar() {
 
           {/* Hamburger button — mobile only */}
           <button
+            ref={hamburgerRef}
             className="hamburger"
             type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
+            onClick={() => (mobileOpen ? closeMobile(false) : setMobileOpen(true))}
             aria-controls="mobilmeny"
-            aria-label={mobileOpen ? 'St\u00e4ng meny' : '\u00d6ppna meny'}
+            aria-haspopup="dialog"
             aria-expanded={mobileOpen}
             style={{
               flexDirection: 'column',
@@ -237,7 +323,7 @@ export default function Navbar() {
               zIndex: 1001,
             }}
           >
-            <span style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
+            <span aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
               <span style={{
                 display: 'block', width: '24px', height: '2.5px',
                 background: '#993335', borderRadius: '2px',
@@ -257,6 +343,7 @@ export default function Navbar() {
                 transform: mobileOpen ? 'rotate(-45deg) translate(4px, -5px)' : 'none',
               }}/>
             </span>
+            {/* Synlig text = tillgängligt namn ("Meny"/"Stäng"), tillståndet anges av aria-expanded */}
             <span style={{
               display: 'block',
               fontSize: '0.55rem',
@@ -267,15 +354,22 @@ export default function Navbar() {
               fontWeight: 600,
               lineHeight: 1,
             }}>
-              {mobileOpen ? 'St\u00e4ng' : 'Meny'}
+              {mobileOpen ? 'Stäng' : 'Meny'}
             </span>
           </button>
         </div>
       </nav>
 
-      {/* Mobile fullscreen menu with accordion */}
-      {/* Mobilmenyn renderas alltid (SSR-synliga l\u00e4nkar) och d\u00f6ljs med hidden n\u00e4r den \u00e4r st\u00e4ngd */}
-      <div id="mobilmeny" className="mobile-menu-fullscreen" hidden={!mobileOpen}>
+      {/* Mobilmenyn: modal dialog. Renderas alltid (SSR-synliga länkar) och döljs med hidden när den är stängd */}
+      <div
+        id="mobilmeny"
+        ref={mobileMenuRef}
+        className="mobile-menu-fullscreen"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Meny"
+        hidden={!mobileOpen}
+      >
           {navItems.map((item, i) => (
             <div key={item.href} className="mobile-menu-group">
               {item.children ? (
@@ -289,33 +383,38 @@ export default function Navbar() {
                   >
                     <span>{item.label}</span>
                     <svg width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true" style={{ transition: 'transform 0.2s', transform: mobileAccordion === i ? 'rotate(180deg)' : 'none' }}>
-                      <path d="M1 1l5 5 5-5" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 1l5 5 5-5" stroke="#6B7280" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
                   <div id={`mobilmeny-${i}`} className="mobile-menu-subitems" hidden={mobileAccordion !== i}>
                       {item.children.map(child => (
-                        <a
+                        <Link
                           key={child.href}
                           href={child.href}
                           className="mobile-menu-subitem"
-                          onClick={() => setMobileOpen(false)}
+                          aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
+                          onClick={() => closeMobile(false)}
                         >
                           {child.label}
-                        </a>
+                        </Link>
                       ))}
                   </div>
                 </>
               ) : (
-                <a
+                <Link
                   href={item.href}
                   className="mobile-menu-link"
-                  onClick={() => setMobileOpen(false)}
+                  aria-current={isCurrent(pathname, item.href) ? 'page' : undefined}
+                  onClick={() => closeMobile(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               )}
             </div>
           ))}
+          <button type="button" className={styles.closeButton} onClick={() => closeMobile(true)}>
+            St&auml;ng menyn
+          </button>
       </div>
     </>
   )

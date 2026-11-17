@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import { IconPalm } from '@/components/Icons';
 import type { FooterSection } from '@/components/SiteFooter';
 
@@ -19,6 +20,7 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
       {sections.map((section, i) => (
         <div key={section.heading} style={{ borderTop: '1px solid rgba(254,254,251,0.14)' }}>
           <button
+            type="button"
             onClick={() => setOpen(open === i ? null : i)}
             aria-expanded={open === i}
             aria-controls={`footer-section-${i}`}
@@ -30,12 +32,11 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
             }}
           >
             {section.heading}
-            <span style={{ color: 'rgba(254,254,251,0.6)', fontSize: '0.75rem', transform: open === i ? 'rotate(180deg)' : 'none', display: 'inline-block', transition: 'transform 0.2s' }}>▼</span>
+            <span aria-hidden="true" style={{ color: 'rgba(254,254,251,0.6)', fontSize: '0.75rem', transform: open === i ? 'rotate(180deg)' : 'none', display: 'inline-block', transition: 'transform 0.2s' }}>▼</span>
           </button>
-          {open === i && (
-            <div id={`footer-section-${i}`} style={{ paddingBottom: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div id={`footer-section-${i}`} hidden={open !== i} style={{ paddingBottom: '16px', display: open === i ? 'flex' : 'none', flexDirection: 'column', gap: '12px' }}>
               {section.links.map(([label, href]) => (
-                <a
+                <Link
                   key={`${section.heading}-m-${href}-${label}`}
                   href={href}
                   style={{ color: 'rgba(254,254,251,0.85)', fontSize: '0.95rem', textDecoration: 'none', padding: '4px 0', minHeight: '44px', display: 'flex', alignItems: 'center' }}
@@ -43,10 +44,9 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
                   onMouseLeave={e => (e.currentTarget.style.color = 'rgba(254,254,251,0.85)')}
                 >
                   {label}
-                </a>
+                </Link>
               ))}
-            </div>
-          )}
+          </div>
         </div>
       ))}
     </div>

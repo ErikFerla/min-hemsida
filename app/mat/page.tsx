@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import Map from '@/components/Map';
+import { cityMapMarkers } from '@/data/cities';
 import Link from 'next/link';
 import MatFilter from './MatFilter';
 import { IconPin, IconClock, IconMap, IconExternal, IconGlass, PriceTag, tierFromEmoji } from '@/components/Icons';
@@ -136,8 +138,12 @@ export default function MatPage() {
         <section>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
-          <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', borderRadius: 16, overflow: 'hidden', boxShadow: '0 6px 22px rgba(0,0,0,0.1)' }}>
-            <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%', display: 'block' }} />
+          <div style={{ maxWidth: 800, margin: '0 auto' }}>
+            <Map
+              markers={cityMapMarkers}
+              ariaLabel="Karta över Mallorcas städer och byar"
+              listLabel={`Visa alla ${cityMapMarkers.length} städer och byar som lista`}
+            />
           </div>
         </section>
       </div>

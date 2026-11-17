@@ -88,15 +88,15 @@ export default function Home() {
                   { siffra: '300', text: 'Soldagar per år', href: '/vader' },
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
                 ].map((s, i) => (
-                  <a key={i} href={s.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+                  <Link key={i} href={s.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                     <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#383a46', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
                     <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
-                  </a>
+                  </Link>
                 ))}
               </div>
-              <a href="/byar" className="btn-primary">
+              <Link href="/byar" className="btn-primary">
                 UTFORSKA ÖN →
-              </a>
+              </Link>
             </div>
           </div>
         </section>

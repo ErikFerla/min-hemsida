@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IconPalm } from '@/components/Icons';
 import SiteFooterAccordion from '@/components/SiteFooterAccordion';
 
@@ -25,10 +26,10 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
     heading: 'GUIDER',
     links: [
       ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
-      ['Mallorca med barn', '/guide/mallorca-med-barn'],
+      ['Familjesemester', '/guide/mallorca-med-barn'],
       ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
       ['Restauranger i Palma', '/guide/basta-restauranger-palma'],
-      ['Golf på Mallorca', '/guide/golf-mallorca-guide'],
+      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
       ['Alla guider →', '/guider'],
     ],
   },
@@ -81,7 +82,7 @@ export default function SiteFooter() {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {section.links.map(([label, href]) => (
-                  <a key={`${section.heading}-${href}-${label}`} href={href} className="footer-nav-link">{label}</a>
+                  <Link key={`${section.heading}-${href}-${label}`} href={href} className="footer-nav-link">{label}</Link>
                 ))}
               </div>
             </div>
@@ -94,7 +95,11 @@ export default function SiteFooter() {
 
       <div className="footer-bottom">
         <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
-        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>Integritetspolicy · Cookies</p>
+        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>
+          <Link href="/integritetspolicy" className="footer-legal-link">Integritetspolicy</Link>
+          {' · '}
+          <Link href="/cookies" className="footer-legal-link">Cookies</Link>
+        </p>
       </div>
     </footer>
   );

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { IconCalendar, IconPin } from '@/components/Icons';
 import { kommandeEvenemang } from '@/app/evenemang/data';
 
@@ -16,9 +17,9 @@ export default function SectionEvents() {
             <h2 className="section-title" style={{ textTransform: 'uppercase' }}>Kommande evenemang</h2>
             <div className="section-divider" />
             <p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.7', marginBottom: '28px' }}>Mallorca är värd för många evenemang under året – fiestor, julmarknader, cykellopp, segelregattor och veckomarknader i byarna.</p>
-            <a href="/evenemang" className="btn-primary">
+            <Link href="/evenemang" className="btn-primary">
               SE ALLA EVENEMANG →
-            </a>
+            </Link>
           </div>
           <div className="events-grid">
             {urval.map(e => (

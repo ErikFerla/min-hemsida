@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 import { IconPalm } from '@/components/Icons';
 
 export const metadata: Metadata = {
-  title: 'Sidan kunde inte hittas – MyMallorca',
+  title: 'Sidan kunde inte hittas',
   description: 'Vi hittar inte sidan du letar efter. Utforska våra guider till stränder, städer och aktiviteter på Mallorca istället.',
   robots: { index: false, follow: true },
 };
@@ -85,7 +86,7 @@ export default function NotFound() {
           >
             {popularaLankar.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   style={{
                     display: 'block',
@@ -114,7 +115,7 @@ export default function NotFound() {
                   <span style={{ display: 'block', fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.45 }}>
                     {l.beskrivning}
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
