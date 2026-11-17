@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/components/Icons';
 import BarnMapWrapper from '@/components/BarnMapWrapper';
+import HubLink from '../HubLink';
 import type { ComponentType } from 'react';
 
 type Sektion = {
@@ -43,12 +44,18 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <section style={{ background: '#fefefb', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,60px) clamp(32px,5vw,48px)', textAlign: 'center' }}>
         <p style={{ fontSize: '0.78rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 14px' }}>Familjereseguide · 2026</p>
-        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.75rem,6vw,2.5rem)', fontWeight: 400, letterSpacing: '0.03em', margin: '0 0 16px', lineHeight: 1.05, color: '#383a46' }}>Mallorca med barn</h1>
-        <p style={{ fontSize: 'clamp(1rem,2.4vw,1.2rem)', color: '#374151', margin: '0 auto', maxWidth: '560px', lineHeight: 1.55 }}>En ö full av äventyr för hela familjen.</p>
+        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.75rem,6vw,2.5rem)', fontWeight: 400, letterSpacing: '0.03em', margin: '0 0 16px', lineHeight: 1.05, color: '#383a46' }}>Familjesemester på Mallorca</h1>
+        <p style={{ fontSize: 'clamp(1rem,2.4vw,1.2rem)', color: '#374151', margin: '0 auto', maxWidth: '560px', lineHeight: 1.55 }}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         <div style={{ width: 56, height: 3, background: '#993335', margin: '24px auto 0', borderRadius: 2 }} />
       </section>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: 'clamp(40px,6vw,60px) clamp(20px,5vw,60px) clamp(48px,7vw,80px)' }}>
+
+        <HubLink
+          text="Letar du efter barnaktiviteter? Alla vattenparker, djurparker och tips för regniga dagar finns samlade på vår barnsida, där du kan filtrera efter ålder."
+          href="/barn"
+          label="Se alla barnaktiviteter"
+        />
 
         {/* Snabbval */}
         <section style={{ background: 'white', borderRadius: 16, padding: 'clamp(20px,4vw,28px)', marginBottom: 48, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
@@ -98,8 +105,11 @@ export default function MallorcaMedBarnGuide() {
             <span style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>Mer för familjen</span>
           </div>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
-          <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se den kompletta barnguiden med alla aktiviteter, åldersrekommendationer och praktiska tips.</p>
-          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE BARNGUIDEN</Link>
+          <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
+          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE ALLA BARNAKTIVITETER</Link>
+          <p style={{ margin: '16px 0 0', fontSize: '0.95rem' }}>
+            <Link href="/?dagar=7&intressen=familj#resplanerare" style={{ color: '#fefefb', fontWeight: 600 }}>Gör en resplan för familjen</Link>
+          </p>
         </section>
       </div>
 

@@ -26,10 +26,10 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
     heading: 'GUIDER',
     links: [
       ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
-      ['Mallorca med barn', '/guide/mallorca-med-barn'],
+      ['Familjesemester', '/guide/mallorca-med-barn'],
       ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
       ['Restauranger i Palma', '/guide/basta-restauranger-palma'],
-      ['Golf på Mallorca', '/guide/golf-mallorca-guide'],
+      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
       ['Alla guider →', '/guider'],
     ],
   },

@@ -2,6 +2,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import HeroImage from '@/components/HeroImage';
+import JsonLd from '@/app/components/JsonLd';
+import { SITE_URL } from '@/app/guide/guides';
 import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag } from '@/components/Icons';
 
 export const metadata: Metadata = {
@@ -37,14 +39,14 @@ const guider: Guide[] = [
   },
   {
     href: '/guide/mallorca-med-barn',
-    title: 'Mallorca med barn',
+    title: 'Familjesemester på Mallorca',
     passar: 'För barnfamiljer',
-    text: 'Barnvänliga stränder med långgrunt vatten, vattenparker, djurparker och tips för regniga dagar. Allt du behöver för en avslappnad semester med små och stora barn.',
+    text: 'Så planerar du resan med barn: vilken strand som passar vilken ålder, när ni ska åka, hyrbil och barnstol – och familjefavoriterna på en karta.',
     Icon: IconUsers,
   },
   {
     href: '/guide/basta-stranderna-mallorca',
-    title: 'De bästa stränderna på Mallorca',
+    title: 'Mallorcas 15 bästa stränder',
     passar: 'För strandälskare',
     text: 'Från vita sandstränder som Es Trenc till små vikar längs kusten. Med tips om parkering, när du ska komma och vilka stränder som passar barn bäst.',
     Icon: IconWave,
@@ -58,9 +60,9 @@ const guider: Guide[] = [
   },
   {
     href: '/guide/golf-mallorca-guide',
-    title: 'Golf på Mallorca',
+    title: 'De 5 bästa golfbanorna',
     passar: 'För golfare',
-    text: 'Öns golfbanor samlade, med de bästa banorna beskrivna närmare: svårighetsgrad, greenfee och vilken säsong som är bäst att spela.',
+    text: 'Våra fem favoritbanor beskrivna närmare: svårighetsgrad, greenfee och vilken säsong som är bäst att spela.',
     Icon: IconFlag,
   },
 ];
@@ -76,9 +78,34 @@ const merAttUtforska: { label: string; href: string }[] = [
   { label: 'Väder', href: '/vader' },
 ];
 
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Guider till Mallorca',
+    url: `${SITE_URL}/guider`,
+    numberOfItems: guider.length,
+    itemListElement: guider.map((g, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: g.title,
+      url: `${SITE_URL}${g.href}`,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Hem', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guider', item: `${SITE_URL}/guider` },
+    ],
+  },
+];
+
 export default function GuiderPage() {
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+      <JsonLd data={jsonLd} />
       <HeroImage
         src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
         alt="Turkost vatten och sandstrand på Mallorca en solig dag"

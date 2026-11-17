@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
       { label: '\u00d6versikt', href: '/aktiviteter' },
       { label: 'Barnv\u00e4nligt', href: '/barn' },
       { label: 'Golf', href: '/aktiviteter/golf' },
-      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
       { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
       { label: 'Evenemang', href: '/evenemang' },
     ],
@@ -60,10 +60,10 @@ const navItems: NavItem[] = [
     children: [
       { label: 'Alla guider', href: '/guider' },
       { label: 'B\u00e4sta restid', href: '/guide/basta-tid-resa-mallorca' },
-      { label: 'Mallorca med barn', href: '/guide/mallorca-med-barn' },
+      { label: 'Familjesemester', href: '/guide/mallorca-med-barn' },
       { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
       { label: 'Restauranger Palma', href: '/guide/basta-restauranger-palma' },
-      { label: 'Golfguide', href: '/guide/golf-mallorca-guide' },
+      { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
     ],
   },
   {

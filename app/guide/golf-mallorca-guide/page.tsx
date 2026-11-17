@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import HubLink from '../HubLink';
 
 const toppBanor = [
   {
@@ -98,12 +99,18 @@ export default function GolfMallorcaGuide() {
         src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
         alt="Golfbana på Mallorca med välklippt green, palmer och havsutsikt"
         kicker="Golfguide · Uppdaterad 2026"
-        title="Golf på Mallorca"
-        subtitle="Komplett guide till alla 22 golfbanor. De 5 bästa djupanalyserade med greenfee, insidertips och info om bästa säsong."
+        title="De 5 bästa golfbanorna på Mallorca"
+        subtitle="Vårt urval med motivering, greenfee-nivå och insidertips – och när på året det är bäst att spela."
         height="55vh"
       />
 
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,40px)' }}>
+
+        <HubLink
+          text="Här är våra fem favoriter. Alla 22 banor på en karta, med banfakta och tips för varje bana, finns på golfsidan."
+          href="/aktiviteter/golf"
+          label="Se alla golfbanor på Mallorca"
+        />
 
         {/* Snabbfakta */}
         <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #993335' }}>
@@ -148,6 +155,9 @@ export default function GolfMallorcaGuide() {
         {/* Alla 22 banor – kompaktlista */}
         <section style={{ marginBottom: '64px' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '24px' }}>Alla 22 golfbanor på Mallorca</h2>
+          <p style={{ color: '#6B7280', fontSize: '0.9rem', lineHeight: 1.6, margin: '-12px 0 20px' }}>
+            Greenfee är ungefärliga prisnivåer – kontrollera alltid aktuellt pris hos banan. Karta och mer om varje bana finns på <Link href="/aktiviteter/golf" style={{ color: '#993335', fontWeight: 600 }}>golfsidan</Link>.
+          </p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
               <thead>
@@ -197,8 +207,8 @@ export default function GolfMallorcaGuide() {
         {/* CTA */}
         <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white' }}>
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Mer om golf på Mallorca</h2>
-          <p style={{ opacity: 0.85, marginBottom: '24px' }}>Boka tider, läs mer om paketresor och golfhotell.</p>
-          <Link href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE GOLFGUIDEN →</Link>
+          <p style={{ opacity: 0.85, marginBottom: '24px' }}>Se alla 22 banor på kartan, med banfakta och tips för varje bana.</p>
+          <Link href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#fefefb', color: '#993335', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA BANOR PÅ KARTAN →</Link>
         </div>
       </div>
     </div>
