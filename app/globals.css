@@ -1713,6 +1713,7 @@ footer :focus-visible {
 /* Tomt-meddelande för åldersfiltret på /barn – visas av AgeFilter när inget matchar */
 .a2-age-empty {
   display: none;
+}
 
 /* === A1-stader === */
 /* Korten på /byar: hover-lyft i CSS i stället för JS (sidan är en serverkomponent). */
@@ -1729,6 +1730,8 @@ footer :focus-visible {
   .byar-card { transition: none; }
   .byar-card:hover,
   .byar-card:focus-within { transform: none; }
+}
+
 /* === A4-nav === */
 /* Länkarna till integritetspolicy och cookies i footerns nederkant */
 .footer-legal-link {
