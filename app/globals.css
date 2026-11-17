@@ -47,11 +47,6 @@
   --color-border: #ede5da;
   --color-focus: #993335;
 
-  /* ── Typografitokens (2.6) ──
-     --font-inter, --font-playfair och --font-bebas sätts av next/font i app/layout.tsx. */
-  --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-heading: var(--font-playfair), Georgia, 'Times New Roman', serif;
-  --font-display: var(--font-bebas), 'Arial Narrow', sans-serif;
 
   /* ── Section padding scale ── */
   --section-padding-sm: 4rem 0;       /* Kompakta sektioner */
@@ -71,6 +66,14 @@
   /* ── Prose ── */
   --prose-max-width: 65ch;
   --prose-line-height: 1.7;
+}
+
+/* Typografitokens (2.6). Definieras på body – inte :root – eftersom next/font sätter
+   --font-inter, --font-playfair och --font-bebas på <body>; var() löses där tokenen definieras. */
+body {
+  --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-playfair), Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-bebas), 'Arial Narrow', sans-serif;
 }
 
 /* ============================================================
