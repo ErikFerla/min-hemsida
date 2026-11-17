@@ -46,7 +46,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/guide/basta-tid-resa-mallorca`, priority: 0.85, changeFrequency: 'monthly' },
   ];
 
-  return staticPages.map(page => ({
+  // A4 (2.16): sidor om sajten – lägg in i den nya sitemapen vid sammanslagning
+  const omSajten: typeof staticPages = [
+    { url: `${baseUrl}/integritetspolicy`, priority: 0.2, changeFrequency: 'yearly' },
+    { url: `${baseUrl}/cookies`, priority: 0.2, changeFrequency: 'yearly' },
+  ];
+
+  return [...staticPages, ...omSajten].map(page => ({
     url: page.url,
     lastModified,
     changeFrequency: page.changeFrequency,

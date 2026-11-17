@@ -1661,3 +1661,14 @@ footer :focus-visible {
 .leaflet-container .leaflet-control-attribution a {
   text-decoration: underline;
 }
+
+/* === A4-nav === */
+/* Länkarna till integritetspolicy och cookies i footerns nederkant */
+.footer-legal-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer-legal-link:hover {
+  color: #e86c7f;
+}

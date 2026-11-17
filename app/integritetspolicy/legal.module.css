@@ -1,0 +1,65 @@
+/* Gemensamma stilar för /integritetspolicy och /cookies */
+.page {
+  background: #fefefb;
+  padding: clamp(40px, 7vw, 88px) clamp(16px, 4vw, 40px) clamp(56px, 8vw, 104px);
+}
+
+.article {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #383a46;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.article .kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #993335;
+  margin: 0 0 12px;
+}
+
+.article h1 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.article h2 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  line-height: 1.3;
+  margin: 40px 0 12px;
+}
+
+.article p,
+.article ul {
+  margin: 0 0 16px;
+  color: #4b5563;
+}
+
+.article ul {
+  padding-left: 1.25rem;
+}
+
+.article li {
+  margin-bottom: 8px;
+}
+
+.article a {
+  color: #993335;
+  font-weight: 600;
+}
+
+.article .updated {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 32px;
+}
+
+.article .lead {
+  font-size: 1.1rem;
+}
