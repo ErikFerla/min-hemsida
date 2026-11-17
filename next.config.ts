@@ -30,6 +30,7 @@ const nextConfig: NextConfig = {
       { source: '/stad/:slug', destination: '/:slug', permanent: true },
       // Kontaktsidan är borttagen (ingen personlig reseplanering).
       { source: '/kontakt', destination: '/', permanent: true },
+      { source: '/guide', destination: '/guider', permanent: true },
     ];
   },
 };
