@@ -109,10 +109,11 @@ export function PriceTag({ tier, className }: { tier: number; className?: string
   return (
     <span
       className={className ? `${styles.priceTag} ${className}` : styles.priceTag}
+      role="img"
       aria-label={`Prisnivå ${t} av 4`}
     >
       {'€'.repeat(t)}
-      <span className={styles.priceRest}>{'€'.repeat(4 - t)}</span>
+      <span className={styles.priceRest} aria-hidden="true">{'€'.repeat(4 - t)}</span>
     </span>
   );
 }

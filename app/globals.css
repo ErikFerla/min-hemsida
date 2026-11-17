@@ -22,7 +22,7 @@
        --color-text-soft     7,5 / 6,4 / 6,1
        --color-text-muted    5,9 / 5,0 / 4,7   (ersätter #6B7280, #9CA3AF, #888, #666)
        --color-accent        7,2 / 6,2 / 5,8
-       --color-accent-mid    5,2 / 4,5 / –     (bara på --color-bg/--color-surface)
+       --color-accent-mid    5,2 / 4,46 / –      (text bara på --color-bg)
      --color-accent-soft (#e86c7f) är dekor – aldrig brödtext på ljus botten.
      --color-on-dark på --color-ink 11,2, på --color-accent 7,2. */
   --color-bg: #fefefb;
@@ -245,8 +245,11 @@ body {
 
 /* Global, tydlig fokusring för tangentbord (musklick påverkas inte) */
 :focus-visible {
-  outline: 3px solid var(--color-focus);
+  /* Dubbel ring (mörk–ljus–mörk) som syns mot alla bakgrunder: ljus outline med en mörk
+     box-shadow som sticker ut 2 px på båda sidor om den (2.4.7 / 1.4.11). */
+  outline: 3px solid var(--color-on-dark);
   outline-offset: 2px;
+  box-shadow: 0 0 0 7px var(--color-focus);
 }
 
 /* Ljus variant på mörk bakgrund (footern) */
