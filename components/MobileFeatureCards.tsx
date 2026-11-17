@@ -44,7 +44,7 @@ export default function MobileFeatureCards() {
             </div>
             <div style={{
               fontSize: '0.72rem',
-              color: '#888',
+              color: 'var(--color-text-muted)',
               lineHeight: 1.4,
             }}>
               {card.desc}

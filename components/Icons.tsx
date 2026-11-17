@@ -114,7 +114,7 @@ export function PriceTag({ tier, className }: { tier: number; className?: string
         fontSize: '0.72rem',
         fontWeight: 600,
         letterSpacing: '0.05em',
-        color: '#6B7280',
+        color: 'var(--color-text-muted)',
         background: '#F3EFE8',
         padding: '3px 8px',
         borderRadius: 999,

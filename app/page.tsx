@@ -90,7 +90,7 @@ export default function Home() {
                 ].map((s, i) => (
                   <Link key={i} href={s.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                     <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#383a46', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
-                    <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: '#9CA3AF', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
+                    <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'var(--color-text-muted)', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
                   </Link>
                 ))}
               </div>

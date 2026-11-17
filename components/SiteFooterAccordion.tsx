@@ -10,7 +10,7 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
   return (
     <div className="footer-accordion">
       <div style={{ marginBottom: '20px' }}>
-        <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
           DIN GUIDE PÅ MALLORCA <IconPalm size={20} />
         </p>
         <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '0.85rem', lineHeight: '1.6', margin: 0 }}>
@@ -27,7 +27,7 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
             style={{
               width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
               padding: '16px 0', background: 'none', border: 'none', cursor: 'pointer',
-              fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.05rem', letterSpacing: '0.1em',
+              fontFamily: 'var(--font-display)', fontSize: '1.05rem', letterSpacing: '0.1em',
               color: '#f08a9a', minHeight: '44px',
             }}
           >

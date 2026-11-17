@@ -33,7 +33,7 @@
   position: absolute;
   bottom: -20px;
   right: -20px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(120px, 18vw, 220px);
   color: rgba(255,255,255,0.06);
   letter-spacing: 0.05em;
@@ -79,7 +79,7 @@
 .statItem:last-child { border-right: none; }
 .statNumber {
   display: block;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 5rem);
   color: #ffc400;
   letter-spacing: 0.05em;
@@ -126,7 +126,7 @@
 .quote cite { font-style: normal; font-size: 0.85rem; color: var(--muted); }
 .eventsSection { display: flex; gap: 48px; padding: 60px 0; border-top: 1px solid #C9B89A; }
 .eventsLeft { flex: 0 0 280px; }
-.eventsTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; margin-bottom: 16px; }
+.eventsTitle { font-family: var(--font-display); font-size: 2.2rem; margin-bottom: 16px; }
 .eventsText { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 24px; }
 .eventsBtn { display: inline-block; padding: 12px 24px; background: var(--fg); color: white; font-size: 0.85rem; border-radius: 2px; text-decoration: none; }
 .eventsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; flex: 1; }
@@ -141,14 +141,14 @@
 }
 .personalInner { max-width: 1400px; margin: 0 auto; }
 .personalHeader { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
-.personalAvatar { width: 64px; height: 64px; border-radius: 50%; background: #c60b1e; color: white; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; flex-shrink: 0; }
-.personalTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: white; letter-spacing: 0.05em; margin: 0; }
+.personalAvatar { width: 64px; height: 64px; border-radius: 50%; background: #c60b1e; color: white; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.4rem; flex-shrink: 0; }
+.personalTitle { font-family: var(--font-display); font-size: 2rem; color: white; letter-spacing: 0.05em; margin: 0; }
 .personalSub { color: rgba(255,255,255,0.6); margin: 0; font-size: 0.9rem; }
 .personalGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
 .personalCard { background: #567a58; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 28px; transition: background 0.2s; }
 .personalCard:hover { background: #445c45; }
 .personalEmoji { font-size: 2rem; display: block; margin-bottom: 12px; }
-.personalCard h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #F5C842; letter-spacing: 0.05em; margin-bottom: 12px; }
+.personalCard h3 { font-family: var(--font-display); font-size: 1.3rem; color: #F5C842; letter-spacing: 0.05em; margin-bottom: 12px; }
 .personalCard p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; }
 .personalTag { font-size: 0.75rem; color: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; }
 .seasonSection {
@@ -162,18 +162,18 @@
 .seasonGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .seasonCard { background: #fefefb; border-radius: 12px; padding: 28px 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
 .seasonEmoji { font-size: 2.5rem; display: block; margin-bottom: 12px; }
-.seasonName { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+.seasonName { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 4px; }
 .seasonMonths { font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
 .seasonList { list-style: none; padding: 0; margin-bottom: 20px; }
 .seasonList li { font-size: 0.82rem; color: var(--fg); padding: 4px 0; border-bottom: 1px solid var(--border); }
 .seasonBadge { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 6px 12px; border-radius: 20px; }
 .plannerSection { background: #eeede4; padding: 80px 60px; border-top: 1px solid var(--border); }
 .plannerInner { max-width: 1400px; margin: 0 auto; }
-.plannerTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.plannerTitle { font-family: var(--font-display); font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .plannerSub { color: var(--muted); margin-bottom: 40px; }
 .plannerForm { background: #EDE4D8; border-radius: 16px; padding: 40px; }
 .plannerStep { margin-bottom: 32px; }
-.plannerStepTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
+.plannerStepTitle { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 16px; color: var(--fg); }
 .daysRow { display: flex; gap: 12px; flex-wrap: wrap; }
 .dayBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #fefefb; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .dayBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
@@ -181,21 +181,21 @@
 .interestBtn { padding: 10px 20px; border: 2px solid var(--border); border-radius: 8px; background: #fefefb; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
 .interestBtnActive { border-color: #8B4513; background: #8B4513; color: white; }
 .plannerResult { background: #fefefb; border-radius: 12px; padding: 32px; border-left: 4px solid #c60b1e; margin-top: 24px; }
-.plannerResultTitle { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; color: var(--fg); margin-bottom: 20px; letter-spacing: 0.05em; }
+.plannerResultTitle { font-family: var(--font-display); font-size: 1.5rem; color: var(--fg); margin-bottom: 20px; letter-spacing: 0.05em; }
 .plannerList { list-style: none; padding: 0; }
 .plannerItem { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-.plannerDay { font-weight: 600; color: #c60b1e; flex-shrink: 0; min-width: 50px; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; }
+.plannerDay { font-weight: 600; color: #c60b1e; flex-shrink: 0; min-width: 50px; font-family: var(--font-display); font-size: 1rem; }
 .insiderSection {
   background: #EDE4D8;
   padding: 80px 40px;
   position: relative;
 }
 .insiderInner { max-width: 1400px; margin: 0 auto; }
-.insiderTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
+.insiderTitle { font-family: var(--font-display); font-size: 2.5rem; color: var(--fg); letter-spacing: 0.05em; margin-bottom: 8px; }
 .insiderSub { color: var(--muted); margin-bottom: 40px; }
 .insiderGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
 .insiderCard { background: #fefefb; border-radius: 12px; padding: 32px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
-.insiderCity { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: #1a3a5c; letter-spacing: 0.05em; margin-bottom: 20px; }
+.insiderCity { font-family: var(--font-display); font-size: 1.4rem; color: #1a3a5c; letter-spacing: 0.05em; margin-bottom: 20px; }
 .insiderList { list-style: none; padding: 0; }
 .insiderList li { font-size: 0.875rem; line-height: 1.6; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--fg); }
 @media (max-width: 600px) {

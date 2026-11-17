@@ -36,7 +36,7 @@
 }
 
 .heroTitle {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   color: #fff;
@@ -104,7 +104,7 @@
 }
 
 .beachName {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.2rem;
   color: var(--fg);
   margin-bottom: 8px;

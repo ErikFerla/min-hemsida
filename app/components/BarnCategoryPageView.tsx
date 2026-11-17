@@ -111,7 +111,7 @@ export default function BarnCategoryPageView({
             borderRadius: '12px',
             border: '1px solid rgba(0,0,0,0.06)',
             textAlign: 'center',
-            color: '#6b7280',
+            color: 'var(--color-text-muted)',
           }}
         >
           Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
@@ -137,7 +137,7 @@ export default function BarnCategoryPageView({
           <h2
             id="fler-aktiviteter-heading"
             style={{
-              fontFamily: '"Bebas Neue", sans-serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.6rem, 3vw, 2rem)',
               letterSpacing: '0.04em',
               margin: '0 0 12px',

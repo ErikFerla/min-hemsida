@@ -64,7 +64,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
         <header>
           <h2
             style={{
-              fontFamily: '"Bebas Neue", sans-serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.6rem, 3vw, 2rem)',
               letterSpacing: '0.04em',
               margin: '0 0 10px',
@@ -85,7 +85,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
               alignItems: 'center',
               gap: '6px',
               fontSize: '0.85rem',
-              color: '#6b7280',
+              color: 'var(--color-text-muted)',
               margin: 0,
             }}
           >
@@ -109,7 +109,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
         >
           {(typeof activity.priceFrom === 'number' || activity.priceNote) && (
             <div>
-              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9ca3af', fontWeight: 700, marginBottom: '2px' }}>
+              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 700, marginBottom: '2px' }}>
                 Pris
               </dt>
               <dd style={{ margin: 0, lineHeight: 1.5 }}>
@@ -117,7 +117,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
                   <strong style={{ color: '#993335' }}>från {activity.priceFrom} €</strong>
                 )}
                 {activity.priceNote && (
-                  <span style={{ display: 'block', color: '#6b7280', fontSize: '0.82rem' }}>
+                  <span style={{ display: 'block', color: 'var(--color-text-muted)', fontSize: '0.82rem' }}>
                     {activity.priceNote}
                   </span>
                 )}
@@ -126,7 +126,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
           )}
           {activity.openingHours && (
             <div>
-              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9ca3af', fontWeight: 700, marginBottom: '2px' }}>
+              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 700, marginBottom: '2px' }}>
                 <IconClock size={12} style={{ verticalAlign: '-1px', marginRight: 4 }} /> Öppettider
               </dt>
               <dd style={{ margin: 0, lineHeight: 1.5 }}>{activity.openingHours}</dd>
@@ -134,7 +134,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
           )}
           {activity.bestTime && (
             <div>
-              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9ca3af', fontWeight: 700, marginBottom: '2px' }}>
+              <dt style={{ fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 700, marginBottom: '2px' }}>
                 Bästa tid
               </dt>
               <dd style={{ margin: 0, lineHeight: 1.5 }}>{activity.bestTime}</dd>

@@ -73,8 +73,8 @@ export default function MatPage() {
               <IconGlass size={14} stroke={1.8} />
               <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Vinkultur</span>
             </div>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
-            <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '55ch' }}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '55ch' }}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
           </div>
           <div style={grid}>
             {vingårdar.slice(0, 3).map(v => (
@@ -84,10 +84,10 @@ export default function MatPage() {
                 </div>
                 <div style={{ padding: 16 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#383a46' }}>{v.namn}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#383a46' }}>{v.namn}</h3>
                     <PriceTag tier={tierFromEmoji(v.prisklass)} />
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: 'var(--color-text-muted)', fontSize: '0.78rem', marginBottom: 8 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {v.plats}</span>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {v.öppet}</span>
                   </div>
@@ -104,7 +104,7 @@ export default function MatPage() {
         {/* Restauranger */}
         <section style={{ marginBottom: 48 }}>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Handplockat</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
 
           <style>{`.mat-filter-scroll::-webkit-scrollbar { display: none; }`}</style>
           <MatFilter listId="restauranglista" kategorier={kategorier} allaKategorier={restauranger.map(r => r.kategori)} />
@@ -118,10 +118,10 @@ export default function MatPage() {
                 </div>
                 <div style={{ padding: 16 }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
                     <PriceTag tier={tierFromEmoji(r.prisklass)} />
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 10 }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: 'var(--color-text-muted)', fontSize: '0.78rem', marginBottom: 10 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {r.plats}</span>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {r.öppet}</span>
                   </div>
@@ -137,7 +137,7 @@ export default function MatPage() {
 
         <section>
           <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
           <div style={{ maxWidth: 800, margin: '0 auto' }}>
             <Map
               markers={cityMapMarkers}

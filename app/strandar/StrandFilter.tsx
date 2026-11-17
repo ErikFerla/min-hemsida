@@ -71,7 +71,7 @@ const filterLabelStyle: CSSProperties = {
   fontWeight: 700,
   letterSpacing: '0.2em',
   textTransform: 'uppercase',
-  color: '#6B7280',
+  color: 'var(--color-text-muted)',
   margin: '0 0 10px',
 };
 

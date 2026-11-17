@@ -382,7 +382,7 @@ export default function SectionPlanner() {
 
         {visaPlan && plan.length > 0 && (
           <div style={{ marginTop: '48px', background: 'white', borderRadius: '16px', padding: 'clamp(20px, 4vw, 40px)', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
-            <h3 ref={planRubrik} tabIndex={-1} style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '8px' }}>
+            <h3 ref={planRubrik} tabIndex={-1} style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '8px' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>Förslag: {dagarText} dagar på Mallorca <IconMap size={20} /></span>
             </h3>
             <p style={{ margin: '0 0 24px', color: '#4B5563', fontSize: '0.95rem', lineHeight: 1.6 }}>
@@ -402,7 +402,7 @@ export default function SectionPlanner() {
                     {(dag.taggar.length > 0 || dag.länkar.length > 0) && (
                       <p style={{ margin: '6px 0 0', fontSize: '0.85rem', lineHeight: 1.6, color: '#4B5563', display: 'flex', flexWrap: 'wrap', gap: '4px 12px', alignItems: 'center' }}>
                         {dag.taggar.length > 0 && (
-                          <span style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#6B7280' }}>
+                          <span style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)' }}>
                             {dag.taggar.join(' · ')}
                           </span>
                         )}
@@ -449,11 +449,11 @@ export default function SectionPlanner() {
             className="planner-side-image"
           />
           <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
-            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#383a46', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
-            <p style={{ fontSize: '0.875rem', color: '#6B7280', lineHeight: '1.65', margin: 0 }}>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#383a46', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
+            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: '1.65', margin: 0 }}>
               ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
             </p>
-            <p style={{ fontSize: '0.75rem', color: '#9CA3AF', margin: '10px 0 0', fontWeight: 600 }}>— Erik, MyMallorca</p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: '10px 0 0', fontWeight: 600 }}>— Erik, MyMallorca</p>
           </div>
         </div>
 

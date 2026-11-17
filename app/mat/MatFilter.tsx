@@ -30,7 +30,7 @@ export default function MatFilter({ listId, kategorier, allaKategorier }: Props)
           );
         })}
       </div>
-      <p style={{ color: '#6B7280', fontSize: '0.82rem', margin: '0 0 20px' }} aria-live="polite">{antal} restauranger</p>
+      <p style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem', margin: '0 0 20px' }} aria-live="polite">{antal} restauranger</p>
     </>
   );
 }

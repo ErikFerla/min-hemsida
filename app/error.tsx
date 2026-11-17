@@ -27,7 +27,7 @@ export default function Error({ error, retry }: { error: unknown; retry: () => v
 
         <h1
           style={{
-            fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.4rem, 7vw, 4.2rem)',
             fontWeight: 400,
             letterSpacing: '0.04em',

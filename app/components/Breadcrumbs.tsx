@@ -7,7 +7,7 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav
       aria-label="Brödsmulor"
-      style={{ fontSize: '0.82rem', color: '#6b7280', lineHeight: 1.5 }}
+      style={{ fontSize: '0.82rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}
     >
       <ol
         style={{
@@ -30,7 +30,7 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
               {!isLast ? (
                 <a
                   href={item.url}
-                  style={{ color: '#6b7280', textDecoration: 'none', borderBottom: '1px solid transparent' }}
+                  style={{ color: 'var(--color-text-muted)', textDecoration: 'none', borderBottom: '1px solid transparent' }}
                 >
                   {item.name}
                 </a>

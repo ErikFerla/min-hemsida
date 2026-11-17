@@ -40,7 +40,7 @@ function valideraDatum(utresa: string, hemresa: string): Fel {
 const fältStil = { width: '100%', padding: '12px 16px', border: '2px solid #ddd', borderRadius: '10px', fontSize: '1rem', boxSizing: 'border-box' as const };
 const felStil = { ...fältStil, border: '2px solid #b42318' };
 const etikettStil = { display: 'block', fontWeight: '700', fontSize: '0.85rem', marginBottom: '8px', color: '#555' };
-const hjälpStil = { fontSize: '0.8rem', color: '#6B7280', margin: '6px 0 0' };
+const hjälpStil = { fontSize: '0.8rem', color: 'var(--color-text-muted)', margin: '6px 0 0' };
 const felTextStil = { fontSize: '0.85rem', color: '#b42318', fontWeight: 600, margin: '6px 0 0' };
 
 export default function FlygPage() {
@@ -79,7 +79,7 @@ export default function FlygPage() {
 
         {/* Sökformulär */}
         <section aria-labelledby="flygsok-rubrik" style={{ background: 'white', borderRadius: '20px', padding: 'clamp(20px, 4vw, 40px)', boxShadow: '0 4px 24px rgba(0,0,0,0.1)', marginBottom: '48px' }}>
-          <h2 id="flygsok-rubrik" style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 28px', color: '#111' }}>
+          <h2 id="flygsok-rubrik" style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 28px', color: '#111' }}>
             Sök flyg till Palma de Mallorca
           </h2>
 
@@ -165,26 +165,26 @@ export default function FlygPage() {
             <button
               type="submit"
               aria-describedby="flyg-skyscanner-info"
-              style={{ width: '100%', padding: '16px', background: '#993335', color: '#fefefb', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: '"Bebas Neue", sans-serif', letterSpacing: '0.1em', cursor: 'pointer' }}
+              style={{ width: '100%', padding: '16px', background: '#993335', color: '#fefefb', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: 'var(--font-display)', letterSpacing: '0.1em', cursor: 'pointer' }}
             >
               SÖK FLYG PÅ SKYSCANNER →
             </button>
-            <p id="flyg-skyscanner-info" style={{ textAlign: 'center', fontSize: '0.8rem', color: '#6B7280', marginTop: '12px' }}>
+            <p id="flyg-skyscanner-info" style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '12px' }}>
               Sökningen öppnas hos Skyscanner i en ny flik. Vi sparar inget av det du fyller i.
             </p>
           </form>
         </section>
 
         {/* Snabbknappar */}
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '24px', paddingBottom: '12px', borderBottom: '3px solid #993335', color: '#111', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '24px', paddingBottom: '12px', borderBottom: '3px solid #993335', color: '#111', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
           <IconSparkle size={22} /> Snabbsök – Populära avgångar
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '48px' }}>
           {flygplatser.map(f => (
             <div key={f.kod} style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
               <div style={{ marginBottom: '8px', color: '#383a46' }}><IconPlane size={28} /></div>
-              <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', margin: '0 0 4px', color: '#111' }}>{f.namn}</h3>
-              <p style={{ fontSize: '0.85rem', color: '#888', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', margin: '0 0 4px', color: '#111' }}>{f.namn}</h3>
+              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
               <a
                 href={`https://www.skyscanner.se/transport/flyg/${f.kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`}
                 target="_blank"
@@ -200,7 +200,7 @@ export default function FlygPage() {
 
         {/* Tips */}
         <div style={{ background: '#111', borderRadius: '16px', padding: '32px', color: 'white' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
             <IconBulb size={22} /> Tips för billigare flyg till Mallorca
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>

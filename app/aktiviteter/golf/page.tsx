@@ -42,10 +42,10 @@ export default function GolfPage() {
             <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 8px' }}>
               Utforska på karta
             </p>
-            <h2 id="golf-map-title" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.02em', margin: 0 }}>
+            <h2 id="golf-map-title" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.02em', margin: 0 }}>
               Alla 22 golfbanor på Mallorca
             </h2>
-            <p style={{ color: '#666', marginTop: '8px', fontSize: '0.95rem', maxWidth: '60ch' }}>
+            <p style={{ color: 'var(--color-text-muted)', marginTop: '8px', fontSize: '0.95rem', maxWidth: '60ch' }}>
               Klicka på en flagga för att se banan i listan nedan. Från Alcanada i norr till Andratx i sydväst.
             </p>
           </div>
@@ -69,7 +69,7 @@ export default function GolfPage() {
                   <a href={`#${b.slug}`} style={{ color: '#383a46', textDecoration: 'none', borderBottom: '1px dotted #993335' }}>
                     {b.namn}
                   </a>{' '}
-                  <span style={{ color: '#6b7280', fontSize: '0.82rem' }}>· {b.plats}</span>
+                  <span style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem' }}>· {b.plats}</span>
                 </li>
               ))}
             </ul>
@@ -78,7 +78,7 @@ export default function GolfPage() {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
           <div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
+            <h2 style={{ fontFamily: 'var(--font-body)', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
               Alla golfbanor
             </h2>
           </div>
@@ -114,10 +114,10 @@ export default function GolfPage() {
               </div>
               <div style={{ padding: '22px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: '0 0 8px', lineHeight: '1.15' }}>{b.namn}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', fontWeight: '700', margin: '0 0 8px', lineHeight: '1.15' }}>{b.namn}</h3>
                   <span style={{ flexShrink: 0, marginLeft: '8px' }}><PriceTag tier={tierFromEmoji(b.pris)} /></span>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: '#666' }}>
+                <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: 'var(--color-text-muted)' }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {b.plats}</span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconFlag size={12} /> {b.hål} hål</span>
                 </div>
@@ -151,7 +151,7 @@ export default function GolfPage() {
         </div>
 
         <div style={{ marginTop: '60px', background: '#111', borderRadius: '16px', padding: '40px', color: 'white', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
             Mer om golf på Mallorca
           </h2>
           <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>

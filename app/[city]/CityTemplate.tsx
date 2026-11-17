@@ -25,7 +25,7 @@ export default function CityTemplate({ city }: { city: City }) {
         </div>
         <div className="city-grid">
           <div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om {city.name}</h2>
+            <h2 style={{ fontFamily: 'var(--font-body)', fontSize: '1.8rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '16px' }}>Om {city.name}</h2>
             {city.about.map((text, i) => (
               <p key={i} style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#333', marginBottom: '20px' }}>{text}</p>
             ))}
@@ -44,7 +44,7 @@ export default function CityTemplate({ city }: { city: City }) {
             </ul>
             {city.highlights?.variant === 'list' && (
               <div style={{ marginTop: '32px', marginBottom: '32px' }}>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#383a46' }}>{city.highlights.heading}</h2>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', color: '#383a46' }}>{city.highlights.heading}</h2>
                 {city.highlights.items.map((text, i, all) => {
                   const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
                   return (
@@ -90,7 +90,7 @@ export default function CityTemplate({ city }: { city: City }) {
             </a>
             {city.places && (
               <div style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', marginTop: '20px', border: '1px solid #ede5da' }}>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={18} /> {city.places.heading}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', letterSpacing: '0.05em', marginBottom: '16px', color: '#383a46', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPin size={18} /> {city.places.heading}</h3>
                 {city.places.items.map((item, i, all) => (
                   <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer"
                     style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',

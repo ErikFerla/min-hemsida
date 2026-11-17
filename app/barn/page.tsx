@@ -125,7 +125,7 @@ export default function BarnHubPage() {
           <h2
             id="kategorier-heading"
             style={{
-              fontFamily: '"Bebas Neue", sans-serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
               letterSpacing: '0.04em',
               color: '#383a46',
@@ -191,7 +191,7 @@ export default function BarnHubPage() {
                       >
                         <span
                           style={{
-                            fontFamily: '"Bebas Neue", sans-serif',
+                            fontFamily: 'var(--font-display)',
                             fontSize: '1.25rem',
                             letterSpacing: '0.04em',
                             color: '#383a46',
@@ -240,7 +240,7 @@ export default function BarnHubPage() {
           <h2
             id="alla-aktiviteter-heading"
             style={{
-              fontFamily: '"Bebas Neue", sans-serif',
+              fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
               letterSpacing: '0.04em',
               color: '#383a46',
@@ -249,7 +249,7 @@ export default function BarnHubPage() {
           >
             Alla aktiviteter
           </h2>
-          <p style={{ fontSize: '0.95rem', color: '#6b7280', margin: '0 0 24px', maxWidth: '60ch' }}>
+          <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', margin: '0 0 24px', maxWidth: '60ch' }}>
             {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. Filtrera efter ålder
             eller klicka dig vidare till respektive kategorisida för mer detaljer.
           </p>
@@ -279,7 +279,7 @@ export default function BarnHubPage() {
               borderRadius: '12px',
               border: '1px solid rgba(0,0,0,0.06)',
               textAlign: 'center',
-              color: '#6b7280',
+              color: 'var(--color-text-muted)',
             }}
           >
             Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.

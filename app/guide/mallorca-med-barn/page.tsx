@@ -45,7 +45,7 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <section style={{ background: '#fefefb', padding: 'clamp(48px,8vw,96px) clamp(20px,5vw,60px) clamp(32px,5vw,48px)', textAlign: 'center' }}>
         <p style={{ fontSize: '0.78rem', letterSpacing: '0.24em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 14px' }}>Familjereseguide · 2026</p>
-        <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.75rem,6vw,2.5rem)', fontWeight: 400, letterSpacing: '0.03em', margin: '0 0 16px', lineHeight: 1.05, color: '#383a46' }}>Familjesemester på Mallorca</h1>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem,6vw,2.5rem)', fontWeight: 400, letterSpacing: '0.03em', margin: '0 0 16px', lineHeight: 1.05, color: '#383a46' }}>Familjesemester på Mallorca</h1>
         <p style={{ fontSize: 'clamp(1rem,2.4vw,1.2rem)', color: '#374151', margin: '0 auto', maxWidth: '560px', lineHeight: 1.55 }}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         <div style={{ width: 56, height: 3, background: '#993335', margin: '24px auto 0', borderRadius: 2 }} />
       </section>
@@ -76,7 +76,7 @@ export default function MallorcaMedBarnGuide() {
             {sektioner.map((s) => (
               <article key={s.rubrik} style={{ background: 'white', borderRadius: 12, padding: 24, boxShadow: '0 2px 8px rgba(0,0,0,0.06)', border: '1px solid #ede5da' }}>
                 <div style={{ color: '#383a46', marginBottom: 14 }}><s.Icon size={28} /></div>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.4rem', letterSpacing: '0.04em', margin: '0 0 10px', color: '#383a46', lineHeight: 1.1 }}>{s.rubrik}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', letterSpacing: '0.04em', margin: '0 0 10px', color: '#383a46', lineHeight: 1.1 }}>{s.rubrik}</h3>
                 <p style={{ fontSize: '0.92rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{s.kortText}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {s.punkter.map(p => (
@@ -91,7 +91,7 @@ export default function MallorcaMedBarnGuide() {
         {/* Karta */}
         <section style={{ marginBottom: 48 }}>
           <SectionHeading kicker="Hitta dit" titel="Barnvänliga aktiviteter på kartan" />
-          <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 20px', maxWidth: '60ch' }}>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 20px', maxWidth: '60ch' }}>
             Här ser du de mest populära familjeaktiviteterna utspridda över ön — från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
           </p>
           <div style={{ background: 'white', padding: 8, borderRadius: 14, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
@@ -110,9 +110,9 @@ export default function MallorcaMedBarnGuide() {
             <IconMap size={16} stroke={1.8} />
             <span style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700 }}>Mer för familjen</span>
           </div>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Planera din familjeresa</h2>
           <p style={{ opacity: 0.85, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
-          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE ALLA BARNAKTIVITETER</Link>
+          <Link href="/barn" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 26px', borderRadius: 10, fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE ALLA BARNAKTIVITETER</Link>
           <p style={{ margin: '16px 0 0', fontSize: '0.95rem' }}>
             <Link href="/?dagar=7&intressen=familj#resplanerare" style={{ color: '#fefefb', fontWeight: 600 }}>Gör en resplan för familjen</Link>
           </p>
@@ -133,7 +133,7 @@ function SectionHeading({ kicker, titel }: { kicker: string; titel: string }) {
   return (
     <div style={{ marginBottom: 24 }}>
       <p style={{ fontSize: '0.7rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 8px' }}>{kicker}</p>
-      <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,4.5vw,2.2rem)', letterSpacing: '0.04em', color: '#383a46', margin: '0 0 12px', lineHeight: 1 }}>{titel}</h2>
+      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,4.5vw,2.2rem)', letterSpacing: '0.04em', color: '#383a46', margin: '0 0 12px', lineHeight: 1 }}>{titel}</h2>
       <div style={{ width: 48, height: 3, background: '#993335', borderRadius: 2 }} />
     </div>
   );

@@ -48,7 +48,7 @@ export default function GolfRegionFilter({ listId, regioner, banregioner }: Prop
           </button>
         ))}
       </div>
-      <p aria-live="polite" style={{ color: '#666', margin: 0 }}>{antal} banor visas</p>
+      <p aria-live="polite" style={{ color: 'var(--color-text-muted)', margin: 0 }}>{antal} banor visas</p>
     </div>
   );
 }

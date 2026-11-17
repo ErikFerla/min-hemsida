@@ -48,7 +48,7 @@ export default function NotFound() {
 
         <h1
           style={{
-            fontFamily: '"Bebas Neue", sans-serif',
+            fontFamily: 'var(--font-display)',
             fontSize: 'clamp(2.6rem, 8vw, 5rem)',
             fontWeight: 400,
             letterSpacing: '0.04em',
@@ -103,7 +103,7 @@ export default function NotFound() {
                   <span
                     style={{
                       display: 'block',
-                      fontFamily: '"Bebas Neue", sans-serif',
+                      fontFamily: 'var(--font-display)',
                       fontSize: '1.15rem',
                       letterSpacing: '0.05em',
                       color: '#383a46',
@@ -112,7 +112,7 @@ export default function NotFound() {
                   >
                     {l.label}
                   </span>
-                  <span style={{ display: 'block', fontSize: '0.85rem', color: '#6b7280', lineHeight: 1.45 }}>
+                  <span style={{ display: 'block', fontSize: '0.85rem', color: 'var(--color-text-muted)', lineHeight: 1.45 }}>
                     {l.beskrivning}
                   </span>
                 </Link>

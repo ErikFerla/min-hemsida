@@ -37,7 +37,7 @@ const vingårdar: Vingard[] = [
   { namn: 'Vins Nadal', plats: 'Binissalem', prisnivå: 1, typ: 'Traditionell familjevingård', passarFör: 'Budgetmedvetna', upplevelse: 'Enkel provning, varm atmosfär', bokning: 'Drop-in välkomnas', öppet: 'Mån–Lör 9–18', info: 'Traditionell familjevingård sedan 1944. Enkel, ärlig och prisvärd.', signaturvin: 'Nadal Rosat', web: 'https://www.vinsnadal.com', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=800&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
 ];
 
-const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0, lineHeight: 1.2 };
+const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, margin: 0, lineHeight: 1.2 };
 const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#383a46', margin: '1px 0 0', lineHeight: 1.3 };
 
 export default function VingardarPage() {
@@ -55,9 +55,9 @@ export default function VingardarPage() {
       <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, color: '#993335' }}>
           <IconGlass size={18} />
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,5vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46' }}>15 vingårdar att besöka</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem,5vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46' }}>15 vingårdar att besöka</h2>
         </div>
-        <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.65, marginTop: 0, marginBottom: 36, maxWidth: '60ch' }}>
+        <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.65, marginTop: 0, marginBottom: 36, maxWidth: '60ch' }}>
           Mallorca har över 70 registrerade vingårdar, främst i Binissalem- och Pla i Llevant-regionerna. De flesta erbjuder provning — men boka alltid i förväg för de mindre.
         </p>
 
@@ -76,11 +76,11 @@ export default function VingardarPage() {
 
               <div style={{ padding: '14px 16px 16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 4 }}>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{v.namn}</h3>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{v.namn}</h3>
                   <PriceTag tier={v.prisnivå} />
                 </div>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: '#6B7280', fontSize: '0.8rem', marginBottom: 8 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: 'var(--color-text-muted)', fontSize: '0.8rem', marginBottom: 8 }}>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {v.plats}</span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconClock size={11} /> {v.öppet}</span>
                 </div>

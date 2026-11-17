@@ -66,7 +66,7 @@ export default function SiteFooter() {
         <div className="footer-desktop-grid">
           {/* Column 1 — Brand */}
           <div>
-            <p style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
               DIN GUIDE PÅ MALLORCA <IconPalm size={22} />
             </p>
             <p style={{ color: 'rgba(254,254,251,0.75)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: 0 }}>

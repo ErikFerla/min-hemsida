@@ -48,7 +48,7 @@ export default function StrandarPage() {
             <p style={{ fontSize: 'clamp(0.7rem,1.5vw,0.8rem)', letterSpacing: '0.25em', textTransform: 'uppercase', color: '#fff', fontWeight: 700, margin: '0 0 12px', opacity: 0.92, textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
               Upptäck kusten
             </p>
-            <h1 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(2rem,6vw,3.4rem)', fontWeight: 600, letterSpacing: '-0.015em', margin: '0 0 6px', lineHeight: 1.05, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.45)' }}>
+            <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem,6vw,3.4rem)', fontWeight: 600, letterSpacing: '-0.015em', margin: '0 0 6px', lineHeight: 1.05, color: '#fff', textShadow: '0 2px 10px rgba(0,0,0,0.45)' }}>
               Stränder på Mallorca
             </h1>
             <div style={{ width: 48, height: 2, background: '#fff', opacity: 0.9, margin: '14px 0 0', borderRadius: 2 }} />
@@ -120,7 +120,7 @@ export default function StrandarPage() {
                 </div>
               </div>
               <div style={{ padding: '20px 20px 22px' }}>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.55rem', letterSpacing: '0.04em', margin: '0 0 8px', lineHeight: 1.1, color: '#111' }}>{s.namn}</h2>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.55rem', letterSpacing: '0.04em', margin: '0 0 8px', lineHeight: 1.1, color: '#111' }}>{s.namn}</h2>
                 <p style={{ fontSize: '0.82rem', color: '#7A6B5C', margin: '0 0 14px', fontWeight: 500 }}>
                   {s.längd} <span style={{ color: '#D4C7B5', margin: '0 8px' }}>•</span> {s.svårighet}
                 </p>
@@ -158,7 +158,7 @@ export default function StrandarPage() {
 
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
           <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>PLANERA VIDARE</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Inför stranddagen</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Inför stranddagen</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
             {[
               { titel: 'Kolla vinden först', text: 'Blåser det från norr är sydkustens vikar ofta lugnast – och tvärtom. En snabb titt på prognosen kan rädda dagen.', href: '/vader', cta: 'Se väderprognosen' },
@@ -166,7 +166,7 @@ export default function StrandarPage() {
               { titel: 'När är vattnet varmast?', text: 'Havet är som varmast från juli till september. Läs mer om vilken månad som passar dig bäst.', href: '/guide/basta-tid-resa-mallorca', cta: 'Bästa tiden att resa' },
             ].map(t => (
               <Link key={t.href} href={t.href} style={{ display: 'block', textDecoration: 'none', background: 'white', borderRadius: '16px', padding: '24px', border: '1px solid #ede5da', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px', lineHeight: 1.2 }}>{t.titel}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px', lineHeight: 1.2 }}>{t.titel}</h3>
                 <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{t.text}</p>
                 <span style={{ color: '#993335', fontWeight: 700, fontSize: '0.9rem' }}>{t.cta} →</span>
               </Link>

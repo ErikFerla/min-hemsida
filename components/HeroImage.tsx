@@ -93,7 +93,7 @@ export default function HeroImage({
         )}
         <h1
           style={{
-            fontFamily: '"Bebas Neue", sans-serif',
+            fontFamily: 'var(--font-display)',
             fontSize: '5rem',
             fontWeight: 400,
             letterSpacing: '0.05em',

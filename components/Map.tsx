@@ -59,7 +59,7 @@ const popupHtml = (m: MapMarker, ctaLabel: string) => {
     ? `<span style="display:block;color:#993335;font-size:11px;font-weight:600;letter-spacing:0.03em;margin:4px 0 2px">${escapeHtml(m.meta)}</span>`
     : ''
   const descLine = m.desc
-    ? `<br><span style="color:#6b7280;font-size:12px;line-height:1.5">${escapeHtml(m.desc)}</span>`
+    ? `<br><span style="color:var(--color-text-muted);font-size:12px;line-height:1.5">${escapeHtml(m.desc)}</span>`
     : ''
   const cta = m.href
     ? `<br><a href="${escapeHtml(m.href)}" aria-label="${name} – se detaljer" style="display:inline-block;margin-top:10px;background:#383a46;color:white;padding:7px 14px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;border-radius:4px;min-height:24px">${escapeHtml(ctaLabel)} →</a>`

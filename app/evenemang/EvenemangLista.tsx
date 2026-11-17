@@ -66,7 +66,7 @@ export default function EvenemangLista({ kommande, passerade }: { kommande: Even
             {k}
           </button>
         ))}
-        <span style={{ alignSelf: 'center', marginLeft: 8, fontSize: '0.85rem', color: '#6B7280' }} aria-live="polite">
+        <span style={{ alignSelf: 'center', marginLeft: 8, fontSize: '0.85rem', color: 'var(--color-text-muted)' }} aria-live="polite">
           {filtrerade.length} kommande evenemang
         </span>
       </div>
@@ -77,7 +77,7 @@ export default function EvenemangLista({ kommande, passerade }: { kommande: Even
           if (items.length === 0) return null;
           return (
             <section key={sektion.rubrik} style={{ marginBottom: 56 }}>
-              <h2 style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(1.5rem,4vw,2rem)', fontWeight: 500, letterSpacing: '-0.012em', margin: '0 0 24px', color: '#383a46' }}>{sektion.rubrik}</h2>
+              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem,4vw,2rem)', fontWeight: 500, letterSpacing: '-0.012em', margin: '0 0 24px', color: '#383a46' }}>{sektion.rubrik}</h2>
               <EventGrid items={items} />
             </section>
           );
@@ -91,7 +91,7 @@ export default function EvenemangLista({ kommande, passerade }: { kommande: Even
       {filtreradeArkiv.length > 0 && (
         <section style={{ marginTop: 40, borderTop: '1px solid #ede5da', paddingTop: 32 }}>
           <details>
-            <summary style={{ cursor: 'pointer', fontFamily: '"Playfair Display", Georgia, serif', fontSize: 'clamp(1.25rem,3vw,1.6rem)', fontWeight: 500, color: '#383a46' }}>
+            <summary style={{ cursor: 'pointer', fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.25rem,3vw,1.6rem)', fontWeight: 500, color: '#383a46' }}>
               Har redan varit ({filtreradeArkiv.length})
             </summary>
             <p style={{ color: '#4B5563', fontSize: '0.9rem', margin: '12px 0 24px', lineHeight: 1.55 }}>
@@ -131,7 +131,7 @@ function EventGrid({ items, passerad = false }: { items: Evenemang[]; passerad?:
             )}
           </div>
           <div style={{ padding: 18, flex: 1, display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <div style={{ fontSize: '0.78rem', color: '#6B7280', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <div style={{ fontSize: '0.78rem', color: 'var(--color-text-muted)', display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconCalendar size={12} /> {e.datum}</span>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {e.plats}</span>
             </div>

@@ -126,14 +126,14 @@ export default function GolfMallorcaGuide() {
         </div>
 
         {/* Topp 5 */}
-        <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '32px' }}>De 5 bästa banorna – djupanalys</h2>
+        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '32px' }}>De 5 bästa banorna – djupanalys</h2>
 
         {toppBanor.map((bana) => (
           <article key={bana.rank} style={{ marginBottom: '48px', background: 'white', borderRadius: '20px', padding: '28px', border: '1px solid #ede5da' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <span style={{ background: '#993335', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{bana.rank}</span>
+              <span style={{ background: '#993335', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-display)', fontSize: '1.1rem', flexShrink: 0 }}>#{bana.rank}</span>
               <div>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,3vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46', lineHeight: 1 }}>{bana.namn}</h3>
+                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem,3vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46', lineHeight: 1 }}>{bana.namn}</h3>
                 <p style={{ margin: 0, color: '#993335', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px', display: 'inline-flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span style={{ display: 'inline-flex', color: '#993335' }}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
               </div>
             </div>
@@ -144,9 +144,9 @@ export default function GolfMallorcaGuide() {
                 <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151' }}>{bana.insider}</p>
               </div>
               <div style={{ background: '#F9F6F1', borderRadius: '10px', padding: '14px' }}>
-                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>GREENFEE · BÄSTA TID</p>
+                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>GREENFEE · BÄSTA TID</p>
                 <p style={{ margin: 0, fontSize: '0.85rem', color: '#383a46', fontWeight: '600' }}>{bana.grönAvgift}</p>
-                <p style={{ margin: '4px 0 0', fontSize: '0.82rem', color: '#6B7280' }}>{bana.bästTid}</p>
+                <p style={{ margin: '4px 0 0', fontSize: '0.82rem', color: 'var(--color-text-muted)' }}>{bana.bästTid}</p>
               </div>
             </div>
           </article>
@@ -154,8 +154,8 @@ export default function GolfMallorcaGuide() {
 
         {/* Alla 22 banor – kompaktlista */}
         <section style={{ marginBottom: '64px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '24px' }}>Alla 22 golfbanor på Mallorca</h2>
-          <p style={{ color: '#6B7280', fontSize: '0.9rem', lineHeight: 1.6, margin: '-12px 0 20px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '24px' }}>Alla 22 golfbanor på Mallorca</h2>
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', lineHeight: 1.6, margin: '-12px 0 20px' }}>
             Greenfee är ungefärliga prisnivåer – kontrollera alltid aktuellt pris hos banan. Karta och mer om varje bana finns på <Link href="/aktiviteter/golf" style={{ color: '#993335', fontWeight: 600 }}>golfsidan</Link>.
           </p>
           <div style={{ overflowX: 'auto' }}>
@@ -173,8 +173,8 @@ export default function GolfMallorcaGuide() {
                 {allabanor.map((b, i) => (
                   <tr key={i} style={{ background: i % 2 === 0 ? 'white' : '#F9F6F1', borderBottom: '1px solid #ede5da' }}>
                     <td style={{ padding: '11px 16px', color: '#383a46', fontWeight: '500' }}>{b.namn}</td>
-                    <td style={{ padding: '11px 16px', color: '#6B7280' }}>{b.region}</td>
-                    <td style={{ padding: '11px 16px', textAlign: 'center', color: '#6B7280' }}>{b.hål}</td>
+                    <td style={{ padding: '11px 16px', color: 'var(--color-text-muted)' }}>{b.region}</td>
+                    <td style={{ padding: '11px 16px', textAlign: 'center', color: 'var(--color-text-muted)' }}>{b.hål}</td>
                     <td style={{ padding: '11px 16px', color: '#374151' }}>{b.grönAvgift}</td>
                     <td style={{ padding: '11px 16px', textAlign: 'center', color: '#993335' }}><span style={{ display: 'inline-flex' }}>{Array.from({ length: b.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></td>
                   </tr>
@@ -186,7 +186,7 @@ export default function GolfMallorcaGuide() {
 
         {/* Tips om säsong */}
         <section style={{ marginBottom: '64px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,3vw,2rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,3vw,2rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             {[
               { period: 'Nov – Februari', rating: 5, text: 'Perfekt. Behaglig 15–20°C. Inga köer. 30–40% lägre priser.' },
@@ -198,7 +198,7 @@ export default function GolfMallorcaGuide() {
               <div key={i} style={{ background: 'white', borderRadius: '12px', padding: '16px', border: '1px solid #ede5da' }}>
                 <p style={{ fontWeight: '700', color: '#383a46', margin: '0 0 4px', fontSize: '0.9rem' }}>{s.period}</p>
                 <p style={{ margin: '0 0 6px', fontSize: '0.8rem', color: '#993335', display: 'inline-flex' }}>{Array.from({ length: s.rating }).map((_, j) => <IconStar key={j} size={12} />)}</p>
-                <p style={{ margin: 0, fontSize: '0.82rem', color: '#6B7280', lineHeight: '1.5' }}>{s.text}</p>
+                <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--color-text-muted)', lineHeight: '1.5' }}>{s.text}</p>
               </div>
             ))}
           </div>
@@ -206,9 +206,9 @@ export default function GolfMallorcaGuide() {
 
         {/* CTA */}
         <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Mer om golf på Mallorca</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Mer om golf på Mallorca</h2>
           <p style={{ opacity: 0.85, marginBottom: '24px' }}>Se alla 22 banor på kartan, med banfakta och tips för varje bana.</p>
-          <Link href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#fefefb', color: '#993335', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA BANOR PÅ KARTAN →</Link>
+          <Link href="/aktiviteter/golf" style={{ display: 'inline-block', background: '#fefefb', color: '#993335', padding: '14px 32px', borderRadius: '10px', fontFamily: 'var(--font-display)', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA BANOR PÅ KARTAN →</Link>
         </div>
       </div>
     </div>

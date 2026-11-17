@@ -52,7 +52,7 @@ export default function FeatureCards() {
 
             <div style={{
               fontSize: '0.88rem',
-              color: '#6B7280',
+              color: 'var(--color-text-muted)',
               lineHeight: 1.4,
             }}>{item.desc}</div>
           </div>

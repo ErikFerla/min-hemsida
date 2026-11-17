@@ -45,7 +45,7 @@ export default function ByarSida() {
                 </div>
               </div>
               <div style={{ padding: '22px' }}>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{stad.name}</h2>
+                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{stad.name}</h2>
                 <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{stad.card.description}</p>
                 <div style={{ margin: '12px 0' }}>
                   {stad.card.top3.map((sak, j) => {

@@ -90,7 +90,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
       <div style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', gap: '10px', flexGrow: 1 }}>
         <h3
           style={{
-            fontFamily: '"Bebas Neue", sans-serif',
+            fontFamily: 'var(--font-display)',
             fontSize: '1.25rem',
             letterSpacing: '0.03em',
             margin: 0,
@@ -126,7 +126,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
               alignItems: 'center',
               gap: '4px',
               fontSize: '0.78rem',
-              color: '#6b7280',
+              color: 'var(--color-text-muted)',
             }}
           >
             <IconPin size={12} /> {activity.location}

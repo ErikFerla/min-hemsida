@@ -58,7 +58,7 @@ export default function BästaRestaurangerPalma() {
 
       <div style={{ maxWidth: '820px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
         <div style={{ background: 'white', border: '1px solid #ede5da', borderRadius: 16, padding: '18px 20px', marginBottom: 40 }}>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: '0 0 10px' }}>Prisskala</p>
+          <p style={{ fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--color-text-muted)', fontWeight: 600, margin: '0 0 10px' }}>Prisskala</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px 16px', fontSize: '0.85rem', color: '#374151' }}>
             <Row tier={1} label="Under 20 €" />
             <Row tier={2} label="20–40 €" />
@@ -70,7 +70,7 @@ export default function BästaRestaurangerPalma() {
         {sections.map(section => (
           <section key={section.key} style={{ marginBottom: 56 }}>
             <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>{section.kicker}</p>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.2vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 22px', lineHeight: 1 }}>{section.label}</h2>
+            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,5.2vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 22px', lineHeight: 1 }}>{section.label}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {section.items.map(r => <RestaurantCard key={r.namn} r={r} />)}
             </div>
@@ -78,11 +78,11 @@ export default function BästaRestaurangerPalma() {
         ))}
 
         <div style={{ background: '#383a46', borderRadius: 20, padding: 'clamp(28px,6vw,40px)', textAlign: 'center', color: 'white', marginTop: 40 }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Mer mat och vin på Mallorca</h2>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Mer mat och vin på Mallorca</h2>
           <p style={{ opacity: 0.8, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
           <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/mat" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE MATGUIDEN</Link>
-            <Link href="/vingardar" style={{ display: 'inline-block', background: 'transparent', color: 'white', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700, border: '1px solid rgba(255,255,255,0.3)' }}>VINGÅRDAR</Link>
+            <Link href="/mat" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 24px', borderRadius: 10, fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE MATGUIDEN</Link>
+            <Link href="/vingardar" style={{ display: 'inline-block', background: 'transparent', color: 'white', padding: '12px 24px', borderRadius: 10, fontFamily: 'var(--font-display)', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700, border: '1px solid rgba(255,255,255,0.3)' }}>VINGÅRDAR</Link>
           </div>
         </div>
       </div>
@@ -102,10 +102,10 @@ function RestaurantCard({ r }: { r: Restaurant }) {
   return (
     <article style={{ background: 'white', borderRadius: 16, padding: '20px', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.03)' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 6 }}>
-        <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.35rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.35rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
         <PriceTag tier={tierFromEmoji(r.pris)} />
       </div>
-      <p style={{ margin: '0 0 10px', fontSize: '0.8rem', color: '#9CA3AF', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+      <p style={{ margin: '0 0 10px', fontSize: '0.8rem', color: 'var(--color-text-muted)', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
         <IconPin size={12} /> {r.adress}
       </p>
       <p style={{ margin: '0 0 14px', fontSize: '0.92rem', color: '#374151', lineHeight: 1.5 }}>{r.specialitet}</p>

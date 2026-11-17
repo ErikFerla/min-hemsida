@@ -125,7 +125,7 @@ export default function GuiderPage() {
         <section aria-labelledby="alla-guider">
           <h2
             id="alla-guider"
-            style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', fontWeight: 400, letterSpacing: '0.05em', color: '#383a46', margin: '0 0 24px' }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,4vw,2.5rem)', fontWeight: 400, letterSpacing: '0.05em', color: '#383a46', margin: '0 0 24px' }}
           >
             Alla guider
           </h2>
@@ -160,7 +160,7 @@ export default function GuiderPage() {
                     <Icon size={18} />
                     {passar}
                   </span>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', fontWeight: 400, letterSpacing: '0.04em', lineHeight: 1.15, margin: '0 0 10px', color: '#383a46' }}>
+                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', fontWeight: 400, letterSpacing: '0.04em', lineHeight: 1.15, margin: '0 0 10px', color: '#383a46' }}>
                     {title}
                   </h3>
                   <span style={{ display: 'block', fontSize: '0.92rem', lineHeight: 1.6, color: '#4b5563', marginBottom: '16px', flexGrow: 1 }}>
@@ -178,7 +178,7 @@ export default function GuiderPage() {
         <section aria-labelledby="mer-att-utforska" style={{ marginTop: 'clamp(48px, 7vw, 72px)', background: '#F0EBE3', borderRadius: '16px', padding: 'clamp(24px, 4vw, 36px)', borderLeft: '4px solid #993335' }}>
           <h2
             id="mer-att-utforska"
-            style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,3.5vw,2rem)', fontWeight: 400, letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px' }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.5rem,3.5vw,2rem)', fontWeight: 400, letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px' }}
           >
             Mer att utforska
           </h2>

@@ -184,7 +184,7 @@ section li {
 }
 .fc-icon { font-size: 1.5rem; margin-bottom: 12px; line-height: 1; }
 .fc-title { font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: #383a46; margin-bottom: 8px; text-transform: uppercase; }
-.fc-desc { font-size: 0.875rem; color: #6b7280; line-height: 1.5; margin-bottom: 12px; }
+.fc-desc { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 12px; }
 .fc-link { font-size: 0.8rem; color: #993335; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
 
 @media (max-width: 768px) {
@@ -241,7 +241,7 @@ section li {
   /* Beskrivning — exakt samma som .mobile-quicklink-desc */
   .feature-card p,
   .feature-card [style*="fontSize: '0.875rem'"],
-  .feature-card div[style*="color: '#6b7280'"],
+  .feature-card div[style*="color: 'var(--color-text-muted)'"],
   .feature-card div[style*="color: '#4b5563'"],
   .fc-desc {
     font-size: 0.72rem !important;
@@ -451,7 +451,7 @@ main {
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--color-text-muted);
   margin-bottom: 40px;
 }
 
@@ -623,7 +623,7 @@ h1 {
 
   .mobile-quicklink-desc {
     font-size: 0.72rem;
-    color: #888;
+    color: var(--color-text-muted);
     line-height: 1.4;
   }
 
@@ -1039,7 +1039,7 @@ h1 {
   .season-accordion-months {
     display: block;
     font-size: 0.75rem;
-    color: #888;
+    color: var(--color-text-muted);
     margin-top: 2px;
   }
 
@@ -1063,7 +1063,7 @@ h1 {
 
   .season-accordion-con {
     font-size: 0.9rem;
-    color: #888;
+    color: var(--color-text-muted);
     padding: 5px 0;
     line-height: 1.5;
     border-top: 1px solid #f0ebe3;
