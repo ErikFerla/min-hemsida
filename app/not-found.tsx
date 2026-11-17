@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { IconPalm } from '@/components/Icons';
 
 export const metadata: Metadata = {
-  title: 'Sidan kunde inte hittas – MyMallorca',
+  title: 'Sidan kunde inte hittas',
   description: 'Vi hittar inte sidan du letar efter. Utforska våra guider till stränder, städer och aktiviteter på Mallorca istället.',
   robots: { index: false, follow: true },
 };
