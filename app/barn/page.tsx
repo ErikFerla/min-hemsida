@@ -1,20 +1,14 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import CategoryHero from '@/app/components/CategoryHero';
 import AgeFilter from '@/app/components/AgeFilter';
-import { parseAgesParam } from '@/app/lib/ages';
 import ActivityCard from '@/app/components/ActivityCard';
 import InsiderTipBox from '@/app/components/InsiderTipBox';
+import JsonLd from '@/app/components/JsonLd';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
-import {
-  ACTIVITIES,
-  CATEGORIES,
-  filterByAge,
-} from '@/app/lib/barn-activities';
-import {
-  buildItemListJsonLd,
-  buildBreadcrumbJsonLd,
-  stringifyJsonLd,
-} from '@/app/lib/barn-jsonld';
+import { ACTIVITIES, CATEGORIES } from '@/app/lib/barn-activities';
+import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
 
 const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
 
@@ -50,10 +44,6 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
 const INSIDER_TIPS: string[] = [
   'Bokning: vattenparker och Palma Aquarium — köp biljetterna online, ofta blir det billigare och ni slipper köerna.',
   'Bästa tid: besök Katmandu-parken efter lunch — morgonen är packad med bussgrupper.',
@@ -62,11 +52,9 @@ const INSIDER_TIPS: string[] = [
   'Transport: Tren de Sóller är en aktivitet i sig — billigare än många "riktiga" attraktioner och barn älskar det.',
 ];
 
-export default async function BarnHubPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-  const visibleActivities = filterByAge(ACTIVITIES, selectedAges);
+const LIST_ID = 'barn-aktiviteter';
 
+export default function BarnHubPage() {
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
     { name: 'Barnvänligt', url: '/barn' },
@@ -87,14 +75,8 @@ export default async function BarnHubPage({ searchParams }: Props) {
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(itemListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(breadcrumbJsonLd) }}
-      />
+      <JsonLd data={itemListJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       <CategoryHero
         imageSrc="https://images.unsplash.com/photo-1530870110042-98b2cb110834"
@@ -165,7 +147,7 @@ export default async function BarnHubPage({ searchParams }: Props) {
             {countsByCategory.map((c) => {
               return (
                 <li key={c.slug}>
-                  <a
+                  <Link
                     href={c.href}
                     style={{
                       display: 'flex',
@@ -177,7 +159,6 @@ export default async function BarnHubPage({ searchParams }: Props) {
                       textDecoration: 'none',
                       color: 'inherit',
                       boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                      transition: 'transform 0.2s, box-shadow 0.2s',
                       height: '100%',
                     }}
                   >
@@ -189,15 +170,12 @@ export default async function BarnHubPage({ searchParams }: Props) {
                           overflow: 'hidden',
                         }}
                       >
-                        <img
-                          src={`${c.heroImage}?w=640&q=80&fm=webp&auto=format`}
-                          srcSet={`${c.heroImage}?w=320&q=80&fm=webp&auto=format 320w, ${c.heroImage}?w=480&q=80&fm=webp&auto=format 480w, ${c.heroImage}?w=640&q=80&fm=webp&auto=format 640w, ${c.heroImage}?w=960&q=80&fm=webp&auto=format 960w`}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        <Image
+                          src={`${c.heroImage}?w=960&q=80`}
                           alt={`${c.label} – barnaktiviteter på Mallorca`}
                           width={640}
                           height={400}
-                          loading="lazy"
-                          decoding="async"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
                           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                         />
                       </div>
@@ -236,7 +214,7 @@ export default async function BarnHubPage({ searchParams }: Props) {
                         {c.shortTagline}
                       </p>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -288,44 +266,41 @@ export default async function BarnHubPage({ searchParams }: Props) {
               borderBottom: '1px solid rgba(0,0,0,0.06)',
             }}
           >
-            <AgeFilter
-              totalCount={ACTIVITIES.length}
-              visibleCount={visibleActivities.length}
-            />
+            <AgeFilter listId={LIST_ID} itemAges={ACTIVITIES.map((a) => a.ageGroups)} />
           </div>
 
-          {visibleActivities.length === 0 ? (
-            <div
-              role="status"
-              style={{
-                padding: '32px',
-                background: 'white',
-                borderRadius: '12px',
-                border: '1px solid rgba(0,0,0,0.06)',
-                textAlign: 'center',
-                color: '#6b7280',
-              }}
-            >
-              Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
-            </div>
-          ) : (
-            <ul
-              style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-                gap: 'clamp(14px, 2vw, 20px)',
-              }}
-            >
-              {visibleActivities.map((a) => (
-                <li key={a.slug}>
-                  <ActivityCard activity={a} cardCategory={a.categories[0]} />
-                </li>
-              ))}
-            </ul>
-          )}
+          <div
+            id={`${LIST_ID}-tom`}
+            className="a2-age-empty"
+            role="status"
+            style={{
+              padding: '32px',
+              background: 'white',
+              borderRadius: '12px',
+              border: '1px solid rgba(0,0,0,0.06)',
+              textAlign: 'center',
+              color: '#6b7280',
+            }}
+          >
+            Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
+          </div>
+          <ul
+            id={LIST_ID}
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: 'clamp(14px, 2vw, 20px)',
+            }}
+          >
+            {ACTIVITIES.map((a) => (
+              <li key={a.slug} data-ages={a.ageGroups.join(' ')}>
+                <ActivityCard activity={a} cardCategory={a.categories[0]} />
+              </li>
+            ))}
+          </ul>
         </section>
       </div>
     </div>
