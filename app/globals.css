@@ -287,22 +287,3 @@ footer :focus-visible {
 .a2-age-empty {
   display: none;
 }
-
-/* ============================================================
-   KVAR FÖR B2/B3 (2.6): attributselektorer som före sammanslagningen bara
-   träffade B2:s/B3:s sidor. B2/B3 har tagit bort sina övriga regler; de här
-   två fanns kvar i deras version och tas bort när inga sidor längre träffas
-   (se kontrollen i B1:s rapport).
-   ============================================================ */
-@media (max-width: 768px) {
-  [style*="font-size: 0.88rem"] {
-    font-size: 15px !important;
-    line-height: 1.6 !important;
-  }
-
-  [style*="grid-template-columns: 1fr 1fr"],
-  [style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns: 1fr !important;
-    gap: 32px !important;
-  }
-}
