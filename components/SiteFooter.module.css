@@ -1,0 +1,218 @@
+/* Sidfot: components/SiteFooter.tsx (desktop) och SiteFooterAccordion.tsx (mobil). */
+
+.footer {
+  padding: 0;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.topLine {
+  border-top: 1px solid var(--color-accent);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 60px) clamp(20px, 4vw, 60px) clamp(24px, 3vw, 40px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+/* Varumärkesrad ("DIN GUIDE PÅ MALLORCA") */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  color: var(--color-on-dark);
+}
+
+.about {
+  margin-top: 0;
+  color: rgba(254, 254, 251, 0.75);
+}
+
+.heading {
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f08a9a;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  display: block;
+  color: rgba(254, 254, 251, 0.75);
+  font-size: 14px;
+  line-height: 2.2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.link:hover {
+  color: var(--color-accent-soft);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px clamp(20px, 4vw, 60px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.small {
+  margin-top: 0;
+  color: rgba(254, 254, 251, 0.7);
+}
+
+.legalLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legalLink:hover {
+  color: var(--color-accent-soft);
+}
+
+/* Mobil: accordion (SiteFooterAccordion) */
+.accordion {
+  display: none;
+}
+
+.accordionIntro {
+  margin-bottom: 20px;
+}
+
+.accordionAbout {
+  margin-top: 0;
+  color: rgba(254, 254, 251, 0.7);
+}
+
+.section {
+  border-top: 1px solid rgba(254, 254, 251, 0.14);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 44px;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  color: #f08a9a;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.toggleIcon {
+  display: inline-block;
+  color: rgba(254, 254, 251, 0.6);
+  font-size: 0.75rem;
+  transition: transform 0.2s;
+}
+.toggle[aria-expanded='true'] .toggleIcon {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+.panel[hidden] {
+  display: none;
+}
+
+.panelLink {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 0;
+  color: rgba(254, 254, 251, 0.85);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.panelLink:hover {
+  color: var(--color-accent-soft);
+}
+
+/* Desktop: storlekar och marginaler (på mobil gäller basens p-regel: 16px och 1,25rem) */
+@media (min-width: 769px) {
+  .brand {
+    margin-bottom: 12px;
+    font-size: 1.125rem;
+    letter-spacing: 0.08em;
+  }
+
+  .about {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+
+  .heading {
+    margin-bottom: 16px;
+    font-size: 11px;
+  }
+
+  .small {
+    margin-bottom: 0;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Varumärkeskolumnen över hela bredden på surfplatta */
+  .grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 32px 20px 24px;
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .accordion {
+    display: block;
+    margin-bottom: 32px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    padding: 16px 20px;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggleIcon {
+    transition: none;
+  }
+}

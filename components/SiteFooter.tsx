@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconPalm } from '@/components/Icons';
 import SiteFooterAccordion from '@/components/SiteFooterAccordion';
+import styles from './SiteFooter.module.css';
 
 export type FooterSection = {
   heading: string;
@@ -58,18 +59,18 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
 
 export default function SiteFooter() {
   return (
-    <footer style={{ background: '#383a46', color: '#fefefb', padding: '0' }}>
-      {/* Gold top line */}
-      <div style={{ borderTop: '1px solid #993335' }} />
+    <footer className={styles.footer}>
+      {/* Accentlinje överst */}
+      <div className={styles.topLine} />
 
-      <div className="footer-inner">
-        <div className="footer-desktop-grid">
+      <div className={styles.inner}>
+        <div className={styles.grid}>
           {/* Column 1 — Brand */}
           <div>
-            <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '0.1em', color: '#fefefb', margin: '0 0 12px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+            <p className={styles.brand}>
               DIN GUIDE PÅ MALLORCA <IconPalm size={22} />
             </p>
-            <p style={{ color: 'rgba(254,254,251,0.75)', fontSize: '0.9rem', lineHeight: '1.7', marginBottom: 0 }}>
+            <p className={styles.about}>
               Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.
             </p>
           </div>
@@ -77,12 +78,12 @@ export default function SiteFooter() {
           {/* Columns 2–4 — rendered from shared FOOTER_SECTIONS */}
           {FOOTER_SECTIONS.map((section) => (
             <div key={section.heading}>
-              <p style={{ fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#f08a9a', fontWeight: 600, margin: '0 0 16px' }}>
+              <p className={styles.heading}>
                 {section.heading}
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div className={styles.links}>
                 {section.links.map(([label, href]) => (
-                  <Link key={`${section.heading}-${href}-${label}`} href={href} className="footer-nav-link">{label}</Link>
+                  <Link key={`${section.heading}-${href}-${label}`} href={href} className={styles.link}>{label}</Link>
                 ))}
               </div>
             </div>
@@ -93,12 +94,12 @@ export default function SiteFooter() {
         <SiteFooterAccordion sections={FOOTER_SECTIONS} />
       </div>
 
-      <div className="footer-bottom">
-        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>© 2026 mymallorca.se</p>
-        <p style={{ color: 'rgba(254,254,251,0.7)', fontSize: '13px', margin: 0 }}>
-          <Link href="/integritetspolicy" className="footer-legal-link">Integritetspolicy</Link>
+      <div className={styles.bottom}>
+        <p className={styles.small}>© 2026 mymallorca.se</p>
+        <p className={styles.small}>
+          <Link href="/integritetspolicy" className={styles.legalLink}>Integritetspolicy</Link>
           {' · '}
-          <Link href="/cookies" className="footer-legal-link">Cookies</Link>
+          <Link href="/cookies" className={styles.legalLink}>Cookies</Link>
         </p>
       </div>
     </footer>
