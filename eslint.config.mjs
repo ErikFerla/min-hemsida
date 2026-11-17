@@ -12,6 +12,7 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".claude/**",
   ]),
   {
     // Regeln är skriven för Pages Router. Med toppnivåroutern app/[city] tolkar den
