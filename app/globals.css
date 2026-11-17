@@ -3,26 +3,6 @@
    Tänk Condé Nast Traveller × skandinavisk minimalism
    ============================================================ */
 :root {
-  /* Brand colours — The Dock Hotel inspired palette */
-  --bg-primary: #fefefb;
-  --bg-secondary: #eeede4;
-  --bg-dark: #383a46;
-  --accent-primary: #993335;
-  --accent-mid: #ba4446;
-  --accent-light: #e86c7f;
-  --text-primary: #1a1a1a;
-  --text-secondary: #383a46;
-  --text-light: #fefefb;
-  --navbar-bg: #eeede4;
-  --footer-bg: #383a46;
-
-  /* Legacy aliases — kept for backward compatibility */
-  --turkos: #993335;
-  --turkos-dark: #ba4446;
-  --orange: #993335;
-  --orange-dark: #D97706;
-  --text: #383a46;
-
   /* ── Färgtokens (2.5) – alla textpar klarar WCAG AA (≥4,5:1) ──
      Kontrast mot --color-bg / --color-surface / --color-surface-warm:
        --color-ink          11,2 / 9,6 / 9,0
@@ -82,13 +62,13 @@ body {
 
 /* Brödtext och UI = Inter */
 body, p, a, button, input, select, li, span {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Rubriker = Playfair Display */
 h1, h2, h3, h4, h5, h6,
 .section-title {
-  font-family: var(--font-playfair), Georgia, serif !important;
+  font-family: var(--font-heading) !important;
   font-weight: 700;
   letter-spacing: -0.02em;
   word-spacing: normal; /* RESET – ta bort alla word-spacing-overrides */
@@ -435,12 +415,12 @@ main {
   margin-bottom: 0.75rem !important;
   margin-top: 0 !important;
   display: block;
-  font-family: var(--font-inter), system-ui, sans-serif !important;
+  font-family: var(--font-body) !important;
 }
 
 /* .section-title inherits from global h2 rule above */
 .section-title {
-  font-family: var(--font-playfair), Georgia, serif !important;
+  font-family: var(--font-heading) !important;
   font-size: clamp(2rem, 4vw, 3rem) !important;
   font-weight: 700;
   letter-spacing: -0.02em !important;
@@ -486,7 +466,7 @@ h1 {
   text-transform: uppercase;
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 .btn-primary:hover {
   background: #ba4446;
@@ -508,7 +488,7 @@ h1 {
   text-transform: uppercase;
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body);
 }
 .btn-secondary:hover {
   background: #383a46;
@@ -612,7 +592,7 @@ h1 {
   }
 
   .mobile-quicklink-title {
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0;
@@ -1009,7 +989,7 @@ h1 {
 
   .season-accordion-title {
     display: block;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0;
@@ -1628,8 +1608,8 @@ section > div {
   left: 0;
   z-index: 10000;
   padding: 0.75rem 1.25rem;
-  background: var(--bg-dark);
-  color: var(--text-light);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
   font-weight: 600;
   text-decoration: underline;
   border-radius: 0 0 var(--btn-border-radius) 0;
@@ -1638,19 +1618,19 @@ section > div {
 .skip-link:focus,
 .skip-link:focus-visible {
   transform: translateY(0);
-  outline: 3px solid var(--accent-light);
+  outline: 3px solid var(--color-accent-soft);
   outline-offset: 0;
 }
 
 /* Global, tydlig fokusring för tangentbord (musklick påverkas inte) */
 :focus-visible {
-  outline: 3px solid var(--accent-primary);
+  outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
 
 /* Ljus variant på mörk bakgrund (footern) */
 footer :focus-visible {
-  outline-color: var(--text-light);
+  outline-color: var(--color-on-dark);
 }
 
 /* <main> får fokus via hopplänken – ingen ring runt hela innehållet */

@@ -60,7 +60,7 @@ export default function FeatureCards() {
           <div aria-hidden="true" style={{
             marginTop: '16px',
             fontSize: 'var(--btn-font-size, 0.8125rem)',
-            color: 'var(--turkos)',
+            color: 'var(--color-accent)',
             fontWeight: 700,
             letterSpacing: 'var(--btn-letter-spacing, 0.08em)',
             textTransform: 'uppercase',

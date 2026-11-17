@@ -212,7 +212,7 @@ export default function HeroSlideshow() {
 
         {/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */}
         <p style={{
-          fontFamily: 'var(--font-playfair), Georgia, serif',
+          fontFamily: 'var(--font-heading)',
           fontSize: 'clamp(2.8rem, 5vw, 5rem)',
           fontWeight: 700,
           letterSpacing: '-0.01em',
@@ -243,7 +243,7 @@ export default function HeroSlideshow() {
             background: 'white',
             color: '#383a46',
             borderRadius: '3px',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
+            fontFamily: 'var(--font-body)',
             fontSize: '0.9rem',
             fontWeight: 600,
             letterSpacing: '0.05em',
