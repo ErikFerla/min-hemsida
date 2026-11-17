@@ -1,4 +1,3 @@
-'use client';
 import Image from 'next/image';
 import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
@@ -152,9 +151,7 @@ export default function SevardheterPage() {
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
           {sevardheter.map((s, i) => (
-            <div key={i} style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}>
+            <div key={i} className="a2-lift" style={{ background: 'white', borderRadius: '16px', overflow: 'hidden' }}>
               <div style={{ position: 'relative' }}>
                 <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#993335', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>

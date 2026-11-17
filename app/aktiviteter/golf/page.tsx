@@ -1,11 +1,10 @@
-'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
 import GolfMapWrapper from '@/components/GolfMapWrapper';
 import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
+import GolfRegionFilter from './GolfRegionFilter';
 
 const svårighetFärg: Record<string, string> = {
   'Lätt': '#27ae60',
@@ -16,34 +15,6 @@ const svårighetFärg: Record<string, string> = {
 const regioner = ['Alla', 'Palma', 'Norr', 'Öst', 'Syd', 'Sydväst'];
 
 export default function GolfPage() {
-  const [aktivRegion, setAktivRegion] = useState('Alla');
-
-  const filtrerade = aktivRegion === 'Alla'
-    ? golfbanor
-    : golfbanor.filter(b => b.region === aktivRegion);
-
-  const knappAktiv = {
-    padding: '8px 20px',
-    borderRadius: '20px',
-    border: '2px solid #993335',
-    background: '#993335',
-    color: 'white',
-    fontWeight: '600' as const,
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-  };
-
-  const knappInaktiv = {
-    padding: '8px 20px',
-    borderRadius: '20px',
-    border: '2px solid #ccc',
-    background: 'white',
-    color: '#444',
-    fontWeight: '600' as const,
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-  };
-
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
       <HeroImage
@@ -94,7 +65,6 @@ export default function GolfPage() {
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
               Alla golfbanor
             </h2>
-            <p style={{ color: '#666', marginTop: '8px' }}>{filtrerade.length} banor visas</p>
           </div>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
             {['Lätt', 'Medel', 'Svår'].map(s => (
@@ -106,22 +76,16 @@ export default function GolfPage() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
-          {regioner.map(r => (
-            <button key={r} onClick={() => setAktivRegion(r)} style={aktivRegion === r ? knappAktiv : knappInaktiv}>
-              {r}
-            </button>
-          ))}
-        </div>
+        <GolfRegionFilter listId="golfbanor" regioner={regioner} banregioner={golfbanor.map(b => b.region)} />
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
-          {filtrerade.map((b) => (
+        <div id="golfbanor" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
+          {golfbanor.map((b) => (
             <article
               key={b.slug}
               id={b.slug}
-              style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease', scrollMarginTop: '80px' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}
+              data-region={b.region}
+              className="a2-lift"
+              style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', scrollMarginTop: '80px' }}
             >
               <div style={{ position: 'relative' }}>
                 <Image src={b.bild} alt={b.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />

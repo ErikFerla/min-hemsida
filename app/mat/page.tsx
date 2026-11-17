@@ -1,6 +1,6 @@
-'use client';
-import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import MatFilter from './MatFilter';
 import { IconPin, IconClock, IconMap, IconExternal, IconGlass, PriceTag, tierFromEmoji } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 
@@ -47,9 +47,7 @@ const restauranger = [
 ];
 
 export default function MatPage() {
-  const [filter, setFilter] = useState('Alla');
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
-  const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
 
   const kort: React.CSSProperties = { background: 'white', borderRadius: 16, boxShadow: '0 4px 14px rgba(31,41,55,0.04)', overflow: 'hidden', border: '1px solid #ede5da' };
   const grid: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 };
@@ -96,9 +94,9 @@ export default function MatPage() {
               </article>
             ))}
           </div>
-          <a href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+          <Link href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
             Se alla vingårdar <IconExternal size={13} stroke={1.8} />
-          </a>
+          </Link>
         </section>
 
         {/* Restauranger */}
@@ -107,21 +105,11 @@ export default function MatPage() {
           <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
 
           <style>{`.mat-filter-scroll::-webkit-scrollbar { display: none; }`}</style>
-          <div className="mat-filter-scroll" style={{ display: 'flex', gap: 8, overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', padding: '2px 2px 4px', marginBottom: 24 }}>
-            {kategorier.map(k => {
-              const active = filter === k;
-              return (
-                <button key={k} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #383a46' : '1px solid #E2D8C8', background: active ? '#383a46' : 'white', color: active ? 'white' : '#383a46', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
-                  {k}
-                </button>
-              );
-            })}
-          </div>
-          <p style={{ color: '#6B7280', fontSize: '0.82rem', margin: '0 0 20px' }}>{filtreradeLista.length} restauranger</p>
+          <MatFilter listId="restauranglista" kategorier={kategorier} allaKategorier={restauranger.map(r => r.kategori)} />
 
-          <div style={grid}>
-            {filtreradeLista.map(r => (
-              <article key={r.namn} style={kort}>
+          <div id="restauranglista" style={grid}>
+            {restauranger.map(r => (
+              <article key={r.namn} data-kategori={r.kategori} style={kort}>
                 <div style={{ position: 'relative', width: '100%', height: 180 }}>
                   <Image src={r.bild} alt={r.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
                   <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{r.kategori}</div>
