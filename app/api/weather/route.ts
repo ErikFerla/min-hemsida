@@ -8,6 +8,9 @@ const MALLORCA_BOUNDS = { minLat: 39.2, maxLat: 40.0, minLon: 2.3, maxLon: 3.5 }
 
 // met.no kräver en User-Agent som identifierar tjänsten och ger kontaktuppgift:
 // https://api.met.no/doc/TermsOfService
+// Felsvar ska aldrig cachas i CDN:en.
+const NO_STORE = { 'Cache-Control': 'no-store' }
+
 const USER_AGENT = 'mymallorca.se/1.0 (+https://mymallorca.se; contact@mymallorca.se)'
 
 export async function GET(request: Request) {
@@ -42,11 +45,13 @@ export async function GET(request: Request) {
       {
         headers: { 'User-Agent': USER_AGENT },
         next: { revalidate: 1800 },
+        // Häng inte kvar om met.no är långsamt – klienten visar då sitt reservinnehåll.
+        signal: AbortSignal.timeout(8000),
       }
     )
 
     if (!res.ok) {
-      return NextResponse.json({ error: 'Weather API error' }, { status: 502 })
+      return NextResponse.json({ error: 'Weather API error' }, { status: 502, headers: NO_STORE })
     }
 
     const data = await res.json()
@@ -54,6 +59,6 @@ export async function GET(request: Request) {
     response.headers.set('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=3600')
     return response
   } catch {
-    return NextResponse.json({ error: 'Failed to reach weather service' }, { status: 502 })
+    return NextResponse.json({ error: 'Failed to reach weather service' }, { status: 502, headers: NO_STORE })
   }
 }
