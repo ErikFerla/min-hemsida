@@ -1,4 +1,6 @@
+import type { CSSProperties } from 'react';
 import type { AgeGroup } from '@/app/lib/barn-activities';
+import styles from './AgeGroupChip.module.css';
 
 const COLORS: Record<AgeGroup, { bg: string; fg: string; border: string }> = {
   '0-3':  { bg: '#FFF1F5', fg: '#B0365A', border: '#F9D4DE' },
@@ -15,24 +17,9 @@ export default function AgeGroupChip({
   size?: 'sm' | 'md';
 }) {
   const c = COLORS[age];
-  const padding = size === 'md' ? '4px 10px' : '2px 8px';
-  const fontSize = size === 'md' ? '0.78rem' : '0.7rem';
+  const colors = { '--chip-bg': c.bg, '--chip-fg': c.fg, '--chip-border': c.border } as CSSProperties;
   return (
-    <span
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        padding,
-        background: c.bg,
-        color: c.fg,
-        border: `1px solid ${c.border}`,
-        borderRadius: '999px',
-        fontSize,
-        fontWeight: 600,
-        letterSpacing: '0.01em',
-        whiteSpace: 'nowrap',
-      }}
-    >
+    <span className={size === 'md' ? `${styles.chip} ${styles.md}` : styles.chip} style={colors}>
       {age === '13+' ? '13+ år' : `${age} år`}
     </span>
   );

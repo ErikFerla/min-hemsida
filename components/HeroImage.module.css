@@ -1,0 +1,88 @@
+/* Sidhjälte med bild (HeroImage) – används på stadssidor, /byar och många B2/B3-sidor.
+   Höjden kommer från prop:en via --hero-height. */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  height: var(--hero-height, 60vh);
+  overflow: hidden;
+  padding: 60px 80px;
+  background: #0b1f2a;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+}
+
+.content {
+  position: relative;
+  color: var(--color-white);
+}
+
+.kicker {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+/* Sidans h1. Rubrikfont, normal vikt (som tidigare). */
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  margin-top: 16px;
+  opacity: 0.9;
+}
+
+.credit {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (min-width: 769px) {
+  .kicker {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 20px;
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.1;
+  }
+}

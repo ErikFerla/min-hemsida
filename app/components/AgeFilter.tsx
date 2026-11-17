@@ -4,6 +4,7 @@ import { Suspense, useCallback } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { AGE_GROUPS, type AgeGroup } from '@/app/lib/barn-activities';
 import { parseAgesParam } from '@/app/lib/ages';
+import styles from './AgeFilter.module.css';
 
 /**
  * Åldersfilter för /barn och kategorisidorna.
@@ -76,18 +77,10 @@ function AgeFilterView({
   };
 
   return (
-    <div className="age-filter" role="group" aria-label="Filtrera efter åldersgrupp">
+    <div role="group" aria-label="Filtrera efter åldersgrupp">
       {css && <style>{css}</style>}
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '10px',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+      <div className={styles.bar}>
+        <div className={styles.options}>
           {AGE_GROUPS.map((g) => {
             const isActive = selected.includes(g.id);
             return (
@@ -96,52 +89,21 @@ function AgeFilterView({
                 type="button"
                 onClick={() => toggle(g.id)}
                 aria-pressed={isActive}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px 14px',
-                  background: isActive ? '#383a46' : 'white',
-                  color: isActive ? '#fefefb' : '#383a46',
-                  border: `1.5px solid ${isActive ? '#383a46' : 'rgba(0,0,0,0.12)'}`,
-                  borderRadius: '999px',
-                  fontSize: '0.88rem',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  letterSpacing: '0.01em',
-                  transition: 'background 0.15s, color 0.15s, border-color 0.15s',
-                  minHeight: '44px',
-                }}
+                className={styles.option}
               >
                 {g.label}
-                <span style={{ fontSize: '0.72rem', opacity: 0.7, fontWeight: 500 }}>
-                  {g.caption}
-                </span>
+                <span className={styles.caption}>{g.caption}</span>
               </button>
             );
           })}
         </div>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '14px' }}>
-          <span style={{ fontSize: '0.85rem', color: '#4b5563' }} aria-live="polite">
+        <div className={styles.status}>
+          <span className={styles.count} aria-live="polite">
             Visar <strong>{visibleCount}</strong> av {totalCount} aktiviteter
           </span>
           {selected.length > 0 && (
-            <button
-              type="button"
-              onClick={() => onChange([])}
-              style={{
-                padding: '8px 14px',
-                background: 'transparent',
-                color: '#993335',
-                border: '1px solid #993335',
-                borderRadius: '999px',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                cursor: 'pointer',
-                minHeight: '36px',
-              }}
-            >
+            <button type="button" onClick={() => onChange([])} className={styles.clear}>
               Rensa filter
             </button>
           )}

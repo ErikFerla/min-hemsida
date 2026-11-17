@@ -212,42 +212,32 @@ export default function Navbar() {
 
   return (
     <>
-      <nav ref={navRef} aria-label="Huvudnavigation" style={{
-        position: 'sticky', top: 0, zIndex: 1000,
-        background: '#eeede4',
-        borderBottom: '1px solid rgba(0,0,0,0.08)',
-        boxShadow: '0 1px 8px rgba(0,0,0,0.06)',
-      }}>
-        <div style={{
-          maxWidth: '1400px', margin: '0 auto',
-          padding: '0 clamp(16px, 4vw, 40px)',
-          height: '72px', display: 'flex',
-          alignItems: 'center', justifyContent: 'space-between',
-        }}>
+      <nav ref={navRef} aria-label="Huvudnavigation" className={styles.nav}>
+        <div className={styles.bar}>
 
           {/* Logo */}
-          <Link href="/" onClick={() => closeMobile(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="#993335" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-              <circle cx="28" cy="10" r="3" fill="#993335"/>
+          <Link href="/" onClick={() => closeMobile(false)} className={styles.logo}>
+            <svg className={styles.logoMark} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              <circle cx="28" cy="10" r="3" fill="currentColor"/>
             </svg>
             <div>
-              <div style={{ fontFamily: 'Georgia, serif', fontSize: '18px', fontWeight: '700', color: '#383a46', letterSpacing: '0.02em', lineHeight: '1' }}>
+              <div className={styles.logoName}>
                 MyMallorca
               </div>
-              <div style={{ fontSize: '9px', color: '#993335', letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: '2px' }}>
+              <div className={styles.logoTagline}>
                 Din kompletta reseguide
               </div>
             </div>
           </Link>
 
           {/* Desktop nav with dropdowns */}
-          <div className="navbar-desktop-links">
+          <div className={styles.links}>
             {navItems.map((item, i) => (
               <div
                 key={item.href}
                 ref={el => { wrapperRefs.current[i] = el }}
-                className="nav-dropdown-wrapper"
+                className={styles.dropdown}
                 onMouseEnter={item.children ? () => handleMouseEnter(i) : undefined}
                 onMouseLeave={item.children ? handleMouseLeave : undefined}
                 onBlur={item.children ? handleWrapperBlur(i) : undefined}
@@ -256,20 +246,20 @@ export default function Navbar() {
                   <button
                     ref={el => { triggerRefs.current[i] = el }}
                     type="button"
-                    className={`navbar-desktop-link nav-dropdown-trigger${openDropdown === i ? ' active' : ''}`}
+                    className={styles.link}
                     onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
                     aria-expanded={openDropdown === i}
                     aria-controls={`nav-menu-${i}`}
                   >
                     {item.label}
-                    <svg className="nav-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true" style={{ marginLeft: '4px', transition: 'transform 0.2s', transform: openDropdown === i ? 'rotate(180deg)' : 'none' }}>
+                    <svg className={styles.chevron} width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
                       <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
                 ) : (
                   <Link
                     href={item.href}
-                    className="navbar-desktop-link nav-dropdown-trigger"
+                    className={styles.link}
                     aria-current={isCurrent(pathname, item.href) ? 'page' : undefined}
                   >
                     {item.label}
@@ -280,7 +270,7 @@ export default function Navbar() {
                 {item.children && (
                   <div
                     id={`nav-menu-${i}`}
-                    className="nav-dropdown-menu"
+                    className={styles.menu}
                     hidden={openDropdown !== i}
                     onMouseEnter={() => handleMouseEnter(i)}
                     onMouseLeave={handleMouseLeave}
@@ -289,7 +279,7 @@ export default function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="nav-dropdown-item"
+                        className={styles.menuItem}
                         aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
                         onClick={() => setOpenDropdown(null)}
                       >
@@ -305,55 +295,20 @@ export default function Navbar() {
           {/* Hamburger button — mobile only */}
           <button
             ref={hamburgerRef}
-            className="hamburger"
+            className={styles.hamburger}
             type="button"
             onClick={() => (mobileOpen ? closeMobile(false) : setMobileOpen(true))}
             aria-controls="mobilmeny"
             aria-haspopup="dialog"
             aria-expanded={mobileOpen}
-            style={{
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '5px',
-              background: 'none',
-              border: '1.5px solid #993335',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              padding: '8px 10px',
-              zIndex: 1001,
-            }}
           >
-            <span aria-hidden="true" style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
-              <span style={{
-                display: 'block', width: '24px', height: '2.5px',
-                background: '#993335', borderRadius: '2px',
-                transition: 'transform 0.3s, opacity 0.3s',
-                transform: mobileOpen ? 'rotate(45deg) translate(4px, 5px)' : 'none',
-              }}/>
-              <span style={{
-                display: 'block', width: '24px', height: '2.5px',
-                background: '#993335', borderRadius: '2px',
-                transition: 'opacity 0.3s',
-                opacity: mobileOpen ? 0 : 1,
-              }}/>
-              <span style={{
-                display: 'block', width: '24px', height: '2.5px',
-                background: '#993335', borderRadius: '2px',
-                transition: 'transform 0.3s',
-                transform: mobileOpen ? 'rotate(-45deg) translate(4px, -5px)' : 'none',
-              }}/>
+            <span aria-hidden="true" className={styles.bars}>
+              <span className={styles.barLine}/>
+              <span className={styles.barLine}/>
+              <span className={styles.barLine}/>
             </span>
             {/* Synlig text = tillgängligt namn ("Meny"/"Stäng"), tillståndet anges av aria-expanded */}
-            <span style={{
-              display: 'block',
-              fontSize: '0.55rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: '#993335',
-              marginTop: '4px',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}>
+            <span className={styles.hamburgerLabel}>
               {mobileOpen ? 'Stäng' : 'Meny'}
             </span>
           </button>
@@ -364,34 +319,34 @@ export default function Navbar() {
       <div
         id="mobilmeny"
         ref={mobileMenuRef}
-        className="mobile-menu-fullscreen"
+        className={styles.mobileMenu}
         role="dialog"
         aria-modal="true"
         aria-label="Meny"
         hidden={!mobileOpen}
       >
           {navItems.map((item, i) => (
-            <div key={item.href} className="mobile-menu-group">
+            <div key={item.href} className={styles.mobileGroup}>
               {item.children ? (
                 <>
                   <button
                     type="button"
-                    className="mobile-menu-trigger"
+                    className={styles.mobileTrigger}
                     onClick={() => setMobileAccordion(mobileAccordion === i ? null : i)}
                     aria-expanded={mobileAccordion === i}
                     aria-controls={`mobilmeny-${i}`}
                   >
                     <span>{item.label}</span>
-                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true" style={{ transition: 'transform 0.2s', transform: mobileAccordion === i ? 'rotate(180deg)' : 'none' }}>
-                      <path d="M1 1l5 5 5-5" stroke="#5f6472" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg className={styles.mobileChevron} width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true">
+                      <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  <div id={`mobilmeny-${i}`} className="mobile-menu-subitems" hidden={mobileAccordion !== i}>
+                  <div id={`mobilmeny-${i}`} className={styles.mobileSubitems} hidden={mobileAccordion !== i}>
                       {item.children.map(child => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="mobile-menu-subitem"
+                          className={styles.mobileSubitem}
                           aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
                           onClick={() => closeMobile(false)}
                         >
@@ -403,7 +358,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={item.href}
-                  className="mobile-menu-link"
+                  className={styles.mobileLink}
                   aria-current={isCurrent(pathname, item.href) ? 'page' : undefined}
                   onClick={() => closeMobile(false)}
                 >

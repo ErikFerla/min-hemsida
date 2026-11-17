@@ -12,6 +12,7 @@ import {
   type Category,
 } from '@/app/lib/barn-activities';
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
+import styles from './BarnCategoryPageView.module.css';
 
 export type BarnCategoryPageViewProps = {
   category: Category;
@@ -59,7 +60,7 @@ export default function BarnCategoryPageView({
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbs);
 
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <JsonLd data={itemListJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
 
@@ -70,53 +71,21 @@ export default function BarnCategoryPageView({
         subtitle={hero.subtitle}
       />
 
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: 'clamp(32px, 5vw, 60px) clamp(16px, 4vw, 40px)',
-        }}
-      >
+      <div className={styles.container}>
         <Breadcrumbs items={breadcrumbs} />
 
-        <section style={{ margin: 'clamp(24px, 4vw, 40px) 0' }}>
-          <div style={{ maxWidth: '68ch', fontSize: '1.02rem', lineHeight: 1.7, color: '#374151' }}>
-            {intro}
-          </div>
+        <section className={styles.introSection}>
+          <div className={styles.intro}>{intro}</div>
         </section>
 
-        <div
-          className="age-filter-wrapper"
-          style={{
-            position: 'sticky',
-            top: '72px',
-            zIndex: 40,
-            background: 'rgba(254, 254, 251, 0.94)',
-            backdropFilter: 'blur(8px)',
-            padding: '14px 0',
-            marginBottom: '28px',
-            borderBottom: '1px solid rgba(0,0,0,0.06)',
-          }}
-        >
+        <div className={styles.filter}>
           <AgeFilter listId={listId} itemAges={allActivities.map((a) => a.ageGroups)} />
         </div>
 
-        <div
-          id={`${listId}-tom`}
-          className="a2-age-empty"
-          role="status"
-          style={{
-            padding: '32px',
-            background: 'white',
-            borderRadius: '12px',
-            border: '1px solid rgba(0,0,0,0.06)',
-            textAlign: 'center',
-            color: 'var(--color-text-muted)',
-          }}
-        >
+        <div id={`${listId}-tom`} className={`a2-age-empty ${styles.empty}`} role="status">
           Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
         </div>
-        <div id={listId} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div id={listId} className={styles.list}>
           {allActivities.map((a) => (
             <div key={a.slug} data-ages={a.ageGroups.join(' ')}>
               <ActivityDetail activity={a} />
@@ -125,60 +94,19 @@ export default function BarnCategoryPageView({
         </div>
 
         {/* Bottom CTA — links to hub + related categories */}
-        <section
-          style={{
-            marginTop: 'clamp(40px, 6vw, 72px)',
-            padding: 'clamp(24px, 4vw, 40px)',
-            background: '#eeede4',
-            borderRadius: '16px',
-          }}
-          aria-labelledby="fler-aktiviteter-heading"
-        >
-          <h2
-            id="fler-aktiviteter-heading"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.6rem, 3vw, 2rem)',
-              letterSpacing: '0.04em',
-              margin: '0 0 12px',
-              color: '#383a46',
-            }}
-          >
+        <section className={styles.more} aria-labelledby="fler-aktiviteter-heading">
+          <h2 id="fler-aktiviteter-heading" className={styles.moreTitle}>
             Utforska fler barnaktiviteter
           </h2>
-          <p style={{ fontSize: '0.95rem', color: '#4b5563', margin: '0 0 20px', lineHeight: 1.6 }}>
+          <p className={styles.moreText}>
             Hitta fler aktiviteter för hela familjen — filtrera efter ålder och kategori på hub-sidan.
           </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-            <Link
-              href="/barn"
-              style={{
-                padding: '12px 20px',
-                background: '#993335',
-                color: 'white',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: 600,
-                fontSize: '0.9rem',
-              }}
-            >
+          <div className={styles.links}>
+            <Link href="/barn" className={styles.button}>
               Alla barnaktiviteter
             </Link>
             {relatedCategories.map((c) => (
-              <Link
-                key={c.slug}
-                href={c.href}
-                style={{
-                  padding: '12px 20px',
-                  background: 'white',
-                  color: '#383a46',
-                  border: '1.5px solid rgba(0,0,0,0.12)',
-                  borderRadius: '8px',
-                  textDecoration: 'none',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                }}
-              >
+              <Link key={c.slug} href={c.href} className={styles.buttonOutline}>
                 {c.label}
               </Link>
             ))}

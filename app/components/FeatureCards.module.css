@@ -1,0 +1,94 @@
+/* Startsidans "Upptäck Mallorca"-kort. Desktop: FeatureCards, mobil: MobileFeatureCards. */
+
+/* Desktop */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.card {
+  display: block;
+  padding: 28px 24px;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.icon {
+  margin-bottom: 12px;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.desc {
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.more {
+  margin-top: 16px;
+  font-size: var(--btn-font-size);
+  font-weight: 700;
+  letter-spacing: var(--btn-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Mobil */
+.mGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+  padding: 0 16px;
+}
+
+.mCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 14px;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+}
+
+.mIcon {
+  flex-shrink: 0;
+  margin-bottom: 0;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.mTitle {
+  margin-bottom: 2px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.mDesc {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}

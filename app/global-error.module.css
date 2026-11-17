@@ -1,0 +1,78 @@
+/* Ersätter root-layouten när den kraschar: globals.css och fonterna laddas inte här,
+   så färgerna definieras lokalt (samma värden som tokens i globals.css) och systemfonter används. */
+.body {
+  --ge-bg: #fefefb;
+  --ge-ink: #383a46;
+  --ge-text-soft: #4b5563;
+  --ge-accent: #993335;
+  margin: 0;
+  background: var(--ge-bg);
+  color: var(--ge-ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.main {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 48px 16px;
+}
+
+.inner {
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+}
+
+.kicker {
+  margin: 0 0 12px;
+  color: var(--ge-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1.1;
+}
+
+.text {
+  max-width: 48ch;
+  margin: 0 auto 36px;
+  color: var(--ge-text-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--ge-accent);
+  border: none;
+  color: #ffffff;
+}
+
+.secondary {
+  border: 1px solid var(--ge-ink);
+  color: var(--ge-ink);
+}

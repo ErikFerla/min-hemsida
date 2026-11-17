@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconFlag, IconMap, IconBulb, IconPalm } from '@/components/Icons';
 import type { ComponentType } from 'react';
+import s from './section.module.css';
+import styles from './SectionPlanner.module.css';
 
 /* ------------------------------------------------------------------ *
  * Data: en katalog med dagsförslag. Varje intresse pekar ut sina
@@ -299,115 +301,80 @@ export default function SectionPlanner() {
     }
   };
 
-  const knappStyle = (aktiv: boolean) => ({
-    padding: '10px 20px',
-    borderRadius: '8px',
-    border: '2px solid #111',
-    background: aktiv ? '#111' : 'transparent',
-    color: aktiv ? 'white' : '#111',
-    fontWeight: '600' as const,
-    cursor: 'pointer',
-    fontSize: '0.95rem',
-    transition: 'all 0.2s',
-    minHeight: '48px',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '6px',
-  });
-
-  const fieldsetStil = { border: 0, padding: 0, margin: 0, minWidth: 0 };
-  const legendStil = { fontWeight: 600, fontSize: '1rem', marginBottom: '12px', padding: 0 };
-  const felStil = { color: '#b42318', fontSize: '0.9rem', fontWeight: 600, margin: '10px 0 0' };
   const dagarText = frånUrl.dagar;
   const valdaNamn = intressen.filter(i => frånUrl.intressen.includes(i.id)).map(i => i.label);
 
   return (
-    <section id="resplanerare" className="section-light" aria-labelledby="resplanerare-rubrik">
-      <div className="planner-grid-outer">
+    <section id="resplanerare" className={styles.section} aria-labelledby="resplanerare-rubrik">
+      <div className={styles.grid}>
 
         {/* Vänster: Hela planner-innehållet */}
         <div>
-        <p className="section-label">RESPLANERARE</p>
-        <h2 id="resplanerare-rubrik" className="section-title">Skräddarsy din resa</h2>
-        <div className="section-divider"></div>
-        <p style={{ color: '#555', fontSize: '1.1rem', marginBottom: '40px' }}>
+        <p className={s.label}>RESPLANERARE</p>
+        <h2 id="resplanerare-rubrik" className={s.title}>Skräddarsy din resa</h2>
+        <div className={s.divider}></div>
+        <p className={styles.intro}>
           Berätta vad du gillar – få ett förslag på resplan för Mallorca
         </p>
 
         <form onSubmit={skapaPlan} noValidate aria-labelledby="resplanerare-rubrik">
-          <fieldset id="planner-dagar" style={{ ...fieldsetStil, marginBottom: '32px' }} aria-describedby="planner-dagar-fel">
-            <legend style={legendStil}>Hur länge reser du?</legend>
-            <div className="planner-dag-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <fieldset id="planner-dagar" className={styles.fieldset} aria-describedby="planner-dagar-fel">
+            <legend className={styles.legend}>Hur länge reser du?</legend>
+            <div className={`${styles.options} ${styles.optionsDays}`}>
               {dagval.map(d => (
-                <button key={d} type="button" aria-pressed={val.dagar === d} onClick={() => väljDagar(d)} style={knappStyle(val.dagar === d)}>
+                <button key={d} type="button" aria-pressed={val.dagar === d} onClick={() => väljDagar(d)} className={styles.option}>
                   {d} dagar
                 </button>
               ))}
             </div>
-            <p id="planner-dagar-fel" aria-live="polite" style={fel.dagar ? felStil : { margin: 0 }}>{fel.dagar}</p>
+            <p id="planner-dagar-fel" aria-live="polite" className={fel.dagar ? styles.errorShown : styles.error}>{fel.dagar}</p>
           </fieldset>
 
-          <fieldset id="planner-intressen" style={{ ...fieldsetStil, marginBottom: '40px' }} aria-describedby="planner-intressen-fel">
-            <legend style={legendStil}>Vad intresserar dig? (välj flera)</legend>
-            <div className="planner-intresse-grid" style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <fieldset id="planner-intressen" className={`${styles.fieldset} ${styles.fieldsetLast}`} aria-describedby="planner-intressen-fel">
+            <legend className={styles.legend}>Vad intresserar dig? (välj flera)</legend>
+            <div className={`${styles.options} ${styles.optionsInterests}`}>
               {intressen.map(({ id, label, Ikon }) => (
-                <button key={id} type="button" aria-pressed={val.intressen.includes(id)} onClick={() => toggleIntresse(id)} style={knappStyle(val.intressen.includes(id))}>
+                <button key={id} type="button" aria-pressed={val.intressen.includes(id)} onClick={() => toggleIntresse(id)} className={styles.option}>
                   <Ikon size={18} /> {label}
                 </button>
               ))}
             </div>
-            <p id="planner-intressen-fel" aria-live="polite" style={fel.intressen ? felStil : { margin: 0 }}>{fel.intressen}</p>
+            <p id="planner-intressen-fel" aria-live="polite" className={fel.intressen ? styles.errorShown : styles.error}>{fel.intressen}</p>
           </fieldset>
 
-          <button
-            type="submit"
-            className="planner-cta-btn"
-            style={{
-              padding: '14px 40px',
-              background: '#993335',
-              color: '#fefefb',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '1.1rem',
-              fontWeight: '700',
-              cursor: 'pointer',
-              letterSpacing: '-0.01em',
-              transition: 'all 0.2s',
-              minHeight: '52px',
-            }}
-          >
+          <button type="submit" className={styles.submit}>
             Skapa min resplan →
           </button>
         </form>
 
         {visaPlan && plan.length > 0 && (
-          <div style={{ marginTop: '48px', background: 'white', borderRadius: '16px', padding: 'clamp(20px, 4vw, 40px)', boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
-            <h3 ref={planRubrik} tabIndex={-1} style={{ fontFamily: 'var(--font-body)', fontSize: '1.5rem', fontWeight: '700', letterSpacing: '-0.02em', marginBottom: '8px' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>Förslag: {dagarText} dagar på Mallorca <IconMap size={20} /></span>
+          <div className={styles.plan}>
+            <h3 ref={planRubrik} tabIndex={-1}>
+              <span className={styles.planTitleText}>Förslag: {dagarText} dagar på Mallorca <IconMap size={20} /></span>
             </h3>
-            <p style={{ margin: '0 0 24px', color: '#4B5563', fontSize: '0.95rem', lineHeight: 1.6 }}>
+            <p className={styles.summary}>
               {valdaNamn.join(' + ')}. Dagarna är ordnade efter område, så att du slipper åka fram och tillbaka över ön.
               {Number(dagarText) >= 10 && ' Med så här många dagar lönar det sig att byta boende en gång, till exempel från Palma eller västkusten till norra eller östra Mallorca.'}
             </p>
-            <ol style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+            <ol className={styles.days}>
               {plan.map((dag, i) => (
-                <li key={i} style={{ display: 'flex', gap: '16px', marginBottom: '20px', alignItems: 'flex-start' }}>
-                  <div aria-hidden="true" style={{ minWidth: '36px', height: '36px', background: '#993335', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '0.9rem' }}>
+                <li key={i} className={styles.day}>
+                  <div aria-hidden="true" className={styles.dayNumber}>
                     {i + 1}
                   </div>
-                  <div style={{ paddingTop: '6px' }}>
-                    <p style={{ margin: 0, fontSize: '1rem', lineHeight: '1.6', color: '#222' }}>
+                  <div className={styles.dayBody}>
+                    <p className={styles.dayText}>
                       <span className="sr-only">Dag {i + 1}: </span>{dag.text}
                     </p>
                     {(dag.taggar.length > 0 || dag.länkar.length > 0) && (
-                      <p style={{ margin: '6px 0 0', fontSize: '0.85rem', lineHeight: 1.6, color: '#4B5563', display: 'flex', flexWrap: 'wrap', gap: '4px 12px', alignItems: 'center' }}>
+                      <p className={styles.dayMeta}>
                         {dag.taggar.length > 0 && (
-                          <span style={{ fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-text-muted)' }}>
+                          <span className={styles.tags}>
                             {dag.taggar.join(' · ')}
                           </span>
                         )}
                         {dag.länkar.map(l => (
-                          <Link key={l.href} href={l.href} style={{ color: '#993335', fontWeight: 600 }}>
+                          <Link key={l.href} href={l.href} className={styles.link}>
                             {l.label}
                           </Link>
                         ))}
@@ -417,17 +384,17 @@ export default function SectionPlanner() {
                 </li>
               ))}
             </ol>
-            <div style={{ marginTop: '24px', display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
-              <button type="button" onClick={kopieraLänk} style={{ ...knappStyle(false), minHeight: '44px', padding: '8px 16px', fontSize: '0.9rem' }}>
+            <div className={styles.share}>
+              <button type="button" onClick={kopieraLänk} className={`${styles.option} ${styles.copy}`}>
                 Kopiera länk till planen
               </button>
-              <p aria-live="polite" style={{ margin: 0, fontSize: '0.85rem', color: '#4B5563' }}>
+              <p aria-live="polite" className={styles.shareNote}>
                 {kopierad || 'Valen sparas i adressen, så du kan dela planen eller spara den som bokmärke.'}
               </p>
             </div>
-            <div style={{ marginTop: '24px', padding: '20px', background: '#f5f5f5', borderRadius: '10px' }}>
-              <p style={{ margin: 0, fontSize: '0.9rem', color: '#4B5563' }}>
-                <IconBulb size={16} style={{ verticalAlign: '-3px', marginRight: 4 }} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <Link href="/guider" style={{ color: '#993335', fontWeight: 600 }}>våra guider</Link> hittar du stränder, mat, golf och Mallorca med barn. Se också vad som händer på ön under din vecka i <Link href="/evenemang" style={{ color: '#993335', fontWeight: 600 }}>evenemangskalendern</Link>.
+            <div className={styles.tip}>
+              <p className={styles.tipText}>
+                <IconBulb size={16} className={styles.bulb} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <Link href="/guider" className={styles.link}>våra guider</Link> hittar du stränder, mat, golf och Mallorca med barn. Se också vad som händer på ön under din vecka i <Link href="/evenemang" className={styles.link}>evenemangskalendern</Link>.
               </p>
             </div>
           </div>
@@ -435,7 +402,7 @@ export default function SectionPlanner() {
         </div>
 
         {/* Höger: Stämningsbild */}
-        <div style={{ position: 'sticky', top: '100px' }} className="planner-image-col">
+        <div className={styles.aside}>
           <img
             src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&q=80&auto=format"
             srcSet="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=80&auto=format 1600w"
@@ -445,15 +412,14 @@ export default function SectionPlanner() {
             height={1067}
             loading="lazy"
             decoding="async"
-            style={{ width: '100%', objectFit: 'cover', borderRadius: '4px', display: 'block', marginBottom: '16px' }}
-            className="planner-side-image"
+            className={styles.asideImage}
           />
-          <div style={{ background: 'white', borderRadius: '4px', padding: '20px 24px', border: '1px solid #ede5da' }}>
-            <p style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', letterSpacing: '0.08em', color: '#383a46', margin: '0 0 8px', display: 'inline-flex', alignItems: 'center', gap: 8 }}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
-            <p style={{ fontSize: '0.875rem', color: 'var(--color-text-muted)', lineHeight: '1.65', margin: 0 }}>
+          <div className={styles.local}>
+            <p className={styles.localLabel}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
+            <p className={styles.localQuote}>
               ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
             </p>
-            <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', margin: '10px 0 0', fontWeight: 600 }}>— Erik, MyMallorca</p>
+            <p className={styles.localSign}>— Erik, MyMallorca</p>
           </div>
         </div>
 

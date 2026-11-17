@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
+import s from './components/section.module.css';
 import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
@@ -28,27 +29,24 @@ export default function Home() {
       <HeroSlideshow />
 
       <div className={styles.container}>
-        <section style={{ background: '#fefefb', padding: 'var(--section-padding-md, 6rem 0)' }}>
-          <div className="section-inner">
-            <p className="section-label">VAD VILL DU UPPLEVA?</p>
-            <h2 className="section-title">Upptäck Mallorca</h2>
-            <div className="section-divider"></div>
+        <section className={styles.discover}>
+          <div className={s.inner}>
+            <p className={s.label}>VAD VILL DU UPPLEVA?</p>
+            <h2 className={s.title}>Upptäck Mallorca</h2>
+            <div className={s.divider}></div>
             {/* MOBIL: kompakta kort */}
-            <div className="mobile-only">
+            <div className={styles.mobileOnly}>
               <MobileFeatureCards />
             </div>
             {/* DESKTOP: feature-cards med hover */}
-            <div className="desktop-only">
+            <div className={styles.desktopOnly}>
               <FeatureCards />
             </div>
           </div>
         </section>
 
-        <section
-          className="page-section"
-          style={{background:'#fefefb', overflow:'hidden'}}
-        >
-          <div className="varfor-mallorca-grid" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gap: '80px', alignItems: 'center', width: '100%' }}>
+        <section className={`${s.pageSection} ${styles.clip}`}>
+          <div className={styles.split}>
 
             {/* BILD VÄNSTER — Palmas gamla stan (Foto: Luca / Unsplash) */}
             <div>
@@ -62,47 +60,46 @@ export default function Home() {
                 height={1600}
                 loading="lazy"
                 decoding="async"
-                className="section-portrait-image"
+                className={styles.portrait}
               />
             </div>
 
             {/* TEXT HÖGER */}
             <div>
-              <p className="section-label">
+              <p className={s.label}>
                 VARFÖR MALLORCA
               </p>
-              <h2 className="section-title" style={{ letterSpacing: '-0.512px' }}>
+              <h2 className={s.title}>
                 En ö med allt – året om
               </h2>
-              <div style={{ width: '48px', height: '2px', background: '#993335', marginBottom: '28px', borderRadius: '2px' }} />
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '1.25rem', maxWidth: '65ch' }}>
+              <div className={styles.dividerWide} />
+              <p className={`${styles.lead} ${styles.mb20}`}>
                 Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>
-              <p style={{ fontSize: '1.05rem', lineHeight: '1.7', color: '#4B5563', marginBottom: '2.25rem', maxWidth: '65ch' }}>
+              <p className={`${styles.lead} ${styles.mb36}`}>
                 Öns nordvästra bergsmassiv, Serra de Tramuntana, är ett UNESCO-världsarv. Längs kusterna hittar du 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
               </p>
-              <div className="stats-row">
+              <div className={styles.stats}>
                 {[
                   { siffra: '200+', text: 'Stränder och vikar', href: '/strandar' },
                   { siffra: '22', text: 'Golfbanor', href: '/aktiviteter/golf' },
                   { siffra: '300', text: 'Soldagar per år', href: '/vader' },
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
-                ].map((s, i) => (
-                  <Link key={i} href={s.href} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-                    <p style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.8rem)', fontWeight: 700, color: '#383a46', margin: 0, letterSpacing: '0.02em', fontVariantNumeric: 'tabular-nums' }}>{s.siffra}</p>
-                    <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'var(--color-text-muted)', margin: '4px 0 0', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{s.text}</p>
+                ].map((stat, i) => (
+                  <Link key={i} href={stat.href} className={styles.stat}>
+                    <p className={styles.statNumber}>{stat.siffra}</p>
+                    <p className={styles.statText}>{stat.text}</p>
                   </Link>
                 ))}
               </div>
-              <Link href="/byar" className="btn-primary">
+              <Link href="/byar" className={s.btnPrimary}>
                 UTFORSKA ÖN →
               </Link>
             </div>
           </div>
         </section>
-        <section className="page-section" style={{background:'#fefefb'}}>
-          <div className="din-guide-grid" style={{maxWidth:'1280px', margin:'0 auto', display:'grid',
-                       gap:'80px', alignItems:'center'}}>
+        <section className={s.pageSection}>
+          <div className={styles.split}>
 
             {/* BILD VÄNSTER */}
             <div>
@@ -115,52 +112,49 @@ export default function Home() {
                 height={1600}
                 loading="lazy"
                 decoding="async"
-                className="section-portrait-image"
+                className={styles.portrait}
               />
             </div>
 
             {/* TEXT HÖGER */}
             <div>
-              <p className="section-label">
+              <p className={s.label}>
                 UPPLEV SKILLNADEN
               </p>
-              <h2 className="section-title">
+              <h2 className={s.title}>
                 Din guide till Mallorca — inifrån och ut
               </h2>
-              <div className="section-divider" style={{background:'#993335'}} />
-              <p style={{lineHeight:1.75, color:'#4b5563',
-                         marginBottom:'20px', maxWidth:'52ch'}}>
+              <div className={s.divider} />
+              <p className={`${styles.body} ${styles.mb20px}`}>
                 De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
                 Det är skillnaden mellan en semester vid hotellpoolen och en morgon
                 på en okänd strand i nordväst — där vattnet är turkost och du
                 är ensam om den.
               </p>
-              <p style={{lineHeight:1.75, color:'#4b5563',
-                         marginBottom:'32px', maxWidth:'52ch'}}>
+              <p className={`${styles.body} ${styles.mb32px}`}>
                 MyMallorca drivs av kärlek till ön, inte av försäljning. Här
                 samlar vi stränder, byar, barnaktiviteter, vingårdar och
                 smultronställen som vi själva återvänder till – för dig som
                 reser med familjen, som par eller har ditt andra hem på ön.
               </p>
-              <Link href="/guider" className="btn-primary">
+              <Link href="/guider" className={s.btnPrimary}>
                 SE VÅRA GUIDER →
               </Link>
             </div>
           </div>
         </section>
-        <div className="mobile-order-7"><SectionSeason /></div>
-        <div className="mobile-order-4"><SectionPlanner /></div>
-        <div className="mobile-order-6"><SectionEvents /></div>
-        <section className="page-section" style={{background:'#fefefb'}}>
-          <div style={{maxWidth:'1280px', margin:'0 auto'}}>
-            <p className="section-label" style={{textAlign:'center'}}>
+        <div><SectionSeason /></div>
+        <div><SectionPlanner /></div>
+        <div><SectionEvents /></div>
+        <section className={s.pageSection}>
+          <div className={s.wide}>
+            <p className={`${s.label} ${s.center}`}>
               UTFORSKA ÖN
             </p>
-            <h2 className="section-title" style={{textAlign:'center'}}>
+            <h2 className={`${s.title} ${s.center}`}>
               Städer &amp; byar på Mallorca
             </h2>
-            <p style={{lineHeight:1.75, color:'#4b5563', textAlign:'center',
-                       margin:'0 auto 48px', maxWidth:'55ch'}}>
+            <p className={styles.mapIntro}>
               Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
             </p>
             {/* Leaflet laddas först nära vyn; alla orter finns även som länklista under kartan (SSR). */}
@@ -177,4 +171,3 @@ export default function Home() {
     </div>
   );
 }
-

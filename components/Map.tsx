@@ -1,7 +1,8 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, type CSSProperties } from 'react'
 import Link from 'next/link'
 import 'leaflet/dist/leaflet.css'
+import styles from './Map.module.css'
 
 export type MapMarker = {
   name: string
@@ -38,7 +39,7 @@ const circleIconHtml = (name: string, color: string, size: number, isMain: boole
       <circle cx="7" cy="7" r="6" fill="${color}" stroke="white" stroke-width="2.5"/>
       ${isMain ? '<circle cx="7" cy="7" r="3" fill="white" opacity="0.7"/>' : ''}
     </svg>
-    <span style="font-family:Inter,sans-serif;font-size:10px;font-weight:600;color:#383a46;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
+    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
   </div>
 `
 
@@ -49,20 +50,20 @@ const flagIconHtml = (name: string, color: string) => `
       <path d="M4 3 L18 6 L4 10 Z" fill="${color}" stroke="white" stroke-width="1"/>
       <circle cx="4" cy="22" r="2" fill="${color}" stroke="white" stroke-width="1"/>
     </svg>
-    <span style="font-family:Inter,sans-serif;font-size:10px;font-weight:600;color:#383a46;white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
+    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
   </div>
 `
 
 const popupHtml = (m: MapMarker, ctaLabel: string) => {
   const name = escapeHtml(m.name)
   const metaLine = m.meta
-    ? `<span style="display:block;color:#993335;font-size:11px;font-weight:600;letter-spacing:0.03em;margin:4px 0 2px">${escapeHtml(m.meta)}</span>`
+    ? `<span style="display:block;color:var(--color-accent);font-size:11px;font-weight:600;letter-spacing:0.03em;margin:4px 0 2px">${escapeHtml(m.meta)}</span>`
     : ''
   const descLine = m.desc
     ? `<br><span style="color:var(--color-text-muted);font-size:12px;line-height:1.5">${escapeHtml(m.desc)}</span>`
     : ''
   const cta = m.href
-    ? `<br><a href="${escapeHtml(m.href)}" aria-label="${name} – se detaljer" style="display:inline-block;margin-top:10px;background:#383a46;color:white;padding:7px 14px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;border-radius:4px;min-height:24px">${escapeHtml(ctaLabel)} →</a>`
+    ? `<br><a href="${escapeHtml(m.href)}" aria-label="${name} – se detaljer" style="display:inline-block;margin-top:10px;background:var(--color-ink);color:var(--color-white);padding:7px 14px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;border-radius:4px;min-height:24px">${escapeHtml(ctaLabel)} →</a>`
     : ''
   return `<b style="font-size:13px;color:#383a46">${name}</b>` + metaLine + descLine + cta
 }
@@ -165,30 +166,25 @@ export default function Map({
         ref={elRef}
         role="region"
         aria-label={ariaLabel}
-        style={{
-          width: '100%',
-          height,
-          borderRadius: '8px',
-          overflow: 'hidden',
-          background: '#e9e5dc',
-        }}
+        className={styles.map}
+        style={{ '--map-height': height } as CSSProperties}
       />
       {showList && (
-        <details style={{ marginTop: '16px' }}>
-          <summary style={{ cursor: 'pointer', fontSize: '0.9rem', fontWeight: 600, color: '#383a46', padding: '8px 0' }}>
+        <details className={styles.details}>
+          <summary className={styles.summary}>
             {listLabel ?? `Visa alla ${markers.length} platser som lista`}
           </summary>
-          <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px, 100%), 1fr))', gap: '4px 32px', margin: '12px 0 0', padding: 0, listStyle: 'none', fontSize: '0.9rem' }}>
+          <ul className={styles.list}>
             {markers.map((m) => (
-              <li key={`${m.name}-${m.lat}-${m.lng}`} style={{ padding: '4px 0' }}>
+              <li key={`${m.name}-${m.lat}-${m.lng}`} className={styles.item}>
                 {m.href ? (
-                  <Link href={m.href} style={{ color: '#383a46', fontWeight: 600, textDecoration: 'none', borderBottom: '1px dotted #993335' }}>
+                  <Link href={m.href} className={`${styles.name} ${styles.link}`}>
                     {m.name}
                   </Link>
                 ) : (
-                  <span style={{ color: '#383a46', fontWeight: 600 }}>{m.name}</span>
+                  <span className={styles.name}>{m.name}</span>
                 )}
-                {m.desc && <span style={{ color: '#4b5563', fontSize: '0.82rem' }}> · {m.desc}</span>}
+                {m.desc && <span className={styles.desc}> · {m.desc}</span>}
               </li>
             ))}
           </ul>

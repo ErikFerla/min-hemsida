@@ -1,0 +1,20 @@
+/* Prisnivå (€€€€) – används på /mat, /vingardar, golf och guiderna. */
+.priceTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f3efe8;
+  color: var(--color-ink);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* De "tomma" €-tecknen: dämpade men läsbara (5,1:1 mot bakgrunden; tidigare #d7cec1 = 1,4:1).
+   Fylld nivå = --color-ink (9,8:1). Prisnivån läses upp via aria-label. */
+.priceRest {
+  color: var(--color-text-muted);
+}
