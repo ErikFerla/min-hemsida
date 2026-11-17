@@ -1,186 +1,182 @@
-.page { min-height: 100vh; }
+/* /sevardheter – värdena återger det beräknade utseendet före 2.6
+   (globala h2/p-regler inräknade), mätt på 390 och 1280 px.
+   Ersätter en oanvänd strandmall som tidigare låg i filen. */
 
-.hero {
-  position: relative;
-  height: 500px;
-  background-image: url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1600&q=80');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
 }
 
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.55) 100%);
-}
-
-.heroContent {
-  position: relative;
-  z-index: 1;
-  padding: 40px;
-  color: #fff;
-  width: 100%;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.heroTagline {
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  font-weight: 600;
-  margin-bottom: 10px;
-  opacity: 0.85;
-}
-
-.heroTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
-}
-
-.container {
+.inner {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px);
 }
 
-.sectionHeading {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 50px 0 30px;
-  color: #c60b1e;
-  border-bottom: 2px solid #c60b1e;
-  padding-bottom: 12px;
-}
-
-.sectionDescription {
-  color: var(--muted);
-  margin-bottom: 32px;
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-.beachGrid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 24px;
-  margin-bottom: 50px;
 }
 
-.beachCard {
-  border: 1px solid var(--border);
-  border-radius: 12px;
+.card {
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  background: #e0e0e0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.beachCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+  }
 }
 
-.beachCardImage {
+.media {
+  position: relative;
+}
+
+.image {
   width: 100%;
   height: 200px;
-  background-size: cover;
-  background-position: center;
-  flex-shrink: 0;
+  object-fit: cover;
 }
 
-.beachCardContent {
-  padding: 16px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+.category {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
-.beachName {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--fg);
-  margin-bottom: 8px;
+.body {
+  padding: 22px;
 }
 
-.beachDescription {
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 8px;
+/* h2 – samma storlek som den globala h2-regeln gav */
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  color: var(--color-ink-strong);
 }
 
-.beachInfo {
-  font-size: 0.78rem;
-  color: var(--accent);
-  margin-bottom: 12px;
+.place {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.mapBtn {
-  display: inline-block;
+.description {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.tip {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: #444;
   margin-top: 10px;
-  padding: 8px 14px;
-  background: #f0f7ff;
-  color: var(--accent);
-  font-size: 0.8rem;
-  border-radius: 4px;
-  border: 1px solid var(--accent-light);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.tipIcon {
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
+/* Redaktionell notis – färgerna per typ */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #f3e5f5;
+  border-left: 3px solid #8e44ad;
+  font-size: 0.82rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.note_varning {
+  background: #fff3cd;
+  border-left-color: #f39c12;
+}
+
+.note_tips {
+  background: #e8f5e9;
+  border-left-color: #27ae60;
+}
+
+.note_bast {
+  background: #e3f2fd;
+  border-left-color: #2980b9;
+}
+
+.noteIcon {
+  flex-shrink: 0;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+}
+
+.mapButton {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.mapBtn:hover {
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-}
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 10px;
+  }
 
-.sectionsWrapper {
-  padding: 40px 0;
-}
-
-.section {
-  margin-bottom: 60px;
-}
-
-@media (max-width: 1024px) {
-  .beachGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+  .place,
+  .description {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
   }
 }
 
-@media (max-width: 600px) {
-  .hero {
-    height: 320px;
+@media (max-width: 380px) {
+  .place,
+  .description {
+    font-size: 15px;
   }
+}
 
-  .heroContent {
-    padding: 24px 16px;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  .beachGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .sectionHeading {
-    font-size: 1.4rem;
-    margin: 30px 0 20px;
-  }
-
-  .beachCard {
-    padding: 16px;
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transition: none;
+    transform: none;
   }
 }

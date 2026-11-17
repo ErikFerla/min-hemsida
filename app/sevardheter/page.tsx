@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import styles from './sevardheter.module.css';
+
+const notisKlass: Record<string, string> = {
+  varning: styles.note_varning,
+  tips: styles.note_tips,
+  bast: styles.note_bast,
+};
+
 const sevardheter = [
   {
     namn: 'La Seu – Palmas katedral',
@@ -138,7 +146,7 @@ const sevardheter = [
 
 export default function SevardheterPage() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <HeroImage
         src="https://images.unsplash.com/photo-1548783300-a25c9c4fad6a"
         alt="La Seu-katedralen i Palma – en av öns mest ikoniska sevärdheter"
@@ -148,34 +156,28 @@ export default function SevardheterPage() {
         height="55vh"
       />
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
+      <div className={styles.inner}>
+        <div className={styles.grid}>
           {sevardheter.map((s, i) => (
-            <div key={i} className="a2-lift" style={{ background: 'white', borderRadius: '16px', overflow: 'hidden' }}>
-              <div style={{ position: 'relative' }}>
-                <Image src={s.bild} alt={s.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: '12px', left: '12px', background: '#993335', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>{s.kategori}</div>
+            <div key={i} className={styles.card}>
+              <div className={styles.media}>
+                <Image src={s.bild} alt={s.namn} width={600} height={200} className={styles.image} loading="lazy" />
+                <div className={styles.category}>{s.kategori}</div>
               </div>
-              <div style={{ padding: '22px' }}>
-                <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', letterSpacing: '0.05em', margin: '0 0 8px', lineHeight: '1.15', color: '#111' }}>{s.namn}</h2>
-                <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', marginBottom: '10px', display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {s.plats} · <IconClock size={12} /> {s.oppet}</p>
-                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{s.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '8px 12px', fontSize: '0.85rem', color: '#444', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6' }}><IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {s.tips}</div>
+              <div className={styles.body}>
+                <h2 className={styles.title}>{s.namn}</h2>
+                <p className={styles.place}><IconPin size={12} /> {s.plats} · <IconClock size={12} /> {s.oppet}</p>
+                <p className={styles.description}>{s.beskrivning}</p>
+                <div className={styles.tip}><IconBulb size={14} className={styles.tipIcon} /> {s.tips}</div>
                 {s.redaktionellt && (
-                  <div style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '8px',
-                    padding: '8px 12px', borderRadius: '8px', marginBottom: '12px',
-                    background: s.redaktionellt.typ === 'varning' ? '#fff3cd' : s.redaktionellt.typ === 'tips' ? '#e8f5e9' : s.redaktionellt.typ === 'bast' ? '#e3f2fd' : '#f3e5f5',
-                    borderLeft: `3px solid ${s.redaktionellt.typ === 'varning' ? '#f39c12' : s.redaktionellt.typ === 'tips' ? '#27ae60' : s.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
-                    fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
-                  }}>
-                    <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
+                  <div className={`${styles.note} ${notisKlass[s.redaktionellt.typ] ?? ''}`}>
+                    <span className={styles.noteIcon}>
                       {s.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : s.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : s.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{s.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
                   Visa på karta ↗
                 </a>
               </div>
