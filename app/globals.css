@@ -1684,4 +1684,20 @@ footer :focus-visible {
 /* Tomt-meddelande för åldersfiltret på /barn – visas av AgeFilter när inget matchar */
 .a2-age-empty {
   display: none;
+
+/* === A1-stader === */
+/* Korten på /byar: hover-lyft i CSS i stället för JS (sidan är en serverkomponent). */
+.byar-card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.byar-card:hover,
+.byar-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .byar-card { transition: none; }
+  .byar-card:hover,
+  .byar-card:focus-within { transform: none; }
 }

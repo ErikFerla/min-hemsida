@@ -1,5 +1,6 @@
 import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/components/Icons';
-import BarnMapWrapper from '@/components/BarnMapWrapper';
+import Map from '@/components/Map';
+import { barnMapMarkers } from '@/data/barn-map';
 import type { ComponentType } from 'react';
 
 type Sektion = {
@@ -86,7 +87,12 @@ export default function MallorcaMedBarnGuide() {
             Här ser du de mest populära familjeaktiviteterna utspridda över ön — från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
           </p>
           <div style={{ background: 'white', padding: 8, borderRadius: 14, border: '1px solid #ede5da', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-            <BarnMapWrapper />
+            <Map
+              markers={barnMapMarkers}
+              height="clamp(320px, 60vh, 450px)"
+              ariaLabel="Karta över familjeaktiviteter på Mallorca"
+              listLabel="Visa alla platser som lista"
+            />
           </div>
         </section>
 

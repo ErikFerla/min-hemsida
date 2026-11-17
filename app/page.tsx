@@ -5,8 +5,8 @@ import HeroSlideshow from '@/components/HeroSlideshow';
 import SectionSeason from './components/SectionSeason';
 import SectionPlanner from './components/SectionPlanner';
 import SectionEvents from './components/SectionEvents';
-import MallorcaMapWrapper from '@/components/MallorcaMapWrapper';
-import CityLinksList from './components/CityLinksList';
+import Map from '@/components/Map';
+import { cityMapMarkers } from '@/data/cities';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
@@ -163,13 +163,14 @@ export default function Home() {
                        margin:'0 auto 48px', maxWidth:'55ch'}}>
               Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
             </p>
-            <MallorcaMapWrapper />
-            {/* City links visually hidden but kept in DOM — SEO fallback from PR #9:
-                Googlebot and screen readers still get all 18 city anchors even
-                though MallorcaMap itself is client-only (ssr: false). */}
-            <div className="sr-only">
-              <CityLinksList />
-            </div>
+            {/* Leaflet laddas först nära vyn; alla orter finns även som länklista under kartan (SSR). */}
+            <Map
+              markers={cityMapMarkers}
+              height="clamp(350px, 55vh, 500px)"
+              ariaLabel="Karta över städer och byar på Mallorca"
+              ctaLabel="Utforska"
+              listLabel={`Visa alla ${cityMapMarkers.length} städer och byar som lista`}
+            />
           </div>
         </section>
       </div>

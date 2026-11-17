@@ -1,10 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
-import GolfMapWrapper from '@/components/GolfMapWrapper';
+import Map, { type MapMarker } from '@/components/Map';
 import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
 import GolfRegionFilter from './GolfRegionFilter';
+
+const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
+  name: b.namn,
+  lat: b.lat,
+  lng: b.lng,
+  href: `/aktiviteter/golf#${b.slug}`,
+  desc: b.plats,
+  meta: b.oneliner,
+}));
 
 const svårighetFärg: Record<string, string> = {
   'Lätt': '#27ae60',
@@ -40,7 +49,14 @@ export default function GolfPage() {
               Klicka på en flagga för att se banan i listan nedan. Från Alcanada i norr till Andratx i sydväst.
             </p>
           </div>
-          <GolfMapWrapper />
+          <Map
+            markers={golfMarkers}
+            pinVariant="flag"
+            height="clamp(380px, 60vh, 560px)"
+            ariaLabel={`Karta över alla ${golfbanor.length} golfbanor på Mallorca`}
+            ctaLabel="Se banan"
+            listLabel={false}
+          />
 
           {/* Textfallback – alltid synlig, både a11y- och SEO-fördel */}
           <details style={{ marginTop: '16px' }}>

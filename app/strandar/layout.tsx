@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
-import JsonLd from '@/app/components/JsonLd';
 import { BEACHES_HERO } from '@/data/beaches';
 
 const SITE = 'https://www.mymallorca.se';
