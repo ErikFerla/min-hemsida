@@ -23,9 +23,35 @@
   --orange-dark: #D97706;
   --text: #383a46;
 
-  /* Typography */
-  --font-inter: var(--font-inter, 'Inter', system-ui, sans-serif);
-  --font-playfair: var(--font-playfair, 'Playfair Display', Georgia, serif);
+  /* ── Färgtokens (2.5) – alla textpar klarar WCAG AA (≥4,5:1) ──
+     Kontrast mot --color-bg / --color-surface / --color-surface-warm:
+       --color-ink          11,2 / 9,6 / 9,0
+       --color-text-muted    5,9 / 5,0 / 4,7   (ersätter #6B7280, #9CA3AF, #888, #666)
+       --color-accent        7,2 / 6,2 / 5,8
+       --color-accent-mid    5,2 / 4,5 / –     (bara på --color-bg/--color-surface)
+     --color-accent-soft (#e86c7f) är dekor – aldrig brödtext på ljus botten.
+     --color-on-dark på --color-ink 11,2, på --color-accent 7,2. */
+  --color-bg: #fefefb;
+  --color-surface: #eeede4;
+  --color-surface-warm: #ede5da;
+  --color-ink: #383a46;
+  --color-ink-strong: #1a1a1a;
+  --color-text: #374151;
+  --color-text-muted: #5f6472;
+  --color-accent: #993335;
+  --color-accent-hover: #7f2a2c;
+  --color-accent-mid: #ba4446;
+  --color-accent-soft: #e86c7f;
+  --color-on-dark: #fefefb;
+  --color-on-dark-muted: rgba(254, 254, 251, 0.82);
+  --color-border: #ede5da;
+  --color-focus: #993335;
+
+  /* ── Typografitokens (2.6) ──
+     --font-inter, --font-playfair och --font-bebas sätts av next/font i app/layout.tsx. */
+  --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-playfair), Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-bebas), 'Arial Narrow', sans-serif;
 
   /* ── Section padding scale ── */
   --section-padding-sm: 4rem 0;       /* Kompakta sektioner */
