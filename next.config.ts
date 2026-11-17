@@ -46,7 +46,6 @@ const securityHeaders = [
       'payment=()',
       'usb=()',
       'serial=()',
-      'bluetooth=()',
       'magnetometer=()',
       'gyroscope=()',
       'accelerometer=()',
