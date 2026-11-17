@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { WEATHER_LOCATIONS as locations } from './locations';
 import styles from './vader.module.css';
 
 type ForecastData = {
@@ -28,16 +30,6 @@ type TimeseriesEntry = {
 
 const TIME_ZONE = 'Europe/Madrid';
 const MAX_DAYS = 9;
-
-const locations = [
-  { name: 'Palma', slug: 'palma', lat: 39.5696, lon: 2.6502, fact: 'Största staden, medeltemperatur sommar 28 °C, mild vinter' },
-  { name: 'Porto Colom', slug: 'porto-colom', lat: 39.4167, lon: 3.2667, fact: 'Kustby, havsbris, något svalare än inlandet' },
-  { name: 'Port de Sóller', slug: 'port-de-soller', lat: 39.7958, lon: 2.6942, fact: 'Skyddad av bergen, ofta vindstilla, varm sommar' },
-  { name: 'Alcúdia', slug: 'alcudia', lat: 39.8527, lon: 3.1237, fact: 'Norra Mallorca, något blåsigare, fin sommarsäsong' },
-  { name: 'Andratx', slug: 'andratx', lat: 39.5741, lon: 2.4267, fact: 'Sydväst på ön, skyddad av berg, populärt bland seglare' },
-  { name: 'Deià', slug: 'deia', lat: 39.7469, lon: 2.6488, fact: 'Konstnärsby i Tramuntana-bergen, svalare tack vare höjden' },
-  { name: 'Artà', slug: 'arta', lat: 39.6981, lon: 3.3503, fact: 'Historisk bergsstad i nordöst, varmt och soligt' },
-];
 
 // Alla symbolkoder från met.no (utan _day/_night/_polartwilight-suffix).
 // Se https://api.met.no/weatherapi/weathericon/2.0/documentation
@@ -319,6 +311,10 @@ export default function WeatherForecast() {
         {error && (
           <div className={styles.error}>
             <p>{error}</p>
+            <p className={styles.errorHint}>
+              Under tiden kan du läsa om väder och badtemperatur månad för månad i{' '}
+              <Link href="/guide/basta-tid-resa-mallorca">guiden till bästa tiden att resa</Link>.
+            </p>
             <button type="button" className={styles.retryButton} onClick={() => setRetryCount(c => c + 1)}>
               Försök igen
             </button>

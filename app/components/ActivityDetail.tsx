@@ -1,15 +1,7 @@
+import Image from 'next/image';
 import { IconPin, IconClock, IconExternal, IconMap, IconBulb } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
 import type { Activity } from '@/app/lib/barn-activities';
-
-const UNSPLASH_WIDTHS = [480, 640, 960, 1280];
-
-function buildUrl(base: string, w: number) {
-  return `${base}?w=${w}&q=80&fm=webp&auto=format`;
-}
-function buildSrcSet(base: string) {
-  return UNSPLASH_WIDTHS.map((w) => `${buildUrl(base, w)} ${w}w`).join(', ');
-}
 
 export type ActivityDetailProps = {
   activity: Activity;
@@ -41,16 +33,12 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
       className="activity-detail"
     >
       <div style={{ position: 'relative', aspectRatio: '16 / 10', borderRadius: '12px', overflow: 'hidden', background: '#eeede4' }}>
-        <img
-          src={buildUrl(activity.imageUrl, 960)}
-          srcSet={buildSrcSet(activity.imageUrl)}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+        <Image
+          src={`${activity.imageUrl}?w=1280&q=80`}
           alt={activity.imageAlt}
-          width={960}
-          height={600}
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+          style={{ objectFit: 'cover' }}
         />
         {activity.indoors && (
           <span

@@ -91,3 +91,12 @@
     padding: 0.5rem 0.4rem;
   }
 }
+
+/* A2-ssr: tips under felmeddelandet och serverrenderad ortsöversikt */
+.errorHint { font-size: 0.95rem; color: #383a46; margin: 0 0 1rem; }
+.errorHint a { color: #993335; }
+.places { margin: 3rem 0 1rem; }
+.places h2 { font-size: 1.4rem; color: #383a46; margin: 0 0 1rem; }
+.placeList { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 12px; }
+.placeList li { background: white; border: 1px solid #ede5da; border-radius: 12px; padding: 14px 16px; color: #374151; font-size: 0.92rem; line-height: 1.5; }
+.placeList strong { display: block; color: #383a46; margin-bottom: 2px; }

@@ -1,16 +1,9 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { IconPin, IconExternal } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
 import type { Activity, Category } from '@/app/lib/barn-activities';
 import { getCategoryMeta } from '@/app/lib/barn-activities';
-
-const UNSPLASH_WIDTHS = [320, 480, 640, 960];
-
-function buildUrl(base: string, w: number) {
-  return `${base}?w=${w}&q=80&fm=webp&auto=format`;
-}
-function buildSrcSet(base: string) {
-  return UNSPLASH_WIDTHS.map((w) => `${buildUrl(base, w)} ${w}w`).join(', ');
-}
 
 export type ActivityCardProps = {
   activity: Activity;
@@ -23,7 +16,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
   const href = meta ? `${meta.href}#${activity.slug}` : `#${activity.slug}`;
 
   return (
-    <a
+    <Link
       href={href}
       aria-label={`${activity.name} — läs mer`}
       style={{
@@ -47,16 +40,12 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
           overflow: 'hidden',
         }}
       >
-        <img
-          src={buildUrl(activity.imageUrl, 640)}
-          srcSet={buildSrcSet(activity.imageUrl)}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        <Image
+          src={`${activity.imageUrl}?w=960&q=80`}
           alt={activity.imageAlt}
-          width={640}
-          height={400}
-          loading="lazy"
-          decoding="async"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+          style={{ objectFit: 'cover' }}
         />
         {meta && (
           <span
@@ -163,6 +152,6 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
           Läs mer <IconExternal size={12} stroke={1.8} />
         </span>
       </div>
-    </a>
+    </Link>
   );
 }

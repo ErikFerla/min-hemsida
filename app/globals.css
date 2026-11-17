@@ -1661,3 +1661,27 @@ footer :focus-visible {
 .leaflet-container .leaflet-control-attribution a {
   text-decoration: underline;
 }
+
+/* === A2-ssr === */
+/* Lyft-effekt vid hover på kort (ersätter onMouseEnter/onMouseLeave i klientkomponenter) */
+.a2-lift {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (hover: hover) {
+  .a2-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .a2-lift,
+  .a2-lift:hover {
+    transition: none;
+    transform: none;
+  }
+}
+/* Tomt-meddelande för åldersfiltret på /barn – visas av AgeFilter när inget matchar */
+.a2-age-empty {
+  display: none;
+}

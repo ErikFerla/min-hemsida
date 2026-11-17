@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
-import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
   title: 'Djurparker & akvarier på Mallorca för barn',
@@ -33,18 +32,10 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
-export default async function DjurparkerPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-
+export default function DjurparkerPage() {
   return (
     <BarnCategoryPageView
       category="djurparker-och-akvarier"
-      selectedAges={selectedAges}
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1551632811-561732d1e306',
         imageAlt: 'Akvarietunnel med hajar och tropiska fiskar — djurupplevelser på Mallorca',

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
-import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
   title: 'Vattenparker på Mallorca – 5 bästa för barn',
@@ -33,18 +32,10 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
-export default async function VattenparkerPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-
+export default function VattenparkerPage() {
   return (
     <BarnCategoryPageView
       category="vattenparker"
-      selectedAges={selectedAges}
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834',
         imageAlt: 'Vattenrutschkanor och blå pooler på en vattenpark under Mallorcas sommarsol',

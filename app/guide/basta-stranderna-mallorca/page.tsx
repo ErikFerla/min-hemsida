@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import HeroImage from '@/components/HeroImage';
 
 const stränder = [
@@ -96,7 +97,7 @@ export default function BästaSträndernaGuide() {
               </div>
             </div>
 
-            <img src={strand.bild} alt={strand.namn} loading="lazy" style={{ width: '100%', height: 'clamp(200px, 35vw, 400px)', objectFit: 'cover', borderRadius: '16px', marginBottom: '24px' }} />
+            <Image src={strand.bild} alt={strand.namn} width={800} height={400} sizes="(max-width: 860px) 100vw, 800px" style={{ width: '100%', height: 'clamp(200px, 35vw, 400px)', objectFit: 'cover', borderRadius: '16px', marginBottom: '24px' }} />
 
             <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '24px' }}>{strand.beskrivning}</p>
 

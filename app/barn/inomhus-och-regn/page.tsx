@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
-import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
   title: 'Regniga dagar på Mallorca – 8 inomhustips',
@@ -33,18 +32,10 @@ export const metadata: Metadata = {
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
-export default async function InomhusOchRegnPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-
+export default function InomhusOchRegnPage() {
   return (
     <BarnCategoryPageView
       category="inomhus-och-regn"
-      selectedAges={selectedAges}
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30',
         imageAlt: 'Barn som leker i en färgglad inomhuslekplats med klätterställningar',

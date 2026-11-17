@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
+import JsonLd from './JsonLd';
 import CategoryHero from './CategoryHero';
 import Breadcrumbs from './Breadcrumbs';
 import AgeFilter from './AgeFilter';
@@ -6,20 +8,13 @@ import ActivityDetail from './ActivityDetail';
 import {
   getActivitiesByCategory,
   getCategoryMeta,
-  filterByAge,
   CATEGORIES,
-  type AgeGroup,
   type Category,
 } from '@/app/lib/barn-activities';
-import {
-  buildItemListJsonLd,
-  buildBreadcrumbJsonLd,
-  stringifyJsonLd,
-} from '@/app/lib/barn-jsonld';
+import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
 
 export type BarnCategoryPageViewProps = {
   category: Category;
-  selectedAges: AgeGroup[];
   hero: {
     imageSrc: string;
     imageAlt: string;
@@ -35,7 +30,6 @@ export type BarnCategoryPageViewProps = {
  */
 export default function BarnCategoryPageView({
   category,
-  selectedAges,
   hero,
   intro,
 }: BarnCategoryPageViewProps) {
@@ -45,7 +39,7 @@ export default function BarnCategoryPageView({
     throw new Error(`Unknown category: ${category}`);
   }
   const allActivities = getActivitiesByCategory(category);
-  const visibleActivities = filterByAge(allActivities, selectedAges);
+  const listId = `aktiviteter-${category}`;
 
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
@@ -66,14 +60,8 @@ export default function BarnCategoryPageView({
 
   return (
     <div style={{ background: '#fefefb', minHeight: '100vh' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(itemListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: stringifyJsonLd(breadcrumbJsonLd) }}
-      />
+      <JsonLd data={itemListJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       <CategoryHero
         imageSrc={hero.imageSrc}
@@ -110,33 +98,31 @@ export default function BarnCategoryPageView({
             borderBottom: '1px solid rgba(0,0,0,0.06)',
           }}
         >
-          <AgeFilter
-            totalCount={allActivities.length}
-            visibleCount={visibleActivities.length}
-          />
+          <AgeFilter listId={listId} itemAges={allActivities.map((a) => a.ageGroups)} />
         </div>
 
-        {visibleActivities.length === 0 ? (
-          <div
-            role="status"
-            style={{
-              padding: '32px',
-              background: 'white',
-              borderRadius: '12px',
-              border: '1px solid rgba(0,0,0,0.06)',
-              textAlign: 'center',
-              color: '#6b7280',
-            }}
-          >
-            Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
-          </div>
-        ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {visibleActivities.map((a) => (
-              <ActivityDetail key={a.slug} activity={a} />
-            ))}
-          </div>
-        )}
+        <div
+          id={`${listId}-tom`}
+          className="a2-age-empty"
+          role="status"
+          style={{
+            padding: '32px',
+            background: 'white',
+            borderRadius: '12px',
+            border: '1px solid rgba(0,0,0,0.06)',
+            textAlign: 'center',
+            color: '#6b7280',
+          }}
+        >
+          Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
+        </div>
+        <div id={listId} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {allActivities.map((a) => (
+            <div key={a.slug} data-ages={a.ageGroups.join(' ')}>
+              <ActivityDetail activity={a} />
+            </div>
+          ))}
+        </div>
 
         {/* Bottom CTA — links to hub + related categories */}
         <section
@@ -164,7 +150,7 @@ export default function BarnCategoryPageView({
             Hitta fler aktiviteter för hela familjen — filtrera efter ålder och kategori på hub-sidan.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-            <a
+            <Link
               href="/barn"
               style={{
                 padding: '12px 20px',
@@ -177,9 +163,9 @@ export default function BarnCategoryPageView({
               }}
             >
               Alla barnaktiviteter
-            </a>
+            </Link>
             {relatedCategories.map((c) => (
-              <a
+              <Link
                 key={c.slug}
                 href={c.href}
                 style={{
@@ -194,7 +180,7 @@ export default function BarnCategoryPageView({
                 }}
               >
                 {c.label}
-              </a>
+              </Link>
             ))}
           </div>
         </section>

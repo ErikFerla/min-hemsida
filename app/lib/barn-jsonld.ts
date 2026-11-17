@@ -73,8 +73,3 @@ export function buildBreadcrumbJsonLd(items: { name: string; url: string }[]) {
     })),
   };
 }
-
-/** Serialize any JSON-LD object for inline <script> injection. */
-export function stringifyJsonLd(data: unknown): string {
-  return JSON.stringify(data);
-}

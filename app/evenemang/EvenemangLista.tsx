@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import { IconCalendar, IconPin } from '@/components/Icons';
 import type { Evenemang } from './data';
 
@@ -110,7 +111,7 @@ function EventGrid({ items, passerad = false }: { items: Evenemang[]; passerad?:
       {items.map(e => (
         <article key={e.key} style={{ background: '#fefefb', borderRadius: 14, overflow: 'hidden', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', border: '1px solid #ede5da', opacity: passerad ? 0.85 : 1 }}>
           <div style={{ position: 'relative' }}>
-            <img src={e.bild} alt={e.namn} loading="lazy" decoding="async" width={600} height={180} style={{ width: '100%', height: 180, objectFit: 'cover', display: 'block', filter: passerad ? 'grayscale(40%)' : undefined }} />
+            <Image src={e.bild} alt={e.namn} width={600} height={180} sizes="(max-width: 700px) 100vw, 440px" style={{ width: '100%', height: 180, objectFit: 'cover', display: 'block', filter: passerad ? 'grayscale(40%)' : undefined }} />
             <span style={{
               position: 'absolute', top: 12, left: 12,
               background: kategoriColor[e.kategori] ?? '#383a46',

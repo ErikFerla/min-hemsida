@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
@@ -96,15 +95,7 @@ export default function AktiviteterPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px,100%), 1fr))', gap: '24px' }}>
           {aktiviteter.map((a, i) => (
             <Link key={i} href={a.href} style={{ textDecoration: 'none' }}>
-              <div style={{
-                background: 'white', borderRadius: '16px', overflow: 'hidden',
-                boxShadow: '0 10px 25px rgba(0,0,0,0.05)',
-                transition: 'transform 0.2s ease, box-shadow 0.2s ease',
-                cursor: 'pointer', height: '100%',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}
-              >
+              <div className="a2-lift" style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', cursor: 'pointer', height: '100%' }}>
                 <Image src={a.bild} alt={a.titel} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
                 <div style={{ padding: '24px' }}>
                   <div style={{ marginBottom: '8px', color: '#383a46' }}><a.Icon size={28} /></div>
