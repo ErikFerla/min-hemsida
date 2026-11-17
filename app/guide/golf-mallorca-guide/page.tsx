@@ -160,7 +160,7 @@ export default function GolfMallorcaGuide() {
           <p className={styles.tableNote}>
             Greenfee är ungefärliga prisnivåer – kontrollera alltid aktuellt pris hos banan. Karta och mer om varje bana finns på <Link href="/aktiviteter/golf">golfsidan</Link>.
           </p>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="Tabell över golfbanorna på Mallorca (går att skrolla i sidled)">
             <table className={styles.table}>
               <thead>
                 <tr>

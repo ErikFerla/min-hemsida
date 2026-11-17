@@ -4,6 +4,7 @@ import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, Ic
 import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 import styles from './page.module.css';
+import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 
 type Aktivitet = {
   titel: string;
@@ -81,6 +82,7 @@ const aktiviteter: Aktivitet[] = [
 export default function AktiviteterPage() {
   return (
     <div className={styles.page}>
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
       {/* Hero */}
       <HeroImage
         src="https://images.unsplash.com/photo-1533105079780-92b9be482077"

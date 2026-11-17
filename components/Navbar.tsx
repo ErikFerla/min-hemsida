@@ -106,6 +106,16 @@ export default function Navbar() {
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([])
   const wrapperRefs = useRef<(HTMLDivElement | null)[]>([])
 
+  // Stäng menyerna när adressen ändras, även via webbläsarens bakåt-/framåtknapp
+  // (justering under rendering i stället för setState i en effekt).
+  const [prevPathname, setPrevPathname] = useState(pathname)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
+    setMobileOpen(false)
+    setMobileAccordion(null)
+    setOpenDropdown(null)
+  }
+
   const closeMobile = useCallback((returnFocus: boolean) => {
     setMobileOpen(false)
     setMobileAccordion(null)
@@ -126,10 +136,10 @@ export default function Navbar() {
   useEffect(() => {
     if (!mobileOpen) return
     const menu = mobileMenuRef.current
-    const { body, documentElement } = document
-    const prevBody = body.style.overflow
+    // Lås bara <html>: overflow på <body> gör body till scrollcontainer (html/body har
+    // overflow-x: clip), och då slutar den sticky navbaren fungera när sidan är scrollad.
+    const { documentElement } = document
     const prevHtml = documentElement.style.overflow
-    body.style.overflow = 'hidden'
     documentElement.style.overflow = 'hidden'
 
     if (menu) getFocusable(menu)[0]?.focus()
@@ -160,7 +170,6 @@ export default function Navbar() {
     document.addEventListener('keydown', handleKey)
     return () => {
       document.removeEventListener('keydown', handleKey)
-      body.style.overflow = prevBody
       documentElement.style.overflow = prevHtml
     }
   }, [mobileOpen, closeMobile])

@@ -1,4 +1,3 @@
-import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 
 export const metadata = buildPageMetadata({
@@ -10,10 +9,6 @@ export const metadata = buildPageMetadata({
 });
 
 export default function AktiviteterLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
-      {children}
-    </>
-  );
+  // Brödsmulorna (BreadcrumbList) ligger i page.tsx, så att /aktiviteter/golf inte får två.
+  return children;
 }

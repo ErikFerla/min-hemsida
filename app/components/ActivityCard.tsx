@@ -17,7 +17,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
   const href = meta ? `${meta.href}#${activity.slug}` : `#${activity.slug}`;
 
   return (
-    <Link href={href} aria-label={`${activity.name} — läs mer`} className={styles.card}>
+    <Link href={href} className={styles.card}>
       <div className={styles.media}>
         <Image
           src={`${activity.imageUrl}?w=960&q=80`}
