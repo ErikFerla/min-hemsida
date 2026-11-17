@@ -45,7 +45,7 @@ export default function VattenparkerPage() {
       }}
       intro={
         <>
-          <p style={{ marginTop: 0 }}>
+          <p>
             Mallorca har tre stora vattenparker och två mindre — alla med tydliga specialiteter. Aqualand
             El Arenal är öns största med de vildaste rutschkanorna, Western Water Park levererar en
             helteatralisk tema­upplevelse i Magaluf, och Hidropark i norr är en dold pärla för familjer

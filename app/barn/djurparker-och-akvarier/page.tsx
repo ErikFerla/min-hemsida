@@ -45,7 +45,7 @@ export default function DjurparkerPage() {
       }}
       intro={
         <>
-          <p style={{ marginTop: 0 }}>
+          <p>
             Mallorca har två akvarier och tre djurparker värda en dagsutflykt. Palma Aquarium är
             flaggskeppet med hajtanken Big Blue och 700 arter; Marineland är den klassiska familjefavoriten
             med delfinshow och papegojor; Natura Parc passar särskilt småbarn som vill ha en lugnare
