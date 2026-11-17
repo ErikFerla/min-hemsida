@@ -1,0 +1,254 @@
+/* Evenemangslistan på /evenemang – värdena återger det beräknade utseendet före 2.6
+   (globala h2/h3/p/section-regler och det tidigare <style>-blocket inräknade). */
+
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 60px) clamp(16px, 4vw, 60px);
+}
+
+/* ── Filter ── */
+.filterRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filterRow::-webkit-scrollbar {
+  display: none;
+}
+
+.filterButton {
+  padding: 8px 20px;
+  border-radius: 24px;
+  border: 2px solid #d9cfc1;
+  background: #fff;
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.filterButton[aria-pressed='true'] {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.count {
+  align-self: center;
+  margin-left: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Sektioner ── */
+.section {
+  margin-bottom: 56px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  color: var(--color-ink);
+}
+
+.empty {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.archive {
+  margin-top: 40px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 32px;
+}
+
+.archiveSummary {
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.archiveText {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 12px 0 24px;
+  line-height: 1.7;
+}
+
+/* ── Kort ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--color-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+}
+
+.media {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Passerade evenemang: bara bilden tonas ned, så att texten behåller full kontrast
+   (tidigare opacity 0.85 på hela kortet gav 4,2:1 på den grå texten). */
+.imagePast {
+  filter: grayscale(40%);
+  opacity: 0.85;
+}
+
+.label,
+.status {
+  position: absolute;
+  top: 12px;
+  color: #fff;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.label {
+  left: 12px;
+  background: var(--color-ink);
+}
+
+/* Kategorifärger – alla klarar 4,5:1 mot vit text */
+.kat_Sport { background: #2563eb; }
+.kat_Musik { background: #7c3aed; }
+.kat_Kultur { background: #b45309; }
+.kat_Mat { background: #15803d; }
+.kat_Marknad { background: #92400e; }
+.kat_Familj { background: #be185d; }
+
+.status {
+  right: 12px;
+  background: var(--color-ink);
+}
+
+.body {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meta {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+  color: var(--color-ink);
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+}
+
+.link {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 7px 16px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 32px 20px;
+  }
+
+  .filterRow {
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .filterButton {
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+
+  .section,
+  .archive {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 10px;
+  }
+
+  .cardTitle {
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .empty,
+  .archiveText,
+  .description {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .empty,
+  .archiveText,
+  .description {
+    font-size: 15px;
+  }
+}

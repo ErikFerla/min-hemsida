@@ -1,0 +1,375 @@
+/* /aktiviteter/golf – värdena återger det beräknade utseendet före 2.6
+   (globala h2/h3/p-regler inräknade), mätt på 390 och 1280 px. */
+
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px);
+}
+
+/* ── Karta ── */
+.mapSection {
+  margin-bottom: 48px;
+}
+
+.mapHeader {
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 600;
+  line-height: 1.7;
+  margin: 0 0 8px;
+}
+
+/* h2 – samma storlek som den globala h2-regeln gav */
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.intro {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 8px 0 1.25rem;
+  max-width: 60ch;
+}
+
+.textList {
+  margin-top: 16px;
+}
+
+.textListSummary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 8px 0;
+}
+
+.textListItems {
+  columns: 2;
+  column-gap: 32px;
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.textListItem {
+  padding: 4px 0;
+  break-inside: avoid;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.textListLink {
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-accent);
+}
+
+.textListPlace {
+  color: var(--color-text-muted);
+  font-size: 0.82rem;
+}
+
+/* ── Rubrik + svårighetsförklaring ── */
+.listHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.legend {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--niva);
+}
+
+/* ── Banor ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.media {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.difficulty,
+.region {
+  position: absolute;
+  top: 12px;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+/* Svårighetsfärgen kommer från data via --niva (alla nyanser klarar 4,5:1 mot vit text) */
+.difficulty {
+  right: 12px;
+  background: var(--niva);
+  font-weight: 700;
+}
+
+.region {
+  left: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+}
+
+.body {
+  padding: 22px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+/* h3 – samma storlek som den globala h3-regeln gav */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.price {
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.facts {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.description {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.tip {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+  line-height: 1.6;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.tipIcon {
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
+/* Redaktionell notis – färgerna per typ */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: #f3e5f5;
+  border-left: 3px solid #8e44ad;
+  font-size: 0.82rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.note_varning {
+  background: #fff3cd;
+  border-left-color: #f39c12;
+}
+
+.note_tips {
+  background: #e8f5e9;
+  border-left-color: #27ae60;
+}
+
+.note_bast {
+  background: #e3f2fd;
+  border-left-color: #2980b9;
+}
+
+.noteIcon {
+  flex-shrink: 0;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.primaryButton {
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+}
+
+.secondaryButton {
+  background: #fff;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  margin-top: 8px;
+}
+
+/* ── Golfguiden ── */
+.cta {
+  margin-top: 60px;
+  background: var(--color-ink-strong);
+  border-radius: 16px;
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+}
+
+.ctaText {
+  color: var(--color-on-dark-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto 28px;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 14px 40px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .mapSection {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 10px;
+  }
+
+  .cardTitle {
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .eyebrow,
+  .intro,
+  .description,
+  .ctaText {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .eyebrow,
+  .intro,
+  .description,
+  .ctaText {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transition: none;
+    transform: none;
+  }
+}

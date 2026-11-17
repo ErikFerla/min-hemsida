@@ -9,6 +9,7 @@ import JsonLd from '@/app/components/JsonLd';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import { ACTIVITIES, CATEGORIES } from '@/app/lib/barn-activities';
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
+import styles from './barn.module.css';
 
 const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
 
@@ -74,7 +75,7 @@ export default function BarnHubPage() {
   }));
 
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <JsonLd data={itemListJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
 
@@ -86,26 +87,13 @@ export default function BarnHubPage() {
         subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker och planer för regniga dagar"
       />
 
-      <div
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: 'clamp(32px, 5vw, 60px) clamp(16px, 4vw, 40px)',
-        }}
-      >
+      <div className={styles.inner}>
         <Breadcrumbs items={breadcrumbs} />
 
         {/* ========== INTRO ========== */}
-        <section style={{ margin: 'clamp(24px, 4vw, 40px) 0 clamp(40px, 6vw, 64px)' }}>
-          <div
-            style={{
-              maxWidth: '72ch',
-              fontSize: '1.05rem',
-              lineHeight: 1.75,
-              color: '#374151',
-            }}
-          >
-            <p style={{ marginTop: 0 }}>
+        <section className={styles.introSection}>
+          <div className={styles.introText}>
+            <p>
               Mallorca är ett av Europas mest barnvänliga resmål, och ön har gott om aktiviteter för
               familjer som inte har med stranden att göra. Vattenparker, akvarier, trampolinparker,
               äventyrsparker, grottor, djurparker, museer och historiska tåg — det finns något för
@@ -121,96 +109,37 @@ export default function BarnHubPage() {
         </section>
 
         {/* ========== CATEGORY GRID ========== */}
-        <section style={{ marginBottom: 'clamp(40px, 6vw, 64px)' }} aria-labelledby="kategorier-heading">
-          <h2
-            id="kategorier-heading"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
-              letterSpacing: '0.04em',
-              color: '#383a46',
-              margin: '0 0 24px',
-            }}
-          >
+        <section className={styles.block} aria-labelledby="kategorier-heading">
+          <h2 id="kategorier-heading" className={styles.sectionTitle}>
             Utforska efter kategori
           </h2>
-          <ul
-            style={{
-              listStyle: 'none',
-              padding: 0,
-              margin: 0,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-              gap: 'clamp(14px, 2vw, 20px)',
-            }}
-          >
+          <ul className={styles.categoryGrid}>
             {countsByCategory.map((c) => {
               return (
                 <li key={c.slug}>
-                  <Link
-                    href={c.href}
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      background: 'white',
-                      border: '1px solid rgba(0,0,0,0.06)',
-                      borderRadius: '14px',
-                      overflow: 'hidden',
-                      textDecoration: 'none',
-                      color: 'inherit',
-                      boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
-                      height: '100%',
-                    }}
-                  >
+                  <Link href={c.href} className={styles.categoryCard}>
                     {c.heroImage && (
-                      <div
-                        style={{
-                          aspectRatio: '16 / 10',
-                          background: '#eeede4',
-                          overflow: 'hidden',
-                        }}
-                      >
+                      <div className={styles.categoryMedia}>
                         <Image
                           src={`${c.heroImage}?w=960&q=80`}
                           alt={`${c.label} – barnaktiviteter på Mallorca`}
                           width={640}
                           height={400}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                          className={styles.categoryImage}
                         />
                       </div>
                     )}
-                    <div style={{ padding: '18px 22px 20px', display: 'flex', flexDirection: 'column', gap: '8px', flexGrow: 1 }}>
-                      <div
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'baseline',
-                          gap: '8px',
-                          flexWrap: 'wrap',
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontFamily: 'var(--font-display)',
-                            fontSize: '1.25rem',
-                            letterSpacing: '0.04em',
-                            color: '#383a46',
-                          }}
-                        >
+                    <div className={styles.categoryBody}>
+                      <div className={styles.categoryTitleRow}>
+                        <span className={styles.categoryName}>
                           {c.label}
                         </span>
-                        <span style={{ color: '#993335', fontSize: '0.9rem', fontWeight: 600 }}>
+                        <span className={styles.categoryCount}>
                           ({c.count})
                         </span>
                       </div>
-                      <p
-                        style={{
-                          margin: 0,
-                          fontSize: '0.9rem',
-                          lineHeight: 1.55,
-                          color: '#4b5563',
-                        }}
-                      >
+                      <p className={styles.categoryTagline}>
                         {c.shortTagline}
                       </p>
                     </div>
@@ -222,11 +151,8 @@ export default function BarnHubPage() {
         </section>
 
         {/* ========== INSIDER TIPS (before activity list per spec) ========== */}
-        <section style={{ marginBottom: 'clamp(40px, 6vw, 64px)' }} aria-labelledby="insider-tips-heading">
-          <h2
-            id="insider-tips-heading"
-            style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}
-          >
+        <section className={styles.block} aria-labelledby="insider-tips-heading">
+          <h2 id="insider-tips-heading" className="sr-only">
             Insider-tips från lokalkännare
           </h2>
           <InsiderTipBox
@@ -236,65 +162,27 @@ export default function BarnHubPage() {
         </section>
 
         {/* ========== ACTIVITY LIST WITH FILTER ========== */}
-        <section aria-labelledby="alla-aktiviteter-heading">
-          <h2
-            id="alla-aktiviteter-heading"
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
-              letterSpacing: '0.04em',
-              color: '#383a46',
-              margin: '0 0 12px',
-            }}
-          >
+        <section className={styles.activities} aria-labelledby="alla-aktiviteter-heading">
+          <h2 id="alla-aktiviteter-heading" className={styles.sectionTitle}>
             Alla aktiviteter
           </h2>
-          <p style={{ fontSize: '0.95rem', color: 'var(--color-text-muted)', margin: '0 0 24px', maxWidth: '60ch' }}>
+          <p className={styles.listIntro}>
             {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. Filtrera efter ålder
             eller klicka dig vidare till respektive kategorisida för mer detaljer.
           </p>
 
-          <div
-            style={{
-              position: 'sticky',
-              top: '72px',
-              zIndex: 40,
-              background: 'rgba(254, 254, 251, 0.94)',
-              backdropFilter: 'blur(8px)',
-              padding: '14px 0',
-              marginBottom: '28px',
-              borderBottom: '1px solid rgba(0,0,0,0.06)',
-            }}
-          >
+          <div className={styles.filterBar}>
             <AgeFilter listId={LIST_ID} itemAges={ACTIVITIES.map((a) => a.ageGroups)} />
           </div>
 
           <div
             id={`${LIST_ID}-tom`}
-            className="a2-age-empty"
+            className={`a2-age-empty ${styles.empty}`}
             role="status"
-            style={{
-              padding: '32px',
-              background: 'white',
-              borderRadius: '12px',
-              border: '1px solid rgba(0,0,0,0.06)',
-              textAlign: 'center',
-              color: 'var(--color-text-muted)',
-            }}
           >
             Inga aktiviteter matchar valda åldersgrupper. Prova att rensa filtret.
           </div>
-          <ul
-            id={LIST_ID}
-            style={{
-              listStyle: 'none',
-              padding: 0,
-              margin: 0,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: 'clamp(14px, 2vw, 20px)',
-            }}
-          >
+          <ul id={LIST_ID} className={styles.activityGrid}>
             {ACTIVITIES.map((a) => (
               <li key={a.slug} data-ages={a.ageGroups.join(' ')}>
                 <ActivityCard activity={a} cardCategory={a.categories[0]} />

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import styles from './MatFilter.module.css';
 
 // Restaurangkorten serverrenderas i page.tsx med data-kategori. Filtret döljer
 // bara de kort som inte matchar, via en genererad <style>-regel.
@@ -20,17 +21,17 @@ export default function MatFilter({ listId, kategorier, allaKategorier }: Props)
   return (
     <>
       {css && <style>{css}</style>}
-      <div className="mat-filter-scroll" role="group" aria-label="Filtrera restauranger" style={{ display: 'flex', gap: 8, overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', padding: '2px 2px 4px', marginBottom: 24 }}>
+      <div className={styles.row} role="group" aria-label="Filtrera restauranger">
         {kategorier.map((k) => {
           const active = filter === k;
           return (
-            <button key={k} type="button" aria-pressed={active} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #383a46' : '1px solid #E2D8C8', background: active ? '#383a46' : 'white', color: active ? 'white' : '#383a46', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
+            <button key={k} type="button" aria-pressed={active} onClick={() => setFilter(k)} className={styles.button}>
               {k}
             </button>
           );
         })}
       </div>
-      <p style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem', margin: '0 0 20px' }} aria-live="polite">{antal} restauranger</p>
+      <p className={styles.count} aria-live="polite">{antal} restauranger</p>
     </>
   );
 }

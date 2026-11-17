@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
+import styles from './page.module.css';
 
 type Aktivitet = {
   titel: string;
@@ -79,7 +80,7 @@ const aktiviteter: Aktivitet[] = [
 
 export default function AktiviteterPage() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       {/* Hero */}
       <HeroImage
         src="https://images.unsplash.com/photo-1533105079780-92b9be482077"
@@ -91,22 +92,22 @@ export default function AktiviteterPage() {
       />
 
       {/* Innehåll */}
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,60px)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(340px,100%), 1fr))', gap: '24px' }}>
+      <div className={styles.inner}>
+        <div className={styles.cardGrid}>
           {aktiviteter.map((a, i) => (
-            <Link key={i} href={a.href} style={{ textDecoration: 'none' }}>
-              <div className="a2-lift" style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', cursor: 'pointer', height: '100%' }}>
-                <Image src={a.bild} alt={a.titel} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ padding: '24px' }}>
-                  <div style={{ marginBottom: '8px', color: '#383a46' }}><a.Icon size={28} /></div>
-                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.5rem', letterSpacing: '0.05em', margin: '0 0 10px', lineHeight: '1.15', color: '#383a46' }}>{a.titel}</h2>
-                  <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 16px' }}>{a.beskrivning}</p>
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '20px' }}>
+            <Link key={i} href={a.href} className={styles.cardLink}>
+              <div className={styles.card}>
+                <Image src={a.bild} alt={a.titel} width={600} height={200} className={styles.cardImage} loading="lazy" />
+                <div className={styles.cardBody}>
+                  <div className={styles.cardIcon}><a.Icon size={28} /></div>
+                  <h2 className={styles.cardTitle}>{a.titel}</h2>
+                  <p className={styles.cardText}>{a.beskrivning}</p>
+                  <div className={styles.chips}>
                     {a.highlights.map((h, j) => (
-                      <span key={j} style={{ background: '#F0EBE3', color: '#993335', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600' }}>{h}</span>
+                      <span key={j} className={styles.chip}>{h}</span>
                     ))}
                   </div>
-                  <div style={{ display: 'inline-block', padding: '10px 24px', background: '#993335', color: '#fefefb', borderRadius: '8px', fontWeight: '700', fontSize: '0.9rem' }}>
+                  <div className={styles.cardButton}>
                     Utforska →
                   </div>
                 </div>
@@ -115,50 +116,50 @@ export default function AktiviteterPage() {
           ))}
         </div>
 
-        <section id="barnvanligt" style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 8px' }}>För hela familjen</p>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', margin: '0 0 10px', color: '#383a46' }}>Barnvänligt</h2>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 28px', maxWidth: '60ch' }}>
+        <section id="barnvanligt" className={`${styles.section} ${styles.sectionMobile}`}>
+          <p className={styles.eyebrow}>För hela familjen</p>
+          <h2 className={styles.sectionTitle}>Barnvänligt</h2>
+          <p className={styles.intro}>
             Vattenparker, grottor, djurparker och äventyrsparker – Mallorca hör till Europas bästa resmål för barnfamiljer. Här är våra handplockade favoriter.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(260px,100%), 1fr))', gap: 16, marginBottom: 28 }}>
+          <div className={styles.barnGrid}>
             {barnvanligt.map(b => (
-              <article key={b.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
-                <div style={{ position: 'relative', width: '100%', height: 140 }}>
-                  <Image src={b.bild} alt={b.namn} fill sizes="(max-width:768px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
-                  <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b.kategori}</div>
+              <article key={b.namn} className={styles.barnCard}>
+                <div className={styles.barnImage}>
+                  <Image src={b.bild} alt={b.namn} fill sizes="(max-width:768px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                  <div className={styles.badge}>{b.kategori}</div>
                 </div>
-                <div style={{ padding: '14px 16px 16px' }}>
-                  <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.15rem', letterSpacing: '0.04em', margin: '0 0 4px', color: '#383a46', lineHeight: 1.15 }}>{b.namn}</h3>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: 'var(--color-text-muted)', fontSize: '0.78rem', marginBottom: 8 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {b.plats}</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconUsers size={11} /> {b.ålder}</span>
+                <div className={styles.barnBody}>
+                  <h3 className={styles.barnTitle}>{b.namn}</h3>
+                  <div className={styles.meta}>
+                    <span className={styles.metaItem}><IconPin size={11} /> {b.plats}</span>
+                    <span className={styles.metaItem}><IconUsers size={11} /> {b.ålder}</span>
                   </div>
-                  <p style={{ fontSize: '0.86rem', color: '#374151', lineHeight: 1.5, margin: 0 }}>{b.beskrivning}</p>
+                  <p className={styles.barnText}>{b.beskrivning}</p>
                 </div>
               </article>
             ))}
           </div>
 
-          <Link href="/barn" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+          <Link href="/barn" className={styles.darkButton}>
             Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
           </Link>
         </section>
 
-        <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid #ede5da' }}>
-          <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: '600', marginBottom: '8px' }}>LÄS VIDARE</p>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', letterSpacing: '0.05em', marginBottom: '32px', color: '#383a46' }}>Fördjupa dig</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px,100%), 1fr))', gap: '20px' }}>
+        <div className={styles.section}>
+          <p className={styles.eyebrow}>LÄS VIDARE</p>
+          <h2 className={styles.sectionTitle}>Fördjupa dig</h2>
+          <div className={styles.readGrid}>
             {[
               { titel: 'Golfguiden', text: 'Vilka banor passar din nivå, och vilka är värda en extra resdag? Vår genomgång av öns golfbanor.', href: '/guide/golf-mallorca-guide' },
               { titel: 'Vingårdar på Mallorca', text: 'Binissalem, Pla i Llevant och små familjeägda bodegas – perfekt för en lugn dag för två.', href: '/vingardar' },
               { titel: 'Mallorca med barn', text: 'Vattenparker, grottor och djurparker, med tips om vilken ålder varje upplevelse passar för.', href: '/guide/mallorca-med-barn' },
             ].map(t => (
-              <Link key={t.href} href={t.href} style={{ display: 'block', textDecoration: 'none', background: 'white', borderRadius: '16px', padding: '24px', border: '1px solid #ede5da', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', letterSpacing: '0.05em', color: '#383a46', margin: '0 0 8px', lineHeight: 1.2 }}>{t.titel}</h3>
-                <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.6, margin: '0 0 14px' }}>{t.text}</p>
-                <span style={{ color: '#993335', fontWeight: 700, fontSize: '0.9rem' }}>Läs mer →</span>
+              <Link key={t.href} href={t.href} className={styles.readCard}>
+                <h3 className={styles.readTitle}>{t.titel}</h3>
+                <p className={styles.readText}>{t.text}</p>
+                <span className={styles.readLink}>Läs mer →</span>
               </Link>
             ))}
           </div>

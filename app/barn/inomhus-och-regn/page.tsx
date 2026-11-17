@@ -45,7 +45,7 @@ export default function InomhusOchRegnPage() {
       }}
       intro={
         <>
-          <p style={{ marginTop: 0 }}>
+          <p>
             Mallorca har några sommarveckor där regnet verkligen kommer i skurar — och fler dagar i
             sommaren då solen är för stark för småbarn mellan 12 och 16. Det är då du behöver en kort
             lista med inomhusalternativ som faktiskt funkar.
