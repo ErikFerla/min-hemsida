@@ -1,6 +1,63 @@
 import type { NextConfig } from 'next';
 
+const isDev = process.env.NODE_ENV === 'development';
+
+// Externa bildvärdar som sidorna laddar direkt (råa <img>, og-bilder) eller via next/image.
+const IMAGE_HOSTS = ['https://images.unsplash.com', 'https://images.pexels.com', 'https://upload.wikimedia.org'];
+// Kartbrickor för Leaflet (OpenStreetMap).
+const TILE_HOSTS = ['https://tile.openstreetmap.org', 'https://*.tile.openstreetmap.org'];
+
+// CSP i Report-Only-läge: bryter inget, men webbläsaren rapporterar överträdelser
+// i konsolen. Next.js statiska sidor har inline-skript utan nonce, därav 'unsafe-inline'
+// (nonce skulle göra alla sidor dynamiska). Väderdata hämtas via egen /api/weather,
+// så connect-src räcker med 'self'. Skärp och flytta till enforced CSP när rapporterna är rena.
+const cspReportOnly = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  "style-src 'self' 'unsafe-inline'",
+  `img-src 'self' data: blob: ${[...IMAGE_HOSTS, ...TILE_HOSTS].join(' ')}`,
+  "font-src 'self'",
+  `connect-src 'self'${isDev ? ' ws: wss:' : ''}`,
+  "frame-src 'none'",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "media-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+].join('; ');
+
+// Den del av CSP som redan nu tillämpas på riktigt (frame-ancestors ignoreras i Report-Only).
+const cspEnforced = ["frame-ancestors 'none'", "base-uri 'self'", "object-src 'none'"].join('; ');
+
+const securityHeaders = [
+  { key: 'Content-Security-Policy', value: cspEnforced },
+  { key: 'Content-Security-Policy-Report-Only', value: cspReportOnly },
+  { key: 'X-Frame-Options', value: 'DENY' },
+  { key: 'X-Content-Type-Options', value: 'nosniff' },
+  { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+  {
+    key: 'Permissions-Policy',
+    value: [
+      'camera=()',
+      'microphone=()',
+      'geolocation=()',
+      'payment=()',
+      'usb=()',
+      'serial=()',
+      'magnetometer=()',
+      'gyroscope=()',
+      'accelerometer=()',
+      'display-capture=()',
+      'browsing-topics=()',
+    ].join(', '),
+  },
+  { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+];
+
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -19,6 +76,9 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 768, 1024, 1280, 1600],
     imageSizes: [64, 128, 256, 384, 600],
+  },
+  async headers() {
+    return [{ source: '/:path*', headers: securityHeaders }];
   },
   async redirects() {
     return [

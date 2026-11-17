@@ -1,4 +1,5 @@
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import JsonLd from '@/app/components/JsonLd';
 import { golfbanor } from '@/data/golf-courses';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 
@@ -47,7 +48,7 @@ function GolfItemListSchema() {
       },
     })),
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export default function GolfLayout({ children }: { children: React.ReactNode }) {
