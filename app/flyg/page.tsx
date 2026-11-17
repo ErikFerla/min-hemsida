@@ -2,6 +2,8 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { IconPlane, IconSparkle, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import h from '../guide/headings.module.css';
+import styles from './flyg.module.css';
 
 const flygplatser = [
   { kod: 'GOT', namn: 'Göteborg Landvetter' },
@@ -37,12 +39,6 @@ function valideraDatum(utresa: string, hemresa: string): Fel {
   return fel;
 }
 
-const fältStil = { width: '100%', padding: '12px 16px', border: '2px solid #ddd', borderRadius: '10px', fontSize: '1rem', boxSizing: 'border-box' as const };
-const felStil = { ...fältStil, border: '2px solid #b42318' };
-const etikettStil = { display: 'block', fontWeight: '700', fontSize: '0.85rem', marginBottom: '8px', color: '#555' };
-const hjälpStil = { fontSize: '0.8rem', color: 'var(--color-text-muted)', margin: '6px 0 0' };
-const felTextStil = { fontSize: '0.85rem', color: '#b42318', fontWeight: 600, margin: '6px 0 0' };
-
 export default function FlygPage() {
   const [från, setFrån] = useState('GOT');
   const [utresa, setUtresa] = useState('');
@@ -64,7 +60,7 @@ export default function FlygPage() {
   };
 
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       {/* Hero */}
       <HeroImage
         src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
@@ -75,24 +71,24 @@ export default function FlygPage() {
         height="55vh"
       />
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: 'clamp(24px,4vw,60px) clamp(16px,4vw,40px)' }}>
+      <div className={styles.container}>
 
         {/* Sökformulär */}
-        <section aria-labelledby="flygsok-rubrik" style={{ background: 'white', borderRadius: '20px', padding: 'clamp(20px, 4vw, 40px)', boxShadow: '0 4px 24px rgba(0,0,0,0.1)', marginBottom: '48px' }}>
-          <h2 id="flygsok-rubrik" style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 28px', color: '#111' }}>
+        <section aria-labelledby="flygsok-rubrik" className={styles.search}>
+          <h2 id="flygsok-rubrik" className={`${h.h2} ${styles.heading}`}>
             Sök flyg till Palma de Mallorca
           </h2>
 
           <form onSubmit={sökFlyg} noValidate aria-labelledby="flygsok-rubrik">
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+            <div className={styles.fields}>
               <div>
-                <label htmlFor="flyg-fran" style={etikettStil}>AVRESA FRÅN</label>
+                <label htmlFor="flyg-fran" className={styles.label}>AVRESA FRÅN</label>
                 <select
                   id="flyg-fran"
                   name="fran"
                   value={från}
                   onChange={e => setFrån(e.target.value)}
-                  style={{ ...fältStil, background: 'white', cursor: 'pointer' }}
+                  className={`${styles.field} ${styles.select}`}
                 >
                   {flygplatser.map(f => (
                     <option key={f.kod} value={f.kod}>{f.namn} ({f.kod})</option>
@@ -101,18 +97,18 @@ export default function FlygPage() {
               </div>
 
               <div>
-                <label htmlFor="flyg-till" style={etikettStil}>DESTINATION</label>
+                <label htmlFor="flyg-till" className={styles.label}>DESTINATION</label>
                 <input
                   id="flyg-till"
                   type="text"
                   value="Palma de Mallorca (PMI)"
                   readOnly
-                  style={{ ...fältStil, background: '#f9f9f9', color: '#555' }}
+                  className={`${styles.field} ${styles.readonly}`}
                 />
               </div>
 
               <div>
-                <label htmlFor="flyg-utresa" style={etikettStil}>UTRESEDATUM</label>
+                <label htmlFor="flyg-utresa" className={styles.label}>UTRESEDATUM</label>
                 <input
                   ref={utresaRef}
                   id="flyg-utresa"
@@ -123,13 +119,13 @@ export default function FlygPage() {
                   aria-describedby="flyg-utresa-fel"
                   value={utresa}
                   onChange={e => { setUtresa(e.target.value); setFel(f => ({ ...f, utresa: undefined })); }}
-                  style={fel.utresa ? felStil : fältStil}
+                  className={styles.field}
                 />
-                <p id="flyg-utresa-fel" aria-live="polite" style={felTextStil}>{fel.utresa}</p>
+                <p id="flyg-utresa-fel" aria-live="polite" className={styles.error}>{fel.utresa}</p>
               </div>
 
               <div>
-                <label htmlFor="flyg-hemresa" style={etikettStil}>HEMRESEDATUM</label>
+                <label htmlFor="flyg-hemresa" className={styles.label}>HEMRESEDATUM</label>
                 <input
                   ref={hemresaRef}
                   id="flyg-hemresa"
@@ -140,20 +136,20 @@ export default function FlygPage() {
                   aria-describedby="flyg-hemresa-hjalp flyg-hemresa-fel"
                   value={hemresa}
                   onChange={e => { setHemresa(e.target.value); setFel(f => ({ ...f, hemresa: undefined })); }}
-                  style={fel.hemresa ? felStil : fältStil}
+                  className={styles.field}
                 />
-                <p id="flyg-hemresa-hjalp" style={hjälpStil}>Lämna tomt för enkelresa.</p>
-                <p id="flyg-hemresa-fel" aria-live="polite" style={felTextStil}>{fel.hemresa}</p>
+                <p id="flyg-hemresa-hjalp" className={styles.help}>Lämna tomt för enkelresa.</p>
+                <p id="flyg-hemresa-fel" aria-live="polite" className={styles.error}>{fel.hemresa}</p>
               </div>
 
               <div>
-                <label htmlFor="flyg-resenarer" style={etikettStil}>RESENÄRER</label>
+                <label htmlFor="flyg-resenarer" className={styles.label}>RESENÄRER</label>
                 <select
                   id="flyg-resenarer"
                   name="resenarer"
                   value={resenärer}
                   onChange={e => setResenärer(e.target.value)}
-                  style={{ ...fältStil, background: 'white', cursor: 'pointer' }}
+                  className={`${styles.field} ${styles.select}`}
                 >
                   {[1,2,3,4,5,6,7,8].map(n => (
                     <option key={n} value={n}>{n} {n === 1 ? 'person' : 'personer'}</option>
@@ -165,31 +161,31 @@ export default function FlygPage() {
             <button
               type="submit"
               aria-describedby="flyg-skyscanner-info"
-              style={{ width: '100%', padding: '16px', background: '#993335', color: '#fefefb', border: 'none', borderRadius: '10px', fontSize: '1.1rem', fontFamily: 'var(--font-display)', letterSpacing: '0.1em', cursor: 'pointer' }}
+              className={styles.submit}
             >
               SÖK FLYG PÅ SKYSCANNER →
             </button>
-            <p id="flyg-skyscanner-info" style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: '12px' }}>
+            <p id="flyg-skyscanner-info" className={styles.note}>
               Sökningen öppnas hos Skyscanner i en ny flik. Vi sparar inget av det du fyller i.
             </p>
           </form>
         </section>
 
         {/* Snabbknappar */}
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', letterSpacing: '0.05em', marginBottom: '24px', paddingBottom: '12px', borderBottom: '3px solid #993335', color: '#111', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <h2 className={`${h.h2} ${styles.quickHeading}`}>
           <IconSparkle size={22} /> Snabbsök – Populära avgångar
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '48px' }}>
+        <div className={styles.quickGrid}>
           {flygplatser.map(f => (
-            <div key={f.kod} style={{ background: 'white', borderRadius: '16px', padding: '24px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)' }}>
-              <div style={{ marginBottom: '8px', color: '#383a46' }}><IconPlane size={28} /></div>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.3rem', margin: '0 0 4px', color: '#111' }}>{f.namn}</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: '0 0 16px' }}>{f.kod} → PMI · Palma de Mallorca</p>
+            <div key={f.kod} className={styles.airport}>
+              <div className={styles.airportIcon}><IconPlane size={28} /></div>
+              <h3 className={`${h.h3} ${styles.airportName}`}>{f.namn}</h3>
+              <p className={styles.route}>{f.kod} → PMI · Palma de Mallorca</p>
               <a
                 href={`https://www.skyscanner.se/transport/flyg/${f.kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: 'block', boxSizing: 'border-box', width: '100%', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', fontSize: '0.9rem', fontWeight: '600', textAlign: 'center', textDecoration: 'none' }}
+                className={styles.airportLink}
               >
                 Sök flyg från {f.kod} <span aria-hidden="true">→</span>
                 <span className="sr-only"> (öppnas i ny flik)</span>
@@ -199,20 +195,20 @@ export default function FlygPage() {
         </div>
 
         {/* Tips */}
-        <div style={{ background: '#111', borderRadius: '16px', padding: '32px', color: 'white' }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', letterSpacing: '0.05em', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+        <div className={styles.tips}>
+          <h2 className={`${h.h2} ${styles.tipsHeading}`}>
             <IconBulb size={22} /> Tips för billigare flyg till Mallorca
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '16px' }}>
+          <div className={styles.tipsGrid}>
             {[
               { Icon: IconCalendar, tips: 'Boka 6–8 veckor i förväg för bästa pris' },
               { Icon: IconSun, tips: 'Maj och september är billigare än juli–aug' },
               { Icon: IconClock, tips: 'Tidiga morgon- eller sena kvällsflygningar är ofta billigast' },
               { Icon: IconInfo, tips: 'Sätt prisvarning på Skyscanner och vänta på rea' },
             ].map((t, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.1)', borderRadius: '12px', padding: '16px' }}>
-                <div style={{ marginBottom: '8px', color: 'white' }}><t.Icon size={22} /></div>
-                <p style={{ fontSize: '0.9rem', color: '#ddd', margin: 0, lineHeight: '1.5' }}>{t.tips}</p>
+              <div key={i} className={styles.tip}>
+                <div className={styles.tipIcon}><t.Icon size={22} /></div>
+                <p className={styles.tipText}>{t.tips}</p>
               </div>
             ))}
           </div>
