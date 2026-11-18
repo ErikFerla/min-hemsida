@@ -1,10 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import styles from './HeroSlideshow.module.css';
 
 type Bild = {
-  /** Unsplash-bas-URL utan query-sträng */
+  /** Unsplash-bas-URL utan query-sträng, Commons-thumb-URL (1920px) eller lokal fil (/bilder/...) */
   bas: string;
   alt: string;
   rubrik: string;
@@ -84,10 +85,12 @@ const INTERVALL_MS = 6000;
 const SRCSET_BREDDER = [640, 960, 1280, 1600, 2000];
 
 function bildUrl(bas: string, bredd: number) {
+  if (!isUnsplash(bas)) return sizedImageUrl(bas, bredd);
   return `${bas}?w=${bredd}&q=75&fm=webp&auto=format&fit=crop`;
 }
 
 function bildSrcSet(bas: string) {
+  if (!isUnsplash(bas)) return sizedImageSrcSet(bas);
   return SRCSET_BREDDER.map((w) => `${bildUrl(bas, w)} ${w}w`).join(', ');
 }
 
