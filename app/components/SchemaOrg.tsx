@@ -1,35 +1,5 @@
 import JsonLd from './JsonLd';
 
-type TouristDestinationSchemaProps = {
-  name: string;
-  description: string;
-  image: string;
-  url?: string;
-  lat?: number;
-  lon?: number;
-};
-
-export function TouristDestinationSchema({ name, description, image, url, lat, lon }: TouristDestinationSchemaProps) {
-  const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
-    '@type': 'TouristDestination',
-    name,
-    description,
-    image,
-    touristType: ['Family', 'Couple', 'Solo traveler'],
-    containedInPlace: {
-      '@type': 'Island',
-      name: 'Mallorca',
-      containedInPlace: { '@type': 'Country', name: 'Spain' },
-    },
-  };
-  if (url) schema.url = url;
-  if (typeof lat === 'number' && typeof lon === 'number') {
-    schema.geo = { '@type': 'GeoCoordinates', latitude: lat, longitude: lon };
-  }
-  return <JsonLd data={schema} />;
-}
-
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',

@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
+import EagerImage from './EagerImage';
 import styles from './HeroImage.module.css';
 
 export type HeroImageProps = {
@@ -46,16 +47,13 @@ export default function HeroImage({
 }: HeroImageProps) {
   return (
     <section className={styles.hero} style={{ '--hero-height': height } as CSSProperties}>
-      <img
+      <EagerImage
         src={buildUrl(src, SRC_WIDTH)}
         srcSet={buildSrcSet(src)}
         sizes="100vw"
         alt={alt}
         width={2000}
         height={1125}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
         className={styles.image}
       />
       <div aria-hidden="true" className={styles.overlay} />

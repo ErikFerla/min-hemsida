@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
@@ -44,14 +43,8 @@ function TouristAttractionSchema() {
 }
 
 export default function StrandarLayout({ children }: { children: React.ReactNode }) {
-  // Preload hero-bilden som LCP-kandidat – Next 16 / React 19 stöd
-  ReactDOM.preload(BEACHES_HERO.src, {
-    as: 'image',
-    imageSrcSet: BEACHES_HERO.srcSet,
-    imageSizes: BEACHES_HERO.sizes,
-    fetchPriority: 'high',
-  });
-
+  // Hjältebilden förladdas av SSR via <EagerImage> i page.tsx (en ReactDOM.preload här hamnade även
+  // i RSC-datat och laddade bilden när andra sidor förhämtade /strandar).
   return (
     <>
       <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Stränder', url: '/strandar' }]} />

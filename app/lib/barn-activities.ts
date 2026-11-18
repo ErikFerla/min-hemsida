@@ -565,15 +565,6 @@ export function getActivitiesByCategory(category: Category): Activity[] {
   return ACTIVITIES.filter((a) => a.categories.includes(category));
 }
 
-export function filterByAge(activities: Activity[], ages: AgeGroup[]): Activity[] {
-  if (ages.length === 0) return activities;
-  return activities.filter((a) => a.ageGroups.some((g) => ages.includes(g)));
-}
-
-export function getActivityBySlug(slug: string): Activity | undefined {
-  return ACTIVITIES.find((a) => a.slug === slug);
-}
-
 export function getCategoryMeta(slug: Category): CategoryMeta | undefined {
   return CATEGORIES.find((c) => c.slug === slug);
 }

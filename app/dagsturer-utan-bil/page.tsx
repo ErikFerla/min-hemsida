@@ -41,6 +41,7 @@ const jsonLd = [
     inLanguage: 'sv-SE',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE_URL}${PATH}` },
     url: `${BASE_URL}${PATH}`,
+    author: { '@type': 'Organization', name: 'MyMallorca', url: BASE_URL },
     publisher: { '@type': 'Organization', name: 'MyMallorca', url: BASE_URL },
   },
   {

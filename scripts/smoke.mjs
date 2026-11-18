@@ -7,6 +7,9 @@
  *    - status 200 (ingen omdirigering)
  *    - exakt en <h1> i den serverrenderade HTML:en
  *    - säkerhetsheaders finns (nosniff, CSP, frame-ancestors)
+ *    - SEO: självrefererande canonical, titel ≤60 tecken, beskrivning 120–160 tecken
+ *      (båda unika för sajten), og:title/og:url/og:image och twitter:card, parsebar JSON-LD
+ *    - interna länkar i SSR-HTML:en leder till sidor som svarar 200
  * 3. Öppnar några sidor i Chromium (Playwright) och kräver 0 konsolfel och
  *    0 okontrollerade JS-fel. CSP Report-Only-överträdelser räknas som fel –
  *    lägg i så fall till värden i next.config.ts.
@@ -28,6 +31,10 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PORT = Number(process.env.SMOKE_PORT || 3199);
 const BROWSER_PATHS = ['/', '/strandar', '/barn', '/vader', '/palma-de-mallorca', '/guider', '/aktiviteter/golf'];
 const CONCURRENCY = 6;
+const SITE_ORIGIN = 'https://www.mymallorca.se';
+const TITLE_MAX = 60;
+const DESC_MIN = 120;
+const DESC_MAX = 160;
 
 const failures = [];
 const fail = (msg) => {
@@ -77,6 +84,56 @@ async function mapLimit(items, limit, fn) {
   await Promise.all(workers);
 }
 
+const decode = (s) =>
+  s
+    .replace(/&quot;/g, '"')
+    .replace(/&#x27;|&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+
+function metaContent(html, attr, name) {
+  const tag = html.match(new RegExp(`<meta[^>]*\\s${attr}="${name}"[^>]*>`));
+  if (!tag) return null;
+  const content = tag[0].match(/\scontent="([^"]*)"/);
+  return content ? decode(content[1]) : '';
+}
+
+/** SEO-kontroller på en sidas SSR-HTML. Returnerar titel, beskrivning och interna länkmål. */
+function checkSeo(p, html) {
+  const title = decode((html.match(/<title>([^<]*)<\/title>/) || [])[1] || '');
+  const description = metaContent(html, 'name', 'description') ?? '';
+  const expected = SITE_ORIGIN + (p === '/' ? '' : p);
+  const canonical = (html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]*)"/) || [])[1];
+  if (canonical?.replace(/\/$/, '') !== expected) fail(`${p}: canonical är ${canonical ?? 'saknas'} (ska vara ${expected})`);
+  if (!title) fail(`${p}: saknar <title>`);
+  else if (title.length > TITLE_MAX) fail(`${p}: titeln är ${title.length} tecken (max ${TITLE_MAX}): "${title}"`);
+  if (description.length < DESC_MIN || description.length > DESC_MAX) {
+    fail(`${p}: beskrivningen är ${description.length} tecken (ska vara ${DESC_MIN}–${DESC_MAX})`);
+  }
+  for (const prop of ['og:title', 'og:url', 'og:image']) {
+    if (!metaContent(html, 'property', prop)) fail(`${p}: saknar ${prop}`);
+  }
+  const ogUrl = metaContent(html, 'property', 'og:url');
+  if (ogUrl && ogUrl.replace(/\/$/, '') !== expected) fail(`${p}: og:url är ${ogUrl} (ska vara ${expected})`);
+  if (!metaContent(html, 'name', 'twitter:card')) fail(`${p}: saknar twitter:card`);
+  for (const m of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    try {
+      JSON.parse(m[1]);
+    } catch (e) {
+      fail(`${p}: JSON-LD går inte att tolka (${e.message})`);
+    }
+  }
+  const links = new Set();
+  for (const m of html.matchAll(/<a\s[^>]*href="([^"]*)"/g)) {
+    let href = decode(m[1]);
+    if (href.startsWith(SITE_ORIGIN)) href = href.slice(SITE_ORIGIN.length) || '/';
+    if (!href.startsWith('/') || href.startsWith('//')) continue;
+    links.add(href.split('#')[0].split('?')[0] || '/');
+  }
+  return { title, description, links };
+}
+
 async function checkSitemap(base) {
   console.log('\n== Sitemap och SSR-HTML ==');
   const res = await fetch(`${base}/sitemap.xml`);
@@ -95,6 +152,7 @@ async function checkSitemap(base) {
   const dupes = paths.filter((p, i) => paths.indexOf(p) !== i);
   if (dupes.length) fail(`dubbletter i sitemap: ${[...new Set(dupes)].join(', ')}`);
 
+  const pages = new Map();
   await mapLimit(paths, CONCURRENCY, async (p) => {
     let r;
     try {
@@ -115,8 +173,35 @@ async function checkSitemap(base) {
     if (!/frame-ancestors 'none'/.test(r.headers.get('content-security-policy') || '')) {
       fail(`${p}: saknar frame-ancestors 'none' i Content-Security-Policy`);
     }
+    pages.set(p, checkSeo(p, html));
     console.log(`  ok  ${p} (h1: ${h1})`);
   });
+
+  console.log('\n== Unika titlar och beskrivningar, interna länkar ==');
+  for (const [key, label] of [['title', 'titel'], ['description', 'beskrivning']]) {
+    const seen = new Map();
+    for (const [p, info] of pages) {
+      if (!info[key]) continue;
+      if (seen.has(info[key])) fail(`${p}: samma ${label} som ${seen.get(info[key])}`);
+      else seen.set(info[key], p);
+    }
+  }
+  // Länkmål som inte finns i sitemapen hämtas en gång var (t.ex. .ics-filer och /bildkrediter).
+  const linkTargets = new Set([...pages.values()].flatMap((info) => [...info.links]));
+  const broken = new Map();
+  await mapLimit([...linkTargets].filter((t) => !paths.includes(t)), CONCURRENCY, async (t) => {
+    try {
+      const r = await fetch(base + t, { redirect: 'manual' });
+      await r.arrayBuffer();
+      if (r.status !== 200) broken.set(t, String(r.status));
+    } catch (e) {
+      broken.set(t, e.message);
+    }
+  });
+  for (const [p, info] of pages) {
+    for (const t of info.links) if (broken.has(t)) fail(`${p}: trasig intern länk till ${t} (${broken.get(t)})`);
+  }
+  console.log(`  ${linkTargets.size} unika interna länkmål, ${broken.size} trasiga`);
   return paths;
 }
 
