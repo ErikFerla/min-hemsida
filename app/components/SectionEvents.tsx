@@ -4,14 +4,42 @@ import { kommandeEvenemang, type Kategori } from '@/app/evenemang/data';
 import s from './section.module.css';
 import styles from './SectionEvents.module.css';
 
-// Dekorativa stämningsbilder per kategori (inte bilder från själva evenemangen – därför alt="").
+// Dekorativa stämningsbilder (alt="" eftersom kortets text redan säger vad det är). Bilderna
+// visar typen av evenemang, inte själva tillfället – källor och licenser i data/credits/d3.ts.
+const BILD = {
+  eld: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/AtiarFoc_2011_%285380513659%29.jpg/1920px-AtiarFoc_2011_%285380513659%29.jpg',
+  firo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Port_de_S%C3%B3ller._Fir%C3%B3._Can_Gener%C3%B3s._Batalla.jpg/960px-Port_de_S%C3%B3ller._Fir%C3%B3._Can_Gener%C3%B3s._Batalla.jpg',
+  regatta: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Regata_Conde_de_Barcelona_-_panoramio.jpg/960px-Regata_Conde_de_Barcelona_-_panoramio.jpg',
+  cykel: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/UPO_5863_%2854010340987%29.jpg/960px-UPO_5863_%2854010340987%29.jpg',
+  marknad: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Dijous_bo.jpg/960px-Dijous_bo.jpg',
+  parad: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Cabalgata_de_Reyes_Magos_2022-JErez-IMG_20220105_173807.jpg/960px-Cabalgata_de_Reyes_Magos_2022-JErez-IMG_20220105_173807.jpg',
+  konsert: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Mallorca_Live_Summer_2020.jpg/960px-Mallorca_Live_Summer_2020.jpg',
+  mat: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Pa_amb_oli_con_jam%C3%B3n_y_queso.jpg/1920px-Pa_amb_oli_con_jam%C3%B3n_y_queso.jpg',
+  vin: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vinya_a_Estellencs_%28Mallorca%29.JPG/960px-Vinya_a_Estellencs_%28Mallorca%29.JPG',
+  palma: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Catedral_de_Santa_Mar%C3%ADa_de_Palma_de_Mallorca_in_2024.jpg/960px-Catedral_de_Santa_Mar%C3%ADa_de_Palma_de_Mallorca_in_2024.jpg',
+};
+
 const kategoriBild: Record<Kategori, string> = {
-  'Sport': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-  'Musik': 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80',
-  'Kultur': 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=600&q=80',
-  'Mat & dryck': 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80',
-  'Marknad': 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80',
-  'Familj': 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80',
+  'Sport': BILD.cykel,
+  'Musik': BILD.konsert,
+  'Kultur': BILD.palma,
+  'Mat & dryck': BILD.mat,
+  'Marknad': BILD.marknad,
+  'Familj': BILD.parad,
+};
+
+/** Evenemang där en mer träffande bild finns än kategorins. */
+const evenemangBild: Partial<Record<string, string>> = {
+  'sant-antoni': BILD.eld,
+  'sant-sebastia': BILD.eld,
+  'nit-de-sant-joan': BILD.eld,
+  'firo-soller': BILD.firo,
+  'moros-pollenca': BILD.firo,
+  'princesa-sofia': BILD.regatta,
+  'palmavela': BILD.regatta,
+  'copa-del-rey': BILD.regatta,
+  'palma-marathon': BILD.palma,
+  'festa-des-vermar': BILD.vin,
 };
 
 // Startsidans urval: de sex närmaste evenemangen. Datumet beräknas vid rendering –
@@ -38,7 +66,7 @@ export default function SectionEvents() {
             {urval.map(e => (
               <article key={e.key} className={styles.card}>
                 <div className={styles.media}>
-                  <img src={kategoriBild[e.kategori]} alt="" loading="lazy" decoding="async" width={600} height={140} className={styles.image} />
+                  <img src={evenemangBild[e.id] ?? kategoriBild[e.kategori]} alt="" loading="lazy" decoding="async" width={600} height={140} className={styles.image} />
                   <div className={styles.category}>{e.kategori}</div>
                 </div>
                 <div className={styles.body}>

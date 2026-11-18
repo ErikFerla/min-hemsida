@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { cardImageUrl } from '@/app/lib/image-url';
 import Link from 'next/link';
 import { IconPin, IconExternal } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
@@ -20,7 +21,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
     <Link href={href} className={styles.card}>
       <div className={styles.media}>
         <Image
-          src={`${activity.imageUrl}?w=960&q=80`}
+          src={cardImageUrl(activity.imageUrl, 960)}
           alt={activity.imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"

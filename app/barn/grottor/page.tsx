@@ -2,15 +2,17 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
-const IMAGE = 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Coves_del_Drac_21.jpg/1920px-Coves_del_Drac_21.jpg';
 
 export const metadata = buildPageMetadata({
   path: '/barn/grottor',
   title: 'Grottor på Mallorca med barn – 4 att besöka',
   description:
     'Coves del Drac, Coves dels Hams, Coves d’Artà och Coves de Campanet – öppettider, ungefärliga priser 2026 och tips för barnfamiljer.',
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Droppstensgrotta på Mallorca',
+  image: IMAGE,
+  imageWidth: 1920,
+  imageHeight: 1080,
+  imageAlt: 'Droppstenar och underjordisk sjö i Coves del Drac',
 });
 
 export default function GrottorPage() {
@@ -19,7 +21,7 @@ export default function GrottorPage() {
       category="grottor"
       hero={{
         imageSrc: IMAGE,
-        imageAlt: 'Droppstensgrotta på Mallorcas östkust',
+        imageAlt: 'Droppstenar och underjordisk sjö i Coves del Drac',
         title: 'Grottor på Mallorca',
         subtitle: 'Fyra grottor som fungerar för barnfamiljer – svalt på sommaren och torrt när det regnar.',
       }}

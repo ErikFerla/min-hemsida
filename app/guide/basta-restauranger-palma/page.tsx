@@ -50,8 +50,8 @@ export default function BästaRestaurangerPalma() {
   return (
     <div className={styles.page}>
       <HeroImage
-        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
-        alt="Dukat restaurangbord med mallorkinska tapas och färska råvaror i Palma"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg"
+        alt="Flera små tapasrätter på ett bord – genrebild, inte från någon av restaurangerna"
         kicker="Matguide · 2026"
         title="De 15 bästa restaurangerna i Palma"
         subtitle="Handplockade av en som bor här – inte rankade av Tripadvisor. Från Michelinstjärnor till frukost för 1 €."

@@ -17,7 +17,7 @@ export type PraktiskSida = {
   breadcrumb: string;
   /** 120–160 tecken. */
   description: string;
-  /** Bild som redan används på sajten (bas-URL utan query). */
+  /** Hero- och OG-bild: Unsplash-bas-URL utan query eller Commons-thumb-URL (krediter i data/credits/d2.ts). */
   image: string;
   imageAlt: string;
   datePublished: string;
@@ -33,8 +33,8 @@ export const PRAKTISKA_SIDOR = {
     breadcrumb: 'Budget och priser',
     description:
       'Ungefärliga priser på Mallorca 2026: kaffe, lunch, middag, öl, buss, hyrbil, entréer och solstolar – plus turistskatten, dricks och våra bästa sparatips.',
-    image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e',
-    imageAlt: 'Palma de Mallorca med katedralen La Seu vid havet',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
+    imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
     datePublished: '2026-11-18',
     dateModified: '2026-11-18',
     checked: '2026-11-18',
@@ -46,8 +46,8 @@ export const PRAKTISKA_SIDOR = {
     breadcrumb: 'Praktiskt och säkerhet',
     description:
       'Det praktiska inför Mallorcaresan: id-kort, EU-kort och vård, 112, jourapotek, vatten, språk, öppettider, alkoholregler, regler på stranden och brandrisk.',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-    imageAlt: 'Strand med turkost vatten på Mallorca en solig dag',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/TIB_route_412_bus_at_Costa_dels_Pins_Mallorca.jpg/1920px-TIB_route_412_bus_at_Costa_dels_Pins_Mallorca.jpg',
+    imageAlt: 'Gul TIB-buss på linje 412 vid hållplatsen i Costa dels Pins',
     datePublished: '2026-11-18',
     dateModified: '2026-11-18',
     checked: '2026-11-18',
@@ -59,8 +59,8 @@ export const PRAKTISKA_SIDOR = {
     breadcrumb: 'Mallorca på vintern',
     description:
       'Mallorca november–mars: vad som är öppet och stängt, vädret, mandelblomningen, vandring, Sant Antoni och Sant Sebastià – och tips för dig som bor på ön.',
-    image: 'https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5',
-    imageAlt: 'Solig terrass med utsikt över Mallorcas kust och olivlundar',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Almendro_en_flor_-_panoramio.jpg/1920px-Almendro_en_flor_-_panoramio.jpg',
+    imageAlt: 'Blommande mandelträd mot blå himmel',
     datePublished: '2026-11-18',
     dateModified: '2026-11-18',
     checked: '2026-11-18',
@@ -72,8 +72,8 @@ export const PRAKTISKA_SIDOR = {
     breadcrumb: 'Vandring och cykling',
     description:
       'Vandra GR 221 med övernattning i refugis, Torrent de Pareis och Puig de Massanella, cykla Sa Calobra och Formentor – med säsong, regler och säkerhet i bergen.',
-    image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077',
-    imageAlt: 'Vandrare på en bergstig i Serra de Tramuntana på Mallorca',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg',
+    imageAlt: 'Serra de Tramuntana sedd från vandringsleden Camí de s\'Arxiduc vid Valldemossa',
     datePublished: '2026-11-18',
     dateModified: '2026-11-18',
     checked: '2026-11-18',
@@ -83,8 +83,10 @@ export const PRAKTISKA_SIDOR = {
 export type PraktiskSidaKey = keyof typeof PRAKTISKA_SIDOR;
 
 /** Bild-URL i Open Graph-format (1200×630). */
-export const praktiskOgImage = (key: PraktiskSidaKey) =>
-  `${PRAKTISKA_SIDOR[key].image}?w=1200&h=630&fit=crop&q=85`;
+export const praktiskOgImage = (key: PraktiskSidaKey) => {
+  const src: string = PRAKTISKA_SIDOR[key].image;
+  return src.startsWith('https://images.unsplash.com/') ? `${src}?w=1200&h=630&fit=crop&q=85` : src;
+};
 
 const publisher = { '@type': 'Organization', name: 'MyMallorca', url: BASE_URL };
 

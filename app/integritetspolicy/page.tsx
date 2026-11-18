@@ -8,8 +8,8 @@ export const metadata = buildPageMetadata({
   title: 'Integritetspolicy',
   description:
     'Så hanterar MyMallorca personuppgifter: inga konton, inga formulär, ingen analys eller annonsspårning. Här ser du vilka tjänster sidan använder och varför.',
-  image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Palma de Mallorca med katedralen La Seu vid havet',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
+  imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
 });
 
 const breadcrumbs = {
@@ -91,6 +91,13 @@ export default function IntegritetspolicyPage() {
           Eftersom vi inte själva sparar uppgifter om enskilda besökare finns det i regel inget hos oss att lämna ut,
           rätta eller radera. Om du anser att dina personuppgifter hanteras fel kan du vända dig till
           Integritetsskyddsmyndigheten (IMY).
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Har du frågor om den här policyn eller om sajten når du oss på{' '}
+          <a href="mailto:info@mymallorca.se">info@mymallorca.se</a>. Vi svarar så snart vi kan, men vi erbjuder ingen
+          personlig reseplanering.
         </p>
       </article>
     </div>

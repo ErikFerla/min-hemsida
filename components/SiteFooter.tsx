@@ -110,6 +110,10 @@ export default function SiteFooter() {
           <Link href="/integritetspolicy" className={styles.legalLink}>Integritetspolicy</Link>
           {' · '}
           <Link href="/cookies" className={styles.legalLink}>Cookies</Link>
+          {' · '}
+          <Link href="/bildkrediter" className={styles.legalLink}>Bildkrediter</Link>
+          {' · '}
+          <a href="mailto:info@mymallorca.se" className={styles.legalLink}>info@mymallorca.se</a>
         </p>
       </div>
     </footer>

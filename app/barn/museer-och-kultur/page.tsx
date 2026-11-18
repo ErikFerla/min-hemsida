@@ -3,15 +3,17 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
-const IMAGE = 'https://images.unsplash.com/photo-1566073771259-6a8506099945';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/035_2015_06_02_Castell_de_Bellver.jpg/1920px-035_2015_06_02_Castell_de_Bellver.jpg';
 
 export const metadata = buildPageMetadata({
   path: '/barn/museer-och-kultur',
   title: 'Museer och kultur för barn på Mallorca',
   description:
     'Castell de Bellver, Es Baluard, CaixaForum och Rafa Nadal Museum – museer och kultur som fungerar för barn på Mallorca, med priser och öppettider.',
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Modernistisk byggnad i centrala Palma',
+  image: IMAGE,
+  imageWidth: 1920,
+  imageHeight: 1136,
+  imageAlt: 'Den runda borggården med arkader i Castell de Bellver i Palma',
 });
 
 export default function MuseerOchKulturPage() {
@@ -20,7 +22,7 @@ export default function MuseerOchKulturPage() {
       category="museer-och-kultur"
       hero={{
         imageSrc: IMAGE,
-        imageAlt: 'Modernistisk byggnad i centrala Palma',
+        imageAlt: 'Den runda borggården med arkader i Castell de Bellver i Palma',
         title: 'Museer och kultur för barn',
         subtitle: 'Ett runt slott, konst i en gammal stadsmur och sport i Manacor – kultur som barnen orkar med.',
       }}

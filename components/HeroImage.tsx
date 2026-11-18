@@ -1,8 +1,12 @@
 import type { CSSProperties } from 'react';
+import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import styles from './HeroImage.module.css';
 
 export type HeroImageProps = {
-  /** Base Unsplash URL without query string, e.g. "https://images.unsplash.com/photo-XXX" */
+  /**
+   * Unsplash-bas-URL utan query string ("https://images.unsplash.com/photo-XXX"),
+   * Commons-thumb-URL (".../thumb/.../1920px-Fil.jpg") eller lokal fil ("/bilder/...").
+   */
   src: string;
   /** REQUIRED: unique Swedish SEO alt-text describing the image */
   alt: string;
@@ -22,10 +26,12 @@ const SRCSET_WIDTHS = [640, 960, 1280, 1600, 2000];
 const SRC_WIDTH = 1600;
 
 function buildUrl(baseUrl: string, width: number) {
+  if (!isUnsplash(baseUrl)) return sizedImageUrl(baseUrl, width);
   return `${baseUrl}?w=${width}&q=80&fm=webp&auto=format`;
 }
 
 function buildSrcSet(baseUrl: string) {
+  if (!isUnsplash(baseUrl)) return sizedImageSrcSet(baseUrl);
   return SRCSET_WIDTHS.map((w) => `${buildUrl(baseUrl, w)} ${w}w`).join(', ');
 }
 

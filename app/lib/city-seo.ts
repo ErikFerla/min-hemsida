@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import type { City } from '@/data/cities';
+import { isUnsplash, ogImageUrl } from '@/app/lib/image-url';
 
 export const BASE_URL = 'https://www.mymallorca.se';
 const SITE_NAME = 'MyMallorca';
@@ -15,7 +16,7 @@ export function cityUrl(c: City): string {
 }
 
 export function cityOgImage(c: City): string {
-  return `${c.hero.image}?w=1200&h=630&fit=crop&q=85`;
+  return ogImageUrl(c.hero.image, BASE_URL);
 }
 
 export function buildCityMetadata(c: City): Metadata {
@@ -36,7 +37,8 @@ export function buildCityMetadata(c: City): Metadata {
       locale: 'sv_SE',
       title,
       description,
-      images: [{ url: image, width: 1200, height: 630, alt }],
+      // Bara Unsplash beskärs till exakt 1200×630; övriga källor anges utan mått.
+      images: [isUnsplash(c.hero.image) ? { url: image, width: 1200, height: 630, alt } : { url: image, alt }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -74,7 +76,12 @@ export function buildPageMetadata(p: PageSeo): Metadata {
       locale: 'sv_SE',
       title: p.title,
       description: p.description,
-      images: [{ url: p.image, width: p.imageWidth ?? 1200, height: p.imageHeight ?? 630, alt: p.imageAlt }],
+      // Unsplash beskärs till 1200×630 via URL:en; andra bilder har egna mått – ange dem bara om de är kända.
+      images: [
+        p.imageWidth || p.image.startsWith('https://images.unsplash.com/')
+          ? { url: p.image, width: p.imageWidth ?? 1200, height: p.imageHeight ?? 630, alt: p.imageAlt }
+          : { url: p.image, alt: p.imageAlt },
+      ],
     },
     twitter: {
       card: 'summary_large_image',

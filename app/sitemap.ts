@@ -31,6 +31,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/guide/golf-mallorca-guide', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/guide/basta-tid-resa-mallorca', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/integritetspolicy', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-18' },
+  { path: '/bildkrediter', priority: 0.2, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/cookies', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-18' },
   { path: '/resplan', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/budget-och-priser', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },

@@ -27,8 +27,8 @@ export default function ByarSida() {
     <div className={styles.page}>
       <JsonLd data={itemList} />
       <HeroImage
-        src="https://images.unsplash.com/photo-1566815687825-39bd872e6e09"
-        alt="Panoramabild över Mallorca med vita stenhus och Tramuntanabergen – översikt över öns städer och byar"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pollen%C3%A7a_from_near_the_top_of_the_Valvari_Steps.jpg/1920px-Pollen%C3%A7a_from_near_the_top_of_the_Valvari_Steps.jpg"
+        alt="Utsikt över takåsarna i Pollença från toppen av Calvari-trappan – en av Mallorcas gamla byar"
         kicker="Utforska Mallorca"
         title="Städer och byar"
         subtitle={`${cities.length} utvalda orter runt hela ön`}
