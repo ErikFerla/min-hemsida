@@ -47,10 +47,10 @@ export const metadata: Metadata = {
 };
 
 const INSIDER_TIPS: string[] = [
-  'Bokning: vattenparker och Palma Aquarium — köp biljetterna online, ofta blir det billigare och ni slipper köerna.',
-  'Bästa tid: besök Katmandu-parken efter lunch — morgonen är packad med bussgrupper.',
-  'Regnplan: när det regnar, boka Palma Jump eller Kids Republik samma morgon — tiderna tar slut snabbt.',
-  'Småbarn: Hidropark i norr är mycket lugnare än parkerna i Palma — värt 45 min bilresa om ni har 2–5-åringar.',
+  'Bokning: vattenparker och Palma Aquarium – köp biljetterna online, ofta blir det billigare och ni slipper köerna.',
+  'Bästa tid: besök Katmandu-parken efter lunch – morgonen är packad med bussgrupper.',
+  'Regnplan: när det regnar, boka Palma Jump eller Kids Republik samma morgon – tiderna tar slut snabbt.',
+  'Småbarn: Hidropark i norr är mycket lugnare än parkerna i Palma – värt 45 min bilresa om ni har 2–5-åringar.',
   'Transport: tåget till Sóller är en aktivitet i sig – och spårvagnen ner till Port de Sóller gör dagen komplett.',
 ];
 
@@ -65,7 +65,7 @@ export default function BarnHubPage() {
   const itemListJsonLd = buildItemListJsonLd(
     ACTIVITIES,
     'hub',
-    'Mallorca med barn — alla aktiviteter',
+    'Mallorca med barn – alla aktiviteter',
   );
   const breadcrumbJsonLd = buildBreadcrumbJsonLd(breadcrumbs);
 
@@ -97,13 +97,13 @@ export default function BarnHubPage() {
             <p>
               Mallorca är ett av Europas mest barnvänliga resmål, och ön har gott om aktiviteter för
               familjer som inte har med stranden att göra. Vattenparker, akvarier, trampolinparker,
-              äventyrsparker, grottor, djurparker, museer och historiska tåg — det finns något för
+              äventyrsparker, grottor, djurparker, museer och historiska tåg – det finns något för
               alla åldrar.
             </p>
             <p>
               Här har vi samlat Mallorcas bästa barnaktiviteter, sorterade efter typ och åldersgrupp.
               Oavsett om ni är ute efter en regnig reservplan, en hel dag med äventyr eller lugna
-              inomhusaktiviteter med småbarn — använd filtret nedan för att hitta det som passar just
+              inomhusaktiviteter med småbarn – använd filtret nedan för att hitta det som passar just
               er familj.
             </p>
           </div>
@@ -154,10 +154,10 @@ export default function BarnHubPage() {
         {/* ========== INSIDER TIPS (before activity list per spec) ========== */}
         <section className={styles.block} aria-labelledby="insider-tips-heading">
           <h2 id="insider-tips-heading" className="sr-only">
-            Insider-tips från lokalkännare
+            Insidertips från lokalkännare
           </h2>
           <InsiderTipBox
-            heading="5 råd från en lokalbo"
+            heading="5 råd från en som bor här"
             tips={INSIDER_TIPS}
           />
         </section>

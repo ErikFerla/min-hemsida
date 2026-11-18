@@ -241,7 +241,7 @@ export default function SectionPlanner() {
             <p className={styles.localQuote}>
               ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
             </p>
-            <p className={styles.localSign}>— Erik, MyMallorca</p>
+            <p className={styles.localSign}>– Erik, MyMallorca</p>
           </div>
         </div>
 

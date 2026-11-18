@@ -38,22 +38,22 @@ export default function DjurparkerPage() {
       category="djurparker-och-akvarier"
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1551632811-561732d1e306',
-        imageAlt: 'Akvarietunnel med hajar och tropiska fiskar — djurupplevelser på Mallorca',
+        imageAlt: 'Akvarietunnel med hajar och tropiska fiskar – djurupplevelser på Mallorca',
         title: 'Djurparker & akvarier på Mallorca',
         subtitle:
-          'Fyra djurparksupplevelser: Europas mest omfattande akvarium, traditionell delfinshow, zoologisk park med 500+ djur och en unik bilsafari.',
+          'Fyra djurupplevelser: ett av Europas största akvarier, en klassisk delfinshow, en djurpark med över 500 djur och en bilsafari.',
       }}
       intro={
         <>
           <p>
             Mallorca har två akvarier och tre djurparker värda en dagsutflykt. Palma Aquarium är
-            flaggskeppet med hajtanken Big Blue och 700 arter; Marineland är den klassiska familjefavoriten
+            störst, med hajtanken Big Blue och 700 arter; Marineland är den klassiska familjefavoriten
             med delfinshow och papegojor; Natura Parc passar särskilt småbarn som vill ha en lugnare
-            dag; och Safari Zoo i Sa Coma erbjuder en helt unik upplevelse där man kör sin egen bil
+            dag; och i Safari Zoo i Sa Coma kör ni er egen bil
             bland giraffer och strutsar.
           </p>
           <p>
-            Använd åldersfiltret för att hitta den bästa kombinationen för era barn — vi har testat
+            Använd åldersfiltret för att hitta den bästa kombinationen för era barn – vi har testat
             varje plats och noterat vilka åldersgrupper som får ut mest av besöket.
           </p>
         </>

@@ -48,7 +48,7 @@ export default function Home() {
         <section className={`${s.pageSection} ${styles.clip}`}>
           <div className={styles.split}>
 
-            {/* BILD VÄNSTER — Palmas gamla stan (Foto: Luca / Unsplash) */}
+            {/* BILD VÄNSTER – Palmas gamla stan (Foto: Luca / Unsplash) */}
             <div>
               <img
                 src="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format"

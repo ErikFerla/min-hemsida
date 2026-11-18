@@ -30,13 +30,13 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Djurparker & natur',
     Icon: IconBuilding,
-    kortText: 'Klassiska barnattraktioner som blandar natur och underhållning — från safaripark till magiska droppstensgrottor.',
-    punkter: ['Safari Zoo Porto Cristo', 'Coves del Drach', 'Marineland'],
+    kortText: 'Klassiska barnattraktioner som blandar natur och underhållning – från safaripark till magiska droppstensgrottor.',
+    punkter: ['Safari Zoo Porto Cristo', 'Coves del Drac', 'Marineland'],
   },
   {
     rubrik: 'Praktiska tips',
     Icon: IconBulb,
-    kortText: 'Resa juni eller september för bästa balans mellan väder och mängd. Hyrbil är nödvändig — boka barnstol i förväg.',
+    kortText: 'Resa juni eller september för bästa balans mellan väder och mängd. Hyrbil är nödvändig – boka barnstol i förväg.',
     punkter: ['Bästa restid: juni / september', 'Hyrbil är ett måste', 'Restauranger öppnar 20:00'],
   },
 ];
@@ -65,7 +65,7 @@ export default function MallorcaMedBarnGuide() {
           <p className={styles.quickLabel}><IconSparkle size={16} /> Snabbsvar – vad passar ditt barn?</p>
           <ul className={styles.quickList}>
             <li><strong>0–3 år:</strong> Playa de Muro</li>
-            <li><strong>4–8 år:</strong> Aqualand + Coves del Drach</li>
+            <li><strong>4–8 år:</strong> Aqualand + Coves del Drac</li>
             <li><strong>9–12 år:</strong> Kayak, snorkling, Safari Zoo</li>
             <li><strong>13+ år:</strong> Wakeboard, klipphopp, street food</li>
           </ul>
@@ -94,7 +94,7 @@ export default function MallorcaMedBarnGuide() {
         <section className={styles.block}>
           <SectionHeading kicker="Hitta dit" titel="Barnvänliga aktiviteter på kartan" />
           <p className={styles.mapText}>
-            Här ser du de mest populära familjeaktiviteterna utspridda över ön — från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
+            Här ser du de mest populära familjeaktiviteterna utspridda över ön – från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
           </p>
           <div className={styles.mapFrame}>
             <Map

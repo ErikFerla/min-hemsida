@@ -94,7 +94,7 @@ const L = {
  * Katalog med dagsförslag
  *
  * Varje intresse pekar ut sina förslag i prioritetsordning. Samma förslag kan höra
- * till flera intressen (t.ex. Coves del Drach för både kultur och familj) och används
+ * till flera intressen (t.ex. Coves del Drac för både kultur och familj) och används
  * då bara en gång i planen.
  *
  * Inga öppettider, priser eller exakta tider här – sådant ändras och står på
@@ -264,9 +264,9 @@ const förslagsKatalog = {
     länkar: [L.arta, L.sevardheter],
   },
   'coves-drach': {
-    titel: 'Coves del Drach', område: 'ost', ort: 'manacor',
-    text: 'Coves del Drach i Porto Cristo – droppstensgrottor med en kort konsert på den underjordiska sjön. Köp biljett i förväg.',
-    förmiddag: 'Coves del Drach i Porto Cristo – droppstensgrottor och en kort konsert på den underjordiska sjön. Biljetterna gäller en bestämd tid, så köp i förväg.',
+    titel: 'Coves del Drac', område: 'ost', ort: 'manacor',
+    text: 'Coves del Drac i Porto Cristo – droppstensgrottor med en kort konsert på den underjordiska sjön. Köp biljett i förväg.',
+    förmiddag: 'Coves del Drac i Porto Cristo – droppstensgrottor och en kort konsert på den underjordiska sjön. Biljetterna gäller en bestämd tid, så köp i förväg.',
     eftermiddag: 'Lunch och bad i Porto Cristo.',
     kväll: 'Middag i Porto Cristo eller i Manacor.',
     länkar: [L.sevardheter, L.manacor],

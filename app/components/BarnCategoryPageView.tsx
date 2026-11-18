@@ -30,7 +30,7 @@ export type BarnCategoryPageViewProps = {
 
 /**
  * Shared layout for the /barn/<slug> category pages.
- * Hub (/barn) does NOT use this — it has its own compose.
+ * Hub (/barn) does NOT use this – it has its own compose.
  */
 export default function BarnCategoryPageView({
   category,
@@ -40,7 +40,7 @@ export default function BarnCategoryPageView({
 }: BarnCategoryPageViewProps) {
   const meta = getCategoryMeta(category);
   if (!meta) {
-    // Defensive — caller should guarantee a valid category
+    // Defensive – caller should guarantee a valid category
     throw new Error(`Unknown category: ${category}`);
   }
   const allActivities = getActivitiesByCategory(category);
@@ -99,13 +99,13 @@ export default function BarnCategoryPageView({
 
         {lastChecked && <LastChecked date={lastChecked.date} sources={lastChecked.sources} />}
 
-        {/* Bottom CTA — links to hub + related categories */}
+        {/* Bottom CTA – links to hub + related categories */}
         <section className={styles.more} aria-labelledby="fler-aktiviteter-heading">
           <h2 id="fler-aktiviteter-heading" className={styles.moreTitle}>
             Utforska fler barnaktiviteter
           </h2>
           <p className={styles.moreText}>
-            Hitta fler aktiviteter för hela familjen — filtrera efter ålder och kategori på hub-sidan.
+            Hitta fler aktiviteter för hela familjen – filtrera efter ålder och kategori på översiktssidan.
           </p>
           <div className={styles.links}>
             <Link href="/barn" className={styles.button}>

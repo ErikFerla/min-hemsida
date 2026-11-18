@@ -20,7 +20,7 @@ export default function AgeGroupChip({
   const colors = { '--chip-bg': c.bg, '--chip-fg': c.fg, '--chip-border': c.border } as CSSProperties;
   return (
     <span className={size === 'md' ? `${styles.chip} ${styles.md}` : styles.chip} style={colors}>
-      {age === '13+' ? '13+ år' : `${age} år`}
+      {age === '13+' ? '13+ år' : `${age.replace('-', '–')} år`}
     </span>
   );
 }
