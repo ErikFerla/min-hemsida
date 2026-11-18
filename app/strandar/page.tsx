@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import EagerImage from '@/components/EagerImage';
 import { beaches, BEACHES_HERO, type RedaktionellTyp } from '@/data/beaches';
 import StrandFilter from './StrandFilter';
 import DagensStrand from './DagensStrand';
@@ -23,17 +24,13 @@ export default function StrandarPage() {
       <header>
         {/* Hero-bild – LCP-element, eager-laddad med srcset och fetchpriority="high" */}
         <div className={styles.hero}>
-          {/* eslint-disable-next-line @next/next/no-img-element -- LCP-bild med egen srcset från Wikimedia Commons, förladdas i layout.tsx */}
-          <img
+          <EagerImage
             src={BEACHES_HERO.src}
             srcSet={BEACHES_HERO.srcSet}
             sizes={BEACHES_HERO.sizes}
             alt={BEACHES_HERO.alt}
             width={2000}
             height={1333}
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
             className={styles.heroImage}
           />
           <div aria-hidden="true" className={styles.heroShade} />
