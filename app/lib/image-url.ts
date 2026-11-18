@@ -26,7 +26,8 @@ export function commonsThumb(src: string, width: number): string {
 }
 
 function nearestNextWidth(width: number): number {
-  return NEXT_WIDTHS.find((w) => w >= width) ?? NEXT_WIDTHS[NEXT_WIDTHS.length - 1];
+  // Närmaste tillåtna bredd som inte är större än önskat (källan får inte förstoras i onödan).
+  return [...NEXT_WIDTHS].reverse().find((w) => w <= width) ?? NEXT_WIDTHS[0];
 }
 
 /** Lokal fil eller annan tillåten värd via Next.js bildoptimering. */
@@ -39,17 +40,21 @@ export function nextImageUrl(src: string, width: number): string {
  * (Unsplash-URL:er bygger komponenterna själva, med sina egna parametrar).
  */
 export function sizedImageUrl(src: string, width: number): string {
-  if (isCommonsThumb(src)) {
-    const w = COMMONS_WIDTHS.find((cw) => cw >= width) ?? COMMONS_WIDTHS[COMMONS_WIDTHS.length - 1];
-    return commonsThumb(src, w);
+  const m = src.match(COMMONS_THUMB);
+  if (m) {
+    // Commons-JPEG:arna är stora; gå via Next.js bildoptimering (AVIF/WebP) med thumben som källa.
+    const max = Number(m[2]);
+    return nextImageUrl(src, Math.min(width, max));
   }
   return nextImageUrl(src, width);
 }
 
-/** srcSet för en bild som inte ligger på Unsplash. */
+/** srcSet för en bild som inte ligger på Unsplash (Commons-thumbs och lokala filer, via /_next/image). */
 export function sizedImageSrcSet(src: string): string {
-  if (isCommonsThumb(src)) return COMMONS_WIDTHS.map((w) => `${commonsThumb(src, w)} ${w}w`).join(', ');
-  return NEXT_WIDTHS.map((w) => `${nextImageUrl(src, w)} ${w}w`).join(', ');
+  const m = src.match(COMMONS_THUMB);
+  const max = m ? Number(m[2]) : Infinity;
+  const widths = NEXT_WIDTHS.filter((w) => w <= max);
+  return (widths.length ? widths : [NEXT_WIDTHS[0]]).map((w) => `${nextImageUrl(src, w)} ${w}w`).join(', ');
 }
 
 /**
