@@ -24,7 +24,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/vader', priority: 0.7, changeFrequency: 'daily', updated: '2026-11-18' },
   { path: '/flyg', priority: 0.7, changeFrequency: 'weekly', updated: '2026-11-18' },
   { path: '/vingardar', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-17' },
-  { path: '/guider', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
+  { path: '/guider', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/guide/basta-stranderna-mallorca', priority: 0.9, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/guide/mallorca-med-barn', priority: 0.9, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/guide/basta-restauranger-palma', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
