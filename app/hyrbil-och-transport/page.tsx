@@ -137,7 +137,7 @@ export default function HyrbilOchTransport() {
           <h3 className={`${h.h3} ${styles.subTitle}`}>Cap de Formentor på sommaren</h3>
           <p className={styles.text}>
             Vägen ut mot fyren på Cap de Formentor stängs för privatbilar på dagtid under sommarhalvåret. 2026 gällde
-            det 15 maj–mitten av oktober, kl. 10–22. Ta i stället buss 334 från Alcúdia via Port de Pollença. Att köra
+            det 15 maj–18 oktober, kl. 10–22. Ta i stället buss 334 från Alcúdia via Port de Pollença. Att köra
             förbi bommarna utan tillstånd ger böter på 100–200 €. Datumen för 2027 meddelas av den spanska
             trafikmyndigheten DGT.
           </p>
@@ -269,6 +269,7 @@ export default function HyrbilOchTransport() {
             SOURCES.zbe,
             SOURCES.sollerTunnel,
             SOURCES.formentor,
+            SOURCES.formentor2026,
             SOURCES.tibFragor,
             SOURCES.emtKort,
             SOURCES.tibGratis,
