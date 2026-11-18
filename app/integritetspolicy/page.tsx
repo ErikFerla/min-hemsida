@@ -92,6 +92,13 @@ export default function IntegritetspolicyPage() {
           rätta eller radera. Om du anser att dina personuppgifter hanteras fel kan du vända dig till
           Integritetsskyddsmyndigheten (IMY).
         </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Har du frågor om den här policyn eller om sajten når du oss på{' '}
+          <a href="mailto:info@mymallorca.se">info@mymallorca.se</a>. Vi svarar så snart vi kan, men vi erbjuder ingen
+          personlig reseplanering.
+        </p>
       </article>
     </div>
   );
