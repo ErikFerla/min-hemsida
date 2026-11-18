@@ -29,7 +29,7 @@ export default function MarknaderPage() {
         <section className={styles.tips} aria-labelledby="tips-rubrik">
           <h2 id="tips-rubrik" className={styles.sectionTitle}>Bra att veta</h2>
           <ul>
-            <li>Marknaderna håller på förmiddagen och de flesta stånd packar ihop vid lunch. Kom tidigt – då är utbudet störst och trängseln minst.</li>
+            <li>Marknaderna pågår på förmiddagen och de flesta stånd packar ihop vid lunch. Kom tidigt – då är utbudet störst och trängseln minst.</li>
             <li>Ha kontanter med dig. Många stånd tar bara kontanter.</li>
             <li>Tiderna nedan är ungefärliga och kan skilja sig mellan sommar och vinter. Fråga gärna på hotellet eller turistbyrån.</li>
             <li>

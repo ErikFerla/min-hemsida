@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1200&h=630&fit=crop&q=85',
         width: 1200,
         height: 630,
-        alt: 'Barn på en inomhusklätterställning — regndags-aktiviteter på Mallorca',
+        alt: 'Barn på en inomhusklätterställning – regndags-aktiviteter på Mallorca',
       },
     ],
   },
@@ -41,23 +41,23 @@ export default function InomhusOchRegnPage() {
         imageAlt: 'Barn som leker i en färgglad inomhuslekplats med klätterställningar',
         title: 'Inomhus & regn',
         subtitle:
-          'Åtta handplockade räddningar när regnet kommer — eller när sommarsolen är för stark för små barn mitt på dagen.',
+          'Handplockade räddningar när regnet kommer – eller när sommarsolen är för stark för små barn mitt på dagen.',
       }}
       intro={
         <>
           <p>
-            Mallorca har några sommarveckor där regnet verkligen kommer i skurar — och fler dagar i
-            sommaren då solen är för stark för småbarn mellan 12 och 16. Det är då du behöver en kort
-            lista med inomhusalternativ som faktiskt funkar.
+            Mallorca har några sommarveckor där regnet verkligen kommer i skurar – och fler dagar på
+            sommaren då solen är för stark för småbarn mellan kl. 12 och 16. Det är då du behöver en kort
+            lista med inomhusalternativ som faktiskt fungerar.
           </p>
           <p>
-            Här är våra åtta testade val: Mallorcas största trampolinpark, ett tre-vånings lekland
-            mitt i Palma, Europas mest omfattande akvarium (som är 100% inomhus), en interaktiv
-            sportupplevelse vid Rafa Nadals akademi, bowling-centret som är lätt att nå från Palma,
-            och tre kulturella alternativ med familjeverkstäder.
+            Här är våra val: Mallorcas största trampolinpark, ett lekland i tre våningar
+            mitt i Palma, ett av Europas största akvarier (helt inomhus), en interaktiv
+            sportupplevelse vid Rafa Nadals akademi, bowlinghallen som är lätt att nå från Palma,
+            kulturella alternativ med familjeverkstäder – och grottorna, där vädret aldrig spelar någon roll.
           </p>
           <p>
-            <strong>Tips:</strong> på regniga dagar bokas Palma Jump och Kids Republik snabbt — kolla
+            <strong>Tips:</strong> på regniga dagar bokas Palma Jump och Kids Republik snabbt – kolla
             tillgängliga tider online så fort morgonen visar sig regnig.
           </p>
         </>

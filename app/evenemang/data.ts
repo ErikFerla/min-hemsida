@@ -223,9 +223,9 @@ const evenemangData: EvenemangPost[] = [
   {
     id: 'mallorca-312',
     namn: 'Mallorca 312',
-    plats: 'Playa de Muro',
+    plats: 'Platja de Muro',
     kategori: 'Sport',
-    beskrivning: 'Motionslopp på cykel med start och mål i Playa de Muro och sträckor på 312, 225 och 167 km. Startplatserna för 2027 sålde slut på några minuter. Räkna med avstängda vägar under dagen.',
+    beskrivning: 'Motionslopp på cykel med start och mål i Platja de Muro och sträckor på 312, 225 och 167 km. Startplatserna för 2027 sålde slut på några minuter. Räkna med avstängda vägar under dagen.',
     källa: { label: 'Mallorca 312', href: 'https://www.mallorca312.com' },
     checked: C,
     tillfällen: [{ start: '2027-04-24', slut: '2027-04-25', status: 'preliminärt', period: 'lördag 24 april 2027 enligt de flesta källor' }],

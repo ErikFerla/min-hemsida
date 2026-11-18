@@ -15,8 +15,8 @@ const toppBanor = [
     grönAvgift: '120–190 €',
     svårighet: 5,
     beskrivning: 'Son Gual är Mallorcas absolut bästa golfbana och rankas bland de 100 bästa i Europa. Designad av Thomas Himmel med fantastisk utsikt mot Tramuntanabergen och havet. Fairways i perfekt skick.',
-    insider: 'Boka tee-time minst 2 veckor i förväg under mars–juni. Banan är lättast tillgänglig tidig morgon. Restaurangen efter rundan är outstanding.',
-    bästTid: 'November–april (under 25°C, inga turister)',
+    insider: 'Boka starttid minst två veckor i förväg i mars–juni. Det är lättast att få tid tidigt på morgonen. Restaurangen är utmärkt efter rundan.',
+    bästTid: 'November–april (under 25 °C, inga turister)',
   },
   {
     rank: 2,
@@ -26,7 +26,7 @@ const toppBanor = [
     par: 72,
     grönAvgift: '95–150 €',
     svårighet: 4,
-    beskrivning: 'Tre banor på samma lyxiga resort nära Palma. Son Vida-banan är den äldsta på ön (1964) och har Mallorcas mest imponerande panoramautsikt. Favoritbana för proffsiga resenärer.',
+    beskrivning: 'Tre banor på samma lyxiga resort nära Palma. Son Vida-banan är den äldsta på ön (1964) och har Mallorcas mest imponerande panoramautsikt. En favorit bland vana golfresenärer.',
     insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellpaketen är värda det – du kan gå till banan direkt från rummet.',
     bästTid: 'Oktober–maj',
   },
@@ -38,8 +38,8 @@ const toppBanor = [
     par: 36,
     grönAvgift: '60–80 €',
     svårighet: 3,
-    beskrivning: 'En av Mallorcas vackraste 9-hålsbanor, omringad av olivlundar och mandelträd. Perfekt för en halvdags golf med utsikt. Mer avslappnad atmosfär än de stora banorna.',
-    insider: 'Ideal för par som vill kombinera golf och sightseeing. Spelat rundan på ca 2,5 timmar – gott om tid för en middag i Palma efteråt.',
+    beskrivning: 'En av Mallorcas vackraste 9-hålsbanor, omgiven av olivlundar och mandelträd. Perfekt för en halv dags golf med utsikt. Mer avslappnad atmosfär än de stora banorna.',
+    insider: 'Passar par som vill kombinera golf och sightseeing. Rundan tar ca 2,5 timmar – gott om tid för en middag i Palma efteråt.',
     bästTid: 'Hela året – aldrig för trångt',
   },
   {
@@ -50,9 +50,9 @@ const toppBanor = [
     par: 72,
     grönAvgift: '100–160 €',
     svårighet: 4,
-    beskrivning: 'Nordens bästa golfupplevelse på Mallorca. Från tee 15 ser du ut över ett litet fyr-ö i havet – ett av öns mest fotograferade golfmotiv. Vindigt och utmanande.',
-    insider: 'Hål 15 är "foto-obligatoriskt". Ta med fler bollar än vanligt – vinden tar de flesta amatörers bollar i havet på hål 14–16.',
-    bästTid: 'Maj och oktober – juni–september är mycket vindig',
+    beskrivning: 'Norra Mallorcas bästa golfupplevelse. Från tee 15 ser du ut över en liten ö med en fyr – ett av öns mest fotograferade golfmotiv. Blåsigt och utmanande.',
+    insider: 'Hål 15 måste du fotografera. Ta med fler bollar än vanligt – vinden tar de flesta amatörers bollar i havet på hål 14–16.',
+    bästTid: 'Maj och oktober – i juni–september blåser det mycket',
   },
   {
     rank: 5,
@@ -63,7 +63,7 @@ const toppBanor = [
     grönAvgift: '45–65 €',
     svårighet: 2,
     beskrivning: 'En av Mallorcas äldsta banor (1967) och favoriten för avslappnad golf. Omgiven av tallar och olivträd med havsutsikt. Bra för nybörjare och de som vill ha en enkel runda.',
-    insider: 'Priset är det lägsta bland de bra banorna. Kombinera med en middag i Porto Cristo (15 min). Lokal och vänlig personal – inget snobb.',
+    insider: 'Priset är det lägsta bland de bra banorna. Kombinera med en middag i Porto Cristo (15 min). Lokal och vänlig personal – inget snobberi.',
     bästTid: 'Hela året – aldrig trångt',
   },
 ];
@@ -76,9 +76,9 @@ const allabanor = [
   { namn: 'Golf Son Servera', region: 'Son Servera', hål: 9, grönAvgift: '45–65 €', svårighet: 2 },
   { namn: 'Golf Pollença', region: 'Pollença', hål: 9, grönAvgift: '40–55 €', svårighet: 2 },
   { namn: 'Vall d\'Or Golf', region: 'Felanitx', hål: 9, grönAvgift: '50–70 €', svårighet: 3 },
-  { namn: 'Club de Golf Santa Ponsa', region: 'Santa Ponsa', hål: 18, grönAvgift: '55–90 €', svårighet: 3 },
-  { namn: 'Golf Poniente', region: 'Santa Ponsa', hål: 18, grönAvgift: '60–85 €', svårighet: 3 },
-  { namn: 'Real Golf de Bendinat', region: 'Calviá', hål: 18, grönAvgift: '70–100 €', svårighet: 3 },
+  { namn: 'Club de Golf Santa Ponsa', region: 'Santa Ponça', hål: 18, grönAvgift: '55–90 €', svårighet: 3 },
+  { namn: 'Golf Poniente', region: 'Santa Ponça', hål: 18, grönAvgift: '60–85 €', svårighet: 3 },
+  { namn: 'Real Golf de Bendinat', region: 'Calvià', hål: 18, grönAvgift: '70–100 €', svårighet: 3 },
   { namn: 'Capdepera Golf', region: 'Capdepera', hål: 18, grönAvgift: '60–90 €', svårighet: 3 },
   { namn: 'Son Antem Golf', region: 'Llucmajor', hål: 36, grönAvgift: '55–80 €', svårighet: 3 },
   { namn: 'Golf Maioris', region: 'Llucmajor', hål: 18, grönAvgift: '50–75 €', svårighet: 3 },
@@ -128,12 +128,12 @@ export default function GolfMallorcaGuide() {
         </div>
 
         {/* Topp 5 */}
-        <h2 className={`${h.h2} ${styles.heading}`}>De 5 bästa banorna – djupanalys</h2>
+        <h2 className={`${h.h2} ${styles.heading}`}>De 5 bästa banorna i detalj</h2>
 
         {toppBanor.map((bana) => (
           <article key={bana.rank} className={styles.course}>
             <div className={styles.courseHead}>
-              <span className={styles.rank}>#{bana.rank}</span>
+              <span className={styles.rank}>{bana.rank}.</span>
               <div>
                 <h3 className={`${h.h3} ${styles.courseTitle}`}>{bana.namn}</h3>
                 <p className={styles.courseMeta}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span className={styles.stars}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
@@ -142,7 +142,7 @@ export default function GolfMallorcaGuide() {
             <p className={styles.courseText}>{bana.beskrivning}</p>
             <div className={styles.boxes}>
               <div className={styles.boxTip}>
-                <p className={`${styles.boxLabel} ${styles.boxLabelAccent}`}><IconBulb size={12} /> INSIDER-TIPS</p>
+                <p className={`${styles.boxLabel} ${styles.boxLabelAccent}`}><IconBulb size={12} /> INSIDERTIPS</p>
                 <p className={styles.boxText}>{bana.insider}</p>
               </div>
               <div className={styles.boxFee}>
@@ -191,11 +191,11 @@ export default function GolfMallorcaGuide() {
           <h2 className={`${h.h2} ${styles.headingIcon}`}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
           <div className={styles.seasons}>
             {[
-              { period: 'Nov – Februari', rating: 5, text: 'Perfekt. Behaglig 15–20°C. Inga köer. 30–40% lägre priser.' },
-              { period: 'Mars – April', rating: 5, text: 'Toppsäsong. Mandelblomningstid, 18–23°C. Boka tidigt.' },
-              { period: 'Maj – Juni', rating: 4, text: 'Fortfarande bra. Varmare men hanterbart. Fler turister.' },
-              { period: 'Juli – Augusti', rating: 2, text: 'För varmt (33–36°C). Spela bara tidigt 07:00–09:30.' },
-              { period: 'September – Oktober', rating: 4, text: 'Bra alternativ. Varmt hav, svalare luft. Bra priser.' },
+              { period: 'November–februari', rating: 5, text: 'Perfekt. Behagliga 15–20 °C. Inga köer. 30–40 % lägre priser.' },
+              { period: 'Mars–april', rating: 5, text: 'Högsäsong för golf. Mandelblomning, 18–23 °C. Boka tidigt.' },
+              { period: 'Maj–juni', rating: 4, text: 'Fortfarande bra. Varmare men hanterbart. Fler turister.' },
+              { period: 'Juli–augusti', rating: 2, text: 'För varmt (33–36 °C). Spela bara tidigt, kl. 7–9.30.' },
+              { period: 'September–oktober', rating: 4, text: 'Bra alternativ. Varmt hav, svalare luft. Bra priser.' },
             ].map((s, i) => (
               <div key={i} className={styles.season}>
                 <p className={styles.seasonPeriod}>{s.period}</p>

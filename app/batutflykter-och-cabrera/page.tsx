@@ -143,7 +143,7 @@ export default function BatutflykterPage() {
             <li className={styles.card}>
               <h3 className={`${h.h3} ${styles.cardTitle}`}>Katamaran i Palmabukten</h3>
               <p className={styles.cardText}>
-                Katamaranturer från Palma och El Arenal, ofta på eftermiddagen eller vid solnedgång,
+                Katamaranturer från Palma och s’Arenal, ofta på eftermiddagen eller vid solnedgång,
                 med badstopp i en vik och ibland grillmat ombord. Ett populärt val för par – se även{' '}
                 <Link href="/mallorca-for-par">Mallorca för par</Link>.
               </p>

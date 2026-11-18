@@ -22,7 +22,7 @@ export default function ClimateTable({ headingId }: { headingId: string }) {
             <th scope="col">Lägsta <span className={styles.unit}>°C</span></th>
             <th scope="col">Hav <span className={styles.unit}>°C</span></th>
             <th scope="col">Sol <span className={styles.unit}>tim/dag</span></th>
-            <th scope="col">Regn <span className={styles.unit}>dagar</span></th>
+            <th scope="col">Regndagar</th>
             <th scope="col">Regn <span className={styles.unit}>mm</span></th>
           </tr>
         </thead>

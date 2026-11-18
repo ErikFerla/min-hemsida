@@ -125,7 +125,7 @@ export const cities: City[] = [
     tagline: 'Mallorcas pulserande huvudstad',
     seo: {
       title: 'Palma de Mallorca – komplett reseguide',
-      description: 'Palma de Mallorca – öns pulserande huvudstad med gotiska La Seu, livlig gamla stan och kulinarisk scen i världsklass. Insider-tips från lokalkännare.',
+      description: 'Palma de Mallorca – öns pulserande huvudstad med gotiska La Seu, livlig gamla stan och kulinarisk scen i världsklass. Insidertips från lokalkännare.',
     },
     hero: {
       image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e',
@@ -176,10 +176,10 @@ export const cities: City[] = [
         ],
       },
       eat: {
-        intro: 'Palma är öns matstad, med allt från marknadshallar och enkla tapasbarer till kockdrivna restauranger. Börja med de mallorcanska klassikerna:',
+        intro: 'Palma är öns matstad, med allt från marknadshallar och enkla tapasbarer till kockdrivna restauranger. Börja med de mallorkinska klassikerna:',
         dishes: [
           'Pa amb oli – rostat bröd med tomat, olivolja och ost eller lufttorkad skinka',
-          'Ensaïmada – det spiralformade bakverket som mallorcanerna äter till frukost',
+          'Ensaïmada – det spiralformade bakverket som mallorkinerna äter till frukost',
           'Sobrassada – kryddig, bredbar korv med paprika, gärna med honung',
           'Tumbet – gratäng av aubergine, potatis och paprika i tomatsås',
         ],
@@ -189,8 +189,8 @@ export const cities: City[] = [
         ],
       },
       beaches: {
-        names: ['Playa de Palma', 'Cala Xinxell'],
-        text: 'Närmast staden ligger den långa Playa de Palma. Vill du hellre ha en liten vik med klart vatten finns Cala Xinxell vid Illetas, en kort bit väster om Palma.',
+        names: ['Platja de Palma', 'Cala Xinxell'],
+        text: 'Närmast staden ligger den långa Platja de Palma. Vill du hellre ha en liten vik med klart vatten finns Cala Xinxell vid Illetes, en kort bit väster om Palma.',
       },
       market: {
         days: 'Marknadshallar måndag–lördag · gatumarknad tisdag, torsdag och lördag',
@@ -204,7 +204,7 @@ export const cities: City[] = [
         { text: 'Vintern är lugn och mild med öppna museer och restauranger – ett bra tillfälle för en ren stadsresa.', link: { href: '/vader', label: 'Vädret just nu →' } },
       ],
       families: [
-        { text: 'Palma Aquarium vid Playa de Palma är stadens stora barnfavorit, och det fungerar även en regnig dag.', link: { href: '/barn/djurparker-och-akvarier#palma-aquarium', label: 'Om Palma Aquarium →' } },
+        { text: 'Palma Aquarium vid Platja de Palma är stadens stora barnfavorit, och det fungerar även en regnig dag.', link: { href: '/barn/djurparker-och-akvarier#palma-aquarium', label: 'Om Palma Aquarium →' } },
         'Castell de Bellver är en rund borg med vallgrav som barn brukar gilla, och från taket ser ni hela bukten. April–september är det öppet tisdag–lördag 10–19 och söndag 10–15, stängt på måndagar.',
         { text: 'Regnig dag? CaixaForum och konstmuseet Es Baluard har aktiviteter för barn.', link: { href: '/barn/inomhus-och-regn', label: 'Inomhus och regn →' } },
       ],
@@ -235,7 +235,7 @@ export const cities: City[] = [
       description: 'Öns pulserande huvudstad med La Seu-katedralen, gamla stan och livlig restaurangscen',
       image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=600&q=75',
       tip: 'Bästa utsikten från Bellver slott',
-      top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Bellver Slott'],
+      top3: ['La Seu-katedralen', 'Gamla stan (Casc Antic)', 'Castell de Bellver'],
     },
   },
   {
@@ -248,7 +248,7 @@ export const cities: City[] = [
     sitemapPriority: 0.75,
     tagline: 'Bergsby med historisk spårvagn',
     seo: {
-      description: 'Sóller – bergsby i Tramuntana med anrik träspårvagn till havet, apelsinodlingar och torget där lokalbefolkningen möts. Svensk reseguide med insider-tips.',
+      description: 'Sóller – bergsby i Tramuntana med anrik träspårvagn till havet, apelsinodlingar och torget där lokalbefolkningen möts. Svensk reseguide med insidertips.',
     },
     // TODO: generisk Tramuntana-bild som återanvänds på flera orter – byt mot Sóller-specifik bild.
     hero: {
@@ -353,7 +353,7 @@ export const cities: City[] = [
     sitemapPriority: 0.75,
     tagline: 'Pittoresk fiskeby på östkusten',
     seo: {
-      description: 'Porto Colom på östkusten – autentisk fiskby med en av Mallorcas vackraste naturhamnar och färsk fångst direkt från kajen. Insider-tips från lokalkännare.',
+      description: 'Porto Colom på östkusten – autentisk fiskby med en av Mallorcas vackraste naturhamnar och färsk fångst direkt från kajen. Insidertips från lokalkännare.',
     },
     // TODO: bilden återanvänds på flera orter – byt mot Porto Colom-specifik bild (naturhamnen).
     hero: {
@@ -367,8 +367,8 @@ export const cities: City[] = [
       'Hamnen är en av de vackraste naturliga hamnarna på ön och är omgiven av pittoreska byggnader i ockra och rosa toner. På morgonen kan du se fiskarna lossa sin fångst – och om du frågar snällt säljer de direkt från båten.',
     ],
     tips: [
-      'Skippa turistkrogarna vid hamnen – gå till baksidan av torget',
-      'Fråga efter “el peix del dia” – färsk fisk fångad samma dag',
+      'Hoppa över turistkrogarna vid hamnen – gå till baksidan av torget',
+      'Fråga efter ”el peix del dia” – färsk fisk fångad samma dag',
       'Bästa solnedgången ser du från klipporna vid Caló de sa Barca Trencada',
       'Parkera vid kyrkan – parkeringen vid hamnen är alltid full',
     ],
@@ -440,18 +440,18 @@ export const cities: City[] = [
     },
     about: [
       'Santanyí är en av Mallorcas mest charmiga byar, byggd i den karakteristiska gulbruna sandstenen som kallas ”mares”. Byn har ett levande torgliv, ett starkt konsthantverk och en avslappnad atmosfär som lockar tillbaka besökare år efter år.',
-      'Onsdags- och lördagsmarknaden är en av öns bästa – här blandas lokala producenter med konsthantverk, textilier och olivoljor. Under sommaren tar arkaderna skugga och det är perfekt att ta en paus på något av kaféerna runt torget.',
+      'Onsdags- och lördagsmarknaden är en av öns bästa – här blandas lokala producenter med konsthantverk, textilier och olivoljor. På sommaren ger arkaderna skugga, och det är skönt att ta en paus på något av kaféerna runt torget.',
     ],
     tips: [
       'Onsdagsmarknaden är bättre än lördagens – mindre folk, mer lokalt',
       'Cala Llombards, en kort biltur söderut, är en av öns vackraste vikar – kom tidigt, parkeringen är liten',
-      'Beställ ”pa amb oli” på baren vid kyrkan – klassisk mallorcansk snack',
+      'Beställ ”pa amb oli” på baren vid kyrkan – en klassisk mallorkinsk smårätt',
       'Glöm inte galleriet Sa Quartera – gratis och riktigt bra samtidskonst',
     ],
     practical: [
       { label: 'Plats', value: 'Södra Mallorca, ca 55 km från Palma' },
       { label: 'Bil', value: 'Ca 55 min från Palma' },
-      { label: 'Marknad', value: 'Onsdag & lördag fm' },
+      { label: 'Marknad', value: 'Onsdag och lördag förmiddag' },
       { label: 'Känd för', value: 'Marknad, sandstensarkitektur' },
       { label: 'Stränder i närheten', value: 'Cala Llombards, Cala Santanyí' },
     ],
@@ -473,7 +473,7 @@ export const cities: City[] = [
         intro: 'Runt torget finns kaféer och restauranger där du kan sitta under arkaderna och se byn passera, och marknadsdagarna är det bästa tillfället att handla ost, korv, oliver och olivolja direkt från producenterna. Ute vid kusten väntar fisk och skaldjur.',
       },
       beaches: {
-        names: ['Caló des Moro', 'Cala Llombards', 'Cala Mondragó / S\'Aramador', 'Es Trenc'],
+        names: ['Caló des Moro', 'Cala Llombards', 'Cala Mondragó / s\'Amarador', 'Es Trenc'],
         text: 'Några av Mallorcas mest kända vikar ligger bara en kort biltur från byn. Cala Mondragó ligger i ett naturreservat och har grunt vatten, medan Caló des Moro kräver en promenad och blir snabbt full. Es Trenc ligger en bit västerut.',
       },
       market: {
@@ -531,7 +531,7 @@ export const cities: City[] = [
     ],
     tips: [
       'Paddla kajak runt viken på morgonen – vattnet är spegelblankt',
-      'Cala Mondragó ligger en kort biltur bort – hyr en parasoll och ta en öl i baren vid stranden',
+      'Cala Mondragó ligger en kort biltur bort – hyr ett parasoll och ta en öl i baren vid stranden',
       'Parkera ute vid landsvägen och promenera ner – det sparar frustration',
       'Ett glas cava på kajen i solnedgången är det bästa du kan göra i Portopetro',
     ],
@@ -548,7 +548,7 @@ export const cities: City[] = [
         { mode: 'Bil', text: 'Ta Ma-19 från Palma via Llucmajor och Campos mot Santanyí och fortsätt mot Cala d’Or. Parkera ovanför hamnen och promenera ner.' },
       ],
       beaches: {
-        names: ['Cala Mondragó / S\'Aramador', 'Cala Ferrera', 'Caló des Moro'],
+        names: ['Cala Mondragó / s\'Amarador', 'Cala Ferrera', 'Caló des Moro'],
         text: 'Cala Mondragó i naturparken söder om byn är en kort biltur bort och har grunt, barnvänligt vatten. Norrut ligger vikarna i Cala d’Or, och Caló des Moro nås via Santanyí.',
       },
       market: {
@@ -583,7 +583,7 @@ export const cities: City[] = [
     sitemapPriority: 0.75,
     tagline: 'Historisk kuststad i norr',
     seo: {
-      description: 'Alcúdia i norra Mallorca – kuststad med välbevarade medeltida murar, romerska Pollentia och Playa de Muro runt hörnet. Lokalt perspektiv från vår guide.',
+      description: 'Alcúdia i norra Mallorca – kuststad med välbevarade medeltida murar, romerska Pollentia och Platja de Muro runt hörnet. Lokalt perspektiv från vår guide.',
     },
     // TODO: bilden återanvänds på flera orter – byt mot Alcúdia-specifik bild (stadsmurarna / Pollentia).
     hero: {
@@ -594,13 +594,13 @@ export const cities: City[] = [
     },
     about: [
       'Alcúdia är en av Mallorcas bäst bevarade medeltida städer med imponerande stadsmurar från 1300-talet, en romersk teater och en av öns vackraste sandstränder alldeles intill.',
-      'Stadsmurarna som omger gamla stan är nästan intakta och det är lätt att promenera längs dem. Inuti murarna finns butiker, restauranger och kyrkan Sant Jaume. Alldeles utanför staden sprider sig Playa de Muro – en av Mallorcas längsta och finaste sandstränder.',
+      'Stadsmurarna som omger gamla stan är nästan intakta och det är lätt att promenera längs dem. Inuti murarna finns butiker, restauranger och kyrkan Sant Jaume. Alldeles utanför staden sprider sig Platja de Muro – en av Mallorcas längsta och finaste sandstränder.',
     ],
     tips: [
       'Gå hela vägen runt stadsmurarna – tar ca 30 min och ger fin utsikt',
       'Pollentia-ruinerna är öppna för besök och inkluderar en romersk teater',
       'Tisdagsmarknaden är stor och populär – kom tidigt',
-      'Playa de Muro är perfekt för familjer – grunt och sandigt',
+      'Platja de Muro är perfekt för familjer – grunt och sandigt',
     ],
     highlights: {
       variant: 'cards',
@@ -608,15 +608,15 @@ export const cities: City[] = [
       items: [
         'Medeltida stadsmurarna från 1300-talet',
         'Romerska teatern Pollentia',
-        'Playa de Muro – lång sandstrand 5 min bort',
+        'Platja de Muro – lång sandstrand 5 min bort',
       ],
     },
     practical: [
       { label: 'Plats', value: 'Norra Mallorca, 54 km från Palma' },
       { label: 'Bil', value: 'Ca 50 min från Palma' },
-      { label: 'Marknad', value: 'Tisdag & söndag' },
+      { label: 'Marknad', value: 'Tisdag och söndag' },
       { label: 'Känd för', value: 'Medeltida murar, strand, historia' },
-      { label: 'Stränder i närheten', value: "Playa de Muro, Playa d'Alcúdia" },
+      { label: 'Stränder i närheten', value: "Platja de Muro, Platja d'Alcúdia" },
     ],
     guide: {
       getThere: [
@@ -630,15 +630,15 @@ export const cities: City[] = [
         areas: [
           { name: 'Gamla stan innanför murarna.', text: 'Små hotell i gamla stenhus, restauranger på torgen och lugnt när dagsbesökarna har gått. Passar par och dig som gillar historia.' },
           { name: 'Port d’Alcúdia.', text: 'Hamnen med strandpromenad, restauranger och båtturer. Praktisk bas om du vill blanda strand, utflykter och lite kvällsliv.' },
-          { name: 'Längs Playa d’Alcúdia och Playa de Muro.', text: 'Stora strandhotell och lägenhetshotell vid den långa sandstranden. Det klassiska valet för barnfamiljer.' },
+          { name: 'Längs Platja d’Alcúdia och Platja de Muro.', text: 'Stora strandhotell och lägenhetshotell vid den långa sandstranden. Det klassiska valet för barnfamiljer.' },
         ],
       },
       eat: {
-        intro: 'I gamla stan äter du mallorcanskt på torgen och i gränderna; i hamnen dominerar fisk, skaldjur och paella med utsikt över båtarna. Marknadsdagarna är bästa tillfället att köpa ost, oliver och korv till en picknick på stranden.',
+        intro: 'I gamla stan äter du mallorkinskt på torgen och i gränderna; i hamnen dominerar fisk, skaldjur och paella med utsikt över båtarna. Marknadsdagarna är bästa tillfället att köpa ost, oliver och korv till en picknick på stranden.',
       },
       beaches: {
-        names: ["Playa d'Alcúdia", 'Playa de Muro', 'Playa de Formentor'],
-        text: 'Den långa sandstranden börjar vid hamnen och fortsätter som Playa de Muro söderut – grunt och barnvänligt nästan hela vägen. Formentor nås med bil eller buss ut på halvön.',
+        names: ["Platja d'Alcúdia", 'Platja de Muro', 'Platja de Formentor'],
+        text: 'Den långa sandstranden börjar vid hamnen och fortsätter som Platja de Muro söderut – grunt och barnvänligt nästan hela vägen. Formentor nås med bil eller buss ut på halvön.',
       },
       market: {
         days: 'Tisdagar och söndagar, förmiddag',
@@ -668,7 +668,7 @@ export const cities: City[] = [
       description: 'Historisk kuststad med välbevarade medeltida murar och romarteater',
       image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75',
       tip: 'Besök den romerska teatern och gamla stan',
-      top3: ['Medeltida stadsmurarna', 'Romerska teatern Pollentia', 'Playa de Muro (5 min)'],
+      top3: ['Medeltida stadsmurarna', 'Romerska teatern Pollentia', 'Platja de Muro (5 min)'],
     },
   },
   {
@@ -682,18 +682,18 @@ export const cities: City[] = [
     tagline: 'Bergsby i världsarvet Serra de Tramuntana',
     seo: {
       // Våg 1: världsarvet är Serra de Tramuntana, inte själva byn.
-      description: 'Valldemossa i världsarvet Serra de Tramuntana – bergsby med kartusianerklostret där Chopin bodde. Ockrafärgade stenhus och autentiskt lugn. Vår guide.',
+      description: 'Valldemossa i världsarvet Serra de Tramuntana – bergsby med kartusianklostret där Chopin bodde. Ockrafärgade stenhus och autentiskt lugn. Vår guide.',
     },
     // TODO: generisk Tramuntana-bild som delas med Deià/Pollença/Artà – byt mot Valldemossa-specifik bild.
     hero: {
       image: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec',
       alt: 'Stenbelagda gränder i Valldemossa – bergsby i världsarvet Serra de Tramuntana',
       kicker: 'Nordvästra Mallorca · Tramuntana',
-      subtitle: 'Bergsby i världsarvet Serra de Tramuntana, känd för Chopins vistelse och det magnifika kartusianerklostret',
+      subtitle: 'Bergsby i världsarvet Serra de Tramuntana, känd för Chopins vistelse och det magnifika kartusianklostret',
     },
     about: [
-      'Valldemossa är en av Mallorcas mest berömda byar, inte minst tack vare den polska tonsättaren Frédéric Chopin och hans älskarinna George Sand som tillbringade vintern 1838–39 i kartusianerklostret Real Cartuja. Byn är förtrollande vacker med stenhus täckta av blommor och smala gränder som slingrar sig uppför bergssluttningarna.',
-      'Kartusianerklostret är öppet för besökare och innehåller Chopins piano, George Sands originalhandskrifter och en privat kyrka med keramikkupoler. Byn är också känd för sina lokala bakelser – coca de patata – som säljs på torget.',
+      'Valldemossa är en av Mallorcas mest berömda byar, inte minst tack vare den polska tonsättaren Frédéric Chopin och hans älskarinna George Sand som tillbringade vintern 1838–39 i kartusianklostret Real Cartuja. Byn är förtrollande vacker med stenhus täckta av blommor och smala gränder som slingrar sig uppför bergssluttningarna.',
+      'Kartusianklostret är öppet för besökare och innehåller Chopins piano, George Sands originalhandskrifter och en privat kyrka med keramikkupoler. Byn är också känd för sina lokala bakelser – coca de patata – som säljs på torget.',
     ],
     tips: [
       'Kom tidigt på morgonen – turistbussarna anländer efter 10',
@@ -705,9 +705,9 @@ export const cities: City[] = [
       variant: 'list',
       heading: 'Topp 3 i Valldemossa',
       items: [
-        'Kartusianerklostret – Chopins piano och George Sands handskrifter',
+        'Kartusianklostret – Chopins piano och George Sands handskrifter',
         'Chopins pianosalong – en unik glimt av 1800-talets konstliv',
-        'Utsikten från byplatsen – bergen och havet i samma vy',
+        'Utsikten från byn – bergen och havet i samma vy',
       ],
     },
     practical: [
@@ -731,7 +731,7 @@ export const cities: City[] = [
         ],
       },
       eat: {
-        intro: 'Valldemossas specialitet är coca de patata – ett lätt, fluffigt bakverk gjort på potatis och pudrat med socker. Köp ett på något av bagerierna och ät det med en kaffe på torget. Till lunch passar mallorcanska klassiker som pa amb oli.',
+        intro: 'Valldemossas specialitet är coca de patata – ett lätt, fluffigt bakverk gjort på potatis och pudrat med socker. Köp ett på något av bagerierna och ät det med en kaffe på torget. Till lunch passar mallorkinska klassiker som pa amb oli.',
       },
       market: {
         days: 'Söndagar, förmiddag',
@@ -755,8 +755,8 @@ export const cities: City[] = [
     card: {
       description: 'Bergsby i världsarvet Serra de Tramuntana, känd för Chopin och George Sands vistelse',
       image: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec?w=600&q=75',
-      tip: 'Besök kartusianerklostret tidigt på morgonen',
-      top3: ['Kartusianerklostret', 'Chopins pianosalong', 'Utsikten från byplatsen'],
+      tip: 'Besök kartusianklostret tidigt på morgonen',
+      top3: ['Kartusianklostret', 'Chopins pianosalong', 'Utsikten från byn'],
     },
   },
   {
@@ -767,7 +767,7 @@ export const cities: City[] = [
     lng: 2.648,
     updated: CHECKED,
     sitemapPriority: 0.75,
-    tagline: 'Konstnärsby vid NV-kusten',
+    tagline: 'Konstnärsby vid nordvästkusten',
     seo: {
       description: 'Deià – konstnärsby i Tramuntana med havsutsikt, Robert Graves-museet och den dolda Cala Deià nedanför. Bohemisk charm få öar kan matcha. Vår lokala guide.',
     },
@@ -776,11 +776,11 @@ export const cities: City[] = [
       image: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec',
       alt: 'Bohemisk konstnärsby Deià inbyggd i Tramuntanabergens sluttning med havsutsikt',
       kicker: 'Nordvästra Mallorca · Tramuntana',
-      subtitle: 'Bohemisk konstnärsby i Tramuntana-bergen med havsutsikt och Robert Graves arv',
+      subtitle: 'Bohemisk konstnärsby i Tramuntanabergen med havsutsikt och Robert Graves arv',
     },
     about: [
       'Deià är en av Mallorcas mest romantiska och konstnärliga byar. Inbyggd i en bergssluttning med utsikt mot Medelhavet har den lockat konstnärer, författare och musiker i generationer. Den brittiske poeten Robert Graves levde och dog här, och hans hus är nu ett museum öppet för besökare.',
-      'Cala Deià – en liten klippbadstrand nedanför byn – är en av Mallorcas vackraste och mest avskilda badplatser. Promenaden ner tar ungefär 20 minuter och belöningen är ett turkost hav omringat av klippor och pinjeskog.',
+      'Cala Deià – en liten klippbadstrand nedanför byn – är en av Mallorcas vackraste och mest avskilda badplatser. Promenaden ner tar ungefär 20 minuter och belöningen är ett turkost hav omgivet av klippor och pinjeskog.',
     ],
     tips: [
       'Robert Graves hus är museum i dag – kontrollera öppettiderna innan du åker',
@@ -793,7 +793,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Deià',
       items: [
         'Robert Graves museum – hem och arbetsstugan för den berömde poeten',
-        'Cala Deià – en av öns vackraste klippbadplatser, orört och fridfullt',
+        'Cala Deià – en av öns vackraste klippbadplatser, orörd och fridfull',
         'Utsikten från kyrkan – panorama över bergen och Medelhavet',
       ],
     },
@@ -823,7 +823,7 @@ export const cities: City[] = [
     ],
     mapsQuery: 'Deia+Mallorca',
     card: {
-      description: 'Konstnärsby i Tramuntana-bergen med bohemisk atmosfär och havsutsikt',
+      description: 'Konstnärsby i Tramuntanabergen med bohemisk atmosfär och havsutsikt',
       image: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75',
       tip: 'Robert Graves museum är ett måste',
       top3: ['Robert Graves museum', 'Cala Deià (bad)', 'Utsikten från kyrkan'],
@@ -850,13 +850,13 @@ export const cities: City[] = [
     },
     about: [
       'Artà domineras av Santuari de Sant Salvador – ett fort och kloster högt uppe på kullen som vaktat staden i generationer. Promenaden uppför de gamla trapporna ger en magnifik panoramautsikt över hela östra Mallorca och havet bortom. Byn nedan är ett mysigt virrvarr av stensatta gränder och pittoreska torg.',
-      "I närheten ligger Coves d'Artà – en av öns mest imponerande grottor med enorma stalaktiter och stalagmiter. Tisdagsmarknaden lockar lokalbefolkning från hela regionen och är ett av de bästa tillfällena att uppleva äkta mallorcansk livsstil.",
+      "I närheten ligger Coves d'Artà – en av öns mest imponerande grottor med enorma stalaktiter och stalagmiter. Tisdagsmarknaden lockar lokalbefolkning från hela regionen och är ett av de bästa tillfällena att uppleva äkta mallorkinsk livsstil.",
     ],
     tips: [
       'Borgen Santuari de Sant Salvador – fri entré och fantastisk utsikt',
       'Tisdagsmarknaden är en av öns mest autentiska – kom på förmiddagen',
       "Coves d'Artà ligger 15 min bort – kombinera gärna besöken",
-      'Restaurangerna runt torget serverar klassisk mallorcansk mat – prova frit mallorquí',
+      'Restaurangerna runt torget serverar klassisk mallorkinsk mat – prova frit mallorquí',
     ],
     highlights: {
       variant: 'list',
@@ -921,7 +921,7 @@ export const cities: City[] = [
     // TODO: bilden återanvänds på flera orter – byt mot Andratx-specifik bild (Port d'Andratx).
     hero: {
       image: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09',
-      alt: 'Lugn stadskärna i Andratx i sydvästra Mallorca med Tramuntana-bergen i bakgrunden',
+      alt: 'Lugn stadskärna i Andratx i sydvästra Mallorca med Tramuntanabergen i bakgrunden',
       kicker: 'Sydvästra Mallorca · Tramuntana',
       subtitle: 'Lugn stadskärna i sydväst med exklusiv marina och dramatisk bergskuliss',
     },
@@ -988,7 +988,7 @@ export const cities: City[] = [
     tagline: 'Historisk stad i norr',
     seo: {
       // Våg 1 rättade evenemanget till Festival de Pollença (klassisk musik i klostret Sant Domingo).
-      description: 'Pollença i norra Mallorca – autentisk by med 365 trappsteg till Calvari, söndagsmarknad vid torget och sommarfestival i klostret. Insider-tips från lokalkännare.',
+      description: 'Pollença i norra Mallorca – autentisk by med 365 trappsteg till Calvari, söndagsmarknad vid torget och sommarfestival i klostret. Insidertips från lokalkännare.',
     },
     // TODO: generisk Tramuntana-bild – byt mot Pollença-specifik bild (Calvari-trappan).
     hero: {
@@ -1002,8 +1002,8 @@ export const cities: City[] = [
       'Festival de Pollença i juli–augusti är en av Spaniens mest anrika sommarfestivaler – främst klassisk musik i klostret Sant Domingo under stjärnhimlen. Boka biljetter i god tid, konserterna blir ofta fullsatta. En kort biltur bort ligger Port de Pollença med en lång sandstrand.',
     ],
     tips: [
-      'Klättra Calvari-trappan tidigt på morgonen – magisk ljussättning',
-      'Söndagsmarknaden kl 8–13 – lokalt och äkta, ta fika på torget',
+      'Gå upp för Calvaritrappan tidigt på morgonen – då är ljuset magiskt',
+      'Söndagsmarknaden kl. 8–13 – lokalt och äkta, ta fika på torget',
       'Festival de Pollença i juli–augusti – boka tidigt, konserter i klostret Sant Domingo',
       'Port de Pollença 8 min bort – lång sandstrand med familjekänsla',
     ],
@@ -1019,7 +1019,7 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Norr, 55 km från Palma' },
       { label: 'Bil', value: 'Ca 50 min från Palma' },
-      { label: 'Marknad', value: 'Söndagar 08:00–13:00' },
+      { label: 'Marknad', value: 'Söndagar kl. 8–13' },
       { label: 'Festival de Pollença', value: 'Juli–augusti – boka tidigt' },
       { label: 'Strand', value: 'Port de Pollença 8 min' },
     ],
@@ -1041,7 +1041,7 @@ export const cities: City[] = [
         intro: 'Runt Plaça Major i Pollença sitter du på uteserveringarna med kaffe, tapas eller en lång lunch, och söndagsmarknaden fyller korgen med ost, oliver, korv och frukt. I Port de Pollença är det fisk, skaldjur och paella vid vattnet som gäller.',
       },
       beaches: {
-        names: ['Port de Pollença', 'Playa de Formentor', 'Cala Figuera (Formentor)'],
+        names: ['Port de Pollença', 'Platja de Formentor', 'Cala Figuera (Formentor)'],
         text: 'Stranden i Port de Pollença är lång, smal och grund. Ute på Formentorhalvön ligger den vita sandstranden Formentor och snorkelviken Cala Figuera.',
       },
       market: {
@@ -1074,7 +1074,7 @@ export const cities: City[] = [
     card: {
       description: 'Autentisk by med romersk bro, konstmarknad och 365 trappsteg till Calvari',
       image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=75',
-      tip: 'Klättra upp till Calvari för fantastisk utsikt',
+      tip: 'Gå upp till Calvari för den fina utsikten',
       top3: ['365 trappsteg till Calvari', 'Söndagsmarknaden', 'Festival de Pollença i juli–augusti'],
     },
   },
@@ -1099,10 +1099,10 @@ export const cities: City[] = [
     },
     about: [
       'Sineu är beläget i exakt centrum av Mallorca – geografiskt och kulturellt. Onsdagsmarknaden har pågått sedan kung Jaume II utfärdade privilegiet år 1306, vilket gör den till öns äldsta. Levande djur, lokala produkter, hantverk och grönsaker säljs sida vid sida på stadens olika torg.',
-      'Kyrkan Mare de Déu dels Àngels dominerar stadsbilden med sin imponerande fasad och torn. Sa Plaça är torgets hjärta med caféer och barer som serverar ärlig mat till ärliga priser – utan turistpåslag. Det är Mallorca som det en gång var.',
+      'Kyrkan Mare de Déu dels Àngels dominerar stadsbilden med sin imponerande fasad och torn. Sa Plaça är torgets hjärta med kaféer och barer som serverar ärlig mat till ärliga priser – utan turistpåslag. Det är Mallorca som det en gång var.',
     ],
     tips: [
-      'Onsdagsmarknaden – kom 08:00 för bästa upplevelsen, fullt efter 10',
+      'Onsdagsmarknaden – kom kl. 8 för bästa upplevelsen, det är fullt efter kl. 10',
       'Fråga lokalt om djurmarknaden – hålls på ett separat torg',
       'Fixa fika på Sa Plaça – torgets kaffebar är perfekt för att se livet gå',
       'Kombinera gärna med ett stopp i Petra eller Inca samma dag',
@@ -1112,7 +1112,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Sineu',
       items: [
         'Onsdagsmarknaden – öns äldsta marknad sedan 1306, kom tidigt',
-        'Sa Plaça-torget – hjärtat av byn med caféer och äkta mallorcansk stämning',
+        'Sa Plaça-torget – hjärtat av byn med kaféer och äkta mallorkinsk stämning',
         // Kyrkan är en församlingskyrka, inte en katedral.
         'Kyrkan Mare de Déu dels Àngels – imponerande gotisk kyrka mitt i byn',
       ],
@@ -1120,7 +1120,7 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Centrala Mallorca, 30 km från Palma' },
       { label: 'Bil', value: 'Ca 30 min från Palma' },
-      { label: 'Marknad', value: 'Onsdagar 08:00–13:00' },
+      { label: 'Marknad', value: 'Onsdagar kl. 8–13' },
       { label: 'Känd för', value: 'Öns äldsta marknad' },
       { label: 'Parkering', value: 'Utanför stadskärnan' },
     ],
@@ -1166,7 +1166,7 @@ export const cities: City[] = [
     hero: {
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
       alt: 'Traditionell inlandsstad Felanitx i östra Mallorca känd för keramik och vinodling',
-      kicker: 'Östra Mallorca · Keramik & marknad',
+      kicker: 'Östra Mallorca · Keramik och marknad',
       subtitle: 'Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad',
     },
     about: [
@@ -1174,7 +1174,7 @@ export const cities: City[] = [
       'Uppe på Puig de Sant Salvador (509 m) finns ett kloster med fantastisk utsikt över hela östra Mallorca – ett besök värt att planera in. Nere i staden präglas torget av den imponerande kyrkan Sant Miquel.',
     ],
     tips: [
-      'Söndagsmarknaden startar tidigt – bäst läge är vid öppning kl 08',
+      'Söndagsmarknaden startar tidigt – bäst är att komma vid öppning kl. 8',
       'Köp lokal keramik direkt från hantverkarna, priserna är rimliga',
       'Kör upp till Castell de Santueri för fantastisk panoramautsikt',
       'Kombinera med Porto Colom vid kusten för en hel dagsutflykt',
@@ -1185,7 +1185,7 @@ export const cities: City[] = [
       items: [
         'Söndagsmarknaden med lokal keramik',
         'Castell de Santueri med panoramautsikt',
-        'Lokalt vin från Felanitx-vingårdarna',
+        'Lokalt vin från vingårdarna runt Felanitx',
       ],
     },
     practical: [
@@ -1222,7 +1222,7 @@ export const cities: City[] = [
       description: 'Traditionell stad känd för keramik, vin och söndagsmarknad',
       image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=75',
       tip: 'Köp lokal keramik direkt från hantverkarna',
-      top3: ['Lokal keramik & hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'],
+      top3: ['Lokal keramik och hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'],
     },
   },
   {
@@ -1233,35 +1233,35 @@ export const cities: City[] = [
     lng: 3.209,
     updated: CHECKED,
     sitemapPriority: 0.7,
-    tagline: 'Öns näst största stad — pärlor och Rafa Nadal',
+    tagline: 'Öns näst största stad – pärlor och Rafa Nadal',
     seo: {
-      description: 'Manacor – Mallorcas näst största stad på östkusten. Pärlor, Rafa Nadals hemstad och porten till Drach-grottorna. Insider-tips från lokalkännare.',
+      description: 'Manacor – Mallorcas näst största stad på östkusten. Pärlor, Rafa Nadals hemstad och porten till Coves del Drac. Insidertips från lokalkännare.',
     },
     // TODO: generisk landsbygdsbild som återanvänds på sajten – byt mot Manacor-specifik bild.
     hero: {
       image: 'https://images.unsplash.com/photo-1474722883778-792e7990302f',
       alt: 'Mallorcas landsbygd med mandelträd, olivlundar och torrmurar – östra slätten kring Manacor',
       kicker: 'Östra Mallorca · Näst största staden',
-      subtitle: 'Pärlstaden med Rafa Nadals hemmaplan – porten till öns östkust och Drach-grottorna',
+      subtitle: 'Pärlstaden med Rafa Nadals hemmaplan – porten till öns östkust och Coves del Drac',
     },
     about: [
       'Manacor är Mallorcas näst största stad och ligger mitt på öns östra sida. Till skillnad från kustbyarna skriker den inte efter uppmärksamhet. Det här är en arbetsstad med gamla rötter i hantverk och jordbruk – och just därför en av de mest autentiska platserna du kan besöka på ön.',
-      'Staden är mest känd som hemstad till Rafael Nadal, som fortfarande bor här, och för Majorica – fabriken som sedan 1890 tillverkar konstgjorda pärlor av fiskfjäll i ett så förfinat hantverk att de nästan är omöjliga att skilja från äkta. Tillsammans med den närliggande Drach-grottan och östkustens vikar gör detta Manacor till en perfekt bas för utforskning, inte bara en genomfartsort.',
+      'Staden är mest känd som hemstad till Rafael Nadal, som fortfarande bor här, och för Majorica – fabriken som sedan 1890 tillverkar konstgjorda pärlor av fiskfjäll i ett så förfinat hantverk att de nästan är omöjliga att skilja från äkta. Tillsammans med den närliggande Coves del Drac och östkustens vikar gör detta Manacor till en perfekt bas för utforskning, inte bara en genomfartsort.',
     ],
     tips: [
       'Åk tåget från Palma till Manacor – ungefär en timme, och du slipper bilköerna på östkustens småvägar',
-      'Kombinera morgon i Manacor (marknaden på måndagar) med eftermiddag i Drach-grottorna, 20 minuter bort',
+      'Kombinera morgon i Manacor (marknaden på måndagar) med eftermiddag i Coves del Drac, 20 minuter bort',
       {
-        text: 'Rafa Nadal Museum Xperience är värt det om du är sportintresserad – men om du bara vill se trofeer räcker fönstertittandet.',
+        text: 'Rafa Nadal Museum Xperience är värt det om du är sportintresserad – men om du bara vill se troféer räcker det att titta in genom fönstret.',
         link: { href: '/barn/inomhus-och-regn#rafa-nadal-museum-xperience', label: 'Se familjeanpassad guide →' },
       },
-      'Vineriet Bodega Miquel Gelabert bokas i förväg – små produktioner och personlig tasting',
+      'Vingården Bodega Miquel Gelabert tar emot besök efter bokning – små produktioner och personlig provning',
     ],
     highlights: {
       variant: 'list',
       heading: 'Topp 3 i Manacor',
       items: [
-        'Majorica pärlafabriken – se hur pärlorna tillverkas för hand, handla direkt från outlet-butiken',
+        'Majoricas pärlfabrik – se hur pärlorna tillverkas för hand, handla direkt från fabriksbutiken',
         'Rafa Nadal Museum Xperience – interaktivt sportmuseum med VR-simulatorer, troféer och personliga föremål',
         'Kyrkan Nostra Senyora dels Dolors – neogotisk med Mallorcas högsta klocktorn, syns långt in över slätten',
       ],
@@ -1269,10 +1269,10 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Östra Mallorca, inland' },
       { label: 'Flyg', value: '45 min från PMI-flygplatsen' },
-      { label: 'Tåg', value: 'Direktlinje från Palma (~1 timme, varje timme)' },
+      { label: 'Tåg', value: 'Direktlinje från Palma (ca 1 timme, avgång varje timme)' },
       { label: 'Bästa tid', value: 'April–juni, september–oktober' },
-      { label: 'Känd för', value: 'Majorica-pärlor, Rafa Nadal, Drach-grottorna' },
-      { label: 'I närheten', value: 'Porto Cristo (10 km), Cala Varques, Drach-grottorna' },
+      { label: 'Känd för', value: 'Majorica-pärlor, Rafa Nadal, Coves del Drac' },
+      { label: 'I närheten', value: 'Porto Cristo (10 km), Cala Varques, Coves del Drac' },
     ],
     guide: {
       getThere: [
@@ -1306,7 +1306,7 @@ export const cities: City[] = [
     places: {
       heading: 'Hitta hit i Manacor',
       items: [
-        { text: 'Coves del Drach, Porto Cristo', href: 'https://maps.google.com/?q=Coves+del+Drach+Porto+Cristo+Mallorca' },
+        { text: 'Coves del Drac, Porto Cristo', href: 'https://maps.google.com/?q=Coves+del+Drach+Porto+Cristo+Mallorca' },
         { text: 'Rafa Nadal Museum Xperience', href: 'https://maps.google.com/?q=Rafa+Nadal+Museum+Xperience+Manacor' },
         { text: 'Nostra Senyora dels Dolors', href: 'https://maps.google.com/?q=Nostra+Senyora+dels+Dolors+Manacor' },
       ],
@@ -1316,7 +1316,7 @@ export const cities: City[] = [
       image: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=600&q=75',
       tip: 'Besök en pärlafabrik och se hur de tillverkas',
       // Stavningen följer stadssidan och varumärket: Majorica.
-      top3: ['Majorica pärlafabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'],
+      top3: ['Majoricas pärlfabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'],
     },
   },
   {
@@ -1342,11 +1342,11 @@ export const cities: City[] = [
     about: [
       // Tidigare "Mallorcas näst folkrikaste stad" – krockade med Manacor (näst största) och stämmer inte.
       'Inca är en av Mallorcas största städer och känd som öns läderhuvudstad. Läderfabriker och butiker har producerat skor, väskor och bälten här i generationer, och torsdagsmarknaden – en av öns största – lockar köpare från hela Mallorca. Priserna på kvalitetsskor är ofta långt under det du betalar i Stockholm.',
-      'Celler-restaurangerna är en tradition i Inca – källare under gamla stadshus som började som vinförråd och nu serverar traditionell mallorcansk mat. Dijous Bo i november är en av Mallorcas största marknadsdagar.',
+      'Celler-restaurangerna är en tradition i Inca – källare under gamla stadshus som började som vinförråd och nu serverar traditionell mallorkinsk mat. Dijous Bo i november är en av Mallorcas största marknadsdagar.',
     ],
     tips: [
-      'Torsdagsmarknaden – kom 08:30 för bästa urval av skor och läder',
-      'Celler-restaurang till lunch – ärlig mallorcansk mat i vinkällare',
+      'Torsdagsmarknaden – kom kl. 8.30 för bästa urvalet av skor och läder',
+      'Celler-restaurang till lunch – ärlig mallorkinsk mat i vinkällare',
       'Dijous Bo i november – öns största marknadshändelse, boka hotell tidigt',
       'Ta tåget från Palma – du slipper leta parkering',
     ],
@@ -1355,7 +1355,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Inca',
       items: [
         'Torsdagsmarknaden – en av öns största, stort urval av läderskor',
-        'Cellers – traditionella källarrestauranger med äkta mallorcanska rätter',
+        'Cellers – traditionella källarrestauranger med äkta mallorkinska rätter',
         'Dijous Bo i november – en av Mallorcas största marknadsdagar',
       ],
     },
@@ -1395,7 +1395,7 @@ export const cities: City[] = [
       description: 'Läderstaden med berömd torsdagsmarknad och källarviner',
       image: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=600&q=75',
       tip: 'November – kom på den stora lädermässan',
-      top3: ['Torsdagsmarknaden', 'Läderskor & väskor till rea', 'Cellers (källarrestauranger)'],
+      top3: ['Torsdagsmarknaden', 'Läderskor och väskor till rea', 'Cellers (källarrestauranger)'],
     },
   },
   {
@@ -1418,7 +1418,7 @@ export const cities: City[] = [
       subtitle: 'Pittoresk by dominerad av ett mäktigt medeltida fort med panoramautsikt över nordöstra Mallorca',
     },
     about: [
-      'Capdepera domineras av Castell de Capdepera – ett enormt medeltida fort som kröner kullen ovanför byn. Inifrån murarna har man en fantastisk panoramautsikt över hela nordöstra hörnet av Mallorca, havet och bortom. Byn nedan är charmig med vita hus och blomsterprydda gränder.',
+      'Capdepera domineras av Castell de Capdepera – ett enormt medeltida fort som kröner kullen ovanför byn. Inifrån murarna har du en fantastisk panoramautsikt över hela nordöstra hörnet av Mallorca, havet och bortom. Byn nedan är charmig med vita hus och blomsterprydda gränder.',
       'Strax nedanför ligger Cala Rajada – ett livligt fiskeläge och badort med flera fina stränder. Solnedgångarna sett från borgmurarna är spektakulära och ett av de bästa fotomotiven på norra Mallorca.',
     ],
     tips: [
@@ -1481,20 +1481,20 @@ export const cities: City[] = [
     lng: 2.6938,
     updated: CHECKED,
     sitemapPriority: 0.65,
-    tagline: 'Hamnby nådd med historisk spårvagn',
+    tagline: 'Hamnby dit den historiska spårvagnen går',
     seo: {
-      description: 'Port de Sóller – cirkelformad vik i Tramuntana nådd med historisk spårvagn från Sóller. Snorkling, solnedgång och havsrestauranger. Svensk guide inifrån.',
+      description: 'Port de Sóller – cirkelformad vik i Tramuntana dit den historiska spårvagnen från Sóller går. Snorkling, solnedgång och havsrestauranger. Svensk guide inifrån.',
     },
     // TODO: bilden återanvänds på flera orter – byt mot Port de Sóller-specifik bild (viken / spårvagnen).
     hero: {
       image: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09',
       alt: 'Hamnby i Tramuntana – Port de Sóller med cirkelformad vik och fiskebåtar',
       kicker: 'Nordvästra Mallorca · Vacker hamnby',
-      subtitle: 'En av Mallorcas mest pittoreska hamnbyar med naturlig vik – nådd med historisk spårvagn från Sóller',
+      subtitle: 'En av Mallorcas mest pittoreska hamnbyar med naturlig vik – dit går den historiska spårvagnen från Sóller',
     },
     about: [
-      'Port de Sóller är en av Mallorcas mest pittoreska hamnbyar med en naturlig rundad vik omgiven av Tramuntana-bergen. Nås med den historiska spårvagnen från Sóller – en upplevelse i sig.',
-      'Hamnen omges av restauranger och caféer med utsikt mot det blågröna Medelhavet. Viken är skyddad och lugn, perfekt för simning och snorkling. På kvällen samlas besökare längs promenaden för att se solen gå ned bakom bergen.',
+      'Port de Sóller är en av Mallorcas mest pittoreska hamnbyar med en naturlig rundad vik omgiven av Tramuntanabergen. Nås med den historiska spårvagnen från Sóller – en upplevelse i sig.',
+      'Hamnen omges av restauranger och kaféer med utsikt mot det blågröna Medelhavet. Viken är skyddad och lugn, perfekt för simning och snorkling. På kvällen samlas besökare längs promenaden för att se solen gå ned bakom bergen.',
     ],
     tips: [
       'Ta spårvagnen från Sóller – 15 min och passa på att sitta utomhus',
@@ -1546,7 +1546,7 @@ export const cities: City[] = [
     ],
     mapsQuery: 'Port+de+Soller+Mallorca',
     card: {
-      description: 'Charmig hamnby med en av Mallorcas vackraste vikar, nådd med historisk spårvagn',
+      description: 'Charmig hamnby med en av Mallorcas vackraste vikar, dit den historiska spårvagnen går',
       image: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=75',
       tip: 'Ta den historiska spårvagnen från Sóller',
       top3: ['Spårvagnsresan från Sóller', 'Solnedgången vid hamnen', 'Snorkling i viken'],
@@ -1572,7 +1572,7 @@ export const cities: City[] = [
       subtitle: 'Saltstaden med två marknadsdagar och porten till Es Trenc',
     },
     about: [
-      'Campos ligger på Migjorn-slätten i södra Mallorca – bokstavligen omgivet av jordbruksmark, mandelträd och låga stenmurar. Det är en riktig mallorcansk småstad utan turistförskönad fasad, med sandstenskvarter, gröna fönsterluckor och torg där äldre fortfarande pratar bred mallorquí.',
+      'Campos ligger på Migjorn-slätten i södra Mallorca – bokstavligen omgivet av jordbruksmark, mandelträd och låga stenmurar. Det är en riktig mallorkinsk småstad utan turistförskönad fasad, med sandstenskvarter, gröna fönsterluckor och torg där äldre fortfarande pratar bred mallorquí.',
       "Stadens hjärta är marknaderna – två per vecka, på torsdagar och lördagar – där lokala bönder säljer allt från getostar och Sa Pobla-potatis till kryddor och grovt salt från de närliggande saltpannorna. Just saltet är Campos signatur: Flor de Sal d'Es Trenc skördas för hand i de gamla saltpannorna några kilometer söderut och räknas till världens finaste havssalt. Och bakom saltpannorna öppnar sig Es Trenc – en 6 kilometer lång orörd strand med vatten så turkost att den kallas Mallorcas Karibien.",
     ],
     tips: [
@@ -1583,7 +1583,7 @@ export const cities: City[] = [
     ],
     highlights: {
       variant: 'list',
-      heading: 'Topp 3 i Campos & omnejd',
+      heading: 'Topp 3 i Campos med omnejd',
       items: [
         'Es Trenc-stranden – 6 km orörd sand, turkost vatten, ingen bebyggelse (10 min bort)',
         'Salines d’Es Trenc – besök saltpannorna där Flor de Sal skördas för hand, guidade turer finns',

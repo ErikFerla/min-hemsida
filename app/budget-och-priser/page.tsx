@@ -20,7 +20,7 @@ const transport: PrisRad[] = [
 const entreer: PrisRad[] = [
   { vad: 'Katedralen La Seu, Palma', pris: 'ca 10 €', kommentar: 'Vanlig entré. Med guidad tur upp på takterrasserna ca 25 €.' },
   { vad: 'Castell de Bellver, Palma', pris: '4 €', kommentar: 'Kommunen har aviserat en höjning till 8 €.' },
-  { vad: 'Coves del Drach, Porto Cristo', pris: 'ca 18 €', kommentar: 'Vuxen. Biljetten gäller en bestämd tid – boka gärna i förväg.' },
+  { vad: 'Coves del Drac, Porto Cristo', pris: 'ca 18 €', kommentar: 'Vuxen. Biljetten gäller en bestämd tid – boka gärna i förväg.' },
 ];
 
 const strand: PrisRad[] = [

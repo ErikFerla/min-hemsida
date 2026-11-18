@@ -363,7 +363,7 @@ export const omraden: Omrade[] = [
     ],
     passarFor: ['lange', 'lugn', 'utanBil'],
     beskrivning:
-      'Mitt på ön ligger småstäder och byar bland mandel- och olivodlingar. Här bor mallorquinerna, och här finns många fincas att hyra. Sineu har onsdagsmarknad, Inca torsdagsmarknad.',
+      'Mitt på ön ligger småstäder och byar bland mandel- och olivodlingar. Här bor mallorkinerna, och här finns många fincas att hyra. Sineu har onsdagsmarknad, Inca torsdagsmarknad.',
     fordelar: [
       'Tåget går till Palma från både Inca och Sineu',
       'Lägre priser och mer lokalt liv än vid kusten',

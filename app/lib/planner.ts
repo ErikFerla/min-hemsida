@@ -94,7 +94,7 @@ const L = {
  * Katalog med dagsförslag
  *
  * Varje intresse pekar ut sina förslag i prioritetsordning. Samma förslag kan höra
- * till flera intressen (t.ex. Coves del Drach för både kultur och familj) och används
+ * till flera intressen (t.ex. Coves del Drac för både kultur och familj) och används
  * då bara en gång i planen.
  *
  * Inga öppettider, priser eller exakta tider här – sådant ändras och står på
@@ -143,16 +143,16 @@ const förslagsKatalog = {
   },
   'formentor': {
     titel: 'Formentorhalvön', område: 'norr', ort: 'pollenca',
-    text: 'Formentorhalvön – utsikten vid Es Colomer och bad på Playa de Formentor.',
+    text: 'Formentorhalvön – utsikten vid Es Colomer och bad på Platja de Formentor.',
     förmiddag: 'Kör ut på Formentorhalvön och stanna vid utsiktsplatsen Es Colomer medan det är lugnt.',
-    eftermiddag: 'Bad på Playa de Formentor, en lång sandstrand med tallskog ända ner till vattnet.',
+    eftermiddag: 'Bad på Platja de Formentor, en lång sandstrand med tallskog ända ner till vattnet.',
     kväll: 'Promenad längs vattnet och middag i Port de Pollença.',
     länkar: [L.strandar, L.pollenca],
   },
   'muro': {
-    titel: 'Playa de Muro och Alcúdia', område: 'norr', ort: 'alcudia',
-    text: 'Playa de Muro – långgrunt vatten och fin sand i Alcúdiabukten. Kvällspromenad innanför stadsmuren i Alcúdia.',
-    förmiddag: 'Stranddag på Playa de Muro – långgrunt och bra för barn.',
+    titel: 'Platja de Muro och Alcúdia', område: 'norr', ort: 'alcudia',
+    text: 'Platja de Muro – långgrunt vatten och fin sand i Alcúdiabukten. Kvällspromenad innanför stadsmuren i Alcúdia.',
+    förmiddag: 'Stranddag på Platja de Muro – långgrunt och bra för barn.',
     eftermiddag: 'Fortsätt på stranden eller ta en cykeltur längs bukten när det svalnar.',
     kväll: 'Kvällspromenad innanför stadsmuren i Alcúdia och middag i gamla stan.',
     länkar: [L.strandar, L.alcudia],
@@ -203,7 +203,7 @@ const förslagsKatalog = {
     titel: 'Palmas gamla stan', område: 'palma', ort: 'palma-de-mallorca',
     text: 'Palma – katedralen La Seu, Palau de l’Almudaina och gränderna i gamla stan.',
     förmiddag: 'Katedralen La Seu och kungapalatset Palau de l’Almudaina bredvid.',
-    eftermiddag: 'Vandra genom gränderna i gamla stan, förbi innergårdarna och Arabiska baden.',
+    eftermiddag: 'Vandra genom gränderna i gamla stan, förbi innergårdarna och de arabiska baden.',
     kväll: 'Tapas i gamla stan eller i Santa Catalina.',
     länkar: [L.palma, L.sevardheter],
   },
@@ -264,9 +264,9 @@ const förslagsKatalog = {
     länkar: [L.arta, L.sevardheter],
   },
   'coves-drach': {
-    titel: 'Coves del Drach', område: 'ost', ort: 'manacor',
-    text: 'Coves del Drach i Porto Cristo – droppstensgrottor med en kort konsert på den underjordiska sjön. Köp biljett i förväg.',
-    förmiddag: 'Coves del Drach i Porto Cristo – droppstensgrottor och en kort konsert på den underjordiska sjön. Biljetterna gäller en bestämd tid, så köp i förväg.',
+    titel: 'Coves del Drac', område: 'ost', ort: 'manacor',
+    text: 'Coves del Drac i Porto Cristo – droppstensgrottor med en kort konsert på den underjordiska sjön. Köp biljett i förväg.',
+    förmiddag: 'Coves del Drac i Porto Cristo – droppstensgrottor och en kort konsert på den underjordiska sjön. Biljetterna gäller en bestämd tid, så köp i förväg.',
     eftermiddag: 'Lunch och bad i Porto Cristo.',
     kväll: 'Middag i Porto Cristo eller i Manacor.',
     länkar: [L.sevardheter, L.manacor],
@@ -375,15 +375,15 @@ const förslagsKatalog = {
     titel: 'Cykla mot Formentor', område: 'norr', ort: 'pollenca',
     text: 'Cykla vägen ut mot Cap de Formentor – en klassisk tur med utsikt hela vägen. Hyr cykel i Port de Pollença.',
     förmiddag: 'Hyr cykel i Port de Pollença och cykla ut mot Cap de Formentor tidigt, innan trafiken ökar.',
-    eftermiddag: 'Bad på Playa de Formentor på vägen tillbaka.',
+    eftermiddag: 'Bad på Platja de Formentor på vägen tillbaka.',
     kväll: 'Middag i Port de Pollença.',
     länkar: [L.pollenca],
   },
   'albufera': {
     titel: 'S’Albufera', område: 'norr', ort: 'alcudia',
-    text: 'S’Albufera – fågelskådning och cykling i våtmarksparken bakom Playa de Muro.',
+    text: 'S’Albufera – fågelskådning och cykling i våtmarksparken bakom Platja de Muro.',
     förmiddag: 'Fågelskådning i våtmarksparken S’Albufera, gärna tidigt på morgonen.',
-    eftermiddag: 'Cykla på stigarna i parken och bada sedan på Playa de Muro.',
+    eftermiddag: 'Cykla på stigarna i parken och bada sedan på Platja de Muro.',
     kväll: 'Middag i Alcúdia.',
     länkar: [L.alcudia],
   },

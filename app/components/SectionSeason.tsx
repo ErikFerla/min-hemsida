@@ -20,45 +20,45 @@ const säsonger: Sasong[] = [
   {
     Icon: IconFlower,
     namn: 'Våren',
-    månader: 'Mars – Maj',
+    månader: 'mars–maj',
     färg: '#a8e6a3',
     textFärg: '#1a5c1a',
-    fördelar: ['Perfekt för vandring i Tramuntana', 'Blommande landskap och gröna dalar', 'Färre turister och lägre priser', 'Behagliga 18–22 grader'],
+    fördelar: ['Perfekt för vandring i Tramuntana', 'Blommande landskap och gröna dalar', 'Färre turister och lägre priser', 'Behagliga 18–22 °C'],
     nackdel: 'Lite kyligt för bad',
-    bästFör: 'Natur & vandring',
+    bästFör: 'Natur och vandring',
     borderColor: '#a8e6a3',
   },
   {
     Icon: IconSun,
     namn: 'Sommaren',
-    månader: 'Juni – Augusti',
+    månader: 'juni–augusti',
     färg: '#ffc400',
     textFärg: '#5c3d00',
-    fördelar: ['28–32 grader och nästan alltid sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
+    fördelar: ['28–32 °C och nästan alltid sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
     nackdel: 'Mest turister och högsta priser',
-    bästFör: 'Bad & familjesemester',
+    bästFör: 'Bad och familjesemester',
     borderColor: '#ffc400',
   },
   {
     Icon: IconLeaf,
     namn: 'Hösten',
-    månader: 'September – November',
+    månader: 'september–november',
     färg: '#f5a623',
     textFärg: '#5c2d00',
-    fördelar: ['Havet är varmt i september (cirka 24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
+    fördelar: ['Havet är varmt i september (ca 24 °C)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
     nackdel: 'Regnigare i oktober',
-    bästFör: 'Mat & kultur',
+    bästFör: 'Mat och kultur',
     borderColor: '#f5a623',
   },
   {
     Icon: IconSnow,
     namn: 'Vintern',
-    månader: 'December – Februari',
+    månader: 'december–februari',
     färg: '#90caf9',
     textFärg: '#0a2a5c',
-    fördelar: ['Lugnt och autentiskt', 'Mandelblomning i februari', 'Bra för cykling och vandring', 'Milt, ofta 14–17 grader dagtid'],
+    fördelar: ['Lugnt och autentiskt', 'Mandelblomning i februari', 'Bra för cykling och vandring', 'Milt, ofta 14–17 °C på dagen'],
     nackdel: 'Många affärer stängda',
-    bästFör: 'Avkoppling & cykling',
+    bästFör: 'Avkoppling och cykling',
     borderColor: '#90caf9',
   },
 ];
@@ -70,7 +70,7 @@ export default function SectionSeason() {
     <section className={styles.section}>
       <div className={styles.inner}>
         <h2>När ska du åka?</h2>
-        <p className={styles.sub}>Mallorca är fantastiskt hela året – men varje säsong erbjuder något unikt</p>
+        <p className={styles.sub}>Mallorca går att besöka hela året – och varje årstid har något eget</p>
 
         {/* Desktop-grid */}
         <div className={styles.grid}>

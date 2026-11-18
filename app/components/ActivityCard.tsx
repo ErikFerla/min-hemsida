@@ -8,7 +8,7 @@ import { getCategoryMeta } from '@/app/lib/barn-activities';
 
 export type ActivityCardProps = {
   activity: Activity;
-  /** Which category page we are rendering inside — used to build the anchor href. */
+  /** Which category page we are rendering inside – used to build the anchor href. */
   cardCategory: Category;
 };
 

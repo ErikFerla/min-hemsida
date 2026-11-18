@@ -4,7 +4,7 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 export const metadata: Metadata = {
   title: 'Vattenparker på Mallorca – 5 bästa för barn',
   description:
-    'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips för familjer med barn i olika åldrar.',
+    'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insidertips för familjer med barn i olika åldrar.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/vattenparker' },
   openGraph: {
     type: 'website',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     locale: 'sv_SE',
     title: 'Vattenparker på Mallorca – 5 bästa för barn',
     description:
-      'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips för familjer med barn i olika åldrar.',
+      'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insidertips för familjer med barn i olika åldrar.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Vattenparker på Mallorca – 5 bästa för barn',
     description:
-      'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insider-tips.',
+      'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insidertips.',
     images: ['https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85'],
   },
 };
@@ -41,19 +41,19 @@ export default function VattenparkerPage() {
         imageAlt: 'Vattenrutschkanor och blå pooler på en vattenpark under Mallorcas sommarsol',
         title: 'Vattenparker på Mallorca',
         subtitle:
-          '5 parker testade för barnfamiljer — från öns största Aqualand till lugna Hidropark i norr.',
+          '5 parker testade för barnfamiljer – från öns största Aqualand till lugna Hidropark i norr.',
       }}
       intro={
         <>
           <p>
-            Mallorca har tre stora vattenparker och två mindre — alla med tydliga specialiteter. Aqualand
-            El Arenal är öns största med de vildaste rutschkanorna, Western Water Park levererar en
-            helteatralisk tema­upplevelse i Magaluf, och Hidropark i norr är en dold pärla för familjer
-            som bor i Alcúdia-området och vill slippa en timmes bilresa.
+            Mallorca har tre stora vattenparker och två mindre – alla med tydliga specialiteter. Aqualand
+            El Arenal är öns största med de vildaste rutschkanorna, Western Water Park bjuder på en
+            genomgående temaupplevelse i Magaluf, och Hidropark i norr är ett smultronställe för familjer
+            som bor kring Alcúdia och vill slippa en timmes bilresa.
           </p>
           <p>
             Åldersfiltret nedan hjälper dig att snabbt se vilka parker som passar just era barn. Tips:
-            vattenparkerna på södra/västra delen av ön har större småbarnsområden, men norr har
+            vattenparkerna i söder och väster har större småbarnsområden, men norr har
             betydligt kortare köer även mitt i juli.
           </p>
         </>

@@ -135,7 +135,7 @@ function Vy({ evenemang, fran, till }: { evenemang: Evenemang[]; fran: string; t
               })}
             </ul>
             <p className={styles.help}>
-              Marknaderna håller på förmiddagen. Mer om varje marknad på sidan <Link href="/marknader">Veckomarknader på Mallorca</Link>.
+              Marknaderna pågår på förmiddagen. Mer om varje marknad på sidan <Link href="/marknader">Veckomarknader på Mallorca</Link>.
             </p>
           </div>
         )}
