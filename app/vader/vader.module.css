@@ -132,3 +132,15 @@
     font-size: 15px;
   }
 }
+
+/* 3.3: klimattabell */
+.climate { margin: 3rem 0 1rem; }
+.climate h2 { color: var(--color-ink); }
+.climateLead { color: var(--color-text); font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.25rem; max-width: 760px; }
+.climateNote { color: var(--color-text); font-size: 0.95rem; line-height: 1.7; margin: 1rem 0 0; max-width: 760px; }
+.climateNote a { color: var(--color-accent); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .climateLead,
+  .climateNote { font-size: 16px; }
+}
