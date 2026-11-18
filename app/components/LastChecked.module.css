@@ -1,0 +1,22 @@
+.box {
+  max-width: 820px;
+  margin: 2.5rem auto 0;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+.date {
+  margin: 0;
+  font-weight: 600;
+}
+.note,
+.sources {
+  margin: 0.35rem 0 0;
+}
+.sources a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
