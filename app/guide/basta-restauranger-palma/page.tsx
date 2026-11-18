@@ -1,10 +1,8 @@
-import { IconPin, IconInfo, IconBookmark, IconUsers, PriceTag, tierFromEmoji } from '@/components/Icons';
+import Link from 'next/link';
+import { IconPin, IconInfo, IconBookmark, PriceTag, tierFromEmoji } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
-
-export const metadata = {
-  title: '15 bästa restaurangerna i Palma 2026 – Lokal guide | MyMallorca',
-  description: 'Rankade av en lokal: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, bästa tapas, fisk och skaldjur, och dolda pärlor utan turistpriser.',
-};
+import h from '../headings.module.css';
+import styles from './page.module.css';
 
 type Restaurant = {
   namn: string;
@@ -50,7 +48,7 @@ const sections = [
 
 export default function BästaRestaurangerPalma() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <HeroImage
         src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
         alt="Dukat restaurangbord med mallorcanska tapas och färska råvaror i Palma"
@@ -60,10 +58,10 @@ export default function BästaRestaurangerPalma() {
         height="52vh"
       />
 
-      <div style={{ maxWidth: '820px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
-        <div style={{ background: 'white', border: '1px solid #ede5da', borderRadius: 16, padding: '18px 20px', marginBottom: 40 }}>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: '0 0 10px' }}>Prisskala</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px 16px', fontSize: '0.85rem', color: '#374151' }}>
+      <div className={styles.container}>
+        <div className={styles.priceBox}>
+          <p className={styles.priceLabel}>Prisskala</p>
+          <div className={styles.priceGrid}>
             <Row tier={1} label="Under 20 €" />
             <Row tier={2} label="20–40 €" />
             <Row tier={3} label="40–70 €" />
@@ -72,21 +70,21 @@ export default function BästaRestaurangerPalma() {
         </div>
 
         {sections.map(section => (
-          <section key={section.key} style={{ marginBottom: 56 }}>
-            <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>{section.kicker}</p>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.2vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 22px', lineHeight: 1 }}>{section.label}</h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <section key={section.key} className={styles.section}>
+            <p className={styles.kicker}>{section.kicker}</p>
+            <h2 className={`${h.h2} ${styles.sectionTitle}`}>{section.label}</h2>
+            <div className={styles.cards}>
               {section.items.map(r => <RestaurantCard key={r.namn} r={r} />)}
             </div>
           </section>
         ))}
 
-        <div style={{ background: '#383a46', borderRadius: 20, padding: 'clamp(28px,6vw,40px)', textAlign: 'center', color: 'white', marginTop: 40 }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', margin: '0 0 10px' }}>Mer mat och vin på Mallorca</h2>
-          <p style={{ opacity: 0.8, margin: '0 0 22px', fontSize: '0.95rem', lineHeight: 1.55 }}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
-          <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/mat" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700 }}>SE MATGUIDEN</a>
-            <a href="/vingardar" style={{ display: 'inline-block', background: 'transparent', color: 'white', padding: '12px 24px', borderRadius: 10, fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: 700, border: '1px solid rgba(255,255,255,0.3)' }}>VINGÅRDAR</a>
+        <div className={styles.cta}>
+          <h2 className={h.h2}>Mer mat och vin på Mallorca</h2>
+          <p className={styles.ctaText}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
+          <div className={styles.ctaButtons}>
+            <Link href="/mat" className={styles.ctaButton}>SE MATGUIDEN</Link>
+            <Link href="/vingardar" className={styles.ctaButtonGhost}>VINGÅRDAR</Link>
           </div>
         </div>
       </div>
@@ -96,7 +94,7 @@ export default function BästaRestaurangerPalma() {
 
 function Row({ tier, label }: { tier: number; label: string }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <div className={styles.priceRow}>
       <PriceTag tier={tier} /> <span>{label}</span>
     </div>
   );
@@ -104,16 +102,16 @@ function Row({ tier, label }: { tier: number; label: string }) {
 
 function RestaurantCard({ r }: { r: Restaurant }) {
   return (
-    <article style={{ background: 'white', borderRadius: 16, padding: '20px', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.03)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 6 }}>
-        <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.35rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
+    <article className={styles.card}>
+      <div className={styles.cardHead}>
+        <h3 className={`${h.h3} ${styles.cardTitle}`}>{r.namn}</h3>
         <PriceTag tier={tierFromEmoji(r.pris)} />
       </div>
-      <p style={{ margin: '0 0 10px', fontSize: '0.8rem', color: '#9CA3AF', display: 'inline-flex', alignItems: 'center', gap: 5 }}>
+      <p className={styles.address}>
         <IconPin size={12} /> {r.adress}
       </p>
-      <p style={{ margin: '0 0 14px', fontSize: '0.92rem', color: '#374151', lineHeight: 1.5 }}>{r.specialitet}</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <p className={styles.speciality}>{r.specialitet}</p>
+      <div className={styles.infoList}>
         <InfoBlock label="Beställ detta" icon={<IconBookmark size={12} stroke={2} />} tone="warm">{r.bästRätt}</InfoBlock>
         <InfoBlock label="Insider-tips" icon={<IconInfo size={12} stroke={2} />} tone="teal">{r.insiderTips}</InfoBlock>
       </div>
@@ -122,15 +120,12 @@ function RestaurantCard({ r }: { r: Restaurant }) {
 }
 
 function InfoBlock({ label, icon, tone, children }: { label: string; icon: React.ReactNode; tone: 'warm' | 'teal'; children: React.ReactNode }) {
-  const colors = tone === 'warm'
-    ? { bg: '#F9F6F1', label: '#9B7B3C' }
-    : { bg: '#EEF6F7', label: '#993335' };
   return (
-    <div style={{ background: colors.bg, borderRadius: 10, padding: '12px 14px' }}>
-      <p style={{ margin: '0 0 4px', fontSize: '0.68rem', color: colors.label, textTransform: 'uppercase', letterSpacing: '0.14em', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+    <div className={`${styles.info} ${tone === 'warm' ? styles.infoWarm : styles.infoTeal}`}>
+      <p className={styles.infoLabel}>
         {icon} {label}
       </p>
-      <p style={{ margin: 0, fontSize: '0.88rem', color: '#374151', lineHeight: 1.5 }}>{children}</p>
+      <p className={styles.infoText}>{children}</p>
     </div>
   );
 }

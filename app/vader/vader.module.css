@@ -1,34 +1,57 @@
-.page { min-height: 100vh; background: #fefefb !important; }
-.container { max-width: 1100px; margin: 0 auto; padding: 40px 40px; background: #fefefb !important; }
-.tabs { display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 2px solid #ede5da; background: #fefefb !important; }
-.tab { background: none; border: none; padding: 16px 28px; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; transition: all 0.3s; color: #383a46; }
-.tab:hover { background-color: #F0EBE3; color: #993335; }
-.tab.active { border-bottom-color: #993335; color: #993335; font-weight: 700; }
+/* /vader (2.5/2.6). Inga !important. Värdena återger utseendet som de globala h1/h2/p-reglerna
+   gav i dag (mobil: p 16px, marginal 1.25rem). Rubrikmått för h2: ../guide/headings.module.css. */
+
+.page { min-height: 100vh; background: var(--color-bg); }
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 40px; background: var(--color-bg); }
+.tabs { display: flex; justify-content: center; margin-bottom: 2rem; border-bottom: 2px solid var(--color-border); background: var(--color-bg); }
+.tab { background: none; border: none; padding: 16px 28px; cursor: pointer; font-size: 1rem; border-bottom: 3px solid transparent; transition: all 0.3s; color: var(--color-ink); }
+.tab:hover { background-color: #f0ebe3; color: var(--color-accent); }
+.tab.active { border-bottom-color: var(--color-accent); color: var(--color-accent); font-weight: 700; }
 .loading { text-align: center; padding: 2rem; }
-.spinner { border: 4px solid #ede5da; border-top: 4px solid #993335; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+.spinner { border: 4px solid var(--color-border); border-top: 4px solid var(--color-accent); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 .error { color: #c0392b; text-align: center; font-size: 1.2rem; padding: 2rem; }
-.weatherWidget { background: white !important; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #ede5da; padding: 2.25rem; margin-bottom: 2rem; }
+.weatherWidget { background: #fff; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid var(--color-border); padding: 2.25rem; margin-bottom: 2rem; }
 .currentWeather { text-align: center; margin-bottom: 2rem; }
-.locationDate h2 { margin: 0; font-size: 1.8rem; color: #383a46; }
-.locationDate p { margin: 0.5rem 0; color: #888; font-size: 0.9rem; }
+.locationDate h2 { color: var(--color-ink); }
+.locationDate p { margin: 0.5rem 0; color: var(--color-text-muted); font-size: 0.9rem; line-height: 1.7; }
 .tempIcon { display: flex; align-items: center; justify-content: center; margin: 1rem 0; }
-.currentTemp { font-size: 4rem; font-weight: 700; color: #383a46; margin-right: 0.5rem; }
+.currentTemp { font-size: 4rem; font-weight: 700; color: var(--color-ink); margin-right: 0.5rem; }
 .currentIcon { font-size: 3.5rem; }
-.description { font-size: 1.3rem; color: #666; margin: 0.5rem 0; }
-.details { display: flex; justify-content: space-around; margin-top: 1rem; font-size: 0.9rem; color: #555; }
+.description { font-size: 1.3rem; line-height: 1.7; color: var(--color-text-muted); margin: 0.5rem 0; }
+.details { display: flex; justify-content: space-around; margin-top: 1rem; font-size: 0.9rem; color: var(--color-text); }
 .tempChart { margin: 2rem 0; overflow-x: auto; }
-.chartSvg { display: block; margin: 0 auto; }
-.tempLabel { font-size: 0.8rem; font-weight: 700; fill: #383a46; }
-.dayLabel { font-size: 0.7rem; fill: #666; }
+.chartSvg { display: block; margin: 0 auto; width: 100%; height: auto; }
+.tempLabel { font-size: 0.8rem; font-weight: 700; fill: var(--color-ink); }
+.dayLabel { font-size: 0.7rem; fill: var(--color-text-muted); }
 .emojiLabel { font-size: 1rem; }
-.dayCards { display: flex; gap: 0.4rem; padding: 1rem 0; scrollbar-width: thin; scrollbar-color: #ede5da transparent; justify-content: space-between; }
-.dayCard { flex-shrink: 0; background: white; border: 1px solid #ede5da; border-radius: 10px; padding: 0.7rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 70px; max-width: 80px; flex: 1; }
-.dayCard:hover { background: #F0EBE3; border-color: #993335; }
-.dayCard.selected { background: #993335; color: white; border-color: #993335; }
+.dayCards { display: flex; gap: 0.4rem; padding: 1rem 0; scrollbar-width: thin; scrollbar-color: var(--color-border) transparent; justify-content: space-between; }
+.dayCard { font: inherit; color: var(--color-ink); display: flex; flex-direction: column; align-items: center; flex-shrink: 0; background: #fff; border: 1px solid var(--color-border); border-radius: 10px; padding: 0.7rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 70px; max-width: 80px; flex: 1; }
+.dayCard:hover { background: #f0ebe3; border-color: var(--color-accent); }
+.dayCard.selected { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+.dayCard:focus-visible, .tab:focus-visible, .retryButton:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 .dayName { margin: 0; font-size: 0.8rem; font-weight: 700; }
 .dayIcon { font-size: 1.5rem; margin: 0.5rem 0; }
 .dayTemp { margin: 0; font-size: 1rem; font-weight: 700; }
+.dayMin { margin: 0; font-size: 0.8rem; opacity: 0.75; }
+.intro { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
+.title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: 0.05em; color: var(--color-ink); margin: 0 0 1rem; font-weight: 400; }
+.lead { color: var(--color-text); font-size: 1.05rem; line-height: 1.7; margin: 0 0 0.75rem; }
+.lead a { color: var(--color-accent); text-decoration: underline; }
+.fact { font-style: italic; }
+.minMax { color: var(--color-text); font-size: 0.95rem; line-height: 1.7; margin: 0.25rem 0 0; }
+.empty { text-align: center; padding: 40px 20px; color: var(--color-text-muted); }
+.retryButton { margin-top: 12px; padding: 10px 24px; background: var(--color-ink); color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+.source { margin: 1rem 0 0; font-size: 0.8rem; line-height: 1.7; color: var(--color-text-muted); text-align: center; }
+/* A2-ssr: tips under felmeddelandet och serverrenderad ortsöversikt */
+.errorHint { font-size: 0.95rem; line-height: 1.7; color: var(--color-ink); margin: 0 0 1rem; }
+.errorHint a { color: var(--color-accent); }
+.places { margin: 3rem 0 1rem; }
+.places h2 { color: var(--color-ink); }
+.placeList { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr)); gap: 12px; }
+.placeList li { background: #fff; border: 1px solid var(--color-border); border-radius: 12px; padding: 14px 16px; margin-bottom: 1.25rem; color: var(--color-text); font-size: 0.92rem; line-height: 1.5; }
+.placeList strong { display: block; color: var(--color-ink); margin-bottom: 2px; }
+
 @media (max-width: 768px) {
   .container {
     padding: 16px 12px;
@@ -63,7 +86,6 @@
   .tempChart {
     margin: 1rem -4px;
   }
-  .chartSvg { width: 100%; height: auto; }
   .dayCards {
     overflow-x: auto;
     flex-wrap: nowrap;
@@ -78,5 +100,35 @@
     max-width: 72px;
     flex-shrink: 0;
     padding: 0.5rem 0.4rem;
+  }
+  /* Tidigare globala mobilregler för h1, p och section (!important) */
+  .title {
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .lead,
+  .locationDate p,
+  .description,
+  .minMax,
+  .source,
+  .errorHint {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+  .places {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .lead,
+  .locationDate p,
+  .description,
+  .minMax,
+  .source,
+  .errorHint {
+    font-size: 15px;
   }
 }

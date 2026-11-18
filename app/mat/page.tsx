@@ -1,8 +1,11 @@
-'use client';
-import { useState } from 'react';
 import Image from 'next/image';
+import Map from '@/components/Map';
+import { cityMapMarkers } from '@/data/cities';
+import Link from 'next/link';
+import MatFilter from './MatFilter';
 import { IconPin, IconClock, IconMap, IconExternal, IconGlass, PriceTag, tierFromEmoji } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import styles from './page.module.css';
 
 const vingårdar = [
   { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Binissalem', info: 'Känd för sina Prensal Blanc-viner', vin: 'Prova: Binigrau Blanc', prisklass: '💰💰', öppet: 'Mån–Lör 10–18', bild: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Binissalem+Mallorca' },
@@ -47,15 +50,10 @@ const restauranger = [
 ];
 
 export default function MatPage() {
-  const [filter, setFilter] = useState('Alla');
   const kategorier = ['Alla', 'Michelin', 'Fisk', 'Tapas', 'Utsikt', 'Lokalt'];
-  const filtreradeLista = filter === 'Alla' ? restauranger : restauranger.filter(r => r.kategori === filter);
-
-  const kort: React.CSSProperties = { background: 'white', borderRadius: 16, boxShadow: '0 4px 14px rgba(31,41,55,0.04)', overflow: 'hidden', border: '1px solid #ede5da' };
-  const grid: React.CSSProperties = { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(280px, 100%), 1fr))', gap: 16 };
 
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <HeroImage
         src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0"
         alt="Dukat matbord med tapas och färska råvaror – mallorcansk matkultur på bordet"
@@ -65,78 +63,67 @@ export default function MatPage() {
         height="52vh"
       />
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: 'clamp(30px,4vw,60px) clamp(16px,4vw,60px)' }}>
+      <div className={styles.inner}>
         {/* Vingårdar kort teaser */}
-        <section style={{ marginBottom: 56, background: 'white', border: '1px solid #ede5da', borderRadius: 20, padding: 'clamp(20px,5vw,32px)', display: 'flex', flexDirection: 'column', gap: 20 }}>
+        <section className={styles.teaser}>
           <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 10 }}>
+            <div className={styles.kicker}>
               <IconGlass size={14} stroke={1.8} />
-              <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Vinkultur</span>
+              <span className={styles.kickerText}>Vinkultur</span>
             </div>
-            <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 10px', lineHeight: 1 }}>Vingårdar att besöka</h2>
-            <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.6, margin: 0, maxWidth: '55ch' }}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
+            <h2 className={styles.sectionTitle}>Vingårdar att besöka</h2>
+            <p className={styles.intro}>Mallorca har över 70 vingårdar. Här är ett urval — besök vår dedikerade sida för hela guiden med bokningstips.</p>
           </div>
-          <div style={grid}>
+          <div className={styles.grid}>
             {vingårdar.slice(0, 3).map(v => (
-              <article key={v.namn} style={kort}>
-                <div style={{ position: 'relative', width: '100%', height: 160 }}>
-                  <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
+              <article key={v.namn} className={styles.card}>
+                <div className={styles.media}>
+                  <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 360px" className={styles.cover} loading="lazy" />
                 </div>
-                <div style={{ padding: 16 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.04em', margin: 0, color: '#383a46' }}>{v.namn}</h3>
+                <div className={styles.body}>
+                  <div className={styles.titleRow}>
+                    <h3 className={styles.cardTitle}>{v.namn}</h3>
                     <PriceTag tier={tierFromEmoji(v.prisklass)} />
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 8 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {v.plats}</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {v.öppet}</span>
+                  <div className={styles.meta}>
+                    <span className={styles.metaItem}><IconPin size={11} /> {v.plats}</span>
+                    <span className={styles.metaItem}><IconClock size={11} /> {v.öppet}</span>
                   </div>
-                  <p style={{ fontSize: '0.85rem', color: '#374151', lineHeight: 1.5, margin: 0 }}>{v.info}</p>
+                  <p className={styles.info}>{v.info}</p>
                 </div>
               </article>
             ))}
           </div>
-          <a href="/vingardar" style={{ alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 22px', background: '#383a46', color: 'white', borderRadius: 10, textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', minHeight: 44 }}>
+          <Link href="/vingardar" className={styles.darkButton}>
             Se alla vingårdar <IconExternal size={13} stroke={1.8} />
-          </a>
+          </Link>
         </section>
 
         {/* Restauranger */}
-        <section style={{ marginBottom: 48 }}>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Handplockat</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,5.5vw,2.4rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 20px', lineHeight: 1 }}>30 bästa restaurangerna</h2>
+        <section className={styles.restaurants}>
+          <p className={styles.eyebrow}>Handplockat</p>
+          <h2 className={styles.sectionTitle}>30 bästa restaurangerna</h2>
 
-          <style>{`.mat-filter-scroll::-webkit-scrollbar { display: none; }`}</style>
-          <div className="mat-filter-scroll" style={{ display: 'flex', gap: 8, overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', padding: '2px 2px 4px', marginBottom: 24 }}>
-            {kategorier.map(k => {
-              const active = filter === k;
-              return (
-                <button key={k} onClick={() => setFilter(k)} style={{ minHeight: 40, padding: '0 18px', borderRadius: 999, border: active ? '1px solid #383a46' : '1px solid #E2D8C8', background: active ? '#383a46' : 'white', color: active ? 'white' : '#383a46', fontWeight: 600, cursor: 'pointer', fontSize: '0.88rem', whiteSpace: 'nowrap', flexShrink: 0, transition: 'all 0.16s ease' }}>
-                  {k}
-                </button>
-              );
-            })}
-          </div>
-          <p style={{ color: '#6B7280', fontSize: '0.82rem', margin: '0 0 20px' }}>{filtreradeLista.length} restauranger</p>
+          <MatFilter listId="restauranglista" kategorier={kategorier} allaKategorier={restauranger.map(r => r.kategori)} />
 
-          <div style={grid}>
-            {filtreradeLista.map(r => (
-              <article key={r.namn} style={kort}>
-                <div style={{ position: 'relative', width: '100%', height: 180 }}>
-                  <Image src={r.bild} alt={r.namn} fill sizes="(max-width:860px) 100vw, 360px" style={{ objectFit: 'cover' }} loading="lazy" />
-                  <div style={{ position: 'absolute', top: 12, left: 12, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '4px 10px', borderRadius: 999, fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{r.kategori}</div>
+          <div id="restauranglista" className={styles.grid}>
+            {restauranger.map(r => (
+              <article key={r.namn} data-kategori={r.kategori} className={styles.card}>
+                <div className={styles.mediaTall}>
+                  <Image src={r.bild} alt={r.namn} fill sizes="(max-width:860px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                  <div className={styles.badge}>{r.kategori}</div>
                 </div>
-                <div style={{ padding: 16 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 6 }}>
-                    <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.25rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{r.namn}</h3>
+                <div className={styles.body}>
+                  <div className={styles.titleRowTop}>
+                    <h3 className={styles.cardTitle}>{r.namn}</h3>
                     <PriceTag tier={tierFromEmoji(r.prisklass)} />
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 12px', color: '#6B7280', fontSize: '0.78rem', marginBottom: 10 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={11} /> {r.plats}</span>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconClock size={11} /> {r.öppet}</span>
+                  <div className={`${styles.meta} ${styles.metaSpaced}`}>
+                    <span className={styles.metaItem}><IconPin size={11} /> {r.plats}</span>
+                    <span className={styles.metaItem}><IconClock size={11} /> {r.öppet}</span>
                   </div>
-                  <p style={{ fontSize: '0.88rem', color: '#374151', margin: '0 0 14px', lineHeight: 1.5 }}>{r.info}</p>
-                  <a href={r.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '9px 14px', background: '#993335', color: '#fefefb', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 700, minHeight: 36 }}>
+                  <p className={`${styles.info} ${styles.infoSpaced}`}>{r.info}</p>
+                  <a href={r.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
                     <IconMap size={13} stroke={1.8} /> Visa på karta
                   </a>
                 </div>
@@ -145,11 +132,15 @@ export default function MatPage() {
           </div>
         </section>
 
-        <section>
-          <p style={{ fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 700, margin: '0 0 6px' }}>Karta</p>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.6rem,5vw,2rem)', letterSpacing: '0.03em', color: '#383a46', margin: '0 0 16px', lineHeight: 1 }}>Utforska Mallorca</h2>
-          <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', borderRadius: 16, overflow: 'hidden', boxShadow: '0 6px 22px rgba(0,0,0,0.1)' }}>
-            <img src="https://www.openstreetmap.org/export/map.png?bbox=2.2,39.2,3.5,40.0&layer=mapnik" alt="Karta över Mallorca" style={{ width: '100%', display: 'block' }} />
+        <section className={styles.mapSection}>
+          <p className={styles.eyebrow}>Karta</p>
+          <h2 className={styles.sectionTitle}>Utforska Mallorca</h2>
+          <div className={styles.mapWrap}>
+            <Map
+              markers={cityMapMarkers}
+              ariaLabel="Karta över Mallorcas städer och byar"
+              listLabel={`Visa alla ${cityMapMarkers.length} städer och byar som lista`}
+            />
           </div>
         </section>
       </div>

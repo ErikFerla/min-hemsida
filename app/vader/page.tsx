@@ -1,307 +1,49 @@
-"use client";
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+import Link from 'next/link';
+import WeatherForecast from './WeatherForecast';
+import { WEATHER_LOCATIONS } from './locations';
 import styles from './vader.module.css';
-
-type ForecastData = {
-  date: string;
-  dayName: string;
-  shortDay: string;
-  symbol: string;
-  description: string;
-  maxTemp: number;
-  minTemp: number;
-  windSpeed: number;
-  humidity: number;
-  precipitation: number;
-};
-
-const locations = [
-  { name: 'Palma', lat: 39.5696, lon: 2.6502, fact: 'Största stad, medeltemperatur sommar 28°C, mild vinter' },
-  { name: 'Porto Colom', lat: 39.4167, lon: 3.2667, fact: 'Kustby, havsbris, något svalare än inlandet' },
-  { name: 'Port de Sóller', lat: 39.7958, lon: 2.6942, fact: 'Skyddad av bergen, ofta vindstilla, varm sommar' },
-  { name: 'Alcúdia', lat: 39.8527, lon: 3.1237, fact: 'Norra Mallorca, något blåsigare, fin sommarsäsong' },
-  { name: 'Andratx', lat: 39.5741, lon: 2.4267, fact: 'Sydväst på ön, skyddad av berg, populärt bland segelbåtsägare' },
-  { name: 'Deià', lat: 39.7469, lon: 2.6488, fact: 'Konstnärsby i Tramuntana-bergen, svalare tack vare höjden' },
-  { name: 'Artà', lat: 39.6981, lon: 3.3503, fact: 'Historisk bergsstad i nordöst, varmt och soligt' },
-];
-
-const symbolToEmojiAndDesc: { [key: string]: { emoji: string; desc: string } } = {
-  clearsky_day: { emoji: '☀️', desc: 'Klart' },
-  fair_day: { emoji: '🌤️', desc: 'Mestadels klart' },
-  partlycloudy_day: { emoji: '⛅', desc: 'Halvklart' },
-  cloudy: { emoji: '☁️', desc: 'Mulet' },
-  fog: { emoji: '🌫️', desc: 'Dimma' },
-  lightrain: { emoji: '🌦️', desc: 'Lätt regn' },
-  rain: { emoji: '🌧️', desc: 'Regn' },
-  heavyrain: { emoji: '⛈️', desc: 'Kraftigt regn' },
-  lightrainshowers_day: { emoji: '🌦️', desc: 'Regnskurar' },
-  rainshowers_day: { emoji: '🌧️', desc: 'Regnskurar' },
-  thunderstorm: { emoji: '⛈️', desc: 'Åskväder' },
-  lightsnow: { emoji: '🌨️', desc: 'Lätt snö' },
-  snow: { emoji: '❄️', desc: 'Snö' },
-};
-
-const fetchWeather = async (lat: number, lon: number): Promise<ForecastData[]> => {
-  const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
-  if (!response.ok) throw new Error('Failed to fetch weather data');
-  const data = await response.json();
-  const timeseries = data.properties.timeseries;
-
-  const dailyForecasts: ForecastData[] = [];
-  const today = new Date();
-  today.setHours(12, 0, 0, 0);
-
-  for (let i = 0; i < 9; i++) {
-    const targetDate = new Date(today);
-    targetDate.setDate(today.getDate() + i);
-    const targetTime = targetDate.getTime();
-
-    // Find the closest entry to 12:00
-    let closestEntry = null;
-    let minDiff = Infinity;
-    for (const entry of timeseries) {
-      const entryTime = new Date(entry.time).getTime();
-      const diff = Math.abs(entryTime - targetTime);
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestEntry = entry;
-      }
-    }
-
-    if (closestEntry) {
-      const symbol = closestEntry.data.next_1_hours?.summary.symbol_code || 'clearsky_day';
-      const temp = closestEntry.data.instant.details.air_temperature;
-      const wind = closestEntry.data.instant.details.wind_speed;
-      const humidity = closestEntry.data.instant.details.relative_humidity || 50;
-      const precipitation = closestEntry.data.next_1_hours?.details.precipitation_amount || 0;
-      const dayName = targetDate.toLocaleDateString('sv-SE', { weekday: 'long' });
-      const shortDay = targetDate.toLocaleDateString('sv-SE', { weekday: 'short' });
-      const dateStr = targetDate.toLocaleDateString('sv-SE');
-
-      dailyForecasts.push({
-        date: dateStr,
-        dayName,
-        shortDay,
-        symbol,
-        description: symbolToEmojiAndDesc[symbol]?.desc || 'Okänt',
-        maxTemp: temp,
-        minTemp: temp, // Since we're using one entry, max=min
-        windSpeed: wind,
-        humidity,
-        precipitation,
-      });
-    }
-  }
-
-  return dailyForecasts;
-};
-
-const generateTempCurve = (data: ForecastData[], width: number, height: number) => {
-  if (data.length === 0) return { path: '', fillPath: '', points: [] as { x: number; y: number }[] };
-
-  const temps = data.map(d => d.maxTemp);
-  const minTemp = Math.min(...temps);
-  const maxTemp = Math.max(...temps);
-  const tempRange = maxTemp - minTemp || 1;
-
-  const points = data.map((d, i) => {
-    const x = (i / (data.length - 1)) * width;
-    const y = height - ((d.maxTemp - minTemp) / tempRange) * (height - 20);
-    return { x, y };
-  });
-
-  let path = `M ${points[0].x} ${points[0].y}`;
-  for (let i = 1; i < points.length; i++) {
-    const prev = points[i - 1];
-    const curr = points[i];
-    const cp1x = prev.x + (curr.x - prev.x) / 3;
-    const cp1y = prev.y;
-    const cp2x = curr.x - (curr.x - prev.x) / 3;
-    const cp2y = curr.y;
-    path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${curr.x} ${curr.y}`;
-  }
-
-  const fillPath = path + ` L ${width} ${height} L 0 ${height} Z`;
-
-  return { path, fillPath, points };
-};
+import h from '../guide/headings.module.css';
 
 export default function Vader() {
   return (
-    <Suspense fallback={<div style={{ background: '#fefefb', minHeight: '100vh' }} />}>
-      <VaderContent />
-    </Suspense>
-  );
-}
-
-function VaderContent() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState(0);
-  const [weatherData, setWeatherData] = useState<{ [key: string]: ForecastData[] }>({});
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [selectedDay, setSelectedDay] = useState(0);
-
-  const [retryCount, setRetryCount] = useState(0);
-
-  useEffect(() => {
-    const loadAllWeather = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const results = await Promise.allSettled(
-          locations.map(loc => fetchWeather(loc.lat, loc.lon))
-        );
-        const data: { [key: string]: ForecastData[] } = {};
-        let anySuccess = false;
-        locations.forEach((loc, index) => {
-          const result = results[index];
-          if (result.status === 'fulfilled' && result.value.length > 0) {
-            data[loc.name] = result.value;
-            anySuccess = true;
-          }
-        });
-        if (!anySuccess) {
-          setError('Kunde inte hämta väderdata. Försök igen senare.');
-        }
-        setWeatherData(data);
-      } catch {
-        setError('Kunde inte hämta väderdata. Försök igen senare.');
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadAllWeather();
-  }, [retryCount]);
-
-  useEffect(() => {
-    const cityParam = searchParams.get('stad');
-    if (cityParam) {
-      const index = locations.findIndex(loc =>
-        loc.name.toLowerCase().replace(/[\u00e0\u00e1\u00e4]/g, 'a').replace(/[\u00e8]/g, 'e') ===
-        cityParam.toLowerCase().replace(/[\u00e0\u00e1\u00e4]/g, 'a').replace(/[\u00e8]/g, 'e')
-      );
-      if (index !== -1) setActiveTab(index);
-    }
-  }, [searchParams]);
-
-  const currentLocation = locations[activeTab];
-  const currentData = weatherData[currentLocation.name];
-  const currentDay = currentData ? currentData[selectedDay] : null;
-
-  const curveData = currentData ? generateTempCurve(currentData, 600, 200) : { path: '', fillPath: '', points: [] };
-  const { path, fillPath, points } = curveData;
-
-  return (
     <div className={styles.page}>
       <div className={styles.container}>
-        <div className={styles.tabs}>
-          {locations.map((loc, index) => (
-            <button
-              key={loc.name}
-              className={`${styles.tab} ${activeTab === index ? styles.active : ''}`}
-              onClick={() => setActiveTab(index)}
-            >
-              {loc.name}
-            </button>
-          ))}
-        </div>
-        {loading && (
-          <div className={styles.loading}>
-            <div className={styles.spinner}></div>
-            <p>Hämtar prognos...</p>
-          </div>
-        )}
-        {error && (
-          <div className={styles.error}>
-            <p>{error}</p>
-            <button
-              onClick={() => setRetryCount(c => c + 1)}
-              style={{
-                marginTop: '12px', padding: '10px 24px', background: '#383a46',
-                color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
-                fontWeight: 600, fontSize: '0.9rem',
-              }}
-            >
-              Försök igen
-            </button>
-          </div>
-        )}
-        {!loading && !error && !currentData && (
-          <div style={{ textAlign: 'center', padding: '40px 20px', color: '#6B7280' }}>
-            <p>Väderdata saknas för {currentLocation.name}.</p>
-            <button
-              onClick={() => setRetryCount(c => c + 1)}
-              style={{
-                marginTop: '12px', padding: '10px 24px', background: '#383a46',
-                color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer',
-                fontWeight: 600, fontSize: '0.9rem',
-              }}
-            >
-              Försök igen
-            </button>
-          </div>
-        )}
-        {!loading && !error && currentData && currentDay && (
-          <div className={styles.weatherWidget}>
-            <div className={styles.currentWeather}>
-              <div className={styles.locationDate}>
-                <h2>{currentLocation.name}</h2>
-                <p>{currentDay.date}</p>
-              </div>
-              <div className={styles.tempIcon}>
-                <span className={styles.currentTemp}>{Math.round(currentDay.maxTemp)}°</span>
-                <span className={styles.currentIcon}>{symbolToEmojiAndDesc[currentDay.symbol]?.emoji || '☁️'}</span>
-              </div>
-              <p className={styles.description}>{currentDay.description}</p>
-              <div className={styles.details}>
-                <span>Nederbörd: {Math.round(currentDay.precipitation * 100)}%</span>
-                <span>Luftfuktighet: {Math.round(currentDay.humidity)}%</span>
-                <span>Vind: {Math.round(currentDay.windSpeed)} m/s</span>
-              </div>
+        <header className={styles.intro}>
+          <h1 className={styles.title}>Väder på Mallorca</h1>
+          <p className={styles.lead}>
+            Här ser du prognosen för de kommande dagarna på sju platser runt ön – från Palma och
+            Andratx i sydväst till Port de Sóller och Deià i Tramuntana-bergen, Alcúdia i norr och
+            Artà och Porto Colom i öster. Vädret kan skilja en hel del mellan kusten och bergen, så
+            välj den ort som ligger närmast dig.
+          </p>
+          <p className={styles.lead}>
+            Planerar du en resa längre fram? I vår{' '}
+            <Link href="/guide/basta-tid-resa-mallorca">guide till bästa tiden att resa till Mallorca</Link>{' '}
+            går vi igenom väder, badtemperatur och stämning månad för månad.
+          </p>
+        </header>
+        <Suspense
+          fallback={
+            <div className={styles.loading}>
+              <div className={styles.spinner} aria-hidden="true"></div>
+              <p>Hämtar prognos...</p>
             </div>
-            <div className={styles.tempChart}>
-              <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet" className={styles.chartSvg} style={{ width: '100%', height: 'auto' }}>
-                <defs>
-                  <linearGradient id="tempGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#993335" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="#993335" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-                <path d={fillPath} fill="url(#tempGradient)" />
-                <path d={path} fill="none" stroke="#993335" strokeWidth="3" />
-                {points.map((point: { x: number; y: number }, i: number) => (
-                  <g key={i}>
-                    <circle cx={point.x} cy={point.y} r="4" fill="#993335" />
-                    <text x={point.x} y={point.y - 10} textAnchor="middle" className={styles.tempLabel}>
-                      {Math.round(currentData[i].maxTemp)}°
-                    </text>
-                    <text x={point.x} y={point.y + 25} textAnchor="middle" className={styles.dayLabel}>
-                      {currentData[i].shortDay}
-                    </text>
-                    <text x={point.x} y={point.y + 45} textAnchor="middle" className={styles.emojiLabel}>
-                      {symbolToEmojiAndDesc[currentData[i].symbol]?.emoji || '☁️'}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-            </div>
-            <div className={styles.dayCards}>
-              {currentData.map((day, index) => (
-                <div
-                  key={day.date}
-                  className={`${styles.dayCard} ${selectedDay === index ? styles.selected : ''}`}
-                  onClick={() => setSelectedDay(index)}
-                >
-                  <p className={styles.dayName}>{day.shortDay}</p>
-                  <span className={styles.dayIcon}>{symbolToEmojiAndDesc[day.symbol]?.emoji || '☁️'}</span>
-                  <p className={styles.dayTemp}>{Math.round(day.maxTemp)}°</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+          }
+        >
+          <WeatherForecast />
+        </Suspense>
+        <section className={styles.places} aria-labelledby="orter-heading">
+          <h2 id="orter-heading" className={h.h2}>Orterna i prognosen</h2>
+          <ul className={styles.placeList}>
+            {WEATHER_LOCATIONS.map((loc) => (
+              <li key={loc.slug}>
+                <strong>{loc.name}</strong>
+                {loc.fact}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );

@@ -1,16 +1,14 @@
-import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import { buildPageMetadata } from '@/app/lib/city-seo';
 
-export const metadata = {
-  title: 'Aktiviteter på Mallorca 2026 – Golf, vandring & vattensport',
-  description: 'Hitta de bästa aktiviteterna på Mallorca. Golf på världsklassbanor, vandring i Tramuntana, vattensport och mycket mer. Bokningsguide 2026.',
-  keywords: 'aktiviteter Mallorca, golf Mallorca, vandring Mallorca, vattensport Mallorca, cykling Mallorca',
-};
+export const metadata = buildPageMetadata({
+  path: '/aktiviteter',
+  title: 'Aktiviteter på Mallorca – golf, vandring & hav',
+  description: 'Golf, vandring i Tramuntana, cykling och vattensport på Mallorca. Vår guide hjälper dig hitta aktiviteter för hela familjen, par och aktiva resenärer.',
+  image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&h=630&fit=crop&q=85',
+  imageAlt: 'Vandrare på en bergstig i Serra de Tramuntana på Mallorca',
+});
 
 export default function AktiviteterLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
-      {children}
-    </>
-  );
+  // Brödsmulorna (BreadcrumbList) ligger i page.tsx, så att /aktiviteter/golf inte får två.
+  return children;
 }

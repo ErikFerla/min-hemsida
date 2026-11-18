@@ -1,34 +1,21 @@
-import type { Metadata } from 'next';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import JsonLd from '@/app/components/JsonLd';
 import { golfbanor } from '@/data/golf-courses';
+import { buildPageMetadata } from '@/app/lib/city-seo';
 
 const SITE = 'https://www.mymallorca.se';
 const PAGE_URL = `${SITE}/aktiviteter/golf`;
 
-export const metadata: Metadata = {
-  title: 'Golf på Mallorca – 22 banor i världsklass | MyMallorca',
-  description: 'Komplett guide till Mallorcas 22 golfbanor. Interaktiv karta, banfakta, priser och tips – från Alcanada i norr till Andratx i sydväst.',
-  keywords: 'golf Mallorca, golfbanor Mallorca, Mallorca golf guide, golf Palma, Son Gual, Alcanada, Andratx golf',
-  alternates: { canonical: '/aktiviteter/golf' },
-  openGraph: {
-    title: 'Golf på Mallorca – 22 banor i världsklass',
-    description: 'Interaktiv karta och komplett guide till alla 22 golfbanor på Mallorca – banfakta, priser och insider-tips.',
-    url: PAGE_URL,
-    siteName: 'MyMallorca',
-    locale: 'sv_SE',
-    type: 'website',
-    images: [{
-      url: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&q=80',
-      width: 1200,
-      height: 630,
-      alt: 'Golfbana på Mallorca med havsutsikt',
-    }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Golf på Mallorca – 22 banor i världsklass',
-    description: 'Interaktiv karta och guide till alla 22 golfbanor på Mallorca.',
-  },
+export const metadata = {
+  ...buildPageMetadata({
+  path: '/aktiviteter/golf',
+  title: 'Golf på Mallorca – 22 banor med karta',
+  description: 'Mallorcas 22 golfbanor på en interaktiv karta med banfakta, greenfee-nivåer och tips – från Alcanada i norr till Andratx i sydväst. Svensk guide.',
+  image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&h=630&fit=crop&q=80',
+  imageAlt: 'Golfbana på Mallorca med havsutsikt',
+  }),
+  // Föräldralayouten sätter en vanlig titelsträng, så root-mallen följer inte med hit.
+  title: { absolute: 'Golf på Mallorca – 22 banor med karta | MyMallorca' },
 };
 
 function GolfItemListSchema() {
@@ -61,7 +48,7 @@ function GolfItemListSchema() {
       },
     })),
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />;
+  return <JsonLd data={schema} />;
 }
 
 export default function GolfLayout({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,158 @@
+/* Felsidor: app/not-found.tsx (404) och app/error.tsx. */
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 72px);
+  padding: clamp(40px, 8vw, 96px) clamp(16px, 5vw, 80px);
+  background: var(--color-bg);
+}
+
+.inner {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+}
+
+.innerNarrow {
+  max-width: 640px;
+}
+
+.icon {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--color-accent);
+}
+
+.kicker {
+  margin-top: 0;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+}
+
+.titleError {
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+}
+
+.intro {
+  max-width: 52ch;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-text-soft);
+}
+
+.introNarrow {
+  max-width: 48ch;
+}
+
+/* Populära sidor (404) */
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(12px, 2vw, 18px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.card {
+  display: block;
+  padding: 18px 20px;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cardTitle {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  color: var(--color-ink);
+}
+
+.cardText {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* Knappar (error) */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.primary,
+.secondary {
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: var(--color-accent);
+  border: none;
+  color: var(--color-white);
+}
+
+.secondary {
+  border: 1px solid var(--color-ink);
+  color: var(--color-ink);
+}
+
+/* Desktop: storlekar och marginaler (på mobil gäller basens regler för p och h1) */
+@media (min-width: 769px) {
+  .kicker {
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+  }
+
+  .intro {
+    margin-bottom: 48px;
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+  }
+
+  .introNarrow {
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.1;
+  }
+}

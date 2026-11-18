@@ -1,0 +1,194 @@
+/* Gemensam stadsmall (app/[city]). Rubriker (h2/h3) får storlek från basreglerna i globals.css. */
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px;
+}
+
+.breadcrumbs {
+  margin-bottom: 32px;
+}
+
+/* Brödtext + sidospalt */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+.about {
+  color: var(--color-ink);
+}
+
+.withIcon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tipsTitle {
+  margin-top: 32px;
+}
+
+.tips {
+  padding-left: 20px;
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--color-ink);
+}
+
+.link {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Höjdpunkter: lista */
+.highlights {
+  margin: 32px 0;
+}
+
+.highlightRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+}
+.highlightRow:not(:last-child) {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: var(--color-ink);
+}
+
+.highlightText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* Höjdpunkter: kort */
+.cardsBlock {
+  margin-top: 40px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+}
+
+.cardText {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+
+/* Sidospalt */
+.box {
+  margin-bottom: 20px;
+  padding: 28px;
+  background: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.boxTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.practical {
+  color: var(--color-text-soft);
+}
+
+.mapLink {
+  display: block;
+  padding: 14px;
+  background: var(--color-ink-strong);
+  border-radius: 8px;
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.places {
+  margin-top: 20px;
+  padding: 24px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.place:not(:last-child) {
+  border-bottom: 1px solid #f0ebe3;
+}
+
+.placeName {
+  font-size: 0.9rem;
+}
+
+.placeMap {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+/* Desktop: storlekar (på mobil gäller basens p-regel: 16px) */
+@media (min-width: 769px) {
+  .about {
+    font-size: 1.05rem;
+  }
+
+  .practical {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 32px 16px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .tipsTitle {
+    margin-top: 0;
+  }
+}

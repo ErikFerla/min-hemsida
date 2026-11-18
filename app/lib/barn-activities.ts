@@ -46,7 +46,7 @@ export type CategoryMeta = {
 
 /**
  * Category registry — single source of truth for labels, hub cards, breadcrumbs.
- * `available: false` = placeholder card on hub (Leverans 2).
+ * `available: false` = kategorin döljs på hubben tills den har innehåll (Leverans 2).
  */
 export const CATEGORIES: CategoryMeta[] = [
   { slug: 'vattenparker',            label: 'Vattenparker',           shortTagline: 'Mallorcas största vattenparker och familjefavoriter', href: '/barn/vattenparker',            available: true,  heroImage: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834' },

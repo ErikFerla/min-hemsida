@@ -1,0 +1,247 @@
+/* /mat – värdena återger det beräknade utseendet före 2.6
+   (globala h2/h3/p/section-regler inräknade), mätt på 390 och 1280 px. */
+
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px);
+}
+
+/* ── Vingårdar (teaser) ── */
+.teaser {
+  margin-bottom: 56px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: clamp(20px, 5vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.kickerText {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* h2 – samma storlek som den globala h2-regeln gav */
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 0 0 1.5rem;
+}
+
+.intro {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 55ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.04);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.media,
+.mediaTall {
+  position: relative;
+  width: 100%;
+  height: 160px;
+}
+
+.mediaTall {
+  height: 180px;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--color-ink);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.body {
+  padding: 16px;
+}
+
+.titleRow,
+.titleRowTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.titleRowTop {
+  align-items: flex-start;
+}
+
+/* h3 – samma storlek som den globala h3-regeln gav */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+  color: var(--color-ink);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+}
+
+.metaSpaced {
+  margin-bottom: 10px;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.info {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.infoSpaced {
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.darkButton {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--color-ink);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-height: 44px;
+}
+
+/* ── Restauranger ── */
+.restaurants {
+  margin-bottom: 48px;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 0 0 6px;
+}
+
+.mapButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  border-radius: 8px;
+  font-size: 0.82rem;
+  text-decoration: none;
+  font-weight: 700;
+  min-height: 36px;
+}
+
+/* ── Karta ── */
+.mapWrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  /* <section>-elementen fick 4rem luft upptill och nedtill på mobil */
+  .teaser,
+  .restaurants,
+  .mapSection {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 10px;
+  }
+
+  .cardTitle {
+    font-size: clamp(18px, 5vw, 22px);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .intro,
+  .info,
+  .eyebrow {
+    font-size: 16px;
+    margin-bottom: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .intro,
+  .info,
+  .eyebrow {
+    font-size: 15px;
+  }
+}

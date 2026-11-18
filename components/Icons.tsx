@@ -1,3 +1,5 @@
+import styles from './Icons.module.css';
+
 type IconProps = { size?: number; stroke?: number; className?: string; style?: React.CSSProperties };
 
 const base = (s: number) => ({
@@ -106,24 +108,12 @@ export function PriceTag({ tier, className }: { tier: number; className?: string
   const t = Math.max(1, Math.min(4, tier));
   return (
     <span
-      className={className}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: 2,
-        fontSize: '0.72rem',
-        fontWeight: 600,
-        letterSpacing: '0.05em',
-        color: '#6B7280',
-        background: '#F3EFE8',
-        padding: '3px 8px',
-        borderRadius: 999,
-        fontVariantNumeric: 'tabular-nums',
-      }}
+      className={className ? `${styles.priceTag} ${className}` : styles.priceTag}
+      role="img"
       aria-label={`Prisnivå ${t} av 4`}
     >
       {'€'.repeat(t)}
-      <span style={{ color: '#D7CEC1' }}>{'€'.repeat(4 - t)}</span>
+      <span className={styles.priceRest} aria-hidden="true">{'€'.repeat(4 - t)}</span>
     </span>
   );
 }

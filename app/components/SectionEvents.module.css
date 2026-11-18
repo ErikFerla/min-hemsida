@@ -1,0 +1,151 @@
+/* Startsidans "Kommande evenemang". Desktop: tre kolumner, mobil: horisontell karusell. */
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: flex-start;
+  gap: clamp(32px, 5vw, 60px);
+  margin-bottom: 32px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.intro {
+  font-size: 1rem;
+  color: var(--color-text-soft);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.card {
+  overflow: hidden;
+  background: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.media {
+  position: relative;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.category {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.body {
+  padding: 14px;
+}
+
+.meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  margin-top: 0;
+  color: var(--color-text-muted);
+}
+
+.unconfirmed {
+  margin-top: 0;
+  color: var(--color-warning-text);
+  font-weight: 600;
+}
+
+.name {
+  margin-top: 0;
+  color: var(--color-ink-strong);
+}
+
+.desc {
+  margin-top: 0;
+  color: var(--color-text-muted);
+}
+
+.link {
+  display: block;
+  padding: 7px;
+  border-radius: 6px;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Desktop: storlekar och marginaler (på mobil gäller basens p-regel: 16px och 1,25rem) */
+@media (min-width: 769px) {
+  .intro {
+    margin-bottom: 28px;
+  }
+
+  .meta {
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+  }
+
+  .unconfirmed {
+    margin-bottom: 4px;
+    font-size: 0.72rem;
+  }
+
+  .desc {
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    gap: 12px;
+    margin: 0 -16px;
+    padding: 4px 16px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 82vw;
+    min-width: 82vw;
+    scroll-snap-align: start;
+  }
+}

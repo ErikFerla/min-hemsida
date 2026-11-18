@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
-import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
-  title: 'Mallorca med barn inomhus – 8 aktiviteter när det regnar | MyMallorca',
+  title: 'Regniga dagar på Mallorca – 8 inomhustips',
   description:
     'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer. Trampolinparker, lekland, museer och mer.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/inomhus-och-regn' },
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
     url: 'https://www.mymallorca.se/barn/inomhus-och-regn',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Mallorca med barn inomhus – 8 aktiviteter när det regnar | MyMallorca',
+    title: 'Regniga dagar på Mallorca – 8 inomhustips',
     description:
       'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
     images: [
@@ -26,25 +25,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mallorca med barn inomhus – 8 aktiviteter när det regnar | MyMallorca',
+    title: 'Regniga dagar på Mallorca – 8 inomhustips',
     description:
       'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
     images: ['https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1200&h=630&fit=crop&q=85'],
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
-export default async function InomhusOchRegnPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-
+export default function InomhusOchRegnPage() {
   return (
     <BarnCategoryPageView
       category="inomhus-och-regn"
-      selectedAges={selectedAges}
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30',
         imageAlt: 'Barn som leker i en färgglad inomhuslekplats med klätterställningar',
@@ -54,7 +45,7 @@ export default async function InomhusOchRegnPage({ searchParams }: Props) {
       }}
       intro={
         <>
-          <p style={{ marginTop: 0 }}>
+          <p>
             Mallorca har några sommarveckor där regnet verkligen kommer i skurar — och fler dagar i
             sommaren då solen är för stark för småbarn mellan 12 och 16. Det är då du behöver en kort
             lista med inomhusalternativ som faktiskt funkar.

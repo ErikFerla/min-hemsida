@@ -1,0 +1,50 @@
+/* Karta (Leaflet) med SSR-lista över platserna. Höjden kommer från prop:en via --map-height. */
+
+.map {
+  width: 100%;
+  height: var(--map-height);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #e9e5dc;
+}
+
+.details {
+  margin-top: 16px;
+}
+
+.summary {
+  padding: 8px 0;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: 4px 32px;
+  margin: 12px 0 0;
+  padding: 0;
+  font-size: 0.9rem;
+  list-style: none;
+}
+
+.item {
+  padding: 4px 0;
+}
+
+.name {
+  color: var(--color-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link {
+  border-bottom: 1px dotted var(--color-accent);
+}
+
+.desc {
+  color: var(--color-text-soft);
+  font-size: 0.82rem;
+}

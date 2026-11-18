@@ -1,0 +1,112 @@
+/* Gemensam layout för /barn/<kategori>. Rubriker får storlek från basreglerna i globals.css. */
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 60px) clamp(16px, 4vw, 40px);
+}
+
+.introSection {
+  margin: clamp(24px, 4vw, 40px) 0;
+}
+
+.intro {
+  max-width: 68ch;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* Åldersfiltret ligger kvar under navbaren när man scrollar */
+.filter {
+  position: sticky;
+  top: 72px;
+  z-index: 40;
+  margin-bottom: 28px;
+  padding: 14px 0;
+  background: rgba(254, 254, 251, 0.94);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.empty {
+  padding: 32px;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Avslutande länkar */
+.more {
+  margin-top: clamp(40px, 6vw, 72px);
+  padding: clamp(24px, 4vw, 40px);
+  background: var(--color-surface);
+  border-radius: 16px;
+}
+
+.moreTitle {
+  margin-top: 0;
+  color: var(--color-ink);
+}
+
+.moreText {
+  margin: 0 0 20px;
+  color: var(--color-text-soft);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button,
+.buttonOutline {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.buttonOutline {
+  background: var(--color-white);
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  color: var(--color-ink);
+}
+
+@media (min-width: 769px) {
+  .moreText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .more {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

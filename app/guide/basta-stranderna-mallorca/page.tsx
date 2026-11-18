@@ -1,9 +1,9 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
-
-export const metadata = {
-  title: 'De 15 bästa stränderna på Mallorca 2026 – Rankade av en lokal | MyMallorca',
-  description: 'Vi har besökt och rankat Mallorcas 15 bästa stränder. Från dolda paradisvikar till barnvänliga sandstränder – med GPS, parkering och insider-tips.',
-};
+import HubLink from '../HubLink';
+import h from '../headings.module.css';
+import styles from './page.module.css';
 
 const stränder = [
   {
@@ -65,23 +65,29 @@ const stränder = [
 
 export default function BästaSträndernaGuide() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       {/* Hero */}
       <HeroImage
         src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
         alt="Turkost vatten och vit sandstrand på Mallorca – öns vackraste stränder"
         kicker="Lokal guide · Uppdaterad 2026"
-        title="De 15 bästa stränderna på Mallorca"
+        title="Mallorcas 15 bästa stränder – vår topplista"
         subtitle="Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
         height="55vh"
       />
 
-      <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(40px,6vw,80px) clamp(16px,4vw,40px)' }}>
+      <div className={styles.container}>
+
+        <HubLink
+          text="Det här är vår topplista med motivering. Vill du se alla 30 stränder, sorterade efter region och typ, finns de på strandsidan."
+          href="/strandar"
+          label="Se alla stränder på Mallorca"
+        />
 
         {/* Snabbguide */}
-        <div style={{ background: '#F0EBE3', borderRadius: '16px', padding: '24px 28px', marginBottom: '48px', borderLeft: '4px solid #993335' }}>
-          <p style={{ fontWeight: 700, color: '#383a46', marginBottom: 8, fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Snabbguide – topp 5 för olika resenärer</p>
-          <ul style={{ margin: 0, paddingLeft: '20px', color: '#374151', fontSize: '0.9rem', lineHeight: '2' }}>
+        <div className={styles.quick}>
+          <p className={styles.quickLabel}>Snabbguide – topp 5 för olika resenärer</p>
+          <ul className={styles.quickList}>
             <li><strong>Vackraste stranden:</strong> Cala des Moro (östkusten)</li>
             <li><strong>Bäst för familjer:</strong> Playa de Muro (norr)</li>
             <li><strong>Mest orörda:</strong> Es Caragol (inga vägar, kräver vandring)</li>
@@ -92,40 +98,40 @@ export default function BästaSträndernaGuide() {
 
         {/* Strand-artiklar */}
         {stränder.map((strand) => (
-          <article key={strand.rank} style={{ marginBottom: '64px', paddingBottom: '64px', borderBottom: '1px solid #ede5da' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
-              <span style={{ background: '#993335', color: 'white', width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', flexShrink: 0 }}>#{strand.rank}</span>
+          <article key={strand.rank} className={styles.beach}>
+            <div className={styles.beachHead}>
+              <span className={styles.rank}>#{strand.rank}</span>
               <div>
-                <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46', lineHeight: 1 }}>{strand.namn}</h2>
-                <p style={{ margin: 0, color: '#993335', fontSize: '0.85rem', fontWeight: '600', marginTop: '4px' }}>{strand.region} · {strand.typ}</p>
+                <h2 className={`${h.h2} ${styles.beachTitle}`}>{strand.namn}</h2>
+                <p className={styles.beachMeta}>{strand.region} · {strand.typ}</p>
               </div>
             </div>
 
-            <img src={strand.bild} alt={strand.namn} loading="lazy" style={{ width: '100%', height: 'clamp(200px, 35vw, 400px)', objectFit: 'cover', borderRadius: '16px', marginBottom: '24px' }} />
+            <Image src={strand.bild} alt={strand.namn} width={800} height={400} sizes="(max-width: 860px) 100vw, 800px" className={styles.image} />
 
-            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', color: '#374151', marginBottom: '24px' }}>{strand.beskrivning}</p>
+            <p className={styles.description}>{strand.beskrivning}</p>
 
-            <div style={{ background: '#F0EBE3', borderRadius: '12px', padding: '20px 24px', marginBottom: '20px' }}>
-              <p style={{ fontWeight: 700, color: '#993335', marginBottom: 8, fontSize: '0.68rem', letterSpacing: '0.18em', textTransform: 'uppercase' }}>Insider-tips</p>
-              <p style={{ margin: 0, color: '#374151', fontSize: '0.95rem', lineHeight: '1.65' }}>{strand.insider}</p>
+            <div className={styles.insider}>
+              <p className={styles.insiderLabel}>Insider-tips</p>
+              <p className={styles.insiderText}>{strand.insider}</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
-              <div style={{ background: 'white', borderRadius: '10px', padding: '14px', border: '1px solid #ede5da' }}>
-                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>GPS</p>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', fontWeight: '500' }}>{strand.gps}</p>
+            <div className={styles.facts}>
+              <div className={styles.fact}>
+                <p className={styles.factLabel}>GPS</p>
+                <p className={styles.factValue}>{strand.gps}</p>
               </div>
-              <div style={{ background: 'white', borderRadius: '10px', padding: '14px', border: '1px solid #ede5da' }}>
-                <p style={{ margin: '0 0 4px', fontSize: '0.72rem', color: '#9CA3AF', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>BÄSTA TID</p>
-                <p style={{ margin: 0, fontSize: '0.85rem', color: '#374151', fontWeight: '500' }}>{strand.bästaTid}</p>
+              <div className={styles.fact}>
+                <p className={styles.factLabel}>BÄSTA TID</p>
+                <p className={styles.factValue}>{strand.bästaTid}</p>
               </div>
             </div>
           </article>
         ))}
 
         {/* Stränder 6–15: kompaktlista */}
-        <section style={{ marginBottom: '64px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.8rem,4vw,2.5rem)', letterSpacing: '0.05em', color: '#383a46', marginBottom: '24px' }}>Stränder 6–15: Komplett lista</h2>
+        <section className={styles.list}>
+          <h2 className={`${h.h2} ${styles.listTitle}`}>Stränder 6–15: Komplett lista</h2>
           {[
             { rank: 6, namn: 'Cala Agulla', region: 'Nordöst · Capdepera', tips: 'Skyddad nationalpark, bra surfa tidiga morgnar.' },
             { rank: 7, namn: 'Cala Pi', region: 'Sydkust · Llucmajor', tips: 'Smal vik med klippväggar – en av öns vackraste silhuetter.' },
@@ -138,21 +144,21 @@ export default function BästaSträndernaGuide() {
             { rank: 14, namn: 'Cala Mesquida', region: 'Nordöst · Capdepera', tips: 'Strand + klitter + lite surfrep. Lugnt och vackert.' },
             { rank: 15, namn: 'Es Caragol', region: 'Sydkust (kräver 40 min vandring)', tips: 'Mallorcas mest orörda strand. Inga vägar dit – ta med vatten.' },
           ].map((s) => (
-            <div key={s.rank} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', padding: '16px 0', borderBottom: '1px solid #ede5da' }}>
-              <span style={{ background: '#EDE4D8', color: '#993335', width: '32px', height: '32px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', flexShrink: 0, fontWeight: '700' }}>#{s.rank}</span>
+            <div key={s.rank} className={styles.row}>
+              <span className={styles.rowRank}>#{s.rank}</span>
               <div>
-                <p style={{ fontWeight: '700', color: '#383a46', margin: '0 0 4px' }}>{s.namn} <span style={{ fontWeight: '400', color: '#6B7280', fontSize: '0.85rem' }}>· {s.region}</span></p>
-                <p style={{ margin: 0, color: '#6B7280', fontSize: '0.88rem' }}>{s.tips}</p>
+                <p className={styles.rowName}>{s.namn} <span className={styles.rowRegion}>· {s.region}</span></p>
+                <p className={styles.rowTip}>{s.tips}</p>
               </div>
             </div>
           ))}
         </section>
 
         {/* CTA */}
-        <div style={{ background: '#993335', borderRadius: '20px', padding: '40px', textAlign: 'center', color: 'white', marginTop: '40px' }}>
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', letterSpacing: '0.05em', margin: '0 0 12px' }}>Vill du utforska alla 30 stränder?</h2>
-          <p style={{ opacity: 0.85, marginBottom: '24px', fontSize: '1rem' }}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
-          <a href="/strandar" style={{ display: 'inline-block', background: '#993335', color: '#fefefb', padding: '14px 32px', borderRadius: '10px', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.1rem', letterSpacing: '0.1em', textDecoration: 'none', fontWeight: '700' }}>SE ALLA 30 STRÄNDER →</a>
+        <div className={styles.cta}>
+          <h2 className={h.h2}>Vill du utforska alla 30 stränder?</h2>
+          <p className={styles.ctaText}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
+          <Link href="/strandar" className={styles.ctaButton}>SE ALLA 30 STRÄNDER →</Link>
         </div>
       </div>
     </div>

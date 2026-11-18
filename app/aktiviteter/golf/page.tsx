@@ -1,51 +1,43 @@
-'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
-import GolfMapWrapper from '@/components/GolfMapWrapper';
+import Map, { type MapMarker } from '@/components/Map';
 import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
+import type { CSSProperties } from 'react';
+import GolfRegionFilter from './GolfRegionFilter';
+import styles from './page.module.css';
 
+const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
+  name: b.namn,
+  lat: b.lat,
+  lng: b.lng,
+  href: `/aktiviteter/golf#${b.slug}`,
+  desc: b.plats,
+  meta: b.oneliner,
+}));
+
+// Nyanser som klarar 4,5:1 mot vit text (tidigare #27ae60 och #f39c12 gav 2,9:1 och 2,2:1).
 const svårighetFärg: Record<string, string> = {
-  'Lätt': '#27ae60',
-  'Medel': '#f39c12',
+  'Lätt': '#15803d',
+  'Medel': '#b45309',
   'Svår': '#993335',
+};
+
+/** Svårighetsfärgen som CSS-variabel till modulen */
+const niva = (s: string) => ({ '--niva': svårighetFärg[s] }) as CSSProperties;
+
+const notisKlass: Record<string, string> = {
+  varning: styles.note_varning,
+  tips: styles.note_tips,
+  bast: styles.note_bast,
 };
 
 const regioner = ['Alla', 'Palma', 'Norr', 'Öst', 'Syd', 'Sydväst'];
 
 export default function GolfPage() {
-  const [aktivRegion, setAktivRegion] = useState('Alla');
-
-  const filtrerade = aktivRegion === 'Alla'
-    ? golfbanor
-    : golfbanor.filter(b => b.region === aktivRegion);
-
-  const knappAktiv = {
-    padding: '8px 20px',
-    borderRadius: '20px',
-    border: '2px solid #993335',
-    background: '#993335',
-    color: 'white',
-    fontWeight: '600' as const,
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-  };
-
-  const knappInaktiv = {
-    padding: '8px 20px',
-    borderRadius: '20px',
-    border: '2px solid #ccc',
-    background: 'white',
-    color: '#444',
-    fontWeight: '600' as const,
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-  };
-
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <HeroImage
         src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
         alt="Välklippt green med havsutsikt vid en golfbana på Mallorca"
@@ -54,115 +46,108 @@ export default function GolfPage() {
         subtitle="Komplett guide till alla golfbanor – för alla nivåer och budgetar"
       />
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: 'clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px)' }}>
+      <div className={styles.inner}>
 
         {/* ── KARTA ── */}
-        <section aria-labelledby="golf-map-title" style={{ marginBottom: '48px' }}>
-          <div style={{ marginBottom: '16px' }}>
-            <p style={{ fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#993335', fontWeight: 600, margin: '0 0 8px' }}>
+        <section aria-labelledby="golf-map-title" className={styles.mapSection}>
+          <div className={styles.mapHeader}>
+            <p className={styles.eyebrow}>
               Utforska på karta
             </p>
-            <h2 id="golf-map-title" style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.02em', margin: 0 }}>
+            <h2 id="golf-map-title" className={styles.sectionTitle}>
               Alla 22 golfbanor på Mallorca
             </h2>
-            <p style={{ color: '#666', marginTop: '8px', fontSize: '0.95rem', maxWidth: '60ch' }}>
+            <p className={styles.intro}>
               Klicka på en flagga för att se banan i listan nedan. Från Alcanada i norr till Andratx i sydväst.
             </p>
           </div>
-          <GolfMapWrapper />
+          <Map
+            markers={golfMarkers}
+            pinVariant="flag"
+            height="clamp(380px, 60vh, 560px)"
+            ariaLabel={`Karta över alla ${golfbanor.length} golfbanor på Mallorca`}
+            ctaLabel="Se banan"
+            listLabel={false}
+          />
 
           {/* Textfallback – alltid synlig, både a11y- och SEO-fördel */}
-          <details style={{ marginTop: '16px' }}>
-            <summary style={{ cursor: 'pointer', fontSize: '0.9rem', fontWeight: 600, color: '#383a46', padding: '8px 0' }}>
+          <details className={styles.textList}>
+            <summary className={styles.textListSummary}>
               Visa alla banor som textlista
             </summary>
-            <ul style={{ columns: 2, columnGap: '32px', marginTop: '12px', padding: 0, listStyle: 'none', fontSize: '0.9rem' }}>
+            <ul className={styles.textListItems}>
               {golfbanor.map(b => (
-                <li key={b.slug} style={{ padding: '4px 0', breakInside: 'avoid' }}>
-                  <a href={`#${b.slug}`} style={{ color: '#383a46', textDecoration: 'none', borderBottom: '1px dotted #993335' }}>
+                <li key={b.slug} className={styles.textListItem}>
+                  <a href={`#${b.slug}`} className={styles.textListLink}>
                     {b.namn}
                   </a>{' '}
-                  <span style={{ color: '#6b7280', fontSize: '0.82rem' }}>· {b.plats}</span>
+                  <span className={styles.textListPlace}>· {b.plats}</span>
                 </li>
               ))}
             </ul>
           </details>
         </section>
 
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
+        <div className={styles.listHeader}>
           <div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.03em', margin: 0 }}>
+            <h2 className={styles.sectionTitle}>
               Alla golfbanor
             </h2>
-            <p style={{ color: '#666', marginTop: '8px' }}>{filtrerade.length} banor visas</p>
           </div>
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className={styles.legend}>
             {['Lätt', 'Medel', 'Svår'].map(s => (
-              <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'white', padding: '6px 14px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600' }}>
-                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: svårighetFärg[s] }} />
+              <div key={s} className={styles.legendItem}>
+                <div className={styles.legendDot} style={niva(s)} />
                 {s}
               </div>
             ))}
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
-          {regioner.map(r => (
-            <button key={r} onClick={() => setAktivRegion(r)} style={aktivRegion === r ? knappAktiv : knappInaktiv}>
-              {r}
-            </button>
-          ))}
-        </div>
+        <GolfRegionFilter listId="golfbanor" regioner={regioner} banregioner={golfbanor.map(b => b.region)} />
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: '24px' }}>
-          {filtrerade.map((b) => (
+        <div id="golfbanor" className={styles.grid}>
+          {golfbanor.map((b) => (
             <article
               key={b.slug}
               id={b.slug}
-              style={{ background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 10px 25px rgba(0,0,0,0.05)', transition: 'transform 0.2s ease, box-shadow 0.2s ease', scrollMarginTop: '80px' }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 18px 35px rgba(0,0,0,0.1)'; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.05)'; }}
+              data-region={b.region}
+              className={styles.card}
             >
-              <div style={{ position: 'relative' }}>
-                <Image src={b.bild} alt={b.namn} width={600} height={200} style={{ width: '100%', height: '200px', objectFit: 'cover' }} loading="lazy" />
-                <div style={{ position: 'absolute', top: '12px', right: '12px', background: svårighetFärg[b.svårighet], color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '700' }}>
+              <div className={styles.media}>
+                <Image src={b.bild} alt={b.namn} width={600} height={200} className={styles.image} loading="lazy" />
+                <div className={styles.difficulty} style={niva(b.svårighet)}>
                   {b.svårighet}
                 </div>
-                <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(0,0,0,0.6)', color: 'white', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: '600' }}>
+                <div className={styles.region}>
                   {b.region}
                 </div>
               </div>
-              <div style={{ padding: '22px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
-                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: '1.05rem', fontWeight: '700', margin: '0 0 8px', lineHeight: '1.15' }}>{b.namn}</h3>
-                  <span style={{ flexShrink: 0, marginLeft: '8px' }}><PriceTag tier={tierFromEmoji(b.pris)} /></span>
+              <div className={styles.body}>
+                <div className={styles.titleRow}>
+                  <h3 className={styles.cardTitle}>{b.namn}</h3>
+                  <span className={styles.price}><PriceTag tier={tierFromEmoji(b.pris)} /></span>
                 </div>
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '0.85rem', color: '#666' }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconPin size={12} /> {b.plats}</span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}><IconFlag size={12} /> {b.hål} hål</span>
+                <div className={styles.facts}>
+                  <span className={styles.fact}><IconPin size={12} /> {b.plats}</span>
+                  <span className={styles.fact}><IconFlag size={12} /> {b.hål} hål</span>
                 </div>
-                <p style={{ fontSize: '0.88rem', color: '#374151', lineHeight: '1.7', margin: '0 0 12px' }}>{b.beskrivning}</p>
-                <div style={{ background: '#f5f5f5', borderRadius: '8px', padding: '10px 14px', marginTop: '10px', marginBottom: '14px', lineHeight: '1.6', fontSize: '0.85rem', color: '#444' }}>
-                  <IconBulb size={14} style={{ verticalAlign: '-2px', marginRight: 4 }} /> {b.tips}
+                <p className={styles.description}>{b.beskrivning}</p>
+                <div className={styles.tip}>
+                  <IconBulb size={14} className={styles.tipIcon} /> {b.tips}
                 </div>
                 {b.redaktionellt && (
-                  <div style={{
-                    display: 'flex', alignItems: 'flex-start', gap: '8px',
-                    padding: '8px 12px', borderRadius: '8px', marginBottom: '12px',
-                    background: b.redaktionellt.typ === 'varning' ? '#fff3cd' : b.redaktionellt.typ === 'tips' ? '#e8f5e9' : b.redaktionellt.typ === 'bast' ? '#e3f2fd' : '#f3e5f5',
-                    borderLeft: `3px solid ${b.redaktionellt.typ === 'varning' ? '#f39c12' : b.redaktionellt.typ === 'tips' ? '#27ae60' : b.redaktionellt.typ === 'bast' ? '#2980b9' : '#8e44ad'}`,
-                    fontSize: '0.82rem', color: '#333', lineHeight: '1.5',
-                  }}>
-                    <span style={{ flexShrink: 0, color: '#383a46', display: 'inline-flex', alignItems: 'center' }}>
+                  <div className={`${styles.note} ${notisKlass[b.redaktionellt.typ] ?? ''}`}>
+                    <span className={styles.noteIcon}>
                       {b.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : b.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : b.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
                     </span>
                     <span>{b.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={b.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem' }}>
+                <a href={b.maps} target="_blank" rel="noopener noreferrer" className={styles.primaryButton}>
                   Visa på karta ↗
                 </a>
-                <a href={b.webb} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', padding: '10px', background: 'white', color: '#993335', border: '2px solid #993335', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', fontSize: '0.9rem', marginTop: '8px' }}>
+                <a href={b.webb} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
                   Besök hemsida →
                 </a>
               </div>
@@ -170,15 +155,15 @@ export default function GolfPage() {
           ))}
         </div>
 
-        <div style={{ marginTop: '60px', background: '#111', borderRadius: '16px', padding: '40px', color: 'white', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'var(--font-bebas), "Bebas Neue", sans-serif', fontSize: '2.5rem', letterSpacing: '0.05em', marginBottom: '16px' }}>
-            Planera din golfsemester
+        <div className={styles.cta}>
+          <h2 className={styles.sectionTitle}>
+            Mer om golf på Mallorca
           </h2>
-          <p style={{ color: '#aaa', fontSize: '1rem', maxWidth: '500px', margin: '0 auto 28px' }}>
-            Vill du ha hjälp att boka greenfee, hyra utrustning eller kombinera golf med andra aktiviteter?
+          <p className={styles.ctaText}>
+            Vill du veta mer om banorna, säsongen och greenfee? Läs vår kompletta golfguide.
           </p>
-          <Link href="/kontakt" style={{ display: 'inline-block', padding: '14px 40px', background: '#993335', color: '#fefefb', borderRadius: '8px', textDecoration: 'none', fontWeight: '700', fontSize: '1rem' }}>
-            Planera min golfsemester →
+          <Link href="/guide/golf-mallorca-guide" className={styles.ctaButton}>
+            Läs vår golfguide →
           </Link>
         </div>
       </div>

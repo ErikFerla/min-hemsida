@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
-import { parseAgesParam } from '@/app/lib/ages';
 
 export const metadata: Metadata = {
-  title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+  title: 'Djurparker & akvarier på Mallorca för barn',
   description:
     'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn. Priser, tips och åldersrekommendationer.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/djurparker-och-akvarier' },
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
     url: 'https://www.mymallorca.se/barn/djurparker-och-akvarier',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+    title: 'Djurparker & akvarier på Mallorca för barn',
     description:
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
     images: [
@@ -26,25 +25,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Djurparker & akvarier på Mallorca – 4 bästa för barn | MyMallorca',
+    title: 'Djurparker & akvarier på Mallorca för barn',
     description:
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
     images: ['https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=630&fit=crop&q=85'],
   },
 };
 
-type Props = {
-  searchParams: Promise<{ ages?: string }>;
-};
-
-export default async function DjurparkerPage({ searchParams }: Props) {
-  const { ages } = await searchParams;
-  const selectedAges = parseAgesParam(ages);
-
+export default function DjurparkerPage() {
   return (
     <BarnCategoryPageView
       category="djurparker-och-akvarier"
-      selectedAges={selectedAges}
       hero={{
         imageSrc: 'https://images.unsplash.com/photo-1551632811-561732d1e306',
         imageAlt: 'Akvarietunnel med hajar och tropiska fiskar — djurupplevelser på Mallorca',
@@ -54,7 +45,7 @@ export default async function DjurparkerPage({ searchParams }: Props) {
       }}
       intro={
         <>
-          <p style={{ marginTop: 0 }}>
+          <p>
             Mallorca har två akvarier och tre djurparker värda en dagsutflykt. Palma Aquarium är
             flaggskeppet med hajtanken Big Blue och 700 arter; Marineland är den klassiska familjefavoriten
             med delfinshow och papegojor; Natura Parc passar särskilt småbarn som vill ha en lugnare

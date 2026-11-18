@@ -1,0 +1,81 @@
+/* Åldersfilter på /barn och kategorisidorna. Vald knapp markeras med aria-pressed. */
+
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+  background: var(--color-white);
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.option[aria-pressed='true'] {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+/* Åldersspann under etiketten; opacity 0.8 ger 6,1:1 (ljus knapp) och 7,8:1 (vald) */
+.caption {
+  font-size: 0.72rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.count {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+.clear {
+  min-height: 36px;
+  padding: 8px 14px;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .option {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option {
+    transition: none;
+  }
+}

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { IconPin, IconClock, IconExternal, IconMap, IconGlass, IconLeaf, IconUsers, PriceTag } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import styles from './page.module.css';
 
 type Vingard = {
   namn: string;
@@ -37,17 +38,10 @@ const vingårdar: Vingard[] = [
   { namn: 'Vins Nadal', plats: 'Binissalem', prisnivå: 1, typ: 'Traditionell familjevingård', passarFör: 'Budgetmedvetna', upplevelse: 'Enkel provning, varm atmosfär', bokning: 'Drop-in välkomnas', öppet: 'Mån–Lör 9–18', info: 'Traditionell familjevingård sedan 1944. Enkel, ärlig och prisvärd.', signaturvin: 'Nadal Rosat', web: 'https://www.vinsnadal.com', bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=800&q=80', maps: 'https://maps.google.com/?q=Vins+Nadal+Binissalem+Mallorca' },
 ];
 
-export const metadata = {
-  title: 'Vingårdar på Mallorca – Guide till öns 15 bästa bodegas',
-  description: 'Upptäck Mallorcas vingårdar. Från familjedrivna bodegas till ekologiska producenter — med tips om bokning, provning och vem varje vingård passar för.',
-};
-
-const META_LABEL: React.CSSProperties = { fontSize: '0.66rem', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#9CA3AF', fontWeight: 600, margin: 0, lineHeight: 1.2 };
-const META_VALUE: React.CSSProperties = { fontSize: '0.85rem', color: '#383a46', margin: '1px 0 0', lineHeight: 1.3 };
 
 export default function VingardarPage() {
   return (
-    <div style={{ background: '#fefefb', minHeight: '100vh' }}>
+    <div className={styles.page}>
       <HeroImage
         src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb"
         alt="Vinrankor och druvklasar i en mallorcansk vingård – öns vinkultur"
@@ -57,70 +51,70 @@ export default function VingardarPage() {
         height="52vh"
       />
 
-      <div style={{ maxWidth: '860px', margin: '0 auto', padding: 'clamp(32px,6vw,64px) clamp(16px,5vw,40px)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, color: '#993335' }}>
+      <div className={styles.inner}>
+        <div className={styles.headRow}>
           <IconGlass size={18} />
-          <h2 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: 'clamp(1.5rem,5vw,2rem)', letterSpacing: '0.05em', margin: 0, color: '#383a46' }}>15 vingårdar att besöka</h2>
+          <h2 className={styles.sectionTitle}>15 vingårdar att besöka</h2>
         </div>
-        <p style={{ color: '#6B7280', fontSize: '0.95rem', lineHeight: 1.65, marginTop: 0, marginBottom: 36, maxWidth: '60ch' }}>
+        <p className={styles.intro}>
           Mallorca har över 70 registrerade vingårdar, främst i Binissalem- och Pla i Llevant-regionerna. De flesta erbjuder provning — men boka alltid i förväg för de mindre.
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div className={styles.list}>
           {vingårdar.map((v, i) => (
-            <article key={v.namn} style={{ background: 'white', borderRadius: 16, overflow: 'hidden', border: '1px solid #ede5da', boxShadow: '0 4px 14px rgba(31,41,55,0.04)' }}>
-              <div style={{ position: 'relative', width: '100%', height: 160 }}>
-                <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 860px" style={{ objectFit: 'cover' }} loading={i < 2 ? 'eager' : 'lazy'} />
-                <div style={{ position: 'absolute', top: 10, left: 10, background: 'rgba(255,255,255,0.94)', color: '#383a46', padding: '3px 9px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em' }}>#{i + 1}</div>
+            <article key={v.namn} className={styles.card}>
+              <div className={styles.media}>
+                <Image src={v.bild} alt={v.namn} fill sizes="(max-width:860px) 100vw, 860px" className={styles.cover} loading={i < 2 ? 'eager' : 'lazy'} />
+                <div className={styles.rank}>#{i + 1}</div>
                 {v.eko && (
-                  <div style={{ position: 'absolute', top: 10, right: 10, display: 'inline-flex', alignItems: 'center', gap: 4, background: 'rgba(15,118,110,0.94)', color: 'white', padding: '3px 9px', borderRadius: 999, fontSize: '0.66rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  <div className={styles.eco}>
                     <IconLeaf size={10} stroke={2} /> Eko
                   </div>
                 )}
               </div>
 
-              <div style={{ padding: '14px 16px 16px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10, marginBottom: 4 }}>
-                  <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.3rem', letterSpacing: '0.04em', margin: 0, color: '#383a46', lineHeight: 1.1 }}>{v.namn}</h3>
+              <div className={styles.body}>
+                <div className={styles.titleRow}>
+                  <h3 className={styles.cardTitle}>{v.namn}</h3>
                   <PriceTag tier={v.prisnivå} />
                 </div>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2px 12px', color: '#6B7280', fontSize: '0.8rem', marginBottom: 8 }}>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconPin size={11} /> {v.plats}</span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: 5 }}><IconClock size={11} /> {v.öppet}</span>
+                <div className={styles.meta}>
+                  <span className={styles.metaItem}><IconPin size={11} /> {v.plats}</span>
+                  <span className={styles.metaItem}><IconClock size={11} /> {v.öppet}</span>
                 </div>
 
-                <p style={{ fontSize: '0.9rem', color: '#374151', lineHeight: 1.45, margin: '0 0 10px' }}>{v.info}</p>
+                <p className={styles.info}>{v.info}</p>
 
-                <div style={{ background: '#F9F6F1', borderRadius: 10, padding: '10px 12px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 14px', marginBottom: 10 }}>
+                <div className={styles.facts}>
                   <div>
-                    <p style={META_LABEL}>Typ</p>
-                    <p style={META_VALUE}>{v.typ}</p>
+                    <p className={styles.factLabel}>Typ</p>
+                    <p className={styles.factValue}>{v.typ}</p>
                   </div>
                   <div>
-                    <p style={META_LABEL}>Passar för</p>
-                    <p style={META_VALUE}>{v.passarFör}</p>
+                    <p className={styles.factLabel}>Passar för</p>
+                    <p className={styles.factValue}>{v.passarFör}</p>
                   </div>
-                  <div style={{ gridColumn: '1 / -1' }}>
-                    <p style={META_LABEL}>Upplevelse</p>
-                    <p style={META_VALUE}>{v.upplevelse}</p>
+                  <div className={styles.wide}>
+                    <p className={styles.factLabel}>Upplevelse</p>
+                    <p className={styles.factValue}>{v.upplevelse}</p>
                   </div>
-                  <div style={{ gridColumn: '1 / -1' }}>
-                    <p style={META_LABEL}>Bokning</p>
-                    <p style={META_VALUE}>{v.bokning}</p>
+                  <div className={styles.wide}>
+                    <p className={styles.factLabel}>Bokning</p>
+                    <p className={styles.factValue}>{v.bokning}</p>
                   </div>
-                  <div style={{ gridColumn: '1 / -1' }}>
-                    <p style={META_LABEL}>Signaturvin</p>
-                    <p style={{ ...META_VALUE, fontStyle: 'italic', color: '#993335' }}>{v.signaturvin}</p>
+                  <div className={styles.wide}>
+                    <p className={styles.factLabel}>Signaturvin</p>
+                    <p className={`${styles.factValue} ${styles.signature}`}>{v.signaturvin}</p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '8px 14px', background: '#383a46', color: 'white', borderRadius: 8, fontSize: '0.82rem', textDecoration: 'none', fontWeight: 600, minHeight: 36 }}>
+                <div className={styles.actions}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
                     <IconMap size={14} stroke={1.8} /> Visa på karta
                   </a>
                   {v.web && (
-                    <a href={v.web} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 16px', background: 'white', color: '#383a46', border: '1px solid #d9cfc1', borderRadius: 10, fontSize: '0.85rem', textDecoration: 'none', fontWeight: 600, minHeight: 40 }}>
+                    <a href={v.web} target="_blank" rel="noopener noreferrer" className={styles.webButton}>
                       Hemsida <IconExternal size={13} stroke={1.8} />
                     </a>
                   )}
@@ -130,12 +124,12 @@ export default function VingardarPage() {
           ))}
         </div>
 
-        <div style={{ marginTop: 48, padding: '28px 24px', background: '#383a46', borderRadius: 18, color: 'white', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#993335', marginBottom: 10 }}>
+        <div className={styles.note}>
+          <div className={styles.noteKicker}>
             <IconUsers size={16} stroke={1.8} />
-            <span style={{ fontSize: '0.72rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>Bra att veta</span>
+            <span className={styles.noteKickerText}>Bra att veta</span>
           </div>
-          <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.65, opacity: 0.9 }}>De flesta vingårdar ligger 20–40 min bilväg från Palma. Räkna med 1,5–2 timmar per besök. Boka alltid i förväg för boutique-gårdar — särskilt lördagar.</p>
+          <p className={styles.noteText}>De flesta vingårdar ligger 20–40 min bilväg från Palma. Räkna med 1,5–2 timmar per besök. Boka alltid i förväg för boutique-gårdar — särskilt lördagar.</p>
         </div>
       </div>
     </div>

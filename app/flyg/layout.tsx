@@ -1,10 +1,13 @@
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import { buildPageMetadata } from '@/app/lib/city-seo';
 
-export const metadata = {
-  title: 'Flyg till Mallorca 2026 – Billiga flyg från Sverige | MyMallorca',
-  description: 'Hitta billiga flyg till Mallorca från Stockholm, Göteborg och Malmö. Jämför priser och boka direkt. Tips för bästa tid att boka.',
-  keywords: 'flyg Mallorca, billiga flyg Mallorca, Stockholm Mallorca flyg, Göteborg Mallorca',
-};
+export const metadata = buildPageMetadata({
+  path: '/flyg',
+  title: 'Flyg till Mallorca från Sverige',
+  description: 'Flyg till Mallorca från Stockholm, Göteborg och Malmö – sök och jämför avgångar, se restid och säsong och få tips om när det lönar sig att boka.',
+  image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=630&fit=crop&q=85',
+  imageAlt: 'Flygplan över moln på väg till Palma de Mallorca',
+});
 
 export default function FlygLayout({ children }: { children: React.ReactNode }) {
   return (

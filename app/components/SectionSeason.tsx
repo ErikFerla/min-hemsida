@@ -1,8 +1,8 @@
 'use client';
 import { useState } from 'react';
-import styles from '../page.module.css';
+import styles from './SectionSeason.module.css';
 import { IconFlower, IconSun, IconLeaf, IconSnow } from '@/components/Icons';
-import type { ComponentType } from 'react';
+import type { ComponentType, CSSProperties } from 'react';
 
 type Sasong = {
   Icon: ComponentType<{ size?: number }>;
@@ -23,7 +23,7 @@ const säsonger: Sasong[] = [
     månader: 'Mars – Maj',
     färg: '#a8e6a3',
     textFärg: '#1a5c1a',
-    fördelar: ['Mandelblomning i februari', 'Perfekt för vandring i Tramuntana', 'Få turister och lägre priser', 'Behagliga 18–22 grader'],
+    fördelar: ['Perfekt för vandring i Tramuntana', 'Blommande landskap och gröna dalar', 'Färre turister och lägre priser', 'Behagliga 18–22 grader'],
     nackdel: 'Lite kyligt för bad',
     bästFör: 'Natur & vandring',
     borderColor: '#a8e6a3',
@@ -34,9 +34,9 @@ const säsonger: Sasong[] = [
     månader: 'Juni – Augusti',
     färg: '#ffc400',
     textFärg: '#5c3d00',
-    fördelar: ['28–32 grader, garanterat sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
+    fördelar: ['28–32 grader och nästan alltid sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
     nackdel: 'Mest turister och högsta priser',
-    bästFör: 'Bad & nöjesliv',
+    bästFör: 'Bad & familjesemester',
     borderColor: '#ffc400',
   },
   {
@@ -45,7 +45,7 @@ const säsonger: Sasong[] = [
     månader: 'September – November',
     färg: '#f5a623',
     textFärg: '#5c2d00',
-    fördelar: ['Havet fortfarande varmt (24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
+    fördelar: ['Havet är varmt i september (cirka 24°)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
     nackdel: 'Regnigare i oktober',
     bästFör: 'Mat & kultur',
     borderColor: '#f5a623',
@@ -56,7 +56,7 @@ const säsonger: Sasong[] = [
     månader: 'December – Februari',
     färg: '#90caf9',
     textFärg: '#0a2a5c',
-    fördelar: ['Lugnt och autentiskt', 'Billigaste priserna', 'Cyklister och vandrare', 'Mild 14–18 grader'],
+    fördelar: ['Lugnt och autentiskt', 'Mandelblomning i februari', 'Bra för cykling och vandring', 'Milt, ofta 14–17 grader dagtid'],
     nackdel: 'Många affärer stängda',
     bästFör: 'Avkoppling & cykling',
     borderColor: '#90caf9',
@@ -67,23 +67,23 @@ export default function SectionSeason() {
   const [öppen, setÖppen] = useState<number | null>(null);
 
   return (
-    <section className={styles.seasonSection}>
-      <div className={styles.seasonInner}>
-        <h2 className={styles.seasonTitle}>När ska du åka?</h2>
-        <p className={styles.seasonSub}>Mallorca är fantastiskt hela året – men varje säsong erbjuder något unikt</p>
+    <section className={styles.section}>
+      <div className={styles.inner}>
+        <h2>När ska du åka?</h2>
+        <p className={styles.sub}>Mallorca är fantastiskt hela året – men varje säsong erbjuder något unikt</p>
 
-        {/* Desktop-grid – oförändrat */}
-        <div className={`${styles.seasonGrid} season-desktop`}>
+        {/* Desktop-grid */}
+        <div className={styles.grid}>
           {säsonger.map((s, i) => (
-            <div key={i} className={styles.seasonCard} style={{ borderTop: `4px solid ${s.borderColor}` }}>
-              <span className={styles.seasonEmoji} style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={28} /></span>
-              <h3 className={styles.seasonName}>{s.namn}</h3>
-              <p className={styles.seasonMonths}>{s.månader}</p>
-              <ul className={styles.seasonList}>
+            <div key={i} className={styles.card} style={färger(s)}>
+              <span className={styles.icon}><s.Icon size={28} /></span>
+              <h3>{s.namn}</h3>
+              <p className={styles.months}>{s.månader}</p>
+              <ul className={styles.list}>
                 {s.fördelar.map((f, j) => <li key={j}>✓ {f}</li>)}
                 <li>✗ {s.nackdel}</li>
               </ul>
-              <span className={styles.seasonBadge} style={{ background: s.färg, color: s.textFärg }}>
+              <span className={styles.badge}>
                 Bäst för: {s.bästFör}
               </span>
             </div>
@@ -91,32 +91,34 @@ export default function SectionSeason() {
         </div>
 
         {/* Mobilaccordion – visas bara på mobil */}
-        <div className="season-mobile-accordion">
+        <div className={styles.accordion}>
           {säsonger.map((s, i) => (
-            <div key={i} className="season-accordion-item" style={{ borderLeft: `4px solid ${s.borderColor}` }}>
+            <div key={i} className={styles.item} style={färger(s)}>
               <button
-                className="season-accordion-header"
+                type="button"
+                className={styles.header}
+                aria-expanded={öppen === i}
                 onClick={() => setÖppen(öppen === i ? null : i)}
               >
-                <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <span style={{ color: '#383a46', display: 'inline-flex', alignItems: 'center' }}><s.Icon size={22} /></span>
+                <span className={styles.headerText}>
+                  <span className={styles.headerIcon}><s.Icon size={22} /></span>
                   <span>
-                    <span className="season-accordion-title">{s.namn}</span>
-                    <span className="season-accordion-months">{s.månader}</span>
+                    <span className={styles.itemTitle}>{s.namn}</span>
+                    <span className={styles.itemMonths}>{s.månader}</span>
                   </span>
                 </span>
-                <span style={{ fontSize: '0.8rem', color: '#993335', transition: 'transform 0.2s', display: 'inline-block', transform: öppen === i ? 'rotate(180deg)' : 'none' }}>▼</span>
+                <span className={öppen === i ? `${styles.chevron} ${styles.chevronOpen}` : styles.chevron} aria-hidden="true">▼</span>
               </button>
 
               {öppen === i && (
-                <div className="season-accordion-body">
-                  <ul className="season-accordion-list">
+                <div className={styles.body}>
+                  <ul className={styles.bodyList}>
                     {s.fördelar.slice(0, 3).map((f, j) => (
-                      <li key={j} className="season-accordion-pro">✓ {f}</li>
+                      <li key={j} className={styles.pro}>✓ {f}</li>
                     ))}
-                    <li className="season-accordion-con">✗ {s.nackdel}</li>
+                    <li className={styles.con}>✗ {s.nackdel}</li>
                   </ul>
-                  <span className="season-accordion-badge" style={{ background: s.färg, color: s.textFärg }}>
+                  <span className={styles.itemBadge}>
                     Bäst för: {s.bästFör}
                   </span>
                 </div>
@@ -129,3 +131,7 @@ export default function SectionSeason() {
   );
 }
 
+/** Säsongens färger som CSS-variabler (dynamiska värden från data). */
+function färger(s: Sasong) {
+  return { '--season-color': s.borderColor, '--season-text': s.textFärg } as CSSProperties;
+}
