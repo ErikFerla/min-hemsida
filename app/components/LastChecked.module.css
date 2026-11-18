@@ -16,10 +16,6 @@
 .sources {
   margin: 0.35rem 0 0;
 }
-.sources {
-  /* Radavstånd så att källänkar på olika rader inte hamnar närmare än 24 px (WCAG 2.5.8). */
-  line-height: 2;
-}
 .sources a {
   color: var(--color-accent);
   text-underline-offset: 2px;
