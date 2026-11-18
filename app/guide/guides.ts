@@ -56,10 +56,10 @@ export const GUIDES = {
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
-    title: 'Palmas 15 bästa restauranger – lokal guide',
-    headline: 'De 15 bästa restaurangerna i Palma',
+    title: 'Palmas bästa restauranger – lokal guide',
+    headline: 'De bästa restaurangerna i Palma',
     description:
-      'Rankade av en som bor här: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
+      'Rankade av en som bor här: de bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg',
     imageAlt: 'Flera små tapasrätter på ett bord (genrebild)',
     datePublished: '2026-04-11T21:17:34+02:00',
@@ -70,7 +70,7 @@ export const GUIDES = {
     title: 'Bästa golfbanorna på Mallorca – topp 5',
     headline: 'De 5 bästa golfbanorna på Mallorca',
     description:
-      'Våra fem favoritbanor på Mallorca med motivering, greenfee-nivå och insidertips – plus bästa säsongen för golf och en snabb översikt över övriga banor.',
+      'Våra fem favoritbanor på Mallorca med motivering, prisnivå och insidertips – plus bästa säsongen för golf och en snabb översikt över övriga banor.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
     imageAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
     datePublished: '2026-04-11T21:17:34+02:00',
