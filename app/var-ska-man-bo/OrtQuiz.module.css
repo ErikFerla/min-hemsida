@@ -1,0 +1,241 @@
+/* Ortsquizet på /var-ska-man-bo (3.5). */
+
+.quiz {
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 40px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin: 0 0 56px;
+  scroll-margin-top: 90px;
+}
+
+.kicker {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--color-ink-strong);
+}
+
+.intro {
+  margin: 0 0 24px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-ink);
+}
+
+.number {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-bg);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.option:has(.radio:checked) {
+  border-color: var(--color-accent);
+  background: var(--color-surface-warm);
+  color: var(--color-ink-strong);
+  font-weight: 600;
+}
+
+.option:has(.radio:focus-visible) {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.radio {
+  margin: 0;
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.result {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.progress {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.resultTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-ink-strong);
+}
+
+.resultList {
+  display: grid;
+  gap: 14px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  counter-reset: forslag;
+}
+
+.resultItem {
+  position: relative;
+  padding: 18px 20px 18px 60px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  counter-increment: forslag;
+}
+
+.resultItem::before {
+  content: counter(forslag);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
+  font-weight: 700;
+}
+
+.resultName {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-ink-strong);
+}
+
+.resultRegion {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.reasons {
+  margin: 0 0 10px;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.reasonText {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 0;
+}
+
+.link {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-underline-offset: 2px;
+}
+
+.linkSecondary {
+  color: var(--color-text-soft);
+  text-underline-offset: 2px;
+}
+
+.reset {
+  padding: 10px 18px;
+  border: 2px solid var(--color-ink);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .intro,
+  .progress,
+  .reasons,
+  .reasonText,
+  .option {
+    font-size: 16px;
+  }
+
+  .option {
+    width: 100%;
+  }
+
+  .resultItem {
+    padding-left: 56px;
+  }
+}
