@@ -1,3 +1,4 @@
+import { sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 // Strandsdata för /strandar. Typad så att sidan kan serverrenderas och filtret
 // (app/strandar/StrandFilter.tsx) kan räkna träffar utan att äga innehållet.
 
@@ -40,8 +41,8 @@ const HERO_PATH =
 const HERO_FILE = 'View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg';
 const heroThumb = (w: number) => `${HERO_PATH}/${w}px-${HERO_FILE}`;
 export const BEACHES_HERO = {
-  src: heroThumb(1920),
-  srcSet: [960, 1280, 1920].map((w) => `${heroThumb(w)} ${w}w`).join(', '),
+  src: sizedImageUrl(heroThumb(1920), 1280),
+  srcSet: sizedImageSrcSet(heroThumb(1920)),
   sizes: '100vw',
   alt: 'Caló des Moro på södra Mallorca – turkost vatten, kalkstensklippor och tallskog vid en dold vik',
   credit: 'Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)',
