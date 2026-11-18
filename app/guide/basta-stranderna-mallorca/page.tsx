@@ -15,7 +15,7 @@ const stränder = [
     insider: 'Kom senast kl. 8.30 på högsommaren. Parkeringen längs vägen är begränsad till 20–30 bilar. Alternativt: parkera i Cala Llombards och vandra 25 min.',
     gps: '39.3289° N, 3.2158° E',
     bästaTid: 'Juni eller september – juli och augusti är för trångt',
-    bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg', bildAlt: 'Caló des Moro sedd från klipporna – turkost vatten mellan kalkstensklippor och tallskog',
   },
   {
     rank: 2,
@@ -26,7 +26,7 @@ const stränder = [
     insider: 'Ta med allt själv – det finns en matvagn men ingenting annat. Naturistdelen börjar längst till höger om du är vänd mot havet. Bästa parkeringen är vid Ses Covetes (norra änden) – billigare och kortare kö.',
     gps: '39.3447° N, 2.9758° E',
     bästaTid: 'Maj och september – stranden är 3 km lång, men parkeringen räcker inte till på sommaren',
-    bild: 'https://images.unsplash.com/photo-1474722883778-792e7990302f?w=800&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Es_Trenc%2C_playa%2C_al_fondo_Sa_R%C3%A1pita.jpg/1920px-Es_Trenc%2C_playa%2C_al_fondo_Sa_R%C3%A1pita.jpg', bildAlt: 'Klart, grunt vatten vid den långa sandstranden Es Trenc',
   },
   {
     rank: 3,
@@ -37,7 +37,7 @@ const stränder = [
     insider: 'Snorkla tidigt på morgonen innan båtarna börjar trafikera viken. Hyr utrustning i byn Portopetro (5 min i bil) – det är billigare än på stranden.',
     gps: '39.3489° N, 3.1858° E',
     bästaTid: 'Maj till oktober – reservatet är öppet hela året men bäst sikt under sen sommar',
-    bild: 'https://images.unsplash.com/photo-1559519529-0936e4058364?w=800&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg', bildAlt: 'Cala Mondragó – turkos vik med förankrade båtar och klippor med tallar',
   },
   {
     rank: 4,
@@ -48,7 +48,7 @@ const stränder = [
     insider: 'Bästa klipphoppen finns på norra sidan av viken. Parkeringen är gratis men begränsad. Ät frukost på Café Cala Figuera med utsikt över hamnen.',
     gps: '39.3281° N, 3.1692° E',
     bästaTid: 'Hela säsongen – minst turister tidigt på morgonen',
-    bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Strukturen_am_Wasser_002_2017_11_14.jpg/1920px-Strukturen_am_Wasser_002_2017_11_14.jpg', bildAlt: 'Fiskarhus med båtgarage och båtar i hamnviken i Cala Figuera',
   },
   {
     rank: 5,
@@ -59,7 +59,7 @@ const stränder = [
     insider: 'Undvik hotellsektionen mitt på stranden – gå 500 m söderut mot Cap des Pinar för lugnare och vackrare avsnitt med färre turister.',
     gps: '39.8201° N, 3.1142° E',
     bästaTid: 'Maj–oktober. Vattnet håller jämn temperatur hela säsongen.',
-    bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Platja_de_Muro_R02.jpg/1920px-Platja_de_Muro_R02.jpg', bildAlt: 'Platja de Muro – sandstrand och grunt vatten med utsikt över Alcúdiabukten',
   },
 ];
 
@@ -68,8 +68,9 @@ export default function BästaSträndernaGuide() {
     <div className={styles.page}>
       {/* Hero */}
       <HeroImage
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-        alt="Turkost vatten och vit sandstrand på Mallorca – öns vackraste stränder"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg"
+        alt="Caló des Moro på södra Mallorca – turkost vatten mellan kalkstensklippor och tallskog"
+        photoCredit="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
         kicker="Lokal guide · Uppdaterad 2026"
         title="Mallorcas 15 bästa stränder – vår topplista"
         subtitle="Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
@@ -107,7 +108,7 @@ export default function BästaSträndernaGuide() {
               </div>
             </div>
 
-            <Image src={strand.bild} alt={strand.namn} width={800} height={400} sizes="(max-width: 860px) 100vw, 800px" className={styles.image} />
+            <Image src={strand.bild} alt={strand.bildAlt} width={800} height={400} sizes="(max-width: 860px) 100vw, 800px" className={styles.image} />
 
             <p className={styles.description}>{strand.beskrivning}</p>
 

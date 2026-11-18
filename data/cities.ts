@@ -393,15 +393,15 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Kör via Felanitx, som ligger en kort bit inåt land. Parkeringen vid hamnen fylls snabbt – ställ bilen en bit upp i byn.' },
-        { mode: 'Buss', text: 'En lokal TIB-linje går mellan Porto Colom och Felanitx. I Felanitx byter du till linje 501, som går via Campos och Llucmajor till Palma åt ena hållet och till Manacor åt det andra.' },
+        { mode: 'Buss', text: 'TIB-linje 512 går mellan Porto Colom och Felanitx. I Felanitx byter du till linje 501, som går via Campos och Llucmajor till Palma åt ena hållet och till Manacor åt det andra.' },
       ],
       beaches: {
         names: ['Cala Marçal', 'Cala Sa Nau'],
         text: 'Cala Marçal ligger precis utanför byn och har lugnt, barnvänligt vatten. Cala Sa Nau, söderut mot Cala d’Or, är en liten vik med klart vatten.',
       },
       market: {
-        days: 'Tisdagar (och lördagar enligt vissa listor)',
-        text: ['Den lilla veckomarknaden hålls i byn på tisdagar; flera marknadslistor anger även lördagar. Den stora söndagsmarknaden i Felanitx ligger nära.'],
+        days: 'Tisdagar och lördagar',
+        text: ['Den lilla veckomarknaden hålls i byn på tisdagar och lördagar. Den stora söndagsmarknaden i Felanitx ligger nära.'],
       },
       bestTime: [
         'Maj–oktober för bad. Porto Colom är en fiskeby där folk bor året runt, så den har liv även utanför högsäsongen. En tidig morgon vid hamnen är bästa sättet att uppleva den.',
@@ -412,6 +412,7 @@ export const cities: City[] = [
       { label: 'TIB: Porto Colom–Felanitx', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/512' },
       { label: 'TIB: linje 501', href: 'https://www.tib.org/en/web/ctm/linies-i-horaris/autobus/-/linia/501' },
       { label: 'Mercadillos.org: marknaden i Porto Colom', href: 'https://mercadillos.org/es/portocolom/mercadillo-portocolom' },
+      { label: 'Ajuntament de Felanitx: marknader', href: 'https://reskyt.com/en/administration/felanitx/fairs-festivals-and-markets/markets/164001.html' },
     ],
     mapsQuery: 'Porto+Colom+Mallorca',
     card: {
@@ -622,7 +623,7 @@ export const cities: City[] = [
         { mode: 'Bil', text: 'Motorvägen Ma-13 går från Palma förbi Inca nästan hela vägen till Alcúdia – den enklaste långkörningen på ön. Gamla stan upplever du bäst till fots – parkera utanför murarna.' },
         { mode: 'Buss', text: 'TIB-linje 302 går mellan Palma och Alcúdia via Inca och vidare till Port d’Alcúdia och Can Picafort. Lokalt finns bland annat linje 322 till Pollença och, under säsongen, linje 334 ut på Formentorhalvön och linje 325 till Cala Rajada.' },
         { mode: 'Tåg', text: 'Tåget från Palma går till Sa Pobla (linje T2), som ligger en bit inåt land. Bussen är oftast smidigare hela vägen.' },
-        { mode: 'Från flygplatsen', text: 'Byt i Palma: ta buss A1 till Plaça d’Espanya och fortsätt med linje 302 från Estació Intermodal.' },
+        { mode: 'Från flygplatsen', text: 'Flygbussen A32 går direkt från flygplatsen till Alcúdia, Port d’Alcúdia, Platja de Muro och Can Picafort på sommaren. På vintern går A33 via Inca och Sa Pobla till Port d’Alcúdia. Alternativt tar du buss A1 till Plaça d’Espanya och linje 302 från Estació Intermodal.' },
       ],
       stay: {
         intro: 'Alcúdia är egentligen tre platser: den medeltida staden, hamnen och den långa stranden.',
@@ -660,6 +661,7 @@ export const cities: City[] = [
       { label: 'TIB: bättre förbindelser Pollença och Alcúdia', href: 'https://www.tib.org/en/w/els-usuaris-del-bus-tib-milloren-la-connectivitat-amb-la-zona-de-pollen%C3%A7a-i-la-badia-d-alc%C3%BAdia-a-partir-del-1-d-abril' },
       { label: 'TIB: linje 302 (tidtabell)', href: 'https://www.tib.org/documents/20124/420689/L302,+des+de+2025.11.01.pdf/6df03742-ab31-72b9-8711-5f53bacc33d8?version=1.0&t=1761566914618' },
       { label: 'TIB: tåglinje T2', href: 'https://www.tib.org/es/lineas-y-horarios/metro/-/linia/T2' },
+      { label: 'TIB: flygbussarna (Aerotib)', href: 'https://www.tib.org/es/web/ctm/autobus/aerotib' },
       { label: 'Mercadillos.org: marknaden i Alcúdia', href: 'https://mercadillos.org/en/alcudia/alcudia-market' },
     ],
     mapsQuery: 'Alcudia+Mallorca',
@@ -949,7 +951,7 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Följ Ma-1 från Palma längs sydvästkusten till Andratx. Port d’Andratx ligger en kort bit nedanför byn vid havet.' },
-        { mode: 'Buss', text: 'TIB-bussar går från Palma via Calvià-kusten till Andratx, Camp de Mar och Port d’Andratx. Linjenummer och tidtabeller finns på tib.org under linjerna i 100-serien (Ponent).' },
+        { mode: 'Buss', text: 'TIB-linje 101 går från Palma längs motorvägen Ma-1 till Camp de Mar, Andratx och Port d’Andratx. Linje 102 går till Peguera. Tidtabeller finns på tib.org.' },
       ],
       market: {
         days: 'Onsdagar, förmiddag',
@@ -962,6 +964,7 @@ export const cities: City[] = [
     checked: CHECKED,
     sources: [
       { label: 'TIB: Port d’Andratx–Palma (tidtabell 2026)', href: 'https://www.tib.org/documents/20124/420683/L101,+des+de+2026.03.27.pdf/2f0109aa-6618-2b15-9617-172fb8a7a774?version=1.0&t=1774262193975' },
+      { label: 'TIB: linje 101 Port d’Andratx–Palma', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/101' },
       { label: 'Mercadillos.org: marknader på onsdagar', href: 'https://mercadillos.org/en/mallorca/wednesday' },
     ],
     mapsQuery: 'Andratx+Mallorca',

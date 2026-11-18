@@ -56,7 +56,7 @@ export default function MallorcaPaVintern() {
         </p>
         <p>
           Trafikbegränsningen på vägen ut till Cap de Formentor gäller bara under sommarhalvåret (2026 från 15 maj till
-          15 oktober). Utanför den perioden gäller ingen sådan begränsning.
+          18 oktober). Utanför den perioden gäller ingen sådan begränsning.
         </p>
       </section>
 

@@ -52,6 +52,10 @@ export const SOURCES = {
     label: 'DGT: trafikreglering till Cap de Formentor',
     href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/',
   },
+  formentor2026: {
+    label: 'DGT: Formentor 2026 (15 maj–18 oktober, kl. 10–22)',
+    href: 'https://www.dgt.es/export/sites/web-DGT/.galleries/downloads/estado-del-trafico/rutas-de-interes/2026_Formentor_ESP.pdf',
+  },
   taxi: {
     label: 'Mallorca.com: taxitaxor 2026 (Decreto 20/2025)',
     href: 'https://www.mallorca.com/es/consejos/vivir-en-mallorca/coche-y-trafico/tarifas-taxi-mallorca',

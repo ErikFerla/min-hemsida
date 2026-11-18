@@ -5,8 +5,8 @@ export const metadata = buildPageMetadata({
   path: '/marknader',
   title: 'Veckomarknader på Mallorca – dag för dag',
   description: 'Veckomarknader på Mallorca dag för dag: vilka byar har marknad på måndag, tisdag, onsdag och resten av veckan, ungefärliga tider, vad som säljs och tips.',
-  image: 'https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Frukt och grönsaker på en marknad',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Sineu_-_Markt_02_ies.jpg/1920px-Sineu_-_Markt_02_ies.jpg',
+  imageAlt: 'Marknadsstånd och besökare på onsdagsmarknaden i Sineu',
 });
 
 export default function MarknaderLayout({ children }: { children: React.ReactNode }) {
