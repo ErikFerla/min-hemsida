@@ -17,6 +17,10 @@ export type ImageCredit = {
   motiv: string;
   /** Fotograf/upphovsperson. */
   fotograf: string;
+  /** Länk som upphovspersonen kräver i krediteringen (valfritt). */
+  fotografUrl?: string;
+  /** Roll som visas före namnet, t.ex. 'målning' för fotografier av konstverk. Standard: 'foto'. */
+  roll?: string;
   license: ImageLicense;
   /** Licensversion för CC, t.ex. '4.0'. */
   licenseVersion?: string;
@@ -37,3 +41,12 @@ export const LICENSE_LABEL: Record<ImageLicense, { label: string; href?: string 
   'cc-by-sa': { label: 'CC BY-SA', href: 'https://creativecommons.org/licenses/by-sa/4.0/' },
   egen: { label: 'Eget foto' },
 };
+
+/** Länk till rätt licensversion, t.ex. CC BY-SA 3.0 de → creativecommons.org/licenses/by-sa/3.0/de/. */
+export function licenseHref(license: ImageLicense, version?: string): string | undefined {
+  if ((license === 'cc-by' || license === 'cc-by-sa') && version) {
+    const [num, port] = version.trim().split(/\s+/);
+    return `https://creativecommons.org/licenses/${license.slice(3)}/${num}/${port ? `${port}/` : ''}`;
+  }
+  return LICENSE_LABEL[license].href;
+}

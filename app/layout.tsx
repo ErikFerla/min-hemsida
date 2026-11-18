@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     locale: 'sv_SE',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1280, height: 853, alt: 'Katedralen La Seu i Palma de Mallorca i solnedgång' }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1280, height: 853, alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus' }],
   },
   twitter: {
     card: 'summary_large_image',

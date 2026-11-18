@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { cardImageUrl } from '@/app/lib/image-url';
 import { IconPin, IconClock, IconExternal, IconMap, IconBulb } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
 import styles from './ActivityDetail.module.css';
@@ -21,7 +22,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
     <article id={activity.slug} className={styles.article}>
       <div className={styles.media}>
         <Image
-          src={`${activity.imageUrl}?w=1280&q=80`}
+          src={cardImageUrl(activity.imageUrl, 1280)}
           alt={activity.imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

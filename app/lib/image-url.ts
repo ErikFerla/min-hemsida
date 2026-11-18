@@ -62,3 +62,15 @@ export function ogImageUrl(src: string, baseUrl: string): string {
   if (src.startsWith('/')) return `${baseUrl}${nextImageUrl(src, 1280)}`;
   return src;
 }
+
+/**
+ * Bild-URL för kort och detaljvyer: Unsplash får storleksparametrar, Commons-thumbs krymps till
+ * högst `width` (aldrig bredare än den thumb som angetts – Commons svarar fel för bredder större än
+ * originalet), övriga URL:er lämnas orörda.
+ */
+export function cardImageUrl(src: string, width: 960 | 1280): string {
+  if (isUnsplash(src)) return `${src}?w=${width}&q=80`;
+  const m = src.match(COMMONS_THUMB);
+  if (m) return commonsThumb(src, Math.min(width, Number(m[2])));
+  return src;
+}

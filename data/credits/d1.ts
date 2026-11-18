@@ -278,7 +278,7 @@ export const credits: ImageCredit[] = [
     motiv: 'Manacor med kyrktornet',
     fotograf: 'Briskerly',
     license: 'cc-by-sa',
-    licenseVersion: '2.5',
+    licenseVersion: '3.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Panorama_Manacor_2007.JPG',
     usedOn: ['/manacor', '/byar'],
     checked: '2026-11-18',

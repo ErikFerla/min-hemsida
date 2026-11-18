@@ -1,7 +1,7 @@
 import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import { allCredits } from '@/data/credits';
-import { LICENSE_LABEL } from '@/data/credits/types';
+import { LICENSE_LABEL, licenseHref } from '@/data/credits/types';
 import styles from '../integritetspolicy/legal.module.css';
 
 export const metadata = buildPageMetadata({
@@ -44,10 +44,17 @@ export default function BildkrediterPage() {
             {allCredits.map((c) => {
               const lic = LICENSE_LABEL[c.license];
               const licText = c.licenseVersion && c.license.startsWith('cc-') ? `${lic.label} ${c.licenseVersion}` : lic.label;
+              const href = licenseHref(c.license, c.licenseVersion);
               return (
                 <li key={c.src}>
-                  <strong>{c.motiv}</strong> – foto: {c.fotograf},{' '}
-                  {lic.href ? <a href={lic.href} target="_blank" rel="noopener noreferrer">{licText}</a> : licText}
+                  <strong>{c.motiv}</strong> – {c.roll ?? 'foto'}:{' '}
+                  {c.fotografUrl ? (
+                    <a href={c.fotografUrl} target="_blank" rel="noopener noreferrer">{c.fotograf}</a>
+                  ) : (
+                    c.fotograf
+                  )}
+                  ,{' '}
+                  {href ? <a href={href} target="_blank" rel="noopener noreferrer">{licText}</a> : licText}
                   {c.license !== 'egen' && (
                     <>
                       {' '}(<a href={c.sourceUrl} target="_blank" rel="noopener noreferrer">källa</a>)

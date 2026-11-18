@@ -76,7 +76,12 @@ export function buildPageMetadata(p: PageSeo): Metadata {
       locale: 'sv_SE',
       title: p.title,
       description: p.description,
-      images: [{ url: p.image, width: p.imageWidth ?? 1200, height: p.imageHeight ?? 630, alt: p.imageAlt }],
+      // Unsplash beskärs till 1200×630 via URL:en; andra bilder har egna mått – ange dem bara om de är kända.
+      images: [
+        p.imageWidth || p.image.startsWith('https://images.unsplash.com/')
+          ? { url: p.image, width: p.imageWidth ?? 1200, height: p.imageHeight ?? 630, alt: p.imageAlt }
+          : { url: p.image, alt: p.imageAlt },
+      ],
     },
     twitter: {
       card: 'summary_large_image',

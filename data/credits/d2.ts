@@ -455,7 +455,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '2.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Aqualand_s%27Arenal_tobogan_blanc.jpg",
-    usedOn: ["/aktiviteter"],
+    usedOn: ["/aktiviteter", "/barn", "/barn/vattenparker"],
     checked: '2026-11-18',
   },
   {

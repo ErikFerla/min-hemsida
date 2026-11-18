@@ -36,7 +36,7 @@ const bilder: Bild[] = [
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Alcudia_bay_2025.jpg/1920px-Alcudia_bay_2025.jpg',
-    alt: 'Alcúdiabukten med långa, långgrunda sandstränder på norra Mallorca',
+    alt: 'Alcúdiabukten i skymningen på norra Mallorca',
     rubrik: 'Mallorca med barn',
     undertext: 'Grunda stränder, grottor, djurparker och vattenparker – tips för hela familjen',
     plats: 'Alcúdiabukten · Norra Mallorca',
