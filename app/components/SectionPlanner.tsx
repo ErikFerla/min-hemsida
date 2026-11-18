@@ -3,218 +3,28 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconFlag, IconMap, IconBulb, IconPalm } from '@/components/Icons';
 import type { ComponentType } from 'react';
+import { byggPlan, dagval, intressen, läsVal as läsPlanVal, valTillSök, type Dagar, type IntresseId } from '@/app/lib/planner';
 import s from './section.module.css';
 import styles from './SectionPlanner.module.css';
 
-/* ------------------------------------------------------------------ *
- * Data: en katalog med dagsförslag. Varje intresse pekar ut sina
- * förslag i prioritetsordning. Samma förslag kan höra till flera
- * intressen (t.ex. Coves del Drach för både kultur och familj) och
- * används då bara en gång i planen.
- * ------------------------------------------------------------------ */
+/* Planernas data och logik ligger i app/lib/planner.ts och delas med /resplan. */
 
-type Område = 'palma' | 'vast' | 'norr' | 'inland' | 'ost' | 'syd';
-type Länk = { label: string; href: string };
-type Förslag = { text: string; område: Område; länkar: Länk[] };
-
-// Geografisk ordning för en rundresa: Palma → Tramuntana → norr → inlandet → öst → syd
-const områdesOrdning: Record<Område, number> = { palma: 0, vast: 1, norr: 2, inland: 3, ost: 4, syd: 5 };
-
-const L = {
-  strandar: { label: 'Stränder', href: '/strandar' },
-  sevardheter: { label: 'Sevärdheter', href: '/sevardheter' },
-  mat: { label: 'Mat & vin', href: '/mat' },
-  restauranger: { label: 'Restauranger i Palma', href: '/guide/basta-restauranger-palma' },
-  vingardar: { label: 'Vingårdar', href: '/vingardar' },
-  golf: { label: 'Golfbanor', href: '/aktiviteter/golf' },
-  barn: { label: 'Med barn', href: '/barn' },
-  vattenparker: { label: 'Vattenparker', href: '/barn/vattenparker' },
-  djurparker: { label: 'Djurparker & akvarier', href: '/barn/djurparker-och-akvarier' },
-  inomhus: { label: 'Inomhus & regn', href: '/barn/inomhus-och-regn' },
-  palma: { label: 'Palma', href: '/palma-de-mallorca' },
-  soller: { label: 'Sóller', href: '/soller' },
-  portDeSoller: { label: 'Port de Sóller', href: '/port-de-soller' },
-  valldemossa: { label: 'Valldemossa', href: '/valldemossa' },
-  deia: { label: 'Deià', href: '/deia' },
-  alcudia: { label: 'Alcúdia', href: '/alcudia' },
-  pollenca: { label: 'Pollença', href: '/pollenca' },
-  arta: { label: 'Artà', href: '/arta' },
-  capdepera: { label: 'Capdepera', href: '/capdepera' },
-  manacor: { label: 'Manacor', href: '/manacor' },
-  santanyi: { label: 'Santanyí', href: '/santanyi' },
-  campos: { label: 'Campos', href: '/campos' },
-  portoColom: { label: 'Porto Colom', href: '/porto-colom' },
-  felanitx: { label: 'Felanitx', href: '/felanitx' },
-  sineu: { label: 'Sineu', href: '/sineu' },
-  inca: { label: 'Inca', href: '/inca' },
-  andratx: { label: 'Andratx', href: '/andratx' },
-  vader: { label: 'Väder', href: '/vader' },
-  flyg: { label: 'Flyg', href: '/flyg' },
-} satisfies Record<string, Länk>;
-
-const förslag = {
-  // Stränder
-  'es-trenc': { område: 'syd', text: 'Es Trenc – två kilometer vit sand i ett naturreservat. Kom tidigt och ta med lunch och parasoll.', länkar: [L.strandar, L.campos] },
-  'calo-des-moro': { område: 'syd', text: 'Caló des Moro och Cala Llombards – Grytes favoritstrand. Var på plats före klockan nio på sommaren.', länkar: [L.strandar, L.santanyi] },
-  'mondrago': { område: 'syd', text: 'Cala Mondragó – sandvikar i en naturpark. Snorkla längs klipporna och gå en bit på kuststigen.', länkar: [L.strandar, L.santanyi] },
-  'formentor': { område: 'norr', text: 'Formentorhalvön – utsikten vid Es Colomer och bad på Playa de Formentor.', länkar: [L.strandar, L.pollenca] },
-  'muro': { område: 'norr', text: 'Playa de Muro – långgrunt vatten och fin sand i Alcúdiabukten. Kvällspromenad innanför stadsmuren i Alcúdia.', länkar: [L.strandar, L.alcudia] },
-  'cala-agulla': { område: 'ost', text: 'Cala Agulla och Cala Mesquida – sanddyner, tallskog och turkost vatten nära Cala Ratjada.', länkar: [L.strandar, L.capdepera] },
-  'cala-varques': { område: 'ost', text: 'Cala Varques – en vik utan bebyggelse som du når efter en kort promenad. Ta med vatten och skugga.', länkar: [L.strandar, L.manacor] },
-  'port-de-soller': { område: 'vast', text: 'Port de Sóller – bad i den skyddade hamnviken och middag längs strandpromenaden.', länkar: [L.portDeSoller, L.strandar] },
-  'sa-calobra': { område: 'vast', text: 'Sa Calobra – båt från Port de Sóller och en promenad in i ravinen Torrent de Pareis, där en liten stenstrand ligger.', länkar: [L.strandar, L.portDeSoller] },
-  'cala-sa-nau': { område: 'syd', text: 'Cala Sa Nau – liten sandvik omgiven av tallar på sydöstkusten.', länkar: [L.strandar, L.felanitx] },
-
-  // Kultur
-  'palma-gamla-stan': { område: 'palma', text: 'Palma – katedralen La Seu, Palau de l’Almudaina och gränderna i gamla stan.', länkar: [L.palma, L.sevardheter] },
-  'bellver-miro': { område: 'palma', text: 'Palma – det runda slottet Bellver med utsikt över bukten och Fundació Miró i Cala Major.', länkar: [L.palma, L.sevardheter] },
-  'valldemossa-deia': { område: 'vast', text: 'Valldemossa och Deià – klostret där Chopin bodde en vinter och Robert Graves hus i Deià.', länkar: [L.valldemossa, L.deia] },
-  'soller-tag': { område: 'vast', text: 'Sóller – det gamla tåget från Palma genom bergen och spårvagnen ner till Port de Sóller.', länkar: [L.soller, L.portDeSoller] },
-  'alcudia': { område: 'norr', text: 'Alcúdia – stadsmuren, gamla stan och de romerska ruinerna i Pollentia.', länkar: [L.alcudia, L.sevardheter] },
-  'pollenca': { område: 'norr', text: 'Pollença – 365 trappsteg upp till Calvari och ett glas på torget Plaça Major.', länkar: [L.pollenca] },
-  'sineu': { område: 'inland', text: 'Sineu – öns största marknad på onsdagar. Fortsätt sedan till någon av byarna i inlandet.', länkar: [L.sineu] },
-  'arta': { område: 'ost', text: 'Artà – borgen Sant Salvador ovanför byn och den förhistoriska byn Ses Païsses.', länkar: [L.arta, L.sevardheter] },
-  'coves-drach': { område: 'ost', text: 'Coves del Drach i Porto Cristo – droppstensgrottor med en kort konsert på den underjordiska sjön. Köp biljett i förväg.', länkar: [L.sevardheter, L.manacor] },
-  'santanyi': { område: 'syd', text: 'Santanyí – marknad på onsdagar och lördagar, gallerier och hus i gyllene sandsten.', länkar: [L.santanyi] },
-
-  // Mat & vin
-  'palma-mat': { område: 'palma', text: 'Palma – frukost eller tapas på Mercat de l’Olivar och en kväll bland restaurangerna i Santa Catalina.', länkar: [L.restauranger, L.mat] },
-  'palma-middag': { område: 'palma', text: 'Palma – en riktigt fin middag på någon av stadens bästa restauranger. Boka i god tid.', länkar: [L.restauranger] },
-  'binissalem': { område: 'inland', text: 'Binissalem – vinprovning på en eller två bodegor i vinområdet mitt på ön. Boka besöket i förväg.', länkar: [L.vingardar] },
-  'pla-i-llevant': { område: 'inland', text: 'Vinområdet Pla i Llevant kring Felanitx och Manacor – provning och lunch på landsbygden.', länkar: [L.vingardar, L.felanitx] },
-  'soller-mat': { område: 'vast', text: 'Sóller – apelsiner och glass på torget, olivolja från dalen och middag vid hamnen.', länkar: [L.soller, L.mat] },
-  'porto-colom': { område: 'syd', text: 'Porto Colom – fiskehamn med restauranger längs kajen. Fråga efter dagens fisk.', länkar: [L.portoColom, L.mat] },
-  'deia-lunch': { område: 'vast', text: 'Deià – lång lunch med utsikt över bergen och havet, sedan en promenad genom byn.', länkar: [L.deia, L.mat] },
-  'inca-celler': { område: 'inland', text: 'Inca – lunch i en av de gamla vinkällarna som serverar mallorkinsk husmanskost.', länkar: [L.inca, L.mat] },
-  'port-de-pollenca': { område: 'norr', text: 'Port de Pollença – promenad längs tallallén vid vattnet och middag i hamnen.', länkar: [L.pollenca, L.mat] },
-
-  // Natur & äventyr
-  'gr221': { område: 'vast', text: 'Vandring på GR221 mellan Deià och Port de Sóller, cirka tre timmar. Ta bussen tillbaka.', länkar: [L.deia, L.portDeSoller] },
-  'kajak': { område: 'norr', text: 'Kajak eller paddelbräda längs klipporna vid Cala Sant Vicenç eller i Pollençabukten.', länkar: [L.pollenca, L.strandar] },
-  'formentor-cykel': { område: 'norr', text: 'Cykla vägen ut mot Cap de Formentor – en klassisk tur med utsikt hela vägen. Hyr cykel i Port de Pollença.', länkar: [L.pollenca] },
-  'albufera': { område: 'norr', text: 'S’Albufera – fågelskådning och cykling i våtmarksparken bakom Playa de Muro.', länkar: [L.alcudia] },
-  'talaia-alcudia': { område: 'norr', text: 'Vandring upp till Talaia d’Alcúdia – utsikt över både Pollença- och Alcúdiabukten.', länkar: [L.alcudia] },
-  'dragonera': { område: 'vast', text: 'Båt från Sant Elm till naturreservatet Sa Dragonera och en vandring till fyren.', länkar: [L.andratx] },
-  'llevant': { område: 'ost', text: 'Vandring i naturparken Península de Llevant norr om Artà, med bad i Cala Torta.', länkar: [L.arta, L.strandar] },
-  'randa': { område: 'inland', text: 'Puig de Randa – kör eller vandra upp till klostren på berget med utsikt över halva ön.', länkar: [L.sevardheter] },
-
-  // Familj
-  'aquarium': { område: 'palma', text: 'Palma Aquarium – hajar, maneter och lekplats. Fungerar bra även en molnig dag.', länkar: [L.djurparker] },
-  'aqualand': { område: 'palma', text: 'Aqualand El Arenal – vattenrutschkanor och barnpooler hela dagen.', länkar: [L.vattenparker] },
-  'western': { område: 'palma', text: 'Western Water Park i Magaluf – vattenpark med vilda västern-tema och ett eget område för de minsta.', länkar: [L.vattenparker] },
-  'hidropark': { område: 'norr', text: 'Hidropark i Alcúdia – mindre vattenpark med korta köer, bra om ni bor i norr.', länkar: [L.vattenparker, L.alcudia] },
-  'safari-zoo': { område: 'ost', text: 'Safari Zoo i Sa Coma – kör egen bil genom parken bland giraffer och zebror.', länkar: [L.djurparker] },
-  'natura-parc': { område: 'inland', text: 'Natura Parc i Santa Eugènia – djurpark med stor lekplats, lagom för en halvdag.', länkar: [L.djurparker] },
-  'regndag': { område: 'palma', text: 'Regnig eller väldigt varm dag? Välj något inomhus – vi har samlat tips för hela familjen.', länkar: [L.inomhus, L.barn] },
-
-  // Golf
-  'golf-son-gual': { område: 'palma', text: 'Golf på Son Gual strax utanför Palma, en av öns mest kända banor. Boka starttid i förväg.', länkar: [L.golf] },
-  'golf-alcanada': { område: 'norr', text: 'Golf på Alcanada vid Alcúdia – banan längs vattnet med utsikt mot fyrön.', länkar: [L.golf, L.alcudia] },
-  'golf-pula': { område: 'ost', text: 'Golf på Pula Golf Resort vid Son Servera på östkusten.', länkar: [L.golf] },
-  'golf-andratx': { område: 'vast', text: 'Golf de Andratx – kuperad bana i sydväst. Avsluta med middag i Port d’Andratx.', länkar: [L.golf, L.andratx] },
-  'golf-capdepera': { område: 'ost', text: 'Capdepera Golf – omgiven av berg, nära Cala Ratjada.', länkar: [L.golf, L.capdepera] },
-  'golf-son-vida': { område: 'palma', text: 'Son Vida eller Son Muntaner i Palmas utkant – två banor intill varandra.', länkar: [L.golf] },
-} satisfies Record<string, Förslag>;
-
-type FörslagsId = keyof typeof förslag;
-
-const intressen = [
-  { id: 'strand', label: 'Strand', Ikon: IconWave, förslag: ['es-trenc', 'calo-des-moro', 'formentor', 'mondrago', 'cala-agulla', 'muro', 'port-de-soller', 'cala-varques', 'sa-calobra', 'cala-sa-nau'] },
-  { id: 'kultur', label: 'Kultur', Ikon: IconBuilding, förslag: ['palma-gamla-stan', 'valldemossa-deia', 'soller-tag', 'alcudia', 'sineu', 'coves-drach', 'arta', 'pollenca', 'bellver-miro', 'santanyi'] },
-  { id: 'mat', label: 'Mat & vin', Ikon: IconForkKnife, förslag: ['palma-mat', 'binissalem', 'soller-mat', 'porto-colom', 'santanyi', 'deia-lunch', 'pla-i-llevant', 'port-de-pollenca', 'inca-celler', 'palma-middag'] },
-  { id: 'aventyr', label: 'Aventyr', Ikon: IconHiker, förslag: ['gr221', 'kajak', 'sa-calobra', 'formentor-cykel', 'mondrago', 'llevant', 'dragonera', 'talaia-alcudia', 'albufera', 'randa'] },
-  { id: 'familj', label: 'Familj', Ikon: IconUsers, förslag: ['aquarium', 'aqualand', 'muro', 'coves-drach', 'safari-zoo', 'hidropark', 'soller-tag', 'natura-parc', 'western', 'regndag'] },
-  { id: 'golf', label: 'Golf', Ikon: IconFlag, förslag: ['golf-son-gual', 'golf-alcanada', 'golf-pula', 'golf-andratx', 'golf-capdepera', 'golf-son-vida'] },
-] as const satisfies ReadonlyArray<{ id: string; label: string; Ikon: ComponentType<{ size?: number }>; förslag: readonly FörslagsId[] }>;
-
-type IntresseId = (typeof intressen)[number]['id'];
-
-// Om valda intressen inte räcker till alla dagar fylls planen på med klassiker
-const reserv: FörslagsId[] = ['palma-gamla-stan', 'valldemossa-deia', 'soller-tag', 'muro', 'alcudia', 'es-trenc', 'santanyi', 'sineu', 'arta', 'pollenca', 'palma-mat', 'binissalem'];
-
-const dagval = ['3', '5', '7', '10', '14'] as const;
-type Dagar = (typeof dagval)[number];
-
-type Dag = { text: string; länkar: Länk[]; taggar: string[] };
-
-const ankomst: Dag = { text: 'Ankomst och incheckning. Ta det lugnt första kvällen med en promenad och middag nära boendet.', länkar: [L.vader], taggar: [] };
-const hemresa: Dag = { text: 'Hemresa. Hinner du, ta ett sista dopp eller en lång frukost innan flyget.', länkar: [L.flyg], taggar: [] };
-const ledig: Dag = { text: 'Ledig dag utan plan – poolen, närmaste stranden eller en lång lunch. Bra att ha i reserv om vädret slår om.', länkar: [L.strandar, L.vader], taggar: ['Vila'] };
-
-/** Bygger en dag-för-dag-plan som blandar alla valda intressen. */
-function byggPlan(dagar: Dagar, valda: readonly IntresseId[]): Dag[] {
-  const n = Number(dagar);
-  const kort = n <= 3; // vid korta resor räknas även ankomst- och hemresedagen som aktivitetsdagar
-  const lediga = n >= 14 ? 2 : n >= 10 ? 1 : 0;
-  const antal = (kort ? n : n - 2) - lediga;
-
-  // Round robin över intressena i fast ordning, utan dubbletter
-  const listor = intressen.filter(i => valda.includes(i.id));
-  const valt: { id: FörslagsId; taggar: string[] }[] = [];
-  const index = new Map<FörslagsId, number>();
-  const lägg = (id: FörslagsId, tagg: string | null) => {
-    const finns = index.get(id);
-    if (finns !== undefined) {
-      if (tagg && !valt[finns].taggar.includes(tagg)) valt[finns].taggar.push(tagg);
-      return false;
-    }
-    index.set(id, valt.length);
-    valt.push({ id, taggar: tagg ? [tagg] : [] });
-    return true;
-  };
-  const pekare = listor.map(() => 0);
-  let fler = true;
-  while (valt.length < antal && fler) {
-    fler = false;
-    listor.forEach((intresse, li) => {
-      while (valt.length < antal && pekare[li] < intresse.förslag.length) {
-        const id = intresse.förslag[pekare[li]++];
-        fler = true;
-        if (lägg(id, intresse.label)) break;
-      }
-    });
-  }
-  for (const id of reserv) {
-    if (valt.length >= antal) break;
-    lägg(id, null);
-  }
-  // Märk förslag som även passar andra valda intressen
-  for (const v of valt) {
-    for (const intresse of listor) {
-      if ((intresse.förslag as readonly FörslagsId[]).includes(v.id) && !v.taggar.includes(intresse.label)) {
-        v.taggar.push(intresse.label);
-      }
-    }
-  }
-
-  // Ordna efter område så att resan blir en rundtur i stället för fram och tillbaka
-  const ordnade = valt
-    .map((v, i) => ({ ...v, i }))
-    .sort((a, b) => områdesOrdning[förslag[a.id].område] - områdesOrdning[förslag[b.id].område] || a.i - b.i)
-    .map<Dag>(v => ({ text: förslag[v.id].text, länkar: förslag[v.id].länkar, taggar: v.taggar }));
-
-  // Lägg in vilodagar ungefär var femte dag
-  const aktivitetsdagar = ordnade.length;
-  for (let k = 1; k <= lediga; k++) {
-    const plats = Math.round((k * aktivitetsdagar) / (lediga + 1));
-    ordnade.splice(plats + (k - 1), 0, ledig);
-  }
-
-  return kort ? ordnade : [ankomst, ...ordnade, hemresa];
-}
+const ikoner: Record<IntresseId, ComponentType<{ size?: number }>> = {
+  strand: IconWave,
+  kultur: IconBuilding,
+  mat: IconForkKnife,
+  aventyr: IconHiker,
+  familj: IconUsers,
+  golf: IconFlag,
+};
 
 /* ------------------------- URL-tillstånd ------------------------- */
 
 type Val = { dagar: Dagar | ''; intressen: IntresseId[] };
 
 function läsVal(search: string): Val {
-  const params = new URLSearchParams(search);
-  const d = params.get('dagar') ?? '';
-  const valda = (params.get('intressen') ?? '').split(',');
-  return {
-    dagar: (dagval as readonly string[]).includes(d) ? (d as Dagar) : '',
-    intressen: intressen.map(i => i.id).filter(id => valda.includes(id)),
-  };
+  const { dagar, intressen } = läsPlanVal(search);
+  return { dagar, intressen };
 }
 
 const URL_HÄNDELSE = 'resplan-url';
@@ -254,7 +64,10 @@ export default function SectionPlanner() {
   const val = utkast ?? frånUrl;
   const planKlar = frånUrl.dagar !== '' && frånUrl.intressen.length > 0;
   const visaPlan = planKlar && (utkast === null || sammaVal(utkast, frånUrl));
-  const plan = visaPlan && frånUrl.dagar ? byggPlan(frånUrl.dagar, frånUrl.intressen) : [];
+  const plan = visaPlan && frånUrl.dagar
+    ? byggPlan({ dagar: frånUrl.dagar, intressen: frånUrl.intressen, plan: null }).map(d => ({ text: d.innehåll.text, länkar: d.innehåll.länkar, taggar: d.taggar }))
+    : [];
+  const resplanHref = `/resplan?${valTillSök({ ...frånUrl, plan: null })}`;
 
   useEffect(() => {
     if (visaPlan && fokuseraPlan.current) {
@@ -333,11 +146,14 @@ export default function SectionPlanner() {
           <fieldset id="planner-intressen" className={`${styles.fieldset} ${styles.fieldsetLast}`} aria-describedby="planner-intressen-fel">
             <legend className={styles.legend}>Vad intresserar dig? (välj flera)</legend>
             <div className={`${styles.options} ${styles.optionsInterests}`}>
-              {intressen.map(({ id, label, Ikon }) => (
-                <button key={id} type="button" aria-pressed={val.intressen.includes(id)} onClick={() => toggleIntresse(id)} className={styles.option}>
-                  <Ikon size={18} /> {label}
-                </button>
-              ))}
+              {intressen.map(({ id, label }) => {
+                const Ikon = ikoner[id];
+                return (
+                  <button key={id} type="button" aria-pressed={val.intressen.includes(id)} onClick={() => toggleIntresse(id)} className={styles.option}>
+                    <Ikon size={18} /> {label}
+                  </button>
+                );
+              })}
             </div>
             <p id="planner-intressen-fel" aria-live="polite" className={fel.intressen ? styles.errorShown : styles.error}>{fel.intressen}</p>
           </fieldset>
@@ -384,6 +200,12 @@ export default function SectionPlanner() {
                 </li>
               ))}
             </ol>
+            <p className={styles.fullPlan}>
+              <Link href={resplanHref} className={styles.fullPlanLink}>
+                Öppna hela resplanen
+              </Link>
+              <span className={styles.fullPlanNote}>Dag för dag med förmiddag, eftermiddag och kväll, karta och körtider. Där kan du byta och flytta dagar och skriva ut planen.</span>
+            </p>
             <div className={styles.share}>
               <button type="button" onClick={kopieraLänk} className={`${styles.option} ${styles.copy}`}>
                 Kopiera länk till planen
