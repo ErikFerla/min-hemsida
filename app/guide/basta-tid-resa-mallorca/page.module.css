@@ -14,38 +14,68 @@
   padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 40px);
 }
 
-/* Beslutsmatris */
-.matrix {
-  background: #f0ebe3;
-  border-radius: 16px;
-  padding: 24px 28px;
-  margin-bottom: 48px;
-  border-left: 4px solid var(--color-accent);
-}
-
-.matrixTitle {
-  font-weight: 700;
-  line-height: 1.7;
-  color: var(--color-ink);
-  margin-bottom: 12px;
+/* Verktyget Bästa restid (3.3) */
+.toolIntro {
+  color: var(--color-text);
   font-size: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  line-height: 1.7;
+  margin: 0 0 20px;
 }
 
-.matrixBody {
+.rules {
+  margin-top: 20px;
+  background: #f0ebe3;
+  border-radius: 12px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--color-accent);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.rulesSummary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.rulesSummary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.rulesList {
+  margin: 12px 0 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 0.9rem;
-  color: var(--color-text);
 }
 
-.matrixGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+.rulesList dt {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.rulesList dd {
+  margin: 0;
+}
+
+.rulesSub {
+  margin: 16px 0 0;
+  font-weight: 700;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+}
+
+.rulesNote {
+  margin: 12px 0 0;
+  color: var(--color-text-muted);
+}
+
+.scaleNote a {
+  color: var(--color-accent);
 }
 
 /* Säsonger */
@@ -154,7 +184,7 @@
   font-size: 0.75rem;
   line-height: 1.7;
   color: var(--color-text-muted);
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
 }
@@ -164,7 +194,7 @@
   font-size: 0.7rem;
   line-height: 1.7;
   color: var(--color-accent);
-  display: inline-flex;
+  display: flex;
   gap: 1px;
 }
 
@@ -238,10 +268,17 @@
 }
 
 @media (max-width: 768px) {
-  /* Tidigare global regel för inline grid-template-columns: 1fr 1fr */
-  .matrixGrid {
+  /* 3.3: månadskorten i en kolumn, klimatsiffrorna på en rad ovanför texten */
+  .month {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 8px;
+  }
+  .monthName {
+    margin-bottom: 0;
+  }
+  .monthFact,
+  .monthSun {
+    font-size: 0.85rem;
   }
   /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
   .section,
@@ -250,16 +287,12 @@
     padding-bottom: 4rem;
   }
   /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
-  .matrixTitle,
+  .toolIntro,
   .seasonLabel,
   .seasonPeriod,
   .seasonText,
   .scaleNote,
   .monthName,
-  .monthFact,
-  .monthSun,
-  .monthStars,
-  .monthPrice,
   .monthText,
   .tipText,
   .ctaTitle,
@@ -270,16 +303,12 @@
 }
 
 @media (max-width: 380px) {
-  .matrixTitle,
+  .toolIntro,
   .seasonLabel,
   .seasonPeriod,
   .seasonText,
   .scaleNote,
   .monthName,
-  .monthFact,
-  .monthSun,
-  .monthStars,
-  .monthPrice,
   .monthText,
   .tipText,
   .ctaTitle,
