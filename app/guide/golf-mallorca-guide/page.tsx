@@ -15,7 +15,6 @@ type ToppBana = {
   region: string;
   hål: number;
   par?: number;
-  svårighet: number;
   beskrivning: string;
   insider: string;
   bästTid: string;
@@ -29,7 +28,6 @@ const toppBanor: ToppBana[] = [
     region: 'Palma (norr)',
     hål: 18,
     par: 72,
-    svårighet: 5,
     beskrivning: 'Son Gual är vår favorit bland Mallorcas golfbanor. Den ritades av Thomas Himmel, invigdes 2007 och har fin utsikt mot Tramuntanabergen. Fairways i mycket gott skick.',
     insider: 'Boka starttid minst två veckor i förväg i mars–juni. Det är lättast att få tid tidigt på morgonen. Restaurangen är utmärkt efter rundan.',
     bästTid: 'November–april (svalare och lugnare)',
@@ -41,7 +39,6 @@ const toppBanor: ToppBana[] = [
     region: 'Palma (väst)',
     hål: 18,
     par: 71,
-    svårighet: 4,
     beskrivning: 'Arabella har tre banor nära Palma: Son Vida, Son Muntaner och Son Quint. Son Vida är öns äldsta bana (1964) och har en av de vackraste utsikterna över Palmabukten. En favorit bland vana golfresenärer.',
     insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellen i Son Vida ligger alldeles intill banorna.',
     bästTid: 'Oktober–maj',
@@ -53,7 +50,6 @@ const toppBanor: ToppBana[] = [
     region: 'Palma (Son Vida)',
     hål: 18,
     par: 72,
-    svårighet: 3,
     beskrivning: 'Den nyaste av Arabellas tre banor, invigd 2007, med olivlundar och mandelträd runt fairways. Mer avslappnad atmosfär än de stora tävlingsbanorna.',
     insider: 'Passar par som vill kombinera golf och sightseeing – banan ligger bara en kort bilresa från Palmas centrum.',
     bästTid: 'Hela året',
@@ -65,7 +61,6 @@ const toppBanor: ToppBana[] = [
     region: 'Alcúdia (norr)',
     hål: 18,
     par: 72,
-    svårighet: 4,
     beskrivning: 'Norra Mallorcas bästa golfupplevelse. Från flera hål ser du ut över den lilla ön Alcanada med sin fyr – ett av öns mest fotograferade golfmotiv. Ofta blåsigt och utmanande.',
     insider: 'Ta med fler bollar än vanligt – vinden från havet gör flera av kusthålen svåra.',
     bästTid: 'Vår och höst',
@@ -76,13 +71,13 @@ const toppBanor: ToppBana[] = [
     slug: 'club-de-golf-son-servera',
     region: 'Son Servera (östkust)',
     hål: 18,
-    svårighet: 2,
     beskrivning: 'En av Mallorcas äldsta banor (1967), byggd ut från nio till 18 hål 2012. Favoriten för avslappnad golf, omgiven av tallar och olivträd. Bra för nybörjare och för dig som vill ha en enkel runda.',
     insider: 'Kombinera med en middag i Porto Cristo, en kort bilresa söderut. Lokal och vänlig personal – inget snobberi.',
     bästTid: 'Hela året',
   },
 ];
 
+const svårighetsgrad = (slug: string) => golfbanor.find(b => b.slug === slug)?.svårighet ?? 'Medel';
 const prisnivå = (slug: string) => golfbanor.find(b => b.slug === slug)?.pris ?? '€€';
 
 export default function GolfMallorcaGuide() {
@@ -127,7 +122,7 @@ export default function GolfMallorcaGuide() {
               <span className={styles.rank}>{bana.rank}.</span>
               <div>
                 <h3 className={`${h.h3} ${styles.courseTitle}`}>{bana.namn}</h3>
-                <p className={styles.courseMeta}>{bana.region} · {bana.hål} hål{bana.par ? ` · Par ${bana.par}` : ''} · <span className={styles.stars}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
+                <p className={styles.courseMeta}>{bana.region} · {bana.hål} hål{bana.par ? ` · Par ${bana.par}` : ''} · Svårighet: {svårighetsgrad(bana.slug).toLowerCase()}</p>
               </div>
             </div>
             <p className={styles.courseText}>{bana.beskrivning}</p>

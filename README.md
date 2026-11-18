@@ -56,7 +56,7 @@ scripts/proof.mjs     Korrekturskriptet (se stilguiden)
 - Varje sida har exakt en `<h1>`, BreadcrumbList och, för guider och artiklar, Article-schema.
 - En ny sida läggs till i `app/sitemap.ts` (listan `pages`) med datum i `updated`. Ortssidorna
   kommer automatiskt från `data/cities.ts`.
-- Röktestet kontrollerar allt ovan för varje URL i sitemapen (se nedan).
+- Röktestet kontrollerar för varje URL i sitemapen canonical, titel- och beskrivningslängd, unika metadata, OG/Twitter, att JSON-LD går att tolka och att interna länkar fungerar (se nedan). Att rätt schematyper finns kontrolleras inte automatiskt.
 
 ### Var ska en komponent ligga?
 

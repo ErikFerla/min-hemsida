@@ -25,7 +25,7 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Vattenparker',
     Icon: IconSparkle,
-    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst och äldst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
+    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
     punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Water Park'],
   },
   {

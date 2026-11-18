@@ -63,7 +63,7 @@ const sevardheter = [
     namn: 'Serra de Tramuntana',
     plats: 'Nordvästra Mallorca',
     kategori: 'Natur & landskap',
-    beskrivning: 'På Unescos världsarvslista sedan 2011. Dramatisk bergskedja med vandringsleder, olivlundar och medeltida byar. Högsta topp: Puig Major på 1 436 m.',
+    beskrivning: 'På Unescos världsarvslista sedan 2011. Dramatisk bergskedja med vandringsleder, olivlundar och medeltida byar. Högsta topp: Puig Major på 1 445 m.',
     tips: 'GR 221 ”Ruta de Pedra en Sec” är en av Europas vackraste vandringsleder.',
     oppet: 'Alltid öppet – ta med karta och vatten',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/960px-Serra_de_Tramuntana_Valldemossa_01.jpg',
@@ -203,7 +203,8 @@ export default function SevardheterPage() {
           note="Öppettider ändras ofta med säsongen – kontrollera alltid hos sevärdheten innan du åker."
           sources={[
             { label: 'Catedral de Mallorca', href: 'https://catedraldemallorca.org' },
-            { label: 'Castell de Bellver (Ajuntament de Palma)', href: 'https://castelldebellver.palma.es' },
+            { label: 'CAIB – geotop Puig Major (1 445 m)', href: 'https://intranet.caib.es/geoturfront/fichero/download/466/LIG%20PUIG%20MAJOR%20CAS.pdf' },
+            { label: 'Castell de Bellver (Ajuntament de Palma)', href: 'https://castelldebellver.palma.cat' },
             { label: 'Coves del Drac', href: 'https://www.cuevasdeldrach.com' },
             { label: 'DGT: trafik till Formentor 2026', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
             { label: 'Patrimonio Nacional: La Almudaina', href: 'https://www.patrimonionacional.es' },

@@ -16,10 +16,10 @@ type Restaurant = {
 
 const restauranger: Record<string, Restaurant[]> = {
   fin: [
-    { namn: 'Zaranda', adress: 'Carrer de la Bala Roja, Palma (hotellet Es Princep)', pris: '€€€€', specialitet: 'Avsmakningsmenyer av kocken Fernando Pérez Arellano – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Restaurangen har egen entré, skild från hotellets. Boka i god tid.' },
+    { namn: 'Zaranda', adress: 'Carrer de la Bala Roja, Palma (hotellet Es Príncep)', pris: '€€€€', specialitet: 'Avsmakningsmenyer av kocken Fernando Pérez Arellano – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Restaurangen har egen entré, skild från hotellets. Boka i god tid.' },
     { namn: 'Marc Fosh', adress: 'Carrer de la Missió, Palma gamla stad', pris: '€€€€', specialitet: 'Modern medelhavsmat av den brittiske kocken Marc Fosh – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Restaurangen ligger i hotellet Convent de la Missió, ett gammalt kloster i gamla stan.' },
     { namn: 'DINS Santi Taura', adress: 'Plaça de Llorenç Villalonga, Palma', pris: '€€€€', specialitet: 'Gamla mallorkinska recept i ny tappning – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Liten matsal i det gamla judiska kvarteret La Calatrava – boka i god tid.' },
-    { namn: 'Adrián Quetglas', adress: 'Passeig de Mallorca, Palma', pris: '€€€', specialitet: 'Kreativa avsmakningsmenyer – restaurangen tappade sin Michelinstjärna i guiden 2026', bästRätt: 'Den längre avsmakningsmenyn', insiderTips: 'Bistron D’Gustar alldeles intill drivs av samma kock och är ett enklare alternativ.' },
+    { namn: 'Adrián Quetglas', adress: 'Passeig de Mallorca, Palma', pris: '€€€€', specialitet: 'Kreativa avsmakningsmenyer – restaurangen förlorade sin Michelinstjärna 2024 (guiden 2025)', bästRätt: 'Den längre avsmakningsmenyn', insiderTips: 'Bistron D’Gustar alldeles intill drivs av samma kock och är ett enklare alternativ.' },
   ],
   tapas: [
     { namn: 'La Bodeguilla', adress: 'Carrer de Sant Jaume, Palma', pris: '€€', specialitet: 'Klassiska tapas och rätter från hela Spanien', bästRätt: 'Jamón ibérico, manchego och pa amb oli', insiderTips: 'Ett tryggt val mitt i stan när du vill äta spanskt utan krångel.' },
@@ -94,7 +94,7 @@ export default function BästaRestaurangerPalma() {
           sources={[
             { label: 'Michelinguiden: DINS Santi Taura', href: 'https://guide.michelin.com/en/islas-baleares/palma/restaurant/dins-santi-taura' },
             { label: 'Michelinguiden: Adrián Quetglas', href: 'https://guide.michelin.com/en/illes-balears/palma/restaurant/adrian-quetglas' },
-            { label: 'Mallorcadiario: Quetglas utan stjärna 2026', href: 'https://www.mallorcadiario.com/el-restaurante-del-chef-adrian-quetglas-no-logra-retener-su-estrella-michelin' },
+            { label: 'Mallorcadiario: Quetglas utan stjärna', href: 'https://www.mallorcadiario.com/el-restaurante-del-chef-adrian-quetglas-no-logra-retener-su-estrella-michelin' },
             { label: 'Ajuntament de Palma: Celler Sa Premsa', href: 'https://web.palmaactiva.com/emblematics-palma/content/pdf/celler-sa-premsa.pdf' },
             { label: 'Última Hora: Ca’n Joan de s’Aigo 325 år', href: 'https://www.ultimahora.es/noticias/local/2025/11/09/2500845/joan-aigo-decano-325-anos-vida-reclamo-turistico-palma.html' },
             { label: 'Palma Weekly: tapas i Palma', href: 'https://www.palmaweekly.com/10-tapas-restaurants-in-palma-city-centre/' },

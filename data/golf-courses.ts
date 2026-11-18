@@ -384,7 +384,6 @@ export const golfbanor: GolfCourse[] = [
     tips: 'Lugnt och avslappnat – bra för nybörjare och rekreationsgolfare',
     redaktionellt: { typ: 'tips', text: 'Vackert läge vid Tramuntanabergen – kombinera med en eftermiddag i Pollença' },
   },
-
   {
     slug: 'club-de-golf-canyamel',
     namn: 'Club de Golf Canyamel',

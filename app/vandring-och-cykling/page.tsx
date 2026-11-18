@@ -39,7 +39,7 @@ export default function VandringOchCykling() {
         { label: 'Climbfinder – Sa Calobra', href: 'https://climbfinder.com/en/climbs/sa-calobra-port-de-sa-calobra' },
         { label: 'Epic Road Rides – Sa Calobra', href: 'https://epicroadrides.com/cycling-spain/mallorca/sa-calobra-climb/' },
         { label: 'Mallorca Global Mag – Formentor 2026', href: 'https://mallorcaglobalmag.es/restricciones-trafico-formentor-2026/' },
-        { label: 'TIB – buss till Formentor', href: 'https://www.tib.org/es/w/el-bus-llan%C3%A7adora-del-tib-al-far-de-formentor-repr%C3%A8n-el-servei-a-partir-d-aquest-diumenge-i-enguany-s-amplia-fins-al-31-d-octubre' },
+        { label: 'DGT – tillträde till Formentor-fyren', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
         { label: 'Mallorcadiario – brandrisksäsongen', href: 'https://www.mallorcadiario.com/el-1-de-mayo-comienza-la-temporada-de-alto-riesgo-de-incendio' },
       ]}
       checkedNote="Tider och längder är ungefärliga och varierar mellan källor och med kondition. Regler för refugis, privat mark och vägen till Formentor kan ändras – kontrollera inför turen."
@@ -154,7 +154,7 @@ export default function VandringOchCykling() {
         <h3 className={`${h.h3} ${styles.h3}`}>Cap de Formentor</h3>
         <p>
           Vägen ut till fyren på Cap de Formentor är en av öns vackraste, men sommartid begränsas trafiken. 2026 gällde
-          begränsningen 15 maj–15 oktober, varje dag kl. 10–22:
+          begränsningen 15 maj–18 oktober, varje dag kl. 10–22:
         </p>
         <ul>
           <li>Mellan Port de Pollença och stranden Platja de Formentor släpps privatbilar in tills parkeringen är full.</li>
