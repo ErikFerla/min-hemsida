@@ -171,7 +171,7 @@ export default function HyrbilOchTransport() {
             </li>
             <li>
               <strong>Bor du på ön?</strong> Med det personliga Intermodal- eller Única-kortet är resor med TIB-buss,
-              tåg och metro gratis under 2026. Kortet kräver ansökan; villkoren finns hos TIB.
+              tåg och metro gratis under 2026. Om det fortsätter 2027 var inte beslutat i november 2026. Kortet kräver ansökan; villkoren finns hos TIB.
             </li>
           </ul>
           <p className={styles.text}>
