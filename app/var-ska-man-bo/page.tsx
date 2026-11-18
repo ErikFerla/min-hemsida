@@ -13,8 +13,8 @@ export default function VarSkaManBo() {
   return (
     <div className={t.page}>
       <HeroImage
-        src="https://images.unsplash.com/photo-1566815687825-39bd872e6e09"
-        alt="Vita stenhus och Tramuntanabergen på Mallorca – öns olika delar passar olika resenärer"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Portocolom-view-to-lighthouse.jpg/1920px-Portocolom-view-to-lighthouse.jpg"
+        alt="Naturhamnen i Porto Colom på östkusten med fyren i bakgrunden – ett av Mallorcas lugnare områden att bo i"
         kicker="Planera resan"
         title="Var ska man bo på Mallorca?"
         subtitle="Öns områden för barnfamiljer, par, aktiva, stadsälskare och dig som vill stanna länge"

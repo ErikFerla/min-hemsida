@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconFlag, IconMap, IconBulb, IconPalm } from '@/components/Icons';
@@ -225,15 +226,14 @@ export default function SectionPlanner() {
 
         {/* Höger: Stämningsbild */}
         <div className={styles.aside}>
-          <img
-            src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&q=80&auto=format"
-            srcSet="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=640&q=80&auto=format 640w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=960&q=80&auto=format 960w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1280&q=80&auto=format 1280w, https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1600&q=80&auto=format 1600w"
+          <Image
+            src="/bilder/palma/david-vives-fz1dT3-se-o-unsplash.jpg"
             sizes="(max-width: 768px) 100vw, 45vw"
-            alt="Utsikt över Palmas hamn och katedral – planera din resa till Mallorca"
-            width={1600}
-            height={1067}
+            alt="Katedralen La Seu i Palma speglas i den stilla dammen i Parc de la Mar"
+            title="Foto: David Vives / Unsplash"
+            width={3531}
+            height={5296}
             loading="lazy"
-            decoding="async"
             className={styles.asideImage}
           />
           <div className={styles.local}>

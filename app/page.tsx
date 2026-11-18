@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
 import s from './components/section.module.css';
@@ -101,17 +102,16 @@ export default function Home() {
         <section className={s.pageSection}>
           <div className={styles.split}>
 
-            {/* BILD VÄNSTER */}
+            {/* BILD VÄNSTER – gata i Palmas centrum (Foto: Felix / Unsplash) */}
             <div>
-              <img
-                src="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&fm=webp&auto=format"
-                srcSet="https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=640&q=80&fm=webp&auto=format 640w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=960&q=80&fm=webp&auto=format 960w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1280&q=80&fm=webp&auto=format 1280w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=1600&q=80&fm=webp&auto=format 1600w, https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?w=2000&q=80&fm=webp&auto=format 2000w"
+              <Image
+                src="/bilder/palma/felix-4pqjneOJa9k-unsplash.jpg"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                alt="Solig terrassvy med utsikt över Mallorcas kust och olivlundar"
-                width={1280}
-                height={1600}
+                alt="Smal gata i Palmas centrum med balkonger, kaféer och ett utsmyckat modernistiskt hus med torn"
+                title="Foto: Felix / Unsplash"
+                width={4160}
+                height={6240}
                 loading="lazy"
-                decoding="async"
                 className={styles.portrait}
               />
             </div>

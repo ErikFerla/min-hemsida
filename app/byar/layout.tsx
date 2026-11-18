@@ -5,8 +5,10 @@ export const metadata = buildPageMetadata({
   path: '/byar',
   title: 'Mallorcas städer och byar – Palma, Sóller m.fl.',
   description: 'Utforska Mallorcas städer och bergsbyar – Palma, Sóller, Valldemossa, Deià, Alcúdia och fler. Lokala tips, sevärdheter och praktisk info för varje ort.',
-  image: 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Palma de Mallorca med katedralen La Seu',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pollen%C3%A7a_from_near_the_top_of_the_Valvari_Steps.jpg/1280px-Pollen%C3%A7a_from_near_the_top_of_the_Valvari_Steps.jpg',
+  imageAlt: 'Utsikt över takåsarna i Pollença från Calvari-trappan',
+  imageWidth: 1280,
+  imageHeight: 960,
 });
 
 export default function ByarLayout({ children }: { children: React.ReactNode }) {

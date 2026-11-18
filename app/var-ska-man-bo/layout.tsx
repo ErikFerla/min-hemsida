@@ -5,14 +5,16 @@ const PATH = '/var-ska-man-bo';
 const TITLE = 'Var ska man bo på Mallorca?';
 const DESCRIPTION =
   'Var ska du bo på Mallorca? Områdena för barnfamiljer, par, aktiva, lugn och stadsliv – med för- och nackdelar och ett ortsquiz som ger dig två–tre förslag.';
-const IMAGE = 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09?w=1200&h=630&fit=crop&q=85';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Portocolom-view-to-lighthouse.jpg/1280px-Portocolom-view-to-lighthouse.jpg';
 
 export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
   image: IMAGE,
-  imageAlt: 'Vita stenhus och Tramuntanabergen på Mallorca',
+  imageAlt: 'Naturhamnen i Porto Colom på östkusten',
+  imageWidth: 1280,
+  imageHeight: 960,
 });
 
 const publisher = { '@type': 'Organization', name: 'MyMallorca', url: BASE_URL };
