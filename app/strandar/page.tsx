@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { beaches, BEACHES_HERO, type RedaktionellTyp } from '@/data/beaches';
 import StrandFilter from './StrandFilter';
+import DagensStrand from './DagensStrand';
+import LastChecked from '@/app/components/LastChecked';
+import { MET_NO_SOURCE } from '@/data/climate';
 import h from '../guide/headings.module.css';
 import styles from './strandar.module.css';
 
@@ -66,6 +69,7 @@ export default function StrandarPage() {
       </header>
 
       <div className={styles.container}>
+        <DagensStrand beaches={beaches.map(({ namn, region, typ, vetterMot, maps }) => ({ namn, region, typ, vetterMot, maps }))} />
         <p className={styles.filterIntro}>
           Använd filtren nedan för att hitta rätt strand för dig. Filtrera på område, strandtyp eller kännetecken som familjevänlighet eller snorkling.
         </p>
@@ -150,6 +154,12 @@ export default function StrandarPage() {
             ))}
           </div>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          sources={[MET_NO_SOURCE]}
+          note="Kontrollen gäller Dagens strand: vindprognosen och åt vilket håll stränderna vetter."
+        />
       </div>
     </div>
   );
