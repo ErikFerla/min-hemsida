@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconPin, IconInfo, IconBookmark, PriceTag, tierFromPris } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
 import styles from './page.module.css';
 
@@ -14,33 +15,32 @@ type Restaurant = {
 };
 
 const restauranger: Record<string, Restaurant[]> = {
-  michelin: [
-    { namn: 'Zaranda', adress: 'Carrer de Son Espanyolet, Palma', pris: '€€€€', specialitet: 'Haute cuisine med mallorkinska råvaror', bästRätt: 'Smörstekt pilgrimsmussla med svart tryffel', insiderTips: 'Boka en månad i förväg. Lunchen (kl. 12.30) är billigare och lika bra som middagen.' },
-    { namn: 'Marc Fosh', adress: 'Carrer de la Missió, Palma gamla stad', pris: '€€€€', specialitet: 'Modern medelhavsmat, brittisk kock', bästRätt: 'Bacallà (torsk) med olivolja och örter', insiderTips: 'Boka ett bord vid fönstret mot klostergården. Avsmakningsmenyn (sju rätter) ger mest för pengarna.' },
-    { namn: 'Adrián Quetglas', adress: 'Passeig del Born, Palma', pris: '€€€', specialitet: 'Fusion av spanskt och östeuropeiskt kök', bästRätt: 'Spädgris med äpple och chutney', insiderTips: 'Ett bord vid baren ger bäst utsikt mot köket. Avsluta med den hemgjorda glassen.' },
+  fin: [
+    { namn: 'Zaranda', adress: 'Carrer de la Bala Roja, Palma (hotellet Es Príncep)', pris: '€€€€', specialitet: 'Avsmakningsmenyer av kocken Fernando Pérez Arellano – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Restaurangen har egen entré, skild från hotellets. Boka i god tid.' },
+    { namn: 'Marc Fosh', adress: 'Carrer de la Missió, Palma gamla stad', pris: '€€€€', specialitet: 'Modern medelhavsmat av den brittiske kocken Marc Fosh – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Restaurangen ligger i hotellet Convent de la Missió, ett gammalt kloster i gamla stan.' },
+    { namn: 'DINS Santi Taura', adress: 'Plaça de Llorenç Villalonga, Palma', pris: '€€€€', specialitet: 'Gamla mallorkinska recept i ny tappning – en Michelinstjärna', bästRätt: 'Avsmakningsmenyn', insiderTips: 'Liten matsal i det gamla judiska kvarteret La Calatrava – boka i god tid.' },
+    { namn: 'Adrián Quetglas', adress: 'Passeig de Mallorca, Palma', pris: '€€€€', specialitet: 'Kreativa avsmakningsmenyer – restaurangen förlorade sin Michelinstjärna 2024 (guiden 2025)', bästRätt: 'Den längre avsmakningsmenyn', insiderTips: 'Bistron D’Gustar alldeles intill drivs av samma kock och är ett enklare alternativ.' },
   ],
   tapas: [
-    { namn: 'La Bodeguilla', adress: 'Carrer de Sant Jaume, Palma', pris: '€€', specialitet: 'Klassiska spanska tapas och jamón ibérico', bästRätt: 'Jamón ibérico bellota + manchego + pan con tomate', insiderTips: 'Stå vid bardisken för bäst service. Beställ hela tapasmenyn – inte à la carte.' },
-    { namn: 'Bar España', adress: 'Plaça de Weyler, Palma', pris: '€', specialitet: 'Lokalt stamhak med genuin stämning', bästRätt: 'Croquetas de jamón (husmanskost i världsklass)', insiderTips: 'Gå dit för frukost kl. 9–11. Palmaborna börjar dagen med kaffe och en tapa.' },
-    { namn: 'Tast Club', adress: 'Carrer de Sant Jaume, Palma', pris: '€€€', specialitet: 'Moderna tapas, smakrika och kreativa', bästRätt: 'Sobrassada med honung och brioche', insiderTips: 'Sista bordet kl. 22 – perfekt för en sen spansk middag utan stress.' },
-    { namn: 'El Camino', adress: 'Carrer dels Apuntadors, La Lonja', pris: '€€', specialitet: 'Internationella smaker med spansk bas', bästRätt: 'Burrata med färska tomater och basilikaolja', insiderTips: 'Boka bord på uteserveringen på bakgården – inomhus är det trångt.' },
+    { namn: 'La Bodeguilla', adress: 'Carrer de Sant Jaume, Palma', pris: '€€', specialitet: 'Klassiska tapas och rätter från hela Spanien', bästRätt: 'Jamón ibérico, manchego och pa amb oli', insiderTips: 'Ett tryggt val mitt i stan när du vill äta spanskt utan krångel.' },
+    { namn: 'Bar España', adress: 'Carrer de Can Escursac, Palma', pris: '€', specialitet: 'Pintxos i en liten gränd nära Plaça Major', bästRätt: 'Pintxos direkt från bardisken', insiderTips: 'Prisvärt och populärt – räkna med trängsel vid disken på kvällen.' },
+    { namn: 'Tast Club', adress: 'Carrer de Sant Jaume, Palma', pris: '€€€', specialitet: 'Tapas i en bar som påminner om en gammal engelsk herrklubb', bästRätt: 'Låt personalen föreslå dagens tapas', insiderTips: 'Ingången är diskret – håll utkik efter adressen på Carrer de Sant Jaume.' },
+    { namn: 'El Camino', adress: 'Carrer de Can Brondo, Palma', pris: '€€', specialitet: 'Tapas vid en lång bardisk framför det öppna köket', bästRätt: 'Dagens tapas – fråga vid disken', insiderTips: 'Sitt vid bardisken och se kockarna arbeta. Kom tidigt – det fylls snabbt.' },
+    { namn: 'Toque de Queda', adress: 'Carrer de Can Cavalleria, Palma', pris: '€€', specialitet: 'Chark- och ostbrickor, cocas och champagne', bästRätt: 'En tabla med chark och ost att dela', insiderTips: 'Ägarna kommer från Emilia-Romagna, så det italienska märks i både chark och viner.' },
   ],
   fisk: [
-    { namn: 'Portixol Restaurant', adress: 'Carrer de Sirena, Portixol hamn', pris: '€€€', specialitet: 'Färsk fisk, utsikt mot hamnen', bästRätt: 'Risotto med havskräfta och saffran', insiderTips: 'Be om bord nummer 12 – direkt mot vattnet. Kom till solnedgången, runt kl. 20.' },
-    { namn: 'Es Parlament', adress: 'Carrer del Conquistador, Palma', pris: '€€€', specialitet: 'Klassisk mallorkinsk fiskrestaurang', bästRätt: 'Suquet de peix – mallorkinsk fiskgryta', insiderTips: 'Traditionellt hak som lokala politiker gärna besöker. Aldrig dåligt.' },
-    { namn: 'Caballito de Mar', adress: 'Passeig de Sagrera, Palma', pris: '€€', specialitet: 'Enkelt och fräscht, rätt vid havet', bästRätt: 'Friterade sardiner med aioli', insiderTips: 'Perfekt för lunch i solen. Gå till kassan och peka ut den fisk du vill ha av dagens fångst.' },
-    { namn: 'Llaut del Born', adress: 'Passeig del Born, Palma', pris: '€€', specialitet: 'Fisk och skaldjur mitt i centrum', bästRätt: 'Gambas al ajillo (vitlöksräkor)', insiderTips: 'Bästa läget i stan. Terrassen längs promenaden är oslagbar för kvällsmiddag.' },
+    { namn: 'Patrón Lunares', adress: 'Carrer de la Fàbrica, Santa Catalina', pris: '€€€', specialitet: 'Fisk, skaldjur och risrätter', bästRätt: 'En risrätt med skaldjur att dela', insiderTips: 'Ofta fullt – boka bord, särskilt på helger.' },
+    { namn: 'Caballito de Mar', adress: 'Passeig de Sagrera, Palma', pris: '€€€', specialitet: 'Klassisk fiskrestaurang vid vattnet nära Sa Llotja', bästRätt: 'Dagens fisk', insiderTips: 'Perfekt för en lång lunch på terrassen i solen.' },
   ],
   lokalt: [
-    { namn: 'Celler Sa Premsa', adress: 'Plaça del Bisbe Berenguer de Palou, Palma', pris: '€', specialitet: 'Palmas mest klassiska lokala restaurang', bästRätt: 'Frit mallorquí (traditionell rätt med potatis och grönsaker)', insiderTips: 'Restaurangen ser ut som den har gjort sedan 1940-talet. Kom hungrig – portionerna är enorma.' },
-    { namn: "Ca'n Joan de s'Aigo", adress: 'Carrer de Can Sanç, Palma', pris: '€', specialitet: 'Historiskt kafé sedan 1700-talet', bästRätt: 'Ensaïmada med kräm och xocolata (varm choklad)', insiderTips: 'Det äldsta kaféet på Mallorca. Frukost här kl. 8–10 är ett måste.' },
-    { namn: "Mercat de l'Olivar", adress: "Plaça de l'Olivar, Palma", pris: '€', specialitet: 'Lokal mathall med barer och tapas', bästRätt: 'Vad som helst från fiskedisken – direkt från havet', insiderTips: 'Köp färsk fisk på nedervåningen, gå upp och be en bar laga den. Obeskrivlig upplevelse.' },
-    { namn: 'Calatrava Bistro', adress: 'Carrer dels Calatrava, gamla stan', pris: '€€', specialitet: 'Mysig bistro i hjärtat av gamla Palma', bästRätt: 'Dagens meny (kl. 14–16) – tre rätter och vin för 18 €', insiderTips: 'Ett av de bästa fynden i Palma – dagens meny står inte på hemsidan, så fråga personalen.' },
+    { namn: 'Celler Sa Premsa', adress: 'Plaça del Bisbe Berenguer de Palou, Palma', pris: '€', specialitet: 'En av Palmas klassiska källarkrogar, sedan 1958', bästRätt: 'Frit mallorquí (traditionell rätt med inälvor, potatis och grönsaker)', insiderTips: 'Interiören har knappt ändrats på årtionden. Kom hungrig – portionerna är stora.' },
+    { namn: "Ca'n Joan de s'Aigo", adress: 'Carrer de Can Sanç, Palma', pris: '€', specialitet: 'Historiskt kafé, grundat omkring år 1700', bästRätt: 'Ensaïmada med varm choklad, eller mandelglass', insiderTips: 'Räknas som Palmas äldsta kafé. Gå till huset på Carrer de Can Sanç – det mest anrika av kaféets lokaler.' },
+    { namn: "Mercat de l'Olivar", adress: "Plaça de l'Olivar, Palma", pris: '€', specialitet: 'Stadens stora saluhall med fisk, kött och grönsaker – och flera tapasbarer', bästRätt: 'Färsk fisk och skaldjur vid någon av barerna', insiderTips: 'Gå dit på förmiddagen när det är som mest liv bland fiskstånden och ät lunch vid en bardisk.' },
   ],
 };
 
 const sections = [
-  { key: 'michelin', label: 'Michelinkrogar', kicker: 'Haute cuisine', items: restauranger.michelin },
+  { key: 'fin', label: 'Finkrogar', kicker: 'Michelinstjärnor och avsmakningsmenyer', items: restauranger.fin },
   { key: 'tapas', label: 'Bästa tapas', kicker: 'Barer och små rätter', items: restauranger.tapas },
   { key: 'fisk', label: 'Fisk och skaldjur', kicker: 'Havet på tallriken', items: restauranger.fisk },
   { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Autentiskt och prisvärt', items: restauranger.lokalt },
@@ -53,8 +53,8 @@ export default function BästaRestaurangerPalma() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg"
         alt="Flera små tapasrätter på ett bord – genrebild, inte från någon av restaurangerna"
         kicker="Matguide · 2026"
-        title="De 15 bästa restaurangerna i Palma"
-        subtitle="Handplockade av en som bor här – inte rankade av Tripadvisor. Från Michelinstjärnor till frukost för 1 €."
+        title="De bästa restaurangerna i Palma"
+        subtitle="Handplockade av en som bor här – inte rankade av Tripadvisor. Från Michelinstjärnor till pintxos vid bardisken."
         height="52vh"
       />
 
@@ -87,6 +87,19 @@ export default function BästaRestaurangerPalma() {
             <Link href="/vingardar" className={styles.ctaButtonGhost}>VINGÅRDAR</Link>
           </div>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          note="Michelinstjärnorna gäller Michelinguiden 2026. Öppettider ändras med säsongen – kontrollera hos restaurangen."
+          sources={[
+            { label: 'Michelinguiden: DINS Santi Taura', href: 'https://guide.michelin.com/en/islas-baleares/palma/restaurant/dins-santi-taura' },
+            { label: 'Michelinguiden: Adrián Quetglas', href: 'https://guide.michelin.com/en/illes-balears/palma/restaurant/adrian-quetglas' },
+            { label: 'Mallorcadiario: Quetglas utan stjärna', href: 'https://www.mallorcadiario.com/el-restaurante-del-chef-adrian-quetglas-no-logra-retener-su-estrella-michelin' },
+            { label: 'Ajuntament de Palma: Celler Sa Premsa', href: 'https://web.palmaactiva.com/emblematics-palma/content/pdf/celler-sa-premsa.pdf' },
+            { label: 'Última Hora: Ca’n Joan de s’Aigo 325 år', href: 'https://www.ultimahora.es/noticias/local/2025/11/09/2500845/joan-aigo-decano-325-anos-vida-reclamo-turistico-palma.html' },
+            { label: 'Palma Weekly: tapas i Palma', href: 'https://www.palmaweekly.com/10-tapas-restaurants-in-palma-city-centre/' },
+          ]}
+        />
       </div>
     </div>
   );

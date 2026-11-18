@@ -77,22 +77,22 @@ export const ACTIVITIES: Activity[] = [
   // ========== VATTENPARKER ==========
   {
     slug: 'aqualand-el-arenal',
-    name: 'Aqualand El Arenal',
+    name: "Aqualand s'Arenal",
     categories: ['vattenparker'],
     location: 'El Arenal, 15 min från Palma',
     ageGroups: ['4-7', '8-12', '13+'],
     shortDescription: 'Mallorcas största vattenpark med över 30 rutschkanor, från milda till riktigt vilda.',
-    longDescription: 'Aqualand El Arenal är öns äldsta och största vattenpark med över 30 attraktioner spridda över 100 000 kvadratmeter. Här finns allt från klassiska snabba rutschkanor som Tornado till lugnare attraktioner för familjer med mindre barn. Eget småbarnsområde Polynesia med grunda bassänger och mjuka rutschkanor.',
+    longDescription: "Aqualand s'Arenal är öns största vattenpark med över 30 attraktioner spridda över 100 000 kvadratmeter. Här finns allt från klassiska snabba rutschkanor som Tornado till lugnare attraktioner för familjer med mindre barn. Eget småbarnsområde Polynesia med grunda bassänger och mjuka rutschkanor.",
     priceFrom: 38,
     priceNote: 'Online 10 % billigare; barn under 3 år gratis',
     openingHours: 'Maj–oktober, kl. 10–18',
     bestTime: 'Kom vid öppning kl. 10 för korta köer',
     insiderTip: 'Parkera vid hotellet Aquasol – gratis och 5 min promenad i stället för 12 € i parkens garage',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg',
-    imageAlt: "Vattenrutschbanor på Aqualand i S'Arenal",
+    imageAlt: "Vattenrutschbanor på Aqualand i s'Arenal",
     indoors: false,
     website: 'https://www.aqualand.es',
-    mapQuery: 'Aqualand El Arenal Mallorca',
+    mapQuery: "Aqualand s'Arenal Mallorca",
   },
   {
     slug: 'western-water-park',
@@ -563,15 +563,6 @@ export const BARN_SOURCES: Partial<Record<Category, { label: string; href: strin
 
 export function getActivitiesByCategory(category: Category): Activity[] {
   return ACTIVITIES.filter((a) => a.categories.includes(category));
-}
-
-export function filterByAge(activities: Activity[], ages: AgeGroup[]): Activity[] {
-  if (ages.length === 0) return activities;
-  return activities.filter((a) => a.ageGroups.some((g) => ages.includes(g)));
-}
-
-export function getActivityBySlug(slug: string): Activity | undefined {
-  return ACTIVITIES.find((a) => a.slug === slug);
 }
 
 export function getCategoryMeta(slug: Category): CategoryMeta | undefined {

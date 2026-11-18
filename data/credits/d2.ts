@@ -450,7 +450,7 @@ export const credits: ImageCredit[] = [
   },
   {
     src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg",
-    motiv: "Vattenrutschbanor på Aqualand i S'Arenal",
+    motiv: "Vattenrutschbanor på Aqualand i s'Arenal",
     fotograf: "No Frills Excursions",
     license: 'cc-by-sa',
     licenseVersion: '2.0',

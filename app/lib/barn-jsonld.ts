@@ -1,4 +1,5 @@
 import type { Activity } from './barn-activities';
+import { ogImageUrl } from './image-url';
 
 const BASE_URL = 'https://www.mymallorca.se';
 
@@ -21,7 +22,7 @@ export function buildItemListJsonLd(
     itemListElement: activities.map((a, i) => {
       const cat = categorySlug === 'hub' ? a.categories[0] : categorySlug;
       const url = `${BASE_URL}/barn/${cat}#${a.slug}`;
-      const image = `${a.imageUrl}?w=1200&q=80&fm=webp&auto=format`;
+      const image = ogImageUrl(a.imageUrl, BASE_URL);
       const item: Record<string, unknown> = {
         '@type': 'TouristAttraction',
         name: a.name,

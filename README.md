@@ -36,12 +36,27 @@ app/                  Sidor och routes (App Router)
   not-found.tsx       404-sida
   sitemap.ts, robots.ts
 components/           Delade layout- och UI-komponenter (se nedan)
-data/                 Typad innehållsdata (städer, golfbanor m.m.)
-public/               Statiska filer
+data/                 Typad innehållsdata (se Datakällor)
+  credits/            Bildkrediter och licenser för varje bild (visas på /bildkrediter)
+public/bilder/        Lokala bilder (går via Next.js bildoptimering)
 docs/stilguide.md     Stilguide för alla texter (ton, ortnamn, enheter, källor)
 scripts/smoke.mjs     Röktestet
 scripts/proof.mjs     Korrekturskriptet (se stilguiden)
+.github/              CI-arbetsflöde och Dependabot
 ```
+
+### Sidor, metadata och sitemap
+
+- Alla sidor är statiska (○ eller ● i `npm run build`); bara `/api/weather` är dynamisk.
+- Metadata byggs med `buildPageMetadata` (vanliga sidor) eller `buildCityMetadata` (orter) i
+  `app/lib/city-seo.ts`: självrefererande canonical, Open Graph och Twitter-kort. `title.template`
+  i `app/layout.tsx` lägger till " | MyMallorca", så sidtiteln får vara högst 47 tecken (60 med
+  suffixet). Beskrivningen ska vara 120–160 tecken. Startsidan sätter hela titeln själv, eftersom
+  mallen bara gäller undersegment.
+- Varje sida har exakt en `<h1>`, BreadcrumbList och, för guider och artiklar, Article-schema.
+- En ny sida läggs till i `app/sitemap.ts` (listan `pages`) med datum i `updated`. Ortssidorna
+  kommer automatiskt från `data/cities.ts`.
+- Röktestet kontrollerar för varje URL i sitemapen canonical, titel- och beskrivningslängd, unika metadata, OG/Twitter, att JSON-LD går att tolka och att interna länkar fungerar (se nedan). Att rätt schematyper finns kontrolleras inte automatiskt.
 
 ### Var ska en komponent ligga?
 
@@ -62,7 +77,41 @@ scripts/proof.mjs     Korrekturskriptet (se stilguiden)
 - **Kartor:** [Leaflet](https://leafletjs.com/) med kartbrickor från [OpenStreetMap](https://www.openstreetmap.org/copyright).
 - **Bilder:** Unsplash, Pexels och Wikimedia Commons, med fotograf angiven där det krävs.
   Externa bildvärdar måste finnas både i `images.remotePatterns` och i CSP:ns `img-src` i `next.config.ts`.
-- **Fonter:** Inter, Playfair Display och Bebas Neue, self-hostade från Fontsource (SIL Open Font License).
+  Bild-URL:er i rätt storlek byggs med `app/lib/image-url.ts` (Commons-thumbs i 960/1280/1920 px,
+  Unsplash via query string, lokala filer via `/_next/image`).
+- **Bildkrediter:** varje bild har en post i `data/credits/` (`d1.ts`–`d3.ts`, typen i `types.ts`)
+  med motiv, fotograf, licens, källsida, var bilden används och när licensen kontrollerades.
+  `data/credits/index.ts` slår ihop posterna och `/bildkrediter` visar dem. Bara licenser som
+  tillåter kommersiell användning utan tillstånd är godkända (se kommentaren i `types.ts`).
+  Ny bild = ny post i rätt fil.
+- **Fonter:** Inter och Playfair Display, self-hostade från Fontsource (SIL Open Font License).
+
+Innehållsdata, en källa per ämne:
+
+| Fil | Används av |
+|---|---|
+| `data/cities.ts` | Alla 18 ortssidor (`app/[city]`), `/byar`, kartor, sitemap och brödsmulor. En ny ort kräver bara en ny post här. |
+| `data/beaches.ts` | `/strandar` (lista, filter, dagens strand, hjältebild) och stränderna på ortssidorna |
+| `data/climate.ts` | `/vader`, `/strandar` och `/guide/basta-tid-resa-mallorca` (inklusive verktyget Bästa restid) |
+| `data/golf-courses.ts` | `/aktiviteter/golf` |
+| `data/markets.ts` | `/marknader` och resekalendern på `/evenemang` |
+| `data/transport.ts` | `/flyg`, `/hyrbil-och-transport` och `/var-ska-man-bo` |
+| `data/praktiska-sidor.ts` | Metadata och schema för `/budget-och-priser`, `/praktiskt`, `/mallorca-pa-vintern` och `/vandring-och-cykling` |
+| `app/lib/barn-activities.ts` | Barnaktiviteterna under `/barn` (kort, filter, ItemList-schema) |
+| `data/barn-map.ts` | Familjekartan i `/guide/mallorca-med-barn` |
+| `app/evenemang/data.ts` | `/evenemang`, kalenderfilerna (`.ics`) och startsidans evenemang |
+
+Fakta i datafilerna har en källa och ett datum för senaste kontroll, som visas i rutan
+"Senast kontrollerad" (`app/components/LastChecked.tsx`).
+
+## Prestanda
+
+- Sidans LCP-bild (hjältebilden) renderas med `components/EagerImage.tsx`, en liten
+  klientkomponent. En eager `<img>` i en serverkomponent – eller `ReactDOM.preload` – hamnar
+  som förladdningshint i RSC-datat, och eftersom Next förhämtar RSC för länkar i vyn laddade
+  webbläsaren annars ner hjältebilderna för alla länkade sidor. Använd inte `ReactDOM.preload`
+  för bilder.
+- Övriga bilder laddas lat (`loading="lazy"`) och har `sizes`.
 
 ## Kommandon
 
@@ -87,8 +136,11 @@ Kräver Node.js 22 (minst 20.9).
 
 1. hämtar `/sitemap.xml` och kontrollerar att varje URL (omskriven till localhost) svarar 200
    utan omdirigering, har exakt en `<h1>` i den serverrenderade HTML:en och har säkerhetsheaders,
-2. kontrollerar att `/robots.txt` svarar 200 och att en okänd URL ger 404,
-3. öppnar några sidor (`/`, `/strandar`, `/barn`, `/vader`, `/palma-de-mallorca`, `/guider`,
+2. kontrollerar SEO för varje URL: självrefererande canonical och og:url, titel högst 60 tecken,
+   beskrivning 120–160 tecken (båda unika), og:title, og:image, twitter:card och JSON-LD som går
+   att tolka – och att alla interna länkar i HTML:en leder till sidor som svarar 200,
+3. kontrollerar att `/robots.txt` svarar 200 och att en okänd URL ger 404,
+4. öppnar några sidor (`/`, `/strandar`, `/barn`, `/vader`, `/palma-de-mallorca`, `/guider`,
    `/aktiviteter/golf`) i Chromium i mobilstorlek, scrollar igenom dem och kräver 0 konsolfel,
    0 JavaScript-fel och 0 CSP-överträdelser.
 

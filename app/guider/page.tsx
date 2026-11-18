@@ -1,26 +1,25 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import HeroImage from '@/components/HeroImage';
 import JsonLd from '@/app/components/JsonLd';
 import { SITE_URL } from '@/app/guide/guides';
+import { buildPageMetadata } from '@/app/lib/city-seo';
+import { commonsThumb } from '@/app/lib/image-url';
 import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag, IconPin, IconGlass, IconSnow, IconHiker, IconCompass, IconSnorkel } from '@/components/Icons';
 import styles from './guider.module.css';
 
-export const metadata: Metadata = {
-  title: { absolute: 'Guider till Mallorca – barn, stränder & golf | MyMallorca' },
+const HERO_IMAGE =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg';
+const HERO_ALT = 'Cala Mondragó på Mallorcas östkust – turkos vik med förankrade båtar och klippor med tallar';
+
+export const metadata = buildPageMetadata({
+  path: '/guider',
+  title: 'Guider till Mallorca – barn, stränder & golf',
   description:
     'Alla våra guider till Mallorca: bästa restid, var du ska bo, med barn eller som par, stränder, restauranger, golf, vandring, båtturer och vintern.',
-  alternates: { canonical: '/guider' },
-  openGraph: {
-    title: 'Guider till Mallorca – restid, barn, stränder & golf',
-    description:
-      'Alla våra guider till Mallorca: bästa restid, var du ska bo, med barn eller som par, stränder, restauranger, golf, vandring, båtturer och vintern.',
-    url: '/guider',
-    type: 'website',
-    locale: 'sv_SE',
-  },
-};
+  image: commonsThumb(HERO_IMAGE, 1280),
+  imageAlt: HERO_ALT,
+});
 
 type Guide = {
   href: string;
@@ -156,8 +155,8 @@ export default function GuiderPage() {
     <div className={styles.page}>
       <JsonLd data={jsonLd} />
       <HeroImage
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg"
-        alt="Cala Mondragó på Mallorcas östkust – turkos vik med förankrade båtar och klippor med tallar"
+        src={HERO_IMAGE}
+        alt={HERO_ALT}
         photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Guider · Mallorca"
         title="Våra guider till Mallorca"

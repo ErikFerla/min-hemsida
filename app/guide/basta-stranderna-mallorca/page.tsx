@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
 import HubLink from '../HubLink';
+import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
 import styles from './page.module.css';
 
@@ -11,9 +12,9 @@ const stränder = [
     namn: 'Caló des Moro',
     region: 'Östkusten · Santanyí',
     typ: 'Stenvik · Kristallklart vatten',
-    beskrivning: 'Caló des Moro är utan tvekan en av Mallorcas allra vackraste stränder. Det turkosa vattnet är så klart att du kan se botten på 8 meters djup. Stranden är liten – bara 30 meter bred – vilket gör att den snabbt fylls på sommaren.',
-    insider: 'Kom senast kl. 8.30 på högsommaren. Parkeringen längs vägen är begränsad till 20–30 bilar. Alternativt: parkera i Cala Llombards och vandra 25 min.',
-    gps: '39.3289° N, 3.2158° E',
+    beskrivning: 'Caló des Moro är utan tvekan en av Mallorcas allra vackraste stränder. Det turkosa vattnet är så klart att du ser botten långt ut i viken. Stranden är liten – bara omkring 40 meter – vilket gör att den snabbt fylls på sommaren.',
+    insider: 'Kom senast kl. 8.30 på högsommaren. Parkeringen är liten, och sista biten – ungefär en kilometer från vägen mot S’Almunia – går du till fots.',
+    gps: '39.3138° N, 3.1215° E',
     bästaTid: 'Juni eller september – juli och augusti är för trångt',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg', bildAlt: 'Caló des Moro sedd från klipporna – turkost vatten mellan kalkstensklippor och tallskog',
   },
@@ -21,22 +22,22 @@ const stränder = [
     rank: 2,
     namn: 'Es Trenc',
     region: 'Sydkusten · Campos',
-    typ: 'Sandstrand · 3 km lång',
-    beskrivning: 'Es Trenc kallas Mallorcas Karibien – och det är förtjänt. Den 3 kilometer långa stranden med vit sand och turkost vatten är skyddad som naturreservat, vilket innebär inga hotell, inga parasoll att hyra och minimal kommersialisering.',
-    insider: 'Ta med allt själv – det finns en matvagn men ingenting annat. Naturistdelen börjar längst till höger om du är vänd mot havet. Bästa parkeringen är vid Ses Covetes (norra änden) – billigare och kortare kö.',
+    typ: 'Sandstrand · ca 2 km lång',
+    beskrivning: 'Es Trenc kallas Mallorcas Karibien – och det är förtjänt. Den drygt 2 kilometer långa stranden med vit sand och turkost vatten ligger i ett skyddat naturområde, vilket innebär inga hotell och lite kommersialisering.',
+    insider: 'Ta med vatten och skugga – servicen längs stranden är begränsad. En del av stranden används av naturister. Parkeringarna kostar pengar och fylls tidigt; bussen från Campos är ett alternativ.',
     gps: '39.3447° N, 2.9758° E',
-    bästaTid: 'Maj och september – stranden är 3 km lång, men parkeringen räcker inte till på sommaren',
+    bästaTid: 'Maj och september – stranden är lång, men parkeringen räcker inte till på sommaren',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Es_Trenc%2C_playa%2C_al_fondo_Sa_R%C3%A1pita.jpg/1920px-Es_Trenc%2C_playa%2C_al_fondo_Sa_R%C3%A1pita.jpg', bildAlt: 'Klart, grunt vatten vid den långa sandstranden Es Trenc',
   },
   {
     rank: 3,
     namn: 'Cala Mondragó',
     region: 'Östkusten · Portopetro',
-    typ: 'Naturreservat · Snorkling',
-    beskrivning: 'Cala Mondragó är ett av Mallorcas naturreservat och består av två sammankopplade vikar – S\'Amarador och Cala Mondragó. Vattnet är kristallklart och fullt av marint liv. Snorkling här är en upplevelse i världsklass.',
-    insider: 'Snorkla tidigt på morgonen innan båtarna börjar trafikera viken. Hyr utrustning i byn Portopetro (5 min i bil) – det är billigare än på stranden.',
+    typ: 'Naturpark · Snorkling',
+    beskrivning: 'Cala Mondragó ligger i Mondragó naturpark och består av två sammankopplade vikar – s\'Amarador och Cala Mondragó. Vattnet är kristallklart och fullt av marint liv – här är snorklingen riktigt fin.',
+    insider: 'Snorkla tidigt på morgonen innan båtarna börjar trafikera viken. Ta med egen snorkelutrustning – Portopetro ligger bara några minuter bort med bil.',
     gps: '39.3489° N, 3.1858° E',
-    bästaTid: 'Maj till oktober – reservatet är öppet hela året men bäst sikt under sen sommar',
+    bästaTid: 'Maj till oktober – naturparken är öppen hela året',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg', bildAlt: 'Cala Mondragó – turkos vik med förankrade båtar och klippor med tallar',
   },
   {
@@ -44,8 +45,8 @@ const stränder = [
     namn: 'Cala Figuera',
     region: 'Sydkusten · Santanyí',
     typ: 'Pittoresk fiskeby · Klart vatten',
-    beskrivning: 'Cala Figuera är inte en traditionell badstrand – det är en liten fiskeby med en av Mallorcas vackraste naturhamnar. Klipphyllor att hoppa från, smaragdgrönt vatten och fiskebåtar som glider förbi.',
-    insider: 'Bästa klipphoppen finns på norra sidan av viken. Parkeringen är gratis men begränsad. Ät frukost på Café Cala Figuera med utsikt över hamnen.',
+    beskrivning: 'Cala Figuera är inte en traditionell badstrand – det är en liten fiskeby med en av Mallorcas vackraste naturhamnar. Klipphyllor att bada från, smaragdgrönt vatten och fiskebåtar som glider förbi.',
+    insider: 'Parkeringen är begränsad, så kom tidigt. Ta en frukost eller lunch på något av kaféerna med utsikt över hamnen.',
     gps: '39.3281° N, 3.1692° E',
     bästaTid: 'Hela säsongen – minst turister tidigt på morgonen',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Strukturen_am_Wasser_002_2017_11_14.jpg/1920px-Strukturen_am_Wasser_002_2017_11_14.jpg', bildAlt: 'Fiskarhus med båtgarage och båtar i hamnviken i Cala Figuera',
@@ -56,9 +57,9 @@ const stränder = [
     region: 'Norr · Alcúdia',
     typ: 'Sandstrand · Familjevänlig',
     beskrivning: 'Platja de Muro är Mallorcas bästa familjestrand. 5 km sandstrand med grunt vatten, bra service och ett lugnt hav som gör den perfekt för barn i alla åldrar.',
-    insider: 'Undvik hotellsektionen mitt på stranden – gå 500 m söderut mot Cap des Pinar för lugnare och vackrare avsnitt med färre turister.',
+    insider: 'Mitt för de stora hotellen är det trängst – gå en bit längs stranden, gärna mot sanddynerna, för lugnare avsnitt med färre turister.',
     gps: '39.8201° N, 3.1142° E',
-    bästaTid: 'Maj–oktober. Vattnet håller jämn temperatur hela säsongen.',
+    bästaTid: 'Maj–oktober. Varmast i vattnet juli–september.',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Platja_de_Muro_R02.jpg/1920px-Platja_de_Muro_R02.jpg', bildAlt: 'Platja de Muro – sandstrand och grunt vatten med utsikt över Alcúdiabukten',
   },
 ];
@@ -134,16 +135,16 @@ export default function BästaSträndernaGuide() {
         <section className={styles.list}>
           <h2 className={`${h.h2} ${styles.listTitle}`}>Stränder 6–15: hela listan</h2>
           {[
-            { rank: 6, namn: 'Cala Agulla', region: 'Nordöst · Capdepera', tips: 'Skyddad nationalpark, bra surf tidiga morgnar.' },
+            { rank: 6, namn: 'Cala Agulla', region: 'Nordöst · Capdepera', tips: 'Blå flagg och tallskog i ett skyddat naturområde nära Cala Rajada.' },
             { rank: 7, namn: 'Cala Pi', region: 'Sydkust · Llucmajor', tips: 'Smal vik med klippväggar – en av öns vackraste silhuetter.' },
-            { rank: 8, namn: 'Cala Llombards', region: 'Sydkust · Santanyí', tips: 'Lugn, grund och barnvänlig. Lokalt kafé med hembakat.' },
-            { rank: 9, namn: 'Platja de Formentor', region: 'Nordkust · Pollença', tips: 'Bussbiljett krävs juli–aug – inga privata bilar tillåts.' },
+            { rank: 8, namn: 'Cala Llombards', region: 'Sydkust · Santanyí', tips: 'Lugn och avskild vik med klippor runt om. Liten strandbar på plats.' },
+            { rank: 9, namn: 'Platja de Formentor', region: 'Nordkust · Pollença', tips: 'Dagtid mitten av maj–mitten av oktober begränsas biltrafiken – ta bussen eller båten från Port de Pollença.' },
             { rank: 10, namn: 'Cala Rajada', region: 'Nordöst', tips: 'Livlig sommardestination med bra restauranger längs stranden.' },
             { rank: 11, namn: 'Cala Major', region: 'Väst · Palma', tips: 'Den närmaste hyggliga stranden från Palma. 15 min med taxi.' },
             { rank: 12, namn: 'Platja de Palma', region: 'Palma', tips: 'Lång stadsstrand med allt – bra om du inte har bil.' },
-            { rank: 13, namn: 'Cala Santanyí', region: 'Sydkust', tips: 'Pittoresk, med lokalt kafé och klart, turkost vatten.' },
+            { rank: 13, namn: 'Cala Santanyí', region: 'Sydkust', tips: 'Pittoresk vik med klart, turkost vatten.' },
             { rank: 14, namn: 'Cala Mesquida', region: 'Nordöst · Capdepera', tips: 'Sand, sanddyner och ibland surfvågor. Lugnt och vackert.' },
-            { rank: 15, namn: 'Es Caragol', region: 'Sydkust (kräver 40 min vandring)', tips: 'Mallorcas mest orörda strand. Inga vägar dit – ta med vatten.' },
+            { rank: 15, namn: 'Es Caragol', region: 'Sydkust (kräver promenad)', tips: 'En av Mallorcas mest orörda stränder. Ingen väg ända fram – gå längs kusten från fyren vid Ses Salines och ta med vatten.' },
           ].map((s) => (
             <div key={s.rank} className={styles.row}>
               <span className={styles.rowRank}>{s.rank}.</span>
@@ -161,6 +162,16 @@ export default function BästaSträndernaGuide() {
           <p className={styles.ctaText}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
           <Link href="/strandar" className={styles.ctaButton}>SE ALLA 30 STRÄNDER →</Link>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          note="Fakta om längd, service och tillgänglighet följer strandsidan, som granskades samtidigt."
+          sources={[
+            { label: 'Spain.info: Caló des Moro', href: 'https://www.spain.info/fr/plage/calo-d-es-moro-santanyi/' },
+            { label: 'DGT: trafik till Formentor 2026', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
+            { label: 'Consell de Mallorca: stränder', href: 'https://www.infomallorca.net' },
+          ]}
+        />
       </div>
     </div>
   );

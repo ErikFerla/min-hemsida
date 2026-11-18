@@ -6,6 +6,14 @@ import { isUnsplash, ogImageUrl } from '@/app/lib/image-url';
 export const BASE_URL = 'https://www.mymallorca.se';
 const SITE_NAME = 'MyMallorca';
 
+/** Standardbild för delning: katedralen La Seu i solnedgång – Diego Delso, CC BY-SA 4.0 (se /bildkrediter). */
+export const DEFAULT_OG_IMAGE = {
+  url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1280px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg',
+  width: 1280,
+  height: 853,
+  alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus',
+};
+
 /** Sidtitel utan sajtnamn (≤47 tecken); title.template i app/layout.tsx lägger till " | MyMallorca". */
 export function cityTitle(c: City): string {
   return c.seo.title ?? `${c.name} på Mallorca – reseguide`;

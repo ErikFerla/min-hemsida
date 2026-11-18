@@ -50,7 +50,7 @@ export default function Vader() {
             havet är som varmast, medan januari ger runt {fmt(jan.max)} °C på dagen och kalla nätter. Mest regn
             faller under hösten – oktober är den blötaste månaden med i snitt {okt.rainMm} mm.
           </p>
-          <ClimateTable headingId="klimat-heading" />
+          <ClimateTable />
           <p className={styles.climateNote}>
             Siffrorna kommer från flygplatsen strax öster om Palma. Vid kusten är nätterna ofta något mildare, och i
             Serra de Tramuntana är det svalare och regnar mer. Vill du veta vilken månad som passar just det du vill

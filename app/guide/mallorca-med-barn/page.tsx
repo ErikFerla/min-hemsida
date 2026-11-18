@@ -3,6 +3,7 @@ import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/compon
 import Map from '@/components/Map';
 import { barnMapMarkers } from '@/data/barn-map';
 import HubLink from '../HubLink';
+import LastChecked from '@/app/components/LastChecked';
 import type { ComponentType } from 'react';
 import h from '../headings.module.css';
 import styles from './page.module.css';
@@ -18,20 +19,20 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Bästa barnvänliga stränderna',
     Icon: IconWave,
-    kortText: 'Mallorca har över 200 stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och service nära till hands.',
+    kortText: 'Mallorca har hundratals stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och service nära till hands.',
     punkter: ['Platja de Muro', 'Cala Millor', "Port d'Alcúdia", 'Cala Llombards'],
   },
   {
     rubrik: 'Vattenparker',
     Icon: IconSparkle,
-    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark mysigast, och Western Water Park har bäst tema för yngre barn.',
+    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
     punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Water Park'],
   },
   {
     rubrik: 'Djurparker & natur',
     Icon: IconBuilding,
     kortText: 'Klassiska barnattraktioner som blandar natur och underhållning – från safaripark till magiska droppstensgrottor.',
-    punkter: ['Safari Zoo Porto Cristo', 'Coves del Drac', 'Marineland'],
+    punkter: ['Safari Zoo Sa Coma', 'Coves del Drac', 'Marineland'],
   },
   {
     rubrik: 'Praktiska tips',
@@ -119,6 +120,17 @@ export default function MallorcaMedBarnGuide() {
             <Link href="/?dagar=7&intressen=familj#resplanerare" className={styles.ctaSubLink}>Gör en resplan för familjen</Link>
           </p>
         </section>
+
+        <LastChecked
+          date="2026-11-18"
+          note="Uppgifterna om parker och attraktioner följer barnsidorna, som granskades samtidigt."
+          sources={[
+            { label: 'Aqualand', href: 'https://www.aqualand.es' },
+            { label: 'Marineland Mallorca', href: 'https://www.marineland.es' },
+            { label: 'Palma Aquarium', href: 'https://www.palmaaquarium.com' },
+            { label: 'Coves del Drac', href: 'https://www.cuevasdeldrach.com' },
+          ]}
+        />
       </div>
     </div>
   );

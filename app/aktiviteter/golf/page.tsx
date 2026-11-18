@@ -6,6 +6,7 @@ import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
 import type { CSSProperties } from 'react';
 import GolfRegionFilter from './GolfRegionFilter';
+import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
 
 const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
@@ -43,8 +44,8 @@ export default function GolfPage() {
         alt="Green på Pula Golf vid Son Servera med berg i bakgrunden"
         photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Aktiviteter på Mallorca"
-        title="22 golfbanor på Mallorca"
-        subtitle="Komplett guide till alla golfbanor – för alla nivåer och budgetar"
+        title={`${golfbanor.length} golfbanor i vår guide`}
+        subtitle="Öns golfbanor på en karta – för alla nivåer och budgetar"
       />
 
       <div className={styles.inner}>
@@ -56,7 +57,7 @@ export default function GolfPage() {
               Utforska på karta
             </p>
             <h2 id="golf-map-title" className={styles.sectionTitle}>
-              Alla 22 golfbanor på Mallorca
+              Alla {golfbanor.length} golfbanor på kartan
             </h2>
             <p className={styles.intro}>
               Klicka på en flagga för att se banan i listan nedan. Från Alcanada i norr till Andratx i sydväst.
@@ -167,6 +168,18 @@ export default function GolfPage() {
             Läs vår golfguide →
           </Link>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          note="Prissymbolerna är ungefärliga nivåer, inte greenfee – kontrollera aktuellt pris hos banan."
+          sources={[
+            { label: 'Arabella Golf Mallorca', href: 'https://arabellagolfmallorca.com' },
+            { label: 'Golf Son Gual', href: 'https://www.golfsongual.com' },
+            { label: 'Pula Golf', href: 'https://pulagolf.com' },
+            { label: '1golf.eu: Son Servera, Pollença, Canyamel, Santa Ponsa', href: 'https://www.1golf.eu/en/club/club-de-golf-santa-ponsa-i-ii-iii' },
+            { label: 'Illes Balears: golfbanor', href: 'https://illesbalears.travel/en/mallorca/golf-course-golf-santa-ponca-i' },
+          ]}
+        />
       </div>
     </div>
   );

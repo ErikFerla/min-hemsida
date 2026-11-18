@@ -47,7 +47,7 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
     alt: 'Fairway och green på golfbanan Pula Golf vid Son Servera',
     rubrik: 'Golf i världsklass',
-    undertext: '22 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
+    undertext: 'Drygt 20 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
     plats: 'Pula Golf · Son Servera',
     lank: '/aktiviteter/golf',
     cta: 'SE GOLFBANORNA',

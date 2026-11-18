@@ -5,10 +5,10 @@ import styles from './ClimateTable.module.css';
  * Klimattabell per månad (3.3). Serverrenderad, data från data/climate.ts.
  * Rubrikceller med scope, caption och en rullbar behållare som går att nå med tangentbordet.
  */
-export default function ClimateTable({ headingId }: { headingId: string }) {
+export default function ClimateTable() {
   const yearSunPerDay = Math.round((CLIMATE_YEAR.sunHours / 365) * 10) / 10;
   return (
-    <div className={styles.scroller} role="region" aria-labelledby={headingId} tabIndex={0}>
+    <div className={styles.scroller} role="region" aria-label="Klimattabell, normalvärden per månad" tabIndex={0}>
       <table className={styles.table}>
         <caption className={styles.caption}>
           Normalvärden per månad för AEMET:s station {CLIMATE_STATION.name} ({CLIMATE_STATION.period}). Högsta

@@ -12,14 +12,35 @@ import { cityMapMarkers } from '@/data/cities';
 import FeatureCards from './components/FeatureCards';
 import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import { DEFAULT_OG_IMAGE } from '@/app/lib/city-seo';
 
 // Startsidans "Kommande evenemang" beror på dagens datum – bygg om sidan en gång per dygn.
 export const revalidate = 86400;
 
+const HOME_TITLE = 'Mallorcaguide på svenska – stränder & byar';
+const HOME_DESCRIPTION =
+  'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insidertips från Mallorca 2026.';
+
+// title.template gäller bara undersegment, så startsidan anger hela titeln själv.
 export const metadata: Metadata = {
-  title: 'Mallorcaguide på svenska – stränder & byar | MyMallorca',
-  description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insidertips från Mallorca 2026.',
+  title: { absolute: `${HOME_TITLE} | MyMallorca` },
+  description: HOME_DESCRIPTION,
   alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'MyMallorca',
+    locale: 'sv_SE',
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function Home() {

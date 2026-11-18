@@ -58,7 +58,8 @@ export function sizedImageSrcSet(src: string): string {
  */
 export function ogImageUrl(src: string, baseUrl: string): string {
   if (isUnsplash(src)) return `${src}?w=1200&h=630&fit=crop&q=85`;
-  if (isCommonsThumb(src)) return commonsThumb(src, 1280);
+  const m = src.match(COMMONS_THUMB);
+  if (m) return commonsThumb(src, Math.min(1280, Number(m[2])));
   if (src.startsWith('/')) return `${baseUrl}${nextImageUrl(src, 1280)}`;
   return src;
 }

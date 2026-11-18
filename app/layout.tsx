@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import SiteFooter from '@/components/SiteFooter';
 import { OrganizationSchema, WebSiteSchema } from '@/app/components/SchemaOrg';
+import { DEFAULT_OG_IMAGE } from '@/app/lib/city-seo';
 
 // Self-hostade fonter (latin-subset, från Fontsource, SIL OFL – se app/fonts/OFL-*.txt).
 // Bygget beror inte längre på Google Fonts.
@@ -26,10 +27,6 @@ const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
 const DEFAULT_DESCRIPTION =
   'Svensk guide till Mallorca för barnfamiljer, par och dig som bor på ön – stränder, byar, mat, vingårdar, golf och barnaktiviteter med lokala tips.';
-// Katedralen La Seu i solnedgång – Diego Delso, CC BY-SA 4.0 (se /bildkrediter).
-const DEFAULT_OG_IMAGE =
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1280px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg';
-
 // Ingen canonical här: den ärvs annars av alla sidor som saknar egen och pekar dem mot startsidan.
 // Varje sida/layout sätter sin egen självrefererande canonical via alternates.
 export const metadata: Metadata = {
@@ -45,13 +42,13 @@ export const metadata: Metadata = {
     locale: 'sv_SE',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1280, height: 853, alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus' }],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE],
+    images: [DEFAULT_OG_IMAGE.url],
   },
 };
 

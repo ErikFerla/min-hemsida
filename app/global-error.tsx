@@ -26,7 +26,6 @@ export default function GlobalError({ error, retry }: { error: unknown; retry: (
                 Försök igen
               </button>
               {/* Vanlig <a> ger en full omladdning, vilket är det säkraste när root-layouten har fallerat. */}
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
               <a href="/" className={styles.secondary}>
                 Till startsidan
               </a>

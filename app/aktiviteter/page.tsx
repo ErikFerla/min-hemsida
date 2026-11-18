@@ -5,6 +5,7 @@ import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 import styles from './page.module.css';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
+import LastChecked from '@/app/components/LastChecked';
 
 type Aktivitet = {
   titel: string;
@@ -20,24 +21,24 @@ type Aktivitet = {
 type BarnTips = { namn: string; plats: string; ålder: string; kategori: string; beskrivning: string; bild: string; bildAlt: string };
 
 const barnvanligt: BarnTips[] = [
-  { namn: 'Palma Aquarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 akvarier. Boka online för rabatt och kortare kö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG', bildAlt: 'Svartfenad revhaj i en bassäng på Palma Aquarium' },
+  { namn: 'Palma Aquarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Hajtanken Big Blue och omkring 700 arter. Köp biljetten online – ofta billigare och utan kö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG', bildAlt: 'Svartfenad revhaj i en bassäng på Palma Aquarium' },
   { namn: 'Coves del Drac', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Coves_del_Drac_01.jpg/1920px-Coves_del_Drac_01.jpg', bildAlt: 'Upplysta droppstenar inne i Coves del Drac' },
-  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg', bildAlt: 'Vattenrutschbanor på Aqualand i S\'Arenal' },
-  { namn: 'Marineland', plats: "Costa d'en Blanes", ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till en heldagsutflykt.', bild: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Delfinschow_im_Marineland_Mallorca.jpg', bildAlt: 'Delfinshow på Marineland Mallorca med publik på läktaren' },
-  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: '4D-bio, spegellabyrint och minigolf under samma tak. Perfekt vid regnväder.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/House_of_Katmandu_Palmanova_Mallorca.jpg/1920px-House_of_Katmandu_Palmanova_Mallorca.jpg', bildAlt: 'Det upp-och-nedvända huset House of Katmandu i Magaluf' },
-  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Girafa_al_safari.jpg/1920px-Girafa_al_safari.jpg', bildAlt: 'Giraff i safariparken vid Sa Coma, fotograferad från bilen' },
-  { namn: 'Glassbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Familjevänliga turer på ca 1 timme.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg/1920px-Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg', bildAlt: 'Glasbottenbåtar i hamnen i Porto Cristo (bilden är inte från Cala d\'Or)' },
-  { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', kategori: 'Äventyr', beskrivning: 'Europas längsta linbanor (ziplines) i bergsmiljö. Kombinera med vandringen i naturparken.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg/1920px-Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg', bildAlt: 'Linbana över ett vattenfall – generisk bild, inte från La Reserva' },
+  { namn: "Aqualand s'Arenal", plats: "s'Arenal", ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg', bildAlt: 'Vattenrutschbanor på Aqualand i s\'Arenal' },
+  { namn: 'Marineland', plats: "Costa d'en Blanes", ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfiner, sjölejon och papegojor med shower – lagom stort för en halvdag.', bild: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Delfinschow_im_Marineland_Mallorca.jpg', bildAlt: 'Delfinshow på Marineland Mallorca med publik på läktaren' },
+  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: 'Det upp-och-nedvända huset med inomhusattraktioner, och vattenlek i Katmandu Splash. Bra vid regnväder.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/House_of_Katmandu_Palmanova_Mallorca.jpg/1920px-House_of_Katmandu_Palmanova_Mallorca.jpg', bildAlt: 'Det upp-och-nedvända huset House of Katmandu i Magaluf' },
+  { namn: 'Safari Zoo Sa Coma', plats: 'Sa Coma', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil bland giraffer, zebror och strutsar.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Girafa_al_safari.jpg/1920px-Girafa_al_safari.jpg', bildAlt: 'Giraff i safariparken vid Sa Coma, fotograferad från bilen' },
+  { namn: 'Glasbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Turerna tar från ett par timmar upp till en heldag, ofta med badstopp.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg/1920px-Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg', bildAlt: 'Glasbottenbåtar i hamnen i Porto Cristo (bilden är inte från Cala d\'Or)' },
+  { namn: 'Jungle Parc', plats: 'Santa Ponça', ålder: '4+ år', kategori: 'Äventyr', beskrivning: 'Klätter- och linbanor bland träden. Juniorbanan är för barn från 4 år som är minst 105 cm långa.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg/1920px-Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg', bildAlt: 'Linbana över ett vattenfall – generisk bild, inte från Jungle Parc' },
 ];
 
 const aktiviteter: Aktivitet[] = [
   {
     titel: 'Golf på Mallorca',
-    beskrivning: 'Mallorca har 22 golfbanor i världsklass – från nybörjarvänliga till europeisk toppklass med fantastisk havsutsikt.',
+    beskrivning: 'Mallorca har drygt 20 golfbanor – från nybörjarvänliga till europeisk toppklass med havsutsikt.',
     Icon: IconFlag,
     href: '/aktiviteter/golf',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg', bildAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
-    highlights: ['22 golfbanor', 'Alla nivåer', 'Havsutsikt'],
+    highlights: ['Drygt 20 banor', 'Alla nivåer', 'Havsutsikt'],
   },
   {
     titel: 'Vandring i Tramuntana',
@@ -77,7 +78,7 @@ const aktiviteter: Aktivitet[] = [
     Icon: IconWave,
     href: '/aktiviteter',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Regata_Conde_de_Barcelona_-_panoramio.jpg/1280px-Regata_Conde_de_Barcelona_-_panoramio.jpg', bildAlt: 'Segelbåtar i regatta i Palmabukten',
-    highlights: ['Båtcharter', 'Guidade turer', 'Glassbottenbåt'],
+    highlights: ['Båtcharter', 'Guidade turer', 'Glasbottenbåt'],
   },
 ];
 
@@ -169,6 +170,16 @@ export default function AktiviteterPage() {
             ))}
           </div>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          sources={[
+            { label: 'Palma Aquarium', href: 'https://www.palmaaquarium.com' },
+            { label: 'Jungle Parc', href: 'https://www.jungleparc.es' },
+            { label: 'Starfish glasbottenbåtar (via CheckYeti)', href: 'https://www.checkyeti.com/en/boat-tours/spain/cala-dor/glass-bottom-boat-trips' },
+            { label: 'Unesco: Serra de Tramuntana', href: 'https://whc.unesco.org/en/list/1371' },
+          ]}
+        />
       </div>
     </div>
   );
