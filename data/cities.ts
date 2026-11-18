@@ -435,8 +435,8 @@ export const cities: City[] = [
       description: 'Santanyí i södra Mallorca – honungsgul sandsten, livlig onsdagsmarknad och konstgallerier bara minuter från Cala Llombards. Vår guide skriven inifrån.',
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mallorca-Santany%C3%AD_%28city%29-06.jpg/1920px-Mallorca-Santany%C3%AD_%28city%29-06.jpg',
-      alt: 'Gata i Santanyí med hus i honungsgul sandsten',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mallorca-Santany%C3%AD_%28city%29-14.jpg/1920px-Mallorca-Santany%C3%AD_%28city%29-14.jpg',
+      alt: 'Åkrar och lantbruksmark vid Santanyí en mulen dag, med byns hustak vid horisonten',
       kicker: 'Södra Mallorca · Marknadsby',
       subtitle: 'Charmig marknadsby i söder, känd för sin onsdagsmarknad och närheten till Cala Llombards',
     },
@@ -502,7 +502,7 @@ export const cities: City[] = [
     mapsQuery: 'Santany%C3%AD+Mallorca',
     card: {
       description: 'Charmig marknadsby känd för onsdagsmarknaden och närheten till Cala Llombards',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Mallorca-Santany%C3%AD_%28city%29-06.jpg/960px-Mallorca-Santany%C3%AD_%28city%29-06.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mallorca-Santany%C3%AD_%28city%29-14.jpg/960px-Mallorca-Santany%C3%AD_%28city%29-14.jpg',
       tip: 'Onsdagsmarknaden är bättre än lördagen',
       // Våg 1 ersatte "(5 min)" med "en kort biltur" på stadssidan – samma här.
       top3: ['Onsdagsmarknaden', 'Cala Llombards (kort biltur)', 'Gallerierna i gamla stan'],
@@ -772,8 +772,8 @@ export const cities: City[] = [
       description: 'Deià – konstnärsby i Tramuntana med havsutsikt, Robert Graves-museet och den dolda Cala Deià nedanför. Bohemisk charm få öar kan matcha. Vår lokala guide.',
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Dei%C3%A0_View.jpg/1920px-Dei%C3%A0_View.jpg',
-      alt: 'Deià sett från berget Puig Gros – stenhusen på sluttningen ner mot havet',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Dei%C3%A0%2C_Mallorca_%2813333982693%29.jpg/1920px-Dei%C3%A0%2C_Mallorca_%2813333982693%29.jpg',
+      alt: 'Deià – stenhusen på sluttningen i Tramuntanabergen',
       kicker: 'Nordvästra Mallorca · Tramuntana',
       subtitle: 'Bohemisk konstnärsby i Tramuntanabergen med havsutsikt och Robert Graves arv',
     },
@@ -823,7 +823,7 @@ export const cities: City[] = [
     mapsQuery: 'Deia+Mallorca',
     card: {
       description: 'Konstnärsby i Tramuntanabergen med bohemisk atmosfär och havsutsikt',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Dei%C3%A0_View.jpg/960px-Dei%C3%A0_View.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Dei%C3%A0%2C_Mallorca_%2813333982693%29.jpg/960px-Dei%C3%A0%2C_Mallorca_%2813333982693%29.jpg',
       tip: 'Robert Graves museum är ett måste',
       top3: ['Robert Graves museum', 'Cala Deià (bad)', 'Utsikten från kyrkan'],
     },
@@ -917,8 +917,8 @@ export const cities: City[] = [
       description: "Andratx i sydvästra Mallorca – lugn stadskärna med Port d'Andratx marina och Camp de Mar några minuter bort. Klippkullar och exklusiv atmosfär. Vår guide.",
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ANDRATX_-_MAJORKA%2C_AB-023.jpg/1920px-ANDRATX_-_MAJORKA%2C_AB-023.jpg',
-      alt: 'Hamnen i Port d’Andratx med båtar en mulen dag',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Andratx%2C_Placa_Espa%C3%B1a.jpg/1920px-Andratx%2C_Placa_Espa%C3%B1a.jpg',
+      alt: 'Plaça d’Espanya i Andratx',
       kicker: 'Sydvästra Mallorca · Tramuntana',
       subtitle: 'Lugn stadskärna i sydväst med exklusiv marina och dramatisk bergskuliss',
     },
@@ -970,7 +970,7 @@ export const cities: City[] = [
     mapsQuery: 'Andratx+Mallorca',
     card: {
       description: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina",
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ANDRATX_-_MAJORKA%2C_AB-023.jpg/960px-ANDRATX_-_MAJORKA%2C_AB-023.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Andratx%2C_Placa_Espa%C3%B1a.jpg/960px-Andratx%2C_Placa_Espa%C3%B1a.jpg',
       tip: "Port d'Andratx har öns snyggaste marina",
       top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'],
     },
@@ -1159,8 +1159,8 @@ export const cities: City[] = [
       description: 'Felanitx i östra Mallorca – traditionell stad känd för lokal keramik, vin och stor söndagsmarknad. Castell de Santueri på nära håll. Svensk guide inifrån.',
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Felanitx%2C_Mallorca%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/1920px-Felanitx%2C_Mallorca%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
-      alt: 'Felanitx med stadens hus och kyrka',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/1920px-Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
+      alt: 'Skogsklädda kullar och slätten kring Felanitx på östra Mallorca',
       kicker: 'Östra Mallorca · Keramik och marknad',
       subtitle: 'Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad',
     },
@@ -1215,7 +1215,7 @@ export const cities: City[] = [
     mapsQuery: 'Felanitx+Mallorca',
     card: {
       description: 'Traditionell stad känd för keramik, vin och söndagsmarknad',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Felanitx%2C_Mallorca%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/960px-Felanitx%2C_Mallorca%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/960px-Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
       tip: 'Köp lokal keramik direkt från hantverkarna',
       top3: ['Lokal keramik och hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'],
     },
