@@ -178,7 +178,7 @@ export const marknader: Marknad[] = [
     dagar: [2, 6],
     tid: 'förmiddag',
     vad: 'Liten veckomarknad i fiskebyn.',
-    källa: { label: 'Ajuntament de Felanitx: marknader', href: 'https://reskyt.com/en/administration/felanitx/fairs-festivals-and-markets/markets/164001.html' },
+    källa: { label: 'Reskyt (Felanitx): marknader', href: 'https://reskyt.com/en/administration/felanitx/fairs-festivals-and-markets/markets/164001.html' },
     checked: CHECKED,
   },
   {
