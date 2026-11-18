@@ -694,10 +694,11 @@ export const cities: City[] = [
     about: [
       'Valldemossa är en av Mallorcas mest berömda byar, inte minst tack vare den polska tonsättaren Frédéric Chopin och hans älskarinna George Sand som tillbringade vintern 1838–39 i kartusianklostret Real Cartuja. Byn är förtrollande vacker med stenhus täckta av blommor och smala gränder som slingrar sig uppför bergssluttningarna.',
       'Kartusianklostret är öppet för besökare och innehåller Chopins piano, George Sands originalhandskrifter och en privat kyrka med keramikkupoler. Byn är också känd för sina lokala bakelser – coca de patata – som säljs på torget.',
+      'Valldemossa är också födelseort för Santa Catalina Thomàs (född 1531), Mallorcas enda helgon, som här kallas la Beata. Hennes födelsehus på Carrer de la Rectoria bakom kyrkan Sant Bartomeu är i dag ett litet kapell. Titta efter de målade kakelplattorna vid husens ytterdörrar – många föreställer henne, med en bön på katalanska.',
     ],
     tips: [
       'Kom tidigt på morgonen – turistbussarna anländer efter 10',
-      'Klostret stänger söndagar – planera runt det',
+      'Klostret har kortare öppettider på söndagar och vintertid – kontrollera innan du åker',
       'Prova coca de patata vid torgets bageri – en lokal klassiker',
       'Promenera ut ur byn norrut för fantastisk utsikt över bergen',
     ],
@@ -713,7 +714,7 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Nordväst, 18 km från Palma' },
       { label: 'Bil', value: 'Ca 25 min från Palma' },
-      { label: 'Klostret', value: 'Stängt söndagar – kontrollera öppettider' },
+      { label: 'Klostret', value: 'Kortare tider söndagar och vinter – kontrollera' },
       { label: 'Känd för', value: 'Chopin, kloster, bergsby' },
       { label: 'Tips', value: 'Parkera utanför byn och gå in' },
     ],
@@ -728,10 +729,21 @@ export const cities: City[] = [
         areas: [
           { name: 'I byn.', text: 'Ett fåtal små hotell och lägenheter i stenhusen. Passar par som vill ha lugna kvällar och tidiga morgnar i gränderna.' },
           { name: 'Fincor i bergen.', text: 'Agroturismer och lantgårdshotell på sluttningarna runt byn, ofta med utsikt mot havet. Bil behövs.' },
+          { name: 'Palma som bas.', text: 'Valldemossa är den Tramuntanaby som går lättast att besöka från Palma – med bil eller buss 203 är du uppe i bergen på en kort stund. Bra för barnfamiljer som vill ha stranden och stadens utbud nära.' },
         ],
       },
       eat: {
         intro: 'Valldemossas specialitet är coca de patata – ett lätt, fluffigt bakverk gjort på potatis och pudrat med socker. Köp ett på något av bagerierna och ät det med en kaffe på torget. Till lunch passar mallorkinska klassiker som pa amb oli.',
+        dishes: [
+          'Coca de patata med en kaffe på torget',
+          'Pa amb oli – bröd med olivolja, tomat, ost och korv – till lunch',
+          'Fisk och skaldjur nere vid havet i Port de Valldemossa',
+        ],
+        tips: ['Restaurangerna längs huvudgatan fylls mitt på dagen när bussarna kommer. Ät tidig lunch eller vänta till eftermiddagen.'],
+      },
+      beaches: {
+        names: ['Cala Estellencs', 'Port de Sóller'],
+        text: 'Byns egen badplats är Port de Valldemossa, en liten stenstrand nere vid havet. Vägen dit är smal, brant och kurvig, och parkeringsplatserna är få. Längre söderut längs kusten ligger Cala Estellencs, och den närmaste sandstranden finns i Port de Sóller.',
       },
       market: {
         days: 'Söndagar, förmiddag',
@@ -739,10 +751,17 @@ export const cities: City[] = [
       },
       bestTime: [
         'Kom tidigt på morgonen eller sent på eftermiddagen, oavsett årstid – mitt på dagen fylls byn av dagsturister. Våren och hösten är bäst för vandring i bergen runt byn.',
-        'Real Cartuja har enligt biljettförsäljarna öppet måndag–lördag och stängt på söndagar. Kontrollera öppettiderna innan du åker.',
+        'Real Cartuja har kortare öppettider på söndagar och under vinterhalvåret, och uppgifterna skiljer sig mellan olika källor. Kontrollera öppettiderna innan du åker.',
+        { text: 'I slutet av juli firar byn la Beata med en vecka av fest. Den 28 juli rullar Carro Triomfal, en blomstersmyckad vagn med musik och dans, genom gatorna. I augusti hålls Festival Chopin med pianokonserter i klostret. Fler evenemang hittar du i vår kalender.', link: { href: '/evenemang', label: 'Evenemang på Mallorca →' } },
+      ],
+      families: [
+        'Klosterbesöket är lagom långt för barn, och gränderna med de målade kakelplattorna blir en skattjakt – vem hittar flest bilder av la Beata? Festen den 28 juli, med vagnen och musiken genom byn, är en stor upplevelse för barn.',
+        'Någon barnstrand finns inte här: stenstranden i Port de Valldemossa passar inte små barn. Kombinera hellre bergsbyn med en eftermiddag på stranden i Port de Sóller.',
+        { text: 'Fler idéer för barnfamiljer hittar du i vår barnguide.', link: { href: '/barn', label: 'Mallorca med barn →' } },
       ],
       couples: [
         'Kombinera Valldemossa med Deià längs Ma-10, en av öns vackraste bilvägar, och stanna vid utsiktsplatserna över havet. Avsluta dagen i Sóller eller Port de Sóller.',
+        'I klostret hålls korta pianokonserter i kungapalatset Palau del Rei Sanç flera gånger om dagen, och i augusti spelas Chopin på kvällarna under Festival Chopin. Boka festivalbiljetter i god tid – konserterna har få platser.',
       ],
     },
     checked: CHECKED,
@@ -750,6 +769,11 @@ export const cities: City[] = [
       { label: 'TIB: linje 203', href: 'https://www.tib.org/es/w/avis-prova-pilot-203' },
       { label: 'Mallorca.com: marknaden i Valldemossa', href: 'https://www.mallorca.com/es/agenda/mercats/wochenmarkt-valldemossa' },
       { label: 'Barceló: Real Cartuja de Valldemossa', href: 'https://www.barcelo.com/guia-turismo/es/espana/mallorca/que-ver/cartuja-de-valldemossa/' },
+      { label: 'Spain.info: Festival de piano Frédéric Chopin', href: 'https://www.spain.info/es/agenda/festival-piano-frederic-chopin/' },
+      { label: 'Planomato: pianokonserter i Cartuja de Valldemossa', href: 'https://planomato.com/es/palma-de-mallorca/n/recitales-piano-musica-clasica-tramuntana' },
+      { label: 'Mallorca.com: Casa natal de Santa Catalina Thomàs', href: 'https://www.mallorca.com/en/guide/sights/casa-natal-de-santa-catalina-thomas' },
+      { label: 'Mallorca.com: Missa i processó solemne Valldemossa 2026', href: 'https://www.mallorca.com/ca/agenda/missa-i-processo-solemne-valldemossa-2026-1c03aa' },
+      { label: 'Spain.info: Port de Valldemossa', href: 'https://www.spain.info/es/playa/port-valldemossa/' },
     ],
     mapsQuery: 'Valldemossa+Mallorca',
     card: {
@@ -779,12 +803,13 @@ export const cities: City[] = [
     },
     about: [
       'Deià är en av Mallorcas mest romantiska och konstnärliga byar. Inbyggd i en bergssluttning med utsikt mot Medelhavet har den lockat konstnärer, författare och musiker i generationer. Den brittiske poeten Robert Graves levde och dog här, och hans hus är nu ett museum öppet för besökare.',
-      'Cala Deià – en liten klippbadstrand nedanför byn – är en av Mallorcas vackraste och mest avskilda badplatser. Promenaden ner tar ungefär 20 minuter och belöningen är ett turkost hav omgivet av klippor och pinjeskog.',
+      'Cala Deià – en liten klippbadstrand nedanför byn – är en av Mallorcas vackraste och mest avskilda badplatser. Promenaden ner tar ungefär 20–30 minuter och belöningen är ett turkost hav omgivet av klippor och pinjeskog.',
+      'Graves lät bygga huset Ca n’Alluny i utkanten av byn 1932, och sedan 2006 är det museum. Han ligger begravd på den lilla kyrkogården vid kyrkan Sant Joan Baptista uppe på kullen mitt i byn – gå upp dit för utsikten över dalen och havet.',
     ],
     tips: [
       'Robert Graves hus är museum i dag – kontrollera öppettiderna innan du åker',
       'Promenera ner till Cala Deià tidigt – på eftermiddagen är det fullt',
-      "Restaurang Ca'n Quet har en av öns bästa terrasser med utsikt",
+      'Flera restauranger i byn har terrasser med utsikt över dalen – boka bord till solnedgången på sommaren',
       'Parkera utanför byn – gatorna är mycket smala',
     ],
     highlights: {
@@ -799,26 +824,59 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Nordväst, 30 km från Palma' },
       { label: 'Bil', value: 'Ca 35 min från Palma' },
-      { label: 'Cala Deià', value: '20 min till fots från byn' },
+      { label: 'Cala Deià', value: '20–30 min till fots från byn' },
       { label: 'Känd för', value: 'Robert Graves, konst, natur' },
       { label: 'Bästa tid', value: 'Vår och tidig höst' },
     ],
     guide: {
       getThere: [
-        { mode: 'Buss', text: 'TIB-linje 203 går från Palma via Valldemossa till Deià och vidare till Sóller och Port de Sóller. Sommartid är bussarna ofta fulla.' },
-        { mode: 'Bil', text: 'Kör via Valldemossa och följ bergsvägen Ma-10 längs kusten, eller kom från Sóller åt andra hållet. Vägen är smal och kurvig, och parkeringen i byn är mycket begränsad.' },
+        { mode: 'Buss', text: 'TIB-linje 203 går från Palma via Valldemossa till Deià och vidare till Sóller och Port de Sóller. Sommartid är bussarna ofta fulla. Bussen passar också bra ihop med vandringsleden GR 221, som går mellan Deià och Sóller via småbyn Llucalcari: räkna med 3–4 timmar till fots i lugn takt och ta bussen tillbaka.' },
+        { mode: 'Bil', text: 'Kör via Valldemossa och följ bergsvägen Ma-10 längs kusten, eller kom från Sóller åt andra hållet. Vägen är smal och kurvig, och parkeringen i byn är mycket begränsad. Nere vid Cala Deià är platserna få och avgiftsbelagda – ställ hellre bilen på någon av byns parkeringar och gå ner.' },
         { mode: 'Från flygplatsen', text: 'Ingen direktbuss – ta buss A1 in till Palma och byt till linje 203.' },
       ],
+      stay: {
+        intro: 'Deià är litet, och boendet är därefter: få och ofta dyra rum. Bestäm dig för om du vill ha bylivet eller lugnet utanför.',
+        areas: [
+          { name: 'I byn.', text: 'Små hotell och rum i gamla stenhus längs huvudgatan och sluttningen upp mot kyrkan. Passar par som vill gå till middagen och ha byn för sig själva när dagsturisterna har åkt.' },
+          { name: 'Fincor och lantställen i dalen.', text: 'Lugnt bland olivterrasserna, ofta med havsutsikt, men du behöver bil – och vägarna är smala.' },
+          { name: 'Sóller som bas.', text: 'Vill du ha större utbud, bättre bussförbindelser och en sandstrand för barnen bor du i Sóller eller Port de Sóller, en kort bit bort längs Ma-10.' },
+        ],
+      },
+      eat: {
+        intro: 'För att vara en så liten by har Deià många restauranger, och flera har terrasser med utsikt över dalen. Prisnivån är högre än på de flesta håll på ön. Vill du äta enklare tar du pa amb oli – bröd med olivolja, tomat och pålägg – på ett av kaféerna längs huvudgatan.',
+        dishes: [
+          'Fisk och skaldjur från kusten, bland annat den röda räkan gamba de Sóller som fiskas på djupt vatten utanför den här delen av Tramuntana',
+          'Pa amb oli med oliver och ost från ön',
+          'Lokal olivolja från terrasserna runt byn',
+        ],
+      },
+      beaches: {
+        names: ['Port de Sóller', 'Cala Tuent', 'Sa Calobra'],
+        text: 'Byns egen badplats är Cala Deià, en stenig vik med klart vatten nedanför byn. Stigen ner går längs bäckfåran Torrent Major. Närmaste sandstrand ligger i Port de Sóller, och längre norrut längs Tramuntanakusten finns Cala Tuent och Sa Calobra.',
+      },
       bestTime: [
         'Våren och tidig höst är bäst: behagligt för vandring längs bergsstigarna och fortfarande varmt nog för ett dopp i Cala Deià. Under högsommaren är det trångt både i byn och nere vid viken – gå ner tidigt.',
+        'Vintertid är byn stilla och många restauranger håller stängt, men det är fint vandringsväder längs GR 221 och du har utsikten för dig själv.',
+      ],
+      families: [
+        'Deià passar bäst för en dagsutflykt med barn. Gränderna är branta och smala, och Cala Deià är en stenig vik utan sand – ta med badskor. Promenaden ner tar 20–30 minuter, och vägen upp igen tar längre tid för små ben.',
+        { text: 'Vill ni ha sandstrand och grunt vatten är Port de Sóller närmast. Fler tips för barnfamiljer hittar du i vår barnguide.', link: { href: '/barn', label: 'Mallorca med barn →' } },
       ],
       couples: [
         'Deià är en av Mallorcas mest romantiska byar. Kombinera ett besök i Robert Graves hus med lunch på en terrass med havsutsikt och kvällen i Sóller.',
+        'Mellan Deià och Valldemossa ligger Son Marroig, ärkehertigen Ludwig Salvators gamla gård, i dag ett litet museum med utsikt mot klippudden Sa Foradada. Stanna där på vägen, eller vandra GR 221 till Sóller och åk buss tillbaka.',
+        { text: 'Fler idéer för en resa på tu man hand hittar du i vår guide för par.', link: { href: '/mallorca-for-par', label: 'Mallorca för par →' } },
       ],
     },
     checked: CHECKED,
     sources: [
       { label: 'TIB: linje 203', href: 'https://www.tib.org/es/w/avis-prova-pilot-203' },
+      { label: 'Serra de Tramuntana (Consell de Mallorca): Robert Graves a Deià', href: 'https://serradetramuntana.net/en/-/robert-graves-a-deia' },
+      { label: 'Illes Balears: Museum Ca n’Alluny – Casa Museo de Robert Graves', href: 'https://illesbalears.travel/en/mallorca/museum-ca-nalluny-casa-museo-de-robert-graves' },
+      { label: 'Mallorca.com: Cala Deià', href: 'https://www.mallorca.com/en/guide/beaches/cala-deia' },
+      { label: 'Serra de Tramuntana (Consell de Mallorca): Son Marroig', href: 'https://serradetramuntana.net/-/sonmarroig' },
+      { label: 'Consell de Mallorca: GR 221, etapp Can Boi–Muleta', href: 'https://caminsdepedra.conselldemallorca.cat/-/etapa-4-can-boi-muletta' },
+      { label: 'Illes Balears: la gamba de Sóller', href: 'https://illesbalears.travel/en/mallorca/local-product-la-gamba-de-soller' },
     ],
     mapsQuery: 'Deia+Mallorca',
     card: {
@@ -924,7 +982,8 @@ export const cities: City[] = [
     },
     about: [
       "Andratx är en dubbel destination – den lugna stadskärnan uppe i en dal och den exklusiva Port d'Andratx nere vid havet. Stadskärnan har en avslappnad autenticitet med en onsdagsmarknad och ett levande torgliv, medan hamnen är en av Mallorcas snyggaste med lyxiga segelbåtar och exklusiva restauranger.",
-      'Centre Cultural Andratx är ett av öns bästa konstgallerier och är värt ett besök oavsett om du är konstintresserad eller bara vill njuta av den vackra byggnaden och trädgården. Camp de Mar strax norr om hamnen är en av de finaste stränderna i sydväst.',
+      'Centre Cultural Andratx är ett av öns bästa konstgallerier och är värt ett besök oavsett om du är konstintresserad eller bara vill njuta av den vackra byggnaden och trädgården. Camp de Mar, mellan hamnen och Peguera, är en av de finaste stränderna i sydväst.',
+      'Längst ut mot väster ligger fiskeläget Sant Elm med utsikt mot ön Sa Dragonera, i dag naturpark. Härifrån går båtar över till ön, och vandringsleden upp till ruinerna av klostret Sa Trapa, där trappistmunkar en gång odlade terrasserna, är en av de finaste i sydväst.',
     ],
     tips: [
       "Port d'Andratx vid solnedgång – bäst sett från kajen med ett glas cava",
@@ -937,7 +996,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Andratx',
       items: [
         "Port d'Andratx marina – en av öns snyggaste hamnar med lyxbåtar och terrasser",
-        'Camp de Mar-stranden – lugn och vacker sandstrand norr om hamnen',
+        'Camp de Mar-stranden – lugn och vacker sandstrand öster om hamnen',
         'Centre Cultural Andratx – samtidskonst i en vacker miljö',
       ],
     },
@@ -951,14 +1010,52 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Följ Ma-1 från Palma längs sydvästkusten till Andratx. Port d’Andratx ligger en kort bit nedanför byn vid havet.' },
-        { mode: 'Buss', text: 'TIB-linje 101 går från Palma längs motorvägen Ma-1 till Camp de Mar, Andratx och Port d’Andratx. Linje 102 går till Peguera. Tidtabeller finns på tib.org.' },
+        { mode: 'Buss', text: 'TIB-linje 101 går från Palma längs motorvägen Ma-1 till Camp de Mar, Andratx och Port d’Andratx. Linje 102 går till Peguera. Lokalt går linje 121 mellan Andratx, Port d’Andratx, S’Arracó och Sant Elm, och linje 131 binder ihop Andratx med bergsbyarna Estellencs och Banyalbufar. Tidtabeller finns på tib.org.' },
+        { mode: 'Från flygplatsen', text: 'Sommartid går flygbussen A11 från flygplatsen via Palmanova, Santa Ponça och Peguera till Camp de Mar. Vintertid vänder den i Peguera. Till byn Andratx och hamnen byter du till linje 101, eller tar buss A1 in till Palma och byter där.' },
       ],
+      stay: {
+        intro: 'Kommunen Andratx rymmer flera olika orter. Välj efter vad du vill göra om dagarna:',
+        areas: [
+          { name: 'Port d’Andratx.', text: 'Lägenheter och hotell runt den skyddade hamnen, med restauranger och kvällspromenad längs kajen. Passar par och den som vill ha båtliv och solnedgångar.' },
+          { name: 'Camp de Mar.', text: 'En liten badort med sandstrand och lugnt vatten. Det självklara valet för barnfamiljer, och flygbussen stannar här på sommaren.' },
+          { name: 'Andratx by.', text: 'Bymiljö med torg, onsdagsmarknad och vardagsliv året runt, en kort bit upp från kusten. Bra för dig som vill bo mallorkinskt och har bil.' },
+          { name: 'Sant Elm.', text: 'Litet och lugnt fiskeläge längst i väster, med båtarna till Sa Dragonera och vandringsleder utanför dörren.' },
+        ],
+      },
+      eat: {
+        intro: 'I Port d’Andratx är det fisk och skaldjur vid kajen som gäller, ofta med utsikt över segelbåtarna. Uppe i byn Andratx äter du enklare och billigare på kaféerna och barerna runt torget.',
+        dishes: [
+          'Den röda räkan gamba de Sóller, som fiskas på djupt vatten längs kusten mellan Sóller och Port d’Andratx – dyr, men en lokal delikatess',
+          'Dagens fångst och paella vid hamnen',
+          'Pa amb oli och tapas på torget i Andratx by',
+        ],
+        tips: [{ text: 'Planera lunch och marknad i byn på onsdagen och middag vid hamnen på kvällen. Fler mattips för hela ön hittar du i vår matguide.', link: { href: '/mat', label: 'Mat på Mallorca →' } }],
+      },
+      beaches: {
+        names: ['Cala Estellencs', 'Portals Vells'],
+        text: 'Närmast ligger sandstranden i Camp de Mar, där en träbro leder ut till en liten ö med restaurang. I Sant Elm finns en liten sandstrand med utsikt mot Sa Dragonera. Längre bort ligger Cala Estellencs norrut längs Tramuntanakusten och Portals Vells på Calvià-halvön österut.',
+      },
       market: {
         days: 'Onsdagar, förmiddag',
-        text: ['Veckomarknaden hålls i byn Andratx uppe i dalen – inte nere i Port d’Andratx.'],
+        text: [
+          'Veckomarknaden hålls i byn Andratx uppe i dalen, runt torget och gatorna i centrum – inte nere i Port d’Andratx.',
+          'Enligt kommunens marknadsföreskrifter (2025) finns också en mindre marknad i Port d’Andratx på måndagar och en i S’Arracó på lördagar. Kontrollera på plats innan du åker.',
+        ],
       },
       bestTime: [
         'Maj, juni och september är bäst – varmt och lugnt, och Port d’Andratx är som vackrast vid solnedgången.',
+        'Våren och hösten är också bästa tiden för vandringen till Sa Trapa och en tur till Sa Dragonera. Naturparken har kortare öppettider på vintern, november–april.',
+        'I mitten av juli firar Port d’Andratx fiskarnas skyddshelgon Mare de Déu del Carme. Den 16 juli går en procession ut på vattnet med pyntade båtar och musik.',
+      ],
+      families: [
+        'Camp de Mar har fin sand och oftast lugnt vatten, och kommunen själv lyfter fram stranden som bra för barn. Gå ut över träbron till den lilla ön – det gillar de flesta barn.',
+        'Båtturen från Sant Elm till Sa Dragonera är kort. Ta med vatten och matsäck – service är det ont om på ön.',
+        { text: 'Fler idéer för barnfamiljer hittar du i vår barnguide.', link: { href: '/barn', label: 'Mallorca med barn →' } },
+      ],
+      couples: [
+        'Börja dagen med marknaden eller konsten på Centre Cultural Andratx, ät lunch i Camp de Mar och se solen gå ned över hamnen i Port d’Andratx.',
+        'Vandra från Sant Elm upp till Sa Trapa – leden är ca 9 km och tar runt fyra timmar, med en brant bit på slutet och utsikt över Sa Dragonera.',
+        { text: 'Fler vandringsleder hittar du i vår guide till vandring och cykling.', link: { href: '/vandring-och-cykling', label: 'Vandring och cykling →' } },
       ],
     },
     checked: CHECKED,
@@ -966,6 +1063,18 @@ export const cities: City[] = [
       { label: 'TIB: Port d’Andratx–Palma (tidtabell 2026)', href: 'https://www.tib.org/documents/20124/420683/L101,+des+de+2026.03.27.pdf/2f0109aa-6618-2b15-9617-172fb8a7a774?version=1.0&t=1774262193975' },
       { label: 'TIB: linje 101 Port d’Andratx–Palma', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/101' },
       { label: 'Mercadillos.org: marknader på onsdagar', href: 'https://mercadillos.org/en/mallorca/wednesday' },
+      { label: 'BOIB 2025: marknadsföreskrifter Andratx', href: 'https://intranet.caib.es/eboibfront/pdf/es/2025/155/1206461' },
+      { label: 'TIB: linje 121 Sant Elm–Andratx', href: 'https://www.tib.org/en/w/el-govern-i-l-ajuntament-d-andratx-col%C2%B7laboren-en-la-millora-de-la-l%C3%ADnia-de-sant-elm-del-tib-amb-un-nou-bus-que-incrementa-la-capacitat-del-servei' },
+      { label: 'TIB: linje 131 Banyalbufar–Estellencs–Andratx', href: 'https://www.tib.org/en/w/el-bus-del-tib-connecta-amb-la-l%C3%ADnia-131-els-pobles-de-banyalbufar-i-estellencs-amb-andratx-i-la-costa-de-calvia-1' },
+      { label: 'TIB: sommartidtabeller 2026 (A11)', href: 'https://www.tib.org/en/w/el-govern-millora-el-servei-de-bus-tib-amb-l-increment-de-freq%C3%BC%C3%A8ncies-en-els-nous-horaris-d-estiu-a-partir-d-aquest-divendres' },
+      { label: 'Govern de les Illes Balears: Parc natural de sa Dragonera', href: 'https://www.caib.es/sites/espaisnaturalsprotegits/ca/parc_natural_de_sa_dragonera/' },
+      { label: 'Mallorca.com: Playa de Camp de Mar', href: 'https://www.mallorca.com/es/guia/playas/playa-de-camp-de-mar' },
+      { label: 'Mallorca.com: La Trapa', href: 'https://www.mallorca.com/es/guia/lugares-de-interes/la-trapa' },
+      { label: 'Click Mallorca: vandringen till La Trapa', href: 'https://www.click-mallorca.com/blog/visitar/rutas/excursion-la-trapa' },
+      { label: 'The Calendar Mallorca: Festes de la Mare de Déu del Carme 2026, Port d’Andratx', href: 'https://thecalendarmallorca.com/events/festes-de-la-mare-de-deu-del-carme-2026-port-dandratx/' },
+      { label: 'Mallorca.com: CCA Andratx 2026', href: 'https://www.mallorca.com/en/agenda/nothing-to-declare-cca_andratx-2026-95cb4d' },
+      { label: 'Illes Balears: la gamba de Sóller', href: 'https://illesbalears.travel/en/mallorca/local-product-la-gamba-de-soller' },
+      { label: 'Ultima Hora: la gamba vuelve a Sóller y Andratx', href: 'https://www.ultimahora.es/noticias/part-forana/2016/09/02/217934/gamba-vuelve-soller-andratx-forma-tan-repentina-como-desaparecio.html' },
     ],
     mapsQuery: 'Andratx+Mallorca',
     card: {
@@ -1486,9 +1595,10 @@ export const cities: City[] = [
     about: [
       'Port de Sóller är en av Mallorcas mest pittoreska hamnbyar med en naturlig rundad vik omgiven av Tramuntanabergen. Nås med den historiska spårvagnen från Sóller – en upplevelse i sig.',
       'Hamnen omges av restauranger och kaféer med utsikt mot det blågröna Medelhavet. Viken är skyddad och lugn, perfekt för simning och snorkling. På kvällen samlas besökare längs promenaden för att se solen gå ned bakom bergen.',
+      'Viken har två stränder: Platja d’en Repic i söder, lugnare och nära spårvagnens ändhållplats, och Platja des Través vid strandpromenaden. På norra sidan ligger den gamla fiskarstadsdelen Santa Caterina, och längst ut på udden står fyren vid Cap Gros, byggd 1859.',
     ],
     tips: [
-      'Ta spårvagnen från Sóller – 15 min och passa på att sitta utomhus',
+      'Ta spårvagnen från Sóller – ca en halvtimme, och passa på att sitta i de öppna vagnarna',
       'Solnedgången vid hamnen är bland de vackraste på hela ön',
       'Hyr kajak direkt vid stranden och paddla ut i viken',
       'Lunch på någon av restaurangerna med havsutsikt vid hamnen',
@@ -1504,19 +1614,37 @@ export const cities: City[] = [
     },
     practical: [
       { label: 'Plats', value: 'Nordväst, 30 km från Palma' },
-      { label: 'Spårvagn', value: '15 min från Sóller' },
+      { label: 'Spårvagn', value: 'Ca 30 min från Sóller' },
       { label: 'Känd för', value: 'Hamn, spårvagn, natur' },
       { label: 'Stränder i närheten', value: 'Platja de Port de Sóller' },
     ],
     guide: {
       getThere: [
-        { mode: 'Spårvagn', text: 'Den gamla spårvagnen går från Sóllers centrum ner till hamnen. Kommer du med Tren de Sóller från Palma byter du till spårvagnen i Sóller.' },
+        { mode: 'Spårvagn', text: 'Den gamla spårvagnen går 4,9 km från Sóllers centrum ner till hamnen på ungefär en halvtimme. Enkel resa kostar ca 10 € (2026) och betalas ombord. Kommer du med Tren de Sóller från Palma byter du till spårvagnen i Sóller. Under underhållsperioder vintertid ersätts spårvagnen ibland av buss.' },
         { mode: 'Buss', text: 'TIB-linje 204 går hela vägen från Palma via Ma-11 och tunneln till Port de Sóller, och linje 203 kommer hit via Valldemossa och Deià. Sommartid går linje 231 från Port de Sóller över bergen till Pollença och Alcúdia.' },
         { mode: 'Bil', text: 'Följ Ma-11 genom Sóllertunneln och fortsätt förbi Sóller ner till hamnen. Parkeringen nära stranden fylls snabbt på sommaren.' },
+        { mode: 'Från flygplatsen', text: 'Det finns ingen direktbuss. Ta buss A1 in till Palma och byt till linje 204, som går ända ner till hamnen.' },
+        { mode: 'Båt', text: 'Under säsongen går turbåtar från hamnen längs Tramuntanakusten till Cala Tuent och Sa Calobra – det bekvämaste sättet att se klippkusten utan att köra den kurviga bergsvägen.' },
       ],
+      stay: {
+        intro: 'Port de Sóller är litet nog att gå runt till fots. Det som skiljer är läget i viken:',
+        areas: [
+          { name: 'Längs strandpromenaden.', text: 'Hotell och lägenheter med stranden och restaurangerna utanför dörren och spårvagnen intill. Bäst för barnfamiljer.' },
+          { name: 'Santa Caterina.', text: 'Den gamla fiskarstadsdelen på norra sidan av viken, lite lugnare och med utsikt tillbaka mot bergen och solnedgången.' },
+          { name: 'Sluttningarna runt viken.', text: 'Villor och lägenheter högre upp, ofta med havsutsikt. Räkna med branta backar och gärna bil.' },
+        ],
+      },
+      eat: {
+        intro: 'Port de Sóller är en fiskehamn, och det märks på menyerna längs kajen: fisk, skaldjur och paella med utsikt över viken. Ät gärna lite senare på kvällen, när dagsturisterna har åkt.',
+        dishes: [
+          'Gamba de Sóller – den röda räkan som fiskas på djupt vatten utanför kusten. Dyr, men hamnens kändaste råvara',
+          'Grillad dagens fisk och paella vid hamnen',
+          'Glass och apelsinjuice från Sóllerdalens citrusodlingar',
+        ],
+      },
       beaches: {
         names: ['Port de Sóller', 'Sa Calobra', 'Cala Tuent'],
-        text: 'Stranden ligger mitt i byn, i en skyddad, nästan rund vik. Vill du ha mer dramatik ligger Sa Calobra och Cala Tuent längre norrut längs Tramuntanakusten.',
+        text: 'Stranden ligger mitt i byn, i en skyddad, nästan rund vik. Platja d’en Repic i söder är den lugnaste delen. Vill du ha mer dramatik ligger Sa Calobra och Cala Tuent längre norrut längs Tramuntanakusten – dit går också båtar från hamnen.',
       },
       market: {
         days: 'Lördagar i Sóller',
@@ -1524,9 +1652,16 @@ export const cities: City[] = [
       },
       bestTime: [
         'Maj, juni och september ger varmt vatten utan högsommarens trängsel. En kväll i hamnen när dagsturisterna har åkt tillbaka till Palma är det bästa Port de Sóller har att ge.',
+        'Vintertid är hamnen lugn och flera restauranger håller stängt, men det är bra vandringsväder. Kontrollera spårvagnens och tågets tidtabeller – de har uppehåll för underhåll under delar av vintern.',
       ],
       families: [
         'Viken är skyddad och stranden passar mindre barn. Spårvagnen upp till Sóller blir en egen utflykt.',
+        'Promenaden upp till vakttornet Torre Picada är en av Consell de Mallorcas skyltade familjeleder och ger fin utsikt över viken. Båtturen till Sa Calobra passar större barn som orkar en halvdag på sjön.',
+        { text: 'Fler idéer för barnfamiljer hittar du i vår barnguide.', link: { href: '/barn', label: 'Mallorca med barn →' } },
+      ],
+      couples: [
+        'Gå ut till fyren vid Cap Gros i eftermiddagsljuset. Intill fyren ligger Consell de Mallorcas vandrarhem Refugi de Muleta, och en rundslinga på ca 6 km tar dig dit och tillbaka. Avsluta med middag vid kajen när solen går ned.',
+        { text: 'Ta spårvagnen upp till Sóller för lördagsmarknaden och lunch på torget – läs mer om byn i vår guide till Sóller.', link: { href: '/soller', label: 'Sóller →' } },
       ],
     },
     checked: CHECKED,
@@ -1534,6 +1669,13 @@ export const cities: City[] = [
       { label: 'TIB: linje 203', href: 'https://www.tib.org/es/w/avis-prova-pilot-203' },
       { label: 'TIB: sommartidtabeller 2026 (linje 204 och 231)', href: 'https://www.tib.org/en/w/el-govern-millora-el-servei-de-bus-tib-amb-l-increment-de-freq%C3%BC%C3%A8ncies-en-els-nous-horaris-d-estiu-a-partir-d-aquest-divendres' },
       { label: 'Mercadillos.org: marknaden i Sóller', href: 'https://mercadillos.org/mercadillo-soller' },
+      { label: 'Ferrocarril de Sóller: tidtabeller och priser', href: 'https://trendesoller.com/eng/timetable' },
+      { label: 'Ferrocarril de Sóller: spårvagnen', href: 'https://trendesoller.com/eng/routes/tram' },
+      { label: 'Mallorca.com: Platja d’en Repic', href: 'https://www.mallorca.com/es/guia/playas/repic' },
+      { label: 'Turismepetit: Torre Picada', href: 'https://www.turismepetit.com/en/family-walks-mallorca/torre-picada-walk-port-soller/' },
+      { label: 'Komoot: Muleta och Cap Gros-fyren', href: 'https://blog.komoot.es/smarttour/e999087794/port-de-soller-muleta-refuge-and-cap-gros-lighthouse-loop' },
+      { label: 'Govern de les Illes Balears: transport marítim', href: 'https://www.caib.es/sites/transportmaritim/f/509384' },
+      { label: 'Illes Balears: la gamba de Sóller', href: 'https://illesbalears.travel/en/mallorca/local-product-la-gamba-de-soller' },
     ],
     mapsQuery: 'Port+de+Soller+Mallorca',
     card: {
