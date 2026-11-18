@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import LastChecked from '@/app/components/LastChecked';
 import styles from './sevardheter.module.css';
 
 const notisKlass: Record<string, string> = {
@@ -15,12 +16,12 @@ const sevardheter = [
     plats: 'Palma',
     kategori: 'Kyrka & kloster',
     beskrivning: 'En av Europas mest imponerande gotiska katedraler, påbörjad 1229. Antoni Gaudí renoverade interiören på 1900-talet. Utsikten från strandpromenaden är magnifik.',
-    tips: 'Bor du på Mallorca går du in gratis på fredagar (biljett i kassan samma dag). Ljusspelet genom rosfönstret sker bara två gånger per år.',
-    oppet: 'Mån–fre 10–17.15 (apr–okt, kortare på vintern), lör 10–14.15, sön stängt för turister',
+    tips: 'Bor du på Mallorca går du in gratis på fredagar (visa id-handling i kassan). Ljusspelet genom rosfönstret sker bara två gånger per år.',
+    oppet: 'Mån–fre ca 10–17.15 (apr–nov, kortare på vintern), lör ca 10–14.15, sön stängt för besökare',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Catedral_de_Santa_Mar%C3%ADa_de_Palma_de_Mallorca_in_2024.jpg/960px-Catedral_de_Santa_Mar%C3%ADa_de_Palma_de_Mallorca_in_2024.jpg',
     bildAlt: "La Seu, Palmas gotiska katedral, sedd från Parc de la Mar",
     maps: 'https://maps.google.com/?q=La+Seu+Cathedral+Palma+Mallorca',
-    redaktionellt: { typ: 'tips', text: 'Lämna väskan på hotellet – stora väskor och ryggsäckar får inte tas med in' },
+    redaktionellt: { typ: 'tips', text: 'Takterrasserna visas med en egen, dyrare biljett – inte för barn under 9 år' },
   },
   {
     namn: 'Castell de Bellver',
@@ -39,30 +40,30 @@ const sevardheter = [
     plats: 'Valldemossa',
     kategori: 'Kyrka & kloster',
     beskrivning: 'Historiskt kloster där Frédéric Chopin och George Sand bodde vintern 1838–39. Museer, konst och Mallorcas vackraste bergsby runt om.',
-    tips: 'Kom tidigt på morgonen innan turistbussarna anländer kl. 10.',
-    oppet: 'Mån–lör 9.30–18.30, sön 10–13',
+    tips: 'Kom tidigt på morgonen innan turistbussarna anländer.',
+    oppet: 'Mån–lör från ca kl. 10, kortare dagar på vintern – söndagsöppet varierar',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Valldemossa_Cartoixa_Patio-3875.jpg/960px-Valldemossa_Cartoixa_Patio-3875.jpg',
     bildAlt: "Trädgårdsgården i Kartusianklostret i Valldemossa",
     maps: 'https://maps.google.com/?q=Valldemossa+Monastery+Mallorca',
-    redaktionellt: { typ: 'varning', text: 'Fullsatt 10–14 på sommaren – kom vid öppning eller efter kl. 15' },
+    redaktionellt: { typ: 'varning', text: 'Mest folk mitt på dagen på sommaren – kom vid öppning eller sent på eftermiddagen' },
   },
   {
     namn: 'Coves del Drac',
     plats: 'Porto Cristo',
     kategori: 'Natur & grottor',
-    beskrivning: 'Dramatiska underjordiska grottor med en av världens största underjordiska sjöar – Llac Martel. Klassisk konsert på vattnet ingår i besöket.',
-    tips: 'Boka biljetter online i förväg – populäraste attraktionen på ön.',
-    oppet: 'Dagligen 10–17 (apr–okt), 10–15 (nov–mar)',
+    beskrivning: 'Dramatiska underjordiska grottor med en av världens största underjordiska sjöar – Llac Martel. Klassisk konsert på sjön och båttur ingår i biljetten.',
+    tips: 'Boka biljett med insläppstid online i förväg – en av öns mest besökta attraktioner.',
+    oppet: 'Dagligen med fasta insläppstider (färre på vintern), stängt 25 dec och 1 jan',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Coves_del_Drac_21.jpg/1920px-Coves_del_Drac_21.jpg',
     bildAlt: "Droppstenar speglas i den underjordiska sjön i Coves del Drac",
     maps: 'https://maps.google.com/?q=Coves+del+Drach+Porto+Cristo+Mallorca',
-    redaktionellt: { typ: 'tips', text: 'Boka alltid online – kassaköerna kan vara 1–2 timmar på högsäsong' },
+    redaktionellt: { typ: 'tips', text: 'Boka alltid online – köerna till kassan kan bli långa på högsäsong' },
   },
   {
     namn: 'Serra de Tramuntana',
     plats: 'Nordvästra Mallorca',
     kategori: 'Natur & landskap',
-    beskrivning: 'På Unescos världsarvslista sedan 2011. Dramatisk bergskedja med vandringsleder, olivlundar och medeltida byar. Högsta topp: Puig Major på 1 445 m.',
+    beskrivning: 'På Unescos världsarvslista sedan 2011. Dramatisk bergskedja med vandringsleder, olivlundar och medeltida byar. Högsta topp: Puig Major på 1 436 m.',
     tips: 'GR 221 ”Ruta de Pedra en Sec” är en av Europas vackraste vandringsleder.',
     oppet: 'Alltid öppet – ta med karta och vatten',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/960px-Serra_de_Tramuntana_Valldemossa_01.jpg',
@@ -75,12 +76,12 @@ const sevardheter = [
     plats: 'Norra Mallorca',
     kategori: 'Natur & landskap',
     beskrivning: 'Mallorcas dramatiska nordspets med klippor som stupar rakt ner i havet. Ikoniskt fyrtorn och en av öns vackraste utsiktsplatser.',
-    tips: 'Biltrafiken är begränsad på sommaren – ta bussen från Port de Pollença.',
+    tips: 'Vägen ut till fyren är stängd för privatbilar dagtid på sommarhalvåret – ta TIB-bussen från Port de Pollença.',
     oppet: 'Alltid öppet',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Far_de_Formentor_-_Majorca_-_01.jpg/960px-Far_de_Formentor_-_Majorca_-_01.jpg',
     bildAlt: "Den vita fyren på Cap de Formentor mot blå himmel",
     maps: 'https://maps.google.com/?q=Cap+de+Formentor+Mallorca',
-    redaktionellt: { typ: 'info', text: 'Biltillstånd krävs maj–oktober – ta bussen från Port de Pollença' },
+    redaktionellt: { typ: 'info', text: 'Privatbilar får inte köra ut till fyren dagtid 15 maj–18 oktober (2026) – ta buss 334 från Port de Pollença' },
   },
   {
     namn: "Palau de l'Almudaina",
@@ -88,11 +89,11 @@ const sevardheter = [
     kategori: 'Slott & borg',
     beskrivning: 'Kungligt palats bredvid La Seu, byggt på arabiska fundamenter. Officiellt residens för spanska kungafamiljen vid besök på Mallorca.',
     tips: 'Kombinera alltid med ett besök i katedralen – de ligger vägg i vägg.',
-    oppet: 'Mån–fre 10–18, lör 10–14',
+    oppet: 'Nyöppnat i juli 2026 efter renovering – tiderna varierar, se Patrimonio Nacional',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/335_Palau_de_l%27Almudaina_%28Palma%29%2C_palau_del_Rei%2C_fa%C3%A7ana_sud.jpg/960px-335_Palau_de_l%27Almudaina_%28Palma%29%2C_palau_del_Rei%2C_fa%C3%A7ana_sud.jpg',
     bildAlt: "Arkaderna på Palau de l'Almudainas södra fasad i Palma",
     maps: 'https://maps.google.com/?q=Palau+de+l+Almudaina+Palma+Mallorca',
-    redaktionellt: { typ: 'tips', text: 'Kombinera alltid med La Seu – de ligger 50 meter från varandra' },
+    redaktionellt: { typ: 'tips', text: 'Kombinera alltid med La Seu – de ligger vägg i vägg' },
   },
   {
     namn: 'Sa Calobra',
@@ -112,7 +113,7 @@ const sevardheter = [
     kategori: 'Konst & kultur',
     beskrivning: 'Joan Mirós egen ateljé och museum i Palma, designat av Josep Lluís Sert. Stor samling av Mirós konst i den studio han använde fram till sin död 1983.',
     tips: 'En av Europas bäst bevarade konstnärsateljéer – unik upplevelse.',
-    oppet: 'Tis–lör 10–18, sön 10–15',
+    oppet: 'Tis–lör 10–18, sön 10–15, mån stängt',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Fundaci%C3%B3_Pilar_i_Joan_Mir%C3%B3_Aussen_1.jpg/960px-Fundaci%C3%B3_Pilar_i_Joan_Mir%C3%B3_Aussen_1.jpg',
     bildAlt: "Fundació Pilar i Joan Mirós byggnader med vattenspeglar i Palma",
     maps: 'https://maps.google.com/?q=Fundacio+Miro+Mallorca+Palma',
@@ -120,11 +121,11 @@ const sevardheter = [
   },
   {
     namn: "Coves d'Artà",
-    plats: 'Capdepera',
+    plats: 'Canyamel, Capdepera',
     kategori: 'Natur & grottor',
     beskrivning: 'Dramatiska grottor vid nordostkusten med enorma stalaktiter och stalagmiter. Jules Verne ska ha inspirerats av grottan när han skrev Vingt mille lieues sous les mers.',
     tips: 'Mindre välkänd än Coves del Drac – färre turister och lika imponerande.',
-    oppet: 'Dagligen 10–17',
+    oppet: 'Dagligen ca 10–17 (nov–apr), ca 10–18 (maj–okt)',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Coves_d%27Art%C3%A0_41.jpg/960px-Coves_d%27Art%C3%A0_41.jpg',
     bildAlt: "Stor upplyst droppstensformation i Coves d'Artà",
     maps: 'https://maps.google.com/?q=Coves+d+Arta+Mallorca',
@@ -135,12 +136,12 @@ const sevardheter = [
     plats: 'Palma',
     kategori: 'Konst & kultur',
     beskrivning: 'Mallorcas viktigaste historiska museum i ett vackert renässanspalats i gamla stan. Arkeologi, konst och historia från förhistorisk tid till 1900-talet.',
-    tips: 'Gratis entré söndagar. Gamla stadens gränder runt museet är värda ett strövtåg.',
-    oppet: 'Tis–lör 10–19, sön 10–14',
+    tips: 'Gamla stadens gränder runt museet är värda ett strövtåg.',
+    oppet: 'Kontrollera aktuella öppettider på museets webbplats',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Museu_de_Mallorca._Vista_del_port_de_Palma.jpg/960px-Museu_de_Mallorca._Vista_del_port_de_Palma.jpg',
     bildAlt: "Målning ur Museu de Mallorcas samling som visar Palmas hamn på 1800-talet",
     maps: 'https://maps.google.com/?q=Museu+de+Mallorca+Palma',
-    redaktionellt: { typ: 'tips', text: 'Gratis söndagar – perfekt att kombinera med en promenad i gamla stan' },
+    redaktionellt: { typ: 'tips', text: 'Perfekt att kombinera med en promenad i gamla stan' },
   },
   {
     namn: 'Santuari de Lluc',
@@ -148,7 +149,7 @@ const sevardheter = [
     kategori: 'Kyrka & kloster',
     beskrivning: 'Mallorcas heligaste plats – ett kloster i Tramuntanabergen som pilgrimsmål sedan 1200-talet. Vacker natur, museum och den svarta madonnan ”La Moreneta”.',
     tips: 'Stanna till lunch i klosterrestaurangen – god och autentisk mallorkinsk mat.',
-    oppet: 'Dagligen 10–18',
+    oppet: 'Basilikan är öppen dagligen – museets tider varierar',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Santuari_de_Lluc_-_View_from_Monte_del_Rosario.jpg/960px-Santuari_de_Lluc_-_View_from_Monte_del_Rosario.jpg',
     bildAlt: "Santuari de Lluc med klosterbyggnaderna omgivna av skog",
     maps: 'https://maps.google.com/?q=Santuari+de+Lluc+Mallorca',
@@ -196,6 +197,19 @@ export default function SevardheterPage() {
             </div>
           ))}
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          note="Öppettider ändras ofta med säsongen – kontrollera alltid hos sevärdheten innan du åker."
+          sources={[
+            { label: 'Catedral de Mallorca', href: 'https://catedraldemallorca.org' },
+            { label: 'Castell de Bellver (Ajuntament de Palma)', href: 'https://castelldebellver.palma.es' },
+            { label: 'Coves del Drac', href: 'https://www.cuevasdeldrach.com' },
+            { label: 'DGT: trafik till Formentor 2026', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
+            { label: 'Patrimonio Nacional: La Almudaina', href: 'https://www.patrimonionacional.es' },
+            { label: 'Fundació Miró Mallorca', href: 'https://miromallorca.com' },
+          ]}
+        />
       </div>
     </div>
   );
