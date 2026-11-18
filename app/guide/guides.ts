@@ -38,10 +38,10 @@ export const GUIDES = {
     headline: 'Familjesemester på Mallorca',
     description:
       'Planera familjesemestern på Mallorca: vilken strand som passar vilken ålder, när ni ska åka, hyrbil och barnstol – och familjefavoriterna på en karta.',
-    image: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85',
-    imageAlt: 'Barnfamilj på semester på Mallorca',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cala_Mondrag%C3%B3_02.jpg/1920px-Cala_Mondrag%C3%B3_02.jpg',
+    imageAlt: 'Segelbåtar i den skyddade viken Cala Mondragó på Mallorcas sydöstkust',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17',
+    dateModified: '2026-11-18',
   },
   'basta-stranderna-mallorca': {
     slug: 'basta-stranderna-mallorca',
@@ -60,10 +60,10 @@ export const GUIDES = {
     headline: 'De 15 bästa restaurangerna i Palma',
     description:
       'Rankade av en som bor här: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop&q=80',
-    imageAlt: 'Restaurangbord i Palma de Mallorca',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg',
+    imageAlt: 'Flera små tapasrätter på ett bord (genrebild)',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17T20:12:35+01:00',
+    dateModified: '2026-11-18',
   },
   'golf-mallorca-guide': {
     slug: 'golf-mallorca-guide',

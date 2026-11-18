@@ -16,10 +16,10 @@ export const metadata: Metadata = {
       'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insidertips för familjer med barn i olika åldrar.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85',
-        width: 1200,
-        height: 630,
-        alt: 'Vattenrutschkanor och pooler på en vattenpark på Mallorca',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_slide%2C_Ada_East_%28P1090930%29.jpg/1920px-Water_slide%2C_Ada_East_%28P1090930%29.jpg',
+        width: 1920,
+        height: 1440,
+        alt: 'Vattenrutschkana vid en pool i solsken – genrebild, inte från någon av parkerna',
       },
     ],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Vattenparker på Mallorca – 5 bästa för barn',
     description:
       'Mallorcas 5 bästa vattenparker – från Aqualand till Hidropark. Priser, öppettider och insidertips.',
-    images: ['https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85'],
+    images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_slide%2C_Ada_East_%28P1090930%29.jpg/1920px-Water_slide%2C_Ada_East_%28P1090930%29.jpg'],
   },
 };
 
@@ -37,8 +37,8 @@ export default function VattenparkerPage() {
     <BarnCategoryPageView
       category="vattenparker"
       hero={{
-        imageSrc: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834',
-        imageAlt: 'Vattenrutschkanor och blå pooler på en vattenpark under Mallorcas sommarsol',
+        imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_slide%2C_Ada_East_%28P1090930%29.jpg/1920px-Water_slide%2C_Ada_East_%28P1090930%29.jpg',
+        imageAlt: 'Vattenrutschkana vid en pool i solsken – genrebild, inte från någon av parkerna',
         title: 'Vattenparker på Mallorca',
         subtitle:
           '5 parker testade för barnfamiljer – från öns största Aqualand till lugna Hidropark i norr.',

@@ -16,10 +16,10 @@ export const metadata: Metadata = {
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=630&fit=crop&q=85',
-        width: 1200,
-        height: 630,
-        alt: 'Akvarietunnel med haj och tropiska fiskar på Mallorca',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG',
+        width: 1920,
+        height: 1275,
+        alt: 'Svartfenad revhaj som simmar i en bassäng på Palma Aquarium',
       },
     ],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Djurparker & akvarier på Mallorca för barn',
     description:
       'Palma Aquarium, Marineland, Natura Parc och Safari Zoo – Mallorcas bästa djurupplevelser för barn.',
-    images: ['https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&h=630&fit=crop&q=85'],
+    images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG'],
   },
 };
 
@@ -37,8 +37,8 @@ export default function DjurparkerPage() {
     <BarnCategoryPageView
       category="djurparker-och-akvarier"
       hero={{
-        imageSrc: 'https://images.unsplash.com/photo-1551632811-561732d1e306',
-        imageAlt: 'Akvarietunnel med hajar och tropiska fiskar – djurupplevelser på Mallorca',
+        imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG',
+        imageAlt: 'Svartfenad revhaj som simmar i en bassäng på Palma Aquarium',
         title: 'Djurparker & akvarier på Mallorca',
         subtitle:
           'Fyra djurupplevelser: ett av Europas största akvarier, en klassisk delfinshow, en djurpark med över 500 djur och en bilsafari.',

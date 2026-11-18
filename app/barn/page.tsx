@@ -31,10 +31,10 @@ export const metadata: Metadata = {
     description: META_DESCRIPTION,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85',
-        width: 1200,
-        height: 630,
-        alt: 'Familj på en vattenpark på Mallorca – barnaktiviteter för hela familjen',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/S%C3%B3ller_train_station_15.jpg/1920px-S%C3%B3ller_train_station_15.jpg',
+        width: 1920,
+        height: 1280,
+        alt: 'Det gamla trätåget till Sóller vid stationen i Sóller',
       },
     ],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: META_TITLE,
     description: META_DESCRIPTION,
-    images: ['https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=1200&h=630&fit=crop&q=85'],
+    images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/S%C3%B3ller_train_station_15.jpg/1920px-S%C3%B3ller_train_station_15.jpg'],
   },
 };
 
@@ -81,8 +81,8 @@ export default function BarnHubPage() {
       <JsonLd data={breadcrumbJsonLd} />
 
       <CategoryHero
-        imageSrc="https://images.unsplash.com/photo-1530870110042-98b2cb110834"
-        imageAlt="Barnfamilj vid en vattenpark på Mallorca"
+        imageSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/S%C3%B3ller_train_station_15.jpg/1920px-S%C3%B3ller_train_station_15.jpg"
+        imageAlt="Det gamla trätåget till Sóller vid stationen i Sóller"
         kicker="Familjeresan"
         title="Mallorca med barn"
         subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker, grottor, äventyr, museer och natur"
@@ -123,7 +123,7 @@ export default function BarnHubPage() {
                       <div className={styles.categoryMedia}>
                         <Image
                           src={`${c.heroImage}?w=960&q=80`}
-                          alt={`${c.label} – barnaktiviteter på Mallorca`}
+                          alt={c.heroImageAlt ?? ''}
                           width={640}
                           height={400}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"

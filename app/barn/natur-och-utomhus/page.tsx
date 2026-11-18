@@ -3,15 +3,17 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
-const IMAGE = 'https://images.unsplash.com/photo-1606729734060-3d6de0048e43';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cala_Mondrag%C3%B3_02.jpg/1920px-Cala_Mondrag%C3%B3_02.jpg';
 
 export const metadata = buildPageMetadata({
   path: '/barn/natur-och-utomhus',
   title: 'Natur och utomhus med barn på Mallorca',
   description:
     'Naturparkerna s’Albufera och Mondragó, och tåget till Sóller genom Serra de Tramuntana – natur och utflykter för barnfamiljer på Mallorca.',
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Skyddad vik med klart vatten i en naturpark på Mallorca',
+  image: IMAGE,
+  imageWidth: 1920,
+  imageHeight: 1440,
+  imageAlt: 'Segelbåtar i viken Cala Mondragó i Parc Natural de Mondragó',
 });
 
 export default function NaturOchUtomhusPage() {
@@ -20,7 +22,7 @@ export default function NaturOchUtomhusPage() {
       category="natur-och-utomhus"
       hero={{
         imageSrc: IMAGE,
-        imageAlt: 'Skyddad vik med klart vatten i en naturpark på Mallorca',
+        imageAlt: 'Segelbåtar i viken Cala Mondragó i Parc Natural de Mondragó',
         title: 'Natur och utomhus med barn',
         subtitle: 'Fågeltorn, skyltade slingor och ett hundraårigt tåg över bergen.',
       }}
