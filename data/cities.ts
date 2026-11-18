@@ -365,13 +365,14 @@ export const cities: City[] = [
       subtitle: 'Pittoresk fiskeby med en av Mallorcas vackraste naturliga hamnar',
     },
     about: [
-      'Porto Colom är en av Mallorcas mest autentiska fiskebyar, belägen på östkusten. Till skillnad från många andra kustorter har Porto Colom lyckats bevara sin ursprungliga karaktär med färgglada fiskebåtar, vita hus och en avslappnad atmosfär som tar dig tillbaka i tiden.',
-      'Hamnen är en av de vackraste naturliga hamnarna på ön och är omgiven av pittoreska byggnader i ockra och rosa toner. På morgonen kan du se fiskarna lossa sin fångst – och om du frågar snällt säljer de direkt från båten.',
+      'Porto Colom är en av Mallorcas mest autentiska fiskebyar, belägen på östkusten. Till skillnad från många andra kustorter har Porto Colom lyckats bevara sin ursprungliga karaktär med färgglada fiskebåtar, vita hus och en avslappnad atmosfär som tar dig tillbaka i tiden. Byn hör till Felanitx kommun och ligger ca 13 km från staden.',
+      'Hamnen är en av de största och mest skyddade naturhamnarna på ön och är omgiven av pittoreska byggnader i ockra och rosa toner. Längs vattnet ligger rader av escars, gamla båthus med valvtak där fiskarna drar upp sina träbåtar – de är skyddade som kulturarv. På morgonen kommer fiskebåtarna in till kajen.',
+      'Den äldsta delen av byn ligger på en udde i hamnen. Längst ut vid inloppet står fyren på Punta de ses Crestes, som tändes första gången 1863. Dit går du längs Carrer del Far från hamnen.',
     ],
     tips: [
       'Hoppa över turistkrogarna vid hamnen – gå till baksidan av torget',
       'Fråga efter ”el peix del dia” – färsk fisk fångad samma dag',
-      'Bästa solnedgången ser du från klipporna vid Caló de sa Barca Trencada',
+      'Gå ut till fyren på Punta de ses Crestes en kväll – därifrån ser du hela naturhamnen och byn',
       'Parkera vid kyrkan – parkeringen vid hamnen är alltid full',
     ],
     highlights: {
@@ -379,7 +380,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Porto Colom',
       items: [
         'Naturhamnen – en av Mallorcas vackraste, perfekt för kvällspromenad',
-        'Färsk fisk från fiskarna vid hamnen – kom tidigt på morgonen',
+        'Dagens fisk på krogarna vid hamnen – fråga efter ”el peix del dia”',
         'Cala Marçal – fin sandstrand precis utanför byn',
       ],
     },
@@ -391,35 +392,70 @@ export const cities: City[] = [
       { label: 'Stränder i närheten', value: 'Cala Marçal, Cala Sa Nau' },
     ],
     guide: {
+      stay: {
+        intro: 'Porto Colom är litet, så de flesta bor nära vattnet. Välj efter om du vill ha hamnen eller stranden närmast:',
+        areas: [
+          { name: 'Kring hamnen.', text: 'Lägenheter och små hotell längs naturhamnen och i den gamla delen av byn. Promenadavstånd till restaurangerna och kvällspromenaden längs kajen. Passar par.' },
+          { name: 'Cala Marçal.', text: 'Bostadsområdet söder om hamnen, runt byns största sandstrand. Det enklaste valet för barnfamiljer som vill gå till stranden.' },
+          { name: 'Felanitx och landsbygden.', text: 'Fincor och lägenheter i inlandet, ca 13 km bort. Lugnare och närmare vingårdarna, men du behöver bil.' },
+        ],
+      },
+      eat: {
+        intro: 'Fisk och skaldjur är det självklara valet i Porto Colom. Restaurangerna ligger längs hamnen och i gatorna bakom – fråga efter dagens fångst. Annars äter du mallorkinsk husmanskost:',
+        dishes: [
+          'Dagens fisk – grillad eller ugnsbakad, ofta med potatis och grönsaker',
+          'Arròs brut – mallorkinsk kryddig risgryta med kött och grönsaker',
+          'Frit mallorquí – stekt lamm- eller grisinnanmat med potatis, paprika och fänkål',
+          'Ensaïmada – det spiralformade bakverket, till frukost på ett kafé vid hamnen',
+        ],
+      },
       getThere: [
-        { mode: 'Bil', text: 'Kör via Felanitx, som ligger en kort bit inåt land. Parkeringen vid hamnen fylls snabbt – ställ bilen en bit upp i byn.' },
-        { mode: 'Buss', text: 'TIB-linje 512 går mellan Porto Colom och Felanitx. I Felanitx byter du till linje 501, som går via Campos och Llucmajor till Palma åt ena hållet och till Manacor åt det andra.' },
+        { mode: 'Bil', text: 'Kör via Felanitx, som ligger en kort bit inåt land, och vidare på Ma-4010 ner till kusten, ca 13 km. Parkeringen vid hamnen fylls snabbt – ställ bilen en bit upp i byn.' },
+        { mode: 'Buss', text: 'TIB-linje 512 går mellan Porto Colom och Felanitx. I Felanitx byter du till linje 501, som går via Campos och Llucmajor till Palma åt ena hållet och till Manacor åt det andra. På vardagar finns dessutom en tidig direkttur till Palma på linje 512.' },
       ],
       beaches: {
         names: ['Cala Marçal', 'Cala Sa Nau'],
-        text: 'Cala Marçal ligger precis utanför byn och har lugnt, barnvänligt vatten. Cala Sa Nau, söderut mot Cala d’Or, är en liten vik med klart vatten.',
+        text: "Cala Marçal är byns stora sandstrand, med lugnt, barnvänligt vatten och service – den största och mest lättillgängliga stranden i Felanitx kommun. Nära hamnen ligger de två små och lugnare stränderna s'Arenal Gran och s'Arenal Petit. Cala Sa Nau, söderut mot Cala d’Or, är en liten vik med klart vatten. Den orörda Cala Brafi, ca 2,5 km söder om byn, når du bara till fots eller från sjön.",
       },
       market: {
-        days: 'Tisdagar och lördagar',
-        text: ['Den lilla veckomarknaden hålls i byn på tisdagar och lördagar. Den stora söndagsmarknaden i Felanitx ligger nära.'],
+        days: 'Tisdagar och lördagar, förmiddag',
+        text: [
+          'Den lilla veckomarknaden hålls på Plaça del Comerç på tisdag- och lördagsförmiddagar, med frukt, grönt, kläder och vardagsvaror.',
+          { text: 'Den stora söndagsmarknaden i Felanitx ligger en kort biltur bort.', link: { href: '/felanitx', label: 'Felanitx →' } },
+        ],
       },
       bestTime: [
         'Maj–oktober för bad. Porto Colom är en fiskeby där folk bor året runt, så den har liv även utanför högsäsongen. En tidig morgon vid hamnen är bästa sättet att uppleva den.',
+        'Kring den 16 juli firar byn fiskarnas skyddshelgon Mare de Déu del Carme, med bland annat en kvällsmarknad vid hamnen. Då är Porto Colom som livligast.',
+      ],
+      families: [
+        'Cala Marçal har sand, lugnt vatten och service på stranden – byns bästa val med små barn. Promenaden ut mot fyren går längs hamnen och är lagom lång för barn som orkar gå en stund; titta på båthusen och fiskebåtarna på vägen.',
+        { text: 'Fler idéer för barnfamiljer hittar du i vår barnguide.', link: { href: '/barn', label: 'Mallorca med barn →' } },
+      ],
+      couples: [
+        'Kvällspromenad längs naturhamnen, middag med dagens fisk och en tidig morgon vid fyren innan värmen kommer – Porto Colom är gjort för långsamma dagar.',
+        { text: 'Kombinera gärna med en eftermiddag på en vingård kring Felanitx.', link: { href: '/vingardar', label: 'Vingårdar på Mallorca →' } },
       ],
     },
     checked: CHECKED,
     sources: [
       { label: 'TIB: Porto Colom–Felanitx', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/512' },
       { label: 'TIB: linje 501', href: 'https://www.tib.org/en/web/ctm/linies-i-horaris/autobus/-/linia/501' },
+      { label: 'TIB: expressturer från Porto Colom och Campos', href: 'https://www.tib.org/en/w/tib-improves-the-bus-connection-with-the-joan-march-hospital-and-adds-express-services-to-palma-from-portocolom-and-campos' },
       { label: 'Mercadillos.org: marknaden i Porto Colom', href: 'https://mercadillos.org/es/portocolom/mercadillo-portocolom' },
+      { label: 'Mercadillos.org: Feria Marinera 16 juli', href: 'https://mercadillos.org/es/portocolom/feria-marinera-portocolom' },
       { label: 'Ajuntament de Felanitx: marknader', href: 'https://reskyt.com/en/administration/felanitx/fairs-festivals-and-markets/markets/164001.html' },
+      { label: 'Mallorca.com: fyren på Punta de ses Crestes', href: 'https://www.mallorca.com/en/guide/sights/punta-de-ses-crestes' },
+      { label: 'Mallorca.com: Cala Marçal', href: 'https://www.mallorca.com/ca/guia/playas/cala-marcal' },
+      { label: 'Mallorca.com: Cala Brafi', href: 'https://www.mallorca.com/ca/guia/playas/cala-brafi' },
+      { label: 'Ultima Hora: båthusen (escars) i hamnen', href: 'https://www.ultimahora.es/noticias/part-forana/2018/07/28/1016099/renovacion-concesiones-escars-portocolom-obliga-restaurarlos.html' },
     ],
     mapsQuery: 'Porto+Colom+Mallorca',
     card: {
       description: 'Pittoresk fiskeby med en av Mallorcas vackraste naturliga hamnar',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Hafen_Porto_Colom_Mallorca.jpg/960px-Hafen_Porto_Colom_Mallorca.jpg',
-      tip: 'Fiskarna säljer direkt från båten på morgonen',
-      top3: ['Naturhamnen', 'Färska fisken på morgonen', 'Kvällspromenaden längs vattnet'],
+      tip: 'Fiskebåtarna kommer in till kajen på morgonen',
+      top3: ['Naturhamnen', 'Fiskebåtarna på morgonen', 'Kvällspromenaden längs vattnet'],
     },
   },
   {
@@ -529,6 +565,7 @@ export const cities: City[] = [
     about: [
       'Portopetro är en av Mallorcas mest exklusiva och minst kända marinabyer. Belägen längs sydkusten har den lyckats undfly massturismen och bevarat sin karaktär av ett stilla fiskesamhälle – nu befolkat av segelbåtar och stillsamma flanörer.',
       'Det kristallklara vattnet i marinan speglar omgivande klippor och tallskog. Längs kajen finns några enstaka restauranger och en bar – och det är allt. Inget bråk, ingen kö, ingen DJ. Bara Medelhavet som det kan vara när det är som bäst.',
+      'Byn hör till Santanyí kommun och har under tusen fast boende. Den ligger kring en skyddad havsvik där fiskebåtar och segelbåtar delar på hamnbassängen. Direkt söder om byn börjar Mondragó naturpark, och Cala d’Or ligger strax norrut.',
     ],
     tips: [
       'Paddla kajak runt viken på morgonen – vattnet är spegelblankt',
@@ -544,25 +581,57 @@ export const cities: City[] = [
       { label: 'Stränder i närheten', value: 'Cala Mondragó, Cala Egos' },
     ],
     guide: {
+      stay: {
+        intro: 'Portopetro är litet, så valet står mellan byn och grannorterna:',
+        areas: [
+          { name: 'Portopetro by.', text: 'Lägenheter och några hotell kring hamnen och på höjderna runt viken. Tyst på kvällarna och nära Mondragó. Passar par och dig som vill ha lugn.' },
+          { name: 'Cala d’Or.', text: 'Grannorten norrut har betydligt fler hotell, restauranger och små sandvikar. Bättre om ni vill ha mer liv, eller om barnen vill ha stranden runt hörnet.' },
+          { name: 'Santanyí och landsbygden.', text: 'Sandstenshus och fincor i inlandet. En bra bas för hela sydöstra hörnet, men du behöver bil.' },
+        ],
+      },
+      eat: {
+        intro: 'Restaurangerna ligger samlade längs kajen, och fisk och skaldjur dominerar. Ställena är få, så boka bord på sommarkvällarna eller ät tidigt. Vill du ha större utbud finns det i Cala d’Or och Santanyí. Typiskt på menyn:',
+        dishes: [
+          'Dagens fisk – grillad eller bakad i salt',
+          'Arròs negre – ris med bläckfisk, färgat svart av bläcket',
+          'Pa amb oli – rostat bröd med tomat, olivolja och ost eller lufttorkad skinka, en klassisk lunch',
+        ],
+      },
       getThere: [
-        { mode: 'Buss', text: 'TIB:s expresslinje 515e går mellan Palma och Cala d’Or och stannar i Santanyí, S’Alqueria Blanca, Portopetro och Cala Egos. Flera expresslinjer går bara under sommarsäsongen – kontrollera på tib.org att linjen går när du reser.' },
+        { mode: 'Buss', text: 'TIB:s expresslinje 515e går mellan Palma och Cala d’Or och stannar i Santanyí, S’Alqueria Blanca, Portopetro och Cala Egos. Under sommarsäsongen går också linje 521 mellan Cala d’Or och Cala Mondragó via Portopetro. Flera linjer går bara på sommaren – kontrollera på tib.org att linjen går när du reser.' },
         { mode: 'Bil', text: 'Ta Ma-19 från Palma via Llucmajor och Campos mot Santanyí och fortsätt mot Cala d’Or. Parkera ovanför hamnen och promenera ner.' },
       ],
       beaches: {
         names: ['Cala Mondragó / s\'Amarador', 'Cala Ferrera', 'Caló des Moro'],
-        text: 'Cala Mondragó i naturparken söder om byn är en kort biltur bort och har grunt, barnvänligt vatten. Norrut ligger vikarna i Cala d’Or, och Caló des Moro nås via Santanyí.',
+        text: 'Cala Mondragó och s’Amarador i naturparken söder om byn har grunt, barnvänligt vatten och nås med bil, sommarbuss eller till fots längs kusten. Norrut ligger vikarna i Cala d’Or, och Caló des Moro nås via Santanyí.',
       },
       market: {
         days: 'Onsdagar och lördagar i Santanyí',
-        text: ['Portopetro har ingen egen veckomarknad. Närmast är marknaden i Santanyí på onsdagar och lördagar.'],
+        text: [
+          { text: 'Portopetro har ingen egen veckomarknad. Närmast är marknaden i Santanyí på onsdagar och lördagar.', link: { href: '/santanyi', label: 'Santanyí →' } },
+        ],
       },
       bestTime: [
         'Maj, juni och september – varmt, lugnt och ljust långt in på kvällen. Portopetro är en stilla marinaby, så den passar dig som vill undvika högsommarens fester och trängsel.',
+        'I juni firar byn Sant Joan med ett par veckors fest, och många av aktiviteterna är gratis.',
+      ],
+      families: [
+        'Mondragó naturpark är den stora utflykten: grunt vatten i Cala Mondragó och s’Amarador, en picknickplats och fem skyltade promenadslingor. Informationscentret vid parkeringen ses Fonts de n’Alis har öppet 9–16 och kan tipsa om vilken slinga som passar era barn. Barnvagn går bra till stränderna men inte på stigarna.',
+        { text: 'Mondragó finns med i vår barnguide bland utflykterna i naturen.', link: { href: '/barn/natur-och-utomhus', label: 'Natur och utomhus med barn →' } },
+      ],
+      couples: [
+        'Morgondopp i en vik i Mondragó, lunch i Santanyí och ett glas cava på kajen i solnedgången. Den lätta kustpromenaden från Portopetro mot Cala Mondragó och s’Amarador går längs klipporna och är fin tidigt på dagen.',
+        { text: 'Fler idéer för två hittar du i vår guide för par.', link: { href: '/mallorca-for-par', label: 'Mallorca för par →' } },
       ],
     },
     checked: CHECKED,
     sources: [
       { label: 'TIB: ny expresslinje 515e', href: 'https://www.tib.org/en/w/el-govern-crea-una-nova-l%C3%ADnia-expr%C3%A9s-del-tib-que-connectar%C3%A0-cala-d-or-amb-palma-a-partir-de-dimarts-24-de-juny' },
+      { label: 'TIB: linje 521 Cala d’Or–Cala Mondragó', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/521' },
+      { label: 'Govern de les Illes Balears: Mondragó naturpark', href: 'https://www.caib.es/sites/espaisnaturalsprotegits/es/parque_natural_de_mondrago/' },
+      { label: 'Mallorca.com: kustpromenaden mot Cala Mondragó', href: 'https://www.mallorca.com/en/guide/sights/ca-na-martina' },
+      { label: 'Mallorca.com: Portopetro', href: 'https://www.mallorca.com/en/guide/places/portopetro' },
+      { label: 'Ajuntament de Santanyí: Sant Joan i Portopetro 2026', href: 'https://ajsantanyi.net/sites/cilma_santanyi/files/2026-06/SANT_JOAN_PORTOPETRO.pdf' },
       { label: 'Mercadillos.org: marknaden i Santanyí', href: 'https://mercadillos.org/en/santanyi/santanyi-market' },
     ],
     mapsQuery: 'Porto+Petro+Mallorca',
@@ -1165,13 +1234,14 @@ export const cities: City[] = [
       subtitle: 'Autentisk inlandsstad känd för sin fina keramik, lokala viner och livlig söndagsmarknad',
     },
     about: [
-      "Felanitx är en autentisk inlandsstad känd för sin fina keramik, lokala viner och en livlig söndagsmarknad. Nära Cala d'Or och Porto Colom – ett perfekt mellanstopp på en dag längs östkusten.",
-      'Uppe på Puig de Sant Salvador (509 m) finns ett kloster med fantastisk utsikt över hela östra Mallorca – ett besök värt att planera in. Nere i staden präglas torget av den imponerande kyrkan Sant Miquel.',
+      "Felanitx är en autentisk inlandsstad känd för sin fina keramik, lokala viner och en livlig söndagsmarknad. Fiskebyn Porto Colom vid kusten hör till samma kommun, och Cala d'Or ligger inte långt bort – Felanitx är ett bra mellanstopp på en dag längs östkusten.",
+      'Uppe på Puig de Sant Salvador (509 m), ca 5 km sydost om staden, ligger helgedomen Sant Salvador med utsikt över hela östra Mallorca – ett besök värt att planera in. Nere i staden präglas torget av den imponerande kyrkan Sant Miquel, och en bred trappa leder ner till Font de Santa Margalida, den gamla brunnen som länge var stadens viktigaste vattenkälla.',
+      'Felanitx är också vinbygd. Ursprungsbeteckningen Pla i Llevant har sitt kontor i staden, och flera av östra Mallorcas vingårdar ligger i kommunen. Konstnären Miquel Barceló föddes här 1957.',
     ],
     tips: [
       'Söndagsmarknaden startar tidigt – bäst är att komma vid öppning kl. 8',
       'Köp lokal keramik direkt från hantverkarna, priserna är rimliga',
-      'Kör upp till Castell de Santueri för fantastisk panoramautsikt',
+      'Kör upp till Castell de Santueri för panoramautsikt – kontrollera först att borgen är öppen för besök',
       'Kombinera med Porto Colom vid kusten för en hel dagsutflykt',
     ],
     highlights: {
@@ -1191,26 +1261,61 @@ export const cities: City[] = [
       { label: 'Stränder i närheten', value: "Cala d'Or, Porto Colom" },
     ],
     guide: {
+      stay: {
+        intro: 'Kommunen sträcker sig från inlandet ner till kusten, så du kan välja mellan stad, landsbygd och hav:',
+        areas: [
+          { name: 'Felanitx stad.', text: 'Lägenheter och små hotell i stenhusen i centrum. Vardagligt och levande året runt, nära marknaden, kyrkan och vingårdarna. Passar dig som har bil och vill se ett Mallorca där folk bor och arbetar.' },
+          { name: 'Landsbygden.', text: 'Fincor och agroturismer bland vinodlingar och mandelträd. Lugnt och vackert, men bil är ett måste.' },
+          { name: 'Porto Colom.', text: 'Kommunens fiskeby vid kusten, ca 13 km bort, med naturhamn och sandstrand. Bättre för barnfamiljer som vill bada varje dag.' },
+        ],
+      },
+      eat: {
+        intro: 'Felanitx är en mat- och vinstad utan krusiduller. Runt torget och kyrkan finns barer och kaféer, och på söndagsmarknaden handlar du direkt av odlarna. Paprikapulvret pebre bord, som ger sobrassadan dess färg, har en egen mässa i staden varje höst. Smaka det här:',
+        dishes: [
+          'Sobrassada – kryddig, bredbar korv färgad av pebre bord',
+          'Pa amb oli – rostat bröd med tomat, olivolja och ost eller lufttorkad skinka',
+          'Tumbet – gratäng av aubergine, potatis och paprika i tomatsås',
+          'Ett glas vin från Pla i Llevant – distriktet som omfattar Felanitx',
+        ],
+        tips: [
+          { text: 'Vingårdarna kring Felanitx tar ofta bara emot besök efter förfrågan – hör av dig i god tid, särskilt på sommaren.', link: { href: '/vingardar', label: 'Vingårdar på Mallorca →' } },
+        ],
+      },
       getThere: [
-        { mode: 'Buss', text: 'TIB-linje 501 går mellan Palma och Manacor via Llucmajor, Campos och Felanitx. En lokal linje fortsätter ner till Porto Colom.' },
-        { mode: 'Bil', text: 'Felanitx ligger i inlandet mellan Campos och Manacor. Kör gärna vidare till Porto Colom vid kusten samma dag.' },
+        { mode: 'Buss', text: 'TIB-linje 501 går mellan Palma och Manacor via Llucmajor, Campos och Felanitx. Linje 512 går mellan Felanitx och Porto Colom, och på vardagar finns en tidig direkttur från Porto Colom till Palma. Se aktuella tider på tib.org.' },
+        { mode: 'Bil', text: 'Felanitx ligger i inlandet mellan Campos och Manacor. Till Porto Colom fortsätter du på Ma-4010, ca 13 km. På söndagar tar marknaden centrum i anspråk – parkera i utkanten och gå in.' },
       ],
       beaches: {
-        names: ['Cala Marçal', 'Cala Sa Nau'],
-        text: 'Närmaste stränder ligger vid kusten kring Porto Colom: Cala Marçal precis utanför byn och den lilla viken Cala Sa Nau.',
+        names: ['Cala Marçal', 'Cala Sa Nau', "Cala d'Or"],
+        text: "Felanitx ligger i inlandet, men kommunen når ner till kusten. Cala Marçal i Porto Colom är den största och mest lättillgängliga stranden, Cala Sa Nau är en liten vik med klart vatten, och vikarna i Cala d'Or ligger lite längre söderut.",
       },
       market: {
-        days: 'Söndagar, förmiddag',
-        text: ['Söndagsmarknaden hålls i centrum, bland annat längs Carrer del 31 de Març på förmiddagen. Här finns lokala råvaror, keramik och hantverk.'],
+        days: 'Söndagar, ca 8–13',
+        text: ['Söndagsmarknaden fyller centrum kring kyrkan Sant Miquel och gatorna runt omkring, bland annat Carrer del 31 de Març. Här finns grönsaker, ost, korv, kryddor, keramik och hantverk. Kom tidigt – då är utbudet störst och det är svalare.'],
       },
       bestTime: [
-        'En söndag för marknaden. Våren och hösten passar bäst för en tur upp till klostret på Puig de Sant Salvador och borgen Castell de Santueri.',
+        'En söndag för marknaden. Våren och hösten passar bäst för en tur upp till Sant Salvador och Castell de Santueri – då är det svalt nog att gå en bit.',
+        { text: 'I slutet av augusti firar Felanitx Festes de Sant Agustí, med huvuddagen den 28 augusti, och i oktober hålls paprikamässan Fira del Pebre Bord. Datumen varierar något mellan åren – se vår evenemangskalender.', link: { href: '/evenemang', label: 'Evenemang på Mallorca →' } },
+      ],
+      families: [
+        'Ta med barnen upp till Sant Salvador: vägen slingrar sig ända upp till toppen, och från utsiktsplatsen ser ni ut över östra Mallorca och havet. Borgen Castell de Santueri på en klippa utanför staden är spännande för större barn – kontrollera i förväg att den är öppen.',
+        { text: 'För baddagar åker ni ner till Cala Marçal i Porto Colom, en sandstrand med lugnt vatten och service.', link: { href: '/porto-colom', label: 'Porto Colom →' } },
+      ],
+      couples: [
+        'Söndagsmarknad och lunch i Felanitx, en eftermiddag på en vingård i Pla i Llevant och kvällsljuset från Sant Salvador. I den gamla helgedomen på toppen finns i dag ett litet hotell, om ni vill vakna med utsikt över halva ön.',
       ],
     },
     checked: CHECKED,
     sources: [
       { label: 'TIB: linje 501', href: 'https://www.tib.org/en/web/ctm/linies-i-horaris/autobus/-/linia/501' },
+      { label: 'TIB: expressturer från Porto Colom och Campos', href: 'https://www.tib.org/en/w/tib-improves-the-bus-connection-with-the-joan-march-hospital-and-adds-express-services-to-palma-from-portocolom-and-campos' },
       { label: 'Mercadillos.org: marknader på söndagar', href: 'https://mercadillos.org/es/mallorca/domingo' },
+      { label: 'Mallorca.com: marknaden i Felanitx', href: 'https://www.mallorca.com/ca/agenda/mercats/wochenmarkt-felanitx' },
+      { label: 'Ajuntament de Felanitx: Festes de Sant Agustí 2026', href: 'https://felanitx.org/sites/cilma_felanitx/files/2026-08/FESTES%20FELANITX%202026.pdf' },
+      { label: 'Ajuntament de Felanitx: kyrkan Sant Miquel', href: 'https://reskyt.com/en/administration/felanitx/places-of-interest/parroquia-de-sant-miquel/162004.html' },
+      { label: 'Lonely Planet: Santuari de Sant Salvador', href: 'https://www.lonelyplanet.com/spain/felanitx/attractions/santuari-de-sant-salvador/a/poi-sig/1468222/1320014' },
+      { label: 'DOP Pla i Llevant: årsrapport 2024', href: 'https://doplaillevant.com/wp-content/uploads/pdfs/MEMORIA%202024%20DOP%20PLA%20I%20LLEVANT.pdf' },
+      { label: 'The Calendar Mallorca: Fira del Pebre Bord 2026', href: 'https://thecalendarmallorca.com/es/events/fira-del-pebre-bord-2026-felanitx/' },
     ],
     mapsQuery: 'Felanitx+Mallorca',
     card: {
@@ -1563,11 +1668,12 @@ export const cities: City[] = [
     },
     about: [
       'Campos ligger på Migjorn-slätten i södra Mallorca – bokstavligen omgivet av jordbruksmark, mandelträd och låga stenmurar. Det är en riktig mallorkinsk småstad utan turistförskönad fasad, med sandstenskvarter, gröna fönsterluckor och torg där äldre fortfarande pratar bred mallorquí.',
-      "Stadens hjärta är marknaderna – två per vecka, på torsdagar och lördagar – där lokala bönder säljer allt från getostar och Sa Pobla-potatis till kryddor och grovt salt från de närliggande saltpannorna. Just saltet är Campos signatur: Flor de Sal d'Es Trenc skördas för hand i de gamla saltpannorna några kilometer söderut och räknas till världens finaste havssalt. Och bakom saltpannorna öppnar sig Es Trenc – en 6 kilometer lång orörd strand med vatten så turkost att den kallas Mallorcas Karibien.",
+      "Stadens hjärta är marknaderna – två per vecka, på torsdagar och lördagar – där lokala bönder säljer allt från getostar och grönsaker till kryddor och grovt salt från saltpannorna söder om staden. Just saltet är Campos signatur: Flor de Sal d'Es Trenc skördas för hand i Salines d'Es Trenc, vid vägen mot Colònia de Sant Jordi. Och bakom saltpannorna öppnar sig Es Trenc – en flera kilometer lång naturstrand utan storskalig bebyggelse, med vatten så turkost att den kallas Mallorcas Karibien.",
+      'Stranden, våtmarken Salobrar och saltpannorna ingår i naturparken Es Trenc–Salobrar de Campos, som skyddas sedan 2017. Inne i staden är församlingskyrkan Sant Julià värd ett besök – i ett av kapellen hänger en Kristusmålning som tillskrivs Murillo. Font Santa, Balearernas enda naturliga varma källor, ligger också i kommunen.',
     ],
     tips: [
       'Gå på torsdagsmarknaden, inte lördagen – mindre folk och bönderna tar tid att prata',
-      "Köp saltet direkt från fabriken vid Salines d'Es Trenc – betydligt billigare än i Palma, och du ser produktionen",
+      "Köp saltet i butiken vid Salines d'Es Trenc – på en guidad tur ser du hela produktionen",
       'Kom tidigt till Es Trenc i juli–augusti – parkeringarna vid stranden fylls snabbt',
       'Testa en ensaïmada från något av Campos gamla bagerier tidigt på morgonen, fortfarande varm',
     ],
@@ -1575,7 +1681,7 @@ export const cities: City[] = [
       variant: 'list',
       heading: 'Topp 3 i Campos med omnejd',
       items: [
-        'Es Trenc-stranden – 6 km orörd sand, turkost vatten, ingen bebyggelse (10 min bort)',
+        'Es Trenc-stranden – lång naturstrand med turkost vatten och utan hotellkomplex, en kort biltur bort',
         'Salines d’Es Trenc – besök saltpannorna där Flor de Sal skördas för hand, guidade turer finns',
         'Torsdags- eller lördagsmarknaden – äkta lokal marknad med producenter från hela södra Mallorca',
       ],
@@ -1583,26 +1689,53 @@ export const cities: City[] = [
     practical: [
       { label: 'Plats', value: 'Södra Mallorca, lantligt' },
       { label: 'Flyg', value: '30 min från PMI-flygplatsen' },
-      { label: 'Buss', value: 'Direktlinje från flygplatsen några gånger per dag' },
+      { label: 'Buss', value: 'Aerotib A51 går direkt mellan flygplatsen och Campos' },
       { label: 'Bästa tid', value: 'Maj–juni, september (före och efter Es Trenc-rusningen)' },
       { label: 'Känd för', value: 'Flor de Sal, Es Trenc, torsdags- och lördagsmarknad' },
-      { label: 'I närheten', value: 'Es Trenc (10 min), Colònia de Sant Jordi, Ses Covetes' },
+      { label: 'I närheten', value: 'Es Trenc, Colònia de Sant Jordi, Ses Covetes' },
     ],
     guide: {
+      stay: {
+        intro: 'Campos är en bra bas för södra Mallorca om du har bil. Välj mellan småstad, strand och landsbygd:',
+        areas: [
+          { name: 'Campos stad.', text: 'Lägenheter och byhus i sandstenskvarteren. Vardagligt och levande året runt, med marknad två dagar i veckan och bagerier runt hörnet.' },
+          { name: 'Sa Ràpita och Ses Covetes.', text: 'Kommunens små kustorter vid Es Trenc. Här bor ni nära sanden – det enklaste valet för barnfamiljer som vill bada varje dag.' },
+          { name: 'Landsbygden.', text: 'Fincor och agroturismer bland mandelträd och väderkvarnar på slätten. Lugnt och vackert, men bil är ett måste.' },
+        ],
+      },
+      eat: {
+        intro: 'Campos är en jordbruksstad, och det märks på maten. På marknaderna och i bagerierna hittar du mallorkinska klassiker, och saltet från Es Trenc hamnar på bordet. Vid kusten är det fisk och ris som gäller. Smaka det här:',
+        dishes: [
+          'Ensaïmada – det spiralformade bakverket, bäst nybakat på morgonen',
+          'Pa amb oli – rostat bröd med tomat, olivolja och ost eller skinka, gärna med ett nyp flor de sal',
+          'Tumbet – gratäng av aubergine, potatis och paprika i tomatsås',
+          'Coca de trempó – tunn mallorkinsk paj med tomat, paprika och lök',
+        ],
+      },
       getThere: [
         { mode: 'Bil', text: 'Ma-19 går från Palma förbi flygplatsen och Llucmajor till Campos – en av de enklaste turerna på ön. Es Trenc och saltpannorna ligger söder om staden.' },
-        { mode: 'Buss', text: 'TIB-linje 501 går mellan Palma och Manacor via Llucmajor, Campos och Felanitx. I Campos ansluter linjer söderut mot Colònia de Sant Jordi och Santanyí.' },
+        { mode: 'Buss', text: 'TIB-linje 501 går mellan Palma och Manacor via Llucmajor, Campos och Felanitx, och det finns även expressturer mellan Campos och Palma. Linje 517 går från Campos till Colònia de Sant Jordi, Ses Salines och Santanyí. Se aktuella tider på tib.org.' },
+        { mode: 'Från flygplatsen', text: 'Aerotib-linje A51 går mellan flygplatsen och Campos via s’Arenal och Llucmajor, så du behöver inte åka in till Palma först.' },
       ],
       beaches: {
         names: ['Es Trenc', 'Es Carbó'],
-        text: 'Es Trenc är den stora naturstranden söder om Campos. Längre bort mot Colònia de Sant Jordi ligger den lugnare Es Carbó.',
+        text: 'Es Trenc är den stora naturstranden söder om Campos, mellan Sa Ràpita och Colònia de Sant Jordi. Parkeringarna vid stranden kostar pengar på sommaren och fylls tidigt. Längre bort mot Colònia de Sant Jordi ligger den lugnare Es Carbó.',
       },
       market: {
         days: 'Torsdagar och lördagar, förmiddag',
-        text: ['Campos har marknad två förmiddagar i veckan, året runt. Lördagsmarknaden är störst; på torsdagar är den mindre, med mest frukt och grönt.'],
+        text: ['Campos har marknad två förmiddagar i veckan, året runt, på och kring Plaça Major. Lördagsmarknaden är störst; på torsdagar är den mindre, med mest frukt och grönt.'],
       },
       bestTime: [
         'Maj, juni och september – före och efter högsäsongen vid Es Trenc. Besök gärna saltpannorna i samma veva.',
+        { text: 'I januari firar Campos sitt skyddshelgon Sant Julià med mässa, dans och brasor, och i maj hålls Fira de Maig med djurutställningar. Datumen hittar du i vår evenemangskalender.', link: { href: '/evenemang', label: 'Evenemang på Mallorca →' } },
+      ],
+      families: [
+        'Es Trenc har ljus sand och klart, grunt vatten. Det är en naturstrand, så ta med parasoll och gott om vatten. En guidad tur i saltpannorna, där ni ser saltbergen och hur flor de sal skördas, passar bra för större barn.',
+        { text: 'Fler familjestränder hittar du på strandsidan, där du kan filtrera på barnvänligt.', link: { href: '/strandar', label: 'Stränder på Mallorca →' } },
+      ],
+      couples: [
+        'Torsdagsmarknad och kaffe på Plaça Major, en eftermiddag på Es Trenc och middag i Colònia de Sant Jordi. Font Santa vid vägen mot Colònia de Sant Jordi är i dag ett spa för vuxna, byggt kring öns enda varma källor.',
+        { text: 'Fler idéer för två hittar du i vår guide för par.', link: { href: '/mallorca-for-par', label: 'Mallorca för par →' } },
       ],
     },
     checked: CHECKED,
@@ -1610,6 +1743,13 @@ export const cities: City[] = [
       { label: 'BOIB 2019: marknadsdagar i Campos', href: 'https://intranet.caib.es/eboibfront/pdf/es/2019/41/1030392' },
       { label: 'Mallorca.com: marknaden i Campos', href: 'https://www.mallorca.com/es/eventos/mercados/wochenmarkt-campos' },
       { label: 'TIB: linje 501', href: 'https://www.tib.org/en/web/ctm/linies-i-horaris/autobus/-/linia/501' },
+      { label: 'TIB: expressturer från Porto Colom och Campos', href: 'https://www.tib.org/en/w/tib-improves-the-bus-connection-with-the-joan-march-hospital-and-adds-express-services-to-palma-from-portocolom-and-campos' },
+      { label: 'BOIB 2026: TIB-linjer 517 och A51', href: 'https://intranet.caib.es/eboibfront/pdf/ca/2026/74/1221966' },
+      { label: 'Govern de les Illes Balears: naturparken Es Trenc–Salobrar de Campos', href: 'https://www.caib.es/sites/espaisnaturalsprotegits/ca/parc_natural_maritimoterrestre_es_trenc-salobrar_de_campos' },
+      { label: 'Mallorca.com: Salines d’Es Trenc', href: 'https://www.mallorca.com/es/directorio/empresa/salines-des-trenc-campos' },
+      { label: 'Spain.info: Font Santa', href: 'https://www.spain.info/en/spa/font-santa/' },
+      { label: 'Illes Balears: församlingsmuseet i Campos', href: 'https://illesbalears.travel/en/mallorca/museum-museu-parroquial-de-campos' },
+      { label: 'The Calendar Mallorca: Sant Julià 2026', href: 'https://thecalendarmallorca.com/events/sant-julia-i-santa-basilissa-2026-campos/' },
     ],
     mapsQuery: 'Campos+Mallorca',
     places: {
@@ -1621,10 +1761,10 @@ export const cities: City[] = [
       ],
     },
     card: {
-      description: 'Lantlig stad nära Es Trenc känd för salt, kapers och lördagsmarknad',
+      description: 'Lantlig stad nära Es Trenc känd för salt och marknader',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Molins_Campos_-_panoramio.jpg/960px-Molins_Campos_-_panoramio.jpg',
       tip: 'Perfekt stopp på väg till Es Trenc',
-      top3: ['Es Trenc-stranden (10 min)', 'Saltpannorna Salines', 'Lördagsmarknaden'],
+      top3: ['Es Trenc-stranden (kort biltur)', 'Saltpannorna Salines', 'Lördagsmarknaden'],
     },
   },
 ];
