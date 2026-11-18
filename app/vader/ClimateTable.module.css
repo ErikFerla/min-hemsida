@@ -86,11 +86,24 @@
 
 @media (max-width: 480px) {
   .table {
-    font-size: 0.85rem;
-    min-width: 430px;
+    font-size: 0.8rem;
+    min-width: 0;
   }
   .table th,
   .table td {
-    padding: 0.5rem 0.45rem;
+    padding: 0.5rem 0.22rem;
+  }
+  .table th:first-child {
+    padding-left: 0.5rem;
+  }
+  .table td:last-child,
+  .table th:last-child {
+    padding-right: 0.5rem;
+  }
+  .table thead th {
+    font-size: 0.75rem;
+  }
+  .unit {
+    font-size: 0.7rem;
   }
 }

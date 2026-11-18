@@ -130,8 +130,8 @@ export default function DagensStrand({ beaches }: { beaches: DagensStrandBeach[]
           </>
         ) : (
           <>
-            Vind från {FRÅN[wind.from]}, {speed} m/s – {KUST[lee]} kusten ligger i lä. Där blåser vinden från land,
-            så vattnet är oftast lugnast.
+            Vind från {FRÅN[wind.from]}, {speed} m/s. På {KUST[lee]} kusten blåser vinden från land, så där är
+            vattnet oftast lugnast.
             {wind.speed >= 10 && ' Det blåser friskt, så även i lä kan det vara byigt.'}
           </>
         )}

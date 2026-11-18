@@ -1,4 +1,4 @@
-import { CLIMATE, CLIMATE_STATION, CLIMATE_YEAR, fmt, fmt0, sunPerDay } from '@/data/climate';
+import { CLIMATE, CLIMATE_STATION, CLIMATE_YEAR, fmt1, fmt0, sunPerDay } from '@/data/climate';
 import styles from './ClimateTable.module.css';
 
 /**
@@ -30,11 +30,11 @@ export default function ClimateTable({ headingId }: { headingId: string }) {
           {CLIMATE.map((m) => (
             <tr key={m.month}>
               <th scope="row">{m.name}</th>
-              <td>{fmt(m.max)}</td>
-              <td>{fmt(m.min)}</td>
+              <td>{fmt1(m.max)}</td>
+              <td>{fmt1(m.min)}</td>
               <td>{fmt0(m.sea)}</td>
-              <td>{fmt(sunPerDay(m))}</td>
-              <td>{fmt(m.rainDays)}</td>
+              <td>{fmt1(sunPerDay(m))}</td>
+              <td>{fmt1(m.rainDays)}</td>
               <td>{m.rainMm}</td>
             </tr>
           ))}
@@ -43,10 +43,10 @@ export default function ClimateTable({ headingId }: { headingId: string }) {
           <tr>
             <th scope="row">Året</th>
             <td colSpan={3} className={styles.yearNote}>
-              Medeltemperatur {fmt(CLIMATE_YEAR.mean)} °C
+              Medeltemperatur {fmt1(CLIMATE_YEAR.mean)} °C
             </td>
-            <td>{fmt(yearSunPerDay)}</td>
-            <td>{fmt(CLIMATE_YEAR.rainDays)}</td>
+            <td>{fmt1(yearSunPerDay)}</td>
+            <td>{fmt1(CLIMATE_YEAR.rainDays)}</td>
             <td>{CLIMATE_YEAR.rainMm}</td>
           </tr>
         </tfoot>

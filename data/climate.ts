@@ -59,6 +59,9 @@ export function sunPerDay(m: MonthClimate): number {
 const num = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 1, minimumFractionDigits: 0 });
 /** Svenskt talformat med decimalkomma, t.ex. 15,2 */
 export const fmt = (n: number) => num.format(n);
+const num1 = new Intl.NumberFormat('sv-SE', { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+/** Alltid en decimal, t.ex. 4,0 */
+export const fmt1 = (n: number) => num1.format(n);
 /** Heltal, t.ex. 15 */
 export const fmt0 = (n: number) => String(Math.round(n));
 

@@ -1,5 +1,5 @@
 'use client';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   ACTIVITIES,
@@ -31,9 +31,19 @@ function ToolFromUrl() {
   const pathname = usePathname();
   const a = params.get('aktivitet');
   const r = params.get('region');
-  const selection: Selection = { activity: isActivity(a) ? a : null, region: isRegion(r) ? r : 'hela' };
+  const fromUrl: Selection = { activity: isActivity(a) ? a : null, region: isRegion(r) ? r : 'hela' };
+  const urlKey = `${fromUrl.activity}|${fromUrl.region}`;
+
+  // Lokalt val så att knapparna svarar direkt; synkas om adressen ändras utifrån (bakåtknappen).
+  const [selection, setSelection] = useState(fromUrl);
+  const [prevKey, setPrevKey] = useState(urlKey);
+  if (urlKey !== prevKey) {
+    setPrevKey(urlKey);
+    setSelection(fromUrl);
+  }
 
   const onChange = (next: Selection) => {
+    setSelection(next);
     const q = new URLSearchParams();
     if (next.activity) q.set('aktivitet', next.activity);
     if (next.region !== 'hela') q.set('region', next.region);
