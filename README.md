@@ -13,7 +13,8 @@ för den installerade versionen finns i `node_modules/next/dist/docs/`.
 - Inga affiliatelänkar, inga provisionstexter och inga hårdkodade priser för att sälja.
 - Inget kontaktformulär och ingen personlig guide eller reseplanering.
 - Kort, saklig svenska med du-tilltal. Ortnamn skrivs med accent: Sóller, Deià, Santanyí,
-  Pollença, Artà, Alcúdia, Felanitx, Capdepera.
+  Pollença, Artà, Alcúdia, Felanitx, Capdepera. Allt om språk, ortnamn, enheter och källor
+  finns i [stilguiden](docs/stilguide.md).
 - Personliga inslag (som "Grytes favoritstrand") behålls.
 - Ändra inte befintliga URL:er utan att lägga in en 301 i `next.config.ts`.
 
@@ -37,7 +38,9 @@ app/                  Sidor och routes (App Router)
 components/           Delade layout- och UI-komponenter (se nedan)
 data/                 Typad innehållsdata (städer, golfbanor m.m.)
 public/               Statiska filer
+docs/stilguide.md     Stilguide för alla texter (ton, ortnamn, enheter, källor)
 scripts/smoke.mjs     Röktestet
+scripts/proof.mjs     Korrekturskriptet (se stilguiden)
 ```
 
 ### Var ska en komponent ligga?
@@ -73,6 +76,7 @@ Kräver Node.js 22 (minst 20.9).
 | `npm run start` | Startar produktionsbygget |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | TypeScript (`tsc --noEmit`, med `noUnusedLocals`/`noUnusedParameters`) |
+| `npm run proof` | Korrekturskript: ortnamn, enheter, tecken och ord enligt [stilguiden](docs/stilguide.md) |
 | `npm run smoke` | Röktest mot produktionsbygget (kräver `npm run build` först) |
 | `npm run ci` | Allt ovan i ordning: lint, typecheck, build, smoke |
 | `npm run knip` | Letar efter oanvända filer, exporter och beroenden |

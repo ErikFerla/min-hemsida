@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "smoke": "node scripts/smoke.mjs",
+    "proof": "node scripts/proof.mjs",
     "knip": "knip",
     "ci": "npm run lint && npm run typecheck && npm run build && npm run smoke"
   },
