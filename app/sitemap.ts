@@ -17,10 +17,10 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/aktiviteter/golf', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/sevardheter', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/evenemang', priority: 0.8, changeFrequency: 'weekly', updated: '2026-11-17' },
-  { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
+  { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/barn/vattenparker', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/djurparker-och-akvarier', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
-  { path: '/barn/inomhus-och-regn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
+  { path: '/barn/inomhus-och-regn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/vader', priority: 0.7, changeFrequency: 'daily', updated: '2026-11-17' },
   { path: '/flyg', priority: 0.7, changeFrequency: 'weekly', updated: '2026-11-17' },
   { path: '/vingardar', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-17' },
@@ -32,6 +32,13 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/guide/basta-tid-resa-mallorca', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/integritetspolicy', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
   { path: '/cookies', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
+  { path: '/barn/grottor', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/barn/aventyrsparker', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/barn/museer-och-kultur', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/barn/natur-och-utomhus', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/batutflykter-och-cabrera', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/dagsturer-utan-bil', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/mallorca-for-par', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
