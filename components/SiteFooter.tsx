@@ -81,7 +81,7 @@ export default function SiteFooter() {
               DIN GUIDE PÅ MALLORCA <IconPalm size={22} />
             </p>
             <p className={styles.about}>
-              Din kompletta guide till Mallorca på svenska. Insider-tips, stränder, mat, golf och mycket mer.
+              Din kompletta guide till Mallorca på svenska. Insidertips, stränder, mat, golf och mycket mer.
             </p>
           </div>
 
