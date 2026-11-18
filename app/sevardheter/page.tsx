@@ -38,7 +38,7 @@ const sevardheter = [
     kategori: 'Kyrka & kloster',
     beskrivning: 'Historiskt kloster där Frédéric Chopin och George Sand bodde vintern 1838–39. Museer, konst och Mallorcas vackraste bergsby runt om.',
     tips: 'Kom tidigt på morgonen innan turistbussarna anländer kl. 10.',
-    oppet: 'Mån–lör 9:30–18:30, sön 10–13',
+    oppet: 'Mån–lör 9.30–18.30, sön 10–13',
     bild: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=85',
     maps: 'https://maps.google.com/?q=Valldemossa+Monastery+Mallorca',
     redaktionellt: { typ: 'varning', text: 'Fullsatt 10–14 på sommaren – kom vid öppning eller efter kl. 15' },
