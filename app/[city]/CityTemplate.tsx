@@ -103,8 +103,7 @@ function CityGuideSections({ city }: { city: City }) {
           <p className={styles.marketDays}>{g.market.days}</p>
           <Paragraphs items={g.market.text} />
           <p className={styles.small}>
-            {/* /marknader byggs parallellt (3.13). prefetch={false} tills sidan finns i samma gren – ta bort efter merge. */}
-            <Link href="/marknader" prefetch={false} className={styles.link}>Alla veckomarknader på Mallorca dag för dag →</Link>
+            <Link href="/marknader" className={styles.link}>Alla veckomarknader på Mallorca dag för dag →</Link>
           </p>
         </section>
       )}
