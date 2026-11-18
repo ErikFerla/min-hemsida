@@ -30,7 +30,7 @@ export const GUIDES = {
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=630&fit=crop&q=85',
     imageAlt: 'Strand på Mallorca i solsken',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17T20:12:35+01:00',
+    dateModified: '2026-11-18T12:00:00+01:00',
   },
   'mallorca-med-barn': {
     slug: 'mallorca-med-barn',
