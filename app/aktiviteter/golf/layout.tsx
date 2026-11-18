@@ -11,8 +11,8 @@ export const metadata = {
   path: '/aktiviteter/golf',
   title: 'Golf på Mallorca – 22 banor med karta',
   description: 'Mallorcas 22 golfbanor på en interaktiv karta med banfakta, greenfee-nivåer och tips – från Alcanada i norr till Andratx i sydväst. Svensk guide.',
-  image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&h=630&fit=crop&q=80',
-  imageAlt: 'Golfbana på Mallorca med havsutsikt',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
+  imageAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
   }),
   // Föräldralayouten sätter en vanlig titelsträng, så root-mallen följer inte med hit.
   title: { absolute: 'Golf på Mallorca – 22 banor med karta | MyMallorca' },

@@ -12,20 +12,22 @@ type Aktivitet = {
   Icon: ComponentType<{ size?: number }>;
   href: string;
   bild: string;
+  /** Beskriver vad bilden faktiskt visar. */
+  bildAlt: string;
   highlights: string[];
 };
 
-type BarnTips = { namn: string; plats: string; ålder: string; kategori: string; beskrivning: string; bild: string };
+type BarnTips = { namn: string; plats: string; ålder: string; kategori: string; beskrivning: string; bild: string; bildAlt: string };
 
 const barnvanligt: BarnTips[] = [
-  { namn: 'Palma Aquarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 akvarier. Boka online för rabatt och kortare kö.', bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80' },
-  { namn: 'Coves del Drac', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=800&q=80' },
-  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80' },
-  { namn: 'Marineland', plats: "Costa d'en Blanes", ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till en heldagsutflykt.', bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=800&q=80' },
-  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: '4D-bio, spegellabyrint och minigolf under samma tak. Perfekt vid regnväder.', bild: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80' },
-  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80' },
-  { namn: 'Glassbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Familjevänliga turer på ca 1 timme.', bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=800&q=80' },
-  { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', kategori: 'Äventyr', beskrivning: 'Europas längsta linbanor (ziplines) i bergsmiljö. Kombinera med vandringen i naturparken.', bild: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80' },
+  { namn: 'Palma Aquarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Europas djupaste hajbassäng och 55 akvarier. Boka online för rabatt och kortare kö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG', bildAlt: 'Svartfenad revhaj i en bassäng på Palma Aquarium' },
+  { namn: 'Coves del Drac', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Coves_del_Drac_01.jpg/1920px-Coves_del_Drac_01.jpg', bildAlt: 'Upplysta droppstenar inne i Coves del Drac' },
+  { namn: 'Aqualand El Arenal', plats: 'El Arenal', ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg', bildAlt: 'Vattenrutschbanor på Aqualand i S\'Arenal' },
+  { namn: 'Marineland', plats: "Costa d'en Blanes", ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfinshow, sjölejon och papegojor. Vattenpark på samma anläggning gör det till en heldagsutflykt.', bild: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Delfinschow_im_Marineland_Mallorca.jpg', bildAlt: 'Delfinshow på Marineland Mallorca med publik på läktaren' },
+  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: '4D-bio, spegellabyrint och minigolf under samma tak. Perfekt vid regnväder.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/House_of_Katmandu_Palmanova_Mallorca.jpg/1920px-House_of_Katmandu_Palmanova_Mallorca.jpg', bildAlt: 'Det upp-och-nedvända huset House of Katmandu i Magaluf' },
+  { namn: 'Safari Zoo Porto Cristo', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil, med kamelridning och giraffutfodring som tillval.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Girafa_al_safari.jpg/1920px-Girafa_al_safari.jpg', bildAlt: 'Giraff i safariparken vid Sa Coma, fotograferad från bilen' },
+  { namn: 'Glassbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Familjevänliga turer på ca 1 timme.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg/1920px-Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg', bildAlt: 'Glasbottenbåtar i hamnen i Porto Cristo (bilden är inte från Cala d\'Or)' },
+  { namn: 'Zipline La Reserva', plats: 'Puigpunyent', ålder: '6+ år', kategori: 'Äventyr', beskrivning: 'Europas längsta linbanor (ziplines) i bergsmiljö. Kombinera med vandringen i naturparken.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg/1920px-Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg', bildAlt: 'Linbana över ett vattenfall – generisk bild, inte från La Reserva' },
 ];
 
 const aktiviteter: Aktivitet[] = [
@@ -34,7 +36,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Mallorca har 22 golfbanor i världsklass – från nybörjarvänliga till europeisk toppklass med fantastisk havsutsikt.',
     Icon: IconFlag,
     href: '/aktiviteter/golf',
-    bild: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg', bildAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
     highlights: ['22 golfbanor', 'Alla nivåer', 'Havsutsikt'],
   },
   {
@@ -42,7 +44,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Serra de Tramuntana finns på Unescos världsarvslista och har storslagna vandringsleder genom olivlundar och bergsdalar.',
     Icon: IconHiker,
     href: '/aktiviteter',
-    bild: 'https://images.unsplash.com/photo-1502126829-a3a29b2b72f7?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg', bildAlt: 'Serra de Tramuntana sedd från vandringsleden Camí de s\'Arxiduc vid Valldemossa',
     highlights: ['Unescos världsarv', 'GR 221-leden', 'Alla svårigheter'],
   },
   {
@@ -50,7 +52,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Kristallklart vatten och perfekta vindförhållanden gör Mallorca till ett paradis för segling, kajakpaddling och snorkling.',
     Icon: IconSnorkel,
     href: '/aktiviteter',
-    bild: 'https://images.unsplash.com/photo-1540946485063-a40da27545f8?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Schnorchler_%C3%BCber_Seegraswiese.JPG/1920px-Schnorchler_%C3%BCber_Seegraswiese.JPG', bildAlt: 'Snorklare över en sjögräsäng i Medelhavet',
     highlights: ['Segling', 'Kajakpaddling', 'Snorkling'],
   },
   {
@@ -58,7 +60,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
     Icon: IconUsers,
     href: '/barn',
-    bild: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Platja_de_Muro_R02.jpg/1920px-Platja_de_Muro_R02.jpg', bildAlt: 'Grunt vatten och sandstrand vid Platja de Muro',
     highlights: ['Vattenparker', 'Djurparker', 'Grottor'],
   },
   {
@@ -66,7 +68,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Mallorca är cyklisternas mekka – professionella lag tränar här på vintern. Välj mellan bergsetapper och kustvägar.',
     Icon: IconHiker,
     href: '/aktiviteter',
-    bild: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cycle_Path_in_North_Mallorca.JPG/1920px-Cycle_Path_in_North_Mallorca.JPG', bildAlt: 'Cykelbana längs Pollençabukten med Formentorhalvön i bakgrunden',
     highlights: ['Mallorca 312', 'Tramuntana', 'Cykeluthyrning'],
   },
   {
@@ -74,7 +76,7 @@ const aktiviteter: Aktivitet[] = [
     beskrivning: 'Utforska Mallorcas dramatiska kustlinje från havet – charter, guidade båtturer och glassbottenbåtar.',
     Icon: IconWave,
     href: '/aktiviteter',
-    bild: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Regata_Conde_de_Barcelona_-_panoramio.jpg/1280px-Regata_Conde_de_Barcelona_-_panoramio.jpg', bildAlt: 'Segelbåtar i regatta i Palmabukten',
     highlights: ['Båtcharter', 'Guidade turer', 'Glassbottenbåt'],
   },
 ];
@@ -85,8 +87,9 @@ export default function AktiviteterPage() {
       <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
       {/* Hero */}
       <HeroImage
-        src="https://images.unsplash.com/photo-1533105079780-92b9be482077"
-        alt="Vandrare på en bergstig i Serra de Tramuntana – Mallorcas aktiva sida"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg"
+        alt="Serra de Tramuntana sedd från vandringsleden Camí de s'Arxiduc vid Valldemossa"
+        photoCredit="Foto: Heuschrecke / Wikimedia Commons (CC BY-SA 3.0)"
         kicker="Upplev Mallorca"
         title="Aktiviteter på Mallorca"
         subtitle="Golf, vandring, vattensport och mycket mer – för alla smaker"
@@ -99,7 +102,7 @@ export default function AktiviteterPage() {
           {aktiviteter.map((a, i) => (
             <Link key={i} href={a.href} className={styles.cardLink}>
               <div className={styles.card}>
-                <Image src={a.bild} alt={a.titel} width={600} height={200} className={styles.cardImage} loading="lazy" />
+                <Image src={a.bild} alt={a.bildAlt} width={600} height={200} className={styles.cardImage} loading="lazy" />
                 <div className={styles.cardBody}>
                   <div className={styles.cardIcon}><a.Icon size={28} /></div>
                   <h2 className={styles.cardTitle}>{a.titel}</h2>
@@ -129,7 +132,7 @@ export default function AktiviteterPage() {
             {barnvanligt.map(b => (
               <article key={b.namn} className={styles.barnCard}>
                 <div className={styles.barnImage}>
-                  <Image src={b.bild} alt={b.namn} fill sizes="(max-width:768px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                  <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width:768px) 100vw, 360px" className={styles.cover} loading="lazy" />
                   <div className={styles.badge}>{b.kategori}</div>
                 </div>
                 <div className={styles.barnBody}>
