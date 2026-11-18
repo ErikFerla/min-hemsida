@@ -18,6 +18,8 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/sevardheter', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/evenemang', priority: 0.8, changeFrequency: 'weekly', updated: '2026-11-17' },
   { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/evenemang', priority: 0.8, changeFrequency: 'weekly', updated: '2026-11-18' },
+  { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/vattenparker', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/djurparker-och-akvarier', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/inomhus-och-regn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
@@ -44,6 +46,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/batutflykter-och-cabrera', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/dagsturer-utan-bil', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/mallorca-for-par', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/marknader', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-18' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
