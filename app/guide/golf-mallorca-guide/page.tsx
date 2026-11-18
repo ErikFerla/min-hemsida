@@ -1,97 +1,89 @@
 import Link from 'next/link';
-import { IconStar, IconFlag, IconBulb, IconCalendar } from '@/components/Icons';
+import { IconStar, IconFlag, IconBulb, IconCalendar, PriceTag, tierFromPris } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import HubLink from '../HubLink';
+import LastChecked from '@/app/components/LastChecked';
+import { golfbanor } from '@/data/golf-courses';
 import h from '../headings.module.css';
 import styles from './page.module.css';
 
-const toppBanor = [
+type ToppBana = {
+  rank: number;
+  namn: string;
+  /** slug i data/golf-courses.ts – därifrån hämtas prisnivån */
+  slug: string;
+  region: string;
+  hål: number;
+  par?: number;
+  svårighet: number;
+  beskrivning: string;
+  insider: string;
+  bästTid: string;
+};
+
+const toppBanor: ToppBana[] = [
   {
     rank: 1,
     namn: 'Son Gual',
+    slug: 'son-gual-golf',
     region: 'Palma (norr)',
     hål: 18,
-    par: 71,
-    grönAvgift: '120–190 €',
+    par: 72,
     svårighet: 5,
-    beskrivning: 'Son Gual är Mallorcas absolut bästa golfbana och rankas bland de 100 bästa i Europa. Designad av Thomas Himmel med fantastisk utsikt mot Tramuntanabergen och havet. Fairways i perfekt skick.',
+    beskrivning: 'Son Gual är vår favorit bland Mallorcas golfbanor. Den ritades av Thomas Himmel, invigdes 2007 och har fin utsikt mot Tramuntanabergen. Fairways i mycket gott skick.',
     insider: 'Boka starttid minst två veckor i förväg i mars–juni. Det är lättast att få tid tidigt på morgonen. Restaurangen är utmärkt efter rundan.',
-    bästTid: 'November–april (under 25 °C, inga turister)',
+    bästTid: 'November–april (svalare och lugnare)',
   },
   {
     rank: 2,
     namn: 'Arabella Golf Son Vida',
+    slug: 'son-vida-golf',
     region: 'Palma (väst)',
     hål: 18,
-    par: 72,
-    grönAvgift: '95–150 €',
+    par: 71,
     svårighet: 4,
-    beskrivning: 'Tre banor på samma lyxiga resort nära Palma. Son Vida-banan är den äldsta på ön (1964) och har Mallorcas mest imponerande panoramautsikt. En favorit bland vana golfresenärer.',
-    insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellpaketen är värda det – du kan gå till banan direkt från rummet.',
+    beskrivning: 'Arabella har tre banor nära Palma: Son Vida, Son Muntaner och Son Quint. Son Vida är öns äldsta bana (1964) och har en av de vackraste utsikterna över Palmabukten. En favorit bland vana golfresenärer.',
+    insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellen i Son Vida ligger alldeles intill banorna.',
     bästTid: 'Oktober–maj',
   },
   {
     rank: 3,
     namn: 'Son Quint',
-    region: 'Palma (sydöst)',
-    hål: 9,
-    par: 36,
-    grönAvgift: '60–80 €',
+    slug: 'son-quint-golf',
+    region: 'Palma (Son Vida)',
+    hål: 18,
+    par: 72,
     svårighet: 3,
-    beskrivning: 'En av Mallorcas vackraste 9-hålsbanor, omgiven av olivlundar och mandelträd. Perfekt för en halv dags golf med utsikt. Mer avslappnad atmosfär än de stora banorna.',
-    insider: 'Passar par som vill kombinera golf och sightseeing. Rundan tar ca 2,5 timmar – gott om tid för en middag i Palma efteråt.',
-    bästTid: 'Hela året – aldrig för trångt',
+    beskrivning: 'Den nyaste av Arabellas tre banor, invigd 2007, med olivlundar och mandelträd runt fairways. Mer avslappnad atmosfär än de stora tävlingsbanorna.',
+    insider: 'Passar par som vill kombinera golf och sightseeing – banan ligger bara en kort bilresa från Palmas centrum.',
+    bästTid: 'Hela året',
   },
   {
     rank: 4,
     namn: 'Club de Golf Alcanada',
+    slug: 'club-de-golf-alcanada',
     region: 'Alcúdia (norr)',
     hål: 18,
     par: 72,
-    grönAvgift: '100–160 €',
     svårighet: 4,
-    beskrivning: 'Norra Mallorcas bästa golfupplevelse. Från tee 15 ser du ut över en liten ö med en fyr – ett av öns mest fotograferade golfmotiv. Blåsigt och utmanande.',
-    insider: 'Hål 15 måste du fotografera. Ta med fler bollar än vanligt – vinden tar de flesta amatörers bollar i havet på hål 14–16.',
-    bästTid: 'Maj och oktober – i juni–september blåser det mycket',
+    beskrivning: 'Norra Mallorcas bästa golfupplevelse. Från flera hål ser du ut över den lilla ön Alcanada med sin fyr – ett av öns mest fotograferade golfmotiv. Ofta blåsigt och utmanande.',
+    insider: 'Ta med fler bollar än vanligt – vinden från havet gör flera av kusthålen svåra.',
+    bästTid: 'Vår och höst',
   },
   {
     rank: 5,
     namn: 'Golf Son Servera',
+    slug: 'club-de-golf-son-servera',
     region: 'Son Servera (östkust)',
-    hål: 9,
-    par: 36,
-    grönAvgift: '45–65 €',
+    hål: 18,
     svårighet: 2,
-    beskrivning: 'En av Mallorcas äldsta banor (1967) och favoriten för avslappnad golf. Omgiven av tallar och olivträd med havsutsikt. Bra för nybörjare och de som vill ha en enkel runda.',
-    insider: 'Priset är det lägsta bland de bra banorna. Kombinera med en middag i Porto Cristo (15 min). Lokal och vänlig personal – inget snobberi.',
-    bästTid: 'Hela året – aldrig trångt',
+    beskrivning: 'En av Mallorcas äldsta banor (1967), byggd ut från nio till 18 hål 2012. Favoriten för avslappnad golf, omgiven av tallar och olivträd. Bra för nybörjare och för dig som vill ha en enkel runda.',
+    insider: 'Kombinera med en middag i Porto Cristo, en kort bilresa söderut. Lokal och vänlig personal – inget snobberi.',
+    bästTid: 'Hela året',
   },
 ];
 
-const allabanor = [
-  { namn: 'Son Gual', region: 'Palma', hål: 18, grönAvgift: '120–190 €', svårighet: 5 },
-  { namn: 'Arabella Golf Son Vida', region: 'Palma', hål: 18, grönAvgift: '95–150 €', svårighet: 4 },
-  { namn: 'Son Quint', region: 'Palma', hål: 9, grönAvgift: '60–80 €', svårighet: 3 },
-  { namn: 'Club de Golf Alcanada', region: 'Alcúdia', hål: 18, grönAvgift: '100–160 €', svårighet: 4 },
-  { namn: 'Golf Son Servera', region: 'Son Servera', hål: 9, grönAvgift: '45–65 €', svårighet: 2 },
-  { namn: 'Golf Pollença', region: 'Pollença', hål: 9, grönAvgift: '40–55 €', svårighet: 2 },
-  { namn: 'Vall d\'Or Golf', region: 'Felanitx', hål: 9, grönAvgift: '50–70 €', svårighet: 3 },
-  { namn: 'Club de Golf Santa Ponsa', region: 'Santa Ponça', hål: 18, grönAvgift: '55–90 €', svårighet: 3 },
-  { namn: 'Golf Poniente', region: 'Santa Ponça', hål: 18, grönAvgift: '60–85 €', svårighet: 3 },
-  { namn: 'Real Golf de Bendinat', region: 'Calvià', hål: 18, grönAvgift: '70–100 €', svårighet: 3 },
-  { namn: 'Capdepera Golf', region: 'Capdepera', hål: 18, grönAvgift: '60–90 €', svårighet: 3 },
-  { namn: 'Son Antem Golf', region: 'Llucmajor', hål: 36, grönAvgift: '55–80 €', svårighet: 3 },
-  { namn: 'Golf Maioris', region: 'Llucmajor', hål: 18, grönAvgift: '50–75 €', svårighet: 3 },
-  { namn: 'Pula Golf', region: 'Son Servera', hål: 18, grönAvgift: '60–95 €', svårighet: 4 },
-  { namn: 'Golf Son Muntaner', region: 'Palma', hål: 18, grönAvgift: '85–130 €', svårighet: 4 },
-  { namn: 'T Golf Poniente', region: 'Magaluf', hål: 18, grönAvgift: '50–70 €', svårighet: 2 },
-  { namn: 'Golf de Andratx', region: 'Andratx', hål: 18, grönAvgift: '100–160 €', svårighet: 4 },
-  { namn: 'Son Gual Pitch & Putt', region: 'Palma', hål: 9, grönAvgift: '20–30 €', svårighet: 1 },
-  { namn: 'Golf Costa de los Pinos', region: 'Son Servera', hål: 9, grönAvgift: '40–55 €', svårighet: 2 },
-  { namn: 'Canyamel Golf', region: 'Artà', hål: 18, grönAvgift: '55–85 €', svårighet: 3 },
-  { namn: 'Rotana Golf', region: 'Manacor', hål: 9, grönAvgift: '35–50 €', svårighet: 2 },
-  { namn: 'Son Floriana Golf', region: 'Cala Millor', hål: 9, grönAvgift: '30–45 €', svårighet: 2 },
-];
+const prisnivå = (slug: string) => golfbanor.find(b => b.slug === slug)?.pris ?? '€€';
 
 export default function GolfMallorcaGuide() {
   return (
@@ -103,14 +95,14 @@ export default function GolfMallorcaGuide() {
         photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Golfguide · Uppdaterad 2026"
         title="De 5 bästa golfbanorna på Mallorca"
-        subtitle="Vårt urval med motivering, greenfee-nivå och insidertips – och när på året det är bäst att spela."
+        subtitle="Vårt urval med motivering, prisnivå och insidertips – och när på året det är bäst att spela."
         height="55vh"
       />
 
       <div className={styles.container}>
 
         <HubLink
-          text="Här är våra fem favoriter. Alla 22 banor på en karta, med banfakta och tips för varje bana, finns på golfsidan."
+          text={`Här är våra fem favoriter. Alla ${golfbanor.length} banor på en karta, med banfakta och tips för varje bana, finns på golfsidan.`}
           href="/aktiviteter/golf"
           label="Se alla golfbanor på Mallorca"
         />
@@ -119,12 +111,10 @@ export default function GolfMallorcaGuide() {
         <div className={styles.facts}>
           <p className={styles.factsTitle}><IconFlag size={18} /> Golfinfo Mallorca – snabbfakta</p>
           <div className={styles.factsGrid}>
-            <div><strong>Antal banor:</strong> 22</div>
+            <div><strong>Antal banor:</strong> drygt 20</div>
             <div><strong>Bästa säsong:</strong> November–april</div>
-            <div><strong>Billigaste banan:</strong> från 20 €</div>
-            <div><strong>Dyraste banan:</strong> upp till 190 €</div>
-            <div><strong>Snitt greenfee:</strong> 65–90 €</div>
-            <div><strong>Utrustningsuthyrning:</strong> finns på alla banor</div>
+            <div><strong>Greenfee:</strong> varierar stort mellan banor och säsonger – se banans webbplats</div>
+            <div><strong>Äldsta banan:</strong> Son Vida (1964)</div>
           </div>
         </div>
 
@@ -137,7 +127,7 @@ export default function GolfMallorcaGuide() {
               <span className={styles.rank}>{bana.rank}.</span>
               <div>
                 <h3 className={`${h.h3} ${styles.courseTitle}`}>{bana.namn}</h3>
-                <p className={styles.courseMeta}>{bana.region} · {bana.hål} hål · Par {bana.par} · <span className={styles.stars}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
+                <p className={styles.courseMeta}>{bana.region} · {bana.hål} hål{bana.par ? ` · Par ${bana.par}` : ''} · <span className={styles.stars}>{Array.from({ length: bana.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></p>
               </div>
             </div>
             <p className={styles.courseText}>{bana.beskrivning}</p>
@@ -147,39 +137,39 @@ export default function GolfMallorcaGuide() {
                 <p className={styles.boxText}>{bana.insider}</p>
               </div>
               <div className={styles.boxFee}>
-                <p className={styles.boxLabel}>GREENFEE · BÄSTA TID</p>
-                <p className={styles.fee}>{bana.grönAvgift}</p>
+                <p className={styles.boxLabel}>PRISNIVÅ · BÄSTA TID</p>
+                <p className={styles.fee}><PriceTag tier={tierFromPris(prisnivå(bana.slug))} /></p>
                 <p className={styles.bestTime}>{bana.bästTid}</p>
               </div>
             </div>
           </article>
         ))}
 
-        {/* Alla 22 banor – kompaktlista */}
+        {/* Alla banor – kompaktlista */}
         <section className={styles.section}>
-          <h2 className={`${h.h2} ${styles.heading}`}>Alla 22 golfbanor på Mallorca</h2>
+          <h2 className={`${h.h2} ${styles.heading}`}>Alla {golfbanor.length} golfbanor i vår lista</h2>
           <p className={styles.tableNote}>
-            Greenfee är ungefärliga prisnivåer – kontrollera alltid aktuellt pris hos banan. Karta och mer om varje bana finns på <Link href="/aktiviteter/golf">golfsidan</Link>.
+            Prisnivån är en ungefärlig jämförelse mellan banorna – kontrollera alltid aktuell greenfee hos banan. Karta och mer om varje bana finns på <Link href="/aktiviteter/golf">golfsidan</Link>.
           </p>
           <div className={styles.tableWrap} tabIndex={0} role="region" aria-label="Tabell över golfbanorna på Mallorca (går att skrolla i sidled)">
             <table className={styles.table}>
               <thead>
                 <tr>
                   <th>Bana</th>
-                  <th>Region</th>
+                  <th>Ort</th>
                   <th className={styles.center}>Hål</th>
-                  <th>Greenfee</th>
+                  <th>Prisnivå</th>
                   <th className={styles.center}>Svårighet</th>
                 </tr>
               </thead>
               <tbody>
-                {allabanor.map((b, i) => (
-                  <tr key={i}>
+                {golfbanor.map((b) => (
+                  <tr key={b.slug}>
                     <td className={styles.name}>{b.namn}</td>
-                    <td>{b.region}</td>
+                    <td>{b.plats}</td>
                     <td className={styles.center}>{b.hål}</td>
-                    <td className={styles.price}>{b.grönAvgift}</td>
-                    <td className={styles.rating}><span className={styles.stars}>{Array.from({ length: b.svårighet }).map((_, j) => <IconStar key={j} size={12} />)}</span></td>
+                    <td className={styles.price}><PriceTag tier={tierFromPris(b.pris)} /></td>
+                    <td className={styles.center}>{b.svårighet}</td>
                   </tr>
                 ))}
               </tbody>
@@ -210,9 +200,19 @@ export default function GolfMallorcaGuide() {
         {/* CTA */}
         <div className={styles.cta}>
           <h2 className={h.h2}>Mer om golf på Mallorca</h2>
-          <p className={styles.ctaText}>Se alla 22 banor på kartan, med banfakta och tips för varje bana.</p>
+          <p className={styles.ctaText}>Se alla banor på kartan, med banfakta och tips för varje bana.</p>
           <Link href="/aktiviteter/golf" className={styles.ctaButton}>SE ALLA BANOR PÅ KARTAN →</Link>
         </div>
+
+        <LastChecked
+          date="2026-11-18"
+          sources={[
+            { label: 'Arabella Golf Mallorca: banguide 2026', href: 'https://arabellagolfmallorca.com/wp-content/uploads/2026/04/GSV_CourseGuide2026_low.pdf' },
+            { label: 'Golf Son Gual', href: 'https://www.golfsongual.com' },
+            { label: '1golf.eu: Club de Golf Son Servera', href: 'https://www.1golf.eu/en/club/club-de-golf-de-son-servera' },
+            { label: 'AEMET: klimatvärden Palma', href: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos' },
+          ]}
+        />
       </div>
     </div>
   );
