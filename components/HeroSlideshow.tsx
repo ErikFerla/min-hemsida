@@ -1,10 +1,11 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import styles from './HeroSlideshow.module.css';
 
 type Bild = {
-  /** Unsplash-bas-URL utan query-sträng */
+  /** Unsplash-bas-URL utan query-sträng, Commons-thumb-URL (1920px) eller lokal fil (/bilder/...) */
   bas: string;
   alt: string;
   rubrik: string;
@@ -16,8 +17,8 @@ type Bild = {
 
 const bilder: Bild[] = [
   {
-    bas: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e',
-    alt: 'Katedralen La Seu i Palma de Mallorca sedd över hamnen',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1920px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg',
+    alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus, med stadsmuren framför',
     rubrik: 'Palma de Mallorca',
     undertext: 'Gotisk katedral, kulinarisk scen och levande gamla stan',
     plats: 'Palma · Huvudstaden',
@@ -25,8 +26,8 @@ const bilder: Bild[] = [
     cta: 'UTFORSKA PALMA',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-    alt: 'Turkost vatten och vit sandstrand en solig dag',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
+    alt: 'Sandstranden Es Trenc med turkost vatten en sommardag',
     rubrik: 'Kristallklara stränder',
     undertext: 'Från dolda klippvikar till långa, grunda sandstränder för hela familjen',
     plats: 'Es Trenc · Södra Mallorca',
@@ -34,26 +35,26 @@ const bilder: Bild[] = [
     cta: 'UTFORSKA STRÄNDERNA',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1530870110042-98b2cb110834',
-    alt: 'Barnfamilj som badar vid en vattenpark',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Alcudia_bay_2025.jpg/1920px-Alcudia_bay_2025.jpg',
+    alt: 'Alcúdiabukten med långa, långgrunda sandstränder på norra Mallorca',
     rubrik: 'Mallorca med barn',
     undertext: 'Grunda stränder, grottor, djurparker och vattenparker – tips för hela familjen',
-    plats: 'Hela ön · För barnfamiljer',
+    plats: 'Alcúdiabukten · Norra Mallorca',
     lank: '/barn',
     cta: 'SE BARNAKTIVITETERNA',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa',
-    alt: 'Golfbana med gröna fairways under blå himmel',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
+    alt: 'Fairway och green på golfbanan Pula Golf vid Son Servera',
     rubrik: 'Golf i världsklass',
     undertext: '22 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
-    plats: 'Son Gual Golf · Palma',
+    plats: 'Pula Golf · Son Servera',
     lank: '/aktiviteter/golf',
     cta: 'SE GOLFBANORNA',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec',
-    alt: 'Stenhus och smala gränder i bergsbyn Valldemossa',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg/1920px-The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg',
+    alt: 'Bergsbyn Valldemossa med kartusianklostret i Tramuntanas dal',
     rubrik: 'Valldemossa',
     undertext: 'Charmiga gränder, klosterhistoria och bergsnatur på Unescos världsarvslista',
     plats: 'Valldemossa · Västra Mallorca',
@@ -61,8 +62,8 @@ const bilder: Bild[] = [
     cta: 'UTFORSKA VALLDEMOSSA',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09',
-    alt: 'Hamnen i Port de Sóller omgiven av Tramuntanabergen',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg/1920px-Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg',
+    alt: 'Viken i Port de Sóller i solnedgången, omgiven av Tramuntanabergen',
     rubrik: 'Port de Sóller',
     undertext: 'Pittoresk hamn omgiven av Tramuntanabergen – dit går en historisk spårvagn',
     plats: 'Port de Sóller · Nordväst',
@@ -70,8 +71,8 @@ const bilder: Bild[] = [
     cta: 'UTFORSKA PORT DE SÓLLER',
   },
   {
-    bas: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0',
-    alt: 'Dukat restaurangbord med mat och vinglas',
+    bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Ensa%C3%AFmada.jpg/1920px-Ensa%C3%AFmada.jpg',
+    alt: 'En ensaïmada – Mallorcas spiralformade bakelse pudrad med florsocker',
     rubrik: 'Mat & vin på Mallorca',
     undertext: 'Lokala vingårdar, färsk fisk direkt från havet och kvällar på terrassen',
     plats: 'Hela ön · Kulinariska upplevelser',
@@ -84,10 +85,12 @@ const INTERVALL_MS = 6000;
 const SRCSET_BREDDER = [640, 960, 1280, 1600, 2000];
 
 function bildUrl(bas: string, bredd: number) {
+  if (!isUnsplash(bas)) return sizedImageUrl(bas, bredd);
   return `${bas}?w=${bredd}&q=75&fm=webp&auto=format&fit=crop`;
 }
 
 function bildSrcSet(bas: string) {
+  if (!isUnsplash(bas)) return sizedImageSrcSet(bas);
   return SRCSET_BREDDER.map((w) => `${bildUrl(bas, w)} ${w}w`).join(', ');
 }
 

@@ -26,7 +26,9 @@ const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
 const DEFAULT_DESCRIPTION =
   'Svensk guide till Mallorca för barnfamiljer, par och dig som bor på ön – stränder, byar, mat, vingårdar, golf och barnaktiviteter med lokala tips.';
-const DEFAULT_OG_IMAGE = 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&h=630&fit=crop&q=85';
+// Katedralen La Seu i solnedgång – Diego Delso, CC BY-SA 4.0 (se /bildkrediter).
+const DEFAULT_OG_IMAGE =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1280px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg';
 
 // Ingen canonical här: den ärvs annars av alla sidor som saknar egen och pekar dem mot startsidan.
 // Varje sida/layout sätter sin egen självrefererande canonical via alternates.
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     locale: 'sv_SE',
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: 'Palma de Mallorca med katedralen La Seu vid havet' }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1280, height: 853, alt: 'Katedralen La Seu i Palma de Mallorca i solnedgång' }],
   },
   twitter: {
     card: 'summary_large_image',
