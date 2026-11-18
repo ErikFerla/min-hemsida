@@ -32,6 +32,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/guide/basta-tid-resa-mallorca', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/integritetspolicy', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
   { path: '/cookies', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
+  { path: '/resplan', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-18' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
