@@ -78,7 +78,7 @@ Kräver Node.js 22 (minst 20.9).
 | `npm run typecheck` | TypeScript (`tsc --noEmit`, med `noUnusedLocals`/`noUnusedParameters`) |
 | `npm run proof` | Korrekturskript: ortnamn, enheter, tecken och ord enligt [stilguiden](docs/stilguide.md) |
 | `npm run smoke` | Röktest mot produktionsbygget (kräver `npm run build` först) |
-| `npm run ci` | Allt ovan i ordning: lint, typecheck, build, smoke |
+| `npm run ci` | Allt ovan i ordning: lint, proof, typecheck, build, smoke |
 | `npm run knip` | Letar efter oanvända filer, exporter och beroenden |
 
 ### Röktestet

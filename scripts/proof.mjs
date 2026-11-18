@@ -44,7 +44,7 @@ const TECHNICAL_KEYS = new Set([
  */
 const PROPER_NAMES = [
   'Golf Santa Ponsa', 'Club de Golf Santa Ponsa', 'Pollensa Golf', 'Golf Pollensa',
-  'Hidropark Alcudia', 'Jungle Parc Santa Ponsa', 'Aqualand El Arenal',
+  'Hidropark Alcudia', 'Jungle Parc Santa Ponsa', 'Aqualand El Arenal', 'Santa Ponsa II', 'Santa Ponsa I',
 ];
 /** JSX-attribut som är synlig (eller uppläst) text. */
 const TEXT_ATTRS = new Set(['alt', 'title', 'aria-label', 'placeholder', 'label', 'content', 'description', 'text', 'heading', 'subtitle', 'tip', 'caption']);
@@ -79,6 +79,10 @@ const WORDS = [
   [/(?<!\p{L})(must-see|must see|hidden gems?|highlights?|vibes?|hotspots?|rooftop|fine dining|day ?trip|roadtrip|dagstrip|sightseeing-tur|feel ?good|all inclusive-känsla|chilla|chillig|hangout|beach ?club|foodie|takeaway)(?!\p{L})/iu, 'svenskt ord'],
   [/(?<!\p{L})(Blåflagg-|blåflagg-)/u, 'Blå flagg / blåflaggad'],
   [/(?<!\p{L})(UNESCO)/u, 'Unesco'],
+  [/(?<!\p{L})[Ii]stället(?!\p{L})/u, 'i stället (två ord)'],
+  [/Tramuntana-bergen/u, 'Tramuntanabergen'],
+  [/(?<!\p{L})[Mm]allor(?:quin|can)(?:sk|ska|skt|er|erna)(?!\p{L})/u, 'mallorkinsk, mallorkinerna'],
+  [/Drach-grott/u, 'Coves del Drac (drakgrottorna)'],
   [/(?<!\p{L})(ok\.|OK\.?)(?!\p{L})/u, 'okej/bra'],
 ];
 
@@ -204,6 +208,8 @@ function visit(node, file, sf) {
     visit(node.initializer, file, sf);
     return;
   }
+  // Väderikonerna i prognosen (variabler som heter något med emoji) är symboler, inte text.
+  if (ts.isVariableDeclaration(node) && /emoji/i.test(node.name.getText(sf))) return;
   if (ts.isNewExpression(node) && /Error$/.test(node.expression.getText(sf))) return; // felmeddelanden för utvecklare
   if (ts.isThrowStatement(node)) return;
   if (ts.isElementAccessExpression(node)) { visit(node.expression, file, sf); return; }

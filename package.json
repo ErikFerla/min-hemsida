@@ -11,7 +11,7 @@
     "smoke": "node scripts/smoke.mjs",
     "proof": "node scripts/proof.mjs",
     "knip": "knip",
-    "ci": "npm run lint && npm run typecheck && npm run build && npm run smoke"
+    "ci": "npm run lint && npm run proof && npm run typecheck && npm run build && npm run smoke"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",

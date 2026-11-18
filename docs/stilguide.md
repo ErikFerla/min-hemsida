@@ -127,7 +127,8 @@ Mallorca använder och lägg till den i listan.
 - Ett mellanslag mellan meningar, aldrig två.
 - Pil (→) i knappar och länkar till andra sidor går bra; ↗ markerar extern länk.
 - Bocken (✓) och krysset (✗) får användas i listor. **Inga emojis** – inte heller som
-  prisnivåer eller betyg (skriv ”€€€” eller ”dyrt”).
+  prisnivåer eller betyg (skriv ”€€€” eller ”dyrt”). Enda undantaget är väderikonerna i
+  prognosen på /vader, som är symboler med textbeskrivning (helst ska de bli SVG-ikoner).
 
 ## 7. Förkortningar
 
@@ -167,6 +168,12 @@ tapas och shopping går bra.
 | perfekt för (överallt) | bra för, passar för – variera |
 | spektakulär (överallt) | storslagen, mäktig – variera |
 | lokalbefolkningen (hela tiden) | mallorkinerna, de som bor här |
+| mallorquinsk, mallorcansk | mallorkinsk (mallorkinska köket, mallorkinerna) |
+| istället | i stället |
+| drop-in | utan bokning |
+| foodtruck, street food | matvagn, gatumat |
+| tee-time | starttid |
+| outlet | fabriksbutik |
 
 Särskrivningar ska bort: ”strandpromenad” (inte ”strand promenad”), ”barnvänlig”,
 ”familjevänlig”, ”bergsby” (inte ”bergby”), ”halvmåneformad”.
