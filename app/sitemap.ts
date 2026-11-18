@@ -22,7 +22,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/barn/djurparker-och-akvarier', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/inomhus-och-regn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/vader', priority: 0.7, changeFrequency: 'daily', updated: '2026-11-17' },
-  { path: '/flyg', priority: 0.7, changeFrequency: 'weekly', updated: '2026-11-17' },
+  { path: '/flyg', priority: 0.7, changeFrequency: 'weekly', updated: '2026-11-18' },
   { path: '/vingardar', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/guider', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/guide/basta-stranderna-mallorca', priority: 0.9, changeFrequency: 'monthly', updated: '2026-11-17' },
@@ -32,6 +32,8 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/guide/basta-tid-resa-mallorca', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/integritetspolicy', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
   { path: '/cookies', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
+  { path: '/var-ska-man-bo', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/hyrbil-och-transport', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
