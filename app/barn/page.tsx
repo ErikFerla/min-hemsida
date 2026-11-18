@@ -7,7 +7,8 @@ import ActivityCard from '@/app/components/ActivityCard';
 import InsiderTipBox from '@/app/components/InsiderTipBox';
 import JsonLd from '@/app/components/JsonLd';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
-import { ACTIVITIES, CATEGORIES } from '@/app/lib/barn-activities';
+import LastChecked from '@/app/components/LastChecked';
+import { ACTIVITIES, BARN_CHECKED, BARN_SOURCES, CATEGORIES } from '@/app/lib/barn-activities';
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
 import styles from './barn.module.css';
 
@@ -15,7 +16,7 @@ const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
 
 const META_TITLE = `Mallorca med barn – ${ACTIVITIES.length} barnaktiviteter`;
 const META_DESCRIPTION =
-  'Barnaktiviteter på Mallorca som inte handlar om stranden – vattenparker, djurparker, akvarier och tips för regniga dagar. Filtrera efter ålder. Svensk guide.';
+  'Barnaktiviteter på Mallorca utöver stranden – vattenparker, djurparker, grottor, äventyrsparker, museer, natur och regndagstips. Filtrera efter ålder.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -50,7 +51,7 @@ const INSIDER_TIPS: string[] = [
   'Bästa tid: besök Katmandu-parken efter lunch — morgonen är packad med bussgrupper.',
   'Regnplan: när det regnar, boka Palma Jump eller Kids Republik samma morgon — tiderna tar slut snabbt.',
   'Småbarn: Hidropark i norr är mycket lugnare än parkerna i Palma — värt 45 min bilresa om ni har 2–5-åringar.',
-  'Transport: Tren de Sóller är en aktivitet i sig — billigare än många "riktiga" attraktioner och barn älskar det.',
+  'Transport: tåget till Sóller är en aktivitet i sig – och spårvagnen ner till Port de Sóller gör dagen komplett.',
 ];
 
 const LIST_ID = 'barn-aktiviteter';
@@ -84,7 +85,7 @@ export default function BarnHubPage() {
         imageAlt="Barnfamilj vid en vattenpark på Mallorca"
         kicker="Familjeresan"
         title="Mallorca med barn"
-        subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker och planer för regniga dagar"
+        subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker, grottor, äventyr, museer och natur"
       />
 
       <div className={styles.inner}>
@@ -190,6 +191,12 @@ export default function BarnHubPage() {
             ))}
           </ul>
         </section>
+
+        <LastChecked
+          date={BARN_CHECKED}
+          note="Datumet gäller grottor, äventyrsparker, museer och natur. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket."
+          sources={Object.values(BARN_SOURCES).flat()}
+        />
       </div>
     </div>
   );

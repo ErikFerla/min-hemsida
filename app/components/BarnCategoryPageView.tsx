@@ -5,6 +5,7 @@ import CategoryHero from './CategoryHero';
 import Breadcrumbs from './Breadcrumbs';
 import AgeFilter from './AgeFilter';
 import ActivityDetail from './ActivityDetail';
+import LastChecked, { type Source } from './LastChecked';
 import {
   getActivitiesByCategory,
   getCategoryMeta,
@@ -23,16 +24,19 @@ export type BarnCategoryPageViewProps = {
     subtitle: string;
   };
   intro: ReactNode;
+  /** Faktagranskning (3.7): datum och källor som visas längst ner. */
+  lastChecked?: { date: string; sources: Source[] };
 };
 
 /**
- * Shared layout for the three /barn/<slug> category pages.
+ * Shared layout for the /barn/<slug> category pages.
  * Hub (/barn) does NOT use this — it has its own compose.
  */
 export default function BarnCategoryPageView({
   category,
   hero,
   intro,
+  lastChecked,
 }: BarnCategoryPageViewProps) {
   const meta = getCategoryMeta(category);
   if (!meta) {
@@ -92,6 +96,8 @@ export default function BarnCategoryPageView({
             </div>
           ))}
         </div>
+
+        {lastChecked && <LastChecked date={lastChecked.date} sources={lastChecked.sources} />}
 
         {/* Bottom CTA — links to hub + related categories */}
         <section className={styles.more} aria-labelledby="fler-aktiviteter-heading">
