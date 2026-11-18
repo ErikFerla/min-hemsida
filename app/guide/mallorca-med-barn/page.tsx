@@ -18,14 +18,14 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Bästa barnvänliga stränderna',
     Icon: IconWave,
-    kortText: 'Mallorca har över 200 stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och nära faciliteter.',
-    punkter: ['Playa de Muro', 'Cala Millor', 'Alcúdia Port', 'Cala Llombards'],
+    kortText: 'Mallorca har över 200 stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och service nära till hands.',
+    punkter: ['Platja de Muro', 'Cala Millor', "Port d'Alcúdia", 'Cala Llombards'],
   },
   {
     rubrik: 'Vattenparker',
     Icon: IconSparkle,
-    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark mysigast, och Western Park har bäst tema för yngre barn.',
-    punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Park'],
+    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark mysigast, och Western Water Park har bäst tema för yngre barn.',
+    punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Water Park'],
   },
   {
     rubrik: 'Djurparker & natur',
@@ -36,8 +36,8 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Praktiska tips',
     Icon: IconBulb,
-    kortText: 'Resa juni eller september för bästa balans mellan väder och mängd. Hyrbil är nödvändig – boka barnstol i förväg.',
-    punkter: ['Bästa restid: juni / september', 'Hyrbil är ett måste', 'Restauranger öppnar 20:00'],
+    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil är nödvändig – boka barnstol i förväg.',
+    punkter: ['Bästa restid: juni eller september', 'Hyrbil är ett måste', 'Restaurangerna öppnar ofta kl. 20'],
   },
 ];
 
@@ -64,10 +64,10 @@ export default function MallorcaMedBarnGuide() {
         <section className={styles.quick}>
           <p className={styles.quickLabel}><IconSparkle size={16} /> Snabbsvar – vad passar ditt barn?</p>
           <ul className={styles.quickList}>
-            <li><strong>0–3 år:</strong> Playa de Muro</li>
+            <li><strong>0–3 år:</strong> Platja de Muro</li>
             <li><strong>4–8 år:</strong> Aqualand + Coves del Drac</li>
-            <li><strong>9–12 år:</strong> Kayak, snorkling, Safari Zoo</li>
-            <li><strong>13+ år:</strong> Wakeboard, klipphopp, street food</li>
+            <li><strong>9–12 år:</strong> Kajak, snorkling, Safari Zoo</li>
+            <li><strong>13+ år:</strong> Wakeboard, klipphopp, gatumat</li>
           </ul>
         </section>
 
@@ -94,7 +94,7 @@ export default function MallorcaMedBarnGuide() {
         <section className={styles.block}>
           <SectionHeading kicker="Hitta dit" titel="Barnvänliga aktiviteter på kartan" />
           <p className={styles.mapText}>
-            Här ser du de mest populära familjeaktiviteterna utspridda över ön – från vattenparker i söder till grottor på östkusten. Klicka på en pin för att läsa mer.
+            Här ser du de mest populära familjeaktiviteterna utspridda över ön – från vattenparker i söder till grottor på östkusten. Klicka på en markör för att läsa mer.
           </p>
           <div className={styles.mapFrame}>
             <Map

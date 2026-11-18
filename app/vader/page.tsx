@@ -22,7 +22,7 @@ export default function Vader() {
           <h1 className={styles.title}>Väder på Mallorca</h1>
           <p className={styles.lead}>
             Här ser du prognosen för de kommande dagarna på sju platser runt ön – från Palma och
-            Andratx i sydväst till Port de Sóller och Deià i Tramuntana-bergen, Alcúdia i norr och
+            Andratx i sydväst till Port de Sóller och Deià i Tramuntanabergen, Alcúdia i norr och
             Artà och Porto Colom i öster. Vädret kan skilja en hel del mellan kusten och bergen, så
             välj den ort som ligger närmast dig.
           </p>
@@ -36,7 +36,7 @@ export default function Vader() {
           fallback={
             <div className={styles.loading}>
               <div className={styles.spinner} aria-hidden="true"></div>
-              <p>Hämtar prognos...</p>
+              <p>Hämtar prognosen …</p>
             </div>
           }
         >

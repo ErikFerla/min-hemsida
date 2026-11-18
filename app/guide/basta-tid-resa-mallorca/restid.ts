@@ -44,7 +44,7 @@ export const RULES: Record<ActivityKey, string> = {
   vandring: 'Bäst när dagens högsta temperatur ligger mellan 17 och 24 °C. Varje grad över drar ner mer än varje grad under – över 28 °C blir långa turer tunga. Färre regndagar och fler soltimmar ger pluspoäng.',
   cykling: 'Bäst mellan 17 och 25 °C på dagen, med få regndagar. Värme över 28 °C och blöta månader drar ner.',
   golf: 'Bäst mellan 17 och 26 °C på dagen och med få regndagar. Högsommarens värme drar ner.',
-  stad: 'Behaglig dagstemperatur (18–28 °C) och lite regn. Mycket turister drar ner något, mest i juli och augusti.',
+  stad: 'Behaglig dagstemperatur (18–28 °C) och lite regn. Många turister drar ner något, mest i juli och augusti.',
   lugn: 'Turisttrycket väger tyngst, därefter att vädret är milt nog för att vara ute.',
   barn: 'Badtemperaturen väger tyngst (från 23 °C), men över 30 °C på dagen blir det varmt för små barn. Få regndagar ger pluspoäng.',
 };

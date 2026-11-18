@@ -22,7 +22,7 @@ const månader: { pris: number; text: string }[] = [
   { pris: 3, text: 'Bästa månaden för många. Havet har kvar sin sommarvärme och när skolorna har börjat blir det färre barnfamiljer. Enstaka kraftiga regnskurar kan komma. September är ändå populär – boka i god tid.' },
   { pris: 2, text: 'Höstfärger, fortfarande badbart hav och lugnare än sommaren. Oktober är årets regnigaste månad, men regnet kommer ofta som skurar. Bra för golf, vandring och mat.' },
   { pris: 1, text: 'Lugnt och vackert. Gott om plats på restaurangerna. Många hotell på kustorterna stänger för säsongen, men i Palma och de större orterna finns det mesta öppet.' },
-  { pris: 1, text: 'Jul på Mallorca är en dold pärla. Städerna pyntas, julmarknader öppnar och dagarna är ofta milda. En kulturresa – inte en strandresa.' },
+  { pris: 1, text: 'Jul på Mallorca är underskattat. Städerna pyntas, julmarknader öppnar och dagarna är ofta milda. En kulturresa – inte en strandresa.' },
 ];
 
 export default function BästaTidResaMallorca() {
@@ -81,9 +81,9 @@ export default function BästaTidResaMallorca() {
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Säsongernas logik</h2>
           <div className={styles.seasons}>
             {[
-              { label: 'Lågsäsong', period: 'Nov – Mar', hög: false, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },
-              { label: 'Mellansäsong', period: 'Apr – Maj / Sep – Okt', hög: false, text: 'Bästa valet för många. Behagligt att vara ute – i maj är havet friskt, i september och oktober fortfarande varmt.' },
-              { label: 'Högsäsong', period: 'Jun – Aug', hög: true, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
+              { label: 'Lågsäsong', period: 'Nov–mars', hög: false, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },
+              { label: 'Mellansäsong', period: 'Apr–maj och sep–okt', hög: false, text: 'Bästa valet för många. Behagligt att vara ute – i maj är havet friskt, i september och oktober fortfarande varmt.' },
+              { label: 'Högsäsong', period: 'Juni–aug', hög: true, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
             ].map((s, i) => (
               <div key={i} className={s.hög ? `${styles.season} ${styles.seasonHigh}` : styles.season}>
                 <p className={styles.seasonLabel}>{s.label}</p>
@@ -99,7 +99,7 @@ export default function BästaTidResaMallorca() {
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Månad för månad</h2>
           <p className={styles.scaleNote}>
             Temperaturen är medelvärdet av dygnets högsta och lägsta i Palma, havet är ett ungefärligt månadsmedel.
-            Prisskala: 1 € = budget, 4 € = högsta prisnivå. Turisttryck: 1 stjärna = lugnt, 5 stjärnor = fullt. Hela
+            Prisskala: € = budget, €€€€ = högsta prisnivå. Turisttryck: 1 stjärna = lugnt, 5 stjärnor = fullt. Hela
             tabellen finns på <Link href="/vader#klimat-heading">vädersidan</Link>.
           </p>
           <div className={styles.months}>

@@ -306,7 +306,7 @@ export default function WeatherForecast() {
         {loading && (
           <div className={styles.loading}>
             <div className={styles.spinner} aria-hidden="true"></div>
-            <p>Hämtar prognos...</p>
+            <p>Hämtar prognosen …</p>
           </div>
         )}
         {error && (
