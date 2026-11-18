@@ -27,8 +27,8 @@ export const GUIDES = {
     headline: 'Bästa tiden att resa till Mallorca',
     description:
       'Guide månad för månad till Mallorcas klimat, turisttryck och prisnivå. Hitta din bästa reseperiod utifrån vad du söker – strand, avkoppling eller aktiviteter.',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=630&fit=crop&q=85',
-    imageAlt: 'Strand på Mallorca i solsken',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Platja_de_Formentor.JPG/1920px-Platja_de_Formentor.JPG',
+    imageAlt: 'Platja de Formentor i solsken – turkost vatten, sandstrand och tallskog under bergen',
     datePublished: '2026-04-11T21:17:34+02:00',
     dateModified: '2026-11-18T12:00:00+01:00',
   },
@@ -49,10 +49,10 @@ export const GUIDES = {
     headline: 'Mallorcas 15 bästa stränder – vår topplista',
     description:
       'Vår topplista över Mallorcas 15 bästa stränder – med motivering, insidertips, parkering och bästa tid för varje strand. Alla 30 stränder finns på strandsidan.',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=630&fit=crop&q=85',
-    imageAlt: 'Turkost vatten och vit sandstrand på Mallorca',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg',
+    imageAlt: 'Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog på södra Mallorca',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17',
+    dateModified: '2026-11-18',
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
@@ -71,10 +71,10 @@ export const GUIDES = {
     headline: 'De 5 bästa golfbanorna på Mallorca',
     description:
       'Våra fem favoritbanor på Mallorca med motivering, greenfee-nivå och insidertips – plus bästa säsongen för golf och en snabb översikt över övriga banor.',
-    image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1200&h=630&fit=crop&q=80',
-    imageAlt: 'Golfbana på Mallorca med havsutsikt',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
+    imageAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17',
+    dateModified: '2026-11-18',
   },
 } as const satisfies Record<string, GuideMeta>;
 

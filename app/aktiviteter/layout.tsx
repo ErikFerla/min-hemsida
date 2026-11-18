@@ -4,8 +4,8 @@ export const metadata = buildPageMetadata({
   path: '/aktiviteter',
   title: 'Aktiviteter på Mallorca – golf, vandring & hav',
   description: 'Golf, vandring i Tramuntana, cykling och vattensport på Mallorca. Vår guide hjälper dig hitta aktiviteter för hela familjen, par och aktiva resenärer.',
-  image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Vandrare på en bergstig i Serra de Tramuntana på Mallorca',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg',
+  imageAlt: 'Serra de Tramuntana sedd från Camí de s\'Arxiduc vid Valldemossa',
 });
 
 export default function AktiviteterLayout({ children }: { children: React.ReactNode }) {

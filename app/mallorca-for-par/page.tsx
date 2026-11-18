@@ -12,15 +12,15 @@ const TITLE = 'Mallorca för par – vin, golf och lugna byar';
 const HEADLINE = 'Mallorca för par';
 const DESCRIPTION =
   'Mallorca för par i alla åldrar: vingårdar, golf, stränder, restauranger, solnedgångar och lugna bergsbyar – med konkreta förslag och länkar vidare.';
-const IMAGE = 'https://images.unsplash.com/photo-1569231413036-dacdb2cfb7ec';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Marroig_sunset_atardecer.JPG/1920px-Marroig_sunset_atardecer.JPG';
 const CHECKED = '2026-11-18';
 
 export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Stenhus och berg i en by i Serra de Tramuntana',
+  image: IMAGE,
+  imageAlt: 'Solnedgång över havet sedd från Son Marroig vid Deià',
 });
 
 const breadcrumbs = [
@@ -34,7 +34,7 @@ const jsonLd = [
     '@type': 'Article',
     headline: HEADLINE,
     description: DESCRIPTION,
-    image: [`${IMAGE}?w=1200&h=630&fit=crop&q=85`],
+    image: [IMAGE],
     datePublished: CHECKED,
     dateModified: CHECKED,
     inLanguage: 'sv-SE',
@@ -69,7 +69,8 @@ export default function ParPage() {
       <JsonLd data={jsonLd} />
       <HeroImage
         src={IMAGE}
-        alt="Stenhus och berg i en by i Serra de Tramuntana"
+        alt="Solnedgång över havet sedd från Son Marroig vid Deià"
+        photoCredit="Foto: Antonio De Lorenzo / Wikimedia Commons (CC BY 2.5)"
         kicker="För två"
         title={HEADLINE}
         subtitle="Vin, golf, stränder och lugna byar – för par i alla åldrar."

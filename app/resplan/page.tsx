@@ -16,8 +16,8 @@ export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
-  image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Utsikt över Palmas hamn och katedral – planera din resa till Mallorca',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
+  imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar – planera din resa till Mallorca',
 });
 
 // Kortare visningsnamn än i data/cities.ts där det behövs
