@@ -113,7 +113,7 @@ const TRIPS: Trip[] = [
     id: 'inca',
     title: '4. Marknaden i Inca på torsdagar – tåg T1',
     how: 'SFM-tåget T1 Palma – Inca från Estació Intermodal',
-    time: 'Ca 40 min',
+    time: 'Ca 35–40 min',
     price: 'Ordinarie SFM-taxa – se tib.org',
     text: (
       <>
