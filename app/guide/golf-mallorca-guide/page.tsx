@@ -191,11 +191,11 @@ export default function GolfMallorcaGuide() {
           <h2 className={`${h.h2} ${styles.headingIcon}`}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
           <div className={styles.seasons}>
             {[
-              { period: 'November–februari', rating: 5, text: 'Perfekt. Behagliga 15–20 °C. Inga köer. 30–40 % lägre priser.' },
-              { period: 'Mars–april', rating: 5, text: 'Högsäsong för golf. Mandelblomning, 18–23 °C. Boka tidigt.' },
+              { period: 'November–februari', rating: 5, text: 'Perfekt. Dagstemperatur kring 15–19 °C. Lugnt på banorna.' },
+              { period: 'Mars–april', rating: 5, text: 'Högsäsong för golf. Dagstemperatur kring 17–20 °C. Boka tidigt.' },
               { period: 'Maj–juni', rating: 4, text: 'Fortfarande bra. Varmare men hanterbart. Fler turister.' },
-              { period: 'Juli–augusti', rating: 2, text: 'För varmt (33–36 °C). Spela bara tidigt, kl. 7–9.30.' },
-              { period: 'September–oktober', rating: 4, text: 'Bra alternativ. Varmt hav, svalare luft. Bra priser.' },
+              { period: 'Juli–augusti', rating: 2, text: 'För varmt för de flesta – dagstemperaturen ligger kring 31 °C. Spela tidigt på morgonen.' },
+              { period: 'September–oktober', rating: 4, text: 'Bra alternativ. Varmt hav och svalare luft än på sommaren.' },
             ].map((s, i) => (
               <div key={i} className={styles.season}>
                 <p className={styles.seasonPeriod}>{s.period}</p>

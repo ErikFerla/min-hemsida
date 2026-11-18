@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ChangeEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
 import Map, { type MapMarker } from '@/components/Map';
 import {
   LEDIG,
@@ -51,7 +51,7 @@ function skrivVal(val: Val) {
 const listaText = (delar: string[]) =>
   delar.length <= 1 ? delar.join('') : `${delar.slice(0, -1).join(', ')} och ${delar[delar.length - 1]}`;
 
-type Fokus = { index: number; knapp: 'upp' | 'ner' } | null;
+type Fokus = { index: number; knapp: 'upp' | 'ner' | 'byt' } | null;
 
 export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseUrl: string }) {
   // Valen i URL:en är sanningen. På servern (och vid första renderingen) visas exemplet.
@@ -76,6 +76,10 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
     const f = fokus.current;
     if (!f) return;
     fokus.current = null;
+    if (f.knapp === 'byt') {
+      document.getElementById(`dag-${f.index}-byt`)?.focus();
+      return;
+    }
     const knapp = document.getElementById(`dag-${f.index}-${f.knapp}`) as HTMLButtonElement | null;
     const annan = document.getElementById(`dag-${f.index}-${f.knapp === 'upp' ? 'ner' : 'upp'}`) as HTMLButtonElement | null;
     (knapp && !knapp.disabled ? knapp : annan)?.focus();
@@ -138,11 +142,15 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
     setMeddelande(`Dag ${i + offset + 1} är flyttad till dag ${j + offset + 1}.`);
   };
 
-  const byt = (i: number, e: ChangeEvent<HTMLSelectElement>) => {
-    const nytt = e.target.value;
+  // Bytet sker först när man trycker på Byt-knappen, så att man kan bläddra i listan med
+  // piltangenterna utan att dagen byts vid varje tryck (WCAG 3.2.2).
+  const byt = (i: number, e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const nytt = String(new FormData(e.currentTarget).get('forslag') ?? '');
     if (nytt !== LEDIG && !ärFörslagsId(nytt)) return;
     const ny = [...mitt];
     ny[i] = nytt as MittDag;
+    fokus.current = { index: i + offset + 1, knapp: 'byt' };
     skrivVal({ ...val, plan: ny });
     const titel = nytt === LEDIG ? 'en ledig dag' : förslag[nytt].titel;
     setMeddelande(`Dag ${i + offset + 1} är utbytt mot ${titel}.`);
@@ -331,9 +339,9 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
                         ↓ Senare
                       </button>
                     </div>
-                    <label className={styles.swap}>
-                      <span>Byt ut dag {n}</span>
-                      <select value="" onChange={e => byt(mittIndex, e)} className={styles.select}>
+                    <form className={styles.swap} onSubmit={e => byt(mittIndex, e)}>
+                      <label htmlFor={`dag-${n}-forslag`}>Byt ut dag {n}</label>
+                      <select id={`dag-${n}-forslag`} name="forslag" defaultValue="" required className={styles.select}>
                         <option value="" disabled>Välj ett annat förslag …</option>
                         {alt.passar.length > 0 && (
                           <optgroup label="Passar dina intressen">
@@ -350,7 +358,10 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
                           {alt.övriga.map(id => <option key={id} value={id}>{altText(id)}</option>)}
                         </optgroup>
                       </select>
-                    </label>
+                      <button id={`dag-${n}-byt`} type="submit" className={styles.small}>
+                        Byt
+                      </button>
+                    </form>
                   </div>
                 )}
               </li>

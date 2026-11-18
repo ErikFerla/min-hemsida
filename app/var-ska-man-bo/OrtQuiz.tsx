@@ -76,7 +76,13 @@ export default function OrtQuiz() {
   const resultat = klar ? räknaUt(svar) : [];
 
   const välj = (fraga: FragaId, val: string) => skrivSvar({ ...svar, [fraga]: val });
-  const börjaOm = () => skrivSvar({});
+  // Knappen försvinner när svaren töms – flytta fokus till första frågan så att det inte hamnar på <body>.
+  const börjaOm = () => {
+    skrivSvar({});
+    requestAnimationFrame(() => {
+      document.querySelector<HTMLInputElement>('#ortsquiz input[type="radio"]')?.focus();
+    });
+  };
 
   return (
     <section id="ortsquiz" aria-labelledby="ortsquiz-rubrik" className={styles.quiz}>

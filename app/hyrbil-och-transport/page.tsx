@@ -158,15 +158,16 @@ export default function HyrbilOchTransport() {
               resa. Sedan 2026 tar även alla EMT-bussar i Palma bankkort.
             </li>
             <li>
-              <strong>Ungefärliga priser 2026:</strong> flygbussen A11 till sydvästkusten kostar ca 4–7 € och de långa
+              <strong>Ungefärliga priser (kontrollera aktuella priser hos TIB):</strong> flygbussen A11 till sydvästkusten kostar ca 4–7 € och de långa
               flygbussarna till norra och östra kusten ca 8–14 €, beroende på om du betalar med kort eller kontant.
               Stadsbussen A1 från flygplatsen till Palma kostar ca 5 € kontant. Priserna ändras – Palma har aviserat
               höjda busspriser.
             </li>
             <li>
               <strong>Sommar och vinter.</strong> TIB kör sommartidtabell från våren till slutet av oktober och
-              vintertidtabell från 1 november, med färre avgångar. Flera expressbussar går bara på sommaren, till
-              exempel 515e mellan Palma och Cala d’Or via Santanyí och 411e mellan Palma och Cala Rajada.
+              vintertidtabell från 1 november, med färre avgångar. Flera expressbussar går bara under sommarsäsongen –
+              kontrollera på tib.org om till exempel 515e (Palma–Cala d’Or via Santanyí) eller 411e (Palma–Cala Rajada)
+              går när du reser.
             </li>
             <li>
               <strong>Bor du på ön?</strong> Med det personliga Intermodal- eller Única-kortet är resor med TIB-buss,

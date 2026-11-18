@@ -314,7 +314,7 @@ export const cities: City[] = [
       },
       market: {
         days: 'Lördagar, förmiddag',
-        text: ['Veckomarknaden fyller torget Plaça de la Constitució och gatorna runt omkring på lördagar, ungefär 8–14. Här finns frukt och grönt från dalen, oliver, ostar och hantverk. Kombinera gärna med en tur med spårvagnen.'],
+        text: ['Veckomarknaden fyller torget Plaça de la Constitució och gatorna runt omkring på lördagar på förmiddagen. Här finns frukt och grönt från dalen, oliver, ostar och hantverk. Kombinera gärna med en tur med spårvagnen.'],
       },
       bestTime: [
         'Våren är Sóllers bästa tid: dalen är grön, apelsinträden blommar och det är behagligt att vandra. I maj firas Firó, då byn spelar upp ett historiskt slag mot pirater på gatorna.',
@@ -458,7 +458,7 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Ta Ma-19 från Palma förbi flygplatsen och Llucmajor och vidare via Campos till Santanyí. Med bil är det enkelt att nå vikarna längs kusten – men parkeringarna vid de populäraste fylls tidigt på sommaren.' },
-        { mode: 'Buss', text: 'TIB:s expresslinje 515e går vardagar mellan Palma och Santanyí och vidare till Portopetro och Cala d’Or, utan byte i Campos. Övriga förbindelser går via Campos, med byte till linje 501 mot Palma. Se aktuell tidtabell på tib.org – utbudet är mindre på helger.' },
+        { mode: 'Buss', text: 'TIB:s expresslinje 515e går mellan Palma och Santanyí och vidare till Portopetro och Cala d’Or, utan byte i Campos. Övriga förbindelser går via Campos, med byte till linje 501 mot Palma. Expresslinjen går främst under sommarsäsongen – se aktuell tidtabell på tib.org; utbudet är också mindre på helger.' },
         { mode: 'Från flygplatsen', text: 'Flygplatsen ligger på vägen söderut, så med hyrbil är du snabbt framme. Med buss tar du dig först in till Palma.' },
       ],
       stay: {
@@ -544,7 +544,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Buss', text: 'TIB:s expresslinje 515e går vardagar mellan Palma och Cala d’Or och stannar i Santanyí, S’Alqueria Blanca, Portopetro och Cala Egos.' },
+        { mode: 'Buss', text: 'TIB:s expresslinje 515e går mellan Palma och Cala d’Or och stannar i Santanyí, S’Alqueria Blanca, Portopetro och Cala Egos. Flera expresslinjer går bara under sommarsäsongen – kontrollera på tib.org att linjen går när du reser.' },
         { mode: 'Bil', text: 'Ta Ma-19 från Palma via Llucmajor och Campos mot Santanyí och fortsätt mot Cala d’Or. Parkera ovanför hamnen och promenera ner.' },
       ],
       beaches: {
@@ -876,7 +876,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Buss', text: 'TIB:s expresslinje 411e går mellan Palma och Cala Rajada via Sant Llorenç, Artà och Capdepera, med flera avgångar per dag. Den vanliga linje 411 går mellan Cala Rajada, Artà och Manacor, där du kan byta till tåget mot Palma.' },
+        { mode: 'Buss', text: 'TIB:s expresslinje 411e går mellan Palma och Cala Rajada via Sant Llorenç, Artà och Capdepera. Flera expresslinjer går bara under sommarsäsongen – kontrollera på tib.org att linjen går när du reser. Den vanliga linje 411 går mellan Cala Rajada, Artà och Manacor, där du kan byta till tåget mot Palma.' },
         { mode: 'Bil', text: 'Följ Ma-15 från Palma via Manacor till Artà. Parkera i utkanten – gränderna i den gamla stadskärnan är smala.' },
         { mode: 'Tåg', text: 'Tåget från Palma (linje T3) går till Manacor. Därifrån tar du buss 411 vidare till Artà.' },
       ],
@@ -886,7 +886,7 @@ export const cities: City[] = [
       },
       market: {
         days: 'Tisdagar, förmiddag',
-        text: ['Tisdagsmarknaden hålls på och runt Plaça del Conqueridor, ungefär 9–14. Den är lokal och levande, med råvaror, kläder och hantverk – ett bra tillfälle att se byn när den är som mest vaken.'],
+        text: ['Tisdagsmarknaden hålls på och runt Plaça del Conqueridor på förmiddagen. Den är lokal och levande, med råvaror, kläder och hantverk – ett bra tillfälle att se byn när den är som mest vaken.'],
       },
       bestTime: [
         'Våren och hösten passar Artà bäst: då är det skönt att gå upp till Sant Salvador och vandra i naturparken Península de Llevant. Sommartid är förmiddagen bäst för promenaden upp till borgen.',
@@ -1047,7 +1047,7 @@ export const cities: City[] = [
       market: {
         days: 'Söndagar i Pollença · onsdagar i Port de Pollença',
         text: [
-          'Söndagsmarknaden fyller Plaça Major och gatorna runt omkring, ungefär 9–13.30, med lokala råvaror, hantverk och kläder. Ta en kaffe på torget efteråt.',
+          'Söndagsmarknaden fyller Plaça Major och gatorna runt omkring på förmiddagen, med lokala råvaror, hantverk och kläder. Ta en kaffe på torget efteråt.',
           'I Port de Pollença hålls en mindre marknad på onsdagar.',
         ],
       },
@@ -1206,7 +1206,7 @@ export const cities: City[] = [
       },
       market: {
         days: 'Söndagar, förmiddag',
-        text: ['Söndagsmarknaden hålls i centrum, bland annat längs Carrer del 31 de Març, ungefär 9–14. Här finns lokala råvaror, keramik och hantverk.'],
+        text: ['Söndagsmarknaden hålls i centrum, bland annat längs Carrer del 31 de Març på förmiddagen. Här finns lokala råvaror, keramik och hantverk.'],
       },
       bestTime: [
         'En söndag för marknaden. Våren och hösten passar bäst för en tur upp till klostret på Puig de Sant Salvador och borgen Castell de Santueri.',
@@ -1445,7 +1445,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Buss', text: 'TIB:s expresslinje 411e går mellan Palma och Cala Rajada via Sant Llorenç, Artà och Capdepera. Linje 411 går till Manacor, och under säsongen förbinder linje 325 Cala Rajada med Alcúdia längs norrkusten.' },
+        { mode: 'Buss', text: 'TIB:s expresslinje 411e går mellan Palma och Cala Rajada via Sant Llorenç, Artà och Capdepera (främst under sommarsäsongen – kontrollera på tib.org). Linje 411 går till Manacor, och under säsongen förbinder linje 325 Cala Rajada med Alcúdia längs norrkusten.' },
         { mode: 'Bil', text: 'Följ Ma-15 från Palma via Manacor och Artà. Borgen ligger högst upp i byn – gå sista biten.' },
       ],
       beaches: {
@@ -1454,7 +1454,7 @@ export const cities: City[] = [
       },
       market: {
         days: 'Onsdagar, förmiddag',
-        text: ['Veckomarknaden hålls på onsdagar på Plaça de l’Orient i byn, ungefär 8–13.30.'],
+        text: ['Veckomarknaden hålls på onsdagar på Plaça de l’Orient i byn på förmiddagen.'],
       },
       bestTime: [
         'Försommaren och tidig höst är bäst för stränderna runt Cala Rajada. Borgen är vackrast i eftermiddagsljus – men kontrollera öppettiderna innan du går upp.',

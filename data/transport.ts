@@ -165,7 +165,7 @@ export const transfers: Transfer[] = [
   {
     mal: 'Santanyí, Portopetro och Cala d’Or',
     href: '/santanyi',
-    buss: 'Ingen direktbuss från flygplatsen. Byt i Palma; på sommaren går expressbussen 515e mot Cala d’Or.',
+    buss: 'Ingen direktbuss från flygplatsen. Byt i Palma; under sommarsäsongen går expressbussen 515e mot Cala d’Or.',
     bil: 'Ca 50 min',
   },
 ];

@@ -45,7 +45,7 @@ const säsonger: Sasong[] = [
     månader: 'september–november',
     färg: '#f5a623',
     textFärg: '#5c2d00',
-    fördelar: ['Havet är varmt i september (ca 24 °C)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
+    fördelar: ['Havet är varmt i september (ca 25 °C)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
     nackdel: 'Regnigare i oktober',
     bästFör: 'Mat och kultur',
     borderColor: '#f5a623',

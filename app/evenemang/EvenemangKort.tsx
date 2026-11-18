@@ -38,7 +38,7 @@ export default function EvenemangKort({ e, kompakt = false }: { e: Evenemang; ko
           {kompakt ? 'Källa' : e.källa.label} ↗
         </a>
         {e.ics ? (
-          <a href={e.ics} download className={styles.icsLink} aria-label={`Lägg till ${e.namn} i kalendern (.ics)`}>
+          <a href={e.ics} download className={styles.icsLink} aria-label={`Lägg till i kalender: ${e.namn} (.ics)`}>
             Lägg till i kalender
           </a>
         ) : (

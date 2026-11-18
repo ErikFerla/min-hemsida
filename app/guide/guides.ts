@@ -56,7 +56,7 @@ export const GUIDES = {
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
-    title: 'De 15 bästa restaurangerna i Palma – lokal guide',
+    title: 'Palmas 15 bästa restauranger – lokal guide',
     headline: 'De 15 bästa restaurangerna i Palma',
     description:
       'Rankade av en som bor här: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
