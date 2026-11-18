@@ -9,7 +9,7 @@ export const featureItems: { icon: ReactNode; title: string; desc: string; href:
   { icon: <svg {...svgProps}><circle cx="9" cy="7" r="3"/><circle cx="17" cy="10" r="2"/><path d="M3 21v-2a6 6 0 0112 0v2M15 21v-1.5a4 4 0 016-3.4"/></svg>, title: 'Med barn', desc: 'Grunda stränder, grottor, djurparker och vattenparker för hela familjen', href: '/barn' },
   { icon: <svg {...svgProps}><path d="M3 21h18M3 7l9-4 9 4M4 21V7M20 21V7M9 21v-4a3 3 0 016 0v4"/><rect x="9" y="10" width="2" height="3"/><rect x="13" y="10" width="2" height="3"/></svg>, title: 'Städer & byar', desc: '18 orter med insidertips från Palma till dolda bergsbyer', href: '/byar' },
   { icon: <svg {...svgProps}><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2a5 5 0 00-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>, title: 'Mat & vin', desc: 'Restaurangtips, vingårdar att besöka och lokala smaker', href: '/mat' },
-  { icon: <svg {...svgProps}><path d="M12 2v20M12 2l8 4-8 4"/><ellipse cx="12" cy="21" rx="9" ry="1.5"/></svg>, title: 'Golf', desc: '22 banor i världsklass – hitta rätt bana för din nivå', href: '/aktiviteter/golf' },
+  { icon: <svg {...svgProps}><path d="M12 2v20M12 2l8 4-8 4"/><ellipse cx="12" cy="21" rx="9" ry="1.5"/></svg>, title: 'Golf', desc: 'Drygt 20 banor – hitta rätt bana för din nivå', href: '/aktiviteter/golf' },
   { icon: <svg {...svgProps}><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.3-6.4 2 2-6.3z"/></svg>, title: 'Planera resan', desc: 'Flyg, hyrbil, bästa restid – allt du behöver veta', href: '/flyg' },
 ];
 
