@@ -521,7 +521,7 @@ export const cities: City[] = [
     },
     hero: {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Portopetro_Bay_01.jpg/1920px-Portopetro_Bay_01.jpg',
-      alt: 'Viken i Portopetro med segelbåtar och vita hus längs vattnet',
+      alt: 'Klippkusten vid inloppet till Portopetro med fyren och strandpromenaden',
       kicker: 'Sydkusten · Mallorca',
       subtitle: 'Exklusiv och lugn marinaby i sydost, populär bland segelbåtar och fridfulla resenärer',
     },
@@ -840,7 +840,7 @@ export const cities: City[] = [
     },
     hero: {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Mallorca_Blick_auf_Arta_%2831907486476%29.jpg/1920px-Mallorca_Blick_auf_Arta_%2831907486476%29.jpg',
-      alt: 'Artà sett från ovan med borgen Sant Salvador på kullen över stenhusen',
+      alt: 'Artà sett från ovan – stenhusen och kyrkan i bergsstaden på östra Mallorca',
       kicker: 'Östra Mallorca · Levant',
       subtitle: 'Historisk bergsstad med imponerande medeltida borg och vackra stensatta gränder',
     },
@@ -915,8 +915,8 @@ export const cities: City[] = [
       description: "Andratx i sydvästra Mallorca – lugn stadskärna med Port d'Andratx marina och Camp de Mar några minuter bort. Klippkullar och exklusiv atmosfär. Vår guide.",
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Port_d%27Andratx_-_9.jpg/1920px-Port_d%27Andratx_-_9.jpg',
-      alt: 'Hamnen i Port d’Andratx med båtar och hus på sluttningarna runt viken',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ANDRATX_-_MAJORKA%2C_AB-023.jpg/1920px-ANDRATX_-_MAJORKA%2C_AB-023.jpg',
+      alt: 'Hamnen i Port d’Andratx med båtar en mulen dag',
       kicker: 'Sydvästra Mallorca · Tramuntana',
       subtitle: 'Lugn stadskärna i sydväst med exklusiv marina och dramatisk bergskuliss',
     },
@@ -967,7 +967,7 @@ export const cities: City[] = [
     mapsQuery: 'Andratx+Mallorca',
     card: {
       description: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina",
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Port_d%27Andratx_-_9.jpg/960px-Port_d%27Andratx_-_9.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ANDRATX_-_MAJORKA%2C_AB-023.jpg/960px-ANDRATX_-_MAJORKA%2C_AB-023.jpg',
       tip: "Port d'Andratx har öns snyggaste marina",
       top3: ["Port d'Andratx marina", 'Camp de Mar-stranden', 'Centre Cultural Andratx'],
     },
@@ -1086,7 +1086,7 @@ export const cities: City[] = [
     },
     hero: {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Sineu_2022_06_germanes_caritat.jpg/1920px-Sineu_2022_06_germanes_caritat.jpg',
-      alt: 'Gata med gamla stenhus i Sineu',
+      alt: 'Gammal fasad med gröna fönsterluckor i Sineus centrum',
       kicker: 'Centrala Mallorca · Inland',
       subtitle: 'Mallorcas geografiska hjärta med öns äldsta marknad – sedan kung Jaume II år 1306',
     },
@@ -1230,8 +1230,8 @@ export const cities: City[] = [
       description: 'Manacor – Mallorcas näst största stad på östkusten. Pärlor, Rafa Nadals hemstad och porten till Coves del Drac. Insidertips från lokalkännare.',
     },
     hero: {
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/MANACOR_-_Majorka%2C_AB-002.jpg/1920px-MANACOR_-_Majorka%2C_AB-002.jpg',
-      alt: 'Kyrkan Mare de Déu dels Dolors i Manacor',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Panorama_Manacor_2007.JPG/1920px-Panorama_Manacor_2007.JPG',
+      alt: 'Panorama över Manacor med kyrktornet över hustaken',
       kicker: 'Östra Mallorca · Näst största staden',
       subtitle: 'Pärlstaden med Rafa Nadals hemmaplan – porten till öns östkust och Coves del Drac',
     },
@@ -1304,7 +1304,7 @@ export const cities: City[] = [
     },
     card: {
       description: 'Mallorcas näst största stad – känd för pärlor, möbler och Rafael Nadal',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/MANACOR_-_Majorka%2C_AB-002.jpg/960px-MANACOR_-_Majorka%2C_AB-002.jpg',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Panorama_Manacor_2007.JPG/960px-Panorama_Manacor_2007.JPG',
       tip: 'Besök en pärlafabrik och se hur de tillverkas',
       // Stavningen följer stadssidan och varumärket: Majorica.
       top3: ['Majoricas pärlfabrik', 'Rafa Nadal Academy', 'Måndagsmarknaden'],
