@@ -16,7 +16,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/aktiviteter', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/aktiviteter/golf', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/sevardheter', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
-  { path: '/evenemang', priority: 0.8, changeFrequency: 'weekly', updated: '2026-11-17' },
+  { path: '/evenemang', priority: 0.8, changeFrequency: 'weekly', updated: '2026-11-18' },
   { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/vattenparker', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/barn/djurparker-och-akvarier', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-17' },
@@ -32,6 +32,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/guide/basta-tid-resa-mallorca', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-17' },
   { path: '/integritetspolicy', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
   { path: '/cookies', priority: 0.2, changeFrequency: 'yearly', updated: '2026-11-17' },
+  { path: '/marknader', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-18' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

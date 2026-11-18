@@ -1,0 +1,223 @@
+/* /marknader – veckomarknader per veckodag. */
+
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.hero {
+  background: var(--color-surface);
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 80px) clamp(36px, 5vw, 56px);
+  text-align: center;
+}
+
+.kicker {
+  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  font-weight: 700;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  margin: 0 auto 16px;
+  line-height: 1.05;
+  color: var(--color-ink);
+  max-width: 18ch;
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: var(--color-accent);
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+
+.lead {
+  font-size: clamp(1rem, 2.2vw, 1.1rem);
+  color: var(--color-text);
+  margin: 0 auto;
+  max-width: 60ch;
+  line-height: 1.7;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 56px) clamp(16px, 4vw, 60px);
+}
+
+.dayNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.dayLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dayLink:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--color-ink);
+}
+
+.tips {
+  background: var(--color-surface-warm);
+  border-radius: 16px;
+  padding: clamp(20px, 3vw, 32px);
+  margin-bottom: 48px;
+}
+
+.tips ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.tips li {
+  margin: 0;
+}
+
+.tips li + li {
+  margin-top: 6px;
+}
+
+.tips a,
+.more a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.day {
+  margin-bottom: 48px;
+  scroll-margin-top: 80px;
+}
+
+.empty {
+  color: var(--color-text-soft);
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-margin-top: 80px;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.alsoOn {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.text {
+  margin: 0;
+  line-height: 1.65;
+  color: var(--color-text);
+  flex: 1;
+}
+
+.tip {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+.source {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.more {
+  max-width: 75ch;
+}
+
+.more p {
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .dayNav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .dayLink {
+    flex-shrink: 0;
+  }
+}
