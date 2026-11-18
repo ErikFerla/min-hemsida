@@ -1,198 +1,106 @@
-'use client';
-import { useRef, useState, type FormEvent } from 'react';
-import { IconPlane, IconSparkle, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
+import Link from 'next/link';
+import { IconPlane, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import LastChecked from '@/app/components/LastChecked';
+import TransferTabell from '@/app/hyrbil-och-transport/TransferTabell';
+import { avreseorter, CHECKED, SOURCES } from '@/data/transport';
 import h from '../guide/headings.module.css';
+import FlygSok from './FlygSok';
 import styles from './flyg.module.css';
 
-const flygplatser = [
-  { kod: 'GOT', namn: 'Göteborg Landvetter' },
-  { kod: 'ARN', namn: 'Stockholm Arlanda' },
-  { kod: 'MMX', namn: 'Malmö Airport' },
-  { kod: 'OSL', namn: 'Oslo Gardermoen' },
+const skyscanner = (kod: string) =>
+  `https://www.skyscanner.se/transport/flyg/${kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`;
+
+const tips = [
+  { Icon: IconCalendar, text: 'Skollov, påsk och juli–augusti är dyrast. Kan du resa i maj, juni eller september brukar det bli billigare.' },
+  { Icon: IconSun, text: 'Vintertid flyger färre bolag direkt. Jämför med en mellanlandning eller flyg från Kastrup.' },
+  { Icon: IconClock, text: 'Tidiga morgonflyg och sena kvällsflyg är ofta billigast – men tänk på hur du tar dig vidare från PMI sent på kvällen.' },
+  { Icon: IconInfo, text: 'Kontrollera vad som ingår. Hos lågprisbolagen kostar incheckat bagage och platsval ofta extra.' },
 ];
 
-type Fält = 'utresa' | 'hemresa';
-type Fel = Partial<Record<Fält, string>>;
-
-/** ÅÅÅÅ-MM-DD → ÅÅMMDD (Skyscanners datumformat i sök-URL:en) */
-const tillSkyscannerDatum = (iso: string) => iso.replace(/-/g, '').slice(2);
-
-/** Dagens datum som ÅÅÅÅ-MM-DD i besökarens tidszon */
-const idag = () => {
-  const d = new Date();
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  return `${d.getFullYear()}-${mm}-${dd}`;
-};
-
-function valideraDatum(utresa: string, hemresa: string): Fel {
-  const fel: Fel = {};
-  if (!utresa) {
-    fel.utresa = 'Välj ett utresedatum.';
-  } else if (utresa < idag()) {
-    fel.utresa = 'Utresedatumet har redan passerat. Välj dagens datum eller ett senare.';
-  }
-  if (hemresa && utresa && hemresa < utresa) {
-    fel.hemresa = 'Hemresan kan inte vara före utresan.';
-  }
-  return fel;
-}
-
 export default function FlygPage() {
-  const [från, setFrån] = useState('GOT');
-  const [utresa, setUtresa] = useState('');
-  const [hemresa, setHemresa] = useState('');
-  const [resenärer, setResenärer] = useState('1');
-  const [fel, setFel] = useState<Fel>({});
-  const utresaRef = useRef<HTMLInputElement>(null);
-  const hemresaRef = useRef<HTMLInputElement>(null);
-
-  const sökFlyg = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const nyaFel = valideraDatum(utresa, hemresa);
-    setFel(nyaFel);
-    if (nyaFel.utresa) { utresaRef.current?.focus(); return; }
-    if (nyaFel.hemresa) { hemresaRef.current?.focus(); return; }
-    const datum = [utresa, hemresa].filter(Boolean).map(tillSkyscannerDatum).join('/');
-    const url = `https://www.skyscanner.se/transport/flyg/${från.toLowerCase()}/pmi/${datum}/?adults=${resenärer}&currency=SEK&locale=sv-SE`;
-    window.open(url, '_blank', 'noopener');
-  };
-
   return (
     <div className={styles.page}>
-      {/* Hero */}
       <HeroImage
         src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
         alt="Flygplan över moln ovanför Medelhavet på väg till Palma de Mallorca"
         kicker="Res till Mallorca"
-        title="Hitta flyg till Palma"
-        subtitle="Sök och jämför flyg från Sverige till Mallorca"
+        title="Flyg till Mallorca"
+        subtitle="Direktflyg från Sverige, flygtider och hur du tar dig vidare från flygplatsen i Palma"
         height="55vh"
       />
 
       <div className={styles.container}>
+        <p className={styles.lead}>
+          Alla flyg till Mallorca landar på Palmas flygplats Son Sant Joan (PMI), några kilometer öster om Palma.
+          Från Sverige tar ett direktflyg ungefär tre till fyra timmar. Här ser du vilka avreseorter som brukar ha
+          direktflyg, och hur du kommer vidare till din ort när du har landat.
+        </p>
 
-        {/* Sökformulär */}
-        <section aria-labelledby="flygsok-rubrik" className={styles.search}>
-          <h2 id="flygsok-rubrik" className={`${h.h2} ${styles.heading}`}>
-            Sök flyg till Palma de Mallorca
+        <FlygSok />
+
+        {/* Direktflyg */}
+        <section aria-labelledby="direktflyg" className={styles.block}>
+          <h2 id="direktflyg" className={`${h.h2} ${styles.blockTitle}`}>
+            Direktflyg till Palma från Sverige
           </h2>
+          <p className={styles.text}>
+            Utbudet ändras från säsong till säsong. Flygbolagens sommarprogram gäller från slutet av mars till slutet
+            av oktober, och det är då de flesta direktflygen går. På vintern finns färre avgångar och färre avreseorter.
+            Uppgifterna nedan gäller 2026 – kontrollera alltid hos flygbolaget innan du bokar.
+          </p>
 
-          <form onSubmit={sökFlyg} noValidate aria-labelledby="flygsok-rubrik">
-            <div className={styles.fields}>
-              <div>
-                <label htmlFor="flyg-fran" className={styles.label}>AVRESA FRÅN</label>
-                <select
-                  id="flyg-fran"
-                  name="fran"
-                  value={från}
-                  onChange={e => setFrån(e.target.value)}
-                  className={`${styles.field} ${styles.select}`}
-                >
-                  {flygplatser.map(f => (
-                    <option key={f.kod} value={f.kod}>{f.namn} ({f.kod})</option>
-                  ))}
-                </select>
-              </div>
+          <div className={styles.routeGrid}>
+            {avreseorter.map((a) => (
+              <article key={a.kod} className={styles.airport}>
+                <div className={styles.airportIcon}><IconPlane size={26} /></div>
+                <h3 className={`${h.h3} ${styles.airportName}`}>{a.namn}</h3>
+                <p className={styles.route}>{a.kod} → PMI</p>
+                <dl className={styles.facts}>
+                  <dt>Flygbolag</dt>
+                  <dd>{a.flygbolag}</dd>
+                  <dt>Säsong</dt>
+                  <dd>{a.sasong}</dd>
+                  <dt>Flygtid</dt>
+                  <dd>{a.flygtid}</dd>
+                </dl>
+                <a href={skyscanner(a.kod)} target="_blank" rel="noopener noreferrer" className={styles.airportLink}>
+                  Sök flyg från {a.kod} <span aria-hidden="true">→</span>
+                  <span className="sr-only"> (öppnas i ny flik)</span>
+                </a>
+              </article>
+            ))}
+          </div>
 
-              <div>
-                <label htmlFor="flyg-till" className={styles.label}>DESTINATION</label>
-                <input
-                  id="flyg-till"
-                  type="text"
-                  value="Palma de Mallorca (PMI)"
-                  readOnly
-                  className={`${styles.field} ${styles.readonly}`}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="flyg-utresa" className={styles.label}>UTRESEDATUM</label>
-                <input
-                  ref={utresaRef}
-                  id="flyg-utresa"
-                  name="utresa"
-                  type="date"
-                  required
-                  aria-invalid={fel.utresa ? true : undefined}
-                  aria-describedby="flyg-utresa-fel"
-                  value={utresa}
-                  onChange={e => { setUtresa(e.target.value); setFel(f => ({ ...f, utresa: undefined })); }}
-                  className={styles.field}
-                />
-                <p id="flyg-utresa-fel" aria-live="polite" className={styles.error}>{fel.utresa}</p>
-              </div>
-
-              <div>
-                <label htmlFor="flyg-hemresa" className={styles.label}>HEMRESEDATUM</label>
-                <input
-                  ref={hemresaRef}
-                  id="flyg-hemresa"
-                  name="hemresa"
-                  type="date"
-                  min={utresa || undefined}
-                  aria-invalid={fel.hemresa ? true : undefined}
-                  aria-describedby="flyg-hemresa-hjalp flyg-hemresa-fel"
-                  value={hemresa}
-                  onChange={e => { setHemresa(e.target.value); setFel(f => ({ ...f, hemresa: undefined })); }}
-                  className={styles.field}
-                />
-                <p id="flyg-hemresa-hjalp" className={styles.help}>Lämna tomt för enkelresa.</p>
-                <p id="flyg-hemresa-fel" aria-live="polite" className={styles.error}>{fel.hemresa}</p>
-              </div>
-
-              <div>
-                <label htmlFor="flyg-resenarer" className={styles.label}>RESENÄRER</label>
-                <select
-                  id="flyg-resenarer"
-                  name="resenarer"
-                  value={resenärer}
-                  onChange={e => setResenärer(e.target.value)}
-                  className={`${styles.field} ${styles.select}`}
-                >
-                  {[1,2,3,4,5,6,7,8].map(n => (
-                    <option key={n} value={n}>{n} {n === 1 ? 'person' : 'personer'}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              aria-describedby="flyg-skyscanner-info"
-              className={styles.submit}
-            >
-              SÖK FLYG PÅ SKYSCANNER →
-            </button>
-            <p id="flyg-skyscanner-info" className={styles.note}>
-              Sökningen öppnas hos Skyscanner i en ny flik. Vi sparar inget av det du fyller i.
-            </p>
-          </form>
+          <h3 className={`${h.h3} ${styles.subTitle}`}>Från andra svenska flygplatser</h3>
+          <p className={styles.text}>
+            Från mindre flygplatser går det i regel bara charter, och bara vissa veckor på sommaren. Sommaren 2026 flög
+            Ving till Palma bland annat från Jönköping (tisdagar 28 april–16 juni). Från Umeå och Luleå har vi inte
+            hittat några direktflyg till Palma 2026 – därifrån flyger du enklast via Arlanda. Charterprogrammen för
+            sommaren 2027 släpps successivt hos researrangörerna.
+          </p>
         </section>
 
-        {/* Snabbknappar */}
-        <h2 className={`${h.h2} ${styles.quickHeading}`}>
-          <IconSparkle size={22} /> Snabbsök – Populära avgångar
-        </h2>
-        <div className={styles.quickGrid}>
-          {flygplatser.map(f => (
-            <div key={f.kod} className={styles.airport}>
-              <div className={styles.airportIcon}><IconPlane size={28} /></div>
-              <h3 className={`${h.h3} ${styles.airportName}`}>{f.namn}</h3>
-              <p className={styles.route}>{f.kod} → PMI · Palma de Mallorca</p>
-              <a
-                href={`https://www.skyscanner.se/transport/flyg/${f.kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.airportLink}
-              >
-                Sök flyg från {f.kod} <span aria-hidden="true">→</span>
-                <span className="sr-only"> (öppnas i ny flik)</span>
-              </a>
-            </div>
-          ))}
-        </div>
+        {/* Transfer */}
+        <section aria-labelledby="fran-flygplatsen" className={styles.block}>
+          <h2 id="fran-flygplatsen" className={`${h.h2} ${styles.blockTitle}`}>
+            Från flygplatsen till din ort
+          </h2>
+          <p className={styles.text}>
+            Bussarna går från flygplatsens busshållplats – följ skyltarna från ankomsthallen. Palmas stadsbuss A1 går in till centrum, och TIB:s
+            flygbussar (Aerotib) går direkt till flera kustorter. På TIB-bussarna betalar du enklast med bankkort eller
+            mobil, både när du kliver på och när du kliver av – det är billigare än kontant. Taxi finns utanför
+            ankomsthallen; taxametern gäller och ett flygplatstillägg ingår i priset.
+          </p>
+          <TransferTabell caption="Ungefärliga restider och priser från Palmas flygplats (PMI), 2026" />
+          <p className={styles.text}>
+            Ska du till Sóller, Deià eller sydöstra kusten, eller vill du röra dig fritt på ön, är hyrbil ofta enklast.
+            Läs mer om bilhyra, bussar, tåg och taxi i vår guide{' '}
+            <Link href="/hyrbil-och-transport" className={styles.inlineLink}>Hyrbil och transport på Mallorca</Link>.
+            Undrar du var du ska bo? Se{' '}
+            <Link href="/var-ska-man-bo" className={styles.inlineLink}>Var ska man bo på Mallorca</Link>.
+          </p>
+        </section>
 
         {/* Tips */}
         <div className={styles.tips}>
@@ -200,19 +108,31 @@ export default function FlygPage() {
             <IconBulb size={22} /> Tips för billigare flyg till Mallorca
           </h2>
           <div className={styles.tipsGrid}>
-            {[
-              { Icon: IconCalendar, tips: 'Boka 6–8 veckor i förväg för bästa pris' },
-              { Icon: IconSun, tips: 'Maj och september är billigare än juli–aug' },
-              { Icon: IconClock, tips: 'Tidiga morgon- eller sena kvällsflygningar är ofta billigast' },
-              { Icon: IconInfo, tips: 'Sätt prisvarning på Skyscanner och vänta på rea' },
-            ].map((t, i) => (
-              <div key={i} className={styles.tip}>
+            {tips.map((t) => (
+              <div key={t.text} className={styles.tip}>
                 <div className={styles.tipIcon}><t.Icon size={22} /></div>
-                <p className={styles.tipText}>{t.tips}</p>
+                <p className={styles.tipText}>{t.text}</p>
               </div>
             ))}
           </div>
         </div>
+
+        <LastChecked
+          date={CHECKED}
+          note="Flygbolagens utbud och priserna på bussar och taxi ändras. Kontrollera alltid hos flygbolaget och trafikbolaget innan du reser."
+          sources={[
+            SOURCES.flightconnectionsArn,
+            SOURCES.norwegianSkavsta,
+            SOURCES.flightconnectionsGot,
+            SOURCES.flightconnectionsCph,
+            SOURCES.sasKastrup,
+            SOURCES.swedaviaMalmo,
+            SOURCES.jonkoping,
+            SOURCES.tibVinter,
+            SOURCES.tibSommar,
+            SOURCES.taxi,
+          ]}
+        />
       </div>
     </div>
   );

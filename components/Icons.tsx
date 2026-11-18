@@ -118,8 +118,8 @@ export function PriceTag({ tier, className }: { tier: number; className?: string
   );
 }
 
-export function tierFromEmoji(pris: string): number {
-  const match = pris.match(/💰/g);
+export function tierFromPris(pris: string): number {
+  const match = pris.match(/€/g);
   return match ? match.length : 1;
 }
 

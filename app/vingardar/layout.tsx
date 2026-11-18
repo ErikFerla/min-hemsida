@@ -6,7 +6,7 @@ export const metadata = buildPageMetadata({
   title: 'Vingårdar på Mallorca – öns bästa bodegas',
   description: 'Upptäck Mallorcas vingårdar – från familjedrivna bodegas till ekologiska producenter, med tips om bokning, provning och vem varje vingård passar för.',
   image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Vinrankor och druvklasar i en mallorcansk vingård',
+  imageAlt: 'Vinrankor och druvklasar i en mallorkinsk vingård',
 });
 
 export default function VingardarLayout({ children }: { children: React.ReactNode }) {

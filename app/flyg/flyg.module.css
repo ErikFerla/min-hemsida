@@ -102,24 +102,73 @@
   margin-bottom: 1.25rem;
 }
 
-/* Snabbsök */
-.quickHeading {
-  padding-bottom: 12px;
-  border-bottom: 3px solid var(--color-accent);
-  color: var(--color-ink-strong);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+/* Ingress och textblock */
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0 0 32px;
 }
 
-.quickGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+.block {
   margin-bottom: 48px;
 }
 
+.blockTitle {
+  color: var(--color-ink-strong);
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.subTitle {
+  color: var(--color-ink-strong);
+  margin-top: 8px;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin: 0 0 20px;
+}
+
+.inlineLink {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+/* Direktflyg per avreseort */
+.routeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.facts {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.facts dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 10px;
+}
+
+.facts dd {
+  margin: 2px 0 0;
+}
+
 .airport {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 16px;
   padding: 24px;
@@ -145,6 +194,7 @@
 
 .airportLink {
   display: block;
+  margin-top: auto;
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
@@ -202,7 +252,7 @@
     padding-bottom: 4rem;
   }
   /* Tidigare global regel: div[style*="minmax(280px"] { grid-template-columns: 1fr !important } */
-  .quickGrid {
+  .routeGrid {
     grid-template-columns: 1fr;
   }
   /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
@@ -213,6 +263,9 @@
   .tipText {
     font-size: 16px;
     margin-bottom: 1.25rem;
+  }
+  .lead {
+    font-size: 1.05rem;
   }
 }
 

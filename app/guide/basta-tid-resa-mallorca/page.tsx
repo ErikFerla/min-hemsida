@@ -1,22 +1,28 @@
 import Link from 'next/link';
 import { IconStar, IconSun, PriceTag, IconSparkle } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import LastChecked from '@/app/components/LastChecked';
+import { CLIMATE, CLIMATE_CHECKED, CLIMATE_SOURCES, CLIMATE_STATION, fmt, fmt0, sunPerDay } from '@/data/climate';
+import BastaRestid from './BastaRestid';
+import { ACTIVITIES, REGIONS, REGION_RULES, RULES, TOURIST_PRESSURE } from './restid';
 import h from '../headings.module.css';
 import styles from './page.module.css';
 
-const månader = [
-  { namn: 'Januari', temp: '14°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Öns lugna säsong. Nästan inga turister, låga priser och behagligt väder för vandring och kultur. Perfekt för dig som vill se Palma utan köer.' },
-  { namn: 'Februari', temp: '15°C', sol: '7h/dag', turisttryck: 1, pris: 1, text: 'Mandelblomsningen – Mallorcas mest fotogeniska månad. Tusentals mandelträd blommar i vitt och rosa, oftast från slutet av januari till mitten av februari. Fortfarande få turister.' },
-  { namn: 'Mars', temp: '17°C', sol: '7h/dag', turisttryck: 2, pris: 2, text: 'Vackra dagar, grön natur och nästan tomt på turister. Bra för vandring i Tramuntana. Kallt för bad men perfekt för allt annat.' },
-  { namn: 'April', temp: '19°C', sol: '8h/dag', turisttryck: 3, pris: 2, text: 'En av årets bästa månader. Stabilt väder, blommig natur, öppna restauranger. Påsk kan ge köer – boka i god tid. Magisk stämning.' },
-  { namn: 'Maj', temp: '22°C', sol: '9h/dag', turisttryck: 3, pris: 2, text: 'Försäsong med sommarkänsla i luften. Havet är fortfarande friskt (omkring 18–19 °C) – badbart för de tåliga. Priserna är rimliga och det är sällan trångt. Favoritperiod för många.' },
-  { namn: 'Juni', temp: '27°C', sol: '10h/dag', turisttryck: 4, pris: 3, text: 'Sommarens start. Varmt vatten, perfekta stranddagar och livlig stämning. Antalet turister ökar men når inte juli och augustis nivåer. Bra balans.' },
-  { namn: 'Juli', temp: '32°C', sol: '11h/dag', turisttryck: 5, pris: 4, text: 'Högsäsong. Full beläggning, långa köer och höga priser. Samtidigt är vattnet ljummet och kvällarna i Palma fantastiska – boka tidigt och var på stranden tidigt på dagen.' },
-  { namn: 'Augusti', temp: '33°C', sol: '11h/dag', turisttryck: 5, pris: 4, text: 'Som juli men hetare. Undvik juli och augusti om du vill ha ro på stranden. Men om stämning och nattliv är prioritet – detta är din månad.' },
-  { namn: 'September', temp: '28°C', sol: '9h/dag', turisttryck: 3, pris: 3, text: 'Bästa månaden för många. Havet håller fortfarande sommarvärme (omkring 25–26 °C) och när skolorna har börjat blir det färre barnfamiljer. September är ändå en populär månad – boka i god tid.' },
-  { namn: 'Oktober', temp: '23°C', sol: '7h/dag', turisttryck: 2, pris: 2, text: 'Höstens vackraste nyanser, relativt varmt hav och lugnt. Regnskurar kan förekomma. Bra för golf, vandring och kulinariska resor.' },
-  { namn: 'November', temp: '17°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Lugnt och vackert. Inga badturister och gott om plats på restaurangerna. Många hotell på kustorterna stänger för säsongen, men i Palma och de större orterna finns det mesta öppet. Regn förekommer men sällan flera dagar i rad. Promenad i Palma en soldag i november – total harmoni.' },
-  { namn: 'December', temp: '14°C', sol: '6h/dag', turisttryck: 1, pris: 1, text: 'Jul på Mallorca är en dold upplevelse. Städerna dekoreras, lokala marknader öppnar och dagstemperaturen ligger ofta kring 14–16 °C. Perfekt kulturresa – inte strandresa.' },
+// Klimatsiffrorna kommer från data/climate.ts (samma som klimattabellen på /vader).
+// Pris och text är redaktionella; turisttrycket delas med verktyget (restid.ts).
+const månader: { pris: number; text: string }[] = [
+  { pris: 1, text: 'Öns lugna säsong. Få turister, låga priser och ofta fint väder för vandring och kultur – men räkna med kalla nätter. Perfekt för dig som vill se Palma utan köer.' },
+  { pris: 1, text: 'Mandelblomningen – en av Mallorcas mest fotogeniska perioder, när mandelträden blommar i vitt och rosa i slutet av vintern. Fortfarande få turister.' },
+  { pris: 2, text: 'Ljusa dagar, grön natur och fortfarande få turister. Bra för vandring i Serra de Tramuntana. Kallt för bad men fint för allt annat.' },
+  { pris: 2, text: 'En av årets bästa månader för att vara ute: blommande natur, behagliga dagar och de flesta restauranger har öppnat. Påsken kan ge mer folk – boka i god tid.' },
+  { pris: 2, text: 'Försäsong med sommarkänsla. Havet är fortfarande friskt – badbart för de tåliga. Priserna är rimliga och det är sällan trångt. Favoritperiod för många.' },
+  { pris: 3, text: 'Sommarens start. Allt varmare vatten, långa stranddagar och livlig stämning. Antalet turister ökar men når inte juli och augustis nivåer.' },
+  { pris: 4, text: 'Högsäsong. Fullt på stränderna, långa köer och höga priser. Samtidigt är havet varmt och kvällarna i Palma fantastiska – boka tidigt och var på stranden tidigt på dagen.' },
+  { pris: 4, text: 'Som juli, med årets varmaste hav. Undvik juli och augusti om du vill ha ro på stranden – men om stämning och nattliv är prioritet är detta din månad.' },
+  { pris: 3, text: 'Bästa månaden för många. Havet har kvar sin sommarvärme och när skolorna har börjat blir det färre barnfamiljer. Enstaka kraftiga regnskurar kan komma. September är ändå populär – boka i god tid.' },
+  { pris: 2, text: 'Höstfärger, fortfarande badbart hav och lugnare än sommaren. Oktober är årets regnigaste månad, men regnet kommer ofta som skurar. Bra för golf, vandring och mat.' },
+  { pris: 1, text: 'Lugnt och vackert. Gott om plats på restaurangerna. Många hotell på kustorterna stänger för säsongen, men i Palma och de större orterna finns det mesta öppet.' },
+  { pris: 1, text: 'Jul på Mallorca är underskattat. Städerna pyntas, julmarknader öppnar och dagarna är ofta milda. En kulturresa – inte en strandresa.' },
 ];
 
 export default function BästaTidResaMallorca() {
@@ -34,31 +40,50 @@ export default function BästaTidResaMallorca() {
 
       <div className={styles.container}>
 
-        {/* Beslutsmatris */}
-        <div className={styles.matrix}>
-          <p className={styles.matrixTitle}><IconSparkle size={18} /> Vad söker du? → Vår rekommendation</p>
-          <div className={styles.matrixBody}>
-            <div className={styles.matrixGrid}>
-              <div><strong>Strand + bad:</strong><br />Juni, september</div>
-              <div><strong>Lugn + inga turister:</strong><br />Januari, februari, november</div>
-              <div><strong>Familj med barn:</strong><br />Juni, september</div>
-              <div><strong>Golf:</strong><br />November – april</div>
-              <div><strong>Vandring:</strong><br />Mars, april, oktober</div>
-              <div><strong>Bäst pris:</strong><br />November – mars</div>
-              <div><strong>Nattliv + stämning:</strong><br />Juli, augusti</div>
-              <div><strong>Mat & kultur:</strong><br />Oktober, november, april</div>
-            </div>
-          </div>
-        </div>
+        {/* Verktyget Bästa restid (3.3) */}
+        <section id="basta-restid" className={styles.section} aria-labelledby="restid-heading">
+          <h2 id="restid-heading" className={`${h.h2} ${styles.sectionTitle}`}>Bästa restid för det du vill göra</h2>
+          <p className={styles.toolIntro}>
+            Välj vad du vill göra och gärna var på ön, så rangordnar vi årets tolv månader. Rankningen bygger på
+            klimatdatan längre ner på sidan och på reglerna under verktyget. Valet sparas i adressen, så du kan dela
+            resultatet.
+          </p>
+          <BastaRestid />
+          <details className={styles.rules}>
+            <summary className={styles.rulesSummary}>Så rangordnar vi månaderna</summary>
+            <dl className={styles.rulesList}>
+              {ACTIVITIES.map((a) => (
+                <div key={a.key}>
+                  <dt>{a.label}</dt>
+                  <dd>{RULES[a.key]}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className={styles.rulesSub}>Region</p>
+            <dl className={styles.rulesList}>
+              {REGIONS.map((r) => (
+                <div key={r.key}>
+                  <dt>{r.label}</dt>
+                  <dd>{REGION_RULES[r.key]}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className={styles.rulesNote}>
+              Temperatur, regn och sol är AEMET:s normalvärden för {CLIMATE_STATION.name} ({CLIMATE_STATION.period}).
+              Havstemperaturen är ett ungefärligt månadsmedel. Turisttrycket är vår egen bedömning. Normalvärden är
+              genomsnitt – ett enskilt år kan bli både varmare och blötare.
+            </p>
+          </details>
+        </section>
 
         {/* Säsongsöversikt */}
         <section className={styles.section}>
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Säsongernas logik</h2>
           <div className={styles.seasons}>
             {[
-              { label: 'Lågsäsong', period: 'Nov – Mar', hög: false, text: 'Lägsta priser, minst turister. Bra för kultur, vandring, golf.' },
-              { label: 'Skuldersäsong', period: 'Apr–Maj / Sep–Okt', hög: false, text: 'Bästa valet för de flesta. Varmt nog för bad, inga köer.' },
-              { label: 'Högsäsong', period: 'Jun – Aug', hög: true, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
+              { label: 'Lågsäsong', period: 'Nov–mars', hög: false, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },
+              { label: 'Mellansäsong', period: 'Apr–maj och sep–okt', hög: false, text: 'Bästa valet för många. Behagligt att vara ute – i maj är havet friskt, i september och oktober fortfarande varmt.' },
+              { label: 'Högsäsong', period: 'Juni–aug', hög: true, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
             ].map((s, i) => (
               <div key={i} className={s.hög ? `${styles.season} ${styles.seasonHigh}` : styles.season}>
                 <p className={styles.seasonLabel}>{s.label}</p>
@@ -72,20 +97,35 @@ export default function BästaTidResaMallorca() {
         {/* Månadsguide */}
         <section className={styles.sectionLast}>
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Månad för månad</h2>
-          <p className={styles.scaleNote}>Prisskala: 1 € = budget, 4 € = maxtryck. Turisttryck: 1 stjärna = lugnt, 5 stjärnor = fullt.</p>
+          <p className={styles.scaleNote}>
+            Temperaturen är medelvärdet av dygnets högsta och lägsta i Palma, havet är ett ungefärligt månadsmedel.
+            Prisskala: € = budget, €€€€ = högsta prisnivå. Turisttryck: 1 stjärna = lugnt, 5 stjärnor = fullt. Hela
+            tabellen finns på <Link href="/vader#klimat-heading">vädersidan</Link>.
+          </p>
           <div className={styles.months}>
-            {månader.map((m, i) => (
-              <div key={i} className={styles.month}>
-                <div>
-                  <p className={styles.monthName}>{m.namn}</p>
-                  <p className={styles.monthFact}>{m.temp}</p>
-                  <p className={styles.monthSun}><IconSun size={12} /> {m.sol}</p>
-                  <p className={styles.monthStars}>{Array.from({ length: m.turisttryck }).map((_, j) => <IconStar key={j} size={10} />)}</p>
-                  <p className={styles.monthPrice}><PriceTag tier={m.pris} /></p>
+            {CLIMATE.map((c, i) => {
+              const m = månader[i];
+              const tryck = TOURIST_PRESSURE[i];
+              return (
+                <div key={c.month} className={styles.month}>
+                  <div>
+                    <h3 className={styles.monthName}>{c.name}</h3>
+                    <p className={styles.monthFact}>
+                      {fmt0(c.max)} °C dag · {fmt0(c.min)} °C natt
+                      <br />
+                      Hav {fmt0(c.sea)} °C · {fmt(c.rainDays)} regndagar
+                    </p>
+                    <p className={styles.monthSun}><IconSun size={12} /> {fmt(sunPerDay(c))} tim sol/dag</p>
+                    <p className={styles.monthStars}>
+                      {Array.from({ length: tryck }).map((_, j) => <IconStar key={j} size={10} />)}
+                      <span className="sr-only">Turisttryck {tryck} av 5</span>
+                    </p>
+                    <p className={styles.monthPrice}><PriceTag tier={m.pris} /></p>
+                  </div>
+                  <p className={styles.monthText}>{m.text}</p>
                 </div>
-                <p className={styles.monthText}>{m.text}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
@@ -93,21 +133,27 @@ export default function BästaTidResaMallorca() {
         <div className={styles.tip}>
           <h2 className={`${h.h2} ${styles.tipTitle}`}><IconSparkle size={22} /> Vårt tips: Åk i september</h2>
           <p className={styles.tipText}>
-            Havet håller fortfarande sommarvärme (omkring 25–26 °C), barnfamiljerna har åkt hem när skolorna börjat och priserna brukar vara lägre än i juli och augusti. Det är fortfarande en välbesökt månad, men lugnare än högsommaren – särskilt mot slutet av månaden. Om du kan välja fritt och inte är bunden till skollov – välj september.
+            Havet håller fortfarande sommarvärme (omkring {fmt0(CLIMATE[8].sea)} °C), dagarna ligger kring {fmt0(CLIMATE[8].max)} °C i stället för högsommarens {fmt0(CLIMATE[7].max)} °C, barnfamiljerna har åkt hem när skolorna börjat och priserna brukar vara lägre än i juli och augusti. Det är fortfarande en välbesökt månad, men lugnare än högsommaren – särskilt mot slutet av månaden. Om du kan välja fritt och inte är bunden till skollov – välj september.
           </p>
         </div>
 
         {/* CTA */}
         <div className={styles.ctaGrid}>
           <Link href="/vader" className={styles.ctaCard}>
-            <p className={styles.ctaTitle}>Se väderprognos</p>
-            <p className={styles.ctaText}>10-dagarsprognos för 7 städer</p>
+            <p className={styles.ctaTitle}>Väder och klimat</p>
+            <p className={styles.ctaText}>Prognos för sju orter och klimattabell</p>
           </Link>
           <Link href="/evenemang" className={styles.ctaCard}>
             <p className={styles.ctaTitle}>Evenemang på Mallorca</p>
             <p className={styles.ctaText}>Festivaler, marknader och sport</p>
           </Link>
         </div>
+
+        <LastChecked
+          date={CLIMATE_CHECKED}
+          sources={CLIMATE_SOURCES}
+          note="Klimatsiffrorna är AEMET:s normalvärden 1981–2010 för Palma flygplats. Turisttryck och prisnivå är vår egen bedömning."
+        />
       </div>
     </div>
   );

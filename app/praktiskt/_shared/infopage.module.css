@@ -1,0 +1,280 @@
+/* Gemensam layout för de praktiska sidorna (3.6): /budget-och-priser, /praktiskt,
+   /mallorca-pa-vintern och /vandring-och-cykling. Rubrikmått kommer från
+   app/guide/headings.module.css. */
+
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 40px) clamp(48px, 6vw, 80px);
+}
+
+.lead {
+  font-size: 1.1rem;
+  line-height: var(--prose-line-height);
+  color: var(--color-text);
+  margin: 0 0 1.25rem;
+}
+
+/* Innehållsförteckning */
+.toc {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 3rem;
+}
+
+.tocTitle {
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 0.5rem;
+}
+
+.tocList {
+  margin: 0;
+  padding-left: 1.25rem;
+  columns: 2;
+  column-gap: 2rem;
+  line-height: 1.8;
+}
+
+.tocList a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 90px;
+}
+
+.h2 {
+  color: var(--color-ink);
+}
+
+.h3 {
+  color: var(--color-ink);
+  margin-top: 1.75rem;
+}
+
+.section p,
+.section li {
+  color: var(--color-text);
+  line-height: var(--prose-line-height);
+}
+
+.section p {
+  margin: 0 0 1rem;
+}
+
+.section ul,
+.section ol {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.section li {
+  margin-bottom: 0.4rem;
+}
+
+.section a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+/* Pristabeller */
+.tableWrap {
+  overflow-x: auto;
+  margin: 0 0 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table caption {
+  text-align: left;
+  font-weight: 700;
+  color: var(--color-ink);
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.table tbody th {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.price {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Faktaruta / varning */
+.box {
+  background: var(--color-surface-warm);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.box p:last-child,
+.box ul:last-child {
+  margin-bottom: 0;
+}
+
+.boxTitle {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.warning {
+  border-left-color: var(--color-error);
+}
+
+/* Kort för turer/fester */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 0.35rem;
+}
+
+.cardMeta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+}
+
+/* Läs vidare */
+.related {
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.relatedCard {
+  display: block;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.relatedCard:hover,
+.relatedCard:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.relatedTitle {
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0 0 0.25rem;
+}
+
+.relatedText {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .tocList {
+    columns: 1;
+  }
+
+  /* Tabellerna staplas på smal skärm: varje rad blir ett block och cellerna får
+     sin kolumnrubrik från data-label. */
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .table tbody tr {
+    display: block;
+    border-top: 1px solid var(--color-border);
+    padding: 0.6rem 0.9rem;
+  }
+
+  .table tbody th,
+  .table tbody td {
+    display: block;
+    border-top: 0;
+    padding: 0.15rem 0;
+  }
+
+  .table tbody td[data-label]::before {
+    content: attr(data-label) ': ';
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .price {
+    white-space: normal;
+  }
+}

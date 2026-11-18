@@ -26,11 +26,11 @@ export const GUIDES = {
     title: 'Bästa tiden att resa till Mallorca',
     headline: 'Bästa tiden att resa till Mallorca',
     description:
-      'Månad-för-månad-guide till Mallorcas klimat, turisttryck och prisnivå. Hitta din bästa reseperiod utifrån vad du söker – strand, avkoppling eller aktiviteter.',
+      'Guide månad för månad till Mallorcas klimat, turisttryck och prisnivå. Hitta din bästa reseperiod utifrån vad du söker – strand, avkoppling eller aktiviteter.',
     image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&h=630&fit=crop&q=85',
     imageAlt: 'Strand på Mallorca i solsken',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-17T20:12:35+01:00',
+    dateModified: '2026-11-18T12:00:00+01:00',
   },
   'mallorca-med-barn': {
     slug: 'mallorca-med-barn',
@@ -56,10 +56,10 @@ export const GUIDES = {
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
-    title: '15 bästa restaurangerna i Palma – lokal guide',
-    headline: '15 bästa restaurangerna i Palma',
+    title: 'Palmas 15 bästa restauranger – lokal guide',
+    headline: 'De 15 bästa restaurangerna i Palma',
     description:
-      'Rankade av en lokal: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, bästa tapas, fisk och skaldjur, och dolda pärlor utan turistpriser.',
+      'Rankade av en som bor här: de 15 bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop&q=80',
     imageAlt: 'Restaurangbord i Palma de Mallorca',
     datePublished: '2026-04-11T21:17:34+02:00',

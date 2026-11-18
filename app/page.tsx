@@ -16,8 +16,8 @@ import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: 'Mallorca-guide på svenska – stränder & byar | MyMallorca',
-  description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insider-tips från Mallorca 2026.',
+  title: 'Mallorcaguide på svenska – stränder & byar | MyMallorca',
+  description: 'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insidertips från Mallorca 2026.',
   alternates: { canonical: '/' },
 };
 
@@ -48,7 +48,7 @@ export default function Home() {
         <section className={`${s.pageSection} ${styles.clip}`}>
           <div className={styles.split}>
 
-            {/* BILD VÄNSTER — Palmas gamla stan (Foto: Luca / Unsplash) */}
+            {/* BILD VÄNSTER – Palmas gamla stan (Foto: Luca / Unsplash) */}
             <div>
               <img
                 src="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format"
@@ -74,10 +74,10 @@ export default function Home() {
               </h2>
               <div className={styles.dividerWide} />
               <p className={`${styles.lead} ${styles.mb20}`}>
-                Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
+                Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergsbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>
               <p className={`${styles.lead} ${styles.mb36}`}>
-                Öns nordvästra bergsmassiv, Serra de Tramuntana, är ett UNESCO-världsarv. Längs kusterna hittar du 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
+                Öns nordvästra bergsmassiv, Serra de Tramuntana, finns på Unescos världsarvslista. Längs kusterna hittar du över 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
               </p>
               <div className={styles.stats}>
                 {[
@@ -122,13 +122,13 @@ export default function Home() {
                 UPPLEV SKILLNADEN
               </p>
               <h2 className={s.title}>
-                Din guide till Mallorca — inifrån och ut
+                Din guide till Mallorca – inifrån och ut
               </h2>
               <div className={s.divider} />
               <p className={`${styles.body} ${styles.mb20px}`}>
                 De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
                 Det är skillnaden mellan en semester vid hotellpoolen och en morgon
-                på en okänd strand i nordväst — där vattnet är turkost och du
+                på en okänd strand i nordväst – där vattnet är turkost och du
                 är ensam om den.
               </p>
               <p className={`${styles.body} ${styles.mb32px}`}>
@@ -155,7 +155,7 @@ export default function Home() {
               Städer &amp; byar på Mallorca
             </h2>
             <p className={styles.mapIntro}>
-              Klicka på en stad för att utforska insider-tips, sevärdheter och lokala favoriter.
+              Klicka på en stad för att hitta insidertips, sevärdheter och lokala favoriter.
             </p>
             {/* Leaflet laddas först nära vyn; alla orter finns även som länklista under kartan (SSR). */}
             <Map

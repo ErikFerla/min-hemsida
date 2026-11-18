@@ -4,18 +4,18 @@ import type { ComponentType } from 'react';
 import HeroImage from '@/components/HeroImage';
 import JsonLd from '@/app/components/JsonLd';
 import { SITE_URL } from '@/app/guide/guides';
-import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag } from '@/components/Icons';
+import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag, IconPin, IconGlass, IconSnow, IconHiker, IconCompass, IconSnorkel } from '@/components/Icons';
 import styles from './guider.module.css';
 
 export const metadata: Metadata = {
   title: { absolute: 'Guider till Mallorca – barn, stränder & golf | MyMallorca' },
   description:
-    'Alla våra guider till Mallorca på ett ställe: bästa tiden att resa, Mallorca med barn, de bästa stränderna, restauranger i Palma och golf på ön.',
+    'Alla våra guider till Mallorca: bästa restid, var du ska bo, med barn eller som par, stränder, restauranger, golf, vandring, båtturer och vintern.',
   alternates: { canonical: '/guider' },
   openGraph: {
     title: 'Guider till Mallorca – restid, barn, stränder & golf',
     description:
-      'Alla våra guider till Mallorca på ett ställe: bästa tiden att resa, Mallorca med barn, de bästa stränderna, restauranger i Palma och golf på ön.',
+      'Alla våra guider till Mallorca: bästa restid, var du ska bo, med barn eller som par, stränder, restauranger, golf, vandring, båtturer och vintern.',
     url: '/guider',
     type: 'website',
     locale: 'sv_SE',
@@ -66,9 +66,57 @@ const guider: Guide[] = [
     text: 'Våra fem favoritbanor beskrivna närmare: svårighetsgrad, greenfee och vilken säsong som är bäst att spela.',
     Icon: IconFlag,
   },
+  {
+    href: '/var-ska-man-bo',
+    title: 'Var ska man bo på Mallorca?',
+    passar: 'För alla som planerar',
+    text: 'Öns områden med för- och nackdelar för barnfamiljer, par, aktiva och dig som vill bo länge – och ett quiz som föreslår orter som passar er.',
+    Icon: IconPin,
+  },
+  {
+    href: '/mallorca-for-par',
+    title: 'Mallorca för par',
+    passar: 'För par i alla åldrar',
+    text: 'Vingårdar, golf, lugna byar, stränder och middagar – våra förslag för en resa på tu man hand.',
+    Icon: IconGlass,
+  },
+  {
+    href: '/vandring-och-cykling',
+    title: 'Vandring och cykling',
+    passar: 'För aktiva',
+    text: 'GR 221 i Serra de Tramuntana, klassiska vandringar och cykelstigningar – med säsong, svårighetsgrad och säkerhet.',
+    Icon: IconHiker,
+  },
+  {
+    href: '/batutflykter-och-cabrera',
+    title: 'Båtutflykter och Cabrera',
+    passar: 'För havsälskare',
+    text: 'Båtturer längs kusten och nationalparken Cabrera – hur du tar dig dit och vad du behöver veta.',
+    Icon: IconSnorkel,
+  },
+  {
+    href: '/dagsturer-utan-bil',
+    title: 'Dagsturer utan bil',
+    passar: 'För dig utan hyrbil',
+    text: 'Utflykter från Palma med tåg, buss och spårvagn – till Sóller, Valldemossa, marknaderna i inlandet och norra kusten.',
+    Icon: IconCompass,
+  },
+  {
+    href: '/mallorca-pa-vintern',
+    title: 'Mallorca på vintern',
+    passar: 'För vinterresenärer och öbor',
+    text: 'Vad som är öppet, hur vädret brukar vara, mandelblomningen och vinterns fester – när ön är som lugnast.',
+    Icon: IconSnow,
+  },
 ];
 
 const merAttUtforska: { label: string; href: string }[] = [
+  { label: 'Resplan dag för dag', href: '/resplan' },
+  { label: 'Flyg', href: '/flyg' },
+  { label: 'Hyrbil & transport', href: '/hyrbil-och-transport' },
+  { label: 'Budget & priser', href: '/budget-och-priser' },
+  { label: 'Praktiskt & säkerhet', href: '/praktiskt' },
+  { label: 'Marknader', href: '/marknader' },
   { label: 'Städer & byar', href: '/byar' },
   { label: 'Alla stränder', href: '/strandar' },
   { label: 'Barnaktiviteter', href: '/barn' },

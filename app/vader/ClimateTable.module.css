@@ -1,0 +1,109 @@
+/* Klimattabell på /vader (3.3). Rullar i sidled på smala skärmar; månadskolumnen står still. */
+
+.scroller {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-white);
+}
+
+.scroller:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.caption {
+  caption-side: bottom;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.table th,
+.table td {
+  padding: 0.55rem 0.75rem;
+  text-align: right;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.table thead th {
+  background: var(--color-surface-warm);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  vertical-align: bottom;
+}
+
+.table th[scope='row'],
+.table thead th:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.table thead th:first-child {
+  background: var(--color-surface-warm);
+}
+
+.table tbody tr:nth-child(even) td,
+.table tbody tr:nth-child(even) th {
+  background: var(--color-bg);
+}
+
+.table tfoot th,
+.table tfoot td {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.unit {
+  display: block;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.yearNote {
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .table {
+    font-size: 0.8rem;
+    min-width: 0;
+  }
+  .table th,
+  .table td {
+    padding: 0.5rem 0.22rem;
+  }
+  .table th:first-child {
+    padding-left: 0.5rem;
+  }
+  .table td:last-child,
+  .table th:last-child {
+    padding-right: 0.5rem;
+  }
+  .table thead th {
+    font-size: 0.75rem;
+  }
+  .unit {
+    font-size: 0.7rem;
+  }
+}

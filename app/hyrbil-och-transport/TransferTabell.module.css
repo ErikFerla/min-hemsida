@@ -1,0 +1,122 @@
+/* Transfertabell från PMI (/flyg och /hyrbil-och-transport).
+   Breda skärmar: vanlig tabell. Mobil: varje rad blir ett kort med etiketter från data-label. */
+
+.wrap {
+  margin: 0 0 32px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table thead th {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.table tbody th {
+  font-weight: 700;
+  color: var(--color-ink);
+  min-width: 140px;
+}
+
+.table tbody th a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 720px) {
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .caption,
+  .table,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .table {
+    background: transparent;
+    box-shadow: none;
+    font-size: 16px;
+  }
+
+  .table tbody tr {
+    background: var(--color-white);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .table tbody th,
+  .table tbody td {
+    border-bottom: none;
+    padding: 6px 16px;
+  }
+
+  .table tbody th {
+    padding-top: 14px;
+    font-size: 1.05rem;
+  }
+
+  .table tbody td {
+    padding-bottom: 8px;
+  }
+
+  .table tbody td:last-child {
+    padding-bottom: 14px;
+  }
+
+  .table tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+}

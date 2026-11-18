@@ -7,7 +7,7 @@ export const metadata = buildPageMetadata({
   path: '/cookies',
   title: 'Cookies',
   description:
-    'MyMallorca sätter inga cookies och sparar inget i din webbläsare. Därför finns ingen cookie-banner. Här förklarar vi vad det betyder och vilka undantag som finns.',
+    'MyMallorca sätter inga cookies och sparar inget i din webbläsare, så det finns ingen cookie-banner. Här förklarar vi varför och vilka undantag som finns.',
   image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&h=630&fit=crop&q=85',
   imageAlt: 'Palma de Mallorca med katedralen La Seu vid havet',
 });

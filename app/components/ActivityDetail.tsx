@@ -80,7 +80,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
         {activity.insiderTip && (
           <div className={styles.tipBox}>
             <p className={styles.tipLabel}>
-              <IconBulb size={14} /> Insider-tips
+              <IconBulb size={14} /> Insidertips
             </p>
             <p className={styles.tipText}>{activity.insiderTip}</p>
           </div>

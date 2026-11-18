@@ -17,6 +17,7 @@ const navItems: NavItem[] = [
     children: [
       { label: 'Alla str\u00e4nder', href: '/strandar' },
       { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
+      { label: 'B\u00e5tutflykter & Cabrera', href: '/batutflykter-och-cabrera' },
     ],
   },
   {
@@ -50,8 +51,10 @@ const navItems: NavItem[] = [
       { label: 'Barnv\u00e4nligt', href: '/barn' },
       { label: 'Golf', href: '/aktiviteter/golf' },
       { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
+      { label: 'Vandring & cykling', href: '/vandring-och-cykling' },
       { label: 'Sev\u00e4rdheter', href: '/sevardheter' },
       { label: 'Evenemang', href: '/evenemang' },
+      { label: 'Marknader', href: '/marknader' },
     ],
   },
   {
@@ -64,13 +67,21 @@ const navItems: NavItem[] = [
       { label: 'B\u00e4sta str\u00e4nderna', href: '/guide/basta-stranderna-mallorca' },
       { label: 'Restauranger Palma', href: '/guide/basta-restauranger-palma' },
       { label: 'B\u00e4sta golfbanorna', href: '/guide/golf-mallorca-guide' },
+      { label: 'Mallorca f\u00f6r par', href: '/mallorca-for-par' },
+      { label: 'Mallorca p\u00e5 vintern', href: '/mallorca-pa-vintern' },
+      { label: 'Dagsturer utan bil', href: '/dagsturer-utan-bil' },
     ],
   },
   {
     label: 'Planera',
-    href: '/flyg',
+    href: '/resplan',
     children: [
+      { label: 'Resplan dag f\u00f6r dag', href: '/resplan' },
+      { label: 'Var ska man bo?', href: '/var-ska-man-bo' },
       { label: 'Flyg', href: '/flyg' },
+      { label: 'Hyrbil & transport', href: '/hyrbil-och-transport' },
+      { label: 'Budget & priser', href: '/budget-och-priser' },
+      { label: 'Praktiskt & s\u00e4kerhet', href: '/praktiskt' },
       { label: 'B\u00e4sta tiden att resa', href: '/guide/basta-tid-resa-mallorca' },
       { label: 'Evenemang', href: '/evenemang' },
     ],

@@ -2,7 +2,7 @@ import { IconBulb } from '@/components/Icons';
 import styles from './InsiderTipBox.module.css';
 
 export type InsiderTipBoxProps = {
-  /** Optional heading above the tip(s). Default: "Insider-tips". */
+  /** Optional heading above the tip(s). Default: "Insidertips". */
   heading?: string;
   /** Either a single tip string or a list. Strings render as a single paragraph; arrays render as <ul>. */
   children?: React.ReactNode;
@@ -13,7 +13,7 @@ export type InsiderTipBoxProps = {
 };
 
 export default function InsiderTipBox({
-  heading = 'Insider-tips',
+  heading = 'Insidertips',
   tips,
   tip,
   children,

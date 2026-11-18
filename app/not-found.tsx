@@ -5,7 +5,7 @@ import styles from './status.module.css';
 
 export const metadata: Metadata = {
   title: 'Sidan kunde inte hittas',
-  description: 'Vi hittar inte sidan du letar efter. Utforska våra guider till stränder, städer och aktiviteter på Mallorca istället.',
+  description: 'Vi hittar inte sidan du letar efter. Utforska våra guider till stränder, städer och aktiviteter på Mallorca i stället.',
   robots: { index: false, follow: true },
 };
 
@@ -30,7 +30,7 @@ export default function NotFound() {
         <h1 className={styles.title}>Sidan kunde inte hittas</h1>
 
         <p className={styles.intro}>
-          Vi hittar inte sidan du letar efter. Den kan ha flyttats eller aldrig ha funnits. Här är några populära sidor att fortsätta med istället.
+          Vi hittar inte sidan du letar efter. Den kan ha flyttats eller aldrig ha funnits. Här är några populära sidor att fortsätta med i stället.
         </p>
 
         <nav aria-label="Populära sidor på MyMallorca">

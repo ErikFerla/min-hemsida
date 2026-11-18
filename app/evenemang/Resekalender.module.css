@@ -1,0 +1,145 @@
+/* Resekalendern på /evenemang: datumval och resultat. */
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+.field input {
+  font: inherit;
+  font-size: 1rem;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-ink);
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.clear {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.help {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 10px 0 0;
+  line-height: 1.6;
+}
+
+.help a,
+.dayMarkets a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
+}
+
+.empty {
+  margin: 20px 0 0;
+  color: var(--color-text-soft);
+  line-height: 1.7;
+}
+
+.warning {
+  margin: 20px 0 0;
+  color: var(--color-warning-text);
+  font-weight: 600;
+}
+
+.result {
+  margin-top: 8px;
+}
+
+.resultTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 500;
+  color: var(--color-ink);
+  margin: 28px 0 14px;
+}
+
+.prelIntro {
+  margin: 20px 0 12px;
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 14px;
+}
+
+.days {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.day {
+  display: grid;
+  margin: 0;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 12px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.day:first-child {
+  border-top: 0;
+}
+
+.dayName {
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.dayMarkets {
+  color: var(--color-text);
+}
+
+@media (max-width: 480px) {
+  .day {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .field {
+    flex: 1 1 140px;
+  }
+}
