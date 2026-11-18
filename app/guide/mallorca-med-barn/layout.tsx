@@ -11,6 +11,8 @@ export const metadata = buildPageMetadata({
   title: guide.title,
   description: guide.description,
   image: guide.image,
+  imageWidth: 1920,
+  imageHeight: 1440,
   imageAlt: guide.imageAlt,
 });
 

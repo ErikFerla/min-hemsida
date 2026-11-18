@@ -16,10 +16,10 @@ export const metadata: Metadata = {
       'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1200&h=630&fit=crop&q=85',
-        width: 1200,
-        height: 630,
-        alt: 'Barn på en inomhusklätterställning – regndags-aktiviteter på Mallorca',
+        url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Palma_Aquarium-La_jungla.jpg/1920px-Palma_Aquarium-La_jungla.jpg',
+        width: 1920,
+        height: 1280,
+        alt: 'Vattenfall i inomhusdjungeln på Palma Aquarium',
       },
     ],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Regniga dagar på Mallorca – 8 inomhustips',
     description:
       'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
-    images: ['https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=1200&h=630&fit=crop&q=85'],
+    images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Palma_Aquarium-La_jungla.jpg/1920px-Palma_Aquarium-La_jungla.jpg'],
   },
 };
 
@@ -37,8 +37,8 @@ export default function InomhusOchRegnPage() {
     <BarnCategoryPageView
       category="inomhus-och-regn"
       hero={{
-        imageSrc: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30',
-        imageAlt: 'Barn som leker i en färgglad inomhuslekplats med klätterställningar',
+        imageSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Palma_Aquarium-La_jungla.jpg/1920px-Palma_Aquarium-La_jungla.jpg',
+        imageAlt: 'Vattenfall i inomhusdjungeln på Palma Aquarium',
         title: 'Inomhus & regn',
         subtitle:
           'Handplockade räddningar när regnet kommer – eller när sommarsolen är för stark för små barn mitt på dagen.',
