@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromEmoji } from '@/components/Icons';
+import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromPris } from '@/components/Icons';
 import Map, { type MapMarker } from '@/components/Map';
 import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
@@ -126,7 +126,7 @@ export default function GolfPage() {
               <div className={styles.body}>
                 <div className={styles.titleRow}>
                   <h3 className={styles.cardTitle}>{b.namn}</h3>
-                  <span className={styles.price}><PriceTag tier={tierFromEmoji(b.pris)} /></span>
+                  <span className={styles.price}><PriceTag tier={tierFromPris(b.pris)} /></span>
                 </div>
                 <div className={styles.facts}>
                   <span className={styles.fact}><IconPin size={12} /> {b.plats}</span>

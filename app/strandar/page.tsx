@@ -55,11 +55,11 @@ export default function StrandarPage() {
         <div className={styles.intro}>
           <div className={styles.introInner}>
             <p className={styles.introText}>
-              Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. På ostkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och pinjeskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
+              Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. På östkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och pinjeskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
               <Link href="/alcudia" className={styles.inlineLink}>Alcúdia</Link>
               {' '}och{' '}
               <Link href="/pollenca" className={styles.inlineLink}>Pollença</Link>
-              {' '}– perfekta för barnfamiljer. Västkusten domineras av Serra de Tramuntanas dramatiska klippor som faller rakt ner i havet – få stränder, men desto fler hemliga vikar och båtankringsplatser. Och söderut öppnar sig de långa sandstränderna kring Es Trenc, med ett Karibien-liknande vatten.
+              {' '}– perfekta för barnfamiljer. Västkusten domineras av Serra de Tramuntanas dramatiska klippor som faller rakt ner i havet – få stränder, men desto fler hemliga vikar och båtankringsplatser. Och söderut öppnar sig de långa sandstränderna kring Es Trenc, med vatten som påminner om Karibien.
             </p>
             <p className={`${styles.introText} ${styles.introTextLast}`}>
               Här är våra 30 favoriter – handplockade efter vatten, atmosfär och vad som gör varje plats unik.
@@ -80,7 +80,7 @@ export default function StrandarPage() {
 
         <div className={styles.guideBox}>
           <p className={styles.guideText}>
-            <strong>Vill du ha djupare analys?</strong> Läs vår rankade guide med GPS, parkeringstips och insider-tips.
+            <strong>Vill du veta mer?</strong> Läs vår rankade guide med GPS-koordinater, parkeringstips och insidertips.
           </p>
           <Link href="/guide/basta-stranderna-mallorca" className={styles.guideButton}>
             Läs guiden →

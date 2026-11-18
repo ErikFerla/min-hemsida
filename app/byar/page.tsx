@@ -30,8 +30,8 @@ export default function ByarSida() {
         src="https://images.unsplash.com/photo-1566815687825-39bd872e6e09"
         alt="Panoramabild över Mallorca med vita stenhus och Tramuntanabergen – översikt över öns städer och byar"
         kicker="Utforska Mallorca"
-        title="Städer och Byar"
-        subtitle={`${cities.length} utvalda destinationer runt hela ön`}
+        title="Städer och byar"
+        subtitle={`${cities.length} utvalda orter runt hela ön`}
         height="55vh"
       />
 
