@@ -398,8 +398,8 @@ export const cities: City[] = [
         text: 'Cala Marçal ligger precis utanför byn och har lugnt, barnvänligt vatten. Cala Sa Nau, söderut mot Cala d’Or, är en liten vik med klart vatten.',
       },
       market: {
-        days: 'Tisdagar (och lördagar enligt vissa listor)',
-        text: ['Den lilla veckomarknaden hålls i byn på tisdagar; flera marknadslistor anger även lördagar. Den stora söndagsmarknaden i Felanitx ligger nära.'],
+        days: 'Tisdagar och lördagar',
+        text: ['Den lilla veckomarknaden hålls i byn på tisdagar och lördagar. Den stora söndagsmarknaden i Felanitx ligger nära.'],
       },
       bestTime: [
         'Maj–oktober för bad. Porto Colom är en fiskeby där folk bor året runt, så den har liv även utanför högsäsongen. En tidig morgon vid hamnen är bästa sättet att uppleva den.',
@@ -410,6 +410,7 @@ export const cities: City[] = [
       { label: 'TIB: Porto Colom–Felanitx', href: 'https://www.tib.org/en/linies-i-horaris/autobus/-/linia/512' },
       { label: 'TIB: linje 501', href: 'https://www.tib.org/en/web/ctm/linies-i-horaris/autobus/-/linia/501' },
       { label: 'Mercadillos.org: marknaden i Porto Colom', href: 'https://mercadillos.org/es/portocolom/mercadillo-portocolom' },
+      { label: 'Ajuntament de Felanitx: marknader', href: 'https://reskyt.com/en/administration/felanitx/fairs-festivals-and-markets/markets/164001.html' },
     ],
     mapsQuery: 'Porto+Colom+Mallorca',
     card: {
