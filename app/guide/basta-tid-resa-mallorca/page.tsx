@@ -30,8 +30,9 @@ export default function BästaTidResaMallorca() {
     <div className={styles.page}>
       {/* Hero */}
       <HeroImage
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-        alt="Solig strand och turkost vatten på Mallorca – klassisk badsäsong"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Platja_de_Formentor.JPG/1920px-Platja_de_Formentor.JPG"
+        alt="Platja de Formentor en solig dag – turkost vatten, sandstrand och tallskog under bergen"
+        photoCredit="Foto: HejaSverige! / Wikimedia Commons (CC BY-SA 3.0)"
         kicker="Reseplanering · Månad för månad"
         title="Bästa tiden att resa till Mallorca"
         subtitle="Månadsguide med temperatur, turisttryck och prisnivå. Hitta din perfekta period."

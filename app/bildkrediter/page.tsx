@@ -9,8 +9,8 @@ export const metadata = buildPageMetadata({
   title: 'Bildkrediter och licenser',
   description:
     'Fotograferna bakom bilderna på MyMallorca och licenserna vi använder dem under – Unsplash, Wikimedia Commons och egna foton, med länk till varje källa.',
-  image: 'https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=1200&h=630&fit=crop&q=85',
-  imageAlt: 'Palma de Mallorca med katedralen La Seu vid havet',
+  image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
+  imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
 });
 
 const breadcrumbs = {

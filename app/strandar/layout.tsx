@@ -12,8 +12,8 @@ export const metadata = buildPageMetadata({
   title: 'Stränder på Mallorca – 30 vikar & sandstränder',
   description: 'Upptäck Mallorcas 30 bästa stränder – från östkustens turkosa calas till västkustens dramatiska klippor. Handplockad guide från lokalkännare.',
   image: BEACHES_HERO.src,
-  imageWidth: 1600,
-  imageHeight: 1067,
+  imageWidth: 1920,
+  imageHeight: 1276,
   imageAlt: BEACHES_HERO.alt,
 });
 
@@ -30,8 +30,9 @@ function TouristAttractionSchema() {
       '@type': 'ImageObject',
       url: BEACHES_HERO.src,
       caption: 'Caló des Moro, södra Mallorca',
-      creditText: 'Chloé Lefleur',
-      copyrightNotice: 'Chloé Lefleur / Unsplash',
+      creditText: 'Tommie Hansen',
+      copyrightNotice: 'Tommie Hansen / Wikimedia Commons (CC BY 2.0)',
+      license: 'https://creativecommons.org/licenses/by/2.0/',
     },
     geo: {
       '@type': 'GeoCoordinates',

@@ -98,8 +98,9 @@ export default function GolfMallorcaGuide() {
     <div className={styles.page}>
       {/* Hero */}
       <HeroImage
-        src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
-        alt="Golfbana på Mallorca med välklippt green, palmer och havsutsikt"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg"
+        alt="Green på Pula Golf vid Son Servera med Mallorcas berg i bakgrunden"
+        photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Golfguide · Uppdaterad 2026"
         title="De 5 bästa golfbanorna på Mallorca"
         subtitle="Vårt urval med motivering, greenfee-nivå och insidertips – och när på året det är bäst att spela."

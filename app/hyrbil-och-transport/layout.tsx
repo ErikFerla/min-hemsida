@@ -5,14 +5,14 @@ const PATH = '/hyrbil-och-transport';
 const TITLE = 'Hyrbil och transport på Mallorca';
 const DESCRIPTION =
   'Hyrbil på Mallorca utan överraskningar – försäkring, självrisk och parkering – plus bussar, tåg, taxi, cykel och båt. Med ungefärliga priser för 2026.';
-const IMAGE = 'https://images.unsplash.com/photo-1548783300-a25c9c4fad6a?w=1200&h=630&fit=crop&q=85';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Sa_Calobra_%282016.05.17%29.jpg/1920px-Sa_Calobra_%282016.05.17%29.jpg';
 
 export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
   image: IMAGE,
-  imageAlt: 'Palma de Mallorca med katedralen La Seu',
+  imageAlt: 'Den slingrande vägen ner till Sa Calobra genom Tramuntanabergen',
 });
 
 const publisher = { '@type': 'Organization', name: 'MyMallorca', url: BASE_URL };

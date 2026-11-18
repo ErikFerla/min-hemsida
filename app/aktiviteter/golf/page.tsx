@@ -39,8 +39,9 @@ export default function GolfPage() {
   return (
     <div className={styles.page}>
       <HeroImage
-        src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b"
-        alt="Välklippt green med havsutsikt vid en golfbana på Mallorca"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg"
+        alt="Green på Pula Golf vid Son Servera med berg i bakgrunden"
+        photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Aktiviteter på Mallorca"
         title="22 golfbanor på Mallorca"
         subtitle="Komplett guide till alla golfbanor – för alla nivåer och budgetar"
@@ -115,7 +116,7 @@ export default function GolfPage() {
               className={styles.card}
             >
               <div className={styles.media}>
-                <Image src={b.bild} alt={b.namn} width={600} height={200} className={styles.image} loading="lazy" />
+                <Image src={b.bild} alt={b.bildAlt} width={600} height={200} className={styles.image} loading="lazy" />
                 <div className={styles.difficulty} style={niva(b.svårighet)}>
                   {b.svårighet}
                 </div>

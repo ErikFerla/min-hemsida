@@ -22,8 +22,9 @@ export default function FlygPage() {
   return (
     <div className={styles.page}>
       <HeroImage
-        src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
-        alt="Flygplan över moln ovanför Medelhavet på väg till Palma de Mallorca"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Palma_de_Mallorca_Airport_%2836705997953%29.jpg/1920px-Palma_de_Mallorca_Airport_%2836705997953%29.jpg"
+        alt="Palmas flygplats Son Sant Joan med terminalen och flygplan vid gaterna"
+        photoCredit="Foto: Hugh Llewelyn / Wikimedia Commons (CC BY-SA 2.0)"
         kicker="Res till Mallorca"
         title="Flyg till Mallorca"
         subtitle="Direktflyg från Sverige, flygtider och hur du tar dig vidare från flygplatsen i Palma"

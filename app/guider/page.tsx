@@ -156,8 +156,9 @@ export default function GuiderPage() {
     <div className={styles.page}>
       <JsonLd data={jsonLd} />
       <HeroImage
-        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
-        alt="Turkost vatten och sandstrand på Mallorca en solig dag"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg"
+        alt="Cala Mondragó på Mallorcas östkust – turkos vik med förankrade båtar och klippor med tallar"
+        photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Guider · Mallorca"
         title="Våra guider till Mallorca"
         subtitle="Fördjupningar för dig som vill få ut mer av ön – oavsett om du reser med barn, i par eller bor här."

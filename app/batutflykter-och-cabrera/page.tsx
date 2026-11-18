@@ -12,15 +12,15 @@ const TITLE = 'Båtutflykter på Mallorca och Cabrera';
 const HEADLINE = 'Båtutflykter och Cabrera';
 const DESCRIPTION =
   'Båtturer på Mallorca: Sa Calobra från Port de Sóller, Formentor från Port de Pollença, glasbottenbåtar, katamaraner och nationalparken Cabrera.';
-const IMAGE = 'https://images.unsplash.com/photo-1540946485063-a40da27545f8';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/View_of_Isla_de_Cabrera_National_Park%2C_Mallorca_%28Spain%29_%2823407630506%29.jpg/1920px-View_of_Isla_de_Cabrera_National_Park%2C_Mallorca_%28Spain%29_%2823407630506%29.jpg';
 const CHECKED = '2026-11-18';
 
 export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Båt på klart, turkost vatten utanför Mallorcas kust',
+  image: IMAGE,
+  imageAlt: 'Hamnviken på Cabrera med ankrade segelbåtar, sedd uppifrån',
 });
 
 const breadcrumbs = [
@@ -34,7 +34,7 @@ const jsonLd = [
     '@type': 'Article',
     headline: HEADLINE,
     description: DESCRIPTION,
-    image: [`${IMAGE}?w=1200&h=630&fit=crop&q=85`],
+    image: [IMAGE],
     datePublished: CHECKED,
     dateModified: CHECKED,
     inLanguage: 'sv-SE',
@@ -71,7 +71,8 @@ export default function BatutflykterPage() {
       <JsonLd data={jsonLd} />
       <HeroImage
         src={IMAGE}
-        alt="Båt på klart, turkost vatten utanför Mallorcas kust"
+        alt="Hamnviken på Cabrera med ankrade segelbåtar, sedd uppifrån"
+        photoCredit="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
         kicker="Upplevelser till havs"
         title={HEADLINE}
         subtitle="Mallorca från vattnet – från Tramuntanas klippkust till nationalparken söder om ön."

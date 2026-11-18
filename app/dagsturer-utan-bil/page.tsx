@@ -13,15 +13,15 @@ const TITLE = 'Dagsturer utan bil från Palma';
 const HEADLINE = 'Dagsturer utan bil från Palma';
 const DESCRIPTION =
   'Sju dagsturer från Palma med buss, tåg och båt: Sóller med tåg och spårvagn, Valldemossa och Deià med buss 203, marknaden i Inca, Pollença och Alcúdia.';
-const IMAGE = 'https://images.unsplash.com/photo-1566815687825-39bd872e6e09';
+const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/S%C3%B3ller_Tren_de_S%C3%B3ller-4334.jpg/1920px-S%C3%B3ller_Tren_de_S%C3%B3ller-4334.jpg';
 const CHECKED = '2026-11-18';
 
 export const metadata = buildPageMetadata({
   path: PATH,
   title: TITLE,
   description: DESCRIPTION,
-  image: `${IMAGE}?w=1200&h=630&fit=crop&q=85`,
-  imageAlt: 'Bergsby i Serra de Tramuntana på Mallorca',
+  image: IMAGE,
+  imageAlt: 'Tren de Sóller, det gamla trätåget, på stationen i Sóller',
 });
 
 const breadcrumbs = [
@@ -35,7 +35,7 @@ const jsonLd = [
     '@type': 'Article',
     headline: HEADLINE,
     description: DESCRIPTION,
-    image: [`${IMAGE}?w=1200&h=630&fit=crop&q=85`],
+    image: [IMAGE],
     datePublished: CHECKED,
     dateModified: CHECKED,
     inLanguage: 'sv-SE',
@@ -182,7 +182,8 @@ export default function DagsturerPage() {
       <JsonLd data={jsonLd} />
       <HeroImage
         src={IMAGE}
-        alt="Bergsby i Serra de Tramuntana på Mallorca"
+        alt="Tren de Sóller, det gamla trätåget, på stationen i Sóller"
+        photoCredit="Foto: Isiwal / Wikimedia Commons (CC BY-SA 4.0)"
         kicker="Kollektivtrafik"
         title={HEADLINE}
         subtitle="Sju utflykter med buss, tåg och båt – utan hyrbil och parkeringsletande."

@@ -23,7 +23,7 @@ export default function StrandarPage() {
       <header>
         {/* Hero-bild – LCP-element, eager-laddad med srcset och fetchpriority="high" */}
         <div className={styles.hero}>
-          {/* eslint-disable-next-line @next/next/no-img-element -- LCP-bild med egen srcset från Unsplash, förladdas i layout.tsx */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- LCP-bild med egen srcset från Wikimedia Commons, förladdas i layout.tsx */}
           <img
             src={BEACHES_HERO.src}
             srcSet={BEACHES_HERO.srcSet}
@@ -99,7 +99,7 @@ export default function StrandarPage() {
               className={`a2-lift ${styles.card}`}
             >
               <div className={styles.media}>
-                <Image src={s.bild} alt={s.namn} fill sizes="(max-width: 600px) 100vw, 400px" className={styles.mediaImage} loading="lazy" />
+                <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 600px) 100vw, 400px" className={styles.mediaImage} loading="lazy" />
                 <div className={styles.badges}>
                   <span className={styles.badge}>{s.region}</span>
                   <span className={`${styles.badge} ${styles.badgeType}`}>{s.typ}</span>
