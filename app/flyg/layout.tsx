@@ -4,7 +4,7 @@ import { buildPageMetadata } from '@/app/lib/city-seo';
 export const metadata = buildPageMetadata({
   path: '/flyg',
   title: 'Flyg till Mallorca från Sverige',
-  description: 'Flyg till Mallorca från Stockholm, Göteborg och Malmö – sök och jämför avgångar, se restid och säsong och få tips om när det lönar sig att boka.',
+  description: 'Direktflyg till Mallorca från Arlanda, Landvetter, Kastrup m.fl. – flygbolag, säsong och flygtid, och hur du tar dig från flygplatsen i Palma till din ort.',
   image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&h=630&fit=crop&q=85',
   imageAlt: 'Flygplan över moln på väg till Palma de Mallorca',
 });
