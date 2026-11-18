@@ -51,17 +51,72 @@
   line-height: 1.7;
 }
 
-.disclaimer {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin: 12px auto 0;
-  max-width: 60ch;
+/* ── Innehåll ── */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 60px) clamp(16px, 4vw, 60px);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  color: var(--color-ink);
+}
+
+.planner {
+  background: var(--color-surface-warm);
+  border-radius: 18px;
+  padding: clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(40px, 6vw, 72px);
+  scroll-margin-top: 80px;
+}
+
+.listSection {
+  margin-bottom: 48px;
+}
+
+.legend {
+  max-width: 75ch;
+  margin: 0 0 28px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-soft);
+}
+
+.legend p {
+  margin: 0 0 6px;
+}
+
+.legend strong {
+  color: var(--color-ink);
+}
+
+.more {
+  max-width: 75ch;
+}
+
+.more p {
   line-height: 1.7;
+  color: var(--color-text);
+}
+
+.more a {
+  color: var(--color-accent);
+  text-underline-offset: 2px;
 }
 
 @media (max-width: 768px) {
   .hero {
     padding: 40px 20px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(24px, 6.5vw, 30px);
   }
 
   .title {
@@ -71,8 +126,7 @@
   }
 
   .kicker,
-  .lead,
-  .disclaimer {
+  .lead {
     font-size: 16px;
     margin-bottom: 1.25rem;
   }
@@ -80,8 +134,7 @@
 
 @media (max-width: 380px) {
   .kicker,
-  .lead,
-  .disclaimer {
+  .lead {
     font-size: 15px;
   }
 }

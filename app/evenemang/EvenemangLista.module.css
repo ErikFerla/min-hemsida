@@ -1,11 +1,4 @@
-/* Evenemangslistan på /evenemang – värdena återger det beräknade utseendet före 2.6
-   (globala h2/h3/p/section-regler och det tidigare <style>-blocket inräknade). */
-
-.main {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: clamp(32px, 4vw, 60px) clamp(16px, 4vw, 60px);
-}
+/* Evenemangslistan och korten på /evenemang (används även av resekalendern). */
 
 /* ── Filter ── */
 .filterRow {
@@ -15,27 +8,24 @@
   margin-bottom: 32px;
 }
 
-.filterRow::-webkit-scrollbar {
-  display: none;
-}
-
 .filterButton {
   padding: 8px 20px;
   border-radius: 24px;
-  border: 2px solid #d9cfc1;
-  background: #fff;
+  border: 2px solid var(--color-border);
+  background: var(--color-white);
   color: var(--color-ink);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
   white-space: nowrap;
 }
 
 .filterButton[aria-pressed='true'] {
   border-color: var(--color-accent);
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-on-dark);
 }
 
 .count {
@@ -45,46 +35,26 @@
   color: var(--color-text-muted);
 }
 
-/* ── Sektioner ── */
-.section {
-  margin-bottom: 56px;
-}
-
-.sectionTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.5rem;
-  color: var(--color-ink);
-}
-
 .empty {
   color: var(--color-text-muted);
   line-height: 1.7;
   margin: 0 0 40px;
 }
 
-.archive {
-  margin-top: 40px;
-  border-top: 1px solid var(--color-border);
-  padding-top: 32px;
+/* ── Månader ── */
+.month {
+  margin-bottom: 48px;
 }
 
-.archiveSummary {
-  cursor: pointer;
+.monthTitle {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
   color: var(--color-ink);
-}
-
-.archiveText {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  margin: 12px 0 24px;
-  line-height: 1.7;
 }
 
 /* ── Kort ── */
@@ -95,46 +65,38 @@
 }
 
 .card {
-  background: var(--color-bg);
+  background: var(--color-white);
   border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-border);
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--color-border);
+  gap: 8px;
 }
 
-.media {
-  position: relative;
+.cardCompact {
+  padding: 14px 16px;
+  gap: 6px;
 }
 
-.image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-/* Passerade evenemang: bara bilden tonas ned, så att texten behåller full kontrast
-   (tidigare opacity 0.85 på hela kortet gav 4,2:1 på den grå texten). */
-.imagePast {
-  filter: grayscale(40%);
-  opacity: 0.85;
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .label,
 .status {
-  position: absolute;
-  top: 12px;
-  color: #fff;
   border-radius: 6px;
   padding: 3px 10px;
   font-size: 0.72rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .label {
-  left: 12px;
+  color: var(--color-white);
   background: var(--color-ink);
 }
 
@@ -147,69 +109,93 @@
 .kat_Familj { background: #be185d; }
 
 .status {
-  right: 12px;
-  background: var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
-.body {
-  padding: 18px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.statusPrel {
+  background: #fdf3e1;
+  color: var(--color-warning-text);
+  border: 1px dashed var(--color-warning-text);
+}
+
+.cardTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 4px 0 0;
+  color: var(--color-ink);
 }
 
 .meta {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
   display: flex;
-  gap: 12px;
+  gap: 4px 14px;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 .metaItem {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-}
-
-.cardTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  margin: 0 0 0.75rem;
-  color: var(--color-ink);
+  gap: 5px;
 }
 
 .description {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.65;
   margin: 0;
   flex: 1;
 }
 
+.note {
+  font-size: 0.85rem;
+  color: var(--color-warning-text);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin-top: 6px;
+}
+
 .link {
-  margin-top: 10px;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+.icsLink {
   display: inline-block;
-  padding: 7px 16px;
+  padding: 7px 14px;
   background: var(--color-accent);
   color: var(--color-on-dark);
   border-radius: 6px;
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none;
-  align-self: flex-start;
+}
+
+.icsLink:hover {
+  background: var(--color-accent-hover);
+}
+
+.icsMissing {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 768px) {
-  .main {
-    padding: 32px 20px;
-  }
-
   .filterRow {
+    flex-wrap: nowrap;
     overflow-x: auto;
     scrollbar-width: none;
     padding-bottom: 4px;
@@ -220,35 +206,13 @@
     flex-shrink: 0;
   }
 
-  .section,
-  .archive {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .sectionTitle {
-    font-size: clamp(22px, 6vw, 28px);
-    margin-bottom: 10px;
-  }
-
-  .cardTitle {
-    font-size: clamp(18px, 5vw, 22px);
-    line-height: 1.25;
-    margin-bottom: 8px;
-  }
-
-  .empty,
-  .archiveText,
   .description {
     font-size: 16px;
-    margin-bottom: 1.25rem;
   }
-}
 
-@media (max-width: 380px) {
-  .empty,
-  .archiveText,
-  .description {
-    font-size: 15px;
+  .icsLink {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 }
