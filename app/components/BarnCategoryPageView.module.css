@@ -73,25 +73,7 @@
   gap: 10px;
 }
 
-.button,
-.buttonOutline {
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-}
 
-.button {
-  background: var(--color-accent);
-  color: var(--color-white);
-}
-
-.buttonOutline {
-  background: var(--color-white);
-  border: 1.5px solid rgba(0, 0, 0, 0.12);
-  color: var(--color-ink);
-}
 
 @media (min-width: 769px) {
   .moreText {

@@ -81,16 +81,6 @@
 
 .submit {
   width: 100%;
-  padding: 16px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  border: none;
-  border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  cursor: pointer;
 }
 
 .note {
@@ -193,18 +183,8 @@
 }
 
 .airportLink {
-  display: block;
   margin-top: auto;
-  box-sizing: border-box;
   width: 100%;
-  padding: 10px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
 }
 
 /* Tips på mörk botten */

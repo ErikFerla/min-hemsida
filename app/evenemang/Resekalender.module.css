@@ -37,19 +37,6 @@
   outline-offset: 2px;
 }
 
-.clear {
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
-  background: transparent;
-  color: var(--color-ink);
-  font: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
 .help {
   font-size: 0.85rem;
   color: var(--color-text-muted);

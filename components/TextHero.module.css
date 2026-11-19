@@ -1,0 +1,59 @@
+/* Texthero (5.1) – sidstart utan bild för guider och verktyg (/guide/*, /vader,
+   /resplan, /evenemang). Yta-färg, vänsterställd, etikett + h1 + ingress.
+   Används som CSS-modul direkt i sidorna:
+     <header className={t.hero}><div className={t.inner}>
+       <p className={t.kicker}>…</p><h1 className={t.title}>…</h1><p className={t.lead}>…</p>
+     </div></header> */
+
+.hero {
+  background: var(--color-surface);
+}
+
+.inner {
+  max-width: var(--w-content);
+  margin: 0 auto;
+  padding: var(--space-7) var(--gutter) var(--space-6);
+}
+
+.kicker {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  max-width: 22ch;
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--lh-h1);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+}
+
+.lead {
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
+}
+.lead:last-child {
+  margin-bottom: 0;
+}
+.lead a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: var(--space-8) var(--gutter) var(--space-7);
+  }
+}

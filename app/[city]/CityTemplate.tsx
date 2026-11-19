@@ -201,7 +201,7 @@ export default function CityTemplate({ city }: { city: City }) {
                 ))}
               </p>
             </div>
-            <a href={`https://maps.google.com/?q=${city.mapsQuery}`} target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
+            <a href={`https://maps.google.com/?q=${city.mapsQuery}`} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               Visa på karta ↗
             </a>
             {city.places && (

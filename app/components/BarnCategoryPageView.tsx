@@ -108,11 +108,11 @@ export default function BarnCategoryPageView({
             Hitta fler aktiviteter för hela familjen – filtrera efter ålder och kategori på översiktssidan.
           </p>
           <div className={styles.links}>
-            <Link href="/barn" className={styles.button}>
+            <Link href="/barn" className="btn btn-primary">
               Alla barnaktiviteter
             </Link>
             {relatedCategories.map((c) => (
-              <Link key={c.slug} href={c.href} className={styles.buttonOutline}>
+              <Link key={c.slug} href={c.href} className="btn btn-secondary">
                 {c.label}
               </Link>
             ))}

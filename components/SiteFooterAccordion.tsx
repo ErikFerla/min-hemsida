@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import { IconPalm } from '@/components/Icons';
+import { LogoLockup } from '@/components/Logo';
 import type { FooterSection } from '@/components/SiteFooter';
 import styles from './SiteFooter.module.css';
 
@@ -11,9 +11,9 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
   return (
     <div className={styles.accordion}>
       <div className={styles.accordionIntro}>
-        <p className={styles.brand}>
-          DIN GUIDE PÅ MALLORCA <IconPalm size={20} />
-        </p>
+        <Link href="/" className={styles.brandLink}>
+          <LogoLockup className={styles.brand} markClassName={styles.brandMark} nameClassName={styles.brandName} />
+        </Link>
         <p className={styles.accordionAbout}>
           Din kompletta guide till Mallorca på svenska.
         </p>

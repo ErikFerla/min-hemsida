@@ -104,7 +104,8 @@
   margin-right: 4px;
 }
 
-/* Redaktionell notis – färgerna per typ */
+/* Redaktionell notis (5.1): vit yta, tunn linje och 3 px vänsterkant i statusfärg –
+   varning = --color-warning, tips = accent (vår röst), bäst för = --color-success, övrigt = --color-info */
 .note {
   display: flex;
   align-items: flex-start;
@@ -112,26 +113,24 @@
   padding: 8px 12px;
   border-radius: 8px;
   margin-bottom: 12px;
-  background: #f3e5f5;
-  border-left: 3px solid #8e44ad;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-info);
   font-size: 0.82rem;
   color: var(--color-text);
   line-height: 1.5;
 }
 
 .note_varning {
-  background: #fff3cd;
-  border-left-color: #f39c12;
+  border-left-color: var(--color-warning);
 }
 
 .note_tips {
-  background: #e8f5e9;
-  border-left-color: #27ae60;
+  border-left-color: var(--color-accent);
 }
 
 .note_bast {
-  background: #e3f2fd;
-  border-left-color: #2980b9;
+  border-left-color: var(--color-success);
 }
 
 .noteIcon {
@@ -139,18 +138,6 @@
   color: var(--color-ink);
   display: inline-flex;
   align-items: center;
-}
-
-.mapButton {
-  display: block;
-  text-align: center;
-  padding: 10px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {

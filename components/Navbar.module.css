@@ -31,21 +31,14 @@
   text-decoration: none;
 }
 
+/* Ordmärket (5.1): samma logotyp som i footern – våg + "MyMallorca", ingen spärrning */
 .logoName {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: var(--text-h3);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
   color: var(--color-ink);
-}
-
-.logoTagline {
-  margin-top: 2px;
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-accent);
 }
 
 /* Desktopmeny med dropdowns */

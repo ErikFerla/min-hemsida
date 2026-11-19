@@ -6,6 +6,7 @@ import { SNITTFART_KMH, VÄGFAKTOR, ortSlugs, type Orter } from '@/app/lib/plann
 import { getCity } from '@/data/cities';
 import ResplanVerktyg from './ResplanVerktyg';
 import styles from './page.module.css';
+import t from '@/components/TextHero.module.css';
 
 const PATH = '/resplan';
 const TITLE = 'Resplan för Mallorca – dag för dag med karta';
@@ -62,11 +63,11 @@ export default function ResplanPage() {
     <div className={styles.page}>
       <JsonLd data={jsonLd} />
 
-      <header className={styles.header}>
-        <div className={styles.headerInner}>
-          <p className={styles.kicker}>Resplanerare</p>
-          <h1 className={styles.title}>Din resplan för Mallorca, dag för dag</h1>
-          <p className={styles.ingress}>
+      <header className={`${t.hero} ${styles.heroPrint}`}>
+        <div className={t.inner}>
+          <p className={t.kicker}>Resplanerare</p>
+          <h1 className={t.title}>Din resplan för Mallorca, dag för dag</h1>
+          <p className={t.lead}>
             Välj hur länge du reser och vad du gillar, så får du en plan med förslag för förmiddag, eftermiddag och kväll,
             karta, ungefärliga körtider och länkar till våra guider. Byt ut och flytta dagar tills planen passar dig – och
             dela den med resesällskapet eller skriv ut den.

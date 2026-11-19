@@ -13,13 +13,13 @@ export type HeroImageProps = {
   alt: string;
   /** H1 text */
   title: string;
-  /** Uppercase eyebrow above the H1 */
+  /** Etikett (versaler via CSS) ovanför h1 */
   kicker?: string;
   /** Paragraph below the H1 */
   subtitle?: string;
   /** Hero height. Default 60vh. */
   height?: string;
-  /** Photo credit line in bottom-right, e.g. "Foto: Luca / Unsplash" */
+  /** Fotokredit – visas i en egen rad under bilden, t.ex. "Foto: Luca / Unsplash" */
   photoCredit?: string;
 };
 
@@ -46,22 +46,25 @@ export default function HeroImage({
   photoCredit,
 }: HeroImageProps) {
   return (
-    <section className={styles.hero} style={{ '--hero-height': height } as CSSProperties}>
-      <EagerImage
-        src={buildUrl(src, SRC_WIDTH)}
-        srcSet={buildSrcSet(src)}
-        sizes="100vw"
-        alt={alt}
-        width={2000}
-        height={1125}
-        className={styles.image}
-      />
-      <div aria-hidden="true" className={styles.overlay} />
-      <div className={styles.content}>
-        {kicker && <p className={styles.kicker}>{kicker}</p>}
-        <h1 className={styles.title}>{title}</h1>
-        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+    <section className={styles.hero}>
+      <div className={styles.frame} style={{ '--hero-height': height } as CSSProperties}>
+        <EagerImage
+          src={buildUrl(src, SRC_WIDTH)}
+          srcSet={buildSrcSet(src)}
+          sizes="100vw"
+          alt={alt}
+          width={2000}
+          height={1125}
+          className={styles.image}
+        />
+        <div aria-hidden="true" className={styles.overlay} />
+        <div className={styles.content}>
+          {kicker && <p className={styles.kicker}>{kicker}</p>}
+          <h1 className={styles.title}>{title}</h1>
+          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        </div>
       </div>
+      {/* Fotokrediten i egen rad under bilden – aldrig över texten */}
       {photoCredit && <p className={styles.credit}>{photoCredit}</p>}
     </section>
   );

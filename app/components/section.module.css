@@ -21,24 +21,26 @@
   margin: 0 auto;
 }
 
+/* Överrad: etikett (--text-label) i accent */
 .label {
   display: block;
-  margin: 0 0 0.75rem;
+  margin: 0 0 var(--space-3);
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
+/* Sektionsrubrik: h2 enligt typskalan */
 .title {
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-4);
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--text-h2);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: var(--lh-h2);
+  letter-spacing: -0.01em;
   word-spacing: normal;
 }
 
@@ -53,28 +55,6 @@
   margin-bottom: 24px;
   border-radius: 2px;
   background: var(--color-accent);
-}
-
-.btnPrimary {
-  display: inline-block;
-  padding: var(--btn-padding);
-  background: var(--color-accent);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: var(--btn-font-size);
-  font-weight: var(--btn-font-weight);
-  letter-spacing: var(--btn-letter-spacing);
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid var(--color-ink);
-  border-radius: var(--btn-border-radius);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.btnPrimary:hover {
-  background: var(--color-accent-mid);
-  border-color: var(--color-accent-mid);
-  color: var(--color-white);
 }
 
 @media (max-width: 768px) {
@@ -97,17 +77,6 @@
 
   .inner p {
     max-width: 100%;
-  }
-
-  .label {
-    margin-bottom: 0.5rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-  }
-
-  .title {
-    margin-bottom: 8px;
-    font-size: clamp(26px, 7vw, 32px);
   }
 
   .divider {

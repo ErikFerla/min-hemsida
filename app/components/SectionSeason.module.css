@@ -25,7 +25,7 @@
 .card {
   padding: 28px 24px;
   background: var(--color-bg);
-  border-top: 4px solid var(--season-color);
+  border-top: 3px solid var(--season-color);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
@@ -40,6 +40,8 @@
 
 .months {
   font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--season-color);
 }
 
 .list {
@@ -59,8 +61,8 @@
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: var(--season-color);
-  color: var(--season-text);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
 /* Mobil: accordion */
@@ -72,7 +74,7 @@
   overflow: hidden;
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-left: 4px solid var(--season-color);
+  border-left: 3px solid var(--season-color);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
@@ -116,7 +118,8 @@
   display: block;
   margin-top: 2px;
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-weight: 600;
+  color: var(--season-color);
 }
 
 .chevron {
@@ -131,7 +134,7 @@
 
 .body {
   padding: 0 20px 20px;
-  border-top: 1px solid #f0ebe3;
+  border-top: 1px solid var(--color-border);
 }
 
 .bodyList {
@@ -153,7 +156,7 @@
 
 .con {
   margin-top: 4px;
-  border-top: 1px solid #f0ebe3;
+  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
 }
 
@@ -164,8 +167,8 @@
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
-  background: var(--season-color);
-  color: var(--season-text);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
 @media (min-width: 769px) {

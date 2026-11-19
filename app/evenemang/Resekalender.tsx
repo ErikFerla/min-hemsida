@@ -68,7 +68,7 @@ function Vy({ evenemang, fran, till }: { evenemang: Evenemang[]; fran: string; t
           <input id="till" type="date" value={till} min={fran || undefined} onChange={ev => sättDatum(fran, ev.target.value)} />
         </div>
         {(fran || till) && (
-          <button type="button" className={styles.clear} onClick={() => sättDatum('', '')}>
+          <button type="button" className="btn btn-secondary" onClick={() => sättDatum('', '')}>
             Rensa datum
           </button>
         )}

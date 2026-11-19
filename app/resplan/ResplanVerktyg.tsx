@@ -225,10 +225,10 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
         </p>
 
         <div className={`${styles.actions} ${styles.noPrint}`}>
-          <button type="button" onClick={kopiera} className={styles.action}>Kopiera länk</button>
-          {kanDela && <button type="button" onClick={dela} className={styles.action}>Dela</button>}
-          <button type="button" onClick={() => window.print()} className={styles.action}>Skriv ut / spara som PDF</button>
-          {ändrad && <button type="button" onClick={återställ} className={styles.actionQuiet}>Återställ förslaget</button>}
+          <button type="button" onClick={kopiera} className="btn btn-primary">Kopiera länk</button>
+          {kanDela && <button type="button" onClick={dela} className="btn btn-secondary">Dela</button>}
+          <button type="button" onClick={() => window.print()} className="btn btn-secondary">Skriv ut / spara som PDF</button>
+          {ändrad && <button type="button" onClick={återställ} className="btn btn-secondary">Återställ förslaget</button>}
           <p aria-live="polite" className={styles.actionNote}>
             {delning || 'Länken innehåller hela planen, även dagar du har bytt eller flyttat.'}
           </p>
@@ -323,7 +323,7 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
                         type="button"
                         onClick={() => flytta(mittIndex, -1)}
                         disabled={mittIndex === 0}
-                        className={styles.small}
+                        className={`btn btn-secondary ${styles.small}`}
                         aria-label={`Flytta dag ${n} en dag tidigare`}
                       >
                         ↑ Tidigare
@@ -333,7 +333,7 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
                         type="button"
                         onClick={() => flytta(mittIndex, 1)}
                         disabled={mittIndex === mitt.length - 1}
-                        className={styles.small}
+                        className={`btn btn-secondary ${styles.small}`}
                         aria-label={`Flytta dag ${n} en dag senare`}
                       >
                         ↓ Senare
@@ -358,7 +358,7 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
                           {alt.övriga.map(id => <option key={id} value={id}>{altText(id)}</option>)}
                         </optgroup>
                       </select>
-                      <button id={`dag-${n}-byt`} type="submit" className={styles.small}>
+                      <button id={`dag-${n}-byt`} type="submit" className={`btn btn-secondary ${styles.small}`}>
                         Byt
                       </button>
                     </form>

@@ -18,11 +18,11 @@ const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
   meta: b.oneliner,
 }));
 
-// Nyanser som klarar 4,5:1 mot vit text (tidigare #27ae60 och #f39c12 gav 2,9:1 och 2,2:1).
+// Statusfärger (5.1) – alla klarar 4,5:1 mot vit text (success 4,9, warning 4,7, accent 7,3).
 const svårighetFärg: Record<string, string> = {
-  'Lätt': '#15803d',
-  'Medel': '#b45309',
-  'Svår': '#993335',
+  'Lätt': 'var(--color-success)',
+  'Medel': 'var(--color-warning)',
+  'Svår': 'var(--color-accent)',
 };
 
 /** Svårighetsfärgen som CSS-variabel till modulen */
@@ -146,12 +146,14 @@ export default function GolfPage() {
                     <span>{b.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={b.maps} target="_blank" rel="noopener noreferrer" className={styles.primaryButton}>
-                  Visa på karta ↗
-                </a>
-                <a href={b.webb} target="_blank" rel="noopener noreferrer" className={styles.secondaryButton}>
-                  Besök hemsida →
-                </a>
+                <div className={styles.cardLinks}>
+                  <a href={b.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                    Visa på karta ↗
+                  </a>
+                  <a href={b.webb} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                    Besök hemsida ↗
+                  </a>
+                </div>
               </div>
             </article>
           ))}
@@ -164,7 +166,7 @@ export default function GolfPage() {
           <p className={styles.ctaText}>
             Vill du veta mer om banorna, säsongen och greenfee? Läs vår kompletta golfguide.
           </p>
-          <Link href="/guide/golf-mallorca-guide" className={styles.ctaButton}>
+          <Link href="/guide/golf-mallorca-guide" className="btn btn-primary">
             Läs vår golfguide →
           </Link>
         </div>

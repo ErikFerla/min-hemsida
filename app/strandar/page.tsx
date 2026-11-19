@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import EagerImage from '@/components/EagerImage';
+import HeroImage from '@/components/HeroImage';
 import { beaches, BEACHES_HERO, type RedaktionellTyp } from '@/data/beaches';
 import StrandFilter from './StrandFilter';
 import DagensStrand from './DagensStrand';
@@ -22,31 +22,15 @@ export default function StrandarPage() {
   return (
     <div className={styles.page}>
       <header>
-        {/* Hero-bild – LCP-element, eager-laddad med srcset och fetchpriority="high" */}
-        <div className={styles.hero}>
-          <EagerImage
-            src={BEACHES_HERO.src}
-            srcSet={BEACHES_HERO.srcSet}
-            sizes={BEACHES_HERO.sizes}
-            alt={BEACHES_HERO.alt}
-            width={2000}
-            height={1333}
-            className={styles.heroImage}
-          />
-          <div aria-hidden="true" className={styles.heroShade} />
-          <div className={styles.heroText}>
-            <p className={styles.heroKicker}>
-              Upptäck kusten
-            </p>
-            <h1 className={styles.title}>
-              Stränder på Mallorca
-            </h1>
-            <div className={styles.heroRule} />
-          </div>
-          <p className={styles.credit}>
-            {BEACHES_HERO.credit}
-          </p>
-        </div>
+        {/* Hero-bild – LCP-element, samma komponent som övriga bildheror (5.1) */}
+        <HeroImage
+          src={BEACHES_HERO.base}
+          alt={BEACHES_HERO.alt}
+          kicker="Upptäck kusten"
+          title="Stränder på Mallorca"
+          height="clamp(360px, 58vh, 620px)"
+          photoCredit={BEACHES_HERO.credit}
+        />
 
         {/* Intro – geografisk översikt med interna länkar */}
         <div className={styles.intro}>
@@ -79,7 +63,7 @@ export default function StrandarPage() {
           <p className={styles.guideText}>
             <strong>Vill du veta mer?</strong> Läs vår rankade guide med GPS-koordinater, parkeringstips och insidertips.
           </p>
-          <Link href="/guide/basta-stranderna-mallorca" className={styles.guideButton}>
+          <Link href="/guide/basta-stranderna-mallorca" className={`btn btn-primary ${styles.guideButton}`}>
             Läs guiden →
           </Link>
         </div>
@@ -113,9 +97,9 @@ export default function StrandarPage() {
                 </div>
                 {(s.familj || s.snorkling || s.nudist) && (
                   <div className={styles.tags}>
-                    {s.familj && <span className={`${styles.tag} ${styles.tagFamily}`}>Familj</span>}
-                    {s.snorkling && <span className={`${styles.tag} ${styles.tagSnorkel}`}>Snorkling</span>}
-                    {s.nudist && <span className={`${styles.tag} ${styles.tagNudist}`}>Nudist</span>}
+                    {s.familj && <span className={styles.tag}>Familj</span>}
+                    {s.snorkling && <span className={styles.tag}>Snorkling</span>}
+                    {s.nudist && <span className={styles.tag}>Nudist</span>}
                   </div>
                 )}
                 {s.redaktionellt && (
@@ -126,7 +110,7 @@ export default function StrandarPage() {
                     {s.redaktionellt.text}
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
                   Visa på karta ↗
                 </a>
               </div>
@@ -146,7 +130,7 @@ export default function StrandarPage() {
               <Link key={t.href} href={t.href} className={styles.moreCard}>
                 <h3 className={`${h.h3} ${styles.moreCardTitle}`}>{t.titel}</h3>
                 <p className={styles.moreCardText}>{t.text}</p>
-                <span className={styles.moreCardLink}>{t.cta} →</span>
+                <span className="link-arrow">{t.cta} →</span>
               </Link>
             ))}
           </div>

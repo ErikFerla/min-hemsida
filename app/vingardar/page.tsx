@@ -116,11 +116,11 @@ export default function VingardarPage() {
                 </div>
 
                 <div className={styles.actions}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
                     <IconMap size={14} stroke={1.8} /> Visa på karta
                   </a>
                   {v.web && (
-                    <a href={v.web} target="_blank" rel="noopener noreferrer" className={styles.webButton}>
+                    <a href={v.web} target="_blank" rel="noopener noreferrer" className="link-arrow">
                       Hemsida <IconExternal size={13} stroke={1.8} />
                     </a>
                   )}

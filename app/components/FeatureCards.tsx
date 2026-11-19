@@ -28,7 +28,7 @@ export default function FeatureCards() {
             <div className={styles.desc}>{item.desc}</div>
           </div>
 
-          <div aria-hidden="true" className={styles.more}>LÄS MER →</div>
+          <div aria-hidden="true" className={`link-arrow ${styles.more}`}>Läs mer →</div>
         </Link>
       ))}
     </div>

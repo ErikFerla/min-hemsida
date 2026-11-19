@@ -88,16 +88,16 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
         )}
 
         <div className={styles.actions}>
-          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className={`${styles.button} ${styles.primary}`}>
+          <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
             <IconMap size={14} /> Visa på karta <IconExternal size={12} stroke={1.8} />
           </a>
           {activity.bookingUrl && (
-            <a href={activity.bookingUrl} target="_blank" rel="noopener noreferrer" className={`${styles.button} ${styles.dark}`}>
+            <a href={activity.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               Boka <IconExternal size={12} stroke={1.8} />
             </a>
           )}
           {activity.website && (
-            <a href={activity.website} target="_blank" rel="noopener noreferrer" className={`${styles.button} ${styles.outline}`}>
+            <a href={activity.website} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               Hemsida <IconExternal size={12} stroke={1.8} />
             </a>
           )}

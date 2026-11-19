@@ -106,27 +106,6 @@
   gap: 12px;
 }
 
-.primary,
-.secondary {
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.primary {
-  background: var(--color-accent);
-  border: none;
-  color: var(--color-white);
-}
-
-.secondary {
-  border: 1px solid var(--color-ink);
-  color: var(--color-ink);
-}
-
 /* Desktop: storlekar och marginaler (på mobil gäller basens regler för p och h1) */
 @media (min-width: 769px) {
   .kicker {

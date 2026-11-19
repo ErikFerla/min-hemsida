@@ -29,19 +29,17 @@
 .dayCard { font: inherit; color: var(--color-ink); display: flex; flex-direction: column; align-items: center; flex-shrink: 0; background: #fff; border: 1px solid var(--color-border); border-radius: 10px; padding: 0.7rem 0.5rem; text-align: center; cursor: pointer; transition: all 0.2s; min-width: 70px; max-width: 80px; flex: 1; }
 .dayCard:hover { background: #f0ebe3; border-color: var(--color-accent); }
 .dayCard.selected { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
-.dayCard:focus-visible, .tab:focus-visible, .retryButton:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+.dayCard:focus-visible, .tab:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 .dayName { margin: 0; font-size: 0.8rem; font-weight: 700; }
 .dayIcon { font-size: 1.5rem; margin: 0.5rem 0; }
 .dayTemp { margin: 0; font-size: 1rem; font-weight: 700; }
 .dayMin { margin: 0; font-size: 0.8rem; opacity: 0.75; }
-.intro { max-width: 760px; margin: 0 auto 2rem; text-align: center; }
-.title { font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; letter-spacing: 0.05em; color: var(--color-ink); margin: 0 0 1rem; font-weight: 400; }
-.lead { color: var(--color-text); font-size: 1.05rem; line-height: 1.7; margin: 0 0 0.75rem; }
-.lead a { color: var(--color-accent); text-decoration: underline; }
 .fact { font-style: italic; }
 .minMax { color: var(--color-text); font-size: 0.95rem; line-height: 1.7; margin: 0.25rem 0 0; }
 .empty { text-align: center; padding: 40px 20px; color: var(--color-text-muted); }
-.retryButton { margin-top: 12px; padding: 10px 24px; background: var(--color-ink); color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+.retryButton {
+  margin-top: 12px;
+}
 .source { margin: 1rem 0 0; font-size: 0.8rem; line-height: 1.7; color: var(--color-text-muted); text-align: center; }
 /* A2-ssr: tips under felmeddelandet och serverrenderad ortsöversikt */
 .errorHint { font-size: 0.95rem; line-height: 1.7; color: var(--color-ink); margin: 0 0 1rem; }
@@ -102,12 +100,6 @@
     padding: 0.5rem 0.4rem;
   }
   /* Tidigare globala mobilregler för h1, p och section (!important) */
-  .title {
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
-  .lead,
   .locationDate p,
   .description,
   .minMax,
@@ -123,7 +115,6 @@
 }
 
 @media (max-width: 380px) {
-  .lead,
   .locationDate p,
   .description,
   .minMax,

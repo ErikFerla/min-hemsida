@@ -56,10 +56,14 @@
   gap: 12px;
 }
 
+/* Samma knappform som .btn i globals.css (som inte laddas här): radie 8, 600, min-höjd 44 */
 .primary,
 .secondary {
-  padding: 12px 24px;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
@@ -73,6 +77,6 @@
 }
 
 .secondary {
-  border: 1px solid var(--ge-ink);
+  border: 1.5px solid var(--ge-ink);
   color: var(--ge-ink);
 }

@@ -181,35 +181,6 @@
   flex-wrap: wrap;
 }
 
-.mapButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  background: var(--color-ink);
-  color: #fff;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  text-decoration: none;
-  font-weight: 600;
-  min-height: 36px;
-}
-
-.webButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 16px;
-  background: #fff;
-  color: var(--color-ink);
-  border: 1px solid #d9cfc1;
-  border-radius: 10px;
-  font-size: 0.85rem;
-  text-decoration: none;
-  font-weight: 600;
-  min-height: 40px;
-}
-
 /* ── Bra att veta ── */
 .note {
   margin-top: 48px;

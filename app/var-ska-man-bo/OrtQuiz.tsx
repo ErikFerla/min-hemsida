@@ -169,7 +169,7 @@ export default function OrtQuiz() {
         )}
 
         {antalSvar > 0 && (
-          <button type="button" onClick={börjaOm} className={styles.reset}>
+          <button type="button" onClick={börjaOm} className="btn btn-secondary">
             Börja om
           </button>
         )}

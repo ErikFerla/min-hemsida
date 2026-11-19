@@ -114,8 +114,8 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Link href="/byar" className={s.btnPrimary}>
-                UTFORSKA ÖN →
+              <Link href="/byar" className="btn btn-primary">
+                Utforska ön →
               </Link>
             </div>
           </div>
@@ -158,8 +158,8 @@ export default function Home() {
                 smultronställen som vi själva återvänder till – för dig som
                 reser med familjen, som par eller har ditt andra hem på ön.
               </p>
-              <Link href="/guider" className={s.btnPrimary}>
-                SE VÅRA GUIDER →
+              <Link href="/guider" className="btn btn-primary">
+                Se våra guider →
               </Link>
             </div>
           </div>

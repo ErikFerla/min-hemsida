@@ -148,9 +148,9 @@ export default function FlygSok() {
         <button
           type="submit"
           aria-describedby="flyg-skyscanner-info"
-          className={styles.submit}
+          className={`btn btn-primary ${styles.submit}`}
         >
-          SÖK FLYG PÅ SKYSCANNER →
+          Sök flyg på Skyscanner ↗
         </button>
         <p id="flyg-skyscanner-info" className={styles.note}>
           Sökningen öppnas hos Skyscanner i en ny flik. Vi sparar inget av det du fyller i.

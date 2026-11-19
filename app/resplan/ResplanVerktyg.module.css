@@ -100,33 +100,6 @@
   margin-bottom: 28px;
 }
 
-.action,
-.actionQuiet {
-  min-height: 44px;
-  padding: 8px 18px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.action {
-  background: var(--color-accent);
-  border: 2px solid var(--color-accent);
-  color: var(--color-on-dark);
-}
-
-.action:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
-}
-
-.actionQuiet {
-  background: transparent;
-  border: 2px solid var(--color-ink-strong);
-  color: var(--color-ink-strong);
-}
-
 .actionNote {
   flex: 1 1 100%;
   margin: 0;
@@ -302,22 +275,9 @@
   gap: 8px;
 }
 
+/* Kompakta knappar i dagskorten: .btn .btn-secondary med mindre sidopadding */
 .small {
-  min-height: 44px;
-  padding: 6px 14px;
-  background: transparent;
-  border: 1px solid var(--color-ink-strong);
-  border-radius: 8px;
-  color: var(--color-ink-strong);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.small:disabled {
-  border-color: var(--color-border);
-  color: var(--color-text-muted);
-  cursor: not-allowed;
+  padding-inline: var(--space-3);
 }
 
 @media (max-width: 600px) {

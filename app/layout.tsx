@@ -8,17 +8,21 @@ import { DEFAULT_OG_IMAGE } from '@/app/lib/city-seo';
 
 // Self-hostade fonter (latin-subset, från Fontsource, SIL OFL – se app/fonts/OFL-*.txt).
 // Bygget beror inte längre på Google Fonts.
+// Designsystemet (5.1) använder bara Inter 400/600 och Playfair 700 + kursiv 400,
+// så vi laddar statiska filer för exakt de skärningarna (≈93 kB totalt).
 const inter = localFont({
-  src: './fonts/inter-latin-wght-normal.woff2',
-  weight: '100 900',
-  style: 'normal',
+  src: [
+    { path: './fonts/inter-latin-400-normal.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/inter-latin-600-normal.woff2', weight: '600', style: 'normal' },
+  ],
   variable: '--font-inter',
   display: 'swap',
 });
 const playfair = localFont({
-  src: './fonts/playfair-display-latin-wght-normal.woff2',
-  weight: '400 900',
-  style: 'normal',
+  src: [
+    { path: './fonts/playfair-display-latin-700-normal.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/playfair-display-latin-400-italic.woff2', weight: '400', style: 'italic' },
+  ],
   variable: '--font-playfair',
   display: 'swap',
   adjustFontFallback: 'Times New Roman',

@@ -65,7 +65,7 @@ export default function FlygPage() {
                   <dt>Flygtid</dt>
                   <dd>{a.flygtid}</dd>
                 </dl>
-                <a href={skyscanner(a.kod)} target="_blank" rel="noopener noreferrer" className={styles.airportLink}>
+                <a href={skyscanner(a.kod)} target="_blank" rel="noopener noreferrer" className={`link-arrow ${styles.airportLink}`}>
                   Sök flyg från {a.kod} <span aria-hidden="true">→</span>
                   <span className="sr-only"> (öppnas i ny flik)</span>
                 </a>

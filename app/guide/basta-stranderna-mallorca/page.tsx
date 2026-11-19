@@ -160,7 +160,7 @@ export default function BästaSträndernaGuide() {
         <div className={styles.cta}>
           <h2 className={h.h2}>Vill du utforska alla 30 stränder?</h2>
           <p className={styles.ctaText}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
-          <Link href="/strandar" className={styles.ctaButton}>SE ALLA 30 STRÄNDER →</Link>
+          <Link href="/strandar" className="btn btn-on-dark">Se alla 30 stränder →</Link>
         </div>
 
         <LastChecked

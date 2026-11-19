@@ -23,7 +23,7 @@ const bilder: Bild[] = [
     undertext: 'Gotisk katedral, kulinarisk scen och levande gamla stan',
     plats: 'Palma · Huvudstaden',
     lank: '/palma-de-mallorca',
-    cta: 'UTFORSKA PALMA',
+    cta: 'Utforska Palma',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
@@ -32,7 +32,7 @@ const bilder: Bild[] = [
     undertext: 'Från dolda klippvikar till långa, grunda sandstränder för hela familjen',
     plats: 'Es Trenc · Södra Mallorca',
     lank: '/strandar',
-    cta: 'UTFORSKA STRÄNDERNA',
+    cta: 'Utforska stränderna',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Alcudia_bay_2025.jpg/1920px-Alcudia_bay_2025.jpg',
@@ -41,7 +41,7 @@ const bilder: Bild[] = [
     undertext: 'Grunda stränder, grottor, djurparker och vattenparker – tips för hela familjen',
     plats: 'Alcúdiabukten · Norra Mallorca',
     lank: '/barn',
-    cta: 'SE BARNAKTIVITETERNA',
+    cta: 'Se barnaktiviteterna',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
@@ -50,7 +50,7 @@ const bilder: Bild[] = [
     undertext: 'Drygt 20 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
     plats: 'Pula Golf · Son Servera',
     lank: '/aktiviteter/golf',
-    cta: 'SE GOLFBANORNA',
+    cta: 'Se golfbanorna',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg/1920px-The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg',
@@ -59,7 +59,7 @@ const bilder: Bild[] = [
     undertext: 'Charmiga gränder, klosterhistoria och bergsnatur på Unescos världsarvslista',
     plats: 'Valldemossa · Västra Mallorca',
     lank: '/valldemossa',
-    cta: 'UTFORSKA VALLDEMOSSA',
+    cta: 'Utforska Valldemossa',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg/1920px-Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg',
@@ -68,7 +68,7 @@ const bilder: Bild[] = [
     undertext: 'Pittoresk hamn omgiven av Tramuntanabergen – dit går en historisk spårvagn',
     plats: 'Port de Sóller · Nordväst',
     lank: '/port-de-soller',
-    cta: 'UTFORSKA PORT DE SÓLLER',
+    cta: 'Utforska Port de Sóller',
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Ensa%C3%AFmada.jpg/1920px-Ensa%C3%AFmada.jpg',
@@ -77,7 +77,7 @@ const bilder: Bild[] = [
     undertext: 'Lokala vingårdar, färsk fisk direkt från havet och kvällar på terrassen',
     plats: 'Hela ön · Kulinariska upplevelser',
     lank: '/mat',
-    cta: 'SE MAT & VIN',
+    cta: 'Se mat & vin',
   },
 ];
 
@@ -181,16 +181,18 @@ export default function HeroSlideshow() {
         aria-atomic="true"
         className={styles.text}
       >
-        <p className={styles.place}>{bild.plats}</p>
+        <div className={styles.textInner}>
+          <p className={styles.place}>{bild.plats}</p>
 
-        {/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */}
-        <p className={styles.title}>{bild.rubrik}</p>
+          {/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */}
+          <p className={styles.title}>{bild.rubrik}</p>
 
-        <p className={styles.sub}>{bild.undertext}</p>
+          <p className={styles.sub}>{bild.undertext}</p>
 
-        <Link href={bild.lank} className={styles.cta}>
-          {bild.cta} <span aria-hidden="true">→</span>
-        </Link>
+          <Link href={bild.lank} className={`btn btn-primary ${styles.cta}`}>
+            {bild.cta} <span aria-hidden="true">→</span>
+          </Link>
+        </div>
       </div>
 
       {/* Kontroller: paus + bildväljare (klickytor ≥24 px) */}

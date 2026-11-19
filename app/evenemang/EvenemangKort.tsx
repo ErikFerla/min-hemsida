@@ -1,23 +1,13 @@
 import { IconCalendar, IconPin } from '@/components/Icons';
-import { STATUSTEXT, type Evenemang, type Kategori } from './data';
+import { STATUSTEXT, type Evenemang } from './data';
 import styles from './EvenemangLista.module.css';
-
-// Etikettfärg per kategori – nyanserna i modulen klarar AA-kontrast mot vit text.
-const kategoriKlass: Record<Kategori, string> = {
-  'Sport': styles.kat_Sport,
-  'Musik': styles.kat_Musik,
-  'Kultur': styles.kat_Kultur,
-  'Mat & dryck': styles.kat_Mat,
-  'Marknad': styles.kat_Marknad,
-  'Familj': styles.kat_Familj,
-};
 
 /** Ett evenemangskort. Används både i listan och i resekalendern (kompakt). */
 export default function EvenemangKort({ e, kompakt = false }: { e: Evenemang; kompakt?: boolean }) {
   return (
     <article className={kompakt ? `${styles.card} ${styles.cardCompact}` : styles.card}>
       <div className={styles.tags}>
-        <span className={`${styles.label} ${kategoriKlass[e.kategori]}`}>{e.kategori}</span>
+        <span className={styles.label}>{e.kategori}</span>
         <span className={e.status === 'preliminärt' ? `${styles.status} ${styles.statusPrel}` : styles.status}>
           {STATUSTEXT[e.status]}
         </span>
@@ -38,7 +28,7 @@ export default function EvenemangKort({ e, kompakt = false }: { e: Evenemang; ko
           {kompakt ? 'Källa' : e.källa.label} ↗
         </a>
         {e.ics ? (
-          <a href={e.ics} download className={styles.icsLink} aria-label={`Lägg till i kalender: ${e.namn} (.ics)`}>
+          <a href={e.ics} download className="btn btn-secondary" aria-label={`Lägg till i kalender: ${e.namn} (.ics)`}>
             Lägg till i kalender
           </a>
         ) : (

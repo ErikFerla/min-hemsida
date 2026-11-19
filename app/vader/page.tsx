@@ -7,6 +7,7 @@ import { CLIMATE, CLIMATE_CHECKED, CLIMATE_SOURCES, MET_NO_SOURCE, fmt } from '@
 import { WEATHER_LOCATIONS } from './locations';
 import styles from './vader.module.css';
 import h from '../guide/headings.module.css';
+import t from '@/components/TextHero.module.css';
 
 const byMonth = (n: number) => CLIMATE[n - 1];
 
@@ -17,21 +18,23 @@ export default function Vader() {
   const okt = byMonth(10);
   return (
     <div className={styles.page}>
-      <div className={styles.container}>
-        <header className={styles.intro}>
-          <h1 className={styles.title}>Väder på Mallorca</h1>
-          <p className={styles.lead}>
+      <header className={t.hero}>
+        <div className={t.inner}>
+          <h1 className={t.title}>Väder på Mallorca</h1>
+          <p className={t.lead}>
             Här ser du prognosen för de kommande dagarna på sju platser runt ön – från Palma och
             Andratx i sydväst till Port de Sóller och Deià i Tramuntanabergen, Alcúdia i norr och
             Artà och Porto Colom i öster. Vädret kan skilja en hel del mellan kusten och bergen, så
             välj den ort som ligger närmast dig.
           </p>
-          <p className={styles.lead}>
+          <p className={t.lead}>
             Planerar du en resa längre fram? I vår{' '}
             <Link href="/guide/basta-tid-resa-mallorca">guide till bästa tiden att resa till Mallorca</Link>{' '}
             går vi igenom väder, badtemperatur och stämning månad för månad. Längre ner på sidan finns en klimattabell för hela året.
           </p>
-        </header>
+        </div>
+      </header>
+      <div className={styles.container}>
         <Suspense
           fallback={
             <div className={styles.loading}>

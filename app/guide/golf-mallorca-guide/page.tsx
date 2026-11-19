@@ -196,7 +196,7 @@ export default function GolfMallorcaGuide() {
         <div className={styles.cta}>
           <h2 className={h.h2}>Mer om golf på Mallorca</h2>
           <p className={styles.ctaText}>Se alla banor på kartan, med banfakta och tips för varje bana.</p>
-          <Link href="/aktiviteter/golf" className={styles.ctaButton}>SE ALLA BANOR PÅ KARTAN →</Link>
+          <Link href="/aktiviteter/golf" className="btn btn-on-dark">Se alla banor på kartan →</Link>
         </div>
 
         <LastChecked

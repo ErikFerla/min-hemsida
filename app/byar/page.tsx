@@ -65,10 +65,10 @@ export default function ByarSida() {
                   <IconBulb size={14} className={styles.inlineIcon} /> {stad.card.tip}
                 </div>
                 <div className={styles.actions}>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" className={styles.button}>
-                    <IconMap size={14} className={styles.inlineIcon} /> Visa på karta
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                    <IconMap size={14} className={styles.inlineIcon} /> Visa på karta ↗
                   </a>
-                  <Link href={cityPath(stad)} className={styles.buttonOutline}>
+                  <Link href={cityPath(stad)} className="link-arrow">
                     Utforska →
                   </Link>
                 </div>

@@ -58,8 +58,8 @@ export default function SectionEvents() {
             <p className={styles.intro}>
               Fiestor, mässor, cykellopp och regattor året runt. Välj dina resdatum på evenemangssidan så ser du vad som händer – och vilka byar som har marknad – under just din resa.
             </p>
-            <Link href="/evenemang#resekalender" className={s.btnPrimary}>
-              SE VAD SOM HÄNDER UNDER DIN RESA →
+            <Link href="/evenemang#resekalender" className="btn btn-primary">
+              Se vad som händer under din resa →
             </Link>
           </div>
           <div className={styles.grid}>
@@ -76,7 +76,7 @@ export default function SectionEvents() {
                   {e.status === 'preliminärt' && <p className={styles.unconfirmed}>Preliminärt datum</p>}
                   <h3 className={styles.name}>{e.namn}</h3>
                   <p className={styles.desc}>{e.beskrivning}</p>
-                  <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                  <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
                     {e.källa.label} ↗
                   </a>
                 </div>

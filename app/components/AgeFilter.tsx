@@ -103,7 +103,7 @@ function AgeFilterView({
             Visar <strong>{visibleCount}</strong> av {totalCount} aktiviteter
           </span>
           {selected.length > 0 && (
-            <button type="button" onClick={() => onChange([])} className={styles.clear}>
+            <button type="button" onClick={() => onChange([])} className="btn btn-secondary">
               Rensa filter
             </button>
           )}

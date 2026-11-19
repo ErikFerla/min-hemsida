@@ -90,16 +90,6 @@
   font-weight: 600;
 }
 
-.cardButton {
-  display: inline-block;
-  padding: 10px 24px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
 /* ── Barnvänligt och Fördjupa dig ── */
 .section {
   margin-top: 64px;
@@ -202,20 +192,6 @@
   margin: 0;
 }
 
-.darkButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  background: var(--color-ink);
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  min-height: 44px;
-}
-
 .readGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
@@ -237,12 +213,6 @@
   color: var(--color-text);
   line-height: 1.7;
   margin: 0 0 14px;
-}
-
-.readLink {
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {

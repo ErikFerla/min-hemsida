@@ -113,7 +113,7 @@ export default function AktiviteterPage() {
                       <span key={j} className={styles.chip}>{h}</span>
                     ))}
                   </div>
-                  <div className={styles.cardButton}>
+                  <div className="link-arrow">
                     Utforska →
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function AktiviteterPage() {
             ))}
           </div>
 
-          <Link href="/barn" className={styles.darkButton}>
+          <Link href="/barn" className="btn btn-secondary">
             Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
           </Link>
         </section>
@@ -165,7 +165,7 @@ export default function AktiviteterPage() {
               <Link key={t.href} href={t.href} className={styles.readCard}>
                 <h3 className={styles.readTitle}>{t.titel}</h3>
                 <p className={styles.readText}>{t.text}</p>
-                <span className={styles.readLink}>Läs mer →</span>
+                <span className="link-arrow">Läs mer →</span>
               </Link>
             ))}
           </div>

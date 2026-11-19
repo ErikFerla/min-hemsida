@@ -233,10 +233,10 @@ export default function DagsturerPage() {
             Mer att läsa
           </h2>
           <div className={styles.links}>
-            <Link href="/byar" className={styles.linkButton}>Byar på Mallorca</Link>
-            <Link href="/batutflykter-och-cabrera" className={styles.linkButton}>Båtutflykter</Link>
-            <Link href="/evenemang" className={styles.linkButton}>Evenemang</Link>
-            <Link href="/soller" className={styles.linkButton}>Sóller</Link>
+            <Link href="/byar" className="btn btn-secondary">Byar på Mallorca</Link>
+            <Link href="/batutflykter-och-cabrera" className="btn btn-secondary">Båtutflykter</Link>
+            <Link href="/evenemang" className="btn btn-secondary">Evenemang</Link>
+            <Link href="/soller" className="btn btn-secondary">Sóller</Link>
           </div>
         </section>
 

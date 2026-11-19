@@ -219,10 +219,10 @@ export default function BatutflykterPage() {
             Mer att läsa
           </h2>
           <div className={styles.links}>
-            <Link href="/strandar" className={styles.linkButton}>Stränder</Link>
-            <Link href="/aktiviteter" className={styles.linkButton}>Aktiviteter</Link>
-            <Link href="/dagsturer-utan-bil" className={styles.linkButton}>Dagsturer utan bil</Link>
-            <Link href="/barn" className={styles.linkButton}>Mallorca med barn</Link>
+            <Link href="/strandar" className="btn btn-secondary">Stränder</Link>
+            <Link href="/aktiviteter" className="btn btn-secondary">Aktiviteter</Link>
+            <Link href="/dagsturer-utan-bil" className="btn btn-secondary">Dagsturer utan bil</Link>
+            <Link href="/barn" className="btn btn-secondary">Mallorca med barn</Link>
           </div>
         </section>
 

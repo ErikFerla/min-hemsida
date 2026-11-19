@@ -85,7 +85,7 @@ export default function MatPage() {
               </article>
             ))}
           </div>
-          <Link href="/vingardar" className={styles.darkButton}>
+          <Link href="/vingardar" className={`btn btn-secondary ${styles.darkButton}`}>
             Se alla vingårdar <IconExternal size={13} stroke={1.8} />
           </Link>
         </section>
@@ -114,7 +114,7 @@ export default function MatPage() {
                     <span className={styles.metaItem}><IconPin size={11} /> {r.plats}</span>
                   </div>
                   <p className={`${styles.info} ${styles.infoSpaced}`}>{r.info}</p>
-                  <a href={r.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
+                  <a href={r.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
                     <IconMap size={13} stroke={1.8} /> Visa på karta
                   </a>
                 </div>

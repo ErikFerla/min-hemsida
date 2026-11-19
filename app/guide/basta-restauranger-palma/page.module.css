@@ -180,29 +180,6 @@
   flex-wrap: wrap;
 }
 
-.ctaButton,
-.ctaButtonGhost {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.ctaButton {
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-}
-
-.ctaButtonGhost {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
 @media (max-width: 768px) {
   /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
   .section {

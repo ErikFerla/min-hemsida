@@ -159,7 +159,7 @@ export default function SectionPlanner() {
             <p id="planner-intressen-fel" aria-live="polite" className={fel.intressen ? styles.errorShown : styles.error}>{fel.intressen}</p>
           </fieldset>
 
-          <button type="submit" className={styles.submit}>
+          <button type="submit" className={`btn btn-primary ${styles.submit}`}>
             Skapa min resplan →
           </button>
         </form>
@@ -202,8 +202,8 @@ export default function SectionPlanner() {
               ))}
             </ol>
             <p className={styles.fullPlan}>
-              <Link href={resplanHref} className={styles.fullPlanLink}>
-                Öppna hela resplanen
+              <Link href={resplanHref} className="btn btn-secondary">
+                Öppna hela resplanen →
               </Link>
               <span className={styles.fullPlanNote}>Dag för dag med förmiddag, eftermiddag och kväll, karta och körtider. Där kan du byta och flytta dagar och skriva ut planen.</span>
             </p>

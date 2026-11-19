@@ -120,23 +120,6 @@
   margin-top: 1rem;
 }
 
-.linkButton {
-  display: inline-block;
-  padding: 0.6rem 1.1rem;
-  border: 1px solid var(--color-accent);
-  border-radius: var(--btn-border-radius);
-  color: var(--color-accent);
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.linkButton:hover {
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-}
-
 @media (max-width: 600px) {
   .facts {
     grid-template-columns: 1fr;

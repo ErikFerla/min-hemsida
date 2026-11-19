@@ -7,6 +7,7 @@ import LastChecked from '@/app/components/LastChecked';
 import type { ComponentType } from 'react';
 import h from '../headings.module.css';
 import styles from './page.module.css';
+import t from '@/components/TextHero.module.css';
 
 type Sektion = {
   rubrik: string;
@@ -46,12 +47,13 @@ export default function MallorcaMedBarnGuide() {
   return (
     <div className={styles.page}>
       {/* Hero */}
-      <section className={styles.hero}>
-        <p className={styles.heroKicker}>Familjereseguide · 2026</p>
-        <h1 className={styles.title}>Familjesemester på Mallorca</h1>
-        <p className={styles.heroLead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
-        <div className={styles.heroRule} />
-      </section>
+      <header className={t.hero}>
+        <div className={t.inner}>
+          <p className={t.kicker}>Familjereseguide · 2026</p>
+          <h1 className={t.title}>Familjesemester på Mallorca</h1>
+          <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
+        </div>
+      </header>
 
       <div className={styles.container}>
 
@@ -115,7 +117,7 @@ export default function MallorcaMedBarnGuide() {
           </div>
           <h2 className={h.h2}>Planera din familjeresa</h2>
           <p className={styles.ctaText}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
-          <Link href="/barn" className={styles.ctaButton}>SE ALLA BARNAKTIVITETER</Link>
+          <Link href="/barn" className="btn btn-primary">Se alla barnaktiviteter →</Link>
           <p className={styles.ctaSub}>
             <Link href="/?dagar=7&intressen=familj#resplanerare" className={styles.ctaSubLink}>Gör en resplan för familjen</Link>
           </p>

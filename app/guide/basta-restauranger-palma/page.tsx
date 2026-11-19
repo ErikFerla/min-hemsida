@@ -83,8 +83,8 @@ export default function BästaRestaurangerPalma() {
           <h2 className={h.h2}>Mer mat och vin på Mallorca</h2>
           <p className={styles.ctaText}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
           <div className={styles.ctaButtons}>
-            <Link href="/mat" className={styles.ctaButton}>SE MATGUIDEN</Link>
-            <Link href="/vingardar" className={styles.ctaButtonGhost}>VINGÅRDAR</Link>
+            <Link href="/mat" className="btn btn-primary">Se matguiden →</Link>
+            <Link href="/vingardar" className="btn btn-on-dark">Vingårdar →</Link>
           </div>
         </div>
 

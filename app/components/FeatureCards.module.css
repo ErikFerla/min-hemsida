@@ -42,11 +42,6 @@
 
 .more {
   margin-top: 16px;
-  font-size: var(--btn-font-size);
-  font-weight: 700;
-  letter-spacing: var(--btn-letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-accent);
 }
 
 /* Mobil */

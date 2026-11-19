@@ -190,7 +190,7 @@ export default function SevardheterPage() {
                     <span>{s.redaktionellt.text}</span>
                   </div>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
+                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
                   Visa på karta ↗
                 </a>
               </div>
