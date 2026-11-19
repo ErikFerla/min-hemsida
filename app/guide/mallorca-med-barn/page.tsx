@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { IconWave, IconSparkle, IconBuilding, IconBulb, IconMap } from '@/components/Icons';
+import { IconWave, IconSparkle, IconBuilding, IconBulb } from '@/components/Icons';
 import Map from '@/components/Map';
 import { barnMapMarkers } from '@/data/barn-map';
 import HubLink from '../HubLink';
@@ -63,15 +63,15 @@ export default function MallorcaMedBarnGuide() {
           label="Se alla barnaktiviteter"
         />
 
-        {/* Snabbval */}
-        <section className={styles.quick}>
-          <p className={styles.quickLabel}><IconSparkle size={16} /> Snabbsvar – vad passar ditt barn?</p>
-          <ul className={styles.quickList}>
-            <li><strong>0–3 år:</strong> Platja de Muro</li>
-            <li><strong>4–8 år:</strong> Aqualand + Coves del Drac</li>
-            <li><strong>9–12 år:</strong> Kajak, snorkling, Safari Zoo</li>
-            <li><strong>13+ år:</strong> Wakeboard, klipphopp, gatumat</li>
-          </ul>
+        {/* Snabbval: faktaruta */}
+        <section className={`${h.facts} ${styles.quick}`} aria-labelledby="snabbsvar">
+          <p id="snabbsvar" className={styles.quickLabel}>Snabbsvar – vad passar ditt barn?</p>
+          <dl className={styles.quickList}>
+            <div><dt>0–3 år</dt><dd>Platja de Muro</dd></div>
+            <div><dt>4–8 år</dt><dd>Aqualand + Coves del Drac</dd></div>
+            <div><dt>9–12 år</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
+            <div><dt>13+ år</dt><dd>Wakeboard, klipphopp, gatumat</dd></div>
+          </dl>
         </section>
 
         {/* Aktivitetskort */}
@@ -110,17 +110,14 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         {/* CTA */}
-        <section className={styles.cta}>
-          <div className={styles.ctaKicker}>
-            <IconMap size={16} stroke={1.8} />
-            <span className={styles.ctaKickerText}>Mer för familjen</span>
-          </div>
-          <h2 className={h.h2}>Planera din familjeresa</h2>
+        <section className={styles.cta} aria-labelledby="planera-familjeresa">
+          <p className={h.label}>Mer för familjen</p>
+          <h2 id="planera-familjeresa" className={h.h2}>Planera din familjeresa</h2>
           <p className={styles.ctaText}>Se alla barnaktiviteter med åldersrekommendationer, eller gör en egen resplan för familjen dag för dag.</p>
-          <Link href="/barn" className="btn btn-primary">Se alla barnaktiviteter →</Link>
-          <p className={styles.ctaSub}>
-            <Link href="/?dagar=7&intressen=familj#resplanerare" className={styles.ctaSubLink}>Gör en resplan för familjen</Link>
-          </p>
+          <div className={styles.ctaActions}>
+            <Link href="/barn" className="btn btn-primary">Se alla barnaktiviteter →</Link>
+            <Link href="/?dagar=7&intressen=familj#resplanerare" className="link-arrow">Gör en resplan för familjen →</Link>
+          </div>
         </section>
 
         <LastChecked
@@ -141,9 +138,8 @@ export default function MallorcaMedBarnGuide() {
 function SectionHeading({ kicker, titel }: { kicker: string; titel: string }) {
   return (
     <div className={styles.sectionHeading}>
-      <p className={styles.kicker}>{kicker}</p>
+      <p className={h.label}>{kicker}</p>
       <h2 className={`${h.h2} ${styles.sectionTitle}`}>{titel}</h2>
-      <div className={styles.rule} />
     </div>
   );
 }

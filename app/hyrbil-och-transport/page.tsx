@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
 import { CHECKED, SOURCES } from '@/data/transport';
@@ -93,13 +94,12 @@ export default function HyrbilOchTransport() {
             </div>
           </div>
 
-          <div className={styles.tip}>
-            <p className={styles.tipTitle}>Vid hämtning och återlämning</p>
-            <p className={styles.tipText}>
+          <TipBox heading="Vid hämtning och återlämning" as="p" className={styles.tip}>
+            <p>
               Fotografera eller filma bilen runt om, och ta en bild på bränslemätaren och mätarställningen – både när du
               hämtar och när du lämnar. Kontrollera att alla skador du ser finns med på avtalet innan du kör iväg.
             </p>
-          </div>
+          </TipBox>
         </section>
 
         {/* Köra och parkera */}
@@ -247,16 +247,15 @@ export default function HyrbilOchTransport() {
           </p>
         </section>
 
-        <div className={styles.tip}>
-          <p className={styles.tipTitle}>Vill du klara dig utan bil?</p>
-          <p className={styles.tipText}>
+        <TipBox heading="Vill du klara dig utan bil?" as="p" className={styles.tip}>
+          <p>
             Bo där bussarna och tågen utgår: i{' '}
             <Link href="/palma-de-mallorca" className={styles.inlineLink}>Palma</Link>, i{' '}
             <Link href="/alcudia" className={styles.inlineLink}>Alcúdia</Link> med flygbuss och bussar längs bukten,
             eller i <Link href="/soller" className={styles.inlineLink}>Sóller</Link> med tåg, buss och båt. Fler förslag
             finns i <Link href="/var-ska-man-bo" className={styles.inlineLink}>Var ska man bo på Mallorca</Link>.
           </p>
-        </div>
+        </TipBox>
 
         <LastChecked
           date={CHECKED}

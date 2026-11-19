@@ -6,77 +6,76 @@
   min-height: 100vh;
 }
 
-/* Sidhjälte */
+/* Sidhjälte: texthero (yta-färg, vänsterställd) – samma mått som components/TextHero.module.css */
 .hero {
-  background: var(--color-ink);
-  color: var(--color-on-dark);
-  padding: clamp(32px, 6vw, 72px) clamp(16px, 4vw, 40px) clamp(32px, 5vw, 56px);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  padding: var(--space-6) var(--gutter) var(--space-6);
 }
 
 .heroInner {
-  max-width: 860px;
+  max-width: var(--w-content);
   margin: 0 auto;
 }
 
-/* Brödsmulorna har mörk text som standard – ljus variant på mörk botten. */
-.heroInner nav,
-.heroInner nav a,
-.heroInner nav span {
-  color: var(--color-on-dark-muted);
-}
-
 .kicker {
-  margin: 24px 0 8px;
-  font-size: 0.85rem;
+  margin: var(--space-5) 0 var(--space-3);
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.2em;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-on-dark-muted);
+  color: var(--color-accent);
 }
 
 .title {
+  max-width: 22ch;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 6vw, 3.8rem);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0.01em;
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--lh-h1);
+  letter-spacing: var(--tracking-display);
 }
 
 .subtitle {
-  margin: 16px 0 0;
-  max-width: 640px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--color-on-dark-muted);
+  max-width: var(--w-text);
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
 }
 
 /* Innehåll */
 .container {
-  max-width: 860px;
+  max-width: var(--w-content);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 64px) clamp(16px, 4vw, 40px);
+  padding: var(--space-7) var(--gutter) var(--section-space);
+}
+
+.container > :where(p, ul, ol, section > p, section > ul) {
+  max-width: var(--w-text);
 }
 
 .lead {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 0 28px;
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-5);
 }
 
 .toc {
   background: var(--color-surface);
-  border-radius: 14px;
-  padding: 18px 22px;
-  margin-bottom: 48px;
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-7);
 }
 
 .tocTitle {
-  margin: 0 0 8px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -84,7 +83,7 @@
 .tocList {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 20px;
+  gap: var(--space-2) var(--space-4);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -97,26 +96,24 @@
 }
 
 .section {
-  margin-bottom: 56px;
+  margin-bottom: var(--space-7);
   scroll-margin-top: 90px;
 }
 
 .sectionTitle {
-  color: var(--color-ink-strong);
-  padding-bottom: 12px;
-  border-bottom: 3px solid var(--color-accent);
+  color: var(--color-ink);
 }
 
 .subTitle {
-  color: var(--color-ink-strong);
-  margin-top: 28px;
+  color: var(--color-ink);
+  margin-top: var(--space-5);
 }
 
 .text {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 0 18px;
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-4);
 }
 
 .inlineLink {
@@ -126,41 +123,41 @@
 }
 
 .list {
-  margin: 0 0 20px;
-  padding-left: 1.25rem;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  margin: 0 0 var(--space-4);
+  padding-left: 1.25em;
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
 }
 
 .list li {
-  margin-bottom: 10px;
+  margin-bottom: var(--space-2);
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin: 8px 0 24px;
+  gap: var(--space-4);
+  margin: var(--space-2) 0 var(--space-5);
 }
 
 .card {
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 14px;
-  padding: 20px 22px;
+  border-radius: var(--radius-card);
+  padding: var(--space-4) var(--space-5);
 }
 
 .cardTitle {
-  color: var(--color-ink-strong);
+  color: var(--color-ink);
   margin-top: 0;
 }
 
 .cardText {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 0 10px;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-2);
 }
 
 .cardText:last-child {
@@ -168,38 +165,13 @@
 }
 
 .tip {
-  background: var(--color-surface-warm);
-  border-left: 4px solid var(--color-accent);
-  border-radius: 14px;
-  padding: 22px 26px;
-  margin: 0 0 40px;
+  margin: 0 0 var(--space-6);
 }
 
-.tipTitle {
-  margin: 0 0 6px;
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-ink);
-}
 
-.tipText {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text);
-}
 
-@media (max-width: 768px) {
-  .subtitle,
-  .lead {
-    font-size: 1.05rem;
-  }
-
-  .text,
-  .list,
-  .cardText,
-  .tipText {
-    font-size: 16px;
+@media (min-width: 1024px) {
+  .hero {
+    padding: var(--space-7) var(--gutter) var(--space-7);
   }
 }

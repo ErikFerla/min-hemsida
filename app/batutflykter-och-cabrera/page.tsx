@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import HeroImage from '@/components/HeroImage';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import JsonLd from '@/app/components/JsonLd';
@@ -189,12 +190,14 @@ export default function BatutflykterPage() {
           </ul>
 
           <h3 className={`${h.h3} ${styles.cardTitle}`}>Med egen båt</h3>
-          <p className={styles.note}>
+          <TipBox tone="info" className={styles.note}>
+            <p>
             Med egen båt eller hyrbåt behöver du ett tillstånd från parken för att segla in i
             nationalparken, och ett tillstånd för att förtöja vid parkens bojar. Ansök i förväg via
             Govern de les Illes Balears webbplats för Cabrera – du behöver uppgifter om skeppare,
             ägare och båt.
           </p>
+          </TipBox>
 
           <h3 className={`${h.h3} ${styles.cardTitle}`}>Besökscentret i Colònia de Sant Jordi</h3>
           <p className={styles.text}>

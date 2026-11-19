@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { IconStar, IconSun, PriceTag, IconSparkle } from '@/components/Icons';
+import { IconStar, IconSun, PriceTag } from '@/components/Icons';
+import TipBox from '@/components/TipBox';
 import HeroImage from '@/components/HeroImage';
 import LastChecked from '@/app/components/LastChecked';
 import { CLIMATE, CLIMATE_CHECKED, CLIMATE_SOURCES, CLIMATE_STATION, fmt, fmt0, sunPerDay } from '@/data/climate';
@@ -131,22 +132,23 @@ export default function BästaTidResaMallorca() {
         </section>
 
         {/* September-sektionen */}
-        <div className={styles.tip}>
-          <h2 className={`${h.h2} ${styles.tipTitle}`}><IconSparkle size={22} /> Vårt tips: Åk i september</h2>
-          <p className={styles.tipText}>
+        <TipBox heading="Vårt tips: Åk i september" as="h2" className={styles.tip}>
+          <p>
             Havet håller fortfarande sommarvärme (omkring {fmt0(CLIMATE[8].sea)} °C), dagarna ligger kring {fmt0(CLIMATE[8].max)} °C i stället för högsommarens {fmt0(CLIMATE[7].max)} °C, barnfamiljerna har åkt hem när skolorna börjat och priserna brukar vara lägre än i juli och augusti. Det är fortfarande en välbesökt månad, men lugnare än högsommaren – särskilt mot slutet av månaden. Om du kan välja fritt och inte är bunden till skollov – välj september.
           </p>
-        </div>
+        </TipBox>
 
-        {/* CTA */}
+        {/* Läs vidare */}
         <div className={styles.ctaGrid}>
           <Link href="/vader" className={styles.ctaCard}>
             <p className={styles.ctaTitle}>Väder och klimat</p>
             <p className={styles.ctaText}>Prognos för sju orter och klimattabell</p>
+            <span className={styles.ctaArrow} aria-hidden="true">→</span>
           </Link>
           <Link href="/evenemang" className={styles.ctaCard}>
             <p className={styles.ctaTitle}>Evenemang på Mallorca</p>
             <p className={styles.ctaText}>Festivaler, marknader och sport</p>
+            <span className={styles.ctaArrow} aria-hidden="true">→</span>
           </Link>
         </div>
 

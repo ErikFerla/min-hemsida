@@ -9,7 +9,7 @@ export default function HubLink({ text, href, label }: { text: string; href: str
   return (
     <aside aria-label="Hela katalogen" className={styles.box}>
       <p className={styles.text}>{text}</p>
-      <Link href={href} className={styles.link}>
+      <Link href={href} className="link-arrow">
         {label} <span aria-hidden="true">→</span>
       </Link>
     </aside>

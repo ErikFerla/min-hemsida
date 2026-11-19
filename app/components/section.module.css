@@ -1,9 +1,9 @@
-/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, avdelare, knapp, sektion).
-   Ersätter de tidigare globala klasserna .section-label, .section-title, .section-divider,
-   .btn-primary, .page-section och .section-inner. */
+/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, sektion).
+   Sektionsrubrik = .label (etikett i accent) + .title (h2). Sektionsavståndet kommer
+   från --section-space (48 → 96 px) och sidmarginalen från --gutter (16 → 32 px). */
 
 .pageSection {
-  padding: 80px 60px;
+  padding: var(--section-space) var(--gutter);
   background: var(--color-bg);
 }
 
@@ -11,13 +11,9 @@
   background: var(--color-surface);
 }
 
-.inner {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
+.inner,
 .wide {
-  max-width: 1280px;
+  max-width: var(--w-wide);
   margin: 0 auto;
 }
 
@@ -28,6 +24,7 @@
   font-family: var(--font-body);
   font-size: var(--text-label);
   font-weight: 600;
+  line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-accent);
@@ -35,59 +32,25 @@
 
 /* Sektionsrubrik: h2 enligt typskalan */
 .title {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-5);
   font-family: var(--font-heading);
   font-size: var(--text-h2);
   font-weight: 700;
   line-height: var(--lh-h2);
   letter-spacing: -0.01em;
   word-spacing: normal;
+  color: var(--color-ink);
 }
 
 .center {
   text-align: center;
 }
 
+/* Kort accentlinje under rubriken (äldre mönster; nya sektioner använder bara etikett + h2). */
 .divider {
-  width: 48px;
+  width: var(--space-7);
   height: 2px;
-  margin-top: 12px;
-  margin-bottom: 24px;
-  border-radius: 2px;
+  margin: 0 0 var(--space-5);
+  border-radius: var(--radius-sm);
   background: var(--color-accent);
-}
-
-@media (max-width: 768px) {
-  .pageSection {
-    padding: 48px 16px;
-    overflow: hidden;
-  }
-
-  .pageSection > div {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .inner {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .inner p {
-    max-width: 100%;
-  }
-
-  .divider {
-    margin-top: 10px;
-    margin-bottom: 14px;
-  }
-}
-
-@media (max-width: 380px) {
-  .inner {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
 }

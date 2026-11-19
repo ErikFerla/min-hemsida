@@ -1,5 +1,4 @@
-/* /guide/basta-restauranger-palma (2.5/2.6). Värdena återger utseendet före flytten från
-   inline-stilar, inklusive de globala mobilreglerna för p/section. Rubrikmått: ../headings.module.css. */
+/* /guide/basta-restauranger-palma. Rubrikmått, etikett och faktaruta: ../headings.module.css. */
 
 .page {
   background: var(--color-bg);
@@ -7,57 +6,46 @@
 }
 
 .container {
-  max-width: 820px;
+  max-width: var(--w-content);
   margin: 0 auto;
-  padding: clamp(32px, 6vw, 64px) clamp(16px, 5vw, 40px);
+  padding: var(--space-7) var(--gutter) var(--section-space);
 }
 
-/* Prisskala */
+/* Prisskala: faktaruta */
 .priceBox {
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 18px 20px;
-  margin-bottom: 40px;
+  max-width: var(--w-text);
+  margin-bottom: var(--space-8);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
 }
 
 .priceLabel {
-  font-size: 0.7rem;
-  line-height: 1.7;
-  letter-spacing: 0.18em;
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
-  font-weight: 600;
-  margin: 0 0 10px;
 }
 
 .priceGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 16px;
-  font-size: 0.85rem;
-  color: var(--color-text);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2) var(--space-4);
+  font-size: var(--text-small);
 }
 
 .priceRow {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-2);
 }
 
 /* Sektioner */
 .section {
-  margin-bottom: 56px;
-}
-
-.kicker {
-  font-size: 0.7rem;
-  line-height: 1.7;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 700;
-  margin: 0 0 6px;
+  margin-bottom: var(--space-8);
 }
 
 .sectionTitle {
@@ -65,148 +53,102 @@
 }
 
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
 }
 
 /* Restaurangkort */
 .card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  background: var(--color-white);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.03);
+  border-radius: var(--radius-card);
 }
 
 .cardHead {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 6px;
+  gap: var(--space-3);
 }
 
 .cardTitle {
   color: var(--color-ink);
-  margin-top: 0;
 }
 
 .address {
-  margin: 0 0 10px;
-  font-size: 0.8rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: var(--space-1);
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .speciality {
-  margin: 0 0 14px;
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  margin: 0 0 var(--space-4);
+  color: var(--color-ink);
 }
 
-.infoList {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Beställ detta: etikett + värde */
+.order {
+  margin: 0 0 var(--space-4);
 }
 
-.info {
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-
-.infoWarm {
-  background: #f9f6f1;
-}
-
-.infoTeal {
-  background: #eef6f7;
-}
-
-.infoLabel {
-  margin: 0 0 4px;
-  font-size: 0.68rem;
-  line-height: 1.7;
+.order dt {
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--color-text-muted);
 }
 
-/* Tidigare #9B7B3C (3,7:1 mot #F9F6F1) – mörkare guldbrun ger ≥4,5:1. */
-.infoWarm .infoLabel {
-  color: #7a5c22;
+.order dd {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
-.infoTeal .infoLabel {
-  color: var(--color-accent);
+.tip {
+  margin-top: auto;
 }
 
-.infoText {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: var(--color-text);
-}
-
-/* CTA på mörk botten */
+/* Avslutning på yta-färg */
 .cta {
-  background: var(--color-ink);
-  border-radius: 20px;
-  padding: clamp(28px, 6vw, 40px);
-  text-align: center;
-  color: #fff;
-  margin-top: 40px;
+  margin-bottom: var(--space-7);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
 }
 
 .ctaText {
-  opacity: 0.8;
-  margin: 0 0 22px;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
 }
 
 .ctaButtons {
   display: flex;
-  gap: 10px;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
-@media (max-width: 768px) {
-  /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
-  .section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
-  .priceLabel,
-  .kicker,
-  .address,
-  .speciality,
-  .infoLabel,
-  .infoText,
-  .ctaText {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
+@media (min-width: 769px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 380px) {
-  .priceLabel,
-  .kicker,
-  .address,
-  .speciality,
-  .infoLabel,
-  .infoText,
-  .ctaText {
-    font-size: 15px;
+@media (min-width: 1024px) {
+  .container {
+    padding-top: var(--space-8);
+  }
+
+  .cta {
+    padding: var(--space-7);
   }
 }

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import TipBox from '@/components/TipBox';
 import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
@@ -200,11 +201,13 @@ export default function DagsturerPage() {
           sin egen station alldeles intill. Här är sju dagsturer som fungerar bra utan bil.
         </p>
 
-        <p className={styles.note}>
+        <TipBox tone="info" className={styles.note}>
+          <p>
           Tidtabeller och priser ändras mellan sommar- och vintersäsong. Kontrollera alltid avgångarna
           i TIB:s reseplanerare på tib.org före resan, och åk tidigt på sommaren – populära linjer som
           buss 203 blir fulla.
         </p>
+        </TipBox>
 
         <section className={styles.section} aria-labelledby="turer">
           <h2 id="turer" className={`${h.h2} ${styles.sectionTitle}`}>

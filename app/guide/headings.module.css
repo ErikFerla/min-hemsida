@@ -1,7 +1,7 @@
-/* Rubrikmått för guiderna, /strandar och /flyg (2.6, typskala 5.1).
-   Samma värden som basreglerna för h2/h3 i globals.css (--text-h2/--text-h3), för
-   element som behöver dem som klass. Sidmodulerna sätter färg, vikt och övriga
-   egenskaper – aldrig font-size, line-height, letter-spacing eller margin-bottom. */
+/* Rubrikmått och gemensamma textdelar för guiderna, de praktiska sidorna, /strandar och /flyg
+   (typskala 5.1). .h2/.h3 har samma värden som basreglerna i globals.css; sidmodulerna sätter
+   färg och layout – aldrig font-size, line-height eller letter-spacing. Sektionsrubrik =
+   .label + .h2. */
 
 .h2 {
   font-family: var(--font-heading);
@@ -20,4 +20,48 @@
   letter-spacing: -0.01em;
   margin-top: 0;
   margin-bottom: var(--space-3);
+}
+
+/* Sektionsrubrikens överrad (etikett i accent) – används ovanför .h2: label + h2. */
+.label {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Textspalt: brödtext högst 68 tecken bred. */
+.prose {
+  max-width: var(--w-text);
+}
+
+/* Faktaruta: yta-färg, radie 12, definitionslista (etikett + värde). */
+.facts {
+  max-width: var(--w-text);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  color: var(--color-ink);
+}
+.facts dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+.facts dt {
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.facts dd {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }

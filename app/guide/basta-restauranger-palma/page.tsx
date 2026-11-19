@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { IconPin, IconInfo, IconBookmark, PriceTag, tierFromPris } from '@/components/Icons';
+import { IconPin, PriceTag, tierFromPris } from '@/components/Icons';
+import TipBox from '@/components/TipBox';
 import HeroImage from '@/components/HeroImage';
 import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
@@ -71,7 +72,7 @@ export default function BästaRestaurangerPalma() {
 
         {sections.map(section => (
           <section key={section.key} className={styles.section}>
-            <p className={styles.kicker}>{section.kicker}</p>
+            <p className={h.label}>{section.kicker}</p>
             <h2 className={`${h.h2} ${styles.sectionTitle}`}>{section.label}</h2>
             <div className={styles.cards}>
               {section.items.map(r => <RestaurantCard key={r.namn} r={r} />)}
@@ -84,7 +85,7 @@ export default function BästaRestaurangerPalma() {
           <p className={styles.ctaText}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
           <div className={styles.ctaButtons}>
             <Link href="/mat" className="btn btn-primary">Se matguiden →</Link>
-            <Link href="/vingardar" className="btn btn-on-dark">Vingårdar →</Link>
+            <Link href="/vingardar" className="btn btn-secondary">Vingårdar →</Link>
           </div>
         </div>
 
@@ -124,21 +125,13 @@ function RestaurantCard({ r }: { r: Restaurant }) {
         <IconPin size={12} /> {r.adress}
       </p>
       <p className={styles.speciality}>{r.specialitet}</p>
-      <div className={styles.infoList}>
-        <InfoBlock label="Beställ detta" icon={<IconBookmark size={12} stroke={2} />} tone="warm">{r.bästRätt}</InfoBlock>
-        <InfoBlock label="Insidertips" icon={<IconInfo size={12} stroke={2} />} tone="teal">{r.insiderTips}</InfoBlock>
-      </div>
+      <dl className={styles.order}>
+        <dt>Beställ detta</dt>
+        <dd>{r.bästRätt}</dd>
+      </dl>
+      <TipBox heading="Insidertips" as="h4" variant="compact" className={styles.tip}>
+        <p>{r.insiderTips}</p>
+      </TipBox>
     </article>
-  );
-}
-
-function InfoBlock({ label, icon, tone, children }: { label: string; icon: React.ReactNode; tone: 'warm' | 'teal'; children: React.ReactNode }) {
-  return (
-    <div className={`${styles.info} ${tone === 'warm' ? styles.infoWarm : styles.infoTeal}`}>
-      <p className={styles.infoLabel}>
-        {icon} {label}
-      </p>
-      <p className={styles.infoText}>{children}</p>
-    </div>
   );
 }

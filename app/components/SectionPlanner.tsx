@@ -1,8 +1,8 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from 'react';
-import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconFlag, IconMap, IconBulb, IconPalm } from '@/components/Icons';
+import { IconWave, IconBuilding, IconForkKnife, IconHiker, IconUsers, IconFlag, IconMap } from '@/components/Icons';
+import TipBox from '@/components/TipBox';
 import type { ComponentType } from 'react';
 import { byggPlan, dagval, intressen, läsVal as läsPlanVal, valTillSök, type Dagar, type IntresseId } from '@/app/lib/planner';
 import s from './section.module.css';
@@ -120,13 +120,9 @@ export default function SectionPlanner() {
 
   return (
     <section id="resplanerare" className={styles.section} aria-labelledby="resplanerare-rubrik">
-      <div className={styles.grid}>
-
-        {/* Vänster: Hela planner-innehållet */}
-        <div>
-        <p className={s.label}>RESPLANERARE</p>
+      <div className={styles.inner}>
+        <p className={s.label}>Resplanerare</p>
         <h2 id="resplanerare-rubrik" className={s.title}>Skräddarsy din resa</h2>
-        <div className={s.divider}></div>
         <p className={styles.intro}>
           Berätta vad du gillar – få ett förslag på resplan för Mallorca
         </p>
@@ -208,43 +204,20 @@ export default function SectionPlanner() {
               <span className={styles.fullPlanNote}>Dag för dag med förmiddag, eftermiddag och kväll, karta och körtider. Där kan du byta och flytta dagar och skriva ut planen.</span>
             </p>
             <div className={styles.share}>
-              <button type="button" onClick={kopieraLänk} className={`${styles.option} ${styles.copy}`}>
+              <button type="button" onClick={kopieraLänk} className="btn btn-secondary">
                 Kopiera länk till planen
               </button>
               <p aria-live="polite" className={styles.shareNote}>
                 {kopierad || 'Valen sparas i adressen, så du kan dela planen eller spara den som bokmärke.'}
               </p>
             </div>
-            <div className={styles.tip}>
-              <p className={styles.tipText}>
-                <IconBulb size={16} className={styles.bulb} /> <strong>Tips:</strong> Vill du läsa på mer inför resan? I <Link href="/guider" className={styles.link}>våra guider</Link> hittar du stränder, mat, golf och Mallorca med barn. Se också vad som händer på ön under din vecka i <Link href="/evenemang" className={styles.link}>evenemangskalendern</Link>.
+            <TipBox heading="Tips" as="p" variant="compact" className={styles.tip}>
+              <p>
+                Vill du läsa på mer inför resan? I <Link href="/guider" className={styles.link}>våra guider</Link> hittar du stränder, mat, golf och Mallorca med barn. Se också vad som händer på ön under din vecka i <Link href="/evenemang" className={styles.link}>evenemangskalendern</Link>.
               </p>
-            </div>
+            </TipBox>
           </div>
         )}
-        </div>
-
-        {/* Höger: Stämningsbild */}
-        <div className={styles.aside}>
-          <Image
-            src="/bilder/palma/david-vives-fz1dT3-se-o-unsplash.jpg"
-            sizes="(max-width: 768px) 100vw, 45vw"
-            alt="Katedralen La Seu i Palma speglas i den stilla dammen i Parc de la Mar"
-            title="Foto: David Vives / Unsplash"
-            width={3531}
-            height={5296}
-            loading="lazy"
-            className={styles.asideImage}
-          />
-          <div className={styles.local}>
-            <p className={styles.localLabel}><IconPalm size={18} /> TIPS FRÅN EN LOKAL</p>
-            <p className={styles.localQuote}>
-              ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
-            </p>
-            <p className={styles.localSign}>– Erik, MyMallorca</p>
-          </div>
-        </div>
-
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
@@ -86,17 +87,17 @@ export default function BästaSträndernaGuide() {
           label="Se alla stränder på Mallorca"
         />
 
-        {/* Snabbguide */}
-        <div className={styles.quick}>
-          <p className={styles.quickLabel}>Snabbguide – topp 5 för olika resenärer</p>
-          <ul className={styles.quickList}>
-            <li><strong>Vackraste stranden:</strong> Caló des Moro (östkusten)</li>
-            <li><strong>Bäst för familjer:</strong> Platja de Muro (norr)</li>
-            <li><strong>Mest orörda:</strong> Es Caragol (inga vägar, kräver vandring)</li>
-            <li><strong>Bäst snorkling:</strong> Cala Mondragó (naturreservat)</li>
-            <li><strong>Närmast Palma:</strong> Cala Major (15 min)</li>
-          </ul>
-        </div>
+        {/* Snabbguide: faktaruta */}
+        <section className={`${h.facts} ${styles.quick}`} aria-labelledby="snabbguide">
+          <p id="snabbguide" className={styles.quickLabel}>Snabbguide – topp 5 för olika resenärer</p>
+          <dl>
+            <div><dt>Vackraste stranden</dt><dd>Caló des Moro (östkusten)</dd></div>
+            <div><dt>Bäst för familjer</dt><dd>Platja de Muro (norr)</dd></div>
+            <div><dt>Mest orörda</dt><dd>Es Caragol (inga vägar, kräver vandring)</dd></div>
+            <div><dt>Bäst snorkling</dt><dd>Cala Mondragó (naturreservat)</dd></div>
+            <div><dt>Närmast Palma</dt><dd>Cala Major (15 min)</dd></div>
+          </dl>
+        </section>
 
         {/* Strand-artiklar */}
         {stränder.map((strand) => (
@@ -113,20 +114,15 @@ export default function BästaSträndernaGuide() {
 
             <p className={styles.description}>{strand.beskrivning}</p>
 
-            <div className={styles.insider}>
-              <p className={styles.insiderLabel}>Insidertips</p>
-              <p className={styles.insiderText}>{strand.insider}</p>
-            </div>
+            <TipBox heading="Insidertips" as="h3" variant="compact" className={styles.insider}>
+              <p>{strand.insider}</p>
+            </TipBox>
 
-            <div className={styles.facts}>
-              <div className={styles.fact}>
-                <p className={styles.factLabel}>GPS</p>
-                <p className={styles.factValue}>{strand.gps}</p>
-              </div>
-              <div className={styles.fact}>
-                <p className={styles.factLabel}>BÄSTA TID</p>
-                <p className={styles.factValue}>{strand.bästaTid}</p>
-              </div>
+            <div className={h.facts}>
+              <dl className={styles.factList}>
+                <div><dt>GPS</dt><dd>{strand.gps}</dd></div>
+                <div><dt>Bästa tid</dt><dd>{strand.bästaTid}</dd></div>
+              </dl>
             </div>
           </article>
         ))}
@@ -160,7 +156,7 @@ export default function BästaSträndernaGuide() {
         <div className={styles.cta}>
           <h2 className={h.h2}>Vill du utforska alla 30 stränder?</h2>
           <p className={styles.ctaText}>Filtrera på region, typ och vad du letar efter i vår kompletta strandguide.</p>
-          <Link href="/strandar" className="btn btn-on-dark">Se alla 30 stränder →</Link>
+          <Link href="/strandar" className="btn btn-primary">Se alla 30 stränder →</Link>
         </div>
 
         <LastChecked

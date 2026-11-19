@@ -1,98 +1,105 @@
-/* Startsidans resplanerare. */
+/* Startsidans resplanerare. Val = filterchips (runda, 44 px, valt läge ink + vit text). */
 
 .section {
-  padding: var(--section-padding-md);
+  padding: var(--section-space) var(--gutter);
   background: var(--color-bg);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  align-items: start;
-  gap: clamp(40px, 6vw, 80px);
-  max-width: 1400px;
+.inner {
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(60px, 8vw, 100px) clamp(16px, 5vw, 80px);
 }
 
 .intro {
-  color: var(--color-text-soft);
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
 }
 
 .fieldset {
   min-width: 0;
-  margin: 0 0 32px;
+  margin: 0 0 var(--space-5);
   padding: 0;
   border: 0;
 }
 
 .fieldsetLast {
-  margin-bottom: 40px;
+  margin-bottom: var(--space-6);
 }
 
 .legend {
-  margin-bottom: 12px;
+  margin-bottom: var(--space-3);
   padding: 0;
-  font-size: 1rem;
+  font-size: var(--text-body);
   font-weight: 600;
+  color: var(--color-ink);
 }
 
 .options {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-2);
 }
 
 .option {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  min-height: 48px;
-  padding: 10px 20px;
-  background: transparent;
-  border: 2px solid var(--color-ink-strong);
-  border-radius: 8px;
-  color: var(--color-ink-strong);
-  font-size: 0.95rem;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-chip-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+  font-size: var(--text-small);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.option:hover {
+  border-color: var(--color-ink);
 }
 
 .option[aria-pressed='true'] {
-  background: var(--color-ink-strong);
-  color: var(--color-white);
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-dark);
 }
 
 .error {
-  margin-top: 0;
+  margin: 0;
 }
 
 .errorShown {
-  margin-top: 10px;
+  margin: var(--space-2) 0 0;
   color: var(--color-error);
-  font-size: 0.9rem;
+  font-size: var(--text-small);
   font-weight: 600;
 }
 
 /* Resultat */
 .plan {
-  margin-top: 48px;
-  padding: clamp(20px, 4vw, 40px);
+  max-width: 820px;
+  margin-top: var(--space-7);
+  padding: var(--space-5);
   background: var(--color-white);
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
 }
 
 .planTitleText {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-2);
 }
 
 .summary {
-  margin-top: 0;
-  color: var(--color-text-soft);
+  margin: 0 0 var(--space-5);
+  color: var(--color-text-muted);
 }
 
 .days {
@@ -104,45 +111,47 @@
 .day {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .dayNumber {
   display: flex;
+  flex: none;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
+  width: 36px;
   height: 36px;
   border-radius: 50%;
   background: var(--color-accent);
-  color: var(--color-white);
-  font-size: 0.9rem;
-  font-weight: 700;
+  color: var(--color-on-dark);
+  font-size: var(--text-small);
+  font-weight: 600;
 }
 
 .dayBody {
-  padding-top: 6px;
+  padding-top: var(--space-1);
 }
 
 .dayText {
-  margin-top: 0;
-  color: var(--color-ink-strong);
+  margin: 0;
+  color: var(--color-ink);
 }
 
 .dayMeta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 12px;
-  margin-top: 6px;
-  color: var(--color-text-soft);
+  gap: var(--space-1) var(--space-3);
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
 }
 
 .tags {
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -156,178 +165,61 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 16px;
-  margin: 28px 0 0;
+  gap: var(--space-2) var(--space-4);
+  margin: var(--space-6) 0 0;
 }
 
 .fullPlanNote {
   flex: 1 1 240px;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
 .share {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.copy {
-  min-height: 44px;
-  padding: 8px 16px;
-  font-size: 0.9rem;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
 }
 
 .shareNote {
-  margin-top: 0;
-  color: var(--color-text-soft);
+  flex: 1 1 240px;
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .tip {
-  margin-top: 24px;
-  padding: 20px;
-  border-radius: 10px;
-  background: #f5f5f5;
-}
-
-.tipText {
-  margin-top: 0;
-  color: var(--color-text-soft);
-}
-
-.bulb {
-  margin-right: 4px;
-  vertical-align: -3px;
-}
-
-/* Höger: stämningsbild (döljs ≤1024 px) */
-.aside {
-  position: sticky;
-  top: 100px;
-}
-
-.asideImage {
-  display: block;
-  width: 100%;
-  height: clamp(380px, 40vw, 520px);
-  margin-bottom: 16px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
-.local {
-  padding: 20px 24px;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-}
-
-.localLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-ink);
-}
-
-.localQuote {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-}
-
-.localSign {
-  margin: 10px 0 0;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
-}
-
-/* Desktop: storlekar och marginaler (på mobil gäller basens p-regel: 16px och 1,25rem) */
-@media (min-width: 769px) {
-  .intro {
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-  }
-
-  .error,
-  .errorShown,
-  .dayText,
-  .dayMeta,
-  .shareNote,
-  .tipText {
-    margin-bottom: 0;
-  }
-
-  .summary {
-    margin-bottom: 24px;
-    font-size: 0.95rem;
-  }
-
-  .dayText {
-    font-size: 1rem;
-  }
-
-  .dayMeta,
-  .shareNote {
-    font-size: 0.85rem;
-  }
-
-  .tipText {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .aside {
-    display: none;
-  }
+  margin-top: var(--space-5);
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 32px 16px;
-  }
-
   .optionsDays {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .optionsInterests {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .optionsDays .option,
-  .optionsInterests .option {
-    justify-content: center;
-    width: 100%;
-    min-height: 52px;
-    font-size: 1rem;
-  }
-
-  .optionsInterests .option {
-    padding: 14px 16px;
-  }
-
-  .errorShown,
-  .tipText {
-    font-size: 15px;
-    line-height: 1.6;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .submit {
     width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .plan {
+    padding: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option {
+    transition: none;
   }
 }
