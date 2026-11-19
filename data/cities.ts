@@ -87,8 +87,8 @@ export type City = {
   about: string[];
   tips: CityTip[];
   /**
-   * Tre höjdpunkter. "list" = h2-rubrik med avdelare,
-   * "cards" = mindre rubrik med vita kort. Valfri.
+   * Tre höjdpunkter (t.ex. "Topp 3 i …"), visas som numrerad lista i högerspalten under
+   * "Praktisk info". `variant` styr inte längre utseendet (5.4). Valfri.
    */
   highlights?: { variant: 'list' | 'cards'; heading: string; items: [string, string, string] };
   /** Rader i rutan "Praktisk info". */

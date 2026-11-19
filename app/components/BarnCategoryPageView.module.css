@@ -1,94 +1,134 @@
-/* Gemensam layout för /barn/<kategori>. Rubriker får storlek från basreglerna i globals.css. */
+/* Gemensam layout för /barn/<kategori>, designsystem 5.4. Rubriker och p får storlek från
+   basreglerna i globals.css. */
 
 .page {
-  min-height: 100vh;
   background: var(--color-bg);
 }
 
+/* Basregeln för <nav> ger 16 px sidpadding på mobil – brödsmulorna ska linjera med texten */
+.container > nav {
+  padding-inline: 0;
+}
+
 .container {
-  max-width: 1200px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 60px) clamp(16px, 4vw, 40px);
+  padding: var(--space-5) var(--gutter) 0;
 }
 
 .introSection {
-  margin: clamp(24px, 4vw, 40px) 0;
+  margin: var(--space-5) 0 var(--space-6);
 }
 
 .intro {
-  max-width: 68ch;
-  font-size: 1.02rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  max-width: var(--w-text);
 }
 
-/* Åldersfiltret ligger kvar under navbaren när man scrollar */
+.intro > p:first-child {
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+}
+
+.intro > p:last-child {
+  margin-bottom: 0;
+}
+
+.intro a {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+/* Åldersfiltret ligger kvar under sidhuvudet (72 px) när man skrollar */
 .filter {
   position: sticky;
-  top: 72px;
-  z-index: 40;
-  margin-bottom: 28px;
-  padding: 14px 0;
-  background: rgba(254, 254, 251, 0.94);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(8px);
+  top: 73px; /* sidhuvudet: 72 px + 1 px kant */
+  z-index: 10;
+  margin: 0 calc(-1 * var(--gutter)) var(--space-6);
+  padding: var(--space-3) var(--gutter);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 1024px) {
+  .introSection {
+    margin: var(--space-6) 0 var(--space-7);
+  }
+
+  .filter {
+    margin-inline: 0;
+    padding: var(--space-3) var(--space-5);
+    border-bottom: 0;
+    border-radius: var(--radius-card);
+  }
+}
+
+/* Basregeln main { overflow-x: hidden } gör <main> till skrollbehållare så att sticky inte
+   fäster mot fönstret. clip klipper lika mycket men skapar ingen skrollbehållare. */
+:global(main):has(.filter) {
+  overflow-x: clip;
+}
+
+/* Element som får fokus ska inte hamna under sidhuvudet + den fästa filterraden */
+:global(html):has(.filter) {
+  scroll-padding-top: 240px;
+}
+
+@media (min-width: 1024px) {
+  :global(html):has(.filter) {
+    scroll-padding-top: 180px;
+  }
 }
 
 .empty {
-  padding: 32px;
+  padding: var(--space-6);
   background: var(--color-white);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 12px;
-  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
   text-align: center;
+  color: var(--color-text-muted);
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 /* Avslutande länkar */
 .more {
-  margin-top: clamp(40px, 6vw, 72px);
-  padding: clamp(24px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+  padding: var(--space-6) var(--space-5);
   background: var(--color-surface);
-  border-radius: 16px;
+  border-radius: var(--radius-card);
 }
 
-.moreTitle {
-  margin-top: 0;
-  color: var(--color-ink);
+.moreTitle,
+.moreText {
+  margin: 0;
 }
 
 .moreText {
-  margin: 0 0 20px;
-  color: var(--color-text-soft);
+  max-width: var(--w-text);
+  color: var(--color-text-muted);
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0 var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-
-
-@media (min-width: 769px) {
-  .moreText {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .introSection {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
+@media (min-width: 1024px) {
   .more {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    margin-top: var(--space-8);
+    padding: var(--space-7) var(--space-6);
   }
 }
