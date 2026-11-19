@@ -118,7 +118,7 @@
 }
 
 .card {
-  composes: card from '../../../components/Card.module.css';
+  composes: compact from '../../../components/Card.module.css';
   scroll-margin-top: 80px;
 }
 
@@ -127,7 +127,16 @@
 }
 
 .region {
-  composes: imageLabel from '../../../components/Card.module.css';
+  composes: label from '../../../components/Card.module.css';
+}
+
+/* Rubrik, fakta och region – bredvid miniatyren på mobil; regionen ligger över bilden från 640 px */
+.head {
+  composes: head from '../../../components/Card.module.css';
+}
+
+.labels {
+  composes: labels from '../../../components/Card.module.css';
 }
 
 .body {
@@ -158,9 +167,6 @@
   composes: text from '../../../components/Card.module.css';
 }
 
-.tip {
-  margin-top: var(--space-1);
-}
 
 .note {
   composes: note from '../../../components/Card.module.css';
@@ -180,6 +186,19 @@
 
 .note_info {
   composes: noteInfo from '../../../components/Card.module.css';
+}
+
+/* Tipset (TipBox compact) i en <details> – utfällt från 640 px, ihopfällt på mobil */
+.foot {
+  composes: foot from '../../../components/Card.module.css';
+}
+
+.more {
+  composes: more from '../../../components/Card.module.css';
+}
+
+.moreSummary {
+  composes: moreSummary from '../../../components/Card.module.css';
 }
 
 /* Kortets åtgärder som textlänkar – ingen röd knapp per kort */
@@ -211,5 +230,9 @@
 @media (max-width: 639px) {
   .textListItems {
     columns: 1;
+  }
+
+  .grid {
+    gap: var(--space-4);
   }
 }

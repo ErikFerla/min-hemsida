@@ -82,36 +82,45 @@ export default function StrandarPage() {
             >
               <article className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px" loading="lazy" />
-                  <span className={styles.badge}>{s.region}</span>
-                  <span className={styles.badgeType}>{s.typ}</span>
+                  <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 639px) 96px, (max-width: 1023px) 50vw, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
-                  <h2 className={styles.name}>{s.namn}</h2>
-                  <p className={styles.meta}>
-                    {s.längd} <span aria-hidden="true">·</span> {s.svårighet}
-                  </p>
-                  <p className={styles.description}>{s.beskrivning}</p>
-                  {(s.familj || s.snorkling || s.nudist) && (
-                    <div className={styles.tags}>
-                      {s.familj && <span className={styles.tag}>Familj</span>}
-                      {s.snorkling && <span className={styles.tag}>Snorkling</span>}
-                      {s.nudist && <span className={styles.tag}>Nudist</span>}
+                  <div className={styles.head}>
+                    <h2 className={styles.name}>{s.namn}</h2>
+                    <p className={styles.meta}>
+                      {s.längd} <span aria-hidden="true">·</span> {s.svårighet}
+                    </p>
+                    <div className={styles.labels}>
+                      <span className={styles.badge}>{s.region}</span>
+                      <span className={styles.badge}>{s.typ}</span>
                     </div>
-                  )}
-                  <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
-                    <p>{s.tips}</p>
-                  </TipBox>
+                    {(s.familj || s.snorkling || s.nudist) && (
+                      <div className={styles.tags}>
+                        {s.familj && <span className={styles.tag}>Familj</span>}
+                        {s.snorkling && <span className={styles.tag}>Snorkling</span>}
+                        {s.nudist && <span className={styles.tag}>Nudist</span>}
+                      </div>
+                    )}
+                  </div>
+                  <p className={styles.description}>{s.beskrivning}</p>
                   {s.redaktionellt && (
                     <p className={`${styles.note} ${NOTE[s.redaktionellt.typ].klass}`}>
                       <strong className={styles.noteLabel}>{NOTE[s.redaktionellt.typ].label}:</strong>{' '}
                       {s.redaktionellt.text}
                     </p>
                   )}
-                  <div className={styles.actions}>
-                    <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                      Visa på karta ↗
-                    </a>
+                  <div className={styles.foot}>
+                    <details className={styles.tipDetails}>
+                      <summary className={styles.tipSummary}>Visa tips</summary>
+                      <TipBox variant="compact" heading="Tips" as="p">
+                        <p>{s.tips}</p>
+                      </TipBox>
+                    </details>
+                    <div className={styles.actions}>
+                      <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                        Visa på karta ↗
+                      </a>
+                    </div>
                   </div>
                 </div>
               </article>
