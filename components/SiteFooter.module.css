@@ -184,7 +184,7 @@
   color: var(--color-on-dark);
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 1023px) {
   .grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -195,7 +195,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .inner {
     padding: 32px 20px 24px;
   }

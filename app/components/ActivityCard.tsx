@@ -24,7 +24,7 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
           src={cardImageUrl(activity.imageUrl, 960)}
           alt={activity.imageAlt}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+          sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 400px"
           className={styles.image}
         />
         {meta && <span className={styles.category}>{meta.label}</span>}

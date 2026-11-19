@@ -57,7 +57,7 @@
   border-bottom: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1023px) {
   .table thead {
     position: absolute;
     width: 1px;

@@ -84,7 +84,7 @@
   text-align: left;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .table {
     font-size: var(--text-small);
     min-width: 0;

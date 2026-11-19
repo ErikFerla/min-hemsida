@@ -336,7 +336,7 @@
   font-weight: 600;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 640px) {
   .weatherWidget {
     padding: var(--space-6);
   }
