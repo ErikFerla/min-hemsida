@@ -1,22 +1,41 @@
+/* Källrutan (5.4): textspaltens bredd, vänsterställd, tunn linje ovanför, small, liten bock.
+   Bredden (68ch) räknas i brödtextens storlek så att linjen blir lika bred som textspalten;
+   själva texten är small. */
 .box {
-  max-width: 820px;
-  margin: 2.5rem auto 0;
-  padding: 1rem 1.25rem;
+  max-width: var(--w-text);
+  margin: var(--space-7) 0 0;
+  padding: var(--space-4) 0 0;
   border-top: 1px solid var(--color-border);
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: var(--text-body);
+}
+.box > p {
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
 }
-.date {
+.box > .date {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
   margin: 0;
   font-weight: 600;
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+.check {
+  flex: none;
+  color: var(--color-success);
 }
 .note,
 .sources {
-  margin: 0.35rem 0 0;
+  margin: var(--space-1) 0 0;
+  line-height: var(--lh-small);
 }
 .sources a {
   color: var(--color-accent);
   text-underline-offset: 2px;
+}
+.sources a:hover {
+  color: var(--color-accent-hover);
 }
