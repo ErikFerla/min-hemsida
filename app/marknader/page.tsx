@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import { IconClock, IconPin } from '@/components/Icons';
 import { MARKNADSKÄLLOR, marknaderPåDag, VECKODAGAR } from '@/data/markets';
@@ -26,8 +27,7 @@ export default function MarknaderPage() {
           ))}
         </nav>
 
-        <section className={styles.tips} aria-labelledby="tips-rubrik">
-          <h2 id="tips-rubrik" className={styles.sectionTitle}>Bra att veta</h2>
+        <TipBox heading="Bra att veta" as="h2" className={styles.tips}>
           <ul>
             <li>Marknaderna pågår på förmiddagen och de flesta stånd packar ihop vid lunch. Kom tidigt – då är utbudet störst och trängseln minst.</li>
             <li>Ha kontanter med dig. Många stånd tar bara kontanter.</li>
@@ -37,7 +37,7 @@ export default function MarknaderPage() {
               resa.
             </li>
           </ul>
-        </section>
+        </TipBox>
 
         {VECKODAGAR.map(d => {
           const lista = marknaderPåDag(d.nr);

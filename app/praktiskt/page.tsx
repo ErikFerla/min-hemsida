@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import PraktiskPage, { styles, h } from './_shared/PraktiskPage';
 
 export default function Praktiskt() {
@@ -61,12 +62,11 @@ export default function Praktiskt() {
 
       <section id="sjukvard" className={styles.section}>
         <h2 className={`${h.h2} ${styles.h2}`}>Sjukvård och 112</h2>
-        <div className={`${styles.box} ${styles.warning}`}>
-          <p className={styles.boxTitle}>Nödnummer: 112</p>
+        <TipBox heading="Nödnummer: 112" as="h3" tone="warning" className={styles.box}>
           <p>
             Ring 112 vid olycka, akut sjukdom, brand eller brott. Numret är gratis och gäller i hela EU.
           </p>
-        </div>
+        </TipBox>
         <p>
           Ta med <strong>EU-kortet</strong> (det europeiska sjukförsäkringskortet). Det beställs gratis från
           Försäkringskassan, gäller i tre år och ger dig nödvändig vård i den offentliga sjukvården på samma villkor som

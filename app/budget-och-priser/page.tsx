@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import PraktiskPage, { styles, h } from '@/app/praktiskt/_shared/PraktiskPage';
 
 type PrisRad = { vad: string; pris: string; kommentar: string };
@@ -183,14 +184,13 @@ export default function BudgetOchPriser() {
           <li>Från den nionde natten på samma boende halveras skatten.</li>
           <li>Semesterbostäder följer en egen tabell; fråga din värd vad som gäller.</li>
         </ul>
-        <div className={styles.box}>
-          <p className={styles.boxTitle}>Höjs skatten?</p>
+        <TipBox heading="Höjs skatten?" as="h3" tone="info" className={styles.box}>
           <p>
             Balearernas regering har föreslagit en högre skatt under sommarmånaderna, men förslaget har inte fått
             majoritet i parlamentet. När vi kontrollerade i november 2026 hittade vi inget beslut om nya belopp.
             Kontrollera med ditt boende inför resan.
           </p>
-        </div>
+        </TipBox>
       </section>
 
       <section id="dricks" className={styles.section}>

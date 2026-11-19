@@ -2,93 +2,99 @@
 
 .tool {
   display: grid;
-  gap: clamp(32px, 5vw, 48px);
+  gap: var(--space-7);
 }
 
 .h2 {
-  margin: 0 0 12px;
-  color: var(--color-ink-strong);
+  margin: 0 0 var(--space-3);
+  color: var(--color-ink);
   font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.2;
+  font-size: var(--text-h2);
+  line-height: var(--lh-h2);
 }
 
 .h3 {
   margin: 0;
-  color: var(--color-ink-strong);
+  color: var(--color-ink);
   font-family: var(--font-heading);
-  font-size: 1.2rem;
-  line-height: 1.3;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
 }
 
 .lead,
 .summary {
-  margin: 0 0 20px;
-  color: var(--color-text-soft);
-  font-size: 1rem;
-  line-height: 1.6;
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
 }
 
 /* Val */
 .choices {
-  padding: clamp(20px, 4vw, 32px);
+  padding: var(--space-5);
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
 }
 
 .fieldset {
   min-width: 0;
-  margin: 0 0 20px;
+  margin: 0 0 var(--space-4);
   padding: 0;
   border: 0;
 }
 
 .legend {
-  margin-bottom: 10px;
+  margin-bottom: var(--space-2);
   padding: 0;
-  color: var(--color-ink-strong);
-  font-size: 1rem;
+  color: var(--color-ink);
+  font-size: var(--text-body);
   font-weight: 600;
 }
 
 .options {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .option {
   min-height: 44px;
-  padding: 8px 16px;
-  background: transparent;
-  border: 2px solid var(--color-ink-strong);
-  border-radius: 8px;
-  color: var(--color-ink-strong);
-  font-size: 0.95rem;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-chip-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+  font-size: var(--text-small);
   font-weight: 600;
   cursor: pointer;
 }
 
+.option:hover {
+  border-color: var(--color-ink);
+}
+
 .option[aria-pressed='true'] {
-  background: var(--color-ink-strong);
-  color: var(--color-white);
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-dark);
 }
 
 .status {
   min-height: 1.5em;
   margin: 0;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
 }
 
 /* Planen */
 .kicker {
-  margin: 0 0 8px;
+  margin: 0 0 var(--space-2);
   color: var(--color-accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -96,15 +102,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 28px;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
 }
 
 .actionNote {
   flex: 1 1 100%;
   margin: 0;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
 }
 
 .printOnly {
@@ -113,7 +119,7 @@
 
 /* Karta */
 .mapBox {
-  margin-bottom: 32px;
+  margin-bottom: var(--space-6);
 }
 
 .mapHead {
@@ -121,8 +127,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 16px;
-  margin-bottom: 12px;
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .mapLabel,
@@ -130,9 +136,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 10px;
-  color: var(--color-ink-strong);
-  font-size: 0.9rem;
+  gap: var(--space-1) var(--space-2);
+  color: var(--color-ink);
+  font-size: var(--text-small);
   font-weight: 600;
 }
 
@@ -140,11 +146,11 @@
   min-width: 0;
   max-width: 100%;
   min-height: 44px;
-  padding: 8px 12px;
+  padding: var(--space-2) var(--space-3);
   background: var(--color-white);
   border: 1px solid var(--color-text-muted);
-  border-radius: 8px;
-  color: var(--color-ink-strong);
+  border-radius: var(--radius-btn);
+  color: var(--color-ink);
   font: inherit;
   font-weight: 400;
 }
@@ -156,55 +162,55 @@
 /* Dagarna */
 .days {
   display: grid;
-  gap: 16px;
+  gap: var(--space-4);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .day {
-  padding: clamp(18px, 3vw, 28px);
+  padding: var(--space-5);
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
 }
 
 .dayKicker {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 12px;
-  margin: 0 0 6px;
+  gap: var(--space-1) var(--space-3);
+  margin: 0 0 var(--space-1);
   color: var(--color-text-muted);
-  font-size: 0.8rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
 .dayNumber {
-  padding: 2px 10px;
-  background: var(--color-accent);
-  border-radius: 999px;
+  padding: 2px var(--space-2);
+  background: var(--color-ink);
+  border-radius: var(--radius-pill);
   color: var(--color-on-dark);
 }
 
 .dayTitle {
-  margin: 0 0 6px;
-  color: var(--color-ink-strong);
+  margin: 0 0 var(--space-1);
+  color: var(--color-ink);
   font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
-  line-height: 1.25;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
 }
 
 .place {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 2px 6px;
-  margin: 0 0 14px;
-  color: var(--color-text-soft);
-  font-size: 0.9rem;
+  gap: 2px var(--space-1);
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-small);
 }
 
 .drive {
@@ -214,42 +220,43 @@
 
 .parts {
   display: grid;
-  gap: 10px;
-  margin: 0 0 12px;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
 }
 
 .part {
   display: grid;
   grid-template-columns: 7.5rem 1fr;
-  gap: 4px 12px;
+  gap: var(--space-1) var(--space-3);
 }
 
 .part dt {
-  color: var(--color-ink-strong);
-  font-weight: 700;
-  font-size: 0.9rem;
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: var(--text-small);
 }
 
 .part dd {
+  max-width: var(--w-text);
   margin: 0;
-  color: var(--color-text);
-  line-height: 1.55;
+  color: var(--color-ink);
+  line-height: var(--lh-body);
 }
 
 .meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 14px;
+  gap: var(--space-1) var(--space-3);
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--text-small);
 }
 
 .tags {
   color: var(--color-text-muted);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -264,15 +271,15 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10px 20px;
-  margin-top: 16px;
-  padding-top: 14px;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--color-border);
 }
 
 .move {
   display: flex;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 /* Kompakta knappar i dagskorten: .btn .btn-secondary med mindre sidopadding */
@@ -309,7 +316,7 @@
 
   .printOnly {
     display: block;
-    margin: 0 0 16px;
+    margin: 0 0 var(--space-4);
     font-size: 9pt;
     word-break: break-all;
   }
@@ -319,9 +326,9 @@
   }
 
   .day {
-    padding: 10px 0;
+    padding: var(--space-2) 0;
     border: 0;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid var(--color-text-muted);
     border-radius: 0;
     break-inside: avoid;
   }
@@ -329,7 +336,7 @@
   .dayNumber {
     padding: 0;
     background: none;
-    color: var(--color-ink-strong);
+    color: var(--color-ink);
   }
 
   .summary,

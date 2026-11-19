@@ -1,6 +1,6 @@
-/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, avdelare, sektion).
-   Sektionsrubrik = överrad (.label, accent) + h2 (.title) enligt typskalan.
-   Sektionsavstånd från --section-space (48 → 96 px), sidmarginal från --gutter. */
+/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, sektion).
+   Sektionsrubrik = .label (etikett i accent) + .title (h2). Sektionsavståndet kommer
+   från --section-space (48 → 96 px) och sidmarginalen från --gutter (16 → 32 px). */
 
 .pageSection {
   padding: var(--section-space) var(--gutter);
@@ -11,11 +11,7 @@
   background: var(--color-surface);
 }
 
-.inner {
-  max-width: var(--w-wide);
-  margin: 0 auto;
-}
-
+.inner,
 .wide {
   max-width: var(--w-wide);
   margin: 0 auto;
@@ -36,41 +32,25 @@
 
 /* Sektionsrubrik: h2 enligt typskalan */
 .title {
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-5);
   font-family: var(--font-heading);
   font-size: var(--text-h2);
   font-weight: 700;
   line-height: var(--lh-h2);
   letter-spacing: -0.01em;
-  text-transform: none;
+  word-spacing: normal;
+  color: var(--color-ink);
 }
 
 .center {
   text-align: center;
 }
 
-/* Röd strecklinje under rubriken – startsidans signatur */
+/* Kort accentlinje under rubriken (äldre mönster; nya sektioner använder bara etikett + h2). */
 .divider {
-  width: 48px;
+  width: var(--space-7);
   height: 2px;
-  margin: var(--space-3) 0 var(--space-5);
-  border-radius: 2px;
+  margin: 0 0 var(--space-5);
+  border-radius: var(--radius-sm);
   background: var(--color-accent);
-}
-
-@media (max-width: 768px) {
-  .pageSection {
-    overflow: hidden;
-  }
-
-  .pageSection > div {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .inner {
-    width: 100%;
-    max-width: 100%;
-    padding-inline: var(--space-4);
-  }
 }

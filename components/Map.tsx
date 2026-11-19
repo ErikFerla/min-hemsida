@@ -57,15 +57,15 @@ const flagIconHtml = (name: string, color: string) => `
 const popupHtml = (m: MapMarker, ctaLabel: string) => {
   const name = escapeHtml(m.name)
   const metaLine = m.meta
-    ? `<span style="display:block;color:var(--color-accent);font-size:11px;font-weight:600;letter-spacing:0.03em;margin:4px 0 2px">${escapeHtml(m.meta)}</span>`
+    ? `<span style="display:block;color:var(--color-accent);font-size:var(--text-label);font-weight:600;letter-spacing:var(--tracking-label);text-transform:uppercase;margin:4px 0 2px">${escapeHtml(m.meta)}</span>`
     : ''
   const descLine = m.desc
-    ? `<br><span style="color:var(--color-text-muted);font-size:12px;line-height:1.5">${escapeHtml(m.desc)}</span>`
+    ? `<br><span style="color:var(--color-text-muted);font-size:var(--text-small);line-height:1.5">${escapeHtml(m.desc)}</span>`
     : ''
   const cta = m.href
-    ? `<br><a href="${escapeHtml(m.href)}" aria-label="${name} – se detaljer" style="display:inline-block;margin-top:10px;background:var(--color-ink);color:var(--color-white);padding:7px 14px;font-size:11px;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;border-radius:4px;min-height:24px">${escapeHtml(ctaLabel)} →</a>`
+    ? `<br><a href="${escapeHtml(m.href)}" aria-label="${name} – se detaljer" style="display:inline-block;margin-top:8px;color:var(--color-accent);font-size:var(--text-small);font-weight:600;text-decoration:underline;text-underline-offset:3px;min-height:24px;padding:2px 0">${escapeHtml(ctaLabel)} →</a>`
     : ''
-  return `<b style="font-size:13px;color:#383a46">${name}</b>` + metaLine + descLine + cta
+  return `<b style="font-size:var(--text-body);color:var(--color-ink)">${name}</b>` + metaLine + descLine + cta
 }
 
 /**

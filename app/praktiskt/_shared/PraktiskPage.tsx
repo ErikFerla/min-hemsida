@@ -41,32 +41,37 @@ export default function PraktiskPage({
       <div className={styles.container}>
         <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: p.breadcrumb, url: p.path }]} />
 
-        <nav className={styles.toc} aria-label="Innehåll på sidan">
-          <p className={styles.tocTitle}>På sidan</p>
-          <ul className={styles.tocList}>
-            {toc.map((t) => (
-              <li key={t.id}>
-                <a href={`#${t.id}`}>{t.label}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className={styles.layout}>
+          {/* Innehållsförteckning: högerspalt, sticky på dator; överst på mobil */}
+          <nav className={styles.toc} aria-label="Innehåll på sidan">
+            <p className={styles.tocTitle}>På sidan</p>
+            <ul className={styles.tocList}>
+              {toc.map((t) => (
+                <li key={t.id}>
+                  <a href={`#${t.id}`}>{t.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        {children}
+          <div className={styles.main}>
+            {children}
 
-        <section className={styles.related} aria-labelledby="las-vidare">
-          <h2 id="las-vidare" className={`${h.h2} ${styles.h2}`}>Läs vidare</h2>
-          <div className={styles.relatedGrid}>
-            {related.map((r) => (
-              <Link key={r.href} href={r.href} className={styles.relatedCard}>
-                <p className={styles.relatedTitle}>{r.title}</p>
-                <p className={styles.relatedText}>{r.text}</p>
-              </Link>
-            ))}
+            <section className={styles.related} aria-labelledby="las-vidare">
+              <h2 id="las-vidare" className={`${h.h2} ${styles.h2}`}>Läs vidare</h2>
+              <div className={styles.relatedGrid}>
+                {related.map((r) => (
+                  <Link key={r.href} href={r.href} className={styles.relatedCard}>
+                    <p className={styles.relatedTitle}>{r.title}</p>
+                    <p className={styles.relatedText}>{r.text}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
+
+            <LastChecked date={p.checked} sources={sources} note={checkedNote} />
           </div>
-        </section>
-
-        <LastChecked date={p.checked} sources={sources} note={checkedNote} />
+        </div>
       </div>
     </div>
   );

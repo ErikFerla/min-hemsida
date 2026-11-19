@@ -3,12 +3,13 @@
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #f3efe8;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
   color: var(--color-ink);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   font-weight: 600;
+  line-height: var(--lh-small);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.05em;
 }
@@ -16,6 +17,6 @@
 /* De "tomma" €-tecknen. Fylld nivå = --color-ink (9,8:1). Prisnivån läses upp via
    role="img" + aria-label; de tomma tecknen är aria-hidden. */
 .priceRest {
-  /* Grafik (role="img" på .priceTag): 3,1:1 mot pillret, tydligt ljusare än fyllda tecken. */
+  /* Grafik (role="img" på .priceTag): 3,0:1 mot pillret (--color-surface), tydligt ljusare än fyllda tecken. */
   color: #8f877c;
 }

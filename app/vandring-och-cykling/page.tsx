@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import TipBox from '@/components/TipBox';
 import PraktiskPage, { styles, h } from '@/app/praktiskt/_shared/PraktiskPage';
 
 const etapper = [
@@ -180,13 +181,12 @@ export default function VandringOchCykling() {
 
       <section id="sakerhet" className={styles.section}>
         <h2 className={`${h.h2} ${styles.h2}`}>Säkerhet i bergen</h2>
-        <div className={`${styles.box} ${styles.warning}`}>
-          <p className={styles.boxTitle}>Vid olycka: ring 112</p>
+        <TipBox heading="Vid olycka: ring 112" as="h3" tone="warning" className={styles.box}>
           <p>
             Berätta var du är, gärna med koordinater från telefonen. I raviner och djupa dalar saknas ofta
             mobiltäckning – berätta för någon vart du ska och när du räknar med att vara tillbaka.
           </p>
-        </div>
+        </TipBox>
         <ul>
           <li>
             <strong>Vatten:</strong> det finns få källor längs lederna och de kan vara torra. Bär med dig mer vatten än

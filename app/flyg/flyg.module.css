@@ -1,6 +1,4 @@
-/* /flyg (2.5/2.6). Värdena återger utseendet före flytten från inline-stilar, inklusive
-   de globala mobilreglerna för p/section och div[style*="minmax(280px"].
-   Rubrikmått: ../guide/headings.module.css. */
+/* /flyg. Bara tokens (typskala, --space-*, --radius-*). Rubrikmått: ../guide/headings.module.css. */
 
 .page {
   background: var(--color-bg);
@@ -8,51 +6,51 @@
 }
 
 .container {
-  max-width: 900px;
+  max-width: var(--w-content);
   margin: 0 auto;
-  padding: clamp(24px, 4vw, 60px) clamp(16px, 4vw, 40px);
+  padding: var(--space-7) var(--gutter) var(--section-space);
 }
 
 /* Sökformulär */
 .search {
-  background: #fff;
-  border-radius: 20px;
-  padding: clamp(20px, 4vw, 40px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  margin-bottom: 48px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  margin-bottom: var(--space-7);
 }
 
 .heading {
-  color: var(--color-ink-strong);
+  color: var(--color-ink);
 }
 
 .fields {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .label {
   display: block;
-  font-weight: 700;
-  font-size: 0.85rem;
-  margin-bottom: 8px;
-  color: var(--color-text);
+  font-weight: 600;
+  font-size: var(--text-small);
+  margin-bottom: var(--space-2);
+  color: var(--color-ink);
 }
 
 .field {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-text-muted);
+  border-radius: var(--radius-btn);
+  font-size: var(--text-body);
   box-sizing: border-box;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .field[aria-invalid='true'] {
-  border-color: #b42318;
+  border-color: var(--color-error);
 }
 
 .select {
@@ -60,23 +58,23 @@
 }
 
 .readonly {
-  background: #f9f9f9;
-  color: var(--color-text);
+  background: var(--color-surface);
+  color: var(--color-ink);
 }
 
 .help {
-  font-size: 0.8rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
-  margin: 6px 0 0;
+  margin: var(--space-1) 0 0;
 }
 
 .error {
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: #b42318;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-error);
   font-weight: 600;
-  margin: 6px 0 0;
+  margin: var(--space-1) 0 0;
 }
 
 .submit {
@@ -85,41 +83,41 @@
 
 .note {
   text-align: center;
-  font-size: 0.8rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
-  margin-top: 12px;
-  margin-bottom: 1.25rem;
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 /* Ingress och textblock */
 .lead {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 0 32px;
+  max-width: var(--w-text);
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-6);
 }
 
 .block {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-7);
 }
 
 .blockTitle {
-  color: var(--color-ink-strong);
-  padding-bottom: 12px;
-  border-bottom: 3px solid var(--color-accent);
+  color: var(--color-ink);
 }
 
 .subTitle {
-  color: var(--color-ink-strong);
-  margin-top: 8px;
+  color: var(--color-ink);
+  margin-top: var(--space-2);
 }
 
 .text {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 0 20px;
+  max-width: var(--w-text);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-4);
 }
 
 .inlineLink {
@@ -132,24 +130,24 @@
 .routeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .facts {
-  margin: 0 0 16px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--color-text);
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
 }
 
 .facts dt {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-top: 10px;
+  margin-top: var(--space-2);
 }
 
 .facts dd {
@@ -159,27 +157,27 @@
 .airport {
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
 }
 
 .airportIcon {
-  margin-bottom: 8px;
+  margin-bottom: var(--space-2);
   color: var(--color-ink);
 }
 
 .airportName {
-  color: var(--color-ink-strong);
+  color: var(--color-ink);
   margin-top: 0;
 }
 
 .route {
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
-  margin: 0 0 16px;
+  margin: 0 0 var(--space-4);
 }
 
 .airportLink {
@@ -187,74 +185,13 @@
   width: 100%;
 }
 
-/* Tips på mörk botten */
+/* Tips (TipBox) */
 .tips {
-  background: var(--color-ink-strong);
-  border-radius: 16px;
-  padding: 32px;
-  color: #fff;
-}
-
-.tipsHeading {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.tipsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.tip {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 16px;
-}
-
-.tipIcon {
-  margin-bottom: 8px;
-  color: #fff;
-}
-
-.tipText {
-  font-size: 0.9rem;
-  color: #ddd;
-  margin: 0;
-  line-height: 1.7;
+  margin-bottom: var(--space-7);
 }
 
 @media (max-width: 768px) {
-  /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
-  .search {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  /* Tidigare global regel: div[style*="minmax(280px"] { grid-template-columns: 1fr !important } */
   .routeGrid {
     grid-template-columns: 1fr;
-  }
-  /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
-  .help,
-  .error,
-  .note,
-  .route,
-  .tipText {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-  }
-  .lead {
-    font-size: 1.05rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .help,
-  .error,
-  .note,
-  .route,
-  .tipText {
-    font-size: 15px;
   }
 }

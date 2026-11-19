@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { IconPlane, IconBulb, IconCalendar, IconSun, IconClock, IconInfo } from '@/components/Icons';
+import TipBox from '@/components/TipBox';
+import { IconPlane } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import LastChecked from '@/app/components/LastChecked';
 import TransferTabell from '@/app/hyrbil-och-transport/TransferTabell';
@@ -12,10 +13,10 @@ const skyscanner = (kod: string) =>
   `https://www.skyscanner.se/transport/flyg/${kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`;
 
 const tips = [
-  { Icon: IconCalendar, text: 'Skollov, påsk och juli–augusti är dyrast. Kan du resa i maj, juni eller september brukar det bli billigare.' },
-  { Icon: IconSun, text: 'Vintertid flyger färre bolag direkt. Jämför med en mellanlandning eller flyg från Kastrup.' },
-  { Icon: IconClock, text: 'Tidiga morgonflyg och sena kvällsflyg är ofta billigast – men tänk på hur du tar dig vidare från PMI sent på kvällen.' },
-  { Icon: IconInfo, text: 'Kontrollera vad som ingår. Hos lågprisbolagen kostar incheckat bagage och platsval ofta extra.' },
+  { text: 'Skollov, påsk och juli–augusti är dyrast. Kan du resa i maj, juni eller september brukar det bli billigare.' },
+  { text: 'Vintertid flyger färre bolag direkt. Jämför med en mellanlandning eller flyg från Kastrup.' },
+  { text: 'Tidiga morgonflyg och sena kvällsflyg är ofta billigast – men tänk på hur du tar dig vidare från PMI sent på kvällen.' },
+  { text: 'Kontrollera vad som ingår. Hos lågprisbolagen kostar incheckat bagage och platsval ofta extra.' },
 ];
 
 export default function FlygPage() {
@@ -104,19 +105,13 @@ export default function FlygPage() {
         </section>
 
         {/* Tips */}
-        <div className={styles.tips}>
-          <h2 className={`${h.h2} ${styles.tipsHeading}`}>
-            <IconBulb size={22} /> Tips för billigare flyg till Mallorca
-          </h2>
-          <div className={styles.tipsGrid}>
+        <TipBox heading="Tips för billigare flyg till Mallorca" as="h2" className={styles.tips}>
+          <ul>
             {tips.map((t) => (
-              <div key={t.text} className={styles.tip}>
-                <div className={styles.tipIcon}><t.Icon size={22} /></div>
-                <p className={styles.tipText}>{t.text}</p>
-              </div>
+              <li key={t.text}>{t.text}</li>
             ))}
-          </div>
-        </div>
+          </ul>
+        </TipBox>
 
         <LastChecked
           date={CHECKED}
