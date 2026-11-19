@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { cardImageUrl } from '@/app/lib/image-url';
-import { IconPin, IconClock, IconExternal, IconMap, IconBulb } from '@/components/Icons';
+import { IconPin, IconExternal, IconMap } from '@/components/Icons';
+import TipBox from '@/components/TipBox';
 import AgeGroupChip from './AgeGroupChip';
 import styles from './ActivityDetail.module.css';
 import type { Activity } from '@/app/lib/barn-activities';
@@ -18,14 +19,17 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
     activity.mapQuery,
   )}`;
 
+  const hasPrice = typeof activity.priceFrom === 'number' || Boolean(activity.priceNote);
+  const hasFacts = hasPrice || Boolean(activity.openingHours) || Boolean(activity.bestTime);
+
   return (
     <article id={activity.slug} className={styles.article}>
       <div className={styles.media}>
         <Image
-          src={cardImageUrl(activity.imageUrl, 1280)}
+          src={cardImageUrl(activity.imageUrl, 960)}
           alt={activity.imageAlt}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+          sizes="(max-width: 1023px) 100vw, 480px"
           className={styles.image}
         />
         {activity.indoors && <span className={styles.indoors}>Inomhus</span>}
@@ -48,43 +52,40 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
           {activity.longDescription ?? activity.shortDescription}
         </p>
 
-        <dl className={styles.facts}>
-          {(typeof activity.priceFrom === 'number' || activity.priceNote) && (
-            <div>
-              <dt className={styles.term}>Pris</dt>
-              <dd className={styles.value}>
-                {typeof activity.priceFrom === 'number' && (
-                  <strong className={styles.price}>från {activity.priceFrom} €</strong>
-                )}
-                {activity.priceNote && (
-                  <span className={styles.priceNote}>{activity.priceNote}</span>
-                )}
-              </dd>
-            </div>
-          )}
-          {activity.openingHours && (
-            <div>
-              <dt className={styles.term}>
-                <IconClock size={12} className={styles.termIcon} /> Öppettider
-              </dt>
-              <dd className={styles.value}>{activity.openingHours}</dd>
-            </div>
-          )}
-          {activity.bestTime && (
-            <div>
-              <dt className={styles.term}>Bästa tid</dt>
-              <dd className={styles.value}>{activity.bestTime}</dd>
-            </div>
-          )}
-        </dl>
+        {hasFacts && (
+          <dl className={styles.facts}>
+            {hasPrice && (
+              <div>
+                <dt className={styles.term}>Pris</dt>
+                <dd className={styles.value}>
+                  {typeof activity.priceFrom === 'number' && (
+                    <strong className={styles.price}>från {activity.priceFrom} €</strong>
+                  )}
+                  {activity.priceNote && (
+                    <span className={styles.priceNote}>{activity.priceNote}</span>
+                  )}
+                </dd>
+              </div>
+            )}
+            {activity.openingHours && (
+              <div>
+                <dt className={styles.term}>Öppettider</dt>
+                <dd className={styles.value}>{activity.openingHours}</dd>
+              </div>
+            )}
+            {activity.bestTime && (
+              <div>
+                <dt className={styles.term}>Bästa tid</dt>
+                <dd className={styles.value}>{activity.bestTime}</dd>
+              </div>
+            )}
+          </dl>
+        )}
 
         {activity.insiderTip && (
-          <div className={styles.tipBox}>
-            <p className={styles.tipLabel}>
-              <IconBulb size={14} /> Insidertips
-            </p>
-            <p className={styles.tipText}>{activity.insiderTip}</p>
-          </div>
+          <TipBox heading="Insidertips" as="p" variant="compact">
+            <p>{activity.insiderTip}</p>
+          </TipBox>
         )}
 
         <div className={styles.actions}>

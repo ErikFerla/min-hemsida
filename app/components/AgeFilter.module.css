@@ -33,3 +33,21 @@
 .count {
   composes: count from '../../components/Chip.module.css';
 }
+
+/* Under 1024 px (där filtret är fäst under sidhuvudet, 5.4): chipsen på en rad som skrollar i
+   sidled. Luft runt raden så att fokusringen (7 px) inte klipps av overflow. */
+@media (max-width: 1023px) {
+  .options {
+    flex: 0 0 calc(100% + 2 * var(--space-2));
+    min-width: 0;
+    flex-wrap: nowrap;
+    margin: calc(-1 * var(--space-2));
+    padding: var(--space-2);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .option {
+    flex: none;
+  }
+}

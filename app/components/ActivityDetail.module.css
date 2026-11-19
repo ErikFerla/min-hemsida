@@ -1,22 +1,22 @@
-/* Aktivitet i full storlek på barnkategorisidorna. Rubriken (h2) får storlek från basreglerna. */
+/* Aktivitet på barnkategorisidorna (5.4): kort med bild till vänster på dator (3:2, ca 480 px
+   bred – inte en skärmhöjd per park), faktaruta för pris/öppettider och kompakt tipsruta.
+   Rubriken (h2) får storlek från basreglerna. */
 
 .article {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 20px;
-  padding: 28px;
+  gap: var(--space-5);
+  padding: var(--space-4);
   background: var(--color-white);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  scroll-margin-top: 96px; /* navbarens höjd när man hoppar via ankare */
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
 }
 
 .media {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radius-btn);
   background: var(--color-surface);
 }
 
@@ -24,141 +24,105 @@
   object-fit: cover;
 }
 
+/* Tagg: liten, yta-färg, ingen kant */
 .indoors {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.95);
+  top: var(--space-3);
+  right: var(--space-3);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
   color: var(--color-ink);
-  font-size: 0.72rem;
+  font-size: var(--text-small);
   font-weight: 600;
-  letter-spacing: 0.04em;
+  line-height: var(--lh-small);
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: var(--space-4);
+  min-width: 0;
 }
 
 .name {
-  margin-top: 0;
-  color: var(--color-ink);
+  margin: 0 0 var(--space-3);
 }
 
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
 }
 
 .location {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: 0;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
 }
 
 .text {
-  margin-top: 0;
-  color: var(--color-text);
+  max-width: var(--w-text);
+  margin: 0;
 }
 
+/* Faktaruta: yta-färg, radie 12, definitionslista (label + värde) */
 .facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-3) var(--space-5);
   margin: 0;
-  font-size: 0.88rem;
-  color: var(--color-text);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
 }
 
 .term {
-  margin-bottom: 2px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  margin-bottom: var(--space-1);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
-}
-
-.termIcon {
-  margin-right: 4px;
-  vertical-align: -1px;
 }
 
 .value {
   margin: 0;
-  line-height: 1.5;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
 .price {
-  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .priceNote {
   display: block;
-  font-size: 0.82rem;
+}
+.price + .priceNote {
   color: var(--color-text-muted);
-}
-
-.tipBox {
-  padding: 14px 16px;
-  background: rgba(153, 51, 53, 0.06);
-  border: 1px solid rgba(153, 51, 53, 0.16);
-  border-left: 4px solid var(--color-accent);
-  border-radius: 8px;
-}
-
-.tipLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 0;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-}
-
-.tipText {
-  margin-top: 0;
-  color: var(--color-text);
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 6px;
+  gap: var(--space-3);
 }
 
-/* Desktop (på mobil gäller basens p-regel: 16px och 1,25rem) */
-@media (min-width: 769px) {
-  .location,
-  .text,
-  .tipText {
-    margin-bottom: 0;
+@media (min-width: 1024px) {
+  .article {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--space-6);
+    padding: var(--space-5);
   }
 
-  .location {
-    font-size: 0.85rem;
-  }
-
-  .text {
-    font-size: 1rem;
-  }
-
-  .tipLabel {
-    margin-bottom: 6px;
-    font-size: 0.72rem;
-  }
-
-  .tipText {
-    font-size: 0.92rem;
+  .media {
+    align-self: start;
   }
 }
