@@ -60,7 +60,8 @@ export default function SectionSeason() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <h2>När ska du åka?</h2>
+        <p className={styles.label}>Planera</p>
+        <h2 className={styles.title}>När ska du åka?</h2>
         <p className={styles.sub}>Mallorca går att besöka hela året – och varje årstid har något eget</p>
 
         {/* Desktop-grid */}
@@ -68,7 +69,7 @@ export default function SectionSeason() {
           {säsonger.map((s, i) => (
             <div key={i} className={styles.card} style={färger(s)}>
               <span className={styles.icon}><s.Icon size={28} /></span>
-              <h3>{s.namn}</h3>
+              <h3 className={styles.cardTitle}>{s.namn}</h3>
               <p className={styles.months}>{s.månader}</p>
               <ul className={styles.list}>
                 {s.fördelar.map((f, j) => <li key={j}>✓ {f}</li>)}

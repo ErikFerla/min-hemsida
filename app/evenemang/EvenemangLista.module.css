@@ -1,58 +1,37 @@
-/* Evenemangslistan och korten på /evenemang (används även av resekalendern). */
+/* Evenemangslistan och korten på /evenemang (används även av resekalendern), 5.3.
+   Filterchips från components/Chip.module.css, kortet (utan bild) från components/Card.module.css. */
 
 /* ── Filter ── */
 .filterRow {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
+  composes: scrollRow from '../../components/Chip.module.css';
+  align-items: center;
+  margin-bottom: var(--space-6);
 }
 
 .filterButton {
-  padding: 8px 20px;
-  border-radius: 24px;
-  border: 2px solid var(--color-border);
-  background: var(--color-white);
-  color: var(--color-ink);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
-  white-space: nowrap;
-}
-
-.filterButton[aria-pressed='true'] {
-  border-color: var(--color-accent);
-  background: var(--color-accent);
-  color: var(--color-on-dark);
+  composes: chip from '../../components/Chip.module.css';
 }
 
 .count {
-  align-self: center;
-  margin-left: 8px;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+  composes: count from '../../components/Chip.module.css';
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+  white-space: nowrap;
 }
 
 .empty {
+  margin: 0 0 var(--space-7);
   color: var(--color-text-muted);
-  line-height: 1.7;
-  margin: 0 0 40px;
 }
 
 /* ── Månader ── */
 .month {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-7);
 }
 
 .monthTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: 500;
-  line-height: 1.2;
-  margin: 0 0 1rem;
-  padding-bottom: 0.5rem;
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-border);
   color: var(--color-ink);
 }
@@ -61,131 +40,86 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .card {
-  background: var(--color-white);
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid var(--color-border);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  composes: card from '../../components/Card.module.css';
+  gap: var(--space-2);
+  padding: var(--space-4);
 }
 
 .cardCompact {
-  padding: 14px 16px;
-  gap: 6px;
+  padding: var(--space-4);
 }
 
 .tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  composes: tags from '../../components/Chip.module.css';
 }
 
-.label,
-.status {
-  border-radius: 6px;
-  padding: 3px 10px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-/* Kategorietikett – neutral tagg (5.1), samma för alla kategorier */
+/* Kategorietikett – neutral tagg, samma för alla kategorier */
 .label {
-  color: var(--color-ink);
-  background: var(--color-surface);
+  composes: tag from '../../components/Chip.module.css';
 }
 
+/* Status – tagg på vit yta med tunn linje */
 .status {
+  composes: tag from '../../components/Chip.module.css';
   background: var(--color-white);
-  color: var(--color-ink);
   border: 1px solid var(--color-border);
 }
 
 /* Preliminärt: statusfärg bara som tunn kant och liten text */
 .statusPrel {
   color: var(--color-warning);
-  border: 1px dashed var(--color-warning);
+  border-color: var(--color-warning);
 }
 
 .cardTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 4px 0 0;
-  color: var(--color-ink);
+  composes: title from '../../components/Card.module.css';
 }
 
 .meta {
-  font-size: 0.85rem;
-  color: var(--color-text-soft);
-  display: flex;
-  gap: 4px 14px;
-  flex-wrap: wrap;
-  margin: 0;
+  composes: meta from '../../components/Card.module.css';
 }
 
 .metaItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  composes: metaItem from '../../components/Card.module.css';
 }
 
 .description {
-  font-size: 0.95rem;
-  color: var(--color-text);
-  line-height: 1.65;
-  margin: 0;
+  composes: text from '../../components/Card.module.css';
   flex: 1;
 }
 
 .note {
-  font-size: 0.85rem;
-  color: var(--color-warning-text);
   margin: 0;
-  line-height: 1.5;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-warning);
 }
 
 .actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  align-items: center;
-  margin-top: 6px;
-}
-
-.link {
-  color: var(--color-accent);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-underline-offset: 2px;
+  composes: actions from '../../components/Card.module.css';
 }
 
 .icsMissing {
-  font-size: 0.8rem;
+  font-size: var(--text-small);
   color: var(--color-text-muted);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .filterRow {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-bottom: 4px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: var(--space-5);
   }
 
-  .filterButton {
-    min-height: 44px;
-    flex-shrink: 0;
-  }
-
-  .description {
-    font-size: 16px;
+  .cardCompact {
+    padding: var(--space-4);
   }
 }

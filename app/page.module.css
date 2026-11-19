@@ -21,14 +21,6 @@
   background: var(--color-bg);
 }
 
-.mobileOnly {
-  display: none;
-}
-
-.desktopOnly {
-  display: block;
-}
-
 .clip {
   overflow: hidden;
 }
@@ -161,18 +153,6 @@
     width: 100vw;
     padding-left: 0;
     padding-right: 0;
-  }
-
-  .discover {
-    padding: 4rem 0;
-  }
-
-  .mobileOnly {
-    display: block;
-  }
-
-  .desktopOnly {
-    display: none;
   }
 
   .split {

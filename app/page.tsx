@@ -10,7 +10,6 @@ import SectionEvents from './components/SectionEvents';
 import Map from '@/components/Map';
 import { cityMapMarkers } from '@/data/cities';
 import FeatureCards from './components/FeatureCards';
-import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import { DEFAULT_OG_IMAGE } from '@/app/lib/city-seo';
 
@@ -56,14 +55,8 @@ export default function Home() {
             <p className={s.label}>VAD VILL DU UPPLEVA?</p>
             <h2 className={s.title}>Upptäck Mallorca</h2>
             <div className={s.divider}></div>
-            {/* MOBIL: kompakta kort */}
-            <div className={styles.mobileOnly}>
-              <MobileFeatureCards />
-            </div>
-            {/* DESKTOP: feature-cards med hover */}
-            <div className={styles.desktopOnly}>
-              <FeatureCards />
-            </div>
+            {/* Samma genvägskort på mobil och dator (5.3) */}
+            <FeatureCards />
           </div>
         </section>
 

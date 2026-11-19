@@ -59,10 +59,10 @@ export default function MatPage() {
         {/* Vingårdar kort teaser */}
         <section className={styles.teaser}>
           <div>
-            <div className={styles.kicker}>
+            <p className={styles.kicker}>
               <IconGlass size={14} stroke={1.8} />
-              <span className={styles.kickerText}>Vinkultur</span>
-            </div>
+              <span>Vinkultur</span>
+            </p>
             <h2 className={styles.sectionTitle}>Vingårdar att besöka</h2>
             <p className={styles.intro}>Mallorca har två ursprungsbeteckningar för vin, D.O. Binissalem och D.O. Pla i Llevant. Här är ett urval av vingårdarna – hela guiden, med tips om att boka besök, finns på vingårdssidan.</p>
           </div>
@@ -70,7 +70,7 @@ export default function MatPage() {
             {vingårdar.slice(0, 3).map(v => (
               <article key={v.namn} className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width:860px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 639px) 100vw, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
                   <div className={styles.titleRow}>
@@ -78,7 +78,7 @@ export default function MatPage() {
                     <PriceTag tier={tierFromPris(v.prisklass)} />
                   </div>
                   <div className={styles.meta}>
-                    <span className={styles.metaItem}><IconPin size={11} /> {v.plats}</span>
+                    <span className={styles.metaItem}><IconPin size={12} /> {v.plats}</span>
                   </div>
                   <p className={styles.info}>{v.info}</p>
                 </div>
@@ -101,22 +101,24 @@ export default function MatPage() {
           <div id="restauranglista" className={styles.grid}>
             {restauranger.map(r => (
               <article key={r.namn} data-kategori={r.kategori} className={styles.card}>
-                <div className={styles.mediaTall}>
-                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width:860px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                <div className={styles.media}>
+                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width: 639px) 100vw, 360px" loading="lazy" />
                   <div className={styles.badge}>{r.kategori}</div>
                 </div>
                 <div className={styles.body}>
-                  <div className={styles.titleRowTop}>
+                  <div className={styles.titleRow}>
                     <h3 className={styles.cardTitle}>{r.namn}</h3>
                     <PriceTag tier={tierFromPris(r.prisklass)} />
                   </div>
-                  <div className={`${styles.meta} ${styles.metaSpaced}`}>
-                    <span className={styles.metaItem}><IconPin size={11} /> {r.plats}</span>
+                  <div className={styles.meta}>
+                    <span className={styles.metaItem}><IconPin size={12} /> {r.plats}</span>
                   </div>
-                  <p className={`${styles.info} ${styles.infoSpaced}`}>{r.info}</p>
-                  <a href={r.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    <IconMap size={13} stroke={1.8} /> Visa på karta
-                  </a>
+                  <p className={styles.info}>{r.info}</p>
+                  <div className={styles.actions}>
+                    <a href={r.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                      <IconMap size={13} stroke={1.8} /> Visa på karta
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}

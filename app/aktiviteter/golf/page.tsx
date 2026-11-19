@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconPin, IconFlag, IconBulb, IconStar, IconInfo, PriceTag, tierFromPris } from '@/components/Icons';
+import { IconPin, IconFlag, PriceTag, tierFromPris } from '@/components/Icons';
 import Map, { type MapMarker } from '@/components/Map';
 import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
 import type { CSSProperties } from 'react';
 import GolfRegionFilter from './GolfRegionFilter';
+import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
 
@@ -18,7 +19,7 @@ const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
   meta: b.oneliner,
 }));
 
-// Statusfärger (5.1) – alla klarar 4,5:1 mot vit text (success 4,9, warning 4,7, accent 7,3).
+// Statusfärger (5.1) – visas bara som prick bredvid texten (5.3).
 const svårighetFärg: Record<string, string> = {
   'Lätt': 'var(--color-success)',
   'Medel': 'var(--color-warning)',
@@ -28,10 +29,12 @@ const svårighetFärg: Record<string, string> = {
 /** Svårighetsfärgen som CSS-variabel till modulen */
 const niva = (s: string) => ({ '--niva': svårighetFärg[s] }) as CSSProperties;
 
+// Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
 const notisKlass: Record<string, string> = {
   varning: styles.note_varning,
   tips: styles.note_tips,
   bast: styles.note_bast,
+  info: styles.note_info,
 };
 
 const regioner = ['Alla', 'Palma', 'Norr', 'Öst', 'Syd', 'Sydväst'];
@@ -99,7 +102,7 @@ export default function GolfPage() {
           <div className={styles.legend}>
             {['Lätt', 'Medel', 'Svår'].map(s => (
               <div key={s} className={styles.legendItem}>
-                <div className={styles.legendDot} style={niva(s)} />
+                <span className={styles.legendDot} style={niva(s)} aria-hidden="true" />
                 {s}
               </div>
             ))}
@@ -117,13 +120,10 @@ export default function GolfPage() {
               className={styles.card}
             >
               <div className={styles.media}>
-                <Image src={b.bild} alt={b.bildAlt} width={600} height={200} className={styles.image} loading="lazy" />
-                <div className={styles.difficulty} style={niva(b.svårighet)}>
-                  {b.svårighet}
-                </div>
-                <div className={styles.region}>
+                <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px" loading="lazy" />
+                <span className={styles.region}>
                   {b.region}
-                </div>
+                </span>
               </div>
               <div className={styles.body}>
                 <div className={styles.titleRow}>
@@ -133,18 +133,16 @@ export default function GolfPage() {
                 <div className={styles.facts}>
                   <span className={styles.fact}><IconPin size={12} /> {b.plats}</span>
                   <span className={styles.fact}><IconFlag size={12} /> {b.hål} hål</span>
+                  <span className={styles.fact}><span className={styles.legendDot} style={niva(b.svårighet)} aria-hidden="true" /> {b.svårighet}</span>
                 </div>
                 <p className={styles.description}>{b.beskrivning}</p>
-                <div className={styles.tip}>
-                  <IconBulb size={14} className={styles.tipIcon} /> {b.tips}
-                </div>
+                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
+                  <p>{b.tips}</p>
+                </TipBox>
                 {b.redaktionellt && (
-                  <div className={`${styles.note} ${notisKlass[b.redaktionellt.typ] ?? ''}`}>
-                    <span className={styles.noteIcon}>
-                      {b.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : b.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : b.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
-                    </span>
-                    <span>{b.redaktionellt.text}</span>
-                  </div>
+                  <p className={`${styles.note} ${notisKlass[b.redaktionellt.typ] ?? ''}`}>
+                    {b.redaktionellt.text}
+                  </p>
                 )}
                 <div className={styles.cardLinks}>
                   <a href={b.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
@@ -160,7 +158,7 @@ export default function GolfPage() {
         </div>
 
         <div className={styles.cta}>
-          <h2 className={styles.sectionTitle}>
+          <h2 className={styles.ctaTitle}>
             Mer om golf på Mallorca
           </h2>
           <p className={styles.ctaText}>

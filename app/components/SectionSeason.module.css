@@ -1,82 +1,96 @@
-/* Startsidans "När ska du åka?". Rubriker (h2/h3) får storlek från basreglerna i globals.css. */
+/* Startsidans "När ska du åka?" (5.3). Dator: fyra kort (components/Card.module.css),
+   mobil: accordion. Årstidens statusfärg (--season-color) bara som liten text och tunn kant. */
 
 .section {
   position: relative;
-  padding: 80px 40px;
+  padding: var(--section-space) var(--gutter);
   background: var(--color-surface);
 }
 
 .inner {
-  max-width: 1400px;
+  max-width: var(--w-wide);
   margin: 0 auto;
 }
 
-.sub {
-  font-size: 1rem;
+.label {
+  composes: label from './section.module.css';
 }
 
-/* Desktop: fyra kort */
+.title {
+  composes: title from './section.module.css';
+}
+
+.sub {
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-6);
+  color: var(--color-text-muted);
+}
+
+/* Dator: fyra kort */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  display: none;
 }
 
 .card {
-  padding: 28px 24px;
-  background: var(--color-bg);
+  composes: card from '../../components/Card.module.css';
+  gap: var(--space-2);
+  padding: var(--space-5);
   border-top: 3px solid var(--season-color);
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
 
 .icon {
   display: inline-flex;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 2.5rem;
   color: var(--color-ink);
 }
 
+.cardTitle {
+  composes: title from '../../components/Card.module.css';
+}
+
 .months {
-  font-size: 0.8rem;
+  margin: 0;
+  font-size: var(--text-small);
   font-weight: 600;
   color: var(--season-color);
 }
 
 .list {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: var(--space-2) 0 var(--space-3);
   padding: 0;
   list-style: none;
 }
 
 .list li {
-  padding: 4px 0;
-  font-size: 0.82rem;
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
 .badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  background: var(--color-surface);
-  color: var(--color-ink);
+  composes: tag from '../../components/Chip.module.css';
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.itemBadge {
+  composes: tag from '../../components/Chip.module.css';
+  align-self: flex-start;
 }
 
 /* Mobil: accordion */
 .accordion {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
 .item {
-  overflow: hidden;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  composes: card from '../../components/Card.module.css';
   border-left: 3px solid var(--season-color);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .header {
@@ -85,7 +99,7 @@
   justify-content: space-between;
   width: 100%;
   min-height: 64px;
-  padding: 16px 20px;
+  padding: var(--space-4);
   background: none;
   border: none;
   text-align: left;
@@ -95,7 +109,7 @@
 .headerText {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-3);
 }
 
 .headerIcon {
@@ -106,25 +120,24 @@
 
 .itemTitle {
   display: block;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--lh-h3);
   color: var(--color-ink);
 }
 
 .itemMonths {
   display: block;
-  margin-top: 2px;
-  font-size: 0.75rem;
+  font-size: var(--text-small);
   font-weight: 600;
+  line-height: var(--lh-small);
   color: var(--season-color);
 }
 
 .chevron {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: var(--text-small);
   color: var(--color-accent);
   transition: transform 0.2s;
 }
@@ -133,69 +146,54 @@
 }
 
 .body {
-  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--space-4) var(--space-4);
   border-top: 1px solid var(--color-border);
 }
 
 .bodyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
   margin: 0;
-  padding: 12px 0;
+  padding: var(--space-3) 0;
   list-style: none;
 }
 
 .pro,
 .con {
-  padding: 5px 0;
-  font-size: 0.9rem;
-  line-height: 1.5;
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
 .pro {
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
 .con {
-  margin-top: 4px;
+  margin-top: var(--space-1);
+  padding-top: var(--space-2);
   border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
 }
 
-.itemBadge {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  background: var(--color-surface);
-  color: var(--color-ink);
-}
-
 @media (min-width: 769px) {
-  .sub {
-    margin-bottom: 40px;
-  }
-
-  .months {
-    margin-bottom: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
   .grid {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
   }
 
   .accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 20px;
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
