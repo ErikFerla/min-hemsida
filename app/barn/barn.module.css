@@ -58,9 +58,25 @@
     top: 73px; /* sidhuvudet: 72 px + 1 px kant */
     z-index: 10;
     margin-inline: calc(-1 * var(--gutter));
-    padding: var(--space-3) var(--gutter);
+    gap: var(--space-2);
+    padding: var(--space-2) var(--gutter);
     border-radius: 0;
     border-bottom: 1px solid var(--color-border);
+    /* När rutan är fäst döljs rubriken så att raden blir ≤ 100 px hög (5.6). Rubriken finns
+       kvar för skärmläsare (aria-labelledby) och syns igen när rutan släpper. Webbläsare
+       utan scroll-state-frågor visar rubriken hela tiden. */
+    container-type: scroll-state;
+  }
+
+  @container scroll-state(stuck: top) {
+    .filterHead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
   }
 
   .kicker {

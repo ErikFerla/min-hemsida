@@ -212,7 +212,7 @@ export default function ResplanVerktyg({ orter, baseUrl }: { orter: Orter; baseU
       </section>
 
       {/* Planen */}
-      <section aria-labelledby="resplan-plan" className={styles.plan}>
+      <section aria-labelledby="resplan-plan">
         <p className={styles.kicker}>{ärExempel ? 'Exempelplan' : ändrad ? 'Din resplan – ändrad' : 'Din resplan'}</p>
         <h2 id="resplan-plan" className={styles.h2}>
           {val.dagar} dagar på Mallorca{valdaNamn.length > 0 ? `: ${valdaNamn.join(' + ')}` : ': klassikerna'}

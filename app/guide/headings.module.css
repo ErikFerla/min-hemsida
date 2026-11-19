@@ -34,11 +34,6 @@
   color: var(--color-accent);
 }
 
-/* Textspalt: brödtext högst 68 tecken bred. */
-.prose {
-  max-width: var(--w-text);
-}
-
 /* Faktaruta: yta-färg, radie 12, definitionslista (etikett + värde). */
 .facts {
   max-width: var(--w-text);
