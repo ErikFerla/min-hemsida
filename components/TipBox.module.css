@@ -82,7 +82,7 @@
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: var(--text-lead);
   color: var(--color-accent);
 }
 

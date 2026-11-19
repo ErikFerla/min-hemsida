@@ -1,5 +1,7 @@
 /* Prisnivå (€€€€) – används på /mat, /vingardar, golf och guiderna. */
 .priceTag {
+  flex-shrink: 0;
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 2px;

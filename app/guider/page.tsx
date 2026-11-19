@@ -171,7 +171,7 @@ export default function GuiderPage() {
           hur du får en lyckad semester med barnen. Välj den guide som passar dig och din resa.
         </p>
 
-        <section aria-labelledby="alla-guider" className={styles.allGuides}>
+        <section aria-labelledby="alla-guider">
           <h2 id="alla-guider" className={styles.heading}>
             Alla guider
           </h2>

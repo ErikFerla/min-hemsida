@@ -125,7 +125,7 @@ export default function MatPage() {
           </div>
         </section>
 
-        <section className={styles.mapSection}>
+        <section>
           <p className={styles.eyebrow}>Karta</p>
           <h2 className={styles.sectionTitle}>Utforska Mallorca</h2>
           <div className={styles.mapWrap}>

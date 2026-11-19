@@ -28,15 +28,6 @@ export const credits: ImageCredit[] = [
     checked: '2026-11-18',
   },
   {
-    src: '/bilder/palma/david-vives-fz1dT3-se-o-unsplash.jpg',
-    motiv: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
-    fotograf: 'David Vives',
-    license: 'unsplash',
-    sourceUrl: 'https://unsplash.com/photos/fz1dT3-se-o',
-    usedOn: ['/'],
-    checked: '2026-11-18',
-  },
-  {
     src: '/bilder/palma/david-vives-12cqhQNVUIg-unsplash.jpg',
     motiv: 'Trädkantat torg med modernistiska hus och uteserveringar i Palmas centrum',
     fotograf: 'David Vives',

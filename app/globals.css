@@ -451,3 +451,11 @@ footer :focus-visible {
 .a2-age-empty {
   display: none;
 }
+
+/* Inter finns i 400 och 600 – fetstil renderas i 600 (5.5). */
+@layer base {
+  strong,
+  b {
+    font-weight: 600;
+  }
+}

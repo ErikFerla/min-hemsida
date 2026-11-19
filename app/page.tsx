@@ -106,7 +106,7 @@ export default function Home() {
 
         <section className={styles.discover}>
           <div className={s.inner}>
-            <p className={s.label}>VAD VILL DU UPPLEVA?</p>
+            <p className={s.label}>Vad vill du uppleva?</p>
             <h2 className={s.title}>Upptäck Mallorca</h2>
             <div className={s.divider}></div>
             {/* Samma genvägskort på mobil och dator (5.3) */}
@@ -119,12 +119,11 @@ export default function Home() {
           <div className={styles.favorite}>
             <div className={styles.favoriteImage}>
               <Image
-                src="/bilder/palma/david-vives-fz1dT3-se-o-unsplash.jpg"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg"
                 sizes="(max-width: 1023px) 100vw, 45vw"
-                alt="Katedralen La Seu i Palma speglas i den stilla dammen i Parc de la Mar"
-                title="Foto: David Vives / Unsplash"
-                width={3531}
-                height={5296}
+                alt="Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog"
+                title="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
+                fill
                 loading="lazy"
                 className={styles.favoriteImg}
               />
