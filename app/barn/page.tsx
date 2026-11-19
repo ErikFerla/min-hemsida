@@ -112,7 +112,7 @@ export default function BarnHubPage() {
             <p>
               Här har vi samlat Mallorcas bästa barnaktiviteter, sorterade efter typ och åldersgrupp.
               Oavsett om ni är ute efter en regnig reservplan, en hel dag med äventyr eller lugna
-              inomhusaktiviteter med småbarn – använd filtret nedan för att hitta det som passar just
+              inomhusaktiviteter med småbarn – använd filtret ovan för att hitta det som passar just
               er familj.
             </p>
           </div>
