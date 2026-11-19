@@ -1,60 +1,42 @@
-/* Resekalendern på /evenemang: datumval och resultat. */
+/* Resekalendern på /evenemang: datumval och resultat (tokens 5.3). */
 
 .form {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
   align-items: flex-end;
+  gap: var(--space-4);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: var(--space-2);
 }
 
 .field label {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-ink);
 }
 
 .field input {
-  font: inherit;
-  font-size: 1rem;
   min-height: 44px;
-  padding: 8px 12px;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  border: 1.5px solid var(--color-chip-border);
+  border-radius: var(--radius-btn);
   background: var(--color-white);
   color: var(--color-ink);
-}
-
-.field input:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
-.clear {
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 2px solid var(--color-border);
-  border-radius: 8px;
-  background: transparent;
-  color: var(--color-ink);
   font: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
+  font-size: var(--text-body);
 }
 
 .help {
-  font-size: 0.85rem;
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
-  margin: 10px 0 0;
-  line-height: 1.6;
 }
 
 .help a,
@@ -64,60 +46,56 @@
 }
 
 .empty {
-  margin: 20px 0 0;
-  color: var(--color-text-soft);
-  line-height: 1.7;
+  margin: var(--space-5) 0 0;
+  color: var(--color-text-muted);
 }
 
 .warning {
-  margin: 20px 0 0;
-  color: var(--color-warning-text);
+  margin: var(--space-5) 0 0;
   font-weight: 600;
+  color: var(--color-warning);
 }
 
 .result {
-  margin-top: 8px;
+  margin-top: var(--space-2);
 }
 
 .resultTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-  font-weight: 500;
+  margin: var(--space-6) 0 var(--space-3);
   color: var(--color-ink);
-  margin: 28px 0 14px;
 }
 
 .prelIntro {
-  margin: 20px 0 12px;
-  color: var(--color-text-soft);
-  font-size: 0.95rem;
+  margin: var(--space-5) 0 var(--space-3);
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-  gap: 14px;
+  gap: var(--space-4);
 }
 
 .days {
-  list-style: none;
   margin: 0;
   padding: 0;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  background: var(--color-white);
   overflow: hidden;
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
 }
 
 .day {
   display: grid;
-  margin: 0;
   grid-template-columns: 9.5rem 1fr;
-  gap: 12px;
-  padding: 10px 16px;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
   border-top: 1px solid var(--color-border);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
 .day:first-child {
@@ -125,15 +103,15 @@
 }
 
 .dayName {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-ink);
 }
 
 .dayMarkets {
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 639px) {
   .day {
     grid-template-columns: 1fr;
     gap: 2px;

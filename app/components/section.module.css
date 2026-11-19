@@ -1,9 +1,9 @@
-/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, avdelare, knapp, sektion).
-   Ersätter de tidigare globala klasserna .section-label, .section-title, .section-divider,
-   .btn-primary, .page-section och .section-inner. */
+/* Gemensamma sektionsdelar för startsidan (överrad, rubrik, sektion).
+   Sektionsrubrik = .label (etikett i accent) + .title (h2). Sektionsavståndet kommer
+   från --section-space (48 → 96 px) och sidmarginalen från --gutter (16 → 32 px). */
 
 .pageSection {
-  padding: 80px 60px;
+  padding: var(--section-space) var(--gutter);
   background: var(--color-bg);
 }
 
@@ -11,114 +11,46 @@
   background: var(--color-surface);
 }
 
-.inner {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
+.inner,
 .wide {
-  max-width: 1280px;
+  max-width: var(--w-wide);
   margin: 0 auto;
 }
 
+/* Överrad: etikett (--text-label) i accent */
 .label {
   display: block;
-  margin: 0 0 0.75rem;
+  margin: 0 0 var(--space-3);
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-accent);
 }
 
+/* Sektionsrubrik: h2 enligt typskalan */
 .title {
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-5);
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--text-h2);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: var(--lh-h2);
+  letter-spacing: -0.01em;
   word-spacing: normal;
+  color: var(--color-ink);
 }
 
 .center {
   text-align: center;
 }
 
+/* Kort accentlinje under rubriken (äldre mönster; nya sektioner använder bara etikett + h2). */
 .divider {
-  width: 48px;
+  width: var(--space-7);
   height: 2px;
-  margin-top: 12px;
-  margin-bottom: 24px;
-  border-radius: 2px;
+  margin: 0 0 var(--space-5);
+  border-radius: var(--radius-sm);
   background: var(--color-accent);
-}
-
-.btnPrimary {
-  display: inline-block;
-  padding: var(--btn-padding);
-  background: var(--color-accent);
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: var(--btn-font-size);
-  font-weight: var(--btn-font-weight);
-  letter-spacing: var(--btn-letter-spacing);
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 2px solid var(--color-ink);
-  border-radius: var(--btn-border-radius);
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-.btnPrimary:hover {
-  background: var(--color-accent-mid);
-  border-color: var(--color-accent-mid);
-  color: var(--color-white);
-}
-
-@media (max-width: 768px) {
-  .pageSection {
-    padding: 48px 16px;
-    overflow: hidden;
-  }
-
-  .pageSection > div {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .inner {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .inner p {
-    max-width: 100%;
-  }
-
-  .label {
-    margin-bottom: 0.5rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-  }
-
-  .title {
-    margin-bottom: 8px;
-    font-size: clamp(26px, 7vw, 32px);
-  }
-
-  .divider {
-    margin-top: 10px;
-    margin-bottom: 14px;
-  }
-}
-
-@media (max-width: 380px) {
-  .inner {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
 }

@@ -1,5 +1,4 @@
-/* /guide/golf-mallorca-guide (2.5/2.6). Värdena återger utseendet före flytten från
-   inline-stilar, inklusive de globala mobilreglerna för p/section. Rubrikmått: ../headings.module.css. */
+/* /guide/golf-mallorca-guide. Rubrikmått, etikett och faktaruta: ../headings.module.css. */
 
 .page {
   background: var(--color-bg);
@@ -7,78 +6,61 @@
 }
 
 .container {
-  max-width: 860px;
+  max-width: var(--w-content);
   margin: 0 auto;
-  padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 40px);
+  padding: var(--space-7) var(--gutter) var(--section-space);
 }
 
 /* Snabbfakta */
 .facts {
-  background: #f0ebe3;
-  border-radius: 16px;
-  padding: 24px 28px;
-  margin-bottom: 48px;
-  border-left: 4px solid var(--color-accent);
+  margin-bottom: var(--space-8);
 }
 
 .factsTitle {
-  font-weight: 700;
-  line-height: 1.7;
-  color: var(--color-ink);
-  margin-bottom: 12px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  font-weight: 600;
+  color: var(--color-ink);
 }
 
 .factsGrid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 8px;
-  font-size: 0.88rem;
-  color: var(--color-text);
 }
 
 .heading {
   color: var(--color-ink);
 }
 
-.headingIcon {
-  color: var(--color-ink);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
 /* Topp 5 */
 .course {
-  margin-bottom: 48px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 28px;
-  border: 1px solid var(--color-border);
+  max-width: var(--w-text);
+  margin-bottom: var(--space-7);
+  padding-bottom: var(--space-7);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .courseHead {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
 }
 
 .rank {
-  background: var(--color-accent);
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-on-dark);
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: var(--text-h3);
   font-weight: 700;
-  flex-shrink: 0;
 }
 
 .courseTitle {
@@ -87,14 +69,14 @@
 }
 
 .courseMeta {
-  margin: 4px 0 0;
+  margin: var(--space-1) 0 0;
   color: var(--color-accent);
-  font-size: 0.85rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: var(--space-1);
   flex-wrap: wrap;
 }
 
@@ -104,81 +86,30 @@
 }
 
 .courseText {
-  font-size: 0.98rem;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin-bottom: 20px;
+  margin-bottom: var(--space-4);
+  color: var(--color-ink);
 }
 
 .boxes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-}
-
-.boxTip,
-.boxFee {
-  border-radius: 10px;
-  padding: 14px;
-}
-
-.boxTip {
-  background: #f0ebe3;
-}
-
-.boxFee {
-  background: #f9f6f1;
-}
-
-.boxLabel {
-  margin: 0 0 4px;
-  font-size: 0.72rem;
-  line-height: 1.7;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 600;
-  color: var(--color-text-muted);
-}
-
-.boxLabelAccent {
-  color: var(--color-accent);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.boxText {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--color-text);
+  gap: var(--space-3);
 }
 
 .fee {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: var(--color-ink);
   font-weight: 600;
-}
-
-.bestTime {
-  margin: 4px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: var(--color-text-muted);
 }
 
 /* Alla banor */
 .section {
-  margin-bottom: 64px;
+  margin-bottom: var(--space-8);
 }
 
 .tableNote {
   color: var(--color-text-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
-  margin: -12px 0 20px;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  margin: 0 0 var(--space-4);
+  max-width: var(--w-text);
 }
 
 .tableNote a {
@@ -193,7 +124,7 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: var(--text-small);
 }
 
 .table thead tr {
@@ -201,23 +132,23 @@
 }
 
 .table th {
-  padding: 12px 16px;
+  padding: var(--space-3) var(--space-4);
   text-align: left;
   color: var(--color-ink);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .table tbody tr {
-  background: #fff;
+  background: var(--color-white);
   border-bottom: 1px solid var(--color-border);
 }
 
 .table tbody tr:nth-child(even) {
-  background: #f9f6f1;
+  background: var(--color-surface);
 }
 
 .table td {
-  padding: 11px 16px;
+  padding: var(--space-3) var(--space-4);
   color: var(--color-text-muted);
 }
 
@@ -227,11 +158,11 @@
 
 .table .name {
   color: var(--color-ink);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .table .price {
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
 .table .rating {
@@ -243,108 +174,50 @@
 .seasons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .season {
-  background: #fff;
-  border-radius: 12px;
-  padding: 16px;
+  background: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
   border: 1px solid var(--color-border);
 }
 
 .seasonPeriod {
-  font-weight: 700;
-  line-height: 1.7;
+  font-weight: 600;
+  line-height: var(--lh-small);
   color: var(--color-ink);
-  margin: 0 0 4px;
-  font-size: 0.9rem;
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-small);
 }
 
 .seasonStars {
-  margin: 0 0 6px;
-  font-size: 0.8rem;
-  line-height: 1.7;
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-accent);
   display: inline-flex;
 }
 
 .seasonText {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: var(--text-small);
   color: var(--color-text-muted);
-  line-height: 1.7;
+  line-height: var(--lh-small);
 }
 
-/* CTA på accentbotten */
+/* Avslutning på yta-färg */
 .cta {
   background: var(--color-accent);
-  border-radius: 20px;
-  padding: 40px;
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .ctaText {
-  opacity: 0.85;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-5);
 }
 
-.ctaButton {
-  display: inline-block;
-  background: var(--color-bg);
-  color: var(--color-accent);
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
-  .section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  .ctaButton {
-    padding: 14px 20px;
-    letter-spacing: 0.05em;
-  }
-  /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
-  .factsTitle,
-  .courseMeta,
-  .courseText,
-  .boxLabel,
-  .boxText,
-  .fee,
-  .bestTime,
-  .tableNote,
-  .seasonPeriod,
-  .seasonStars,
-  .seasonText,
-  .ctaText {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .factsTitle,
-  .courseMeta,
-  .courseText,
-  .boxLabel,
-  .boxText,
-  .fee,
-  .bestTime,
-  .tableNote,
-  .seasonPeriod,
-  .seasonStars,
-  .seasonText,
-  .ctaText {
-    font-size: 15px;
-  }
-}

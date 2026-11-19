@@ -1,19 +1,8 @@
-/* Åldersetikett. Färgerna per åldersgrupp kommer från komponenten via CSS-variabler. */
+/* Åldersetikett – neutral tagg från components/Chip.module.css (yta-färg, mörk text, ingen kant). */
 .chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  background: var(--chip-bg);
-  border: 1px solid var(--chip-border);
-  border-radius: 999px;
-  color: var(--chip-fg);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  composes: tag from '../../components/Chip.module.css';
 }
 
 .md {
-  padding: 4px 10px;
-  font-size: 0.78rem;
+  font-size: var(--text-small);
 }

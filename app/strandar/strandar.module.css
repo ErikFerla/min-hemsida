@@ -1,104 +1,29 @@
-/* /strandar (2.5/2.6). Värdena återger utseendet före flytten från inline-stilar,
-   inklusive de globala mobilreglerna för h1/p/section. Rubrikmått: ../guide/headings.module.css.
-   Status- och etikettfärger (grönt/blått/orange) saknar tokens och ligger här, alla ≥4,5:1. */
+/* /strandar (5.3). Strandkorten och "Inför stranddagen" använder kortet i
+   components/Card.module.css; kännetecken är taggar (components/Chip.module.css).
+   Kortets enda ruta är tipset (TipBox compact); den redaktionella notisen är enkel text
+   med statusprick. */
 
 .page {
-  background: var(--color-bg);
   min-height: 100vh;
-}
-
-/* Hero */
-.hero {
-  position: relative;
-  width: 100%;
-  height: clamp(360px, 58vh, 620px);
-  overflow: hidden;
-  background: #0b1f2a;
-}
-
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 55%;
-  display: block;
-}
-
-.heroShade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.05) 45%, rgba(0, 0, 0, 0.55) 100%);
-}
-
-.heroText {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: clamp(24px, 5vw, 56px) clamp(20px, 5vw, 80px);
-  color: #fff;
-}
-
-.heroKicker {
-  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
-  line-height: 1.7;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: #fff;
-  font-weight: 700;
-  margin: 0 0 12px;
-  opacity: 0.92;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-.title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 6vw, 3.4rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  margin: 0 0 6px;
-  line-height: 1.05;
-  color: #fff;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-}
-
-.heroRule {
-  width: 48px;
-  height: 2px;
-  background: #fff;
-  opacity: 0.9;
-  margin: 14px 0 0;
-  border-radius: 2px;
-}
-
-.credit {
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
-  margin: 0;
-  font-size: 0.68rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.78);
-  letter-spacing: 0.04em;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background: var(--color-bg);
 }
 
 /* Intro */
 .intro {
+  padding: var(--space-7) var(--gutter) var(--space-4);
   background: var(--color-bg);
-  padding: clamp(32px, 5vw, 56px) clamp(20px, 5vw, 80px) clamp(16px, 3vw, 32px);
 }
 
 .introInner {
-  max-width: 68ch;
+  max-width: var(--w-text);
   margin: 0 auto;
 }
 
 .introText {
-  font-size: clamp(1rem, 1.6vw, 1.1rem);
-  color: var(--color-text);
-  line-height: 1.7;
-  margin: 0 0 18px;
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+  color: var(--color-ink);
 }
 
 .introTextLast {
@@ -113,328 +38,171 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(30px, 4vw, 60px) clamp(16px, 4vw, 60px);
+  padding: var(--space-6) var(--gutter) var(--section-space);
 }
 
 .filterIntro {
-  color: var(--color-text);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0 0 24px;
-  max-width: 62ch;
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
+  color: var(--color-ink);
 }
 
 /* Länk till guiden */
 .guideBox {
-  background: #f0ebe3;
-  border-radius: 12px;
-  padding: 18px 20px;
-  margin-bottom: 24px;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
 }
 
 .guideText {
-  margin: 0;
-  font-size: 0.92rem;
-  color: var(--color-text);
-  line-height: 1.7;
   flex: 1 1 220px;
+  margin: 0;
+  color: var(--color-ink);
 }
 
 .guideButton {
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0 20px;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 700;
   white-space: nowrap;
 }
 
 /* Strandkort */
 .list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 20px;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  margin: 0;
 }
 
 .card {
-  background: #fff;
-  border-radius: 16px;
-  overflow: hidden;
+  composes: card from '../../components/Card.module.css';
+  flex: 1;
 }
 
 .media {
-  position: relative;
-  aspect-ratio: 16 / 9;
+  composes: media from '../../components/Card.module.css';
 }
 
-.mediaImage {
+.media > img {
   object-fit: cover;
 }
 
-.badges {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  display: flex;
-  gap: 6px;
-}
-
 .badge {
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  background: rgba(0, 0, 0, 0.65);
+  composes: imageLabel from '../../components/Card.module.css';
 }
 
 .badgeType {
-  background: rgba(14, 116, 144, 0.92);
+  composes: imageLabelEnd from '../../components/Card.module.css';
 }
 
 .body {
-  padding: 20px 20px 22px;
+  composes: body from '../../components/Card.module.css';
 }
 
 .name {
-  color: #111;
-  margin-top: 0;
+  composes: title from '../../components/Card.module.css';
 }
 
 .meta {
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: #7a6b5c;
-  margin: 0 0 14px;
-  font-weight: 500;
-}
-
-.metaDot {
-  color: #d4c7b5;
-  margin: 0 8px;
+  composes: meta from '../../components/Card.module.css';
 }
 
 .description {
-  font-size: 0.95rem;
-  color: var(--color-text);
-  line-height: 1.7;
-  margin: 0 0 14px;
-}
-
-.tip {
-  background: #fdf6ec;
-  border-left: 3px solid var(--color-accent);
-  border-radius: 6px;
-  padding: 10px 14px;
-  font-size: 0.88rem;
-  color: #4b3f2f;
-  margin-bottom: 14px;
-  line-height: 1.55;
-}
-
-/* Tidigare #8B6F47 (4,4:1 mot #FDF6EC). */
-.tipLabel {
-  color: #6f5532;
-  font-weight: 700;
+  composes: text from '../../components/Card.module.css';
 }
 
 .tags {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+  composes: tags from '../../components/Chip.module.css';
 }
 
 .tag {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  composes: tag from '../../components/Chip.module.css';
 }
 
-.tagFamily {
-  background: #e8f3ec;
-  color: #2e7d32;
+.tip {
+  margin-top: var(--space-1);
 }
 
-.tagSnorkel {
-  background: #e3eff8;
-  color: #1565c0;
-}
-
-/* Tidigare #B65C17 (4,1:1 mot #FBEFE0). */
-.tagNudist {
-  background: #fbefe0;
-  color: #8f4510;
-}
-
+/* Redaktionell notis: enkel text med statusprick */
 .note {
-  padding: 10px 14px;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  font-size: 0.85rem;
-  color: #2f2a24;
-  line-height: 1.55;
-  border-left: 3px solid;
+  composes: note from '../../components/Card.module.css';
 }
 
 .noteLabel {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.7rem;
-  display: block;
-  margin-bottom: 4px;
+  composes: noteLabel from '../../components/Card.module.css';
 }
 
-/* Tidigare etikett #B8791C (3,4:1 mot #FFF6E0). */
 .noteVarning {
-  background: #fff6e0;
-  border-left-color: #f39c12;
-}
-.noteVarning .noteLabel {
-  color: #8a5a12;
+  composes: noteWarning from '../../components/Card.module.css';
 }
 
 .noteTips {
-  background: #e8f3ec;
-  border-left-color: #27ae60;
-}
-.noteTips .noteLabel {
-  color: #1f6b3a;
+  composes: noteAccent from '../../components/Card.module.css';
 }
 
 .noteBast {
-  background: #e3eff8;
-  border-left-color: #2980b9;
-}
-.noteBast .noteLabel {
-  color: #1e5a8c;
+  composes: noteSuccess from '../../components/Card.module.css';
 }
 
 .noteInfo {
-  background: #f3e8f5;
-  border-left-color: #8e44ad;
-}
-.noteInfo .noteLabel {
-  color: #6a2f82;
+  composes: noteInfo from '../../components/Card.module.css';
 }
 
-.mapLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.01em;
+.actions {
+  composes: actions from '../../components/Card.module.css';
 }
 
 /* Planera vidare */
 .more {
-  margin-top: 64px;
-  padding-top: 48px;
+  margin-top: var(--section-space);
+  padding-top: var(--space-7);
   border-top: 1px solid var(--color-border);
 }
 
 .moreKicker {
-  font-size: 0.75rem;
-  line-height: 1.7;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 8px;
+  composes: label from '../components/section.module.css';
 }
 
 .moreTitle {
+  composes: title from '../components/section.module.css';
+  margin-bottom: var(--space-5);
   color: var(--color-ink);
 }
 
 .moreGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 20px;
+  gap: var(--space-5);
 }
 
 .moreCard {
-  display: block;
-  text-decoration: none;
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  composes: link from '../../components/Card.module.css';
+  gap: var(--space-2);
+  padding: var(--space-5);
 }
 
 .moreCardTitle {
-  color: var(--color-ink);
-  margin-top: 0;
+  composes: title from '../../components/Card.module.css';
 }
 
 .moreCardText {
-  font-size: 0.9rem;
-  color: var(--color-text);
-  line-height: 1.7;
-  margin: 0 0 14px;
+  composes: text from '../../components/Card.module.css';
 }
 
 .moreCardLink {
-  color: var(--color-accent);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  /* Tidigare globala mobilregler för h1 och p (!important) */
-  .title {
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
-  .heroKicker,
-  .credit,
-  .introText,
-  .filterIntro,
-  .guideText,
-  .meta,
-  .description,
-  .moreKicker,
-  .moreCardText {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .heroKicker,
-  .credit,
-  .introText,
-  .filterIntro,
-  .guideText,
-  .meta,
-  .description,
-  .moreKicker,
-  .moreCardText {
-    font-size: 15px;
-  }
+  margin-top: auto;
+  font-size: var(--text-small);
 }

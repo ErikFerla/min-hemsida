@@ -96,8 +96,8 @@ export default function ParPage() {
             Binissalem skörden med Festa des Vermar.
           </p>
           <div className={styles.links}>
-            <Link href="/vingardar" className={styles.linkButton}>Vingårdar på Mallorca</Link>
-            <Link href="/dagsturer-utan-bil#inca" className={styles.linkButton}>Med tåg till Inca och Binissalem</Link>
+            <Link href="/vingardar" className="btn btn-secondary">Vingårdar på Mallorca</Link>
+            <Link href="/dagsturer-utan-bil#inca" className="btn btn-secondary">Med tåg till Inca och Binissalem</Link>
           </div>
         </section>
 
@@ -109,8 +109,8 @@ export default function ParPage() {
             dagen.
           </p>
           <div className={styles.links}>
-            <Link href="/aktiviteter/golf" className={styles.linkButton}>Golfbanorna</Link>
-            <Link href="/guide/golf-mallorca-guide" className={styles.linkButton}>Golfguiden</Link>
+            <Link href="/aktiviteter/golf" className="btn btn-secondary">Golfbanorna</Link>
+            <Link href="/guide/golf-mallorca-guide" className="btn btn-secondary">Golfguiden</Link>
           </div>
         </section>
 
@@ -122,8 +122,8 @@ export default function ParPage() {
             promenadslingor mellan dem.
           </p>
           <div className={styles.links}>
-            <Link href="/strandar" className={styles.linkButton}>Alla stränder</Link>
-            <Link href="/guide/basta-stranderna-mallorca" className={styles.linkButton}>Topp 15 stränder</Link>
+            <Link href="/strandar" className="btn btn-secondary">Alla stränder</Link>
+            <Link href="/guide/basta-stranderna-mallorca" className="btn btn-secondary">Topp 15 stränder</Link>
           </div>
         </section>
 
@@ -135,8 +135,8 @@ export default function ParPage() {
             höjdpunkt.
           </p>
           <div className={styles.links}>
-            <Link href="/mat" className={styles.linkButton}>Mat på Mallorca</Link>
-            <Link href="/guide/basta-restauranger-palma" className={styles.linkButton}>Bästa restaurangerna i Palma</Link>
+            <Link href="/mat" className="btn btn-secondary">Mat på Mallorca</Link>
+            <Link href="/guide/basta-restauranger-palma" className="btn btn-secondary">Bästa restaurangerna i Palma</Link>
           </div>
         </section>
 
@@ -169,8 +169,8 @@ export default function ParPage() {
             inlandet har marknad på onsdagar – lätt att nå med tåg.
           </p>
           <div className={styles.links}>
-            <Link href="/byar" className={styles.linkButton}>Byar på Mallorca</Link>
-            <Link href="/dagsturer-utan-bil" className={styles.linkButton}>Dagsturer utan bil</Link>
+            <Link href="/byar" className="btn btn-secondary">Byar på Mallorca</Link>
+            <Link href="/dagsturer-utan-bil" className="btn btn-secondary">Dagsturer utan bil</Link>
           </div>
         </section>
 

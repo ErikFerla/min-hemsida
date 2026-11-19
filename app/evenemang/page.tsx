@@ -5,6 +5,7 @@ import EvenemangLista from './EvenemangLista';
 import Resekalender, { ResekalenderStatisk } from './Resekalender';
 import styles from './evenemang.module.css';
 import { EVENEMANGSKÄLLOR, idagPåMallorca, kommandeEvenemang, årsintervall } from './data';
+import t from '@/components/TextHero.module.css';
 
 // Listan visar bara kommande tillfällen utifrån dagens datum – bygg om sidan en gång per dygn.
 export const revalidate = 86400;
@@ -16,13 +17,14 @@ export default function EvenemangPage() {
 
   return (
     <div className={styles.page}>
-      <header className={styles.hero}>
-        <p className={styles.kicker}>Mallorca {intervall}</p>
-        <h1 className={styles.title}>Evenemang på Mallorca {intervall}</h1>
-        <div className={styles.divider} />
-        <p className={styles.lead}>
-          Fiestor, mässor, festivaler och sport – välj dina resdatum och se vad som händer på ön och vilka byar som har marknad medan du är där.
-        </p>
+      <header className={t.hero}>
+        <div className={t.inner}>
+          <p className={t.kicker}>Mallorca {intervall}</p>
+          <h1 className={t.title}>Evenemang på Mallorca {intervall}</h1>
+          <p className={t.lead}>
+            Fiestor, mässor, festivaler och sport – välj dina resdatum och se vad som händer på ön och vilka byar som har marknad medan du är där.
+          </p>
+        </div>
       </header>
 
       <div className={styles.main}>

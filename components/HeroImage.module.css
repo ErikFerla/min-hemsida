@@ -1,14 +1,21 @@
-/* Sidhjälte med bild (HeroImage) – används på stadssidor, /byar och många B2/B3-sidor.
-   Höjden kommer från prop:en via --hero-height. */
+/* Sidhjälte med bild (HeroImage) – används på stadssidor, hubbar och guider med bild.
+   Designsystem 5.1: mörk gradient nedtill, etikett-kicker, display-rubrik (fet, tät),
+   ingress. Fotokrediten ligger i en egen rad under bilden.
+   Höjden kommer från prop:en via --hero-height. Samma utseende används av
+   strandsidans hero och startsidans bildspel (HeroSlideshow). */
 
 .hero {
+  position: relative;
+}
+
+.frame {
   position: relative;
   display: flex;
   align-items: flex-end;
   height: var(--hero-height, 60vh);
+  min-height: 320px;
   overflow: hidden;
-  padding: 60px 80px;
-  background: #0b1f2a;
+  background: var(--color-image-bg);
 }
 
 .image {
@@ -24,65 +31,60 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+  background: var(--hero-shade);
 }
 
 .content {
   position: relative;
-  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter) var(--space-6);
+  color: var(--color-on-dark);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .kicker {
-  letter-spacing: 0.2em;
+  margin: 0;
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  opacity: 0.8;
 }
 
-/* Sidans h1. Rubrikfont, normal vikt (som tidigare). */
+/* Sidans h1: display-storlek, Playfair 700, tät spärrning */
 .title {
+  max-width: 18ch;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: 5rem;
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: 0.05em;
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
 }
 
 .subtitle {
-  margin-top: 16px;
-  opacity: 0.9;
+  max-width: 52ch;
+  margin: 0;
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
 }
 
 .credit {
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
-  margin: 0;
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.78);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: var(--space-2) var(--gutter);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
-@media (min-width: 769px) {
-  .kicker {
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    padding: 4rem 20px;
-  }
-
-  .title {
-    margin-bottom: 10px;
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.1;
+@media (min-width: 1024px) {
+  .content {
+    padding-bottom: var(--space-7);
   }
 }

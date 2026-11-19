@@ -101,28 +101,28 @@ export default function AktiviteterPage() {
       <div className={styles.inner}>
         <div className={styles.cardGrid}>
           {aktiviteter.map((a, i) => (
-            <Link key={i} href={a.href} className={styles.cardLink}>
-              <div className={styles.card}>
-                <Image src={a.bild} alt={a.bildAlt} width={600} height={200} className={styles.cardImage} loading="lazy" />
-                <div className={styles.cardBody}>
-                  <div className={styles.cardIcon}><a.Icon size={28} /></div>
-                  <h2 className={styles.cardTitle}>{a.titel}</h2>
-                  <p className={styles.cardText}>{a.beskrivning}</p>
-                  <div className={styles.chips}>
-                    {a.highlights.map((h, j) => (
-                      <span key={j} className={styles.chip}>{h}</span>
-                    ))}
-                  </div>
-                  <div className={styles.cardButton}>
-                    Utforska →
-                  </div>
+            <Link key={i} href={a.href} className={styles.card}>
+              <div className={styles.media}>
+                <Image src={a.bild} alt={a.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px" loading="lazy" />
+              </div>
+              <div className={styles.cardBody}>
+                <div className={styles.cardIcon}><a.Icon size={28} /></div>
+                <h2 className={styles.cardTitle}>{a.titel}</h2>
+                <p className={styles.cardText}>{a.beskrivning}</p>
+                <div className={styles.chips}>
+                  {a.highlights.map((h, j) => (
+                    <span key={j} className={styles.chip}>{h}</span>
+                  ))}
                 </div>
+                <span className={`link-arrow ${styles.more}`}>
+                  Utforska →
+                </span>
               </div>
             </Link>
           ))}
         </div>
 
-        <section id="barnvanligt" className={`${styles.section} ${styles.sectionMobile}`}>
+        <section id="barnvanligt" className={styles.section}>
           <p className={styles.eyebrow}>För hela familjen</p>
           <h2 className={styles.sectionTitle}>Barnvänligt</h2>
           <p className={styles.intro}>
@@ -133,14 +133,14 @@ export default function AktiviteterPage() {
             {barnvanligt.map(b => (
               <article key={b.namn} className={styles.barnCard}>
                 <div className={styles.barnImage}>
-                  <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width:768px) 100vw, 360px" className={styles.cover} loading="lazy" />
+                  <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 639px) 100vw, 300px" loading="lazy" />
                   <div className={styles.badge}>{b.kategori}</div>
                 </div>
                 <div className={styles.barnBody}>
                   <h3 className={styles.barnTitle}>{b.namn}</h3>
                   <div className={styles.meta}>
-                    <span className={styles.metaItem}><IconPin size={11} /> {b.plats}</span>
-                    <span className={styles.metaItem}><IconUsers size={11} /> {b.ålder}</span>
+                    <span className={styles.metaItem}><IconPin size={12} /> {b.plats}</span>
+                    <span className={styles.metaItem}><IconUsers size={12} /> {b.ålder}</span>
                   </div>
                   <p className={styles.barnText}>{b.beskrivning}</p>
                 </div>
@@ -148,7 +148,7 @@ export default function AktiviteterPage() {
             ))}
           </div>
 
-          <Link href="/barn" className={styles.darkButton}>
+          <Link href="/barn" className="btn btn-secondary">
             Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
           </Link>
         </section>
@@ -165,7 +165,7 @@ export default function AktiviteterPage() {
               <Link key={t.href} href={t.href} className={styles.readCard}>
                 <h3 className={styles.readTitle}>{t.titel}</h3>
                 <p className={styles.readText}>{t.text}</p>
-                <span className={styles.readLink}>Läs mer →</span>
+                <span className={`link-arrow ${styles.more}`}>Läs mer →</span>
               </Link>
             ))}
           </div>

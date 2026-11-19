@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { IconStar, IconFlag, IconBulb, IconCalendar, PriceTag, tierFromPris } from '@/components/Icons';
+import { IconStar, IconFlag, PriceTag, tierFromPris } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
 import { golfbanor } from '@/data/golf-courses';
@@ -102,16 +103,16 @@ export default function GolfMallorcaGuide() {
           label="Se alla golfbanor på Mallorca"
         />
 
-        {/* Snabbfakta */}
-        <div className={styles.facts}>
-          <p className={styles.factsTitle}><IconFlag size={18} /> Golfinfo Mallorca – snabbfakta</p>
-          <div className={styles.factsGrid}>
-            <div><strong>Antal banor:</strong> drygt 20</div>
-            <div><strong>Bästa säsong:</strong> November–april</div>
-            <div><strong>Greenfee:</strong> varierar stort mellan banor och säsonger – se banans webbplats</div>
-            <div><strong>Äldsta banan:</strong> Son Vida (1964)</div>
-          </div>
-        </div>
+        {/* Snabbfakta: faktaruta */}
+        <section className={`${h.facts} ${styles.facts}`} aria-labelledby="golf-snabbfakta">
+          <p id="golf-snabbfakta" className={styles.factsTitle}><IconFlag size={18} /> Golfinfo Mallorca – snabbfakta</p>
+          <dl className={styles.factsGrid}>
+            <div><dt>Antal banor</dt><dd>drygt 20</dd></div>
+            <div><dt>Bästa säsong</dt><dd>November–april</dd></div>
+            <div><dt>Greenfee</dt><dd>varierar stort mellan banor och säsonger – se banans webbplats</dd></div>
+            <div><dt>Äldsta banan</dt><dd>Son Vida (1964)</dd></div>
+          </dl>
+        </section>
 
         {/* Topp 5 */}
         <h2 className={`${h.h2} ${styles.heading}`}>De 5 bästa banorna i detalj</h2>
@@ -127,14 +128,14 @@ export default function GolfMallorcaGuide() {
             </div>
             <p className={styles.courseText}>{bana.beskrivning}</p>
             <div className={styles.boxes}>
-              <div className={styles.boxTip}>
-                <p className={`${styles.boxLabel} ${styles.boxLabelAccent}`}><IconBulb size={12} /> INSIDERTIPS</p>
-                <p className={styles.boxText}>{bana.insider}</p>
-              </div>
-              <div className={styles.boxFee}>
-                <p className={styles.boxLabel}>PRISNIVÅ · BÄSTA TID</p>
-                <p className={styles.fee}><PriceTag tier={tierFromPris(prisnivå(bana.slug))} /></p>
-                <p className={styles.bestTime}>{bana.bästTid}</p>
+              <TipBox heading="Insidertips" as="h4" variant="compact">
+                <p>{bana.insider}</p>
+              </TipBox>
+              <div className={h.facts}>
+                <dl>
+                  <div><dt>Prisnivå</dt><dd className={styles.fee}><PriceTag tier={tierFromPris(prisnivå(bana.slug))} /></dd></div>
+                  <div><dt>Bästa tid</dt><dd>{bana.bästTid}</dd></div>
+                </dl>
               </div>
             </div>
           </article>
@@ -174,7 +175,7 @@ export default function GolfMallorcaGuide() {
 
         {/* Tips om säsong */}
         <section className={styles.section}>
-          <h2 className={`${h.h2} ${styles.headingIcon}`}><IconCalendar size={22} /> Bästa tid att spela golf på Mallorca</h2>
+          <h2 className={`${h.h2} ${styles.heading}`}>Bästa tid att spela golf på Mallorca</h2>
           <div className={styles.seasons}>
             {[
               { period: 'November–februari', rating: 5, text: 'Perfekt. Dagstemperatur kring 15–19 °C. Lugnt på banorna.' },
@@ -196,7 +197,7 @@ export default function GolfMallorcaGuide() {
         <div className={styles.cta}>
           <h2 className={h.h2}>Mer om golf på Mallorca</h2>
           <p className={styles.ctaText}>Se alla banor på kartan, med banfakta och tips för varje bana.</p>
-          <Link href="/aktiviteter/golf" className={styles.ctaButton}>SE ALLA BANOR PÅ KARTAN →</Link>
+          <Link href="/aktiviteter/golf" className="btn btn-primary">Se alla banor på kartan →</Link>
         </div>
 
         <LastChecked

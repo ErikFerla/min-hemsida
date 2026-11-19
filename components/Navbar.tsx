@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useCallback, type FocusEvent } from 'react
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './Navbar.module.css'
+import { LogoMark } from '@/components/Logo'
 
 interface NavItem {
   label: string
@@ -237,18 +238,8 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" onClick={() => closeMobile(false)} className={styles.logo}>
-            <svg className={styles.logoMark} width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 22 Q8 14 12 18 Q16 22 20 14 Q24 6 28 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-              <circle cx="28" cy="10" r="3" fill="currentColor"/>
-            </svg>
-            <div>
-              <div className={styles.logoName}>
-                MyMallorca
-              </div>
-              <div className={styles.logoTagline}>
-                Din kompletta reseguide
-              </div>
-            </div>
+            <LogoMark className={styles.logoMark} />
+            <span className={styles.logoName}>MyMallorca</span>
           </Link>
 
           {/* Desktop nav with dropdowns */}

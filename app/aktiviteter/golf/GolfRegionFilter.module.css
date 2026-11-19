@@ -1,43 +1,21 @@
-/* Regionfiltret på /aktiviteter/golf */
+/* Regionfiltret på /aktiviteter/golf – chips från components/Chip.module.css
+   (valt läge = ink + vit text, som på resten av sajten). */
 .filter {
   display: flex;
-  gap: 8px 16px;
   flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 40px;
+  gap: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-6);
 }
 
 .group {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+  composes: scrollRow from '../../../components/Chip.module.css';
 }
 
 .button {
-  padding: 8px 20px;
-  border-radius: 20px;
-  border: 2px solid #ccc;
-  background: #fff;
-  color: var(--color-text);
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.button[aria-pressed='true'] {
-  border-color: var(--color-accent);
-  background: var(--color-accent);
-  color: #fff;
+  composes: chip from '../../../components/Chip.module.css';
 }
 
 .count {
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .count {
-    margin-bottom: 1.25rem;
-  }
+  composes: count from '../../../components/Chip.module.css';
 }

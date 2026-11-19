@@ -1,95 +1,44 @@
-/* /evenemang – värdena återger det beräknade utseendet före 2.6
-   (globala h1/h2/h3/p/section-regler och sidans tidigare <style>-block inräknade),
-   mätt på 390 och 1280 px. */
+/* /evenemang (5.3). Rubrikerna följer typskalan (h2 26 → 36 px, vikt 700). */
 
 .page {
-  background: var(--color-bg);
   min-height: 100vh;
-}
-
-/* ── Sidhuvud ── */
-.hero {
-  background: var(--color-surface);
-  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 80px) clamp(36px, 5vw, 56px);
-  text-align: center;
-}
-
-.kicker {
-  font-size: clamp(0.7rem, 1.5vw, 0.8rem);
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 700;
-  line-height: 1.7;
-  margin: 0 0 14px;
-}
-
-.title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 6vw, 3rem);
-  font-weight: 500;
-  letter-spacing: -0.012em;
-  margin: 0 auto 16px;
-  line-height: 1.05;
-  color: var(--color-ink);
-  max-width: 18ch;
-}
-
-.divider {
-  width: 48px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0 auto 20px;
-  border-radius: 2px;
-}
-
-.lead {
-  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
-  color: var(--color-text);
-  margin: 0 auto;
-  max-width: 60ch;
-  line-height: 1.7;
+  background: var(--color-bg);
 }
 
 /* ── Innehåll ── */
 .main {
-  max-width: 1400px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(32px, 4vw, 60px) clamp(16px, 4vw, 60px);
+  padding: var(--space-6) var(--gutter) var(--section-space);
 }
 
 .sectionTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 2.6rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.25rem;
+  composes: title from '../components/section.module.css';
   color: var(--color-ink);
 }
 
 .planner {
+  margin-bottom: var(--section-space);
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-card);
   background: var(--color-surface-warm);
-  border-radius: 18px;
-  padding: clamp(20px, 4vw, 40px);
-  margin-bottom: clamp(40px, 6vw, 72px);
   scroll-margin-top: 80px;
 }
 
 .listSection {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-7);
 }
 
 .legend {
-  max-width: 75ch;
-  margin: 0 0 28px;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--color-text-soft);
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .legend p {
-  margin: 0 0 6px;
+  margin: 0 0 var(--space-2);
 }
 
 .legend strong {
@@ -97,12 +46,7 @@
 }
 
 .more {
-  max-width: 75ch;
-}
-
-.more p {
-  line-height: 1.7;
-  color: var(--color-text);
+  max-width: var(--w-text);
 }
 
 .more a {
@@ -110,31 +54,8 @@
   text-underline-offset: 2px;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    padding: 40px 20px;
-  }
-
-  .sectionTitle {
-    font-size: clamp(24px, 6.5vw, 30px);
-  }
-
-  .title {
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
-
-  .kicker,
-  .lead {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .kicker,
-  .lead {
-    font-size: 15px;
+@media (min-width: 1024px) {
+  .planner {
+    padding: var(--space-7);
   }
 }

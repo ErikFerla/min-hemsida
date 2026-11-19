@@ -1,146 +1,64 @@
-/* /guide/mallorca-med-barn (2.5/2.6). Värdena återger utseendet före flytten från
-   inline-stilar, inklusive de globala mobilreglerna för p/section. Rubrikmått: ../headings.module.css. */
+/* /guide/mallorca-med-barn. Rubrikmått, etikett och faktaruta: ../headings.module.css. */
 
 .page {
   background: var(--color-bg);
   min-height: 100vh;
 }
 
-/* Hero */
-.hero {
-  background: var(--color-bg);
-  padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 60px) clamp(32px, 5vw, 48px);
-  text-align: center;
-}
-
-.heroKicker {
-  font-size: 0.78rem;
-  line-height: 1.7;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 700;
-  margin: 0 0 14px;
-}
-
-.title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 6vw, 2.5rem);
-  font-weight: 400;
-  letter-spacing: 0.03em;
-  line-height: 1.05;
-  color: var(--color-ink);
-  margin: 0 0 16px;
-}
-
-.heroLead {
-  font-size: clamp(1rem, 2.4vw, 1.2rem);
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0 auto;
-  max-width: 560px;
-}
-
-.heroRule {
-  width: 56px;
-  height: 3px;
-  background: var(--color-accent);
-  margin: 24px auto 0;
-  border-radius: 2px;
-}
-
 .container {
-  max-width: 1100px;
+  max-width: var(--w-content);
   margin: 0 auto;
-  padding: clamp(40px, 6vw, 60px) clamp(20px, 5vw, 60px) clamp(48px, 7vw, 80px);
+  padding: var(--space-7) var(--gutter) var(--section-space);
 }
 
-/* Snabbsvar */
+/* Snabbsvar: faktaruta (h.facts) med definitionslista */
 .quick {
-  background: #fff;
-  border-radius: 16px;
-  padding: clamp(20px, 4vw, 28px);
-  margin-bottom: 48px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: var(--space-8);
 }
 
 .quickLabel {
-  font-size: 0.7rem;
-  line-height: 1.7;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin: 0 0 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  margin: 0 0 var(--space-4);
+  font-weight: 600;
+  color: var(--color-ink);
 }
 
 .quickList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px 20px;
-  color: var(--color-text);
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
-.quickList strong {
-  color: var(--color-ink);
+.quickList dd {
+  font-size: var(--text-body);
 }
 
 /* Sektioner med rubrik */
 .block {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-8);
 }
 
 .sectionHeading {
-  margin-bottom: 24px;
-}
-
-.kicker {
-  font-size: 0.7rem;
-  line-height: 1.7;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 700;
-  margin: 0 0 8px;
+  margin-bottom: var(--space-5);
 }
 
 .sectionTitle {
   color: var(--color-ink);
 }
 
-.rule {
-  width: 48px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
 }
 
 .card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: var(--space-5);
+  background: var(--color-white);
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
 }
 
 .cardIcon {
-  color: var(--color-ink);
-  margin-bottom: 14px;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
 }
 
 .cardTitle {
@@ -148,141 +66,75 @@
 }
 
 .cardText {
-  font-size: 0.92rem;
-  color: var(--color-text);
-  line-height: 1.7;
-  margin: 0 0 14px;
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
+/* Tagg: liten, yta-färg, ingen kant */
 .tag {
-  background: #f3efe8;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-ink);
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 500;
 }
 
 .mapText {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin: 0 0 20px;
-  max-width: 60ch;
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
+  color: var(--color-ink);
 }
 
 .mapFrame {
-  background: #fff;
-  padding: 8px;
-  border-radius: 14px;
+  overflow: hidden;
   border: 1px solid var(--color-border);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-card);
 }
 
-/* CTA på mörk botten */
+/* Avslutning på yta-färg */
 .cta {
-  background: var(--color-ink);
-  border-radius: 18px;
-  padding: clamp(28px, 6vw, 40px);
-  text-align: center;
-  color: #fff;
-}
-
-.ctaKicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  /* Ikonen: --color-accent gav 1,6:1 mot mörk botten, accent-soft ger 3,5:1 (grafik ≥3:1). */
-  color: var(--color-accent-soft);
-  margin-bottom: 12px;
-}
-
-.ctaKickerText {
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 700;
-  /* Text: ≥4,5:1 mot --color-ink (tidigare #993335, 1,6:1). */
-  color: var(--color-on-dark-muted);
+  margin-bottom: var(--space-7);
+  padding: var(--space-6) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
 }
 
 .ctaText {
-  opacity: 0.85;
-  margin: 0 0 22px;
-  font-size: 0.95rem;
-  line-height: 1.7;
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
 }
 
-.ctaButton {
-  display: inline-block;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  padding: 12px 26px;
-  border-radius: 10px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  font-weight: 700;
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
 }
 
-.ctaSub {
-  margin: 16px 0 0;
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.ctaSubLink {
-  color: var(--color-on-dark);
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  /* Tidigare global regel: section { padding-top/bottom: 4rem !important } */
-  .hero,
-  .quick,
-  .block,
-  .cta {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  .title {
-    font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.1;
-    margin-bottom: 10px;
-  }
+@media (min-width: 769px) {
   .cardGrid {
-    grid-template-columns: 1fr;
-  }
-  /* Tidigare global regel: p { font-size: 16px; margin-bottom: 1.25rem } (!important) */
-  .heroKicker,
-  .heroLead,
-  .quickLabel,
-  .kicker,
-  .cardText,
-  .mapText,
-  .ctaText,
-  .ctaSub {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 380px) {
-  .heroKicker,
-  .heroLead,
-  .quickLabel,
-  .kicker,
-  .cardText,
-  .mapText,
-  .ctaText,
-  .ctaSub {
-    font-size: 15px;
+@media (min-width: 1024px) {
+  .container {
+    padding-top: var(--space-8);
+  }
+
+  .cta {
+    padding: var(--space-7);
   }
 }

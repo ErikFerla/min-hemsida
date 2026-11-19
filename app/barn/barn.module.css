@@ -1,180 +1,219 @@
-/* /barn (navsidan) – värdena återger det beräknade utseendet före 2.6
-   (globala h2/p/section-regler inräknade), mätt på 390 och 1280 px. */
+/* /barn (navsidan), designsystem 5.4. Ordning: hero → åldersfilter (fäst under sidhuvudet på
+   mobil) → intro + "5 råd" → kategorier (rutnät på dator, rad som skrollar i sidled på mobil)
+   → alla aktiviteter. Rubriker och p får storlek från basreglerna i globals.css. */
 
 .page {
   background: var(--color-bg);
-  min-height: 100vh;
+}
+
+/* Basregeln för <nav> ger 16 px sidpadding på mobil – brödsmulorna ska linjera med texten */
+.inner > nav {
+  padding-inline: 0;
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 60px) clamp(16px, 4vw, 40px);
+  padding: var(--space-5) var(--gutter) 0;
 }
 
-.introSection {
-  margin: clamp(24px, 4vw, 40px) 0 clamp(40px, 6vw, 64px);
+/* ── Åldersfilter ── */
+.filterBox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+}
+
+.filterHead {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.kicker {
+  margin: 0;
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.filterTitle {
+  margin: 0;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
+}
+
+/* Mobil: filtret följer med under sidhuvudet (72 px) när man skrollar. Rutan går kant i kant,
+   etiketten döljs för att hålla raden låg, och chipsen skrollar i sidled (AgeFilter). */
+@media (max-width: 1023px) {
+  .filterBox {
+    position: sticky;
+    top: 73px; /* sidhuvudet: 72 px + 1 px kant */
+    z-index: 10;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: var(--space-3) var(--gutter);
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .kicker {
+    display: none;
+  }
+
+  /* Element som får fokus ska inte hamna under sidhuvudet + den fästa filterraden */
+  :global(html):has(.filterBox) {
+    scroll-padding-top: 260px;
+  }
+
+  /* Basregeln main { overflow-x: hidden } gör <main> till skrollbehållare så att sticky inte
+     fäster mot fönstret. clip klipper lika mycket men skapar ingen skrollbehållare. */
+  :global(main):has(.filterBox) {
+    overflow-x: clip;
+  }
+}
+
+/* ── Intro + råd ── */
+.introRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-6);
 }
 
 .introText {
-  max-width: 72ch;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: var(--color-text);
+  max-width: var(--w-text);
 }
 
-.introText > p {
-  line-height: 1.7;
+.introText > p:last-child {
+  margin-bottom: 0;
 }
 
+@media (min-width: 1024px) {
+  .introRow {
+    grid-template-columns: minmax(0, var(--w-text)) minmax(300px, 400px);
+    column-gap: var(--space-8);
+    align-items: start;
+    margin-top: var(--space-7);
+  }
+}
+
+/* ── Sektioner ── */
 .block {
-  margin-bottom: clamp(40px, 6vw, 64px);
+  margin-top: var(--space-7);
 }
 
-/* h2 – samma storlek som den globala h2-regeln gav */
-.sectionTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--color-ink);
-  margin: 0 0 1.5rem;
+@media (min-width: 1024px) {
+  .block {
+    margin-top: var(--space-8);
+  }
 }
 
 /* ── Kategorier ── */
-.categoryGrid,
-.activityGrid {
+.categoryGrid {
+  display: flex;
+  gap: var(--space-3);
+  margin: 0 calc(-1 * var(--gutter)) 0 0;
+  padding: var(--space-2) var(--gutter) var(--space-3) var(--space-2);
+  margin-left: calc(-1 * var(--space-2));
   list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: clamp(14px, 2vw, 20px);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--space-2);
 }
 
-.activityGrid {
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+.categoryGrid > li {
+  flex: none;
+  width: 200px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 1024px) {
+  .categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-6) var(--space-5);
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .categoryGrid > li {
+    width: auto;
+  }
 }
 
 .categoryCard {
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 14px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  gap: var(--space-2);
   height: 100%;
-}
-
-.categoryMedia {
-  aspect-ratio: 16 / 10;
-  background: var(--color-surface);
-  overflow: hidden;
+  color: var(--color-ink);
+  text-decoration: none;
 }
 
 .categoryImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
 }
 
-.categoryBody {
-  padding: 18px 22px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex-grow: 1;
-}
-
-.categoryTitleRow {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* Rubrikliknande etikett: tidigare --font-display (Bebas Neue laddades aldrig, så
-   reservtypsnittet visades) – nu --font-heading som övriga kortrubriker. */
 .categoryName {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: var(--text-h3);
   font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--color-ink);
+  line-height: var(--lh-h3);
+}
+
+.categoryCard:hover .categoryName {
+  color: var(--color-accent);
 }
 
 .categoryCount {
-  color: var(--color-accent);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--color-text-muted);
 }
 
 .categoryTagline {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
   color: var(--color-text-muted);
 }
 
 /* ── Aktiviteter ── */
 .listIntro {
-  font-size: 0.95rem;
+  max-width: var(--w-text);
+  margin-bottom: var(--space-5);
   color: var(--color-text-muted);
-  line-height: 1.7;
-  margin: 0 0 24px;
-  max-width: 60ch;
 }
 
-.filterBar {
-  position: sticky;
-  top: 72px;
-  z-index: 40;
-  background: rgba(254, 254, 251, 0.94);
-  backdrop-filter: blur(8px);
-  padding: 14px 0;
-  margin-bottom: 28px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 /* Visas av AgeFilter (global .a2-age-empty styr display) */
 .empty {
-  padding: 32px;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
   text-align: center;
   color: var(--color-text-muted);
-}
-
-@media (max-width: 768px) {
-  /* <section>-elementen fick 4rem luft upptill och nedtill på mobil */
-  .introSection,
-  .block,
-  .activities {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  .sectionTitle {
-    font-size: clamp(22px, 6vw, 28px);
-    margin-bottom: 10px;
-  }
-
-  .categoryTagline,
-  .listIntro {
-    font-size: 16px;
-    margin-bottom: 1.25rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .categoryTagline,
-  .listIntro {
-    font-size: 15px;
-  }
 }

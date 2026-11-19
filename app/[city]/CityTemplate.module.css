@@ -1,292 +1,306 @@
-/* Gemensam stadsmall (app/[city]). Rubriker (h2/h3) får storlek från basreglerna i globals.css. */
+/* Gemensam stadsmall (app/[city]), designsystem 5.4.
+   Textspalt (max 68ch) + högerspalt (faktaruta, topp 3, kartlänkar) från 1024 px.
+   På mobil: ingress → faktaruta → resten. Rubriker (h2/h3) och p får storlek från
+   basreglerna i globals.css – här bara layout och komponentform med tokens. */
 
 .page {
-  min-height: 100vh;
   background: var(--color-bg);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: 60px;
+  padding: var(--space-5) var(--gutter) 0;
 }
 
 .breadcrumbs {
-  margin-bottom: 32px;
+  margin-bottom: var(--space-5);
 }
 
-/* Brödtext + sidospalt */
-.grid {
+/* Basregeln för <nav> ger 16 px sidpadding på mobil – brödsmulorna ska linjera med texten */
+.breadcrumbs nav {
+  padding-inline: 0;
+}
+
+/* ── Layout ── */
+.layout {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'intro'
+    'aside'
+    'main';
+  row-gap: var(--space-6);
 }
 
-.about {
-  color: var(--color-ink);
+.intro {
+  grid-area: intro;
+  max-width: var(--w-text);
 }
 
-.withIcon {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+.aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
 }
 
-.tipsTitle {
-  margin-top: 32px;
+.main {
+  grid-area: main;
+  min-width: 0;
+  max-width: var(--w-text);
 }
 
-.tips {
-  padding-left: 20px;
-  font-size: 1rem;
-  line-height: 2;
-  color: var(--color-ink);
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-top: var(--space-6);
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, var(--w-text)) minmax(280px, 360px);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'intro aside'
+      'main aside';
+    column-gap: var(--space-8);
+    row-gap: var(--space-7);
+  }
+
+  .aside {
+    align-self: start;
+    gap: var(--space-5);
+  }
+
+  .sections {
+    gap: var(--space-7);
+  }
+}
+
+/* ── Text ── */
+.intro p:last-child,
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.lead {
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
 }
 
 .link {
   color: var(--color-accent);
   font-weight: 600;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link:hover {
+  color: var(--color-accent-hover);
 }
 
-/* Höjdpunkter: lista */
-.highlights {
-  margin: 32px 0;
+.label {
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
-.highlightRow {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 0;
-}
-.highlightRow:not(:last-child) {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  color: var(--color-ink);
-}
-
-.highlightText {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-text);
-}
-
-/* Höjdpunkter: kort */
-.cardsBlock {
-  margin-top: 40px;
-}
-
-.cards {
+/* ── Högerspalt: faktaruta och rutor ── */
+.facts,
+.box {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-radius: var(--radius-card);
 }
 
-.card {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 14px 18px;
-  background: var(--color-white);
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+.facts {
+  background: var(--color-surface);
 }
 
-.cardText {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-ink);
-}
-
-/* Sidospalt */
 .box {
-  margin-bottom: 20px;
-  padding: 28px;
   background: var(--color-white);
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
 }
 
+/* Rubrikerna i rutorna är h2 i dokumentet men visas i h3-storlek */
 .boxTitle {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  margin: 0;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
 }
 
-.practical {
-  color: var(--color-text-soft);
+.factList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-4);
+  margin: 0;
 }
 
-.mapLink {
-  display: block;
-  padding: 14px;
-  background: var(--color-ink-strong);
-  border-radius: 8px;
-  color: var(--color-white);
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
+.factValue {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+
+.mapButton {
+  margin-top: var(--space-1);
+}
+
+.boxList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: 1.25em;
+  font-size: var(--text-small);
+}
+.boxList li {
+  line-height: var(--lh-small);
 }
 
 .places {
-  margin-top: 20px;
-  padding: 24px;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.places li + li {
+  border-top: 1px solid var(--color-border);
 }
 
 .place {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) 0;
+  font-size: var(--text-small);
   color: var(--color-ink);
   text-decoration: none;
 }
-.place:not(:last-child) {
-  border-bottom: 1px solid #f0ebe3;
-}
-
-.placeName {
-  font-size: 0.9rem;
+.place:hover {
+  color: var(--color-accent);
 }
 
 .placeMap {
   flex-shrink: 0;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
-/* Desktop: storlekar (på mobil gäller basens p-regel: 16px) */
-@media (min-width: 769px) {
-  .about {
-    font-size: 1.05rem;
-  }
-
-  .practical {
-    font-size: 0.9rem;
+@media (min-width: 1024px) {
+  .factList {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 32px 16px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .tipsTitle {
-    margin-top: 0;
-  }
+/* ── Sektioner i textspalten ── */
+.list {
+  padding-left: 1.25em;
+  margin-bottom: var(--space-4);
+}
+.list li + li {
+  margin-top: var(--space-2);
 }
 
-/* Utbyggda sektioner (åtgärd 3.2) */
-.guide {
-  margin-top: 8px;
-}
-
-.section {
-  margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid var(--color-border);
-}
-
-.list,
+/* Bo-områden: små kort i rutnät */
 .areas {
-  padding-left: 20px;
-  line-height: 1.7;
-  color: var(--color-ink);
-}
-.list li,
-.areas li {
-  margin-bottom: 8px;
-}
-
-.areaName {
-  color: var(--color-ink-strong);
-}
-
-.transport {
-  margin: 0;
-}
-
-.transportRow {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 16px;
-  padding: 12px 0;
-}
-.transportRow:not(:last-child) {
-  border-bottom: 1px solid var(--color-border);
-}
-
-.transportMode {
-  font-weight: 700;
-  color: var(--color-ink-strong);
-}
-
-.transportText {
-  margin: 0;
-  line-height: 1.6;
-  color: var(--color-ink);
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.chip {
-  display: inline-block;
-  padding: 6px 14px;
+.area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-radius: 999px;
-  color: var(--color-ink);
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-.chip:hover,
-.chip:focus-visible {
-  border-color: var(--color-accent);
+  border-radius: var(--radius-card);
 }
 
-.marketDays {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-ink-strong);
+.areaName {
+  margin: 0;
 }
 
-.small {
-  font-size: 0.95rem;
+.areaText {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }
 
-@media (max-width: 768px) {
+/* Ta sig dit: definitionslista med linjer */
+.transport {
+  margin: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.transportRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-1);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.transportText {
+  margin: 0;
+}
+
+@media (min-width: 640px) {
   .transportRow {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    grid-template-columns: 10rem minmax(0, 1fr);
+    align-items: baseline;
+    gap: var(--space-4);
   }
 }
 
-/* Sektionsrubrikerna är många – något mindre än sidans huvudsektioner. */
-.section h2 {
-  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+/* Stränder: länkchips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-white);
+  border: 1px solid var(--color-chip-border);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.chip:hover {
+  border-color: var(--color-ink);
+}
+
+.more {
+  margin: 0;
+}
+
+.marketDays {
+  font-size: var(--text-lead);
+  font-weight: 600;
+  line-height: var(--lh-lead);
 }

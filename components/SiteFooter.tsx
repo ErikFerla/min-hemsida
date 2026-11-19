@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { IconPalm } from '@/components/Icons';
+import { LogoLockup } from '@/components/Logo';
 import SiteFooterAccordion from '@/components/SiteFooterAccordion';
 import styles from './SiteFooter.module.css';
 
@@ -77,9 +77,9 @@ export default function SiteFooter() {
         <div className={styles.grid}>
           {/* Column 1 — Brand */}
           <div>
-            <p className={styles.brand}>
-              DIN GUIDE PÅ MALLORCA <IconPalm size={22} />
-            </p>
+            <Link href="/" className={styles.brandLink}>
+              <LogoLockup className={styles.brand} markClassName={styles.brandMark} nameClassName={styles.brandName} />
+            </Link>
             <p className={styles.about}>
               Din kompletta guide till Mallorca på svenska. Insidertips, stränder, mat, golf och mycket mer.
             </p>

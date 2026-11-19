@@ -1,0 +1,107 @@
+/* Chips (5.3) – EN filterchip och EN tagg för hela sajten.
+
+   .chip      filterchip (<button aria-pressed>): rund, 44 px tryckyta, kant --color-chip-border,
+              valt läge (aria-pressed="true") = ink-bakgrund + vit text – överallt.
+   .row       rad med chips som radbryts
+   .scrollRow rad med chips som sveps i sidled på mobil (uttoning i kanterna)
+   .count     resultaträknare bredvid/under filtret (small, sekundär färg)
+   .tag       tagg: liten, yta-färg, ingen kant (kännetecken, ålder, kategori, highlights)
+   .tags      rad med taggar
+
+   Använd genom att komponera: .button { composes: chip from '../../components/Chip.module.css'; } */
+
+.chip {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-chip-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+@media (hover: hover) {
+  .chip:hover {
+    border-color: var(--color-ink);
+  }
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.scrollRow {
+  composes: row;
+}
+
+.count {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .scrollRow {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-inline: calc(-1 * var(--space-4));
+    padding: 2px var(--space-4);
+    scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, black var(--space-4), black calc(100% - var(--space-5)), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, black var(--space-4), black calc(100% - var(--space-5)), transparent 100%);
+  }
+  .scrollRow::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip {
+    transition: none;
+  }
+}

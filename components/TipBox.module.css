@@ -1,0 +1,91 @@
+/* Tipsrutan "Från oss" (5.2). Se components/TipBox.tsx. */
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5);
+  border-radius: var(--radius-sm) 14px 14px var(--radius-sm);
+  color: var(--color-ink);
+  max-width: var(--w-text);
+}
+
+.tip {
+  background: var(--color-surface-warm);
+  border-left: 3px solid var(--color-accent);
+}
+
+.warning,
+.info {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+}
+.warning { border-left: 3px solid var(--color-warning); }
+.info { border-left: 3px solid var(--color-info); }
+
+.compact {
+  padding: var(--space-4) var(--space-5);
+  gap: var(--space-2);
+}
+
+.wave {
+  color: var(--color-accent);
+  flex: none;
+}
+.compact .wave { width: 36px; height: 9px; }
+
+.heading {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-voice);
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-ink);
+}
+.compact .heading { font-size: var(--text-h3); }
+
+.headingPlain {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-body);
+  line-height: 1.4;
+  color: var(--color-ink);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+.compact .body,
+.warning .body,
+.info .body { font-size: var(--text-small); line-height: 1.55; }
+
+.body > * { margin: 0; }
+.body :is(ul, ol) {
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.body li { margin: 0; }
+
+.signature {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-lead);
+  color: var(--color-accent);
+}
+
+@media (min-width: 1024px) {
+  .box:not(.compact):not(.warning):not(.info) { padding: var(--space-6) var(--space-6); }
+}

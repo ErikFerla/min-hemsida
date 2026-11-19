@@ -12,6 +12,9 @@ export default function LastChecked({ date, sources = [], note }: { date: string
   return (
     <aside className={styles.box} aria-label="Om uppgifterna på sidan">
       <p className={styles.date}>
+        <svg className={styles.check} width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+          <path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
         Senast kontrollerad <time dateTime={date}>{formatter.format(new Date(`${date}T00:00:00Z`))}</time>
       </p>
       {note && <p className={styles.note}>{note}</p>}

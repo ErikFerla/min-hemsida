@@ -53,32 +53,35 @@ export default function SectionEvents() {
         <div className={styles.header}>
           <div>
             <p className={s.label}>På Mallorca</p>
-            <h2 className={`${s.title} ${styles.uppercase}`}>Kommande evenemang</h2>
+            <h2 className={s.title}>Kommande evenemang</h2>
             <div className={s.divider} />
             <p className={styles.intro}>
               Fiestor, mässor, cykellopp och regattor året runt. Välj dina resdatum på evenemangssidan så ser du vad som händer – och vilka byar som har marknad – under just din resa.
             </p>
-            <Link href="/evenemang#resekalender" className={s.btnPrimary}>
-              SE VAD SOM HÄNDER UNDER DIN RESA →
+            <Link href="/evenemang#resekalender" className="btn btn-primary">
+              Se vad som händer under din resa →
             </Link>
           </div>
           <div className={styles.grid}>
             {urval.map(e => (
               <article key={e.key} className={styles.card}>
                 <div className={styles.media}>
-                  <img src={evenemangBild[e.id] ?? kategoriBild[e.kategori]} alt="" loading="lazy" decoding="async" width={600} height={140} className={styles.image} />
-                  <div className={styles.category}>{e.kategori}</div>
+                  <img src={evenemangBild[e.id] ?? kategoriBild[e.kategori]} alt="" loading="lazy" decoding="async" width={600} height={400} />
+                  <span className={styles.category}>{e.kategori}</span>
                 </div>
                 <div className={styles.body}>
                   <p className={styles.meta}>
-                    <IconCalendar size={12} /> {e.datum} · <IconPin size={12} /> {e.plats}
+                    <span className={styles.metaItem}><IconCalendar size={12} /> {e.datum}</span>
+                    <span className={styles.metaItem}><IconPin size={12} /> {e.plats}</span>
                   </p>
                   {e.status === 'preliminärt' && <p className={styles.unconfirmed}>Preliminärt datum</p>}
                   <h3 className={styles.name}>{e.namn}</h3>
                   <p className={styles.desc}>{e.beskrivning}</p>
-                  <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className={styles.link}>
-                    {e.källa.label} ↗
-                  </a>
+                  <div className={styles.actions}>
+                    <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                      {e.källa.label} ↗
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}

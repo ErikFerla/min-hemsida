@@ -24,10 +24,10 @@ export default function Error({ error, retry }: { error: unknown; retry: () => v
         </p>
 
         <div className={styles.actions}>
-          <button type="button" onClick={() => retry()} className={styles.primary}>
+          <button type="button" onClick={() => retry()} className="btn btn-primary">
             Försök igen
           </button>
-          <Link href="/" className={styles.secondary}>
+          <Link href="/" className="btn btn-secondary">
             Till startsidan
           </Link>
         </div>

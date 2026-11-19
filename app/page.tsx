@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
@@ -10,9 +10,10 @@ import SectionEvents from './components/SectionEvents';
 import Map from '@/components/Map';
 import { cityMapMarkers } from '@/data/cities';
 import FeatureCards from './components/FeatureCards';
-import MobileFeatureCards from '@/components/MobileFeatureCards';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import { DEFAULT_OG_IMAGE } from '@/app/lib/city-seo';
+import { förslag } from '@/app/lib/planner';
+import TipBox from '@/components/TipBox';
 
 // Startsidans "Kommande evenemang" beror på dagens datum – bygg om sidan en gång per dygn.
 export const revalidate = 86400;
@@ -43,6 +44,9 @@ export const metadata: Metadata = {
   },
 };
 
+// "Grytes favoritstrand" – samma text som i resplaneraren (app/lib/planner.ts).
+const favoritstrand = förslag['calo-des-moro'];
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -51,31 +55,107 @@ export default function Home() {
       <HeroSlideshow />
 
       <div className={styles.container}>
-        <section className={styles.discover}>
-          <div className={s.inner}>
-            <p className={s.label}>VAD VILL DU UPPLEVA?</p>
-            <h2 className={s.title}>Upptäck Mallorca</h2>
-            <div className={s.divider}></div>
-            {/* MOBIL: kompakta kort */}
-            <div className={styles.mobileOnly}>
-              <MobileFeatureCards />
+        {/* Om MyMallorca: bild + text + Eriks tips */}
+        <section className={`${s.pageSection} ${styles.flushBottom}`} aria-labelledby="om-rubrik">
+          <div className={styles.split}>
+            {/* BILD VÄNSTER – gata i Palmas centrum (Foto: Felix / Unsplash) */}
+            <div>
+              <Image
+                src="/bilder/palma/felix-4pqjneOJa9k-unsplash.jpg"
+                sizes="(max-width: 1023px) 100vw, 50vw"
+                alt="Smal gata i Palmas centrum med balkonger, kaféer och ett utsmyckat modernistiskt hus med torn"
+                title="Foto: Felix / Unsplash"
+                width={4160}
+                height={6240}
+                loading="lazy"
+                className={styles.portrait}
+              />
             </div>
-            {/* DESKTOP: feature-cards med hover */}
-            <div className={styles.desktopOnly}>
-              <FeatureCards />
+
+            <div className={styles.text}>
+              <p className={s.label}>Upplev skillnaden</p>
+              <h2 id="om-rubrik" className={s.title}>
+                Din guide till Mallorca – inifrån och ut
+              </h2>
+              <p className={styles.body}>
+                De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
+                Det är skillnaden mellan en semester vid hotellpoolen och en morgon
+                på en okänd strand i nordväst – där vattnet är turkost och du
+                är ensam om den.
+              </p>
+              <p className={styles.body}>
+                MyMallorca drivs av kärlek till ön, inte av försäljning. Här
+                samlar vi stränder, byar, barnaktiviteter, vingårdar och
+                smultronställen som vi själva återvänder till – för dig som
+                reser med familjen, som par eller har ditt andra hem på ön.
+              </p>
+              <TipBox signature="Erik" className={styles.quoteBox}>
+                <p className={styles.quoteLabel}>Tips från en lokal</p>
+                <p className={styles.quote}>
+                  ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
+                </p>
+              </TipBox>
+              <div>
+                <Link href="/guider" className="btn btn-primary">
+                  Se våra guider →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
-        <section className={`${s.pageSection} ${styles.clip}`}>
-          <div className={styles.split}>
+        <section className={styles.discover}>
+          <div className={s.inner}>
+            <p className={s.label}>Vad vill du uppleva?</p>
+            <h2 className={s.title}>Upptäck Mallorca</h2>
+            <div className={s.divider}></div>
+            {/* Samma genvägskort på mobil och dator (5.3) */}
+            <FeatureCards />
+          </div>
+        </section>
 
-            {/* BILD VÄNSTER – Palmas gamla stan (Foto: Luca / Unsplash) */}
+        {/* Grytes favoritstrand (texten kommer från resplaneraren) */}
+        <section className={`${s.pageSection} ${styles.flushBottom}`} aria-labelledby="favoritstrand-rubrik">
+          <div className={styles.favorite}>
+            <div className={styles.favoriteImage}>
+              <Image
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg"
+                sizes="(max-width: 1023px) 100vw, 45vw"
+                alt="Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog"
+                title="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
+                fill
+                loading="lazy"
+                className={styles.favoriteImg}
+              />
+            </div>
+            <div className={styles.favoriteText}>
+              <svg className={styles.wave} width="48" height="12" viewBox="0 0 48 12" aria-hidden="true" focusable="false">
+                <path d="M1 7 Q7 1 13 7 T25 7 T37 7 T47 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+              </svg>
+              <h2 id="favoritstrand-rubrik" className={styles.favoriteTitle}>Grytes favoritstrand</h2>
+              <p className={styles.favoriteLead}>{favoritstrand.titel}</p>
+              <p className={styles.favoriteBody}>{favoritstrand.förmiddag} {favoritstrand.eftermiddag}</p>
+              <p className={styles.favoriteSign}>– Erik</p>
+              <p className={styles.favoriteLinks}>
+                {favoritstrand.länkar.map(l => (
+                  <Link key={l.href} href={l.href} className="link-arrow">
+                    {l.label} →
+                  </Link>
+                ))}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Varför Mallorca: text + siffror, bild till höger */}
+        <section className={s.pageSection} aria-labelledby="varfor-rubrik">
+          <div className={`${styles.split} ${styles.splitReverse}`}>
+            {/* BILD – Palmas gamla stan (Foto: Luca / Unsplash) */}
             <div>
               <img
                 src="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format"
                 srcSet="https://images.unsplash.com/photo-1666522561774-81df403b6872?w=640&q=80&fm=webp&auto=format 640w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=960&q=80&fm=webp&auto=format 960w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1280&q=80&fm=webp&auto=format 1280w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=1600&q=80&fm=webp&auto=format 1600w, https://images.unsplash.com/photo-1666522561774-81df403b6872?w=2000&q=80&fm=webp&auto=format 2000w"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 1023px) 100vw, 50vw"
                 alt="Stentrappa i Palmas gamla stan med gyllene sandstensfasader, blommor och en kyrka i fjärran"
                 title="Foto: Luca / Unsplash"
                 width={1280}
@@ -86,93 +166,47 @@ export default function Home() {
               />
             </div>
 
-            {/* TEXT HÖGER */}
-            <div>
-              <p className={s.label}>
-                VARFÖR MALLORCA
-              </p>
-              <h2 className={s.title}>
+            <div className={styles.text}>
+              <p className={s.label}>Varför Mallorca</p>
+              <h2 id="varfor-rubrik" className={s.title}>
                 En ö med allt – året om
               </h2>
-              <div className={styles.dividerWide} />
-              <p className={`${styles.lead} ${styles.mb20}`}>
+              <p className={styles.lead}>
                 Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergsbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>
-              <p className={`${styles.lead} ${styles.mb36}`}>
+              <p className={styles.lead}>
                 Öns nordvästra bergsmassiv, Serra de Tramuntana, finns på Unescos världsarvslista. Längs kusterna hittar du över 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
               </p>
               <div className={styles.stats}>
                 {[
                   { siffra: '200+', text: 'Stränder och vikar', href: '/strandar' },
-                  { siffra: '22', text: 'Golfbanor', href: '/aktiviteter/golf' },
+                  { siffra: '20+', text: 'Golfbanor', href: '/aktiviteter/golf' },
                   { siffra: '300', text: 'Soldagar per år', href: '/vader' },
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
                 ].map((stat, i) => (
                   <Link key={i} href={stat.href} className={styles.stat}>
-                    <p className={styles.statNumber}>{stat.siffra}</p>
-                    <p className={styles.statText}>{stat.text}</p>
+                    <span className={styles.statNumber}>{stat.siffra}</span>
+                    <span className={styles.statText}>{stat.text}</span>
                   </Link>
                 ))}
               </div>
-              <Link href="/byar" className={s.btnPrimary}>
-                UTFORSKA ÖN →
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section className={s.pageSection}>
-          <div className={styles.split}>
-
-            {/* BILD VÄNSTER – gata i Palmas centrum (Foto: Felix / Unsplash) */}
-            <div>
-              <Image
-                src="/bilder/palma/felix-4pqjneOJa9k-unsplash.jpg"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                alt="Smal gata i Palmas centrum med balkonger, kaféer och ett utsmyckat modernistiskt hus med torn"
-                title="Foto: Felix / Unsplash"
-                width={4160}
-                height={6240}
-                loading="lazy"
-                className={styles.portrait}
-              />
-            </div>
-
-            {/* TEXT HÖGER */}
-            <div>
-              <p className={s.label}>
-                UPPLEV SKILLNADEN
-              </p>
-              <h2 className={s.title}>
-                Din guide till Mallorca – inifrån och ut
-              </h2>
-              <div className={s.divider} />
-              <p className={`${styles.body} ${styles.mb20px}`}>
-                De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
-                Det är skillnaden mellan en semester vid hotellpoolen och en morgon
-                på en okänd strand i nordväst – där vattnet är turkost och du
-                är ensam om den.
-              </p>
-              <p className={`${styles.body} ${styles.mb32px}`}>
-                MyMallorca drivs av kärlek till ön, inte av försäljning. Här
-                samlar vi stränder, byar, barnaktiviteter, vingårdar och
-                smultronställen som vi själva återvänder till – för dig som
-                reser med familjen, som par eller har ditt andra hem på ön.
-              </p>
-              <Link href="/guider" className={s.btnPrimary}>
-                SE VÅRA GUIDER →
-              </Link>
+              <div>
+                <Link href="/byar" className="btn btn-secondary">
+                  Utforska ön →
+                </Link>
+              </div>
             </div>
           </div>
         </section>
         <div><SectionSeason /></div>
         <div><SectionPlanner /></div>
         <div><SectionEvents /></div>
-        <section className={s.pageSection}>
+        <section className={s.pageSection} aria-labelledby="karta-rubrik">
           <div className={s.wide}>
             <p className={`${s.label} ${s.center}`}>
-              UTFORSKA ÖN
+              Utforska ön
             </p>
-            <h2 className={`${s.title} ${s.center}`}>
+            <h2 id="karta-rubrik" className={`${s.title} ${s.center}`}>
               Städer &amp; byar på Mallorca
             </h2>
             <p className={styles.mapIntro}>

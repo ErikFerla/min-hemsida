@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconStar, IconBuilding, IconPin, IconBulb, IconMap } from '@/components/Icons';
+import { IconStar, IconBuilding, IconPin, IconMap } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import JsonLd from '@/app/components/JsonLd';
 import { cities, cityPath } from '@/data/cities';
 import { cityUrl } from '@/app/lib/city-seo';
@@ -38,12 +39,12 @@ export default function ByarSida() {
       <div className={styles.container}>
         <div className={styles.grid}>
           {cities.map((stad) => (
-            <div key={stad.slug} className={styles.card}>
+            <article key={stad.slug} className={styles.card}>
               <div className={styles.media}>
-                <Image src={stad.card.image} alt={stad.name} width={600} height={180} className={styles.image} loading="lazy" />
-                <div className={styles.region}>
+                <Image src={stad.card.image} alt={stad.name} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px" loading="lazy" />
+                <span className={styles.region}>
                   {stad.region}
-                </div>
+                </span>
               </div>
               <div className={styles.body}>
                 <h2 className={styles.name}>{stad.name}</h2>
@@ -61,19 +62,19 @@ export default function ByarSida() {
                     );
                   })}
                 </div>
-                <div className={styles.tip}>
-                  <IconBulb size={14} className={styles.inlineIcon} /> {stad.card.tip}
-                </div>
+                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
+                  <p>{stad.card.tip}</p>
+                </TipBox>
                 <div className={styles.actions}>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" className={styles.button}>
-                    <IconMap size={14} className={styles.inlineIcon} /> Visa på karta
+                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                    <IconMap size={14} /> Visa på karta ↗
                   </a>
-                  <Link href={cityPath(stad)} className={styles.buttonOutline}>
+                  <Link href={cityPath(stad)} className="link-arrow">
                     Utforska →
                   </Link>
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

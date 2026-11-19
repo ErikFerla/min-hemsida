@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { IconPin, IconExternal, IconMap, IconGlass, IconLeaf, IconUsers, PriceTag } from '@/components/Icons';
+import { IconPin, IconExternal, IconMap, IconGlass, IconLeaf, PriceTag } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
 
@@ -69,7 +70,7 @@ export default function VingardarPage() {
           {vingårdar.map((v, i) => (
             <article key={v.namn} className={styles.card}>
               <div className={styles.media}>
-                <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width:860px) 100vw, 860px" className={styles.cover} loading={i < 2 ? 'eager' : 'lazy'} />
+                <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 639px) 100vw, 440px" loading={i < 2 ? 'eager' : 'lazy'} />
                 <div className={styles.rank}>{i + 1}.</div>
                 {v.eko && (
                   <div className={styles.eco}>
@@ -85,42 +86,42 @@ export default function VingardarPage() {
                 </div>
 
                 <div className={styles.meta}>
-                  <span className={styles.metaItem}><IconPin size={11} /> {v.plats}</span>
+                  <span className={styles.metaItem}><IconPin size={12} /> {v.plats}</span>
                 </div>
 
                 <p className={styles.info}>{v.info}</p>
 
-                <div className={styles.facts}>
+                <dl className={styles.facts}>
                   <div>
-                    <p className={styles.factLabel}>Typ</p>
-                    <p className={styles.factValue}>{v.typ}</p>
+                    <dt className={styles.factLabel}>Typ</dt>
+                    <dd className={styles.factValue}>{v.typ}</dd>
                   </div>
                   <div>
-                    <p className={styles.factLabel}>Passar för</p>
-                    <p className={styles.factValue}>{v.passarFör}</p>
+                    <dt className={styles.factLabel}>Passar för</dt>
+                    <dd className={styles.factValue}>{v.passarFör}</dd>
                   </div>
                   <div className={styles.wide}>
-                    <p className={styles.factLabel}>Upplevelse</p>
-                    <p className={styles.factValue}>{v.upplevelse}</p>
+                    <dt className={styles.factLabel}>Upplevelse</dt>
+                    <dd className={styles.factValue}>{v.upplevelse}</dd>
                   </div>
                   <div className={styles.wide}>
-                    <p className={styles.factLabel}>Bokning</p>
-                    <p className={styles.factValue}>{v.bokning}</p>
+                    <dt className={styles.factLabel}>Bokning</dt>
+                    <dd className={styles.factValue}>{v.bokning}</dd>
                   </div>
                   {v.signaturvin && (
                     <div className={styles.wide}>
-                      <p className={styles.factLabel}>Signaturvin</p>
-                      <p className={`${styles.factValue} ${styles.signature}`}>{v.signaturvin}</p>
+                      <dt className={styles.factLabel}>Signaturvin</dt>
+                      <dd className={`${styles.factValue} ${styles.signature}`}>{v.signaturvin}</dd>
                     </div>
                   )}
-                </div>
+                </dl>
 
                 <div className={styles.actions}>
-                  <a href={v.maps} target="_blank" rel="noopener noreferrer" className={styles.mapButton}>
+                  <a href={v.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
                     <IconMap size={14} stroke={1.8} /> Visa på karta
                   </a>
                   {v.web && (
-                    <a href={v.web} target="_blank" rel="noopener noreferrer" className={styles.webButton}>
+                    <a href={v.web} target="_blank" rel="noopener noreferrer" className="link-arrow">
                       Hemsida <IconExternal size={13} stroke={1.8} />
                     </a>
                   )}
@@ -130,13 +131,9 @@ export default function VingardarPage() {
           ))}
         </div>
 
-        <div className={styles.note}>
-          <div className={styles.noteKicker}>
-            <IconUsers size={16} stroke={1.8} />
-            <span className={styles.noteKickerText}>Bra att veta</span>
-          </div>
-          <p className={styles.noteText}>De flesta vingårdar ligger 20–40 min bilväg från Palma. Räkna med 1,5–2 timmar per besök. Boka alltid i förväg på de små gårdarna – särskilt på lördagar.</p>
-        </div>
+        <TipBox tone="info" heading="Bra att veta" as="p" className={styles.note}>
+          <p>De flesta vingårdar ligger 20–40 min bilväg från Palma. Räkna med 1,5–2 timmar per besök. Boka alltid i förväg på de små gårdarna – särskilt på lördagar.</p>
+        </TipBox>
 
         <LastChecked
           date="2026-11-18"

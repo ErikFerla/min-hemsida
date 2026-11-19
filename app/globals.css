@@ -1,68 +1,159 @@
 /* ============================================================
    GLOBALA STILAR — mymallorca.se
 
-   Struktur (2.6):
-   1. Tokens (:root och body) – färger, typografi, knappar.
-   2. @layer base – nollställning och typografi för element (h1–h6, p,
-      section, nav …). Ligger i ett kaskadlager, så ALLA olagrade regler
-      (CSS Modules, inline-stilar) vinner oavsett specificitet.
-   3. Olagrade globala hjälpklasser som används av flera sidor
+   Struktur (2.6, designsystem riktning B 5.1):
+   1. Tokens (:root och body) – färgroller, typskala, avstånd, bredder, knappar.
+   2. @layer base – nollställning och typografi för element (h1–h4, p, nav …).
+      Ligger i ett kaskadlager, så ALLA olagrade regler (CSS Modules,
+      inline-stilar) vinner oavsett specificitet.
+   3. @layer components – gemensamma komponentklasser: .btn, .btn-primary,
+      .btn-secondary, .btn-on-dark, .link-arrow. Också lagrade, så en modul kan
+      lägga till layout (marginal, bredd) utan att skriva över formen.
+   4. Olagrade globala hjälpklasser som används av flera sidor
       (.sr-only, .skip-link, fokus, Leaflet, .a2-*).
-   Komponentspecifik styling hör hemma i <komponent>.module.css.
+   Komponentspecifik styling hör hemma i <komponent>.module.css – med tokens,
+   inga hårdkodade hexfärger eller egna textstorlekar.
    ============================================================ */
 
-@layer base;
+@layer base, components;
 
 /* ── 1. Tokens ─────────────────────────────────────────────── */
+/* TOKENÖVERSIKT (5.1)
+   Färg      --color-bg (bakgrund) · --color-surface (yta, fakta) · --color-surface-warm
+             (varm yta, personlig röst) · --color-ink (text, mörk yta) · --color-text-muted
+             (sekundär text) · --color-accent (+ -hover) · --color-border (linjer) ·
+             --color-chip-border · status: --color-info / --color-success / --color-warning
+             (BARA prick, tunn kant eller liten text på ljus botten – aldrig hel bakgrund) ·
+             mörk botten: --color-on-dark, --color-on-dark-muted, --color-on-dark-heading,
+             --color-accent-on-dark.
+   Text      --text-display / -h1 / -h2 / -h3 / -voice / -lead / -body / -small / -label.
+             Mobilvärde här, datorvärde från 1024 px. Inga andra storlekar.
+             Radhöjder --lh-*. Spärrning: --tracking-display (−0.02em), --tracking-label (0.12em);
+             ingen positiv spärrning på Playfair.
+   Vikter    Inter 400/600, Playfair 700 + kursiv 400 (se app/layout.tsx).
+   Avstånd   --space-1…9 = 4, 8, 12, 16, 24, 32, 48, 64, 96 px. Sektionsavstånd
+             --section-space (48 → 96 px) – används via .section-space eller
+             --section-padding-md.
+   Bredder   --w-text 68ch · --w-content 1120px · --w-wide 1280px · --gutter (16 → 32 px).
+             Brytpunkter: 640 / 1024 / 1280 px (custom properties fungerar inte i @media).
+   Form      --radius-sm 4 · --radius-btn 8 · --radius-card 12 · --radius-pill 999px.
+   Knapp     --btn-* (se .btn nedan). */
 :root {
-  /* Färgtokens (2.5) – alla textpar klarar WCAG AA (≥4,5:1).
-     Kontrast mot --color-bg / --color-surface / --color-surface-warm:
-       --color-ink          11,2 / 9,6 / 9,0
-       --color-text         10,2 / 8,8 / 8,3
-       --color-text-soft     7,5 / 6,4 / 6,1
-       --color-text-muted    5,9 / 5,0 / 4,7   (ersätter #6B7280, #9CA3AF, #888, #666)
-       --color-accent        7,2 / 6,2 / 5,8
-       --color-accent-mid    5,2 / 4,46 / –      (text bara på --color-bg)
-     --color-accent-soft (#e86c7f) är dekor – aldrig brödtext på ljus botten.
-     --color-on-dark på --color-ink 11,2, på --color-accent 7,2. */
+  /* Färgroller – alla textpar klarar WCAG AA (≥4,5:1).
+     Kontrast mot --color-bg / vit / --color-surface / --color-surface-warm:
+       --color-ink          11,2 / 11,3 / 9,6 / 9,0
+       --color-text-muted    6,5 / 6,5 / 5,5 / 5,2
+       --color-accent        7,2 / 7,3 / 6,2 / 5,8
+       --color-info          5,6 / 5,6 / 4,8 / 4,5
+       --color-success       4,8 / 4,9 / –   / –     (text bara på bg/vit)
+       --color-warning       4,7 / 4,7 / –   / –     (text bara på bg/vit)
+       --color-accent-mid    5,2 / –   / 4,46 / –    (text bara på --color-bg)
+     På --color-ink: --color-on-dark 11,2 · --color-on-dark-heading 6,9 · --color-accent-on-dark 5,6.
+     --color-accent-soft (#e86c7f) är dekor – aldrig brödtext på ljus botten. */
   --color-bg: #fefefb;
   --color-surface: #eeede4;
   --color-surface-warm: #ede5da;
   --color-ink: #383a46;
-  --color-ink-strong: #1a1a1a;
-  --color-text: #374151;
-  --color-text-soft: #4b5563;
-  --color-text-muted: #5f6472;
+  --color-ink-strong: var(--color-ink); /* tidigare #1a1a1a – systemet har bara en textfärg */
+  --color-text: var(--color-ink);
+  --color-text-soft: var(--color-text-muted);
+  --color-text-muted: #5b5d6b;
   --color-accent: #993335;
-  --color-accent-hover: #7f2a2c;
+  --color-accent-hover: #7a2729;
   --color-accent-mid: #ba4446;
   --color-accent-soft: #e86c7f;
+  --color-accent-on-dark: #e6a7a9;
   --color-on-dark: #fefefb;
   --color-on-dark-muted: rgba(254, 254, 251, 0.82);
-  --color-border: #ede5da;
+  --color-on-dark-heading: #c9c9d1;
+  --color-border: #dcd9cc;
+  --color-chip-border: #cfccbf;
   --color-focus: #993335;
   --color-white: #ffffff;
   --color-error: #b42318;
-  --color-warning-text: #92400e;
+  --color-info: #2f6f86;
+  --color-success: #5d7a3a;
+  --color-warning: #9a6a12;
+  --color-warning-text: var(--color-warning);
+  /* Bildöverlägg och bakgrund bakom bilder som inte laddats */
+  --color-image-bg: #2b2c33;
+  --hero-shade: linear-gradient(180deg, rgba(20, 20, 26, 0) 35%, rgba(20, 20, 26, 0.72) 100%);
 
-  /* Avstånd */
-  --section-padding-md: 5rem 0;
+  /* Typskala – mobil (datorvärden i @media nedan) */
+  --text-display: 2.25rem;  /* 36 → 60 */
+  --text-h1: 2rem;          /* 32 → 48 */
+  --text-h2: 1.625rem;      /* 26 → 36 */
+  --text-h3: 1.25rem;       /* 20 → 24 */
+  --text-voice: 1.375rem;   /* 22 → 26  Playfair kursiv 400 */
+  --text-lead: 1.125rem;    /* 18 → 20 */
+  --text-body: 1.0625rem;   /* 17 */
+  --text-small: 0.875rem;   /* 14 → 15 */
+  --text-label: 0.75rem;    /* 12  Inter 600, versaler */
+  --lh-display: 1.05;
+  --lh-h1: 1.1;
+  --lh-h2: 1.15;
+  --lh-h3: 1.25;
+  --lh-voice: 1.4;
+  --lh-lead: 1.55;
+  --lh-body: 1.7;
+  --lh-small: 1.5;
+  --tracking-display: -0.02em;
+  --tracking-label: 0.12em;
+  --prose-line-height: var(--lh-body);
 
-  /* Knappar */
-  --btn-padding: 0.875rem 2rem;
-  --btn-font-size: 0.8125rem;
-  --btn-letter-spacing: 0.08em;
-  --btn-border-radius: 3px;
+  /* Avstånd (4 px-bas) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --section-space: var(--space-7);
+  --section-padding-md: var(--section-space) 0;
+
+  /* Bredder */
+  --w-text: 68ch;
+  --w-content: 1120px;
+  --w-wide: 1280px;
+  --gutter: var(--space-4);
+
+  /* Form */
+  --radius-sm: 4px;
+  --radius-btn: 8px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* Knappar – en form, tre varianter (.btn-primary, .btn-secondary, .link-arrow) */
+  --btn-padding: 10px 20px;
+  --btn-min-height: 44px;
+  --btn-font-size: 1rem;
+  --btn-letter-spacing: 0;
+  --btn-border-radius: var(--radius-btn);
+  --btn-border-width: 1.5px;
   --btn-font-weight: 600;
-
-  /* Brödtext */
-  --prose-line-height: 1.7;
 }
 
-/* Typografitokens (2.6). Definieras på body – inte :root – eftersom next/font sätter
+@media (min-width: 1024px) {
+  :root {
+    --text-display: 3.75rem;
+    --text-h1: 3rem;
+    --text-h2: 2.25rem;
+    --text-h3: 1.5rem;
+    --text-voice: 1.625rem;
+    --text-lead: 1.25rem;
+    --text-small: 0.9375rem;
+    --section-space: var(--space-9);
+    --gutter: var(--space-6);
+  }
+}
+
+/* Typsnittstokens (2.6). Definieras på body – inte :root – eftersom next/font sätter
    --font-inter och --font-playfair på <body>; var() löses där tokenen definieras.
-   Rubriker (h1–h4 och rubrikliknande element) = --font-heading (Playfair Display).
-   Etiketter, överrader, knappar och brödtext = --font-body (Inter). */
+   Rubriker (h1–h4 och rubrikliknande element) = --font-heading (Playfair Display 700).
+   Personlig röst = --font-heading kursiv 400. Etiketter, knappar och brödtext = --font-body (Inter). */
 body {
   --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-heading: var(--font-playfair), Georgia, 'Times New Roman', serif;
@@ -91,6 +182,8 @@ body {
   body {
     background: var(--color-bg);
     color: var(--color-ink);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
   }
 
   /* Brödtext och UI = Inter (sätts direkt på elementen, ärvs inte från förälder) */
@@ -98,39 +191,47 @@ body {
     font-family: var(--font-body);
   }
 
-  /* Rubriker = Playfair Display */
+  /* Rubriker = Playfair Display 700, tät spärrning */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
     word-spacing: normal;
+    overflow-wrap: break-word;
   }
 
   h1 {
-    line-height: 1.05;
+    font-size: var(--text-h1);
+    line-height: var(--lh-h1);
+    letter-spacing: var(--tracking-display);
+    margin-bottom: var(--space-4);
   }
 
   h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
+    font-size: var(--text-h2);
+    line-height: var(--lh-h2);
+    margin-bottom: var(--space-4);
   }
 
   h3 {
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    line-height: 1.3;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.75rem;
+    font-size: var(--text-h3);
+    line-height: var(--lh-h3);
+    margin-bottom: var(--space-3);
+  }
+
+  h4 {
+    font-size: var(--text-lead);
+    line-height: var(--lh-h3);
+    margin-bottom: var(--space-2);
   }
 
   p {
-    line-height: var(--prose-line-height);
-    margin-bottom: 1.25rem;
+    line-height: var(--lh-body);
+    margin-bottom: var(--space-4);
   }
 
-  section li {
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
+  li {
+    line-height: var(--lh-body);
   }
 
   main {
@@ -138,6 +239,9 @@ body {
     overflow-x: hidden;
   }
 
+  /* Mobil. Den tidigare globala section-paddingen (4rem) och de mobila
+     rubrik-/styckestorlekarna är borttagna (5.1) – storlekarna kommer från
+     typskalan och sektionsavståndet från --section-space. */
   @media (max-width: 768px) {
     html,
     body {
@@ -154,48 +258,6 @@ body {
       padding-left: 16px;
       padding-right: 16px;
     }
-
-    section {
-      width: 100%;
-      max-width: 100%;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-
-    p {
-      font-size: 16px;
-      margin-bottom: 1.25rem;
-    }
-
-    h1 {
-      font-size: clamp(28px, 8vw, 36px);
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: clamp(22px, 6vw, 28px);
-      line-height: 1.15;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    h3 {
-      font-size: clamp(18px, 5vw, 22px);
-      line-height: 1.25;
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-  }
-
-  @media (max-width: 380px) {
-    p {
-      font-size: 15px;
-    }
-
-    h1 {
-      word-break: break-word;
-    }
   }
 
   /* Touch-enheter: inga hover-effekter som kräver mus */
@@ -207,7 +269,106 @@ body {
   }
 }
 
-/* ── 3. Globala hjälpklasser ───────────────────────────────── */
+/* ── 3. Komponenter: knappar och textlänkar ───────────────────
+   En form: radie 8, Inter 600 16 px, min-höjd 44, gemener.
+   .btn + .btn-primary   accent fylld – max EN per kort/vy
+   .btn + .btn-secondary 1.5 px ink-kant på vitt
+   .btn + .btn-on-dark   ljus kant, för sekundärknapp på bild/mörk yta
+   .link-arrow           textlänk i accent; skriv "→" (internt) eller "↗" (externt) i texten
+   Lägg bara layout (marginal, bredd, align-self) i modulen. */
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: var(--btn-min-height);
+    padding: var(--btn-padding);
+    border: var(--btn-border-width) solid transparent;
+    border-radius: var(--btn-border-radius);
+    font-family: var(--font-body);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    line-height: 1.25;
+    letter-spacing: var(--btn-letter-spacing);
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-dark);
+  }
+  .btn-primary:hover {
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: var(--color-on-dark);
+  }
+
+  .btn-secondary {
+    background: var(--color-white);
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+  .btn-secondary:hover {
+    background: var(--color-ink);
+    color: var(--color-on-dark);
+  }
+
+  .btn-on-dark {
+    background: transparent;
+    border-color: rgba(254, 254, 251, 0.8);
+    color: var(--color-on-dark);
+  }
+  .btn-on-dark:hover {
+    background: var(--color-on-dark);
+    color: var(--color-ink);
+  }
+
+  .btn:disabled,
+  .btn[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-height: var(--btn-min-height);
+    font-family: var(--font-body);
+    font-size: inherit;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+  }
+  .link-arrow:hover {
+    color: var(--color-accent-hover);
+    text-decoration-thickness: 2px;
+  }
+
+  /* Sektionsavstånd på ett ställe: 48 px mobil, 96 px dator */
+  .section-space {
+    padding-block: var(--section-space);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+  }
+}
+
+/* ── 4. Globala hjälpklasser ───────────────────────────────── */
 
 /* Skärmläsartext — visuellt dold men tillgänglig */
 .sr-only {
@@ -289,4 +450,12 @@ footer :focus-visible {
 /* Tomt-meddelande för åldersfiltret på /barn – visas av AgeFilter när inget matchar */
 .a2-age-empty {
   display: none;
+}
+
+/* Inter finns i 400 och 600 – fetstil renderas i 600 (5.5). */
+@layer base {
+  strong,
+  b {
+    font-weight: 600;
+  }
 }

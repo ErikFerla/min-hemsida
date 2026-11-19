@@ -4,7 +4,7 @@
   width: 100%;
   height: clamp(500px, 85vh, 900px);
   overflow: hidden;
-  background: #0b1f2a;
+  background: var(--color-image-bg);
 }
 
 .slide {
@@ -25,7 +25,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 55%, rgba(0, 0, 0, 0.1) 100%);
+  background: var(--hero-shade);
 }
 
 .clickArea {
@@ -34,72 +34,66 @@
   z-index: 1;
 }
 
+/* Text: samma typografi som HeroImage (5.1) – etikett, display, ingress */
 .text {
   position: absolute;
-  bottom: 18%;
-  left: 8%;
-  right: 8%;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2;
-  max-width: 640px;
-  color: var(--color-white);
+  color: var(--color-on-dark);
   pointer-events: none;
 }
 
+.textInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter) var(--space-8);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
 .place {
-  margin-bottom: 14px;
-  font-size: 0.72rem;
+  margin: 0;
+  font-size: var(--text-label);
   font-weight: 600;
-  letter-spacing: 0.28em;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 /* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */
 .title {
+  max-width: 16ch;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-size: var(--text-display);
   font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
 }
 
 .sub {
-  margin-top: 16px;
-  margin-bottom: 20px;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  max-width: 52ch;
+  margin: 0;
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
 }
 
+/* Formen kommer från .btn .btn-primary i globals.css */
 .cta {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 13px 30px;
-  background: var(--color-white);
-  color: var(--color-ink);
-  border-radius: 3px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-decoration: none;
+  margin-top: var(--space-2);
+  text-shadow: none;
   pointer-events: auto;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  transition: background 0.2s, color 0.2s;
-}
-.cta:hover {
-  background: var(--color-accent);
-  color: var(--color-on-dark);
 }
 
 .controls {
   position: absolute;
-  bottom: 16px;
-  left: calc(8% - 8px);
+  bottom: var(--space-3);
+  left: max(calc(var(--gutter) - 8px), calc((100% - var(--w-wide)) / 2 + var(--gutter) - 8px));
   z-index: 2;
   display: flex;
   align-items: center;
@@ -148,12 +142,12 @@
 
 .counter {
   position: absolute;
-  bottom: 24px;
-  right: 5%;
+  bottom: var(--space-5);
+  right: max(var(--gutter), calc((100% - var(--w-wide)) / 2 + var(--gutter)));
   z-index: 2;
-  font-size: 0.75rem;
+  font-size: var(--text-label);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }

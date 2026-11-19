@@ -1,35 +1,67 @@
-/* Rubrikmått för guiderna, /strandar och /flyg (2.6).
-   Återger det som de globala h2/h3-reglerna med !important gav i dag, så att utseendet
-   består när de reglerna får lägre specificitet. Sidmodulerna sätter färg, vikt och
-   övriga egenskaper – aldrig font-size, line-height, letter-spacing eller margin-bottom. */
+/* Rubrikmått och gemensamma textdelar för guiderna, de praktiska sidorna, /strandar och /flyg
+   (typskala 5.1). .h2/.h3 har samma värden som basreglerna i globals.css; sidmodulerna sätter
+   färg och layout – aldrig font-size, line-height eller letter-spacing. Sektionsrubrik =
+   .label + .h2. */
 
 .h2 {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: var(--text-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: -0.01em;
   word-spacing: normal;
-  margin-bottom: 1.5rem;
+  margin-top: 0;
+  margin-bottom: var(--space-4);
 }
 
 .h3 {
   font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  line-height: 1.3;
+  font-size: var(--text-h3);
+  line-height: var(--lh-h3);
   letter-spacing: -0.01em;
-  margin-bottom: 0.75rem;
+  margin-top: 0;
+  margin-bottom: var(--space-3);
 }
 
-@media (max-width: 768px) {
-  .h2 {
-    font-size: clamp(22px, 6vw, 28px);
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  .h3 {
-    font-size: clamp(18px, 5vw, 22px);
-    line-height: 1.25;
-    margin-top: 0;
-    margin-bottom: 8px;
-  }
+/* Sektionsrubrikens överrad (etikett i accent) – används ovanför .h2: label + h2. */
+.label {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* Textspalt: brödtext högst 68 tecken bred. */
+.prose {
+  max-width: var(--w-text);
+}
+
+/* Faktaruta: yta-färg, radie 12, definitionslista (etikett + värde). */
+.facts {
+  max-width: var(--w-text);
+  padding: var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  color: var(--color-ink);
+}
+.facts dl {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+}
+.facts dt {
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.facts dd {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
 }

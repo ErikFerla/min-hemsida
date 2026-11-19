@@ -4,7 +4,7 @@ import Link from 'next/link';
 import CategoryHero from '@/app/components/CategoryHero';
 import AgeFilter from '@/app/components/AgeFilter';
 import ActivityCard from '@/app/components/ActivityCard';
-import InsiderTipBox from '@/app/components/InsiderTipBox';
+import TipBox from '@/components/TipBox';
 import JsonLd from '@/app/components/JsonLd';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
@@ -91,8 +91,17 @@ export default function BarnHubPage() {
       <div className={styles.inner}>
         <Breadcrumbs items={breadcrumbs} />
 
-        {/* ========== INTRO ========== */}
-        <section className={styles.introSection}>
+        {/* ========== ÅLDERSFILTER – högst upp, fäst under sidhuvudet på mobil ========== */}
+        <section className={styles.filterBox} aria-labelledby="alder-heading">
+          <div className={styles.filterHead}>
+            <p className={styles.kicker}>Börja här</p>
+            <h2 id="alder-heading" className={styles.filterTitle}>Hur gamla är barnen?</h2>
+          </div>
+          <AgeFilter listId={LIST_ID} itemAges={ACTIVITIES.map((a) => a.ageGroups)} />
+        </section>
+
+        {/* ========== INTRO + RÅD ========== */}
+        <div className={styles.introRow}>
           <div className={styles.introText}>
             <p>
               Mallorca är ett av Europas mest barnvänliga resmål, och ön har gott om aktiviteter för
@@ -103,78 +112,53 @@ export default function BarnHubPage() {
             <p>
               Här har vi samlat Mallorcas bästa barnaktiviteter, sorterade efter typ och åldersgrupp.
               Oavsett om ni är ute efter en regnig reservplan, en hel dag med äventyr eller lugna
-              inomhusaktiviteter med småbarn – använd filtret nedan för att hitta det som passar just
+              inomhusaktiviteter med småbarn – använd filtret ovan för att hitta det som passar just
               er familj.
             </p>
           </div>
-        </section>
+          <TipBox heading="5 råd från en som bor här" as="h2" signature="Erik">
+            <ol>
+              {INSIDER_TIPS.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ol>
+          </TipBox>
+        </div>
 
-        {/* ========== CATEGORY GRID ========== */}
+        {/* ========== KATEGORIER ========== */}
         <section className={styles.block} aria-labelledby="kategorier-heading">
-          <h2 id="kategorier-heading" className={styles.sectionTitle}>
-            Utforska efter kategori
-          </h2>
+          <h2 id="kategorier-heading">Utforska efter kategori</h2>
           <ul className={styles.categoryGrid}>
-            {countsByCategory.map((c) => {
-              return (
-                <li key={c.slug}>
-                  <Link href={c.href} className={styles.categoryCard}>
-                    {c.heroImage && (
-                      <div className={styles.categoryMedia}>
-                        <Image
-                          src={`${c.heroImage}?w=960&q=80`}
-                          alt={c.heroImageAlt ?? ''}
-                          width={640}
-                          height={400}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                          className={styles.categoryImage}
-                        />
-                      </div>
-                    )}
-                    <div className={styles.categoryBody}>
-                      <div className={styles.categoryTitleRow}>
-                        <span className={styles.categoryName}>
-                          {c.label}
-                        </span>
-                        <span className={styles.categoryCount}>
-                          ({c.count})
-                        </span>
-                      </div>
-                      <p className={styles.categoryTagline}>
-                        {c.shortTagline}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
+            {countsByCategory.map((c) => (
+              <li key={c.slug}>
+                <Link href={c.href} className={styles.categoryCard}>
+                  {c.heroImage && (
+                    <Image
+                      src={`${c.heroImage}?w=960&q=80`}
+                      alt={c.heroImageAlt ?? ''}
+                      width={640}
+                      height={480}
+                      sizes="(max-width: 1023px) 200px, 300px"
+                      className={styles.categoryImage}
+                    />
+                  )}
+                  <span className={styles.categoryName}>
+                    {c.label} <span className={styles.categoryCount}>({c.count})</span>
+                  </span>
+                  <span className={styles.categoryTagline}>{c.shortTagline}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
 
-        {/* ========== INSIDER TIPS (before activity list per spec) ========== */}
-        <section className={styles.block} aria-labelledby="insider-tips-heading">
-          <h2 id="insider-tips-heading" className="sr-only">
-            Insidertips från lokalkännare
-          </h2>
-          <InsiderTipBox
-            heading="5 råd från en som bor här"
-            tips={INSIDER_TIPS}
-          />
-        </section>
-
-        {/* ========== ACTIVITY LIST WITH FILTER ========== */}
-        <section className={styles.activities} aria-labelledby="alla-aktiviteter-heading">
-          <h2 id="alla-aktiviteter-heading" className={styles.sectionTitle}>
-            Alla aktiviteter
-          </h2>
+        {/* ========== ALLA AKTIVITETER (filtreras av åldersfiltret ovan) ========== */}
+        <section className={styles.block} aria-labelledby="alla-aktiviteter-heading">
+          <h2 id="alla-aktiviteter-heading">Alla aktiviteter</h2>
           <p className={styles.listIntro}>
             {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. Filtrera efter ålder
             eller klicka dig vidare till respektive kategorisida för mer detaljer.
           </p>
-
-          <div className={styles.filterBar}>
-            <AgeFilter listId={LIST_ID} itemAges={ACTIVITIES.map((a) => a.ageGroups)} />
-          </div>
 
           <div
             id={`${LIST_ID}-tom`}
