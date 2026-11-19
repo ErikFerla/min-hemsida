@@ -1,53 +1,44 @@
-/* /evenemang – värdena återger det beräknade utseendet före 2.6
-   (globala h1/h2/h3/p/section-regler och sidans tidigare <style>-block inräknade),
-   mätt på 390 och 1280 px. */
+/* /evenemang (5.3). Rubrikerna följer typskalan (h2 26 → 36 px, vikt 700). */
 
 .page {
-  background: var(--color-bg);
   min-height: 100vh;
+  background: var(--color-bg);
 }
-
-/* ── Sidhuvud ── */
 
 /* ── Innehåll ── */
 .main {
-  max-width: 1400px;
+  max-width: var(--w-wide);
   margin: 0 auto;
-  padding: clamp(32px, 4vw, 60px) clamp(16px, 4vw, 60px);
+  padding: var(--space-6) var(--gutter) var(--section-space);
 }
 
 .sectionTitle {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 2.6rem);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin: 0 0 1.25rem;
+  composes: title from '../components/section.module.css';
   color: var(--color-ink);
 }
 
 .planner {
+  margin-bottom: var(--section-space);
+  padding: var(--space-5) var(--space-4);
+  border-radius: var(--radius-card);
   background: var(--color-surface-warm);
-  border-radius: 18px;
-  padding: clamp(20px, 4vw, 40px);
-  margin-bottom: clamp(40px, 6vw, 72px);
   scroll-margin-top: 80px;
 }
 
 .listSection {
-  margin-bottom: 48px;
+  margin-bottom: var(--space-7);
 }
 
 .legend {
-  max-width: 75ch;
-  margin: 0 0 28px;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--color-text-soft);
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
 }
 
 .legend p {
-  margin: 0 0 6px;
+  margin: 0 0 var(--space-2);
 }
 
 .legend strong {
@@ -55,12 +46,7 @@
 }
 
 .more {
-  max-width: 75ch;
-}
-
-.more p {
-  line-height: 1.7;
-  color: var(--color-text);
+  max-width: var(--w-text);
 }
 
 .more a {
@@ -68,8 +54,8 @@
   text-underline-offset: 2px;
 }
 
-@media (max-width: 768px) {
-  .sectionTitle {
-    font-size: clamp(24px, 6.5vw, 30px);
+@media (min-width: 1024px) {
+  .planner {
+    padding: var(--space-7);
   }
 }

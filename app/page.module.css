@@ -21,14 +21,6 @@
   padding-bottom: 0;
 }
 
-.mobileOnly {
-  display: block;
-}
-
-.desktopOnly {
-  display: none;
-}
-
 /* Bild + text i två kolumner ("Din guide", "Varför Mallorca") */
 .split {
   display: grid;
@@ -203,16 +195,6 @@
 
 .stat:hover .statText {
   color: var(--color-accent);
-}
-
-@media (min-width: 769px) {
-  .mobileOnly {
-    display: none;
-  }
-
-  .desktopOnly {
-    display: block;
-  }
 }
 
 @media (min-width: 1024px) {

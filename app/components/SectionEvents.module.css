@@ -1,139 +1,101 @@
-/* Startsidans "Kommande evenemang". Desktop: tre kolumner, mobil: horisontell karusell. */
+/* Startsidans "Kommande evenemang" (5.3). Kortet från components/Card.module.css.
+   Dator: rubrik + intro till vänster, tre kolumner kort. Mobil: horisontell karusell. */
 
 .inner {
-  max-width: 1400px;
+  max-width: var(--w-wide);
   margin: 0 auto;
 }
 
 .header {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: flex-start;
-  gap: clamp(32px, 5vw, 60px);
-  margin-bottom: 32px;
-}
-
-.uppercase {
-  text-transform: uppercase;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: var(--space-5);
 }
 
 .intro {
-  font-size: 1rem;
-  color: var(--color-text-soft);
+  max-width: var(--w-text);
+  margin: 0 0 var(--space-5);
+  color: var(--color-text-muted);
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  gap: var(--space-3);
+  margin: 0 calc(-1 * var(--space-4));
+  padding: var(--space-1) var(--space-4) var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 .card {
-  overflow: hidden;
-  background: var(--color-white);
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  composes: card from '../../components/Card.module.css';
+  flex: 0 0 82%;
+  scroll-snap-align: start;
 }
 
 .media {
-  position: relative;
-}
-
-.image {
-  display: block;
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
+  composes: media from '../../components/Card.module.css';
 }
 
 .category {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 3px 8px;
-  border-radius: 8px;
-  background: var(--color-accent);
-  color: var(--color-on-dark);
-  font-size: 0.7rem;
-  font-weight: 700;
+  composes: imageLabel from '../../components/Card.module.css';
 }
 
 .body {
-  padding: 14px;
+  composes: body from '../../components/Card.module.css';
 }
 
 .meta {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 4px;
-  margin-top: 0;
-  color: var(--color-text-muted);
+  composes: meta from '../../components/Card.module.css';
+}
+
+.metaItem {
+  composes: metaItem from '../../components/Card.module.css';
 }
 
 .unconfirmed {
-  margin-top: 0;
-  color: var(--color-warning-text);
+  margin: 0;
+  font-size: var(--text-small);
   font-weight: 600;
+  color: var(--color-warning);
 }
 
 .name {
-  margin-top: 0;
-  color: var(--color-ink-strong);
+  composes: title from '../../components/Card.module.css';
 }
 
 .desc {
-  margin-top: 0;
-  color: var(--color-text-muted);
+  composes: text from '../../components/Card.module.css';
 }
 
-/* Desktop: storlekar och marginaler (på mobil gäller basens p-regel: 16px och 1,25rem) */
-@media (min-width: 769px) {
-  .intro {
-    margin-bottom: 28px;
-  }
-
-  .meta {
-    margin-bottom: 4px;
-    font-size: 0.75rem;
-  }
-
-  .unconfirmed {
-    margin-bottom: 4px;
-    font-size: 0.72rem;
-  }
-
-  .desc {
-    margin-bottom: 12px;
-    font-size: 0.8rem;
-  }
+.actions {
+  composes: actions from '../../components/Card.module.css';
 }
 
-@media (max-width: 1024px) {
-  .header {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (min-width: 640px) {
   .grid {
-    display: flex;
-    gap: 12px;
-    margin: 0 -16px;
-    padding: 4px 16px 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--space-7);
   }
 
-  .grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .card {
-    flex: 0 0 82vw;
-    min-width: 82vw;
-    scroll-snap-align: start;
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

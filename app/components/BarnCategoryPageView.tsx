@@ -82,6 +82,7 @@ export default function BarnCategoryPageView({
           <div className={styles.intro}>{intro}</div>
         </section>
 
+        {/* Åldersfiltret ligger kvar under sidhuvudet när man skrollar */}
         <div className={styles.filter}>
           <AgeFilter listId={listId} itemAges={allActivities.map((a) => a.ageGroups)} />
         </div>
@@ -99,7 +100,7 @@ export default function BarnCategoryPageView({
 
         {lastChecked && <LastChecked date={lastChecked.date} sources={lastChecked.sources} />}
 
-        {/* Bottom CTA – links to hub + related categories */}
+        {/* Avslutande länkar till navsidan och övriga kategorier */}
         <section className={styles.more} aria-labelledby="fler-aktiviteter-heading">
           <h2 id="fler-aktiviteter-heading" className={styles.moreTitle}>
             Utforska fler barnaktiviteter
@@ -107,16 +108,18 @@ export default function BarnCategoryPageView({
           <p className={styles.moreText}>
             Hitta fler aktiviteter för hela familjen – filtrera efter ålder och kategori på översiktssidan.
           </p>
-          <div className={styles.links}>
-            <Link href="/barn" className="btn btn-primary">
-              Alla barnaktiviteter
-            </Link>
+          <Link href="/barn" className="btn btn-primary">
+            Alla barnaktiviteter
+          </Link>
+          <ul className={styles.links}>
             {relatedCategories.map((c) => (
-              <Link key={c.slug} href={c.href} className="btn btn-secondary">
-                {c.label}
-              </Link>
+              <li key={c.slug}>
+                <Link href={c.href} className="link-arrow">
+                  {c.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
       </div>
     </div>

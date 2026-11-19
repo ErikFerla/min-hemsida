@@ -1,6 +1,6 @@
 /* Synliga brödsmulor (JSON-LD finns i SchemaOrg). */
 .nav {
-  font-size: 0.82rem;
+  font-size: var(--text-small);
   line-height: 1.5;
   color: var(--color-text-muted);
 }

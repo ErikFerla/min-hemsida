@@ -68,7 +68,7 @@ function FilterPanel({ listId, beaches, initialRegion }: Props & { initialRegion
       <div className={styles.head}>
         <p className={styles.title}>Filtrera stränder</p>
         {hasActiveFilter && (
-          <button type="button" onClick={() => { setRegion('Alla'); setTyp('Alla typer'); setFilter(''); }} className={styles.reset}>Rensa</button>
+          <button type="button" onClick={() => { setRegion('Alla'); setTyp('Alla typer'); setFilter(''); }} className={`link-arrow ${styles.reset}`}>Rensa</button>
         )}
       </div>
 

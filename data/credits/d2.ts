@@ -9,7 +9,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by',
     licenseVersion: '2.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:View_of_the_bay_at_Calo_des_Moro,_Mallorca_(Spain)_(23899506181).jpg",
-    usedOn: ["/strandar", "/guide/basta-stranderna-mallorca"],
+    usedOn: ["/", "/strandar", "/guide/basta-stranderna-mallorca"],
     checked: '2026-11-18',
   },
   {
@@ -89,7 +89,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '4.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Platja_de_Muro_R02.jpg",
-    usedOn: ["/strandar", "/guide/basta-stranderna-mallorca", "/aktiviteter"],
+    usedOn: ["/", "/strandar", "/guide/basta-stranderna-mallorca", "/aktiviteter"],
     checked: '2026-11-18',
   },
   {
@@ -366,7 +366,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '3.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Canyamel_Golf.JPG",
-    usedOn: ["/aktiviteter/golf"],
+    usedOn: ["/", "/aktiviteter/golf"],
     checked: '2026-11-18',
   },
   {
@@ -572,7 +572,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '4.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:S%C3%B3ller_Tren_de_S%C3%B3ller-4334.jpg",
-    usedOn: ["/dagsturer-utan-bil"],
+    usedOn: ["/", "/dagsturer-utan-bil"],
     checked: '2026-11-18',
   },
   {

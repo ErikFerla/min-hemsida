@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { IconStar, IconBuilding, IconPin } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
 import { CityJsonLd, cityBreadcrumbs } from '@/app/lib/CityJsonLd';
@@ -8,7 +8,6 @@ import type { City, CityText } from '@/data/cities';
 import { beaches } from '@/data/beaches';
 import styles from './CityTemplate.module.css';
 
-const HIGHLIGHT_ICONS = [IconStar, IconBuilding, IconPin] as const;
 const BEACH_NAMES = new Set(beaches.map((b) => b.namn));
 
 /** Text med valfri intern länk på slutet (samma form som insidertipsen). */
@@ -26,7 +25,7 @@ function Paragraphs({ items }: { items: CityText[] }) {
   return (
     <>
       {items.map((t, i) => (
-        <p key={i} className={styles.about}><RichText value={t} /></p>
+        <p key={i}><RichText value={t} /></p>
       ))}
     </>
   );
@@ -42,15 +41,17 @@ function CityGuideSections({ city }: { city: City }) {
     throw new Error(`${city.slug}: okända strandnamn ${unknown.join(', ')}`);
   }
   return (
-    <div className={styles.guide}>
+    <>
       {g.stay && (
         <section className={styles.section} aria-labelledby="bo">
           <h2 id="bo">Bo i {city.name}</h2>
-          {g.stay.intro && <p className={styles.about}>{g.stay.intro}</p>}
+          {g.stay.intro && <p>{g.stay.intro}</p>}
           <ul className={styles.areas}>
             {g.stay.areas.map((a) => (
-              <li key={a.name}>
-                <strong className={styles.areaName}>{a.name}</strong> {a.text}
+              <li key={a.name} className={styles.area}>
+                {/* Namnen slutar på punkt i datan (skrivna för löptext) – punkten tas bort i kortrubriken. */}
+                <h3 className={styles.areaName}>{a.name.replace(/\.$/, '')}</h3>
+                <p className={styles.areaText}>{a.text}</p>
               </li>
             ))}
           </ul>
@@ -59,7 +60,7 @@ function CityGuideSections({ city }: { city: City }) {
       {g.eat && (
         <section className={styles.section} aria-labelledby="ata">
           <h2 id="ata">Äta i {city.name}</h2>
-          <p className={styles.about}>{g.eat.intro}</p>
+          <p>{g.eat.intro}</p>
           {g.eat.dishes && (
             <ul className={styles.list}>
               {g.eat.dishes.map((d) => <li key={d}>{d}</li>)}
@@ -74,7 +75,7 @@ function CityGuideSections({ city }: { city: City }) {
           <dl className={styles.transport}>
             {g.getThere.map((t, i) => (
               <div key={i} className={styles.transportRow}>
-                <dt className={styles.transportMode}>{t.mode}</dt>
+                <dt className={styles.label}>{t.mode}</dt>
                 <dd className={styles.transportText}><RichText value={t.text} /></dd>
               </div>
             ))}
@@ -84,7 +85,7 @@ function CityGuideSections({ city }: { city: City }) {
       {g.beaches && (
         <section className={styles.section} aria-labelledby="strander">
           <h2 id="strander">Stränder i närheten</h2>
-          {g.beaches.text && <p className={styles.about}>{g.beaches.text}</p>}
+          {g.beaches.text && <p>{g.beaches.text}</p>}
           <ul className={styles.chips}>
             {g.beaches.names.map((n) => (
               <li key={n}>
@@ -92,8 +93,8 @@ function CityGuideSections({ city }: { city: City }) {
               </li>
             ))}
           </ul>
-          <p className={styles.small}>
-            <Link href="/strandar" className={styles.link}>Läs mer om stränderna och filtrera på region →</Link>
+          <p className={styles.more}>
+            <Link href="/strandar" className="link-arrow">Läs mer om stränderna och filtrera på region →</Link>
           </p>
         </section>
       )}
@@ -102,8 +103,8 @@ function CityGuideSections({ city }: { city: City }) {
           <h2 id="marknad">Marknad</h2>
           <p className={styles.marketDays}>{g.market.days}</p>
           <Paragraphs items={g.market.text} />
-          <p className={styles.small}>
-            <Link href="/marknader" className={styles.link}>Alla veckomarknader på Mallorca dag för dag →</Link>
+          <p className={styles.more}>
+            <Link href="/marknader" className="link-arrow">Alla veckomarknader på Mallorca dag för dag →</Link>
           </p>
         </section>
       )}
@@ -125,11 +126,16 @@ function CityGuideSections({ city }: { city: City }) {
           <Paragraphs items={g.couples} />
         </section>
       )}
-    </div>
+    </>
   );
 }
 
-/** Gemensam mall för alla stadssidor. Allt innehåll kommer från data/cities.ts. */
+/**
+ * Gemensam mall för alla stadssidor. Allt innehåll kommer från data/cities.ts.
+ *
+ * Layout (5.4): textspalt (max 68ch) + högerspalt med faktarutan "Praktisk info", topp 3
+ * och ev. kartlänkar. På mobil ligger högerspalten direkt efter ingressen ("Om …").
+ */
 export default function CityTemplate({ city }: { city: City }) {
   return (
     <div className={styles.page}>
@@ -145,85 +151,79 @@ export default function CityTemplate({ city }: { city: City }) {
         <div className={styles.breadcrumbs}>
           <Breadcrumbs items={cityBreadcrumbs(city)} />
         </div>
-        <div className={styles.grid}>
-          <div>
-            <h2>Om {city.name}</h2>
+        <div className={styles.layout}>
+          <section className={styles.intro} aria-labelledby="om">
+            <h2 id="om">Om {city.name}</h2>
             {city.about.map((text, i) => (
-              <p key={i} className={styles.about}>{text}</p>
+              <p key={i} className={i === 0 ? styles.lead : undefined}>{text}</p>
             ))}
-            <h3 className={`${styles.withIcon} ${styles.tipsTitle}`}>Insidertips <IconStar size={20} /></h3>
-            <ul className={styles.tips}>
-              {city.tips.map((tip, i) => (
-                <li key={i}><RichText value={tip} /></li>
-              ))}
-            </ul>
-            {city.highlights?.variant === 'list' && (
-              <div className={styles.highlights}>
-                <h2>{city.highlights.heading}</h2>
-                {city.highlights.items.map((text, i) => {
-                  const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
-                  return (
-                    <div key={i} className={styles.highlightRow}>
-                      <span className={styles.icon}><Icon size={20} /></span>
-                      <span className={styles.highlightText}>{text}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-            {city.highlights?.variant === 'cards' && (
-              <div className={styles.cardsBlock}>
-                <h3>{city.highlights.heading}</h3>
-                <div className={styles.cards}>
-                  {city.highlights.items.map((text, i) => {
-                    const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
-                    return (
-                      <div key={i} className={styles.card}>
-                        <span className={styles.icon}><Icon size={20} /></span>
-                        <span className={styles.cardText}>{text}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-            <CityGuideSections city={city} />
-          </div>
-          <aside>
-            <div className={styles.box}>
-              <h3 className={styles.boxTitle}><IconPin size={16} /> Praktisk info</h3>
-              <p className={styles.practical}>
-                {city.practical.map((row, i) => (
-                  <span key={row.label}>
-                    {i > 0 && <br />}
-                    <strong>{row.label}:</strong> {row.value}
-                  </span>
+          </section>
+
+          <aside className={styles.aside} aria-label={`Fakta om ${city.name}`}>
+            <section className={styles.facts} aria-labelledby="praktisk-info">
+              <h2 id="praktisk-info" className={styles.boxTitle}>Praktisk info</h2>
+              <dl className={styles.factList}>
+                {city.practical.map((row) => (
+                  <div key={row.label}>
+                    <dt className={styles.label}>{row.label}</dt>
+                    <dd className={styles.factValue}>{row.value}</dd>
+                  </div>
                 ))}
-              </p>
-            </div>
-            <a href={`https://maps.google.com/?q=${city.mapsQuery}`} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              Visa på karta ↗
-            </a>
+              </dl>
+              <a
+                href={`https://maps.google.com/?q=${city.mapsQuery}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn btn-primary ${styles.mapButton}`}
+              >
+                Visa på karta ↗
+              </a>
+            </section>
+            {city.highlights && (
+              <section className={styles.box} aria-labelledby="hojdpunkter">
+                <h2 id="hojdpunkter" className={styles.boxTitle}>{city.highlights.heading}</h2>
+                <ol className={styles.boxList}>
+                  {city.highlights.items.map((text) => <li key={text}>{text}</li>)}
+                </ol>
+              </section>
+            )}
             {city.places && (
-              <div className={styles.places}>
-                <h3 className={styles.boxTitle}><IconPin size={18} /> {city.places.heading}</h3>
-                {city.places.items.map((item) => (
-                  <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className={styles.place}>
-                    <span className={styles.placeName}>{item.text}</span>
-                    <span className={styles.placeMap}>Karta ↗</span>
-                  </a>
-                ))}
-              </div>
+              <section className={styles.box} aria-labelledby="platser">
+                <h2 id="platser" className={styles.boxTitle}>{city.places.heading}</h2>
+                <ul className={styles.places}>
+                  {city.places.items.map((item) => (
+                    <li key={item.href}>
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className={styles.place}>
+                        <span>{item.text}</span>
+                        <span className={styles.placeMap}>Karta ↗</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
           </aside>
+
+          <div className={styles.main}>
+            <div className={styles.sections}>
+              <TipBox heading="Insidertips" as="h2">
+                <ul>
+                  {city.tips.map((tip, i) => (
+                    <li key={i}><RichText value={tip} /></li>
+                  ))}
+                </ul>
+              </TipBox>
+              <CityGuideSections city={city} />
+            </div>
+            {city.checked && (
+              <LastChecked
+                date={city.checked}
+                sources={city.sources}
+                note="Restider är ungefärliga och tidtabeller, marknadsdagar och öppettider kan ändras – kontrollera hos källan innan du åker."
+              />
+            )}
+          </div>
         </div>
-        {city.checked && (
-          <LastChecked
-            date={city.checked}
-            sources={city.sources}
-            note="Restider är ungefärliga och tidtabeller, marknadsdagar och öppettider kan ändras – kontrollera hos källan innan du åker."
-          />
-        )}
       </div>
     </div>
   );

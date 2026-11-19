@@ -1,0 +1,189 @@
+/* Kortet (5.3) – EN kortstil för hela sajten.
+   Vit yta, 1 px linje, radie 12, ingen skugga i vila (diskret lyft vid hover på länkkort),
+   bild 3:2, titel h3 (Playfair), meta i small, en åtgärd som textlänk (.link-arrow).
+
+   Använd genom att komponera i en modul så att varianten bara lägger till:
+     .card { composes: card from '../../components/Card.module.css'; }
+   eller direkt i TSX: import c from '@/components/Card.module.css'.
+
+   Delar:
+     .card        kortets yta (article/li/div)
+     .link        som .card men för kort som är en länk (<Link>/<a>) – lyft vid hover
+     .media       bildyta 3:2 (för next/image med fill eller <img>), .imageLabel/.imageLabelEnd på bilden
+     .body        innehåll med padding 16 → 24 och jämnt avstånd
+     .titleRow    rubrik + pris/symbol på samma rad
+     .title       kortrubrik i h3-storlek (oavsett om elementet är h2, h3 eller h4)
+     .meta        metarad i small, sekundär färg (.metaItem för ikon + text)
+     .text        korttext i small
+     .note        redaktionell notis som enkel text med statusprick
+                  (.noteWarning / .noteInfo / .noteSuccess / .noteAccent)
+     .actions     textlänkar längst ned */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-ink);
+}
+
+.link {
+  composes: card;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    border-color: var(--color-chip-border);
+    transform: translateY(-2px);
+  }
+}
+
+.media {
+  position: relative;
+  flex: none;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Etikett på bild: mörk halvtransparent, liten versal etikett */
+.imageLabel {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  color: var(--color-on-dark);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.imageLabelEnd {
+  composes: imageLabel;
+  left: auto;
+  right: var(--space-3);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--lh-h3);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+
+/* Redaktionell notis som enkel text: liten statusprick + text (status bara som prick) */
+.note {
+  position: relative;
+  margin: 0;
+  padding-left: var(--space-4);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+
+.note::before {
+  content: '';
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--note-color, var(--color-info));
+}
+
+.noteWarning { --note-color: var(--color-warning); }
+.noteInfo { --note-color: var(--color-info); }
+.noteSuccess { --note-color: var(--color-success); }
+.noteAccent { --note-color: var(--color-accent); }
+
+/* Notisens etikett ("Varning", "Bäst för" …) – liten fet text i textfärg */
+.noteLabel {
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-5);
+  margin-top: auto;
+  font-size: var(--text-small);
+}
+
+@media (min-width: 1024px) {
+  .body {
+    padding: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+  .link:hover {
+    transform: none;
+  }
+}

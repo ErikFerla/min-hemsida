@@ -1,19 +1,8 @@
-/* Åldersetikett – neutral tagg (5.1): yta-färg, mörk text, ingen kant. */
+/* Åldersetikett – neutral tagg från components/Chip.module.css (yta-färg, mörk text, ingen kant). */
 .chip {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 8px;
-  background: var(--color-surface);
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  color: var(--color-ink);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
+  composes: tag from '../../components/Chip.module.css';
 }
 
 .md {
-  padding: 4px 10px;
-  font-size: 0.78rem;
+  font-size: var(--text-small);
 }

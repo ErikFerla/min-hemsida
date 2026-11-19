@@ -6,11 +6,12 @@ import StrandFilter from './StrandFilter';
 import DagensStrand from './DagensStrand';
 import LastChecked from '@/app/components/LastChecked';
 import { MET_NO_SOURCE } from '@/data/climate';
-import h from '../guide/headings.module.css';
+import TipBox from '@/components/TipBox';
 import styles from './strandar.module.css';
 
 const LIST_ID = 'strand-lista';
 
+// Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
 const NOTE: Record<RedaktionellTyp, { klass: string; label: string }> = {
   varning: { klass: styles.noteVarning, label: 'Varning' },
   tips: { klass: styles.noteTips, label: 'Redaktionens tips' },
@@ -77,50 +78,50 @@ export default function StrandarPage() {
               data-familj={s.familj || undefined}
               data-snorkling={s.snorkling || undefined}
               data-nudist={s.nudist || undefined}
-              className={`a2-lift ${styles.card}`}
+              className={styles.item}
             >
-              <div className={styles.media}>
-                <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 600px) 100vw, 400px" className={styles.mediaImage} loading="lazy" />
-                <div className={styles.badges}>
+              <article className={styles.card}>
+                <div className={styles.media}>
+                  <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px" loading="lazy" />
                   <span className={styles.badge}>{s.region}</span>
-                  <span className={`${styles.badge} ${styles.badgeType}`}>{s.typ}</span>
+                  <span className={styles.badgeType}>{s.typ}</span>
                 </div>
-              </div>
-              <div className={styles.body}>
-                <h2 className={`${h.h2} ${styles.name}`}>{s.namn}</h2>
-                <p className={styles.meta}>
-                  {s.längd} <span className={styles.metaDot} aria-hidden="true">•</span> {s.svårighet}
-                </p>
-                <p className={styles.description}>{s.beskrivning}</p>
-                <div className={styles.tip}>
-                  <strong className={styles.tipLabel}>Tips:</strong> {s.tips}
+                <div className={styles.body}>
+                  <h2 className={styles.name}>{s.namn}</h2>
+                  <p className={styles.meta}>
+                    {s.längd} <span aria-hidden="true">·</span> {s.svårighet}
+                  </p>
+                  <p className={styles.description}>{s.beskrivning}</p>
+                  {(s.familj || s.snorkling || s.nudist) && (
+                    <div className={styles.tags}>
+                      {s.familj && <span className={styles.tag}>Familj</span>}
+                      {s.snorkling && <span className={styles.tag}>Snorkling</span>}
+                      {s.nudist && <span className={styles.tag}>Nudist</span>}
+                    </div>
+                  )}
+                  <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
+                    <p>{s.tips}</p>
+                  </TipBox>
+                  {s.redaktionellt && (
+                    <p className={`${styles.note} ${NOTE[s.redaktionellt.typ].klass}`}>
+                      <strong className={styles.noteLabel}>{NOTE[s.redaktionellt.typ].label}:</strong>{' '}
+                      {s.redaktionellt.text}
+                    </p>
+                  )}
+                  <div className={styles.actions}>
+                    <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                      Visa på karta ↗
+                    </a>
+                  </div>
                 </div>
-                {(s.familj || s.snorkling || s.nudist) && (
-                  <div className={styles.tags}>
-                    {s.familj && <span className={styles.tag}>Familj</span>}
-                    {s.snorkling && <span className={styles.tag}>Snorkling</span>}
-                    {s.nudist && <span className={styles.tag}>Nudist</span>}
-                  </div>
-                )}
-                {s.redaktionellt && (
-                  <div className={`${styles.note} ${NOTE[s.redaktionellt.typ].klass}`}>
-                    <strong className={styles.noteLabel}>
-                      {NOTE[s.redaktionellt.typ].label}
-                    </strong>
-                    {s.redaktionellt.text}
-                  </div>
-                )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                  Visa på karta ↗
-                </a>
-              </div>
+              </article>
             </li>
           ))}
         </ul>
 
         <div className={styles.more}>
           <p className={styles.moreKicker}>PLANERA VIDARE</p>
-          <h2 className={`${h.h2} ${styles.moreTitle}`}>Inför stranddagen</h2>
+          <h2 className={styles.moreTitle}>Inför stranddagen</h2>
           <div className={styles.moreGrid}>
             {[
               { titel: 'Kolla vinden först', text: 'Blåser det från norr är sydkustens vikar ofta lugnast – och tvärtom. En snabb titt på prognosen kan rädda dagen.', href: '/vader', cta: 'Se väderprognosen' },
@@ -128,9 +129,9 @@ export default function StrandarPage() {
               { titel: 'När är vattnet varmast?', text: 'Havet är som varmast från juli till september. Läs mer om vilken månad som passar dig bäst.', href: '/guide/basta-tid-resa-mallorca', cta: 'Bästa tiden att resa' },
             ].map(t => (
               <Link key={t.href} href={t.href} className={styles.moreCard}>
-                <h3 className={`${h.h3} ${styles.moreCardTitle}`}>{t.titel}</h3>
+                <h3 className={styles.moreCardTitle}>{t.titel}</h3>
                 <p className={styles.moreCardText}>{t.text}</p>
-                <span className="link-arrow">{t.cta} →</span>
+                <span className={`link-arrow ${styles.moreCardLink}`}>{t.cta} →</span>
               </Link>
             ))}
           </div>

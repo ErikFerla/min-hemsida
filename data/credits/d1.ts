@@ -172,7 +172,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '2.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pollen%C3%A7a_from_near_the_top_of_the_Valvari_Steps.jpg',
-    usedOn: ['/byar'],
+    usedOn: ['/', '/byar'],
     checked: '2026-11-18',
   },
   {
