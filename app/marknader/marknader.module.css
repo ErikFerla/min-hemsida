@@ -41,6 +41,7 @@
 }
 
 .lead {
+  max-width: var(--w-text);
   font-size: var(--text-lead);
   color: var(--color-ink);
   margin: 0 auto;
@@ -185,7 +186,7 @@
 }
 
 .more {
-  max-width: 75ch;
+  max-width: var(--w-text);
 }
 
 .more p {

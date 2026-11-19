@@ -64,6 +64,7 @@
 }
 
 .cardText {
+  max-width: var(--w-text);
   font-family: var(--font-body);
   line-height: var(--lh-body);
   color: var(--color-ink);
