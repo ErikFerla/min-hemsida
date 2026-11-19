@@ -563,7 +563,7 @@ export const credits: ImageCredit[] = [
     fotograf: 'Stein Arne Jensen',
     license: 'cc0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Vinyes_Mortitx_and_limestone_mountains,_Escorca.jpg',
-    usedOn: ['/mat'],
+    usedOn: ['/', '/mat'],
     checked: '2026-11-18',
   },
   {

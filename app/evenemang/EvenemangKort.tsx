@@ -24,11 +24,11 @@ export default function EvenemangKort({ e, kompakt = false }: { e: Evenemang; ko
       {!kompakt && <p className={styles.description}>{e.beskrivning}</p>}
       {e.not && <p className={styles.note}>{e.not}</p>}
       <div className={styles.actions}>
-        <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className={styles.link}>
+        <a href={e.källa.href} target="_blank" rel="noopener noreferrer" className="link-arrow">
           {kompakt ? 'Källa' : e.källa.label} ↗
         </a>
         {e.ics ? (
-          <a href={e.ics} download className="btn btn-secondary" aria-label={`Lägg till i kalender: ${e.namn} (.ics)`}>
+          <a href={e.ics} download className="link-arrow" aria-label={`Lägg till i kalender: ${e.namn} (.ics)`}>
             Lägg till i kalender
           </a>
         ) : (

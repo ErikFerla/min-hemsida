@@ -1,13 +1,16 @@
 import Image from 'next/image';
-import { IconPin, IconClock, IconBulb, IconStar, IconInfo } from '@/components/Icons';
+import { IconPin, IconClock } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
+import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './sevardheter.module.css';
 
+// Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
 const notisKlass: Record<string, string> = {
   varning: styles.note_varning,
   tips: styles.note_tips,
   bast: styles.note_bast,
+  info: styles.note_info,
 };
 
 const sevardheter = [
@@ -172,29 +175,33 @@ export default function SevardheterPage() {
       <div className={styles.inner}>
         <div className={styles.grid}>
           {sevardheter.map((s, i) => (
-            <div key={i} className={styles.card}>
+            <article key={i} className={styles.card}>
               <div className={styles.media}>
-                <Image src={s.bild} alt={s.bildAlt} width={600} height={200} className={styles.image} loading="lazy" />
-                <div className={styles.category}>{s.kategori}</div>
+                <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px" loading="lazy" />
+                <span className={styles.category}>{s.kategori}</span>
               </div>
               <div className={styles.body}>
                 <h2 className={styles.title}>{s.namn}</h2>
-                <p className={styles.place}><IconPin size={12} /> {s.plats} · <IconClock size={12} /> {s.oppet}</p>
+                <p className={styles.place}>
+                  <span className={styles.placeItem}><IconPin size={12} /> {s.plats}</span>
+                  <span className={styles.placeItem}><IconClock size={12} /> {s.oppet}</span>
+                </p>
                 <p className={styles.description}>{s.beskrivning}</p>
-                <div className={styles.tip}><IconBulb size={14} className={styles.tipIcon} /> {s.tips}</div>
+                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
+                  <p>{s.tips}</p>
+                </TipBox>
                 {s.redaktionellt && (
-                  <div className={`${styles.note} ${notisKlass[s.redaktionellt.typ] ?? ''}`}>
-                    <span className={styles.noteIcon}>
-                      {s.redaktionellt.typ === 'varning' ? <IconInfo size={16} /> : s.redaktionellt.typ === 'tips' ? <IconStar size={16} /> : s.redaktionellt.typ === 'bast' ? <IconStar size={16} /> : <IconBulb size={16} />}
-                    </span>
-                    <span>{s.redaktionellt.text}</span>
-                  </div>
+                  <p className={`${styles.note} ${notisKlass[s.redaktionellt.typ] ?? ''}`}>
+                    {s.redaktionellt.text}
+                  </p>
                 )}
-                <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                  Visa på karta ↗
-                </a>
+                <div className={styles.actions}>
+                  <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                    Visa på karta ↗
+                  </a>
+                </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
