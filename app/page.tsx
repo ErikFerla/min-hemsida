@@ -181,7 +181,7 @@ export default function Home() {
               <div className={styles.stats}>
                 {[
                   { siffra: '200+', text: 'Stränder och vikar', href: '/strandar' },
-                  { siffra: '22', text: 'Golfbanor', href: '/aktiviteter/golf' },
+                  { siffra: '20+', text: 'Golfbanor', href: '/aktiviteter/golf' },
                   { siffra: '300', text: 'Soldagar per år', href: '/vader' },
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
                 ].map((stat, i) => (
