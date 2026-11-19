@@ -18,14 +18,31 @@ const inter = localFont({
   variable: '--font-inter',
   display: 'swap',
 });
+// Playfair 700 (rubriker) och kursiv 400 (rösten) är två localFont-anrop med SAMMA
+// font-family-namn, så att --font-playfair (och därmed --font-heading) täcker båda
+// skärningarna. Kursiven syns nästan alltid längre ned på sidan och förladdas inte (5.6) –
+// den hämtas när första kursiva texten läggs ut. Bara Inter 400/600 och Playfair 700 får
+// <link rel="preload">. Båda anropen behåller adjustFontFallback (Times New Roman med
+// justerade mått) så att bytet från reservtypsnittet blir litet.
 const playfair = localFont({
-  src: [
-    { path: './fonts/playfair-display-latin-700-normal.woff2', weight: '700', style: 'normal' },
-    { path: './fonts/playfair-display-latin-400-italic.woff2', weight: '400', style: 'italic' },
-  ],
+  src: './fonts/playfair-display-latin-700-normal.woff2',
+  weight: '700',
+  style: 'normal',
   variable: '--font-playfair',
   display: 'swap',
   adjustFontFallback: 'Times New Roman',
+  declarations: [{ prop: 'font-family', value: 'playfair' }],
+});
+const playfairItalic = localFont({
+  src: './fonts/playfair-display-latin-400-italic.woff2',
+  weight: '400',
+  style: 'italic',
+  // Samma familj som ovan; variabeln behövs bara för att @font-face-reglerna ska tas med.
+  variable: '--font-playfair-italic',
+  display: 'swap',
+  preload: false,
+  adjustFontFallback: 'Times New Roman',
+  declarations: [{ prop: 'font-family', value: 'playfair' }],
 });
 const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
@@ -59,7 +76,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sv">
-      <body className={`${inter.variable} ${playfair.variable}`}>
+      <body className={`${inter.variable} ${playfair.variable} ${playfairItalic.variable}`}>
         <a href="#main" className="skip-link">Hoppa till innehållet</a>
         <Navbar />
         <OrganizationSchema />
