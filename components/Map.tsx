@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, type CSSProperties } from 'react'
 import Link from 'next/link'
-import 'leaflet/dist/leaflet.css'
 import styles from './Map.module.css'
 
 export type MapMarker = {
@@ -94,7 +93,9 @@ export default function Map({
     let map: import('leaflet').Map | undefined
 
     const init = async () => {
-      const L = await import('leaflet')
+      // Leaflets CSS laddas tillsammans med biblioteket (inte som renderingsblockerande CSS i
+      // sidans <head>) – kartan ligger alltid långt ned och initieras först efter hydrering.
+      const [L] = await Promise.all([import('leaflet'), import('leaflet/dist/leaflet.css')])
       if (cancelled || !elRef.current) return
       const Lm = (L as unknown as { default?: typeof L } & typeof L).default || L
 

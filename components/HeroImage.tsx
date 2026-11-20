@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
+import { HERO_QUALITY, isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import EagerImage from './EagerImage';
 import styles from './HeroImage.module.css';
 
@@ -27,12 +27,12 @@ const SRCSET_WIDTHS = [640, 960, 1280, 1600, 2000];
 const SRC_WIDTH = 1600;
 
 function buildUrl(baseUrl: string, width: number) {
-  if (!isUnsplash(baseUrl)) return sizedImageUrl(baseUrl, width);
+  if (!isUnsplash(baseUrl)) return sizedImageUrl(baseUrl, width, HERO_QUALITY);
   return `${baseUrl}?w=${width}&q=80&fm=webp&auto=format`;
 }
 
 function buildSrcSet(baseUrl: string) {
-  if (!isUnsplash(baseUrl)) return sizedImageSrcSet(baseUrl);
+  if (!isUnsplash(baseUrl)) return sizedImageSrcSet(baseUrl, HERO_QUALITY);
   return SRCSET_WIDTHS.map((w) => `${buildUrl(baseUrl, w)} ${w}w`).join(', ');
 }
 
