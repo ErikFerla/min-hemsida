@@ -1,24 +1,260 @@
-/* Karta (Leaflet) med SSR-lista över platserna. Höjden kommer från prop:en via --map-height. */
+/* Karta (Leaflet) med SSR-lista över platserna. Höjden kommer från prop:en via --map-height,
+   nålarnas färg från --pin (ämnesfärg, sätts av Map.tsx). Inga hårdkodade färger utöver
+   reservvärden för ämnestokens som ännu inte finns i globals.css. */
 
 .map {
+  --map-sea: color-mix(in srgb, var(--color-sea-tint, #dce9e8) 88%, var(--color-ink));
+
   width: 100%;
   height: var(--map-height);
   overflow: hidden;
-  border-radius: 8px;
-  background: var(--color-surface);
+  border-radius: var(--radius-btn);
+  /* Samma ton som det nedtonade havet (#c8d5d5), så att kartan inte blinkar grått innan plattorna
+     laddats och så att hårfina glipor mellan plattor vid halva zoomsteg inte syns. */
+  background: var(--map-sea);
 }
 
 /* Leaflets CSS laddas dynamiskt (efter den här filen) och sätter .leaflet-container { background: #ddd }.
    Två klasser vinner oavsett laddningsordning. */
 .map:global(.leaflet-container) {
-  background: var(--color-surface);
+  background: var(--map-sea);
+  font-family: var(--font-body);
 }
 
+/* ── Plattor: OSM:s mättade gult, rosa och grönt tonas mot sand och kalksten. Uppmätt:
+   hav #aad3df → #c8d5d5 (dämpat havsgrått), land #f2efe9 → #f7f3eb (kalksten), skog #add19e →
+   #c6d2b9 (oliv), vägar #fcd6a4 → #f0dec6 (sand), motorväg #e892a2 → #cea9ac. Filtret ligger på
+   plattlagret, inte på nålar, popupar eller attribution. ── */
+.tiles {
+  filter: saturate(0.5) sepia(0.1) contrast(0.8) brightness(1.1);
+}
+
+/* ── Nålar ── */
+.marker {
+  border-radius: var(--radius-pill);
+}
+
+/* Fokusringen (globals.css) ritas runt själva nålen, inte runt etiketten */
+.marker:focus-visible {
+  outline-offset: 2px;
+}
+
+.pin,
+.dot {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--color-white);
+  border-radius: var(--radius-pill);
+  background: var(--pin, var(--color-ink));
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--color-ink) 45%, transparent);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+/* Onumrerad: liten prick (12 px) i en 24 px tryckyta */
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 6px;
+  border-width: 1.5px;
+}
+
+/* Huvudort (t.ex. Palma): större nål med en ljus och en mörk ring */
+.main .pin {
+  border-width: 3px;
+  box-shadow: 0 0 0 1.5px var(--pin, var(--color-ink)), 0 1px 4px color-mix(in srgb, var(--color-ink) 45%, transparent);
+  font-size: var(--text-small);
+}
+
+/* Golfflagga: stång i ink, vimpel i ämnesfärg med numret */
+.flag {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.flag::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  bottom: 2px;
+  left: 3px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--color-ink);
+}
+
+.flag::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  width: 6px;
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-ink);
+}
+
+.pennant {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 9px 0 4px;
+  background: var(--pin, var(--color-ink));
+  color: var(--color-white);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 5px) 50%, 100% 100%, 0 100%);
+}
+
+/* ── Ortsnamn: 12 px på en ljus platta (halo) så att kontrasten inte beror på plattan under ── */
+.label {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 4px);
+  transform: translateY(-50%);
+  padding: 1px 5px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-bg) 90%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-ink) 12%, transparent);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.flag + .label {
+  top: 9px;
+  left: calc(100% + 2px);
+}
+
+.labelLeft {
+  right: calc(100% + 4px);
+  left: auto;
+}
+
+.flag + .labelLeft {
+  right: calc(100% + 2px);
+  left: auto;
+}
+
+.labelHidden {
+  visibility: hidden;
+}
+
+/* Fokuserad nål: visa alltid namnet (ovanpå andra) */
+.marker:focus-visible .labelHidden,
+.marker:hover .labelHidden {
+  visibility: visible;
+  z-index: 1;
+}
+
+/* ── Popup ── */
+.map :global(.leaflet-popup-content-wrapper) {
+  border-radius: var(--radius-btn);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-ink) 22%, transparent);
+}
+
+.map :global(.leaflet-popup-content) {
+  margin: var(--space-3) var(--space-6) var(--space-3) var(--space-4);
+  color: var(--color-ink);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+
+.map:global(.leaflet-container) :global(a.leaflet-popup-close-button) {
+  width: 32px;
+  height: 32px;
+  color: var(--color-text-muted);
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.popupName {
+  display: block;
+  color: var(--color-ink);
+  font-size: var(--text-body);
+  font-weight: 600;
+}
+
+.popupMeta {
+  display: block;
+  margin: var(--space-1) 0 2px;
+  color: var(--color-text-muted);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.popupDesc {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-text-muted);
+}
+
+.map:global(.leaflet-container) a.popupLink {
+  display: inline-block;
+  min-height: 24px;
+  margin-top: var(--space-2);
+  padding: 2px 0;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── Kontroller: attribution läsbar (12 px, ink på ljus platta), zoom i sajtens färger ── */
+.map:global(.leaflet-container) :global(.leaflet-control-attribution) {
+  padding: 1px 6px;
+  border-top-left-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+  color: var(--color-ink);
+  font-size: var(--text-label);
+  line-height: var(--lh-small);
+}
+
+.map:global(.leaflet-container) :global(.leaflet-control-attribution a) {
+  color: var(--color-ink);
+}
+
+.map:global(.leaflet-container) :global(.leaflet-bar) {
+  border: 1px solid var(--color-control-border);
+  box-shadow: none;
+}
+
+.map:global(.leaflet-container) :global(.leaflet-bar a) {
+  width: 32px;
+  height: 32px;
+  color: var(--color-ink);
+  line-height: 32px;
+}
+
+/* ── Lista (samma nummer som nålarna) ── */
 .details {
   margin-top: var(--space-4);
 }
 
 .summary {
+  min-height: 44px;
   padding: var(--space-2) 0;
   color: var(--color-ink);
   font-size: var(--text-small);
@@ -30,7 +266,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: var(--space-1) var(--space-6);
-  margin: var(--space-3) 0 0;
+  margin: var(--space-2) 0 0;
   padding: 0;
   font-size: var(--text-small);
   line-height: var(--lh-small);
@@ -38,7 +274,32 @@
 }
 
 .item {
-  padding: var(--space-1) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-1) var(--space-2) var(--space-1) 0;
+  border-radius: var(--radius-btn);
+}
+
+.itemActive {
+  background: var(--color-surface);
+}
+
+.num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: -3px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--pin, var(--color-ink));
+  color: var(--color-white);
+  font: 600 var(--text-label) / 1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
 }
 
 .name {
