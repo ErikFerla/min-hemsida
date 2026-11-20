@@ -8,7 +8,10 @@ export type FooterSection = {
   links: ReadonlyArray<readonly [label: string, href: string]>;
 };
 
-// Samma grupper och namn som huvudmenyn (components/Navbar.tsx), en länk per sida.
+// Samma sidor, namn och ordning som huvudmenyn (components/Navbar.tsx), en länk per sida.
+// Med barn, Guider och Planera motsvarar menyns grupper (familjeguiderna sist under Med barn).
+// "Utforska" samlar menyns Stränder, Städer & byar, Mat & vin och Aktiviteter – med deras
+// undersidor utom de enskilda orterna, som nås via Städer & byar.
 export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
   {
     heading: 'Med barn',
@@ -23,19 +26,25 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
       ['Natur & utomhus', '/barn/natur-och-utomhus'],
       ['Aktiv dag', '/barn/aktivitet-och-rorelse'],
       ['Familjesemester', '/guide/mallorca-med-barn'],
+      ['Månad för månad', '/guide/mallorca-med-barn-manad-for-manad'],
+      ['Stränderna för barn', '/guide/stranderna-for-barn'],
+      ['Regniga dagar', '/guide/regniga-dagar-med-barn'],
     ],
   },
   {
     heading: 'Utforska',
     links: [
       ['Stränder', '/strandar'],
+      ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
+      ['Båtutflykter & Cabrera', '/batutflykter-och-cabrera'],
       ['Städer & byar', '/byar'],
       ['Mat & vin', '/mat'],
+      ['Bästa restauranger i Palma', '/guide/basta-restauranger-palma'],
       ['Vingårdar', '/vingardar'],
       ['Aktiviteter', '/aktiviteter'],
       ['Golf', '/aktiviteter/golf'],
+      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
       ['Vandring & cykling', '/vandring-och-cykling'],
-      ['Båtutflykter & Cabrera', '/batutflykter-och-cabrera'],
       ['Sevärdheter', '/sevardheter'],
       ['Evenemang', '/evenemang'],
       ['Marknader', '/marknader'],
@@ -48,9 +57,6 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
       ['Mallorca för par', '/mallorca-for-par'],
       ['Mallorca på vintern', '/mallorca-pa-vintern'],
       ['Dagsturer utan bil', '/dagsturer-utan-bil'],
-      ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
-      ['Restauranger i Palma', '/guide/basta-restauranger-palma'],
-      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
     ],
   },
   {

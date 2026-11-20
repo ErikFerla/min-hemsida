@@ -6,18 +6,35 @@ import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
 import { CityJsonLd, cityBreadcrumbs } from '@/app/lib/CityJsonLd';
 import type { City, CityText } from '@/data/cities';
-import { beaches } from '@/data/beaches';
+import { beaches, type BeachRegion } from '@/data/beaches';
+import { STRAND_FILTER_ID } from '@/app/strandar/anchors';
 import { beachRegion, heroCredit, kidsNearby, nearbyCities } from './nearby';
 import styles from './CityTemplate.module.css';
 
 const BEACH_NAMES = new Set(beaches.map((b) => b.namn));
 const BEACH_REGION = new Map(beaches.map((b) => [b.namn, b.region]));
 
-/** Strandchip → /strandar filtrerad på strandens region (StrandFilter läser ?region=), med listan i fokus. */
-function beachHref(name: string) {
-  const region = BEACH_REGION.get(name);
-  return region ? `/strandar?region=${encodeURIComponent(region)}#strand-lista` : '/strandar#strand-lista';
+/**
+ * /strandar filtrerad på en region (StrandFilter läser ?region=). Länken går till filterrutan –
+ * då syns både det valda området och de första stränderna under det fasta sidhuvudet.
+ */
+function strandarHref(region: BeachRegion | undefined) {
+  return region ? `/strandar?region=${encodeURIComponent(region)}#${STRAND_FILTER_ID}` : `/strandar#${STRAND_FILTER_ID}`;
 }
+
+/** Strandchip → /strandar filtrerad på strandens region. */
+function beachHref(name: string) {
+  return strandarHref(BEACH_REGION.get(name));
+}
+
+/** Länktext för "Mer i närheten": regionerna på /strandar som läsbar svenska. */
+const REGION_LINK_TEXT: Record<BeachRegion, string> = {
+  Norr: 'Stränder i norr',
+  Nordväst: 'Stränder i nordväst',
+  Öst: 'Stränder på östkusten',
+  Syd: 'Stränder på sydkusten',
+  Sydväst: 'Stränder i sydväst',
+};
 
 /** Text med valfri intern länk på slutet (samma form som insidertipsen). */
 function RichText({ value }: { value: CityText }) {
@@ -151,11 +168,8 @@ function MoreNearby({ city }: { city: City }) {
       <h2 id="mer-i-narheten" className={styles.boxTitle}>Mer i närheten</h2>
       <ul className={styles.moreList}>
         <li>
-          <Link
-            href={region ? `/strandar?region=${encodeURIComponent(region)}#strand-lista` : '/strandar#strand-lista'}
-            className={styles.moreLink}
-          >
-            {region ? `Stränder i ${region}` : 'Alla stränder på Mallorca'} <span aria-hidden="true">→</span>
+          <Link href={strandarHref(region)} className={styles.moreLink}>
+            {region ? REGION_LINK_TEXT[region] : 'Alla stränder på Mallorca'} <span aria-hidden="true">→</span>
           </Link>
         </li>
         {kids.map((k) => (

@@ -13,7 +13,7 @@ export default function MarknaderPage() {
       <header className={t.hero}>
         <div className={t.inner}>
           <div className={t.crumbs}>
-            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Veckomarknader', url: '/marknader' }]} />
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Marknader', url: '/marknader' }]} />
           </div>
           <p className={t.kicker}>Byarnas marknadsdagar</p>
           <h1 className={t.title}>Veckomarknader på Mallorca</h1>

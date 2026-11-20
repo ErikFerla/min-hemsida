@@ -132,7 +132,7 @@ export default function RegnigaDagarGuide() {
       <header className={t.hero}>
         <div className={t.inner}>
           <div className={t.crumbs}>
-            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Regniga dagar med barn på Mallorca', url: '/guide/regniga-dagar-med-barn' }]} />
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Med barn', url: '/barn' }, { name: 'Regniga dagar med barn på Mallorca', url: '/guide/regniga-dagar-med-barn' }]} />
           </div>
           <p className={t.kicker}>Familjeguide · Plan B</p>
           <h1 className={t.title}>Regniga dagar med barn på Mallorca</h1>

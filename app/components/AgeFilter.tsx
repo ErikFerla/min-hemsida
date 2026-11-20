@@ -99,8 +99,10 @@ function AgeFilterView({
         </div>
 
         <div className={styles.status}>
+          {/* "matchar", inte "visar": på /barn under 1024 px syns bara de första korten tills man
+              trycker "Visa alla" (app/barn/ShowAllActivities.tsx), så räknaren anger träffarna. */}
           <span className={styles.count} aria-live="polite">
-            Visar <strong>{visibleCount}</strong> av {totalCount} aktiviteter
+            <strong>{visibleCount}</strong> av {totalCount} aktiviteter matchar
           </span>
           {selected.length > 0 && (
             <button type="button" onClick={() => onChange([])} className="btn btn-secondary">

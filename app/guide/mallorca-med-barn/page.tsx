@@ -52,7 +52,7 @@ export default function MallorcaMedBarnGuide() {
       <header className={t.hero}>
         <div className={t.inner}>
           <div className={t.crumbs}>
-            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Familjesemester på Mallorca', url: '/guide/mallorca-med-barn' }]} />
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Med barn', url: '/barn' }, { name: 'Familjesemester på Mallorca', url: '/guide/mallorca-med-barn' }]} />
           </div>
           <p className={t.kicker}>Familjereseguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>

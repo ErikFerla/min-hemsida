@@ -75,6 +75,8 @@
 
 /* Strandkort */
 .list {
+  /* #strand-lista kan vara ankarmål: hamna under det fasta sidhuvudet (72 px + 1 px kant) */
+  scroll-margin-top: calc(73px + var(--space-4));
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: var(--space-5);

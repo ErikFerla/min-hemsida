@@ -182,8 +182,8 @@
 /* ── Kompakt kort på mobil och surfplatta (5.6, 9.2) ─────────────
    Långa kortlistor (/strandar, /mat, /aktiviteter/golf). Från 1024 px ser kortet ut som
    .card ovan; under 1024 px blir bilden en miniatyr bredvid rubriken och tipset fälls ihop
-   i en <details> (miniatyr 96 px på mobil, 120 px på surfplatta, där listan har två
-   kolumner). Allt innehåll finns kvar i HTML:en (inget döljs med JavaScript).
+   i en <details> (miniatyr 96 px på mobil, 120 px på surfplatta). Antalet kolumner styrs av
+   sidans lista, inte här (t.ex. tre kolumner på /strandar och /aktiviteter/golf vid 768–1023 px). Allt innehåll finns kvar i HTML:en (inget döljs med JavaScript).
 
      <article class="compact">                 (i stället för .card)
        <div class="media"><Image fill /></div>

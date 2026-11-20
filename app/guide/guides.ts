@@ -18,7 +18,19 @@ export type GuideMeta = {
   imageAlt: string;
   datePublished: string;
   dateModified: string;
+  /** Brödsmulans mellanled (synlig och i BreadcrumbList). Utan den: Guider (/guider). */
+  parent?: { name: string; path: string };
 };
+
+/** Familjeguiderna ligger under Med barn i menyn – och därmed i brödsmulan. */
+const FAMILJ_PARENT = { name: 'Med barn', path: '/barn' } as const;
+
+/** Brödsmulans mellanled för en guide (Breadcrumbs-formatet). */
+function guideCrumbParent(slug: GuideSlug) {
+  const g: GuideMeta = GUIDES[slug];
+  const parent = g.parent ?? { name: 'Guider', path: '/guider' };
+  return { name: parent.name, url: parent.path };
+}
 
 export const GUIDES = {
   'basta-tid-resa-mallorca': {
@@ -42,6 +54,7 @@ export const GUIDES = {
     imageAlt: 'Segelbåtar i den skyddade viken Cala Mondragó på Mallorcas sydöstkust',
     datePublished: '2026-04-11T21:17:34+02:00',
     dateModified: '2026-11-20',
+    parent: FAMILJ_PARENT,
   },
   'basta-stranderna-mallorca': {
     slug: 'basta-stranderna-mallorca',
@@ -87,6 +100,7 @@ export const GUIDES = {
     imageAlt: 'Det gamla trätåget till Sóller vid stationen i Sóller',
     datePublished: '2026-11-20',
     dateModified: '2026-11-20',
+    parent: FAMILJ_PARENT,
   },
   'stranderna-for-barn': {
     slug: 'stranderna-for-barn',
@@ -98,6 +112,7 @@ export const GUIDES = {
     imageAlt: 'Platja de Muro – sandstrand och grunt vatten med utsikt över Alcúdiabukten',
     datePublished: '2026-11-20',
     dateModified: '2026-11-20',
+    parent: FAMILJ_PARENT,
   },
   'regniga-dagar-med-barn': {
     slug: 'regniga-dagar-med-barn',
@@ -109,6 +124,7 @@ export const GUIDES = {
     imageAlt: 'Droppstenar och underjordisk sjö i Coves del Drac, Porto Cristo',
     datePublished: '2026-11-20',
     dateModified: '2026-11-20',
+    parent: FAMILJ_PARENT,
   },
 } as const satisfies Record<string, GuideMeta>;
 
@@ -142,7 +158,7 @@ export function guideJsonLd(slug: GuideSlug) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Hem', item: `${SITE_URL}/` },
-        { '@type': 'ListItem', position: 2, name: 'Guider', item: `${SITE_URL}/guider` },
+        { '@type': 'ListItem', position: 2, name: guideCrumbParent(slug).name, item: `${SITE_URL}${guideCrumbParent(slug).url}` },
         { '@type': 'ListItem', position: 3, name: g.headline, item: url },
       ],
     },
