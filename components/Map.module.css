@@ -8,6 +8,12 @@
   background: var(--color-surface);
 }
 
+/* Leaflets CSS laddas dynamiskt (efter den här filen) och sätter .leaflet-container { background: #ddd }.
+   Två klasser vinner oavsett laddningsordning. */
+.map:global(.leaflet-container) {
+  background: var(--color-surface);
+}
+
 .details {
   margin-top: var(--space-4);
 }

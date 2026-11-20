@@ -9,6 +9,14 @@
 export const COMMONS_WIDTHS = [960, 1280, 1920] as const;
 /** Bredder som next.config.ts tillåter (deviceSizes) – /_next/image svarar 400 på andra. */
 const NEXT_WIDTHS = [390, 768, 1024, 1280, 1600] as const;
+/** Standardkvalitet. Alla kvaliteter här måste finnas i images.qualities i next.config.ts (annars 400). */
+const DEFAULT_QUALITY = 75;
+/**
+ * Kvalitet för sidornas LCP-bilder (hjältebilderna). De ligger under en mörk gradient och
+ * levereras som AVIF, där q60 ger ~35–40 % färre byte än q75 utan synlig skillnad i normal
+ * storlek – det kortar LCP på mobil.
+ */
+export const HERO_QUALITY = 60;
 
 export function isUnsplash(src: string): boolean {
   return src.startsWith('https://images.unsplash.com/');
@@ -31,30 +39,30 @@ function nearestNextWidth(width: number): number {
 }
 
 /** Lokal fil eller annan tillåten värd via Next.js bildoptimering. */
-export function nextImageUrl(src: string, width: number): string {
-  return `/_next/image?url=${encodeURIComponent(src)}&w=${nearestNextWidth(width)}&q=75`;
+export function nextImageUrl(src: string, width: number, quality: number = DEFAULT_QUALITY): string {
+  return `/_next/image?url=${encodeURIComponent(src)}&w=${nearestNextWidth(width)}&q=${quality}`;
 }
 
 /**
  * Bild-URL i ungefär given bredd för en bild som inte ligger på Unsplash
  * (Unsplash-URL:er bygger komponenterna själva, med sina egna parametrar).
  */
-export function sizedImageUrl(src: string, width: number): string {
+export function sizedImageUrl(src: string, width: number, quality?: number): string {
   const m = src.match(COMMONS_THUMB);
   if (m) {
     // Commons-JPEG:arna är stora; gå via Next.js bildoptimering (AVIF/WebP) med thumben som källa.
     const max = Number(m[2]);
-    return nextImageUrl(src, Math.min(width, max));
+    return nextImageUrl(src, Math.min(width, max), quality);
   }
-  return nextImageUrl(src, width);
+  return nextImageUrl(src, width, quality);
 }
 
 /** srcSet för en bild som inte ligger på Unsplash (Commons-thumbs och lokala filer, via /_next/image). */
-export function sizedImageSrcSet(src: string): string {
+export function sizedImageSrcSet(src: string, quality?: number): string {
   const m = src.match(COMMONS_THUMB);
   const max = m ? Number(m[2]) : Infinity;
   const widths = NEXT_WIDTHS.filter((w) => w <= max);
-  return (widths.length ? widths : [NEXT_WIDTHS[0]]).map((w) => `${nextImageUrl(src, w)} ${w}w`).join(', ');
+  return (widths.length ? widths : [NEXT_WIDTHS[0]]).map((w) => `${nextImageUrl(src, w, quality)} ${w}w`).join(', ');
 }
 
 /**
