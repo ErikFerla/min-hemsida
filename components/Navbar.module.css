@@ -78,8 +78,42 @@
   opacity: 0.45;
   transition: transform 0.2s;
 }
-.link[aria-expanded='true'] .chevron {
+.link[aria-expanded='true'] .chevron,
+.toggle[aria-expanded='true'] .chevron {
   transform: rotate(180deg);
+}
+
+/* Område med översiktssida: länk + separat knapp för undermenyn, en gemensam hoverplatta */
+.split {
+  display: flex;
+  align-items: stretch;
+  border-radius: var(--radius-sm);
+}
+.split:hover,
+.split[data-open] {
+  background: var(--color-surface);
+}
+.split .hubLink {
+  padding-right: 2px;
+}
+.split .hubLink:hover {
+  background: none;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  /* 24 px bred klickyta (WCAG 2.5.8) */
+  min-width: 24px;
+  padding: var(--space-2) var(--space-2) var(--space-2) 6px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+.toggle .chevron {
+  margin-left: 0;
 }
 
 .menu {
@@ -94,6 +128,36 @@
   border-radius: var(--radius-btn);
   /* Rullgardinen ligger över innehållet: en diskret lyftskugga behövs för att skilja den från sidan. */
   box-shadow: 0 8px 24px rgba(56, 58, 70, 0.12);
+}
+
+/* De två sista menypunkterna (Guider, Planera) ligger nära högerkanten: deras undermenyer
+   högerjusteras så att de inte klipps. Navbar.tsx mäter dessutom den öppna menyn och vänder
+   den om den ändå skulle hamna utanför fönstret. */
+.dropdown:nth-last-child(-n + 2) .menu {
+  right: 0;
+  left: auto;
+}
+
+.menuWide {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: var(--space-2);
+}
+.menuWide[hidden] {
+  display: none;
+}
+.menuWide .menuCol + .menuCol {
+  border-left: 1px solid var(--color-border);
+}
+
+.menuHeading {
+  margin: 0;
+  padding: var(--space-2) var(--space-4) var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
 }
 
 .menuItem {
@@ -192,6 +256,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  /* Pilen ligger i en 56 px bred ruta med samma högermarginal som .mobileToggle */
+  padding-right: var(--space-2);
   background: none;
   border: none;
   font-family: inherit;
@@ -207,9 +273,53 @@
   transform: rotate(180deg);
 }
 
+.mobileChevronBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+}
+
 .mobileLink {
   display: block;
   text-decoration: none;
+}
+
+/* Område med översiktssida: länken tar raden, pilknappen fäller ut undersidorna */
+.mobileRow {
+  display: flex;
+  align-items: stretch;
+}
+.mobileRow .mobileLink {
+  flex: 1;
+}
+
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  min-height: 56px;
+  margin-right: var(--space-2);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.mobileToggle[aria-expanded='true'] .mobileChevron {
+  transform: rotate(180deg);
+}
+
+.mobileHeading {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-2) var(--space-4) var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
 }
 
 .mobileSubitems {
@@ -262,6 +372,13 @@
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* Mobil: sidhuvudets egen sidmarginal (tidigare en basregel för alla <nav> i globals.css) */
+@media (max-width: 639px) {
+  .nav {
+    padding-inline: 16px;
+  }
 }
 
 @media (max-width: 1023px) {

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { IconPin, PriceTag, tierFromPris } from '@/components/Icons';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import HeroImage from '@/components/HeroImage';
 import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Restaurant = {
   namn: string;
@@ -60,6 +61,8 @@ export default function BästaRestaurangerPalma() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'De bästa restaurangerna i Palma', url: '/guide/basta-restauranger-palma' }]} />
+
         <div className={styles.priceBox}>
           <p className={styles.priceLabel}>Prisskala</p>
           <div className={styles.priceGrid}>
@@ -131,9 +134,7 @@ function RestaurantCard({ r }: { r: Restaurant }) {
         <dt>Beställ detta</dt>
         <dd>{r.bästRätt}</dd>
       </dl>
-      <TipBox heading="Insidertips" as="h4" variant="compact" className={styles.tip}>
-        <p>{r.insiderTips}</p>
-      </TipBox>
+      <CardTip label="Insidertips" className={styles.tip}>{r.insiderTips}</CardTip>
     </article>
   );
 }

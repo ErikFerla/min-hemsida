@@ -7,6 +7,7 @@ import { getCity } from '@/data/cities';
 import ResplanVerktyg from './ResplanVerktyg';
 import styles from './page.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const PATH = '/resplan';
 const TITLE = 'Resplan för Mallorca – dag för dag med karta';
@@ -65,6 +66,9 @@ export default function ResplanPage() {
 
       <header className={`${t.hero} ${styles.heroPrint}`}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Resplan', url: '/resplan' }]} />
+          </div>
           <p className={t.kicker}>Resplanerare</p>
           <h1 className={t.title}>Din resplan för Mallorca, dag för dag</h1>
           <p className={t.lead}>

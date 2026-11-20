@@ -48,14 +48,34 @@ export const metadata: Metadata = {
 // men texten är skriven för startsidan så att den inte läses som en dag i en resplan.
 const favoritstrand = förslag['calo-des-moro'];
 
+// Heron: sajtens h1 och genvägar för de tre målgrupperna (barnfamiljer, par, de som bor på ön).
+const HERO_RUBRIK = 'Mallorca på svenska';
+const HERO_INGRESS =
+  'Stränder, byar, mat och utflykter med lokala tips – för dig som reser med barn, som par eller bor på ön.';
+const HERO_GENVAGAR = [
+  { label: 'Med barn', href: '/barn' },
+  { label: 'Som par', href: '/mallorca-for-par' },
+  { label: 'Bor på ön', href: '/mallorca-pa-vintern#bor-pa-on' },
+  { label: 'Planera resan', href: '/resplan' },
+] as const;
+
 export default function Home() {
   return (
     <div className={styles.page}>
       <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }]} />
-      <h1 className="sr-only">Guide till Mallorca på svenska</h1>
-      <HeroSlideshow />
+      <HeroSlideshow rubrik={HERO_RUBRIK} ingress={HERO_INGRESS} genvagar={HERO_GENVAGAR} />
 
       <div className={styles.container}>
+        <section className={styles.discover}>
+          <div className={s.inner}>
+            <p className={s.label}>Vad vill du uppleva?</p>
+            <h2 className={s.title}>Upptäck Mallorca</h2>
+            <div className={s.divider}></div>
+            {/* Samma genvägskort på mobil och dator (5.3) */}
+            <FeatureCards />
+          </div>
+        </section>
+
         {/* Om MyMallorca: bild + text + Eriks tips */}
         <section className={`${s.pageSection} ${styles.flushBottom}`} aria-labelledby="om-rubrik">
           <div className={styles.split}>
@@ -102,16 +122,6 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className={styles.discover}>
-          <div className={s.inner}>
-            <p className={s.label}>Vad vill du uppleva?</p>
-            <h2 className={s.title}>Upptäck Mallorca</h2>
-            <div className={s.divider}></div>
-            {/* Samma genvägskort på mobil och dator (5.3) */}
-            <FeatureCards />
           </div>
         </section>
 

@@ -4,6 +4,7 @@ import HeroImage from '@/components/HeroImage';
 import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Vingard = {
   namn: string;
@@ -58,6 +59,8 @@ export default function VingardarPage() {
       />
 
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Vingårdar', url: '/vingardar' }]} />
+
         <div className={styles.headRow}>
           <IconGlass size={18} />
           <h2 className={styles.sectionTitle}>15 vingårdar att besöka</h2>

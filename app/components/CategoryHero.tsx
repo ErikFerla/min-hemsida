@@ -16,7 +16,7 @@ export type CategoryHeroProps = {
 export default function CategoryHero({
   imageSrc,
   imageAlt,
-  kicker = 'Barnvänligt på Mallorca',
+  kicker = 'Med barn',
   title,
   subtitle,
 }: CategoryHeroProps) {

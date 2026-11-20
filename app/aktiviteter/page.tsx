@@ -6,6 +6,7 @@ import type { ComponentType } from 'react';
 import styles from './page.module.css';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import LastChecked from '@/app/components/LastChecked';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Aktivitet = {
   titel: string;
@@ -57,7 +58,7 @@ const aktiviteter: Aktivitet[] = [
     highlights: ['Segling', 'Kajakpaddling', 'Snorkling'],
   },
   {
-    titel: 'Barn & familj',
+    titel: 'Med barn',
     beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
     Icon: IconUsers,
     href: '/barn',
@@ -99,6 +100,8 @@ export default function AktiviteterPage() {
 
       {/* Innehåll */}
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
+
         <div className={styles.cardGrid}>
           {aktiviteter.map((a, i) => (
             <Link key={i} href={a.href} className={styles.card}>
@@ -124,7 +127,7 @@ export default function AktiviteterPage() {
 
         <section id="barnvanligt" className={styles.section}>
           <p className={styles.eyebrow}>För hela familjen</p>
-          <h2 className={styles.sectionTitle}>Barnvänligt</h2>
+          <h2 className={styles.sectionTitle}>Med barn</h2>
           <p className={styles.intro}>
             Vattenparker, grottor, djurparker och äventyrsparker – här är våra handplockade favoriter.
           </p>

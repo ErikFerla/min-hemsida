@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cardImageUrl } from '@/app/lib/image-url';
 import { IconPin, IconExternal, IconMap } from '@/components/Icons';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import AgeGroupChip from './AgeGroupChip';
 import styles from './ActivityDetail.module.css';
 import type { Activity } from '@/app/lib/barn-activities';
@@ -83,9 +83,7 @@ export default function ActivityDetail({ activity }: ActivityDetailProps) {
         )}
 
         {activity.insiderTip && (
-          <TipBox heading="Insidertips" as="p" variant="compact">
-            <p>{activity.insiderTip}</p>
-          </TipBox>
+          <CardTip label="Insidertips">{activity.insiderTip}</CardTip>
         )}
 
         <div className={styles.actions}>

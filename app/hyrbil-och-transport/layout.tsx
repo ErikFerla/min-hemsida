@@ -37,7 +37,8 @@ const jsonLd = [
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Hem', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: TITLE, item: `${BASE_URL}${PATH}` },
+      // Samma namn som den synliga brödsmulan i page.tsx
+      { '@type': 'ListItem', position: 2, name: 'Hyrbil och transport', item: `${BASE_URL}${PATH}` },
     ],
   },
 ];

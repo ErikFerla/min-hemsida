@@ -3,19 +3,25 @@ import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import { IconClock, IconPin } from '@/components/Icons';
 import { MARKNADSKÄLLOR, marknaderPåDag, VECKODAGAR } from '@/data/markets';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
+import t from '@/components/TextHero.module.css';
 import styles from './marknader.module.css';
 
 export default function MarknaderPage() {
   return (
     <div className={styles.page}>
-      <header className={styles.hero}>
-        <p className={styles.kicker}>Byarnas marknadsdagar</p>
-        <h1 className={styles.title}>Veckomarknader på Mallorca</h1>
-        <div className={styles.divider} />
-        <p className={styles.lead}>
-          Nästan varje by på Mallorca har sin marknadsdag. Här är de marknader vi har kunnat bekräfta, dag för dag – med ungefärliga tider, vad som säljs och
-          några tips.
-        </p>
+      <header className={t.hero}>
+        <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Marknader', url: '/marknader' }]} />
+          </div>
+          <p className={t.kicker}>Byarnas marknadsdagar</p>
+          <h1 className={t.title}>Veckomarknader på Mallorca</h1>
+          <p className={t.lead}>
+            Nästan varje by på Mallorca har sin marknadsdag. Här är de marknader vi har kunnat bekräfta, dag för dag – med ungefärliga tider, vad som säljs och
+            några tips.
+          </p>
+        </div>
       </header>
 
       <div className={styles.main}>

@@ -8,6 +8,7 @@ import { aktivitet } from '../familj-links';
 import h from '../headings.module.css';
 import styles from '../familj.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Strand = {
   /** Namnet som i data/beaches.ts – region och längd hämtas därifrån. */
@@ -169,6 +170,9 @@ export default function StrandernaForBarnGuide() {
     <div className={styles.page}>
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Med barn', url: '/barn' }, { name: 'Bästa stränderna för barn – efter ålder', url: '/guide/stranderna-for-barn' }]} />
+          </div>
           <p className={t.kicker}>Familjeguide · Stränder</p>
           <h1 className={t.title}>Bästa stränderna för barn – efter ålder</h1>
           <p className={t.lead}>

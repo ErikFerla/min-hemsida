@@ -10,12 +10,14 @@
 .hero {
   background: var(--color-surface);
   color: var(--color-ink);
-  padding: var(--space-6) var(--gutter) var(--space-6);
+  padding: var(--space-5) 0 var(--space-6);
 }
 
+/* Samma container som innehållet (globals.css .container) – en vänsterkant för brödsmula, h1 och text */
 .heroInner {
-  max-width: var(--w-content);
+  max-width: var(--w-wide);
   margin: 0 auto;
+  padding-inline: var(--gutter);
 }
 
 .kicker {
@@ -48,7 +50,7 @@
 
 /* Innehåll */
 .container {
-  max-width: var(--w-content);
+  max-width: var(--w-wide);
   margin: 0 auto;
   padding: var(--space-7) var(--gutter) var(--section-space);
 }
@@ -171,6 +173,6 @@
 
 @media (min-width: 1024px) {
   .hero {
-    padding: var(--space-7) var(--gutter) var(--space-7);
+    padding: var(--space-6) 0 var(--space-7);
   }
 }

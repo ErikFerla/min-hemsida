@@ -12,7 +12,7 @@ export const metadata = buildPageMetadata({
 export default function MarknaderLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Veckomarknader', url: '/marknader' }]} />
+      <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }, { name: 'Marknader', url: '/marknader' }]} />
       {children}
     </>
   );

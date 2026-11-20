@@ -73,9 +73,12 @@
 
 .link {
   display: block;
+  /* Tät radhöjd så att en radbruten länk hålls ihop; luften mellan länkarna ligger i padding
+     (klickytan ca 29 px hög, ≥24 px enligt WCAG 2.5.8) */
+  padding-block: var(--space-1);
   color: var(--color-on-dark-muted);
   font-size: var(--text-small);
-  line-height: 2.2;
+  line-height: 1.4;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -149,8 +152,8 @@
 
 .toggleIcon {
   display: inline-block;
+  flex-shrink: 0;
   color: var(--color-on-dark-muted);
-  font-size: var(--text-label);
   transition: transform 0.2s;
 }
 .toggle[aria-expanded='true'] .toggleIcon {
@@ -188,6 +191,19 @@
   /* Varumärkeskolumnen över hela bredden på surfplatta */
   .grid > div:first-child {
     grid-column: 1 / -1;
+  }
+}
+
+/* Liten dator: varumärket på egen rad så att de fyra länkkolumnerna får plats utan att
+   de flesta länkar radbryts */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid > div:first-child {
+    grid-column: 1 / -1;
+    max-width: 68ch;
   }
 }
 

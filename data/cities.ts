@@ -95,6 +95,12 @@ export type City = {
   practical: { label: string; value: string }[];
   /** Sökfras till Google Maps-länken "Visa på karta". */
   mapsQuery: string;
+  /**
+   * Barnaktiviteter i eller precis vid orten (slugs i app/lib/barn-activities.ts, kontrolleras vid
+   * bygget). Bara aktiviteter vars `location` nämner orten. Visas i rutan "Mer i närheten";
+   * utan listan länkar rutan till /barn.
+   */
+  kidsNearby?: string[];
   /** Valfri ruta med kartlänkar till platser i orten. */
   places?: { heading: string; items: { text: string; href: string }[] };
   /** Utbyggda sektioner: bo, äta, ta sig dit, stränder, marknad, bästa tid, barnfamiljer, par. */
@@ -228,6 +234,7 @@ export const cities: City[] = [
       { label: 'Catedral de Mallorca: öppettider', href: 'https://catedraldemallorca.org/en/visits/opening-hours/' },
     ],
     mapsQuery: 'Palma+de+Mallorca',
+    kidsNearby: ['palma-aquarium', 'castell-de-bellver', 'palma-jump'],
     places: {
       heading: 'Hitta hit i Palma',
       items: [
@@ -340,6 +347,7 @@ export const cities: City[] = [
       { label: 'Mercadillos.org: marknaden i Sóller', href: 'https://mercadillos.org/mercadillo-soller' },
     ],
     mapsQuery: 'Soller+Mallorca',
+    kidsNearby: ['tren-de-soller', 'jardi-botanic-de-soller'],
     card: {
       description: 'Bergsby omgiven av apelsinlundar med historisk spårvagn ner till havet',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Vista_de_S%C3%B3ller.jpg/960px-Vista_de_S%C3%B3ller.jpg',
@@ -536,6 +544,7 @@ export const cities: City[] = [
       { label: 'Mercadillos.org: marknaden i Santanyí', href: 'https://mercadillos.org/en/santanyi/santanyi-market' },
     ],
     mapsQuery: 'Santany%C3%AD+Mallorca',
+    kidsNearby: ['parc-natural-de-mondrago'],
     card: {
       description: 'Charmig marknadsby känd för onsdagsmarknaden och närheten till Cala Llombards',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mallorca-Santany%C3%AD_%28city%29-14.jpg/960px-Mallorca-Santany%C3%AD_%28city%29-14.jpg',
@@ -635,6 +644,7 @@ export const cities: City[] = [
       { label: 'Mercadillos.org: marknaden i Santanyí', href: 'https://mercadillos.org/en/santanyi/santanyi-market' },
     ],
     mapsQuery: 'Porto+Petro+Mallorca',
+    kidsNearby: ['parc-natural-de-mondrago'],
     card: {
       description: 'Exklusiv och lugn marinaby i sydost, populär bland seglare',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Portopetro_Bay_01.jpg/960px-Portopetro_Bay_01.jpg',
@@ -733,6 +743,7 @@ export const cities: City[] = [
       { label: 'Mercadillos.org: marknaden i Alcúdia', href: 'https://mercadillos.org/en/alcudia/alcudia-market' },
     ],
     mapsQuery: 'Alcudia+Mallorca',
+    kidsNearby: ['hidropark-alcudia', 'glasbottenbat-alcudia', 's-albufera'],
     card: {
       description: 'Historisk kuststad med välbevarade medeltida murar och romarteater',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Alcudia_City_Walls_R01.jpg/960px-Alcudia_City_Walls_R01.jpg',
@@ -1060,6 +1071,7 @@ export const cities: City[] = [
       { label: 'TIB: linje 325 Alcúdia–Cala Rajada (2026)', href: 'https://www.tib.org/en/w/el-bus-del-tib-amplia-el-servei-a-partir-de-divendres-amb-la-reactivaci%C3%B3-de-l%C3%ADnies-a-la-zona-d-alc%C3%BAdia-i-de-ponent' },
     ],
     mapsQuery: 'Arta+Mallorca',
+    kidsNearby: ['via-verda-manacor-arta'],
     card: {
       description: 'Historisk bergsstad med imponerande borg och vackra gränder',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Mallorca_Blick_auf_Arta_%2831907486476%29.jpg/960px-Mallorca_Blick_auf_Arta_%2831907486476%29.jpg',
@@ -1182,6 +1194,7 @@ export const cities: City[] = [
       { label: 'Ultima Hora: la gamba vuelve a Sóller y Andratx', href: 'https://www.ultimahora.es/noticias/part-forana/2016/09/02/217934/gamba-vuelve-soller-andratx-forma-tan-repentina-como-desaparecio.html' },
     ],
     mapsQuery: 'Andratx+Mallorca',
+    kidsNearby: ['sa-dragonera'],
     card: {
       description: "Lugn stadskärna i sydväst nära Port d'Andratx med fin marina",
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Andratx%2C_Placa_Espa%C3%B1a.jpg/960px-Andratx%2C_Placa_Espa%C3%B1a.jpg',
@@ -1621,6 +1634,7 @@ export const cities: City[] = [
       { label: 'Mallorca Global Mag: Via Verda Manacor–Artà', href: 'https://mallorcaglobalmag.es/ruta-en-bicicleta-por-llevant-la-via-verde-manacor-arta/' },
     ],
     mapsQuery: 'Manacor+Mallorca',
+    kidsNearby: ['rafa-nadal-museum-xperience', 'coves-dels-hams', 'via-verda-manacor-arta'],
     places: {
       heading: 'Hitta hit i Manacor',
       items: [
@@ -1859,6 +1873,7 @@ export const cities: City[] = [
       { label: 'Wikivoyage: Cala Ratjada', href: 'https://en.wikivoyage.org/wiki/Cala_Ratjada' },
     ],
     mapsQuery: 'Capdepera+Mallorca',
+    kidsNearby: ['castell-de-capdepera', 'coves-d-arta'],
     card: {
       description: 'Medeltida borg och pittoresk by i nordost med panoramautsikt över havet',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Capdepera_with_Castle.jpg/960px-Capdepera_with_Castle.jpg',
@@ -1971,6 +1986,7 @@ export const cities: City[] = [
       { label: 'Illes Balears: la gamba de Sóller', href: 'https://illesbalears.travel/en/mallorca/local-product-la-gamba-de-soller' },
     ],
     mapsQuery: 'Port+de+Soller+Mallorca',
+    kidsNearby: ['jardi-botanic-de-soller', 'tren-de-soller'],
     card: {
       description: 'Charmig hamnby med en av Mallorcas vackraste vikar, dit den historiska spårvagnen går',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Port_de_S%C3%B3ller_2.jpg/960px-Port_de_S%C3%B3ller_2.jpg',

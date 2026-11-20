@@ -2,6 +2,7 @@
 import { Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { BEACH_REGIONS, BEACH_TYPES, type Beach } from '@/data/beaches';
+import { STRAND_FILTER_ID } from './anchors';
 import styles from './StrandFilter.module.css';
 
 // Filtret äger inte strandkorten – de serverrenderas i page.tsx med data-attribut.
@@ -63,7 +64,7 @@ function FilterPanel({ listId, beaches, initialRegion }: Props & { initialRegion
   const hasActiveFilter = region !== 'Alla' || typ !== 'Alla typer' || filter !== '';
 
   return (
-    <div className={styles.panel}>
+    <div id={STRAND_FILTER_ID} className={styles.panel}>
       {css && <style>{css}</style>}
       <div className={styles.head}>
         <p className={styles.title}>Filtrera stränder</p>

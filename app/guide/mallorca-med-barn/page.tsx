@@ -9,6 +9,7 @@ import type { ComponentType } from 'react';
 import h from '../headings.module.css';
 import styles from './page.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Sektion = {
   rubrik: string;
@@ -50,6 +51,9 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Med barn', url: '/barn' }, { name: 'Familjesemester på Mallorca', url: '/guide/mallorca-med-barn' }]} />
+          </div>
           <p className={t.kicker}>Familjereseguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>
           <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>

@@ -1,0 +1,18 @@
+/* Tipset i ett kort (9.2) – se components/CardTip.tsx. En rad i small: liten etikett i
+   accentfärg + texten, utan bakgrund, kant eller våg. Accent mot vit/--color-bg: 7,2:1. */
+.tip {
+  max-width: var(--w-text);
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+
+.label {
+  margin-right: var(--space-1);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-accent);
+}

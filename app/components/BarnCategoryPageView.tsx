@@ -48,7 +48,7 @@ export default function BarnCategoryPageView({
 
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
-    { name: 'Barnvänligt', url: '/barn' },
+    { name: 'Med barn', url: '/barn' },
     { name: meta.label, url: meta.href },
   ];
 
@@ -69,6 +69,7 @@ export default function BarnCategoryPageView({
       <JsonLd data={breadcrumbJsonLd} />
 
       <CategoryHero
+        kicker="Med barn"
         imageSrc={hero.imageSrc}
         imageAlt={hero.imageAlt}
         title={hero.title}

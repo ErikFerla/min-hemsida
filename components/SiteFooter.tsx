@@ -8,36 +8,55 @@ export type FooterSection = {
   links: ReadonlyArray<readonly [label: string, href: string]>;
 };
 
+// Samma sidor, namn och ordning som huvudmenyn (components/Navbar.tsx), en länk per sida.
+// Med barn, Guider och Planera motsvarar menyns grupper (familjeguiderna sist under Med barn).
+// "Utforska" samlar menyns Stränder, Städer & byar, Mat & vin och Aktiviteter – med deras
+// undersidor utom de enskilda orterna, som nås via Städer & byar.
 export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
+  {
+    heading: 'Med barn',
+    links: [
+      ['Översikt', '/barn'],
+      ['Vattenparker', '/barn/vattenparker'],
+      ['Djurparker & akvarier', '/barn/djurparker-och-akvarier'],
+      ['Inomhus & regn', '/barn/inomhus-och-regn'],
+      ['Grottor', '/barn/grottor'],
+      ['Äventyrsparker', '/barn/aventyrsparker'],
+      ['Museer & kultur', '/barn/museer-och-kultur'],
+      ['Natur & utomhus', '/barn/natur-och-utomhus'],
+      ['Aktiv dag', '/barn/aktivitet-och-rorelse'],
+      ['Familjesemester', '/guide/mallorca-med-barn'],
+      ['Månad för månad', '/guide/mallorca-med-barn-manad-for-manad'],
+      ['Stränderna för barn', '/guide/stranderna-for-barn'],
+      ['Regniga dagar', '/guide/regniga-dagar-med-barn'],
+    ],
+  },
   {
     heading: 'Utforska',
     links: [
-      ['Städer & byar', '/byar'],
       ['Stränder', '/strandar'],
-      ['Sevärdheter', '/sevardheter'],
-      ['Mat & vin', '/mat'],
-      ['Vingårdar', '/vingardar'],
-      ['Golf', '/aktiviteter/golf'],
-      ['Aktiviteter', '/aktiviteter'],
-      ['Vandring & cykling', '/vandring-och-cykling'],
+      ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
       ['Båtutflykter & Cabrera', '/batutflykter-och-cabrera'],
+      ['Städer & byar', '/byar'],
+      ['Mat & vin', '/mat'],
+      ['Bästa restauranger i Palma', '/guide/basta-restauranger-palma'],
+      ['Vingårdar', '/vingardar'],
+      ['Aktiviteter', '/aktiviteter'],
+      ['Golf', '/aktiviteter/golf'],
+      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
+      ['Vandring & cykling', '/vandring-och-cykling'],
+      ['Sevärdheter', '/sevardheter'],
       ['Evenemang', '/evenemang'],
       ['Marknader', '/marknader'],
-      ['Väder', '/vader'],
     ],
   },
   {
     heading: 'Guider',
     links: [
-      ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
-      ['Familjesemester', '/guide/mallorca-med-barn'],
-      ['Bästa stränderna', '/guide/basta-stranderna-mallorca'],
-      ['Restauranger i Palma', '/guide/basta-restauranger-palma'],
-      ['Bästa golfbanorna', '/guide/golf-mallorca-guide'],
+      ['Översikt', '/guider'],
       ['Mallorca för par', '/mallorca-for-par'],
       ['Mallorca på vintern', '/mallorca-pa-vintern'],
       ['Dagsturer utan bil', '/dagsturer-utan-bil'],
-      ['Alla guider →', '/guider'],
     ],
   },
   {
@@ -49,21 +68,8 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
       ['Hyrbil & transport', '/hyrbil-och-transport'],
       ['Budget & priser', '/budget-och-priser'],
       ['Praktiskt & säkerhet', '/praktiskt'],
-      ['Städer & byar →', '/byar'],
-    ],
-  },
-  {
-    heading: 'Barnvänligt',
-    links: [
-      ['Mallorca med barn', '/barn'],
-      ['Vattenparker', '/barn/vattenparker'],
-      ['Djurparker & akvarier', '/barn/djurparker-och-akvarier'],
-      ['Inomhus & regn', '/barn/inomhus-och-regn'],
-      ['Grottor', '/barn/grottor'],
-      ['Äventyrsparker', '/barn/aventyrsparker'],
-      ['Museer & kultur', '/barn/museer-och-kultur'],
-      ['Natur & utomhus', '/barn/natur-och-utomhus'],
-      ['Aktiv dag', '/barn/aktivitet-och-rorelse'],
+      ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
+      ['Väder', '/vader'],
     ],
   },
 ];
@@ -83,7 +89,7 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          {/* Columns 2–4 — rendered from shared FOOTER_SECTIONS */}
+          {/* Kolumnerna 2–5 – från FOOTER_SECTIONS (samma data som mobilens accordion) */}
           {FOOTER_SECTIONS.map((section) => (
             <div key={section.heading}>
               <p className={styles.heading}>

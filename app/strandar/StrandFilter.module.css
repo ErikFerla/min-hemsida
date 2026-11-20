@@ -1,6 +1,8 @@
 /* Filtret på /strandar (5.3) – chips från components/Chip.module.css. */
 
 .panel {
+  /* Ankarmål från ortsidorna (#strandfilter): hamna under det fasta sidhuvudet (72 px + 1 px kant) */
+  scroll-margin-top: calc(73px + var(--space-4));
   margin-bottom: var(--space-6);
   padding: var(--space-4);
   border: 1px solid var(--color-border);

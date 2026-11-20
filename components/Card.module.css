@@ -179,10 +179,11 @@
   }
 }
 
-/* ── Kompakt kort på mobil (5.6) ──────────────────────────────
-   Långa kortlistor (/strandar, /mat, /aktiviteter/golf). Från 640 px ser kortet ut som
-   .card ovan; under 640 px blir bilden en miniatyr bredvid rubriken och tipset fälls ihop
-   i en <details>. Allt innehåll finns kvar i HTML:en (inget döljs med JavaScript).
+/* ── Kompakt kort på mobil och surfplatta (5.6, 9.2) ─────────────
+   Långa kortlistor (/strandar, /mat, /aktiviteter/golf). Från 1024 px ser kortet ut som
+   .card ovan; under 1024 px blir bilden en miniatyr bredvid rubriken och tipset fälls ihop
+   i en <details> (miniatyr 96 px på mobil, 120 px på surfplatta). Antalet kolumner styrs av
+   sidans lista, inte här (t.ex. tre kolumner på /strandar och /aktiviteter/golf vid 768–1023 px). Allt innehåll finns kvar i HTML:en (inget döljs med JavaScript).
 
      <article class="compact">                 (i stället för .card)
        <div class="media"><Image fill /></div>
@@ -198,8 +199,8 @@
        </div>
      </article>
 
-   .labels ligger över bilden från 640 px (som .imageLabel) och som taggar i rubrikspalten
-   på mobil. Från 640 px är <details> alltid utfälld och sammanfattningen dold
+   .labels ligger över bilden från 1024 px (som .imageLabel) och som taggar i rubrikspalten
+   under 1024 px. Från 1024 px är <details> alltid utfälld och sammanfattningen dold
    (::details-content); webbläsare utan stöd visar sammanfattningen även där. */
 .compact {
   composes: card;
@@ -263,7 +264,7 @@
   margin-bottom: var(--space-2);
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .compact {
     display: grid;
     grid-template-columns: 96px minmax(0, 1fr);
@@ -335,8 +336,18 @@
   }
 }
 
+/* Surfplatta: något större miniatyr */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .compact {
+    grid-template-columns: 120px minmax(0, 1fr);
+  }
+  .compact > .media {
+    min-height: 120px;
+  }
+}
+
 @supports selector(::details-content) {
-  @media (min-width: 640px) {
+  @media (min-width: 1024px) {
     .moreSummary {
       display: none;
     }
