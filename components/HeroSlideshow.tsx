@@ -9,7 +9,6 @@ type Bild = {
   bas: string;
   alt: string;
   rubrik: string;
-  undertext: string;
   plats: string;
   lank: string;
   cta: string;
@@ -20,7 +19,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1920px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg',
     alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus, med stadsmuren framför',
     rubrik: 'Palma de Mallorca',
-    undertext: 'Gotisk katedral, kulinarisk scen och levande gamla stan',
     plats: 'Palma · Huvudstaden',
     lank: '/palma-de-mallorca',
     cta: 'Utforska Palma',
@@ -29,7 +27,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
     alt: 'Sandstranden Es Trenc med turkost vatten en sommardag',
     rubrik: 'Kristallklara stränder',
-    undertext: 'Från dolda klippvikar till långa, grunda sandstränder för hela familjen',
     plats: 'Es Trenc · Södra Mallorca',
     lank: '/strandar',
     cta: 'Utforska stränderna',
@@ -38,7 +35,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Alcudia_bay_2025.jpg/1920px-Alcudia_bay_2025.jpg',
     alt: 'Alcúdiabukten i skymningen på norra Mallorca',
     rubrik: 'Mallorca med barn',
-    undertext: 'Grunda stränder, grottor, djurparker och vattenparker – tips för hela familjen',
     plats: 'Alcúdiabukten · Norra Mallorca',
     lank: '/barn',
     cta: 'Se barnaktiviteterna',
@@ -47,7 +43,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
     alt: 'Fairway och green på golfbanan Pula Golf vid Son Servera',
     rubrik: 'Golf i världsklass',
-    undertext: 'Drygt 20 banor i fantastiska miljöer – från bergspanorama till havsutsikt',
     plats: 'Pula Golf · Son Servera',
     lank: '/aktiviteter/golf',
     cta: 'Se golfbanorna',
@@ -56,7 +51,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg/1920px-The_village_of_Valldemossa_in_Mallorca%2C_Spain_%2848001682373%29.jpg',
     alt: 'Bergsbyn Valldemossa med kartusianklostret i Tramuntanas dal',
     rubrik: 'Valldemossa',
-    undertext: 'Charmiga gränder, klosterhistoria och bergsnatur på Unescos världsarvslista',
     plats: 'Valldemossa · Västra Mallorca',
     lank: '/valldemossa',
     cta: 'Utforska Valldemossa',
@@ -65,7 +59,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg/1920px-Blick_in_die_Bucht_von_Port_de_S%C3%B3ller_bei_Sonnenuntergang.jpg',
     alt: 'Viken i Port de Sóller i solnedgången, omgiven av Tramuntanabergen',
     rubrik: 'Port de Sóller',
-    undertext: 'Pittoresk hamn omgiven av Tramuntanabergen – dit går en historisk spårvagn',
     plats: 'Port de Sóller · Nordväst',
     lank: '/port-de-soller',
     cta: 'Utforska Port de Sóller',
@@ -74,7 +67,6 @@ const bilder: Bild[] = [
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Ensa%C3%AFmada.jpg/1920px-Ensa%C3%AFmada.jpg',
     alt: 'En ensaïmada – Mallorcas spiralformade bakelse pudrad med florsocker',
     rubrik: 'Mat & vin på Mallorca',
-    undertext: 'Lokala vingårdar, färsk fisk direkt från havet och kvällar på terrassen',
     plats: 'Hela ön · Kulinariska upplevelser',
     lank: '/mat',
     cta: 'Se mat & vin',
@@ -105,7 +97,14 @@ const rmKlient = () => window.matchMedia(RM_QUERY).matches;
 // På servern antar vi reducerad rörelse så att inget autospel startar före hydrering.
 const rmServer = () => true;
 
-export default function HeroSlideshow() {
+/** Fast text över bildspelet: sajtens h1, ingress och genvägar per målgrupp (app/page.tsx). */
+type Props = {
+  rubrik: string;
+  ingress: string;
+  genvagar: ReadonlyArray<{ label: string; href: string }>;
+};
+
+export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
   const [aktiv, setAktiv] = useState(0);
   // Bilder som har visats (eller förladdats) behålls monterade för en mjuk övertoning.
   // Från början bara bild 1 (LCP-bilden) – bild 2 monteras först efter sidans load-händelse
@@ -199,23 +198,34 @@ export default function HeroSlideshow() {
         className={styles.clickArea}
       />
 
-      {/* Text */}
-      <div
-        aria-live={spelar ? 'off' : 'polite'}
-        aria-atomic="true"
-        className={styles.text}
-      >
+      {/* Text: fast rubrik och genvägar – bildspelet ligger bakom och har en egen liten bildtext */}
+      <div className={styles.text}>
         <div className={styles.textInner}>
-          <p className={styles.place}>{bild.plats}</p>
+          {/* Sidans enda h1 – texten kommer från app/page.tsx */}
+          <h1 className={styles.title}>{rubrik}</h1>
+          <p className={styles.sub}>{ingress}</p>
 
-          {/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */}
-          <p className={styles.title}>{bild.rubrik}</p>
+          <nav aria-label="Genvägar" className={styles.shortcuts}>
+            <ul className={styles.shortcutList}>
+              {genvagar.map((g) => (
+                <li key={g.href}>
+                  <Link href={g.href} className={styles.shortcut}>{g.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <p className={styles.sub}>{bild.undertext}</p>
-
-          <Link href={bild.lank} className={`btn btn-primary ${styles.cta}`}>
-            {bild.cta} <span aria-hidden="true">→</span>
-          </Link>
+          {/* Bildtext för aktuell bild: plats + länk */}
+          <p
+            aria-live={spelar ? 'off' : 'polite'}
+            aria-atomic="true"
+            className={styles.caption}
+          >
+            <span className={styles.place}>{bild.plats}</span>
+            <Link href={bild.lank} className={styles.captionLink}>
+              {bild.cta} <span aria-hidden="true">→</span>
+            </Link>
+          </p>
         </div>
       </div>
 

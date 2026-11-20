@@ -8,18 +8,18 @@ type FeatureItem = { title: string; desc: string; href: string; bild: string; bi
 
 const featureItems: FeatureItem[] = [
   {
-    title: 'Stränder',
-    desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder',
-    href: '/strandar',
-    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg',
-    bildAlt: 'Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog',
-  },
-  {
     title: 'Med barn',
     desc: 'Grunda stränder, grottor, djurparker och vattenparker för hela familjen',
     href: '/barn',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Platja_de_Muro_R02.jpg/1920px-Platja_de_Muro_R02.jpg',
     bildAlt: 'Grunt vatten och sandstrand vid Platja de Muro',
+  },
+  {
+    title: 'Stränder',
+    desc: 'De 30 bästa stränderna – från vilda klippvikar till familjevänliga sandstränder',
+    href: '/strandar',
+    bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg',
+    bildAlt: 'Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog',
   },
   {
     title: 'Städer & byar',
