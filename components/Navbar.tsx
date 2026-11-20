@@ -36,7 +36,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    label: 'Mat & Vin',
+    label: 'Mat & vin',
     href: '/mat',
     children: [
       { label: '\u00d6versikt', href: '/mat' },

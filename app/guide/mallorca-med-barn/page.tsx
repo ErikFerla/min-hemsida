@@ -26,7 +26,7 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Vattenparker',
     Icon: IconSparkle,
-    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
+    kortText: 'Tre vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
     punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Water Park'],
   },
   {
@@ -38,8 +38,8 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Praktiska tips',
     Icon: IconBulb,
-    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil är nödvändig – boka barnstol i förväg.',
-    punkter: ['Bästa restid: juni eller september', 'Hyrbil är ett måste', 'Restaurangerna öppnar ofta kl. 20'],
+    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil gör det enklare att se ön – boka barnstol i förväg. I Alcúdiabukten och Palma klarar ni er utan bil.',
+    punkter: ['Bästa restid: juni eller september', 'Hyrbil gör det enklare', 'Restaurangerna öppnar ofta kl. 20'],
   },
 ];
 
@@ -49,7 +49,7 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <header className={t.hero}>
         <div className={t.inner}>
-          <p className={t.kicker}>Familjereseguide · 2026</p>
+          <p className={t.kicker}>Familjereseguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>
           <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         </div>
@@ -68,9 +68,9 @@ export default function MallorcaMedBarnGuide() {
           <p id="snabbsvar" className={styles.quickLabel}>Snabbsvar – vad passar ditt barn?</p>
           <dl className={styles.quickList}>
             <div><dt>0–3 år</dt><dd>Platja de Muro</dd></div>
-            <div><dt>4–8 år</dt><dd>Aqualand + Coves del Drac</dd></div>
-            <div><dt>9–12 år</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
-            <div><dt>13+ år</dt><dd>Wakeboard, klipphopp, gatumat</dd></div>
+            <div><dt>4–7 år</dt><dd>Aqualand + Coves del Drac</dd></div>
+            <div><dt>8–12 år</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
+            <div><dt>13+ år</dt><dd>Wakeboard och annan vattensport, vandring</dd></div>
           </dl>
         </section>
 
@@ -121,8 +121,8 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
-          note="Uppgifterna om parker och attraktioner följer barnsidorna, som granskades samtidigt."
+          date="2026-11-20"
+          note="Priser och öppettider ändras ofta – kontrollera på respektive webbplats innan ni åker."
           sources={[
             { label: 'Aqualand', href: 'https://www.aqualand.es' },
             { label: 'Marineland Mallorca', href: 'https://www.marineland.es' },

@@ -48,7 +48,7 @@ export default function MarknaderPage() {
               </h2>
               {lista.length === 0 ? (
                 <p className={styles.empty}>
-                  Det finns marknader även den här dagen, men vi har ännu inte kunnat bekräfta någon mot en pålitlig källa. Fråga på hotellet eller turistbyrån.
+                  Det finns marknader även den här dagen, men ingen vi kan ge säkra uppgifter om. Fråga på hotellet eller turistbyrån.
                 </p>
               ) : (
                 <div className={styles.grid}>
@@ -90,7 +90,7 @@ export default function MarknaderPage() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           sources={MARKNADSKÄLLOR}
           note="Dag och ort för varje marknad är kontrollerade mot källan som anges på marknaden. Tiderna skiljer sig något mellan källorna och är därför ungefärliga."
         />

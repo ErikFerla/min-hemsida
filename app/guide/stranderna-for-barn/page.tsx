@@ -24,7 +24,7 @@ type Åldersgrupp = {
 };
 
 // Service, livräddare och djup är kontrollerade mot källorna i LastChecked nedan. Där källorna
-// går isär står det ”uppgifterna går isär” eller ”kontrollera” i stället för en siffra.
+// går isär står det ”kontrollera” eller ”kan kosta” i stället för en siffra.
 const GRUPPER: Åldersgrupp[] = [
   {
     id: 'smabarn',
@@ -35,7 +35,7 @@ const GRUPPER: Åldersgrupp[] = [
     stränder: [
       {
         namn: 'Platja de Muro',
-        text: 'Lång, grund sandstrand med lugnt vatten och sanddyner bakom. Blå flagg 2026.',
+        text: 'Lång, grund sandstrand med lugnt vatten och sanddyner bakom. Blå flagg (2026).',
         fakta: [
           { label: 'Service', value: 'Duschar och toaletter, uthyrning av parasoll och solstolar' },
           { label: 'Livräddare', value: 'Under högsäsong' },
@@ -58,7 +58,7 @@ const GRUPPER: Åldersgrupp[] = [
         fakta: [
           { label: 'Service', value: 'Toaletter och en liten strandbar' },
           { label: 'Livräddare', value: 'Under sommaren' },
-          { label: 'Parkering', value: 'Några hundra meter från stranden; uppgifterna om avgift går isär' },
+          { label: 'Parkering', value: 'Några hundra meter från stranden – parkeringen kan kosta' },
         ],
       },
     ],
@@ -72,7 +72,7 @@ const GRUPPER: Åldersgrupp[] = [
     stränder: [
       {
         namn: 'Platja d\'Alcúdia',
-        text: 'Öns längsta strand är grund långt ut, och längs stranden finns lekplatser och vattensport. Blå flagg 2026.',
+        text: 'Öns längsta strand är grund långt ut, och längs stranden finns lekplatser och vattensport. Blå flagg (2026).',
         fakta: [
           { label: 'Service', value: 'Toaletter, duschar, lekplats, uthyrning av parasoll och båtar' },
           { label: 'Livräddare', value: 'Under högsäsong' },
@@ -84,7 +84,7 @@ const GRUPPER: Åldersgrupp[] = [
         fakta: [
           { label: 'Service', value: 'Toaletter, duschar och restaurang' },
           { label: 'Livräddare', value: 'Under säsongen' },
-          { label: 'Parkering', value: 'Begränsad – uppgifterna om avgift går isär, kom tidigt' },
+          { label: 'Parkering', value: 'Begränsad och kan kosta – kom tidigt' },
         ],
       },
       {
@@ -109,7 +109,7 @@ const GRUPPER: Åldersgrupp[] = [
         namn: 'Cala Llombards',
         text: 'Sandig ingång och klippor på båda sidor, med stegar upp ur vattnet. Bra snorkling bland stenar och sjögräs när det är lugnt.',
         fakta: [
-          { label: 'Service', value: 'En strandbar; uppgifterna om toaletter och livräddare går isär' },
+          { label: 'Service', value: 'En strandbar – kontrollera toaletter och livräddare på plats' },
           { label: 'Utrustning', value: 'Ta med egen mask och snorkel' },
           { label: 'Parkering', value: 'Gratis men liten – kom tidigt på sommaren' },
         ],
@@ -275,7 +275,7 @@ export default function StrandernaForBarnGuide() {
 
         <LastChecked
           date="2026-11-20"
-          note="Service och livräddare gäller under badsäsongen och kan skilja sig mellan olika delar av stranden. Där källorna går isär skriver vi det."
+          note="Service och livräddare gäller under badsäsongen och kan skilja sig mellan olika delar av stranden – kontrollera på plats."
           sources={[
             { label: 'Spain.info – Playa de Muro', href: 'https://www.spain.info/es/playa/muro/' },
             { label: 'Spain.info – Playa de Alcúdia', href: 'https://www.spain.info/es/playa/alcudia/' },

@@ -177,7 +177,7 @@ export default function GolfPage() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           note="Prissymbolerna är ungefärliga nivåer, inte greenfee – kontrollera aktuellt pris hos banan."
           sources={[
             { label: 'Arabella Golf Mallorca', href: 'https://arabellagolfmallorca.com' },
@@ -185,6 +185,8 @@ export default function GolfPage() {
             { label: 'Pula Golf', href: 'https://pulagolf.com' },
             { label: '1golf.eu: Son Servera, Pollença, Canyamel, Santa Ponsa', href: 'https://www.1golf.eu/en/club/club-de-golf-santa-ponsa-i-ii-iii' },
             { label: 'Illes Balears: golfbanor', href: 'https://illesbalears.travel/en/mallorca/golf-course-golf-santa-ponca-i' },
+            { label: 'Illes Balears: Real Golf de Bendinat', href: 'https://illesbalears.travel/en/mallorca/golf-course-real-golf-de-bendinat' },
+            { label: 'Illes Balears: Golf de Poniente', href: 'https://illesbalears.travel/en/mallorca/golf-course-golf-de-poniente' },
           ]}
         />
       </div>

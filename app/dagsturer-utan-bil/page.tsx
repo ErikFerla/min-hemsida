@@ -73,7 +73,7 @@ const TRIPS: Trip[] = [
     title: '1. Sóller och Port de Sóller – tåg och spårvagn',
     how: 'Ferrocarril de Sóller från stationen vid Plaça d’Espanya, sedan spårvagnen från Sóller till Port de Sóller',
     time: 'Ca 1 timme med tåget till Sóller',
-    price: 'Ca 30 € tur och retur för vuxen, ca 40 € med spårvagnen (2026)',
+    price: 'Ca 30 € tur och retur för vuxen, ca 40 € tur och retur med spårvagnen till Port de Sóller (2026)',
     text: (
       <>
         Det gamla tåget går genom Serra de Tramuntana med tunnlar och utsikt över Sóllerdalen. Gå runt
@@ -88,13 +88,13 @@ const TRIPS: Trip[] = [
     id: 'valldemossa-deia',
     title: '2. Valldemossa och Deià – buss 203',
     how: 'TIB-buss 203 från Estació Intermodal (Plaça d’Espanya), som går Palma – Valldemossa – Deià – Sóller – Port de Sóller',
-    time: 'Valldemossa är första stoppet i bergen, Deià ligger längre fram på linjen',
+    time: 'Drygt en halvtimme till Valldemossa, Deià ligger längre fram på linjen – exakta tider i tidtabellen på tib.org',
     price: 'Ordinarie TIB-taxa efter sträcka – se tib.org',
     text: (
       <>
         Två av Tramuntanas mest kända byar på samma busslinje. Börja i Valldemossa med kartusianklostret
         och de smala gränderna, fortsätt till Deià. Linjen är mycket populär på sommaren och bussarna kan
-        bli fulla – åk tidigt. Sedan juli 2026 kan boende med Tarjeta Única eller Tarjeta Intermodal
+        bli fulla – åk tidigt. Sedan juli 2026 kan boende med Targeta Única eller Targeta Intermodal
         boka plats på en av avgångarna från Port de Sóller.
       </>
     ),
@@ -131,7 +131,7 @@ const TRIPS: Trip[] = [
     id: 'sineu',
     title: '5. Marknaden i Sineu på onsdagar – tåg T3',
     how: 'SFM-tåget T3 Palma – Manacor, av i Sineu',
-    time: 'Ca 45 min',
+    time: 'Ca 50 min',
     price: 'Ordinarie SFM-taxa – se tib.org',
     text: (
       <>
@@ -247,7 +247,7 @@ export default function DagsturerPage() {
 
         <LastChecked
           date={CHECKED}
-          note="Linjenummer och sträckor är kontrollerade mot TIB. Vi har inte kunnat bekräfta biljettpriserna för TIB och SFM, och priserna för 2027 var inte publicerade i november 2026 – se tib.org."
+          note="Linjenummer och sträckor är kontrollerade mot TIB. Aktuella biljettpriser för TIB-bussar och SFM-tåg, även för 2027, finns på tib.org."
           sources={SOURCES}
         />
       </div>

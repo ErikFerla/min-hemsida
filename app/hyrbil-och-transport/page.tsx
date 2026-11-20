@@ -172,7 +172,7 @@ export default function HyrbilOchTransport() {
               går när du reser.
             </li>
             <li>
-              <strong>Bor du på ön?</strong> Med det personliga Intermodal- eller Única-kortet är resor med TIB-buss,
+              <strong>Bor du på ön?</strong> Med det personliga kortet Targeta Intermodal eller Targeta Única är resor med TIB-buss,
               tåg och metro gratis under 2026. Om det fortsätter 2027 var inte beslutat i november 2026 – förra året
               fattade regeringen beslutet i mitten av december. Kortet kräver ansökan; villkoren finns hos TIB.
             </li>
@@ -210,8 +210,8 @@ export default function HyrbilOchTransport() {
             Det gamla trätåget mellan Palma och Sóller har gått sedan 1912 och slingrar sig genom Serra de Tramuntana. I
             Sóller tar du spårvagnen vidare ner till{' '}
             <Link href="/port-de-soller" className={styles.inlineLink}>Port de Sóller</Link>. Tåget är ett eget bolag och
-            ingår inte i TIB:s system. För turister kostar en enkel resa Palma–Sóller drygt 20 €, och tur och retur med
-            spårvagnen ca 40 € (2026). Priserna för 2027 var inte publicerade i november 2026. Vintern 2026/27 står tåget
+            ingår inte i TIB:s system. För turister kostar en enkel resa Palma–Sóller ca 23 €, tur och retur ca 30 € och tur och retur med
+            spårvagnen till Port de Sóller ca 40 € (2026). Priserna för 2027 var inte publicerade i november 2026. Vintern 2026/27 står tåget
             still för underhåll från 23 november 2026 och går igen från 1 februari 2027 – då tar du TIB-buss 204 mellan
             Palma och Sóller. Spårvagnen står still 23 november–21 december 2026 och ersätts under tiden av buss mellan
             Sóller och Port de Sóller.

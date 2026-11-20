@@ -122,7 +122,7 @@ export default function MatPage() {
                   <p className={styles.info}>{r.info}</p>
                   <div className={styles.actions}>
                     <a href={r.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                      <IconMap size={13} stroke={1.8} /> Visa på karta
+                      <IconMap size={13} stroke={1.8} /> Visa på karta ↗
                     </a>
                   </div>
                 </div>

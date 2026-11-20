@@ -30,7 +30,7 @@ export const GUIDES = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Platja_de_Formentor.JPG/1920px-Platja_de_Formentor.JPG',
     imageAlt: 'Platja de Formentor i solsken – turkost vatten, sandstrand och tallskog under bergen',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-18T12:00:00+01:00',
+    dateModified: '2026-11-20',
   },
   'mallorca-med-barn': {
     slug: 'mallorca-med-barn',
@@ -41,25 +41,25 @@ export const GUIDES = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cala_Mondrag%C3%B3_02.jpg/1920px-Cala_Mondrag%C3%B3_02.jpg',
     imageAlt: 'Segelbåtar i den skyddade viken Cala Mondragó på Mallorcas sydöstkust',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-20',
   },
   'basta-stranderna-mallorca': {
     slug: 'basta-stranderna-mallorca',
     title: 'Bästa stränderna på Mallorca – vår topp 15',
     headline: 'Mallorcas 15 bästa stränder – vår topplista',
     description:
-      'Vår topplista över Mallorcas 15 bästa stränder – med motivering, insidertips, parkering och bästa tid för varje strand. Alla 30 stränder finns på strandsidan.',
+      'Vår topplista över Mallorcas 15 bästa stränder – med motivering, insidertips, parkering och bästa tid för varje strand. Fler stränder finns på strandsidan.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg',
     imageAlt: 'Caló des Moro – turkost vatten mellan kalkstensklippor och tallskog på södra Mallorca',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-20',
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
     title: 'Palmas bästa restauranger – lokal guide',
     headline: 'De bästa restaurangerna i Palma',
     description:
-      'Rankade av en som bor här: de bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
+      'Utvalda av oss som bor här: de bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg',
     imageAlt: 'Flera små tapasrätter på ett bord (genrebild)',
     datePublished: '2026-04-11T21:17:34+02:00',
@@ -74,7 +74,7 @@ export const GUIDES = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
     imageAlt: 'Green på Pula Golf vid Son Servera med berg i bakgrunden',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-20',
   },
   // Familjeguider (7.2) – bilderna är redan krediterade i data/credits/ (d3 och d2).
   'mallorca-med-barn-manad-for-manad': {

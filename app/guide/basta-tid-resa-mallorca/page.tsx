@@ -16,7 +16,7 @@ const månader: { pris: number; text: string }[] = [
   { pris: 1, text: 'Mandelblomningen – en av Mallorcas mest fotogeniska perioder, när mandelträden blommar i vitt och rosa i slutet av vintern. Fortfarande få turister.' },
   { pris: 2, text: 'Ljusa dagar, grön natur och fortfarande få turister. Bra för vandring i Serra de Tramuntana. Kallt för bad men fint för allt annat.' },
   { pris: 2, text: 'En av årets bästa månader för att vara ute: blommande natur, behagliga dagar och de flesta restauranger har öppnat. Påsken kan ge mer folk – boka i god tid.' },
-  { pris: 2, text: 'Försäsong med sommarkänsla. Havet är fortfarande friskt – badbart för de tåliga. Priserna är rimliga och det är sällan trångt. Favoritperiod för många.' },
+  { pris: 2, text: 'Försäsong med sommarkänsla. Havet är fortfarande friskt – badbart för de tåliga. Priserna är rimliga och det är sällan lika trångt som på sommaren. Favoritperiod för många.' },
   { pris: 3, text: 'Sommarens start. Allt varmare vatten, långa stranddagar och livlig stämning. Antalet turister ökar men når inte juli och augustis nivåer.' },
   { pris: 4, text: 'Högsäsong. Fullt på stränderna, långa köer och höga priser. Samtidigt är havet varmt och kvällarna i Palma fantastiska – boka tidigt och var på stranden tidigt på dagen.' },
   { pris: 4, text: 'Som juli, med årets varmaste hav. Undvik juli och augusti om du vill ha ro på stranden – men om stämning och nattliv är prioritet är detta din månad.' },
@@ -100,7 +100,7 @@ export default function BästaTidResaMallorca() {
         <section className={styles.sectionLast}>
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Månad för månad</h2>
           <p className={styles.scaleNote}>
-            Temperaturen är medelvärdet av dygnets högsta och lägsta i Palma, havet är ett ungefärligt månadsmedel.
+            Dag = normal högsta temperatur och natt = normal lägsta temperatur i Palma. Havet är ett ungefärligt månadsmedel.
             Prisskala: € = budget, €€€€ = högsta prisnivå. Turisttryck: 1 stjärna = lugnt, 5 stjärnor = fullt. Hela
             tabellen finns på <Link href="/vader#klimat-heading">vädersidan</Link>.
           </p>

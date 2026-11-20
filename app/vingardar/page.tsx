@@ -118,7 +118,7 @@ export default function VingardarPage() {
 
                 <div className={styles.actions}>
                   <a href={v.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    <IconMap size={14} stroke={1.8} /> Visa på karta
+                    <IconMap size={14} stroke={1.8} /> Visa på karta ↗
                   </a>
                   {v.web && (
                     <a href={v.web} target="_blank" rel="noopener noreferrer" className="link-arrow">
