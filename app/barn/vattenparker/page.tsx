@@ -3,18 +3,18 @@ import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
 import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
 export const metadata: Metadata = {
-  title: 'Vattenparker på Mallorca för barn – tre parker och en vattenlek',
+  title: 'Vattenparker för barn på Mallorca',
   description:
-    'Mallorcas tre vattenparker – Aqualand El Arenal, Western Water Park och Hidropark – och vattenleken i Katmandu Park. Priser, öppettider och tips för familjer med barn i olika åldrar.',
+    'Mallorcas tre vattenparker – Aqualand, Western Water Park och Hidropark – plus vattenleken i Katmandu Park. Priser, öppettider och tips för barnfamiljer.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/vattenparker' },
   openGraph: {
     type: 'website',
     url: 'https://www.mymallorca.se/barn/vattenparker',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Vattenparker på Mallorca för barn – tre parker och en vattenlek',
+    title: 'Vattenparker för barn på Mallorca',
     description:
-      'Mallorcas tre vattenparker – Aqualand El Arenal, Western Water Park och Hidropark – och vattenleken i Katmandu Park. Priser, öppettider och tips för familjer med barn i olika åldrar.',
+      'Mallorcas tre vattenparker – Aqualand, Western Water Park och Hidropark – plus vattenleken i Katmandu Park. Priser, öppettider och tips för barnfamiljer.',
     images: [
       {
         url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_slide%2C_Ada_East_%28P1090930%29.jpg/1920px-Water_slide%2C_Ada_East_%28P1090930%29.jpg',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vattenparker på Mallorca för barn – tre parker och en vattenlek',
+    title: 'Vattenparker för barn på Mallorca',
     description:
       'Mallorcas tre vattenparker och vattenleken i Katmandu Park – priser, öppettider och tips.',
     images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Water_slide%2C_Ada_East_%28P1090930%29.jpg/1920px-Water_slide%2C_Ada_East_%28P1090930%29.jpg'],
