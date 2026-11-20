@@ -57,7 +57,7 @@ const aktiviteter: Aktivitet[] = [
     highlights: ['Segling', 'Kajakpaddling', 'Snorkling'],
   },
   {
-    titel: 'Barn & familj',
+    titel: 'Med barn',
     beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
     Icon: IconUsers,
     href: '/barn',
@@ -124,7 +124,7 @@ export default function AktiviteterPage() {
 
         <section id="barnvanligt" className={styles.section}>
           <p className={styles.eyebrow}>För hela familjen</p>
-          <h2 className={styles.sectionTitle}>Barnvänligt</h2>
+          <h2 className={styles.sectionTitle}>Med barn</h2>
           <p className={styles.intro}>
             Vattenparker, grottor, djurparker och äventyrsparker – här är våra handplockade favoriter.
           </p>

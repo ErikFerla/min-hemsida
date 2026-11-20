@@ -69,7 +69,7 @@ const FAMILJEGUIDER: { label: string; href: string }[] = [
 export default function BarnHubPage() {
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
-    { name: 'Barnvänligt', url: '/barn' },
+    { name: 'Med barn', url: '/barn' },
   ];
 
   const itemListJsonLd = buildItemListJsonLd(

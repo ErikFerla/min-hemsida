@@ -48,7 +48,7 @@ export default function BarnCategoryPageView({
 
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
-    { name: 'Barnvänligt', url: '/barn' },
+    { name: 'Med barn', url: '/barn' },
     { name: meta.label, url: meta.href },
   ];
 

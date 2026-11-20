@@ -28,7 +28,10 @@ export default function SiteFooterAccordion({ sections }: { sections: ReadonlyAr
             className={styles.toggle}
           >
             {section.heading}
-            <span aria-hidden="true" className={styles.toggleIcon}>▼</span>
+            {/* Samma tunna chevron som i huvudmenyn */}
+            <svg className={styles.toggleIcon} width="12" height="7" viewBox="0 0 12 7" fill="none" aria-hidden="true">
+              <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </button>
           <div id={`footer-section-${i}`} hidden={open !== i} className={styles.panel}>
               {section.links.map(([label, href]) => (
