@@ -234,6 +234,12 @@ async function checkBrowser(base, sitemapPaths) {
       (url) => url.host !== local.host || url.pathname === '/_next/image',
       (route) => route.fulfill({ status: 204, body: '' }),
     );
+    // Vercel Web Analytics-skriptet (/_vercel/insights/script.js) finns bara på Vercel;
+    // lokalt med next start skulle det ge 404 i konsolen. Svara med ett tomt skript.
+    await context.route(
+      (url) => url.host === local.host && url.pathname.startsWith('/_vercel/insights/'),
+      (route) => route.fulfill({ status: 200, contentType: 'text/javascript', body: '' }),
+    );
 
     const targets = BROWSER_PATHS.filter((p) => p === '/' || sitemapPaths.includes(p));
     for (const p of targets) {

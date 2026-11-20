@@ -63,7 +63,7 @@ export const GUIDES = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg',
     imageAlt: 'Flera små tapasrätter på ett bord (genrebild)',
     datePublished: '2026-04-11T21:17:34+02:00',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-20',
   },
   'golf-mallorca-guide': {
     slug: 'golf-mallorca-guide',
