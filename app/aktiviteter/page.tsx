@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
+import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconPin } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 import styles from './page.module.css';
@@ -68,7 +68,7 @@ const aktiviteter: Aktivitet[] = [
     titel: 'Cykling',
     beskrivning: 'Mallorca är cyklisternas mekka – professionella lag tränar här på vintern. Välj mellan bergsetapper och kustvägar.',
     Icon: IconHiker,
-    href: '/vandring-och-cykling',
+    href: '/vandring-och-cykling#cykling',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cycle_Path_in_North_Mallorca.JPG/1920px-Cycle_Path_in_North_Mallorca.JPG', bildAlt: 'Cykelbana längs Pollençabukten med Formentorhalvön i bakgrunden',
     highlights: ['Mallorca 312', 'Tramuntana', 'Cykeluthyrning'],
   },
@@ -149,7 +149,7 @@ export default function AktiviteterPage() {
           </div>
 
           <Link href="/barn" className="btn btn-secondary">
-            Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
+            Se alla barnaktiviteter <span aria-hidden="true">→</span>
           </Link>
         </section>
 

@@ -4,6 +4,7 @@ import Map from '@/components/Map';
 import { barnMapMarkers } from '@/data/barn-map';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
+import { ageLabel } from '@/app/lib/barn-activities';
 import type { ComponentType } from 'react';
 import h from '../headings.module.css';
 import styles from './page.module.css';
@@ -20,7 +21,7 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Bästa barnvänliga stränderna',
     Icon: IconWave,
-    kortText: 'Mallorca har hundratals stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och service nära till hands.',
+    kortText: 'De bästa stränderna för små barn kombinerar grunt vatten, mjuk sand och service nära till hands.',
     punkter: ['Platja de Muro', 'Cala Millor', "Port d'Alcúdia", 'Cala Llombards'],
   },
   {
@@ -67,10 +68,10 @@ export default function MallorcaMedBarnGuide() {
         <section className={`${h.facts} ${styles.quick}`} aria-labelledby="snabbsvar">
           <p id="snabbsvar" className={styles.quickLabel}>Snabbsvar – vad passar ditt barn?</p>
           <dl className={styles.quickList}>
-            <div><dt>0–3 år</dt><dd>Platja de Muro</dd></div>
-            <div><dt>4–7 år</dt><dd>Aqualand + Coves del Drac</dd></div>
-            <div><dt>8–12 år</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
-            <div><dt>13+ år</dt><dd>Wakeboard och annan vattensport, vandring</dd></div>
+            <div><dt>{ageLabel('0-3')}</dt><dd>Platja de Muro</dd></div>
+            <div><dt>{ageLabel('4-7')}</dt><dd>Aqualand + Coves del Drac</dd></div>
+            <div><dt>{ageLabel('8-12')}</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
+            <div><dt>{ageLabel('13+')}</dt><dd>Wakeboard och annan vattensport, vandring</dd></div>
           </dl>
         </section>
 
@@ -83,11 +84,11 @@ export default function MallorcaMedBarnGuide() {
                 <div className={styles.cardIcon}><s.Icon size={28} /></div>
                 <h3 className={`${h.h3} ${styles.cardTitle}`}>{s.rubrik}</h3>
                 <p className={styles.cardText}>{s.kortText}</p>
-                <div className={styles.tags}>
+                <ul className={styles.points}>
                   {s.punkter.map(p => (
-                    <span key={p} className={styles.tag}>{p}</span>
+                    <li key={p}>{p}</li>
                   ))}
-                </div>
+                </ul>
               </article>
             ))}
           </div>

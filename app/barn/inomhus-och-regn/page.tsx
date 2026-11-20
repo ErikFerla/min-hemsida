@@ -47,9 +47,9 @@ export default function InomhusOchRegnPage() {
       intro={
         <>
           <p>
-            Mallorca har några sommarveckor där regnet verkligen kommer i skurar – och fler dagar på
-            sommaren då solen är för stark för småbarn mellan kl. 12 och 16. Det är då du behöver en kort
-            lista med inomhusalternativ som faktiskt fungerar.
+            Hösten har några veckor då regnet kommer i kraftiga skurar – och på sommaren finns många
+            dagar då solen är för stark för småbarn mellan kl. 12 och 16. Det är då du behöver en lista
+            med inomhusalternativ som faktiskt fungerar.
           </p>
           <p>
             Här är våra val: Mallorcas största trampolinpark, ett lekland i tre våningar
@@ -68,7 +68,7 @@ export default function InomhusOchRegnPage() {
       lastChecked={{
         date: BARN_CHECKED,
         sources: BARN_SOURCES['inomhus-och-regn'] ?? [],
-        note: 'Datumet gäller Coves de Gènova och Katmandu Park. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
+        note: 'Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
       }}
     />
   );

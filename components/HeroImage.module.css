@@ -49,6 +49,12 @@
 
 .kicker {
   margin: 0;
+  /* Mörk platta (som bildetiketten på korten) – etiketten klarar 4,5:1 oavsett bild */
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: var(--hero-kicker-bg);
+  text-shadow: none;
   font-size: var(--text-label);
   font-weight: 600;
   line-height: var(--lh-small);

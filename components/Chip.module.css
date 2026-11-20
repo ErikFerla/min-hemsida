@@ -1,6 +1,6 @@
 /* Chips (5.3) – EN filterchip och EN tagg för hela sajten.
 
-   .chip      filterchip (<button aria-pressed>): rund, 44 px tryckyta, kant --color-chip-border,
+   .chip      filterchip (<button aria-pressed>): rund, 44 px tryckyta, kant --color-control-border,
               valt läge (aria-pressed="true") = ink-bakgrund + vit text – överallt.
    .row       rad med chips som radbryts
    .scrollRow rad med chips som sveps i sidled på mobil (uttoning i kanterna)
@@ -18,7 +18,7 @@
   gap: var(--space-2);
   min-height: 44px;
   padding: 0 var(--space-4);
-  border: 1px solid var(--color-chip-border);
+  border: 1px solid var(--color-control-border);
   border-radius: var(--radius-pill);
   background: var(--color-white);
   color: var(--color-ink);

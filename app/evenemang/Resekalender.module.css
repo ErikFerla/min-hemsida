@@ -24,7 +24,7 @@
 .field input {
   min-height: 44px;
   padding: var(--space-2) var(--space-3);
-  border: 1.5px solid var(--color-chip-border);
+  border: 1.5px solid var(--color-control-border);
   border-radius: var(--radius-btn);
   background: var(--color-white);
   color: var(--color-ink);
