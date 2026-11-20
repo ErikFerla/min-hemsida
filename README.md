@@ -130,12 +130,14 @@ loop: Pexels "Aerial View of Mallorca's Stunning Beach" (id 31819589, Oskar Gros
   LCP-bilden. `<video>` monteras först efter `load` + `requestIdleCallback`, med `preload="none"`,
   och är genomskinlig tills den spelar.
 - **Bara postern** visas vid `prefers-reduced-motion: reduce`, Save-Data,
-  `prefers-reduced-data: reduce` eller långsam anslutning (`effectiveType` slow-2g/2g/3g).
+  `prefers-reduced-data: reduce`, mobildata (`connection.type` cellular) eller långsam anslutning
+  (`effectiveType` slow-2g/2g/3g). Safari och Firefox saknar Network Information API, så en
+  iPhone på mobildata hämtar filmen (~1 MB) – ett medvetet val.
 - **Paus:** bildspelets pausknapp pausar filmen; filmen pausas också när heron inte syns
   (IntersectionObserver), när fliken är dold och när en annan bild visas.
 - **Tid:** första bilden står kvar ett helt varv av filmen (minst 6 s), övriga bilder 6 s.
-- **Byta film:** koda om med skriptet. Filerna i `public/` cachas utan versionsnummer, så ge en ny
-  film nya filnamn (t.ex. `hero-strand-2.mp4`) och uppdatera `filmBild` och kreditposten.
+- **Byta film:** koda om med skriptet. Filerna i `public/` revalideras med ETag men kan ligga kvar
+  i CDN- och webbläsarcache en stund, så ge en ny film nya filnamn (t.ex. `hero-strand-2.mp4`) och uppdatera `filmBild` och kreditposten.
 - **Stänga av:** sätt `video: null` i `filmBild`. Bildspelet blir då som före filmen (Palma först,
   Es Trenc som strandbild). Byt kreditposterna enligt kommentaren i `data/credits/d1.ts`.
 - CSP: `media-src 'self'` finns redan i `next.config.ts`; filmen ligger på egen domän.

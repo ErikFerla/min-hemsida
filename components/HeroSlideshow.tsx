@@ -38,6 +38,8 @@ type HeroVideo = {
  * Sätt `video: null` för att stänga av filmen: då är bildspelet som före filmen (Palma först,
  * Es Trenc som strandbild) och den här posten används inte – ta då också bort kreditposten.
  */
+const ES_TRENC_ALT = 'Sandstranden Es Trenc med turkost vatten en sommardag';
+
 const filmBild: Bild = {
   bas: '/video/hero-strand-poster.jpg',
   alt: 'Flygbild över en lång sandstrand med turkost vatten och tallskog på Mallorca',
@@ -63,7 +65,7 @@ const fotoBilder: Bild[] = [
   },
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
-    alt: 'Sandstranden Es Trenc med turkost vatten en sommardag',
+    alt: ES_TRENC_ALT,
     rubrik: 'Stränder och vikar',
     plats: 'Es Trenc · Södra Mallorca',
     lank: '/strandar',
@@ -112,7 +114,7 @@ const fotoBilder: Bild[] = [
 ];
 
 const bilder: Bild[] = filmBild.video
-  ? [filmBild, ...fotoBilder.filter((b) => b.lank !== filmBild.lank)]
+  ? [filmBild, ...fotoBilder.filter((b) => b.alt !== ES_TRENC_ALT)]
   : fotoBilder;
 
 const INTERVALL_MS = 6000;
@@ -144,7 +146,7 @@ const rmServer = () => true;
  * (slow-2g/2g/3g enligt Network Information API). Då visas bara filmens poster. Webbläsare utan
  * API:t (Safari, Firefox) räknas som snabba.
  */
-type Natinfo = EventTarget & { saveData?: boolean; effectiveType?: string };
+type Natinfo = EventTarget & { saveData?: boolean; effectiveType?: string; type?: string };
 const LANGSAMMA = new Set(['slow-2g', '2g', '3g']);
 const RD_QUERY = '(prefers-reduced-data: reduce)';
 function natinfo(): Natinfo | undefined {
@@ -157,7 +159,12 @@ function prenumereraNat(cb: () => void) {
 }
 const snalKlient = () => {
   const c = natinfo();
-  return c?.saveData === true || LANGSAMMA.has(c?.effectiveType ?? '') || window.matchMedia(RD_QUERY).matches;
+  return (
+    c?.saveData === true ||
+    c?.type === 'cellular' ||
+    LANGSAMMA.has(c?.effectiveType ?? '') ||
+    window.matchMedia(RD_QUERY).matches
+  );
 };
 const snalServer = () => true;
 
@@ -244,7 +251,9 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
   // Första bilden står kvar tills filmen har gått ett helt varv (minst INTERVALL_MS) – ett byte
   // mitt i drönarens rörelse ser avhugget ut. Spelar filmen inte (laddas, pausad, bara poster)
   // gäller INTERVALL_MS som för de andra bilderna.
-  const fordrojning = aktiv === 0 && filmKvarMs !== null ? Math.max(INTERVALL_MS, filmKvarMs) : INTERVALL_MS;
+  const filmVisas = film !== null && filmTillaten && filmMonterad;
+  const fordrojning =
+    aktiv === 0 && filmVisas && filmKvarMs !== null ? Math.max(INTERVALL_MS, filmKvarMs) : INTERVALL_MS;
   useEffect(() => {
     if (!spelar) return;
     const timer = setTimeout(() => visa((aktiv + 1) % bilder.length), fordrojning);
@@ -318,7 +327,7 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
           );
         })}
 
-        {film && filmTillaten && filmMonterad && (
+        {film && filmVisas && (
           <HeroFilm
             video={film}
             spela={spelar && aktiv === 0 && !flikDold}
@@ -392,6 +401,13 @@ function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
   const [iVy, setIVy] = useState(true);
   const [harSpelat, setHarSpelat] = useState(false);
   const spolaOm = useRef(false);
+  // Bara första 'playing' efter en play()-begäran sätter kvarvarande tid – inte varje gång
+  // uppspelningen återupptas efter buffring (då skulle bytet skjutas upp om och om igen).
+  const vantarStart = useRef(false);
+
+  // Avmonteras filmen mitt i uppspelningen (t.ex. reducerad rörelse slås på) når pause-händelsen
+  // aldrig React – nollställ kvarvarande tid så att bildspelet återgår till INTERVALL_MS.
+  useEffect(() => () => onKvar(null), [onKvar]);
 
   // Samma URL som bilden under (ur srcset, redan i cachen) – ingen extra hämtning för postern.
   useEffect(() => {
@@ -419,6 +435,7 @@ function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
         spolaOm.current = false;
       }
       el.muted = true;
+      vantarStart.current = true;
       el.play().catch(() => {
         // Uppspelningen nekades (t.ex. energisparläge) – postern ligger kvar.
       });
@@ -431,6 +448,8 @@ function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
     const el = ref.current;
     if (!el) return;
     setHarSpelat(true);
+    if (!vantarStart.current) return;
+    vantarStart.current = false;
     onKvar(Number.isFinite(el.duration) ? (el.duration - el.currentTime) * 1000 : null);
   };
 
@@ -440,7 +459,6 @@ function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
       muted
       playsInline
       loop
-      autoPlay
       preload="none"
       aria-hidden="true"
       tabIndex={-1}
@@ -451,7 +469,7 @@ function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
       onPause={() => onKvar(null)}
       className={visas && harSpelat ? `${styles.slide} ${styles.slideActive}` : styles.slide}
     >
-      {video.webm && <source src={video.webm} type="video/webm" />}
+      {video.webm && <source src={video.webm} type='video/webm; codecs="vp9"' />}
       <source src={video.mp4} type="video/mp4" />
     </video>
   );
