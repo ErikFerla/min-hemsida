@@ -7,6 +7,7 @@ import { buildPageMetadata } from '@/app/lib/city-seo';
 import { commonsThumb } from '@/app/lib/image-url';
 import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag, IconPin, IconGlass, IconSnow, IconHiker, IconCompass, IconSnorkel, IconCalendar, IconPalm, IconBuilding } from '@/components/Icons';
 import styles from './guider.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const HERO_IMAGE =
   'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cala_Mondrag%C3%B3_03.jpg/1920px-Cala_Mondrag%C3%B3_03.jpg';
@@ -186,6 +187,8 @@ export default function GuiderPage() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }]} />
+
         <p className={styles.intro}>
           Guiderna är skrivna av oss som älskar Mallorca och har upptäckt ön under många år. Här samlar vi det vi själva
           vill veta inför en resa: när det är bäst att åka, vilka stränder som är värda omvägen, var maten är som godast och

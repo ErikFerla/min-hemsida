@@ -145,10 +145,12 @@ export default function FlygSok() {
           </div>
         </div>
 
+        {/* Sekundär stil (9.2): sökningen går till en extern sajt och ska inte vara sidans enda
+            röda primärknapp högst upp. Ägaren har inte bestämt om formuläret ska vara kvar. */}
         <button
           type="submit"
           aria-describedby="flyg-skyscanner-info"
-          className={`btn btn-primary ${styles.submit}`}
+          className={`btn btn-secondary ${styles.submit}`}
         >
           Sök flyg på Skyscanner ↗
         </button>

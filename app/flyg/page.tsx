@@ -8,6 +8,7 @@ import { avreseorter, CHECKED, SOURCES } from '@/data/transport';
 import h from '../guide/headings.module.css';
 import FlygSok from './FlygSok';
 import styles from './flyg.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const skyscanner = (kod: string) =>
   `https://www.skyscanner.se/transport/flyg/${kod.toLowerCase()}/pmi/?adults=1&currency=SEK&locale=sv-SE`;
@@ -33,6 +34,8 @@ export default function FlygPage() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Flyg', url: '/flyg' }]} />
+
         <p className={styles.lead}>
           Alla flyg till Mallorca landar på Palmas flygplats Son Sant Joan (PMI), några kilometer öster om Palma.
           Från Sverige tar ett direktflyg ungefär tre till fyra timmar. Här ser du vilka avreseorter som brukar ha

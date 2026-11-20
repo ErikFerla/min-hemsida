@@ -4,10 +4,12 @@ export type BreadcrumbItem = { name: string; url: string };
 
 /**
  * Visual breadcrumb trail. Pair with <BreadcrumbSchema> from SchemaOrg for JSON-LD.
+ * `spaced` ger 24 px luft under (9.2) – för sidor där brödsmulan står först i containern
+ * och inte har en egen omslutande klass med marginal.
  */
-export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export default function Breadcrumbs({ items, spaced = false }: { items: BreadcrumbItem[]; spaced?: boolean }) {
   return (
-    <nav aria-label="Brödsmulor" className={styles.nav}>
+    <nav aria-label="Brödsmulor" className={spaced ? `${styles.nav} ${styles.spaced}` : styles.nav}>
       <ol className={styles.list}>
         {items.map((item, i) => {
           const isLast = i === items.length - 1;

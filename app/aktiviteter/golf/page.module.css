@@ -1,5 +1,5 @@
 /* /aktiviteter/golf (5.3). Banorna i kortet från components/Card.module.css; svårighetsgrad
-   som statusprick + text; tipset i TipBox compact, redaktionell notis som enkel text.
+   som statusprick + text; tipset som en rad (CardTip), redaktionell notis som enkel text.
    Sektionsrubrik = överrad + h2 (app/components/section.module.css). */
 
 .page {
@@ -130,7 +130,7 @@
   composes: label from '../../../components/Card.module.css';
 }
 
-/* Rubrik, fakta och region – bredvid miniatyren på mobil; regionen ligger över bilden från 640 px */
+/* Rubrik, fakta och region – bredvid miniatyren under 1024 px; regionen ligger över bilden från 1024 px */
 .head {
   composes: head from '../../../components/Card.module.css';
 }
@@ -188,7 +188,7 @@
   composes: noteInfo from '../../../components/Card.module.css';
 }
 
-/* Tipset (TipBox compact) i en <details> – utfällt från 640 px, ihopfällt på mobil */
+/* Tipset (CardTip) i en <details> – utfällt från 1024 px, ihopfällt under 1024 px */
 .foot {
   composes: foot from '../../../components/Card.module.css';
 }

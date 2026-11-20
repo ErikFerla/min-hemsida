@@ -6,6 +6,7 @@ import type { ComponentType } from 'react';
 import styles from './page.module.css';
 import { BreadcrumbSchema } from '@/app/components/SchemaOrg';
 import LastChecked from '@/app/components/LastChecked';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Aktivitet = {
   titel: string;
@@ -99,6 +100,8 @@ export default function AktiviteterPage() {
 
       {/* Innehåll */}
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }]} />
+
         <div className={styles.cardGrid}>
           {aktiviteter.map((a, i) => (
             <Link key={i} href={a.href} className={styles.card}>

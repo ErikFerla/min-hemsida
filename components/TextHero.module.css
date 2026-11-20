@@ -2,15 +2,18 @@
    /resplan, /evenemang). Yta-färg, vänsterställd, etikett + h1 + ingress.
    Används som CSS-modul direkt i sidorna:
      <header className={t.hero}><div className={t.inner}>
+       <div className={t.crumbs}><Breadcrumbs … /></div>
        <p className={t.kicker}>…</p><h1 className={t.title}>…</h1><p className={t.lead}>…</p>
-     </div></header> */
+     </div></header>
+   .inner har samma mått som sidcontainern (globals.css .container), så brödsmula, h1 och
+   innehållet under heron börjar vid samma vänsterkant (9.2). */
 
 .hero {
   background: var(--color-surface);
 }
 
 .inner {
-  max-width: var(--w-content);
+  max-width: var(--w-wide);
   margin: 0 auto;
   padding: var(--space-7) var(--gutter) var(--space-6);
 }
@@ -52,8 +55,19 @@
   text-underline-offset: 3px;
 }
 
+/* Brödsmulan överst i heron (som på bildlösa sidor i övrigt) – mindre luft ovanför */
+.crumbs {
+  margin-bottom: var(--space-5);
+}
+.inner:has(> .crumbs) {
+  padding-top: var(--space-5);
+}
+
 @media (min-width: 1024px) {
   .inner {
     padding: var(--space-8) var(--gutter) var(--space-7);
+  }
+  .inner:has(> .crumbs) {
+    padding-top: var(--space-6);
   }
 }

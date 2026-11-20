@@ -6,9 +6,10 @@ import HeroImage from '@/components/HeroImage';
 import { golfbanor } from '@/data/golf-courses';
 import type { CSSProperties } from 'react';
 import GolfRegionFilter from './GolfRegionFilter';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
   name: b.namn,
@@ -29,7 +30,7 @@ const svårighetFärg: Record<string, string> = {
 /** Svårighetsfärgen som CSS-variabel till modulen */
 const niva = (s: string) => ({ '--niva': svårighetFärg[s] }) as CSSProperties;
 
-// Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
+// Redaktionell notis som enkel text med statusprick (5.3) – korten har ingen ruta; tipset är en rad (CardTip).
 const notisKlass: Record<string, string> = {
   varning: styles.note_varning,
   tips: styles.note_tips,
@@ -52,6 +53,8 @@ export default function GolfPage() {
       />
 
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Aktiviteter', url: '/aktiviteter' }, { name: 'Golf', url: '/aktiviteter/golf' }]} />
+
 
         {/* ── KARTA ── */}
         <section aria-labelledby="golf-map-title" className={styles.mapSection}>
@@ -120,7 +123,7 @@ export default function GolfPage() {
               className={styles.card}
             >
               <div className={styles.media}>
-                <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 639px) 96px, (max-width: 1023px) 50vw, 400px" loading="lazy" />
+                <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 1023px) 120px, 400px" loading="lazy" />
               </div>
               <div className={styles.body}>
                 <div className={styles.head}>
@@ -146,9 +149,7 @@ export default function GolfPage() {
                 <div className={styles.foot}>
                   <details className={styles.more}>
                     <summary className={styles.moreSummary}>Visa tips</summary>
-                    <TipBox variant="compact" heading="Tips" as="p">
-                      <p>{b.tips}</p>
-                    </TipBox>
+                    <CardTip>{b.tips}</CardTip>
                   </details>
                   <div className={styles.cardLinks}>
                     <a href={b.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">

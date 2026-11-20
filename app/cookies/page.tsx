@@ -2,6 +2,7 @@ import Link from 'next/link';
 import JsonLd from '@/app/components/JsonLd';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import styles from '../integritetspolicy/legal.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/cookies',
@@ -26,6 +27,7 @@ export default function CookiesPage() {
     <div className={styles.page}>
       <JsonLd data={breadcrumbs} />
       <article className={styles.article}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Cookies', url: '/cookies' }]} />
         <p className={styles.kicker}>Om sajten</p>
         <h1>Cookies</h1>
         <p className={styles.updated}>Senast uppdaterad 20 november 2026</p>
