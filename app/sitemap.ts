@@ -48,6 +48,9 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/marknader', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/var-ska-man-bo', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/hyrbil-och-transport', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/guide/mallorca-med-barn-manad-for-manad', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-20' },
+  { path: '/guide/stranderna-for-barn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-20' },
+  { path: '/guide/regniga-dagar-med-barn', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-20' },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

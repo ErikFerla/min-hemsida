@@ -56,6 +56,13 @@ const INSIDER_TIPS: string[] = [
 
 const LIST_ID = 'barn-aktiviteter';
 
+const FAMILJEGUIDER: { label: string; href: string }[] = [
+  { label: 'Planera familjesemestern', href: '/guide/mallorca-med-barn' },
+  { label: 'Mallorca med barn månad för månad', href: '/guide/mallorca-med-barn-manad-for-manad' },
+  { label: 'Bästa stränderna för barn – efter ålder', href: '/guide/stranderna-for-barn' },
+  { label: 'Regniga dagar med barn', href: '/guide/regniga-dagar-med-barn' },
+];
+
 export default function BarnHubPage() {
   const breadcrumbs = [
     { name: 'Hem', url: '/' },
@@ -171,6 +178,20 @@ export default function BarnHubPage() {
             {ACTIVITIES.map((a) => (
               <li key={a.slug} data-ages={a.ageGroups.join(' ')}>
                 <ActivityCard activity={a} cardCategory={a.categories[0]} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* ========== GUIDER FÖR FAMILJEN (7.2) ========== */}
+        <section className={styles.block} aria-labelledby="familjeguider-heading">
+          <h2 id="familjeguider-heading">Guider för familjen</h2>
+          <ul className={styles.guideLinks}>
+            {FAMILJEGUIDER.map((g) => (
+              <li key={g.href}>
+                <Link href={g.href} className="link-arrow">
+                  {g.label} <span aria-hidden="true">→</span>
+                </Link>
               </li>
             ))}
           </ul>

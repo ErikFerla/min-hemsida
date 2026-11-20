@@ -49,7 +49,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '4.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:Coves_del_Drac_21.jpg',
-    usedOn: ['/barn', '/barn/grottor', '/barn/inomhus-och-regn', '/sevardheter'],
+    usedOn: ['/barn', '/barn/grottor', '/barn/inomhus-och-regn', '/sevardheter', '/guide/regniga-dagar-med-barn'],
     checked: '2026-11-18',
   },
   {
@@ -168,7 +168,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '4.0',
     sourceUrl: 'https://commons.wikimedia.org/wiki/File:S%C3%B3ller_train_station_15.jpg',
-    usedOn: ['/barn', '/barn/natur-och-utomhus'],
+    usedOn: ['/barn', '/barn/natur-och-utomhus', '/guide/mallorca-med-barn-manad-for-manad'],
     checked: '2026-11-18',
   },
   {
