@@ -44,10 +44,10 @@ export default function StrandarPage() {
               <Link href="/alcudia" className={styles.inlineLink}>Alcúdia</Link>
               {' '}och{' '}
               <Link href="/pollenca" className={styles.inlineLink}>Pollença</Link>
-              {' '}– perfekta för barnfamiljer. Västkusten domineras av Serra de Tramuntanas dramatiska klippor som faller rakt ner i havet – få stränder, men desto fler hemliga vikar och båtankringsplatser. Och söderut öppnar sig de långa sandstränderna kring Es Trenc, med vatten som påminner om Karibien.
+              {' '}– perfekta för barnfamiljer. Västkusten domineras av Serra de Tramuntanas dramatiska klippor som faller rakt ner i havet – få stränder men många små klippvikar, flera bara nåbara med båt. Och söderut ligger de långa sandstränderna kring Es Trenc, med grunt och klart vatten.
             </p>
             <p className={`${styles.introText} ${styles.introTextLast}`}>
-              Här är våra 30 favoriter – handplockade efter vatten, atmosfär och vad som gör varje plats unik.
+              Här är 30 stränder vi gärna åker till, med det du behöver veta om parkering, service och när du ska komma.
             </p>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function StrandarPage() {
             {[
               { titel: 'Kolla vinden först', text: 'Blåser det från norr är sydkustens vikar ofta lugnast – och tvärtom. En snabb titt på prognosen kan rädda dagen.', href: '/vader', cta: 'Se väderprognosen' },
               { titel: 'Stranddag med barn', text: 'Grunt vatten, skugga och toaletter i närheten? Filtrera på Familjevänlig ovan – och hitta fler upplevelser för barnen.', href: '/barn', cta: 'Mallorca med barn' },
-              { titel: 'När är vattnet varmast?', text: 'Havet är som varmast från juli till september. Läs mer om vilken månad som passar dig bäst.', href: '/guide/basta-tid-resa-mallorca', cta: 'Bästa tiden att resa' },
+              { titel: 'När är vattnet varmast?', text: 'Havet är som varmast från juli till september. Se månad för månad i guiden om bästa tiden att resa.', href: '/guide/basta-tid-resa-mallorca', cta: 'Bästa tiden att resa' },
             ].map(t => (
               <Link key={t.href} href={t.href} className={styles.moreCard}>
                 <h3 className={styles.moreCardTitle}>{t.titel}</h3>

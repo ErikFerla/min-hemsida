@@ -223,7 +223,7 @@ export default function Home() {
               Städer &amp; byar på Mallorca
             </h2>
             <p className={styles.mapIntro}>
-              Klicka på en stad för att hitta insidertips, sevärdheter och lokala favoriter.
+              Välj en ort på kartan för sevärdheter, stränder, mat och tips.
             </p>
             {/* Leaflet laddas först nära vyn; alla orter finns även som länklista under kartan (SSR). */}
             <Map

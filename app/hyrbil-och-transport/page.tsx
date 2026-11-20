@@ -50,7 +50,7 @@ export default function HyrbilOchTransport() {
         <section id="hyrbil" aria-labelledby="hyrbil-rubrik" className={styles.section}>
           <h2 id="hyrbil-rubrik" className={`${h.h2} ${styles.sectionTitle}`}>Hyrbil – det här ska du tänka på</h2>
           <p className={styles.text}>
-            Hyrbil är det smidigaste sättet att se mer än en del av ön, särskilt om du vill till Serra de Tramuntana,
+            Hyrbil är det smidigaste sättet att se mer av ön, särskilt om du vill till Serra de Tramuntana,
             sydöstra kustens vikar eller byarna i inlandet. Priset du ser vid bokningen är sällan hela priset, så läs
             villkoren innan du bokar.
           </p>

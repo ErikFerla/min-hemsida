@@ -199,7 +199,7 @@ export default function BudgetOchPriser() {
         <h2 className={`${h.h2} ${styles.h2}`}>Dricks</h2>
         <p>
           Dricks är frivilligt i Spanien och ingen förväntar sig svenska eller amerikanska nivåer. Bara ungefär var
-          fjärde spanjor dricksar alltid när de äter ute. Det vanliga är att runda av uppåt eller lämna 5–10 % när du
+          fjärde spanjor lämnar alltid dricks på restaurang. Det vanliga är att runda av uppåt eller lämna 5–10 % när du
           är nöjd med servicen. Står det ett föreslaget dricksbelopp på notan är det bara ett förslag.
         </p>
       </section>

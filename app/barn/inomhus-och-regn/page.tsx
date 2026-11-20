@@ -42,7 +42,7 @@ export default function InomhusOchRegnPage() {
         imageAlt: 'Vattenfall i inomhusdjungeln på Palma Aquarium',
         title: 'Inomhus & regn',
         subtitle:
-          'Handplockade räddningar när regnet kommer – eller när sommarsolen är för stark för små barn mitt på dagen.',
+          'Inomhus när det regnar – eller när sommarsolen är för stark för små barn mitt på dagen.',
       }}
       intro={
         <>

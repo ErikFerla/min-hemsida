@@ -45,7 +45,7 @@ const sections = [
   { key: 'fin', label: 'Finkrogar', kicker: 'Michelinstjärnor och avsmakningsmenyer', items: restauranger.fin },
   { key: 'tapas', label: 'Bästa tapas', kicker: 'Barer och små rätter', items: restauranger.tapas },
   { key: 'fisk', label: 'Fisk och skaldjur', kicker: 'Havet på tallriken', items: restauranger.fisk },
-  { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Autentiskt och prisvärt', items: restauranger.lokalt },
+  { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Husmanskost och cellers', items: restauranger.lokalt },
 ];
 
 export default function BästaRestaurangerPalma() {

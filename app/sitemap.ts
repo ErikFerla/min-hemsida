@@ -44,7 +44,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/barn/natur-och-utomhus', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/batutflykter-och-cabrera', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/dagsturer-utan-bil', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-20' },
-  { path: '/mallorca-for-par', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/mallorca-for-par', priority: 0.75, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/marknader', priority: 0.7, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/var-ska-man-bo', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/hyrbil-och-transport', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-20' },

@@ -74,7 +74,7 @@ function Vy({ evenemang, fran, till }: { evenemang: Evenemang[]; fran: string; t
         )}
       </form>
       <p id="resekalender-hjalp" className={styles.help}>
-        Datumen sparas i adressen, så du kan spara eller dela länken. Upp till {MAX_DAGAR} dagar visas.
+        Datumen hamnar i länken, så du kan dela den. Du kan välja upp till {MAX_DAGAR} dagar.
       </p>
 
       <div aria-live="polite">

@@ -169,7 +169,7 @@ export default function ParPage() {
             inlandet har marknad på onsdagar – lätt att nå med tåg.
           </p>
           <div className={styles.links}>
-            <Link href="/byar" className="btn btn-secondary">Byar på Mallorca</Link>
+            <Link href="/byar" className="btn btn-secondary">Städer och byar</Link>
             <Link href="/dagsturer-utan-bil" className="btn btn-secondary">Dagsturer utan bil</Link>
           </div>
         </section>
