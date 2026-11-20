@@ -71,9 +71,6 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
 export default function SiteFooter() {
   return (
     <footer className={styles.footer}>
-      {/* Accentlinje överst */}
-      <div className={styles.topLine} />
-
       <div className={styles.inner}>
         <div className={styles.grid}>
           {/* Column 1 — Brand */}

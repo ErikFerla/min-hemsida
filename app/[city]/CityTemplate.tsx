@@ -9,6 +9,13 @@ import { beaches } from '@/data/beaches';
 import styles from './CityTemplate.module.css';
 
 const BEACH_NAMES = new Set(beaches.map((b) => b.namn));
+const BEACH_REGION = new Map(beaches.map((b) => [b.namn, b.region]));
+
+/** Strandchip → /strandar filtrerad på strandens region (StrandFilter läser ?region=), med listan i fokus. */
+function beachHref(name: string) {
+  const region = BEACH_REGION.get(name);
+  return region ? `/strandar?region=${encodeURIComponent(region)}#strand-lista` : '/strandar#strand-lista';
+}
 
 /** Text med valfri intern länk på slutet (samma form som insidertipsen). */
 function RichText({ value }: { value: CityText }) {
@@ -89,7 +96,7 @@ function CityGuideSections({ city }: { city: City }) {
           <ul className={styles.chips}>
             {g.beaches.names.map((n) => (
               <li key={n}>
-                <Link href="/strandar" className={styles.chip}>{n}</Link>
+                <Link href={beachHref(n)} className={styles.chip}>{n}</Link>
               </li>
             ))}
           </ul>

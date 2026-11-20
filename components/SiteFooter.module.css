@@ -6,10 +6,6 @@
   color: var(--color-on-dark);
 }
 
-.topLine {
-  border-top: 1px solid var(--color-accent);
-}
-
 .inner {
   max-width: 1400px;
   margin: 0 auto;

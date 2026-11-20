@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import localFont from 'next/font/local';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
@@ -49,6 +49,13 @@ const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
 const DEFAULT_DESCRIPTION =
   'Svensk guide till Mallorca för barnfamiljer, par och dig som bor på ön – stränder, byar, mat, vingårdar, golf och barnaktiviteter med lokala tips.';
+// Sajten har bara ljust tema: 'only light' hindrar webbläsarnas automatiska mörkläge
+// (t.ex. Chrome på Android) från att invertera ytor och foton. themeColor = --color-bg.
+export const viewport: Viewport = {
+  colorScheme: 'only light',
+  themeColor: '#fefefb',
+};
+
 // Ingen canonical här: den ärvs annars av alla sidor som saknar egen och pekar dem mot startsidan.
 // Varje sida/layout sätter sin egen självrefererande canonical via alternates.
 export const metadata: Metadata = {

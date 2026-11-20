@@ -1,4 +1,4 @@
-import type { AgeGroup } from '@/app/lib/barn-activities';
+import { ageLabel, type AgeGroup } from '@/app/lib/barn-activities';
 import styles from './AgeGroupChip.module.css';
 
 // Åldersetiketter är neutrala (5.1): samma tagg för alla åldrar, inga pastellfärger.
@@ -11,7 +11,7 @@ export default function AgeGroupChip({
 }) {
   return (
     <span className={size === 'md' ? `${styles.chip} ${styles.md}` : styles.chip}>
-      {age === '13+' ? '13+ år' : `${age.replace('-', '–')} år`}
+      {ageLabel(age)}
     </span>
   );
 }

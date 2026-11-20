@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconExternal, IconPin } from '@/components/Icons';
+import { IconFlag, IconHiker, IconSnorkel, IconUsers, IconWave, IconPin } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
 import type { ComponentType } from 'react';
 import styles from './page.module.css';
@@ -44,7 +44,7 @@ const aktiviteter: Aktivitet[] = [
     titel: 'Vandring i Tramuntana',
     beskrivning: 'Serra de Tramuntana finns på Unescos världsarvslista och har storslagna vandringsleder genom olivlundar och bergsdalar.',
     Icon: IconHiker,
-    href: '/aktiviteter',
+    href: '/vandring-och-cykling',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg', bildAlt: 'Serra de Tramuntana sedd från vandringsleden Camí de s\'Arxiduc vid Valldemossa',
     highlights: ['Unescos världsarv', 'GR 221-leden', 'Alla svårigheter'],
   },
@@ -52,7 +52,7 @@ const aktiviteter: Aktivitet[] = [
     titel: 'Vattensport',
     beskrivning: 'Kristallklart vatten och perfekta vindförhållanden gör Mallorca till ett paradis för segling, kajakpaddling och snorkling.',
     Icon: IconSnorkel,
-    href: '/aktiviteter',
+    href: '/strandar',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Schnorchler_%C3%BCber_Seegraswiese.JPG/1920px-Schnorchler_%C3%BCber_Seegraswiese.JPG', bildAlt: 'Snorklare över en sjögräsäng i Medelhavet',
     highlights: ['Segling', 'Kajakpaddling', 'Snorkling'],
   },
@@ -68,7 +68,7 @@ const aktiviteter: Aktivitet[] = [
     titel: 'Cykling',
     beskrivning: 'Mallorca är cyklisternas mekka – professionella lag tränar här på vintern. Välj mellan bergsetapper och kustvägar.',
     Icon: IconHiker,
-    href: '/aktiviteter',
+    href: '/vandring-och-cykling#cykling',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cycle_Path_in_North_Mallorca.JPG/1920px-Cycle_Path_in_North_Mallorca.JPG', bildAlt: 'Cykelbana längs Pollençabukten med Formentorhalvön i bakgrunden',
     highlights: ['Mallorca 312', 'Tramuntana', 'Cykeluthyrning'],
   },
@@ -76,7 +76,7 @@ const aktiviteter: Aktivitet[] = [
     titel: 'Båtliv & segling',
     beskrivning: 'Utforska Mallorcas dramatiska kustlinje från havet – charter, guidade båtturer och glassbottenbåtar.',
     Icon: IconWave,
-    href: '/aktiviteter',
+    href: '/batutflykter-och-cabrera',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Regata_Conde_de_Barcelona_-_panoramio.jpg/1280px-Regata_Conde_de_Barcelona_-_panoramio.jpg', bildAlt: 'Segelbåtar i regatta i Palmabukten',
     highlights: ['Båtcharter', 'Guidade turer', 'Glasbottenbåt'],
   },
@@ -149,7 +149,7 @@ export default function AktiviteterPage() {
           </div>
 
           <Link href="/barn" className="btn btn-secondary">
-            Se alla barnaktiviteter <IconExternal size={13} stroke={1.8} />
+            Se alla barnaktiviteter <span aria-hidden="true">→</span>
           </Link>
         </section>
 

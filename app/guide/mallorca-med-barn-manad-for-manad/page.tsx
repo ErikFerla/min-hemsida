@@ -51,7 +51,7 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Varmt och soligt men sällan hett. Havet är friskt, men många barn badar en stund ändå.',
-    öppet: 'Aqualand öppnade 4 maj 2026, och då har alla tre stora vattenparker öppet. Glasbottenbåtarna går ungefär från maj till oktober.',
+    öppet: 'Aqualand öppnade 4 maj 2026, och då har alla tre vattenparker öppet. Glasbottenbåtarna går ungefär från maj till oktober.',
     fester: 'Es Firó i Sóller (andra måndagen i maj) är en högljudd strid mellan morer och kristna i hamnen och på gatorna – spännande för skolbarn, men tänk på ljudet med små barn.',
     förslag: [
       aktivitet('aqualand-el-arenal'),
@@ -87,7 +87,7 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Havet har kvar sommarvärmen och hettan släpper. Mot slutet av månaden regnar det oftare.',
-    öppet: 'De baleariska skolorna börjar igen (10 september 2026) och stränderna blir lugnare. Aqualand stängde i slutet av september 2026 enligt biljettförsäljarna – kontrollera datumet.',
+    öppet: 'De baleariska skolorna börjar igen (10 september 2026) och stränderna blir lugnare. Aqualand stängde i slutet av september 2026.',
     fester: 'Festa des Vermar i Binissalem firar vinskörden med druvtrampning, och på Fira del Meló i Vilafranca de Bonany tävlar man om öns största melon.',
     förslag: [
       { label: 'Snorkling i Cala Llombards', href: STRANDGUIDE },
@@ -97,7 +97,7 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Fortfarande badbart hav, men oktober är årets regnigaste månad. Regnet kommer oftast som skurar.',
-    öppet: 'Western Water Park och Hidropark hade säsong till slutet av oktober 2026 enligt biljettförsäljarna – kontrollera innan ni åker. Båtturer och strandservice minskar mot slutet av månaden.',
+    öppet: 'Western Water Park och Hidropark hade säsong till slutet av oktober 2026 – kontrollera innan ni åker. Båtturer och strandservice minskar mot slutet av månaden.',
     fester: 'Det svenska höstlovet ligger runt månadsskiftet oktober–november. Ha en plan för regniga dagar.',
     förslag: [
       aktivitet('coves-d-arta'),
@@ -107,7 +107,7 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Milt men ombytligt. Havet lockar bara de tåligaste. Räkna med några regndagar.',
-    öppet: 'Vattenparkerna har stängt och Katmandu Park stängde i början av november 2026 enligt biljettförsäljare. Tåget till Sóller har vinteruppehåll från 23 november 2026. Grottor, Palma Aquarium och inomhuslek i Palma har öppet.',
+    öppet: 'Vattenparkerna har stängt och Katmandu Park stängde i början av november 2026. Tåget till Sóller har vinteruppehåll från 23 november 2026. Grottor, Palma Aquarium och inomhuslek i Palma har öppet.',
     fester: 'Dijous Bo i Inca är öns största mässa. I slutet av månaden öppnar julmarknaden i Palma.',
     förslag: [aktivitet('kids-republik'), aktivitet('coves-de-campanet'), aktivitet('palma-aquarium')],
   },
@@ -243,7 +243,7 @@ export default function ManadForManadGuide() {
 
         <LastChecked
           date="2026-11-20"
-          note="Säsongsdatumen för vattenparkerna och Katmandu Park gäller 2026 och kommer från lokalpress och biljettförsäljare – parkerna publicerar nästa års datum först på våren. Kontrollera alltid på parkens egen webbplats."
+          note="Säsongsdatumen för vattenparkerna och Katmandu Park gäller 2026 – parkerna publicerar nästa års datum först på våren. Kontrollera alltid på parkens egen webbplats."
           sources={[
             ...CLIMATE_SOURCES,
             { label: 'Majorca Daily Bulletin – öppningsdatum för attraktioner 2026', href: 'https://www.majorcadailybulletin.com/holiday/attractions/2026/03/17/140729/mallorca-attractions-opening-dates-waterpark-set-splash-into-summer-with-two-new-slides.html' },

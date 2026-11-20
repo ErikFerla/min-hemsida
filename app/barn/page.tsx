@@ -48,10 +48,10 @@ export const metadata: Metadata = {
 
 const INSIDER_TIPS: string[] = [
   'Bokning: vattenparker och Palma Aquarium – köp biljetterna online, ofta blir det billigare och ni slipper köerna.',
-  'Bästa tid: besök Katmandu-parken efter lunch – morgonen är packad med bussgrupper.',
+  'Katmandu Park: kom efter lunch, då har bussgrupperna gått.',
   'Regnplan: när det regnar, boka Palma Jump eller Kids Republik samma morgon – tiderna tar slut snabbt.',
-  'Småbarn: Hidropark i norr är mycket lugnare än parkerna i Palma – värt 45 min bilresa om ni har 2–5-åringar.',
-  'Transport: tåget till Sóller är en aktivitet i sig – och spårvagnen ner till Port de Sóller gör dagen komplett.',
+  "Småbarn: Hidropark i norr är mycket lugnare än parkerna kring Palma (s'Arenal och Magaluf) – värt bilresan på knappt en timme från Palma om ni har 2–5-åringar.",
+  'Transport: tåget till Sóller är en aktivitet i sig – och spårvagnen ner till Port de Sóller gör dagen komplett (vinteruppehåll 23 november 2026–31 januari 2027).',
 ];
 
 const LIST_ID = 'barn-aktiviteter';
@@ -166,8 +166,10 @@ export default function BarnHubPage() {
         <section className={styles.block} aria-labelledby="alla-aktiviteter-heading">
           <h2 id="alla-aktiviteter-heading">Alla aktiviteter</h2>
           <p className={styles.listIntro}>
-            {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. Filtrera efter ålder
-            eller klicka dig vidare till respektive kategorisida för mer detaljer.
+            {ACTIVITIES.length} handplockade aktiviteter i {AVAILABLE_CATEGORIES.length} kategorier. En aktivitet kan
+            höra till flera kategorier – grottorna passar till exempel också en regnig dag – så siffrorna på
+            kategorikorten blir tillsammans fler än {ACTIVITIES.length}. Filtrera efter ålder eller klicka dig vidare
+            till respektive kategorisida för mer detaljer.
           </p>
 
           <div
@@ -202,7 +204,7 @@ export default function BarnHubPage() {
 
         <LastChecked
           date={BARN_CHECKED}
-          note="Datumet gäller grottor, äventyrsparker, museer, natur, aktiv dag och de aktiviteter som lades till eller ändrades i november 2026. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket."
+          note="Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket."
           sources={HUB_SOURCES}
         />
       </div>

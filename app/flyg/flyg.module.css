@@ -77,6 +77,11 @@
   margin: var(--space-1) 0 0;
 }
 
+/* Ikon före felmeddelandet – skiljer det från accentfärgade länkar (tom alt-text för skärmläsare) */
+.error:not(:empty)::before {
+  content: '\26A0\FE0E\00A0' / '';
+}
+
 .submit {
   width: 100%;
 }

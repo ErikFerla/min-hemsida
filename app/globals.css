@@ -22,7 +22,7 @@
    Färg      --color-bg (bakgrund) · --color-surface (yta, fakta) · --color-surface-warm
              (varm yta, personlig röst) · --color-ink (text, mörk yta) · --color-text-muted
              (sekundär text) · --color-accent (+ -hover) · --color-border (linjer) ·
-             --color-chip-border · status: --color-info / --color-success / --color-warning
+             --color-chip-border (dekor) · --color-control-border (fält, chips) · status: --color-info / --color-success / --color-warning
              (BARA prick, tunn kant eller liten text på ljus botten – aldrig hel bakgrund) ·
              mörk botten: --color-on-dark, --color-on-dark-muted, --color-on-dark-heading,
              --color-accent-on-dark.
@@ -68,6 +68,8 @@
   --color-on-dark-heading: #c9c9d1;
   --color-border: #dcd9cc;
   --color-chip-border: #cfccbf;
+  /* Kant på formulärfält, filterchips och ovalda val: 3,9:1 mot vit (WCAG 1.4.11). --color-chip-border är dekor. */
+  --color-control-border: #86806f;
   /* Dämpad grafik (t.ex. tomma €-tecken i prisnivån): 3,6:1 mot --color-surface, 4,2:1 mot vit (1.4.11) */
   --color-graphic-muted: #827b70;
   --color-focus: #993335;
@@ -79,7 +81,11 @@
   --color-warning-text: var(--color-warning);
   /* Bildöverlägg och bakgrund bakom bilder som inte laddats */
   --color-image-bg: #2b2c33;
-  --hero-shade: linear-gradient(180deg, rgba(20, 20, 26, 0) 35%, rgba(20, 20, 26, 0.72) 100%);
+  /* Hero-gradient (8.2): mätt så att h1 och ingress klarar 4,5:1 mot ljusaste pixeln bakom texten.
+     Mobil: en vertikal gradient; från 640 px även en sidogradient bakom den vänsterställda texten.
+     Etiketten (kickern) har dessutom en egen platta, --hero-kicker-bg. */
+  --hero-shade: linear-gradient(180deg, rgba(20, 20, 26, 0) 10%, rgba(20, 20, 26, 0.6) 45%, rgba(20, 20, 26, 0.85) 100%);
+  --hero-kicker-bg: color-mix(in srgb, var(--color-ink) 88%, transparent);
 
   /* Typskala – mobil (datorvärden i @media nedan) */
   --text-display: 2.25rem;  /* 36 → 60 */
@@ -136,6 +142,14 @@
   --btn-border-radius: var(--radius-btn);
   --btn-border-width: 1.5px;
   --btn-font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --hero-shade:
+      linear-gradient(90deg, rgba(20, 20, 26, 0.6) 0%, rgba(20, 20, 26, 0.35) 45%, rgba(20, 20, 26, 0) 75%),
+      linear-gradient(180deg, rgba(20, 20, 26, 0) 15%, rgba(20, 20, 26, 0.55) 50%, rgba(20, 20, 26, 0.8) 100%);
+  }
 }
 
 @media (min-width: 1024px) {
