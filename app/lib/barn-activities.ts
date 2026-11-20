@@ -88,7 +88,7 @@ export const ACTIVITIES: Activity[] = [
     priceNote: 'Online 10 % billigare; barn under 3 år gratis',
     openingHours: 'Maj–september (säsongen 2026: 4 maj–27 september); kontrollera dagens tider på webbplatsen',
     bestTime: 'Kom vid öppning för korta köer',
-    insiderTip: 'Parkera vid hotellet Aquasol – gratis och 5 min promenad i stället för 12 € i parkens garage',
+    insiderTip: 'Köp biljetterna online i förväg – ofta billigare, och ni slipper kön vid entrén',
     imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg',
     imageAlt: "Vattenrutschbanor på Aqualand i s'Arenal",
     indoors: false,

@@ -63,6 +63,7 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
       ['Äventyrsparker', '/barn/aventyrsparker'],
       ['Museer & kultur', '/barn/museer-och-kultur'],
       ['Natur & utomhus', '/barn/natur-och-utomhus'],
+      ['Aktiv dag', '/barn/aktivitet-och-rorelse'],
     ],
   },
 ];
