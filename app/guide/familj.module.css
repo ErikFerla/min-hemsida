@@ -1,0 +1,203 @@
+/* Gemensam layout för familjeguiderna (7.2): /guide/mallorca-med-barn-manad-for-manad,
+   /guide/stranderna-for-barn och /guide/regniga-dagar-med-barn.
+   Rubrikmått, etikett och faktaruta: ./headings.module.css. Bara tokens. */
+
+.page {
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: var(--w-content);
+  margin: 0 auto;
+  padding: var(--space-7) var(--gutter) var(--section-space);
+}
+
+/* Löptext i textspaltens bredd */
+.prose {
+  max-width: var(--w-text);
+  color: var(--color-ink);
+}
+.prose p {
+  margin: 0 0 var(--space-4);
+}
+.prose a,
+.cardText a,
+.list a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section {
+  margin-bottom: var(--space-8);
+}
+
+.sectionHead {
+  max-width: var(--w-text);
+  margin-bottom: var(--space-5);
+}
+
+.sectionTitle {
+  color: var(--color-ink);
+}
+
+/* Faktaruta överst (h.facts) – definitionslista i två kolumner från 640 px */
+.facts {
+  margin-bottom: var(--space-7);
+}
+.factsTitle {
+  margin: 0 0 var(--space-4);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.factsList {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Kort: vit yta, 1px linje, radie 12, ingen skugga */
+.cardGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.cardTitle {
+  color: var(--color-ink);
+}
+
+.cardMeta {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+}
+
+.cardText {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+
+/* Liten definitionslista i kort (etikett + värde) */
+.cardFacts {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+.cardFactsRow {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: var(--space-3);
+}
+.cardFacts dt {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.cardFacts dd {
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.cardSub {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.list {
+  margin: 0 0 var(--space-4);
+  padding-left: var(--space-5);
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+}
+.list li + li {
+  margin-top: var(--space-1);
+}
+
+/* Åtgärden sist i kortet */
+.cardLink {
+  margin-top: auto;
+}
+
+.tip {
+  max-width: var(--w-text);
+  margin-bottom: var(--space-8);
+}
+
+.note {
+  max-width: var(--w-text);
+  margin-bottom: var(--space-6);
+}
+
+/* Läs vidare – textlänkar i rad */
+.more {
+  max-width: var(--w-text);
+  margin-bottom: var(--space-7);
+}
+.moreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .factsList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cardGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-top: var(--space-8);
+  }
+  .cardGrid3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .section {
+    margin-bottom: var(--space-9);
+  }
+}
+
+.facts a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Ingressen före första sektionen och kort i textspaltens bredd */
+.intro {
+  margin-bottom: var(--space-7);
+}
+.textCard {
+  max-width: var(--w-text);
+}

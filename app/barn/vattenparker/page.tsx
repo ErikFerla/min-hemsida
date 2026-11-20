@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
+import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
 export const metadata: Metadata = {
   title: 'Vattenparker på Mallorca – 5 bästa för barn',
@@ -58,6 +59,11 @@ export default function VattenparkerPage() {
           </p>
         </>
       }
+      lastChecked={{
+        date: BARN_CHECKED,
+        sources: BARN_SOURCES.vattenparker ?? [],
+        note: 'Datumet gäller säsongerna för Aqualand och Hidropark. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
+      }}
     />
   );
 }

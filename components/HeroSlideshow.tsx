@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
-import { isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
+import { HERO_QUALITY, isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import styles from './HeroSlideshow.module.css';
 
 type Bild = {
@@ -85,12 +85,12 @@ const INTERVALL_MS = 6000;
 const SRCSET_BREDDER = [640, 960, 1280, 1600, 2000];
 
 function bildUrl(bas: string, bredd: number) {
-  if (!isUnsplash(bas)) return sizedImageUrl(bas, bredd);
+  if (!isUnsplash(bas)) return sizedImageUrl(bas, bredd, HERO_QUALITY);
   return `${bas}?w=${bredd}&q=75&fm=webp&auto=format&fit=crop`;
 }
 
 function bildSrcSet(bas: string) {
-  if (!isUnsplash(bas)) return sizedImageSrcSet(bas);
+  if (!isUnsplash(bas)) return sizedImageSrcSet(bas, HERO_QUALITY);
   return SRCSET_BREDDER.map((w) => `${bildUrl(bas, w)} ${w}w`).join(', ');
 }
 
@@ -108,7 +108,11 @@ const rmServer = () => true;
 export default function HeroSlideshow() {
   const [aktiv, setAktiv] = useState(0);
   // Bilder som har visats (eller förladdats) behålls monterade för en mjuk övertoning.
-  const [laddade, setLaddade] = useState<number[]>([0, 1]);
+  // Från början bara bild 1 (LCP-bilden) – bild 2 monteras först efter sidans load-händelse
+  // (se effekten nedan) så att den inte konkurrerar med LCP-bilden om bandbredden. Är bildspelet
+  // pausat (t.ex. vid reducerad rörelse) laddas bild 2 först när användaren startar bildspelet
+  // eller väljer en bild.
+  const [laddade, setLaddade] = useState<number[]>([0]);
   // null = användaren har inte valt; annars användarens eget val.
   const [anvandarPaus, setAnvandarPaus] = useState<boolean | null>(null);
 
@@ -126,6 +130,26 @@ export default function HeroSlideshow() {
       return ny.size === prev.length ? prev : Array.from(ny);
     });
   }, []);
+
+  // Förladda nästa bild när sidan har laddat klart (och webbläsaren har en ledig stund),
+  // i god tid före första bytet efter INTERVALL_MS – men bara när bildspelet spelar.
+  useEffect(() => {
+    if (!spelar) return;
+    let idle: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const forladda = () => {
+      const lagg = () => setLaddade((prev) => (prev.includes(1) ? prev : [...prev, 1]));
+      if ('requestIdleCallback' in window) idle = window.requestIdleCallback(lagg, { timeout: 2000 });
+      else timer = setTimeout(lagg, 200);
+    };
+    if (document.readyState === 'complete') forladda();
+    else window.addEventListener('load', forladda, { once: true });
+    return () => {
+      window.removeEventListener('load', forladda);
+      if (idle !== undefined) window.cancelIdleCallback(idle);
+      if (timer !== undefined) clearTimeout(timer);
+    };
+  }, [spelar]);
 
   useEffect(() => {
     if (!spelar) return;

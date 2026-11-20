@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import SiteFooter from '@/components/SiteFooter';
@@ -83,6 +84,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WebSiteSchema />
         <main id="main" tabIndex={-1}>{children}</main>
         <SiteFooter />
+        {/* Cookiefri besöksstatistik (Vercel Web Analytics, samma origin: /_vercel/insights). Skickar bara data i
+            produktionsbygget; i `next dev` laddas Vercels felsökningsskript, som bara loggar i konsolen. */}
+        <Analytics />
       </body>
     </html>
   );

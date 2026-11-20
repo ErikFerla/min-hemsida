@@ -7,7 +7,7 @@ export const metadata = buildPageMetadata({
   path: '/cookies',
   title: 'Cookies',
   description:
-    'MyMallorca sätter inga cookies och sparar inget i din webbläsare, så det finns ingen cookie-banner. Här förklarar vi varför och vilka undantag som finns.',
+    'MyMallorca sätter inga cookies, inte heller för besöksstatistiken, så det finns ingen cookie-banner. Här förklarar vi varför och vilka undantag som finns.',
   image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
   imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
 });
@@ -28,11 +28,12 @@ export default function CookiesPage() {
       <article className={styles.article}>
         <p className={styles.kicker}>Om sajten</p>
         <h1>Cookies</h1>
-        <p className={styles.updated}>Senast uppdaterad 17 november 2026</p>
+        <p className={styles.updated}>Senast uppdaterad 20 november 2026</p>
 
         <p className={styles.lead}>
-          MyMallorca sätter inga cookies. Vi sparar inte heller något i din webbläsare på annat sätt, till exempel med
-          localStorage. Därför ber vi dig inte om samtycke och visar ingen cookie-banner.
+          MyMallorca sätter inga cookies, inte heller för besöksstatistiken. Sajtens egen kod sparar inte heller något
+          i din webbläsare på annat sätt, till exempel med localStorage. Därför ber vi dig inte om samtycke och visar
+          ingen cookie-banner.
         </p>
 
         <h2>Vad är cookies?</h2>
@@ -48,6 +49,16 @@ export default function CookiesPage() {
           <li>Ingen inloggning, och därför inga inloggningscookies.</li>
           <li>Resplanerarens val sparas i sidans adress (URL), inte i en cookie.</li>
         </ul>
+
+        <h2>Besöksstatistik utan cookies</h2>
+        <p>
+          Vi räknar besök och ser vilka sidor som läses med Vercel Web Analytics, för att förstå vilka sidor som är till
+          nytta. Verktyget sätter inga cookies. Besök räknas med ett tillfälligt värde som tas fram ur själva förfrågan
+          och nollställs efter ett dygn, så det går inte att följa dig mellan olika dagar eller webbplatser. Vercel
+          sparar inte din IP-adress, och vi ser bara sammanställd statistik. Uppgifterna lagras hos Vercel och kan
+          behandlas utanför EU. Mer finns i{' '}
+          <Link href="/integritetspolicy">integritetspolicyn</Link>.
+        </p>
 
         <h2>Andra tjänster</h2>
         <p>

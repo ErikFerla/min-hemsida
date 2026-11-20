@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
 import BarnCategoryPageView from '@/app/components/BarnCategoryPageView';
+import { BARN_CHECKED, BARN_SOURCES } from '@/app/lib/barn-activities';
 
 export const metadata: Metadata = {
-  title: 'Regniga dagar på Mallorca – 8 inomhustips',
+  title: 'Inomhus och regn – barnaktiviteter på Mallorca',
   description:
-    'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer. Trampolinparker, lekland, museer och mer.',
+    'När det regnar eller solen är för stark – inomhusaktiviteter för barnfamiljer på Mallorca: trampolinpark, lekland, akvarium, museer och grottor.',
   alternates: { canonical: 'https://www.mymallorca.se/barn/inomhus-och-regn' },
   openGraph: {
     type: 'website',
     url: 'https://www.mymallorca.se/barn/inomhus-och-regn',
     siteName: 'MyMallorca',
     locale: 'sv_SE',
-    title: 'Regniga dagar på Mallorca – 8 inomhustips',
+    title: 'Inomhus och regn – barnaktiviteter på Mallorca',
     description:
-      'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
+      'När det regnar eller solen är för stark – inomhusaktiviteter för barnfamiljer på Mallorca.',
     images: [
       {
         url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Palma_Aquarium-La_jungla.jpg/1920px-Palma_Aquarium-La_jungla.jpg',
@@ -25,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Regniga dagar på Mallorca – 8 inomhustips',
+    title: 'Inomhus och regn – barnaktiviteter på Mallorca',
     description:
-      'När det regnar eller solen är för stark – Mallorcas 8 bästa inomhusaktiviteter för barnfamiljer.',
+      'När det regnar eller solen är för stark – inomhusaktiviteter för barnfamiljer på Mallorca.',
     images: ['https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Palma_Aquarium-La_jungla.jpg/1920px-Palma_Aquarium-La_jungla.jpg'],
   },
 };
@@ -55,6 +56,8 @@ export default function InomhusOchRegnPage() {
             mitt i Palma, ett av Europas största akvarier (helt inomhus), en interaktiv
             sportupplevelse vid Rafa Nadals akademi, bowlinghallen som är lätt att nå från Palma,
             kulturella alternativ med familjeverkstäder – och grottorna, där vädret aldrig spelar någon roll.
+            Bor ni i Palma ligger de små grottorna Coves de Gènova bara några minuter från centrum, och
+            i Katmandu Park i Magaluf är många av attraktionerna inomhus.
           </p>
           <p>
             <strong>Tips:</strong> på regniga dagar bokas Palma Jump och Kids Republik snabbt – kolla
@@ -62,6 +65,11 @@ export default function InomhusOchRegnPage() {
           </p>
         </>
       }
+      lastChecked={{
+        date: BARN_CHECKED,
+        sources: BARN_SOURCES['inomhus-och-regn'] ?? [],
+        note: 'Datumet gäller Coves de Gènova och Katmandu Park. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
+      }}
     />
   );
 }

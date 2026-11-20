@@ -89,7 +89,7 @@ export const credits: ImageCredit[] = [
     license: 'cc-by-sa',
     licenseVersion: '4.0',
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Platja_de_Muro_R02.jpg",
-    usedOn: ["/", "/strandar", "/guide/basta-stranderna-mallorca", "/aktiviteter"],
+    usedOn: ["/", "/strandar", "/guide/basta-stranderna-mallorca", "/aktiviteter", "/guide/stranderna-for-barn"],
     checked: '2026-11-18',
   },
   {

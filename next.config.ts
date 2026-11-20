@@ -13,7 +13,9 @@ const TILE_HOSTS = ['https://tile.openstreetmap.org', 'https://*.tile.openstreet
 // så connect-src räcker med 'self'. Skärp och flytta till enforced CSP när rapporterna är rena.
 const cspReportOnly = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  // Vercel Web Analytics laddas från /_vercel/insights och skickar till samma origin ('self').
+  // Bara i next dev hämtas felsökningsskriptet från va.vercel-scripts.com.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${[...IMAGE_HOSTS, ...TILE_HOSTS].join(' ')}`,
   "font-src 'self'",
@@ -58,6 +60,15 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  turbopack: {
+    resolveAlias: {
+      // Nexts polyfill-modul utan polyfills som målwebbläsarna redan har (se filen). Nyckeln är
+      // den relativa importen i next/dist/(esm/)client/app-globals.js – Turbopack matchar
+      // aliaset mot importsträngen, inte mot den upplösta sökvägen. Kontrollera efter
+      // Next-uppgraderingar att "trimStart" inte finns i .next/static/chunks utom i noModule-filen.
+      '../build/polyfills/polyfill-module': './app/lib/polyfills/next-polyfill-module.js',
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -76,6 +87,14 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 768, 1024, 1280, 1600],
     imageSizes: [64, 128, 256, 384, 600],
+    // 75 = standard (next/image); 60 = hjältebilderna (HERO_QUALITY i app/lib/image-url.ts).
+    qualities: [60, 75],
+    // Commons-thumbs saknar Cache-Control, så optimerade bilder fick standard-TTL:n 4 h och
+    // omkodades (hämta ~0,5 MB JPEG + AVIF-kodning) när cachen gått ut – långsamt för den som
+    // råkar komma då (t.ex. PageSpeed). Bild-URL:erna är i praktiken oföränderliga: 31 dagar.
+    // Obs: byts en lokal bild i public/ ut under samma filnamn ligger den gamla kvar i upp till
+    // 31 dagar – ge den nya bilden ett nytt filnamn.
+    minimumCacheTTL: 2678400,
   },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];

@@ -233,3 +233,13 @@
   text-align: center;
   color: var(--color-text-muted);
 }
+
+/* ── Guider för familjen (7.2) – textlänkar i rad ── */
+.guideLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

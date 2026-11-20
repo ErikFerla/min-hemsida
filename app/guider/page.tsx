@@ -5,7 +5,7 @@ import JsonLd from '@/app/components/JsonLd';
 import { SITE_URL } from '@/app/guide/guides';
 import { buildPageMetadata } from '@/app/lib/city-seo';
 import { commonsThumb } from '@/app/lib/image-url';
-import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag, IconPin, IconGlass, IconSnow, IconHiker, IconCompass, IconSnorkel } from '@/components/Icons';
+import { IconSun, IconUsers, IconWave, IconForkKnife, IconFlag, IconPin, IconGlass, IconSnow, IconHiker, IconCompass, IconSnorkel, IconCalendar, IconPalm, IconBuilding } from '@/components/Icons';
 import styles from './guider.module.css';
 
 const HERO_IMAGE =
@@ -43,6 +43,27 @@ const guider: Guide[] = [
     passar: 'För barnfamiljer',
     text: 'Så planerar du resan med barn: vilken strand som passar vilken ålder, när ni ska åka, hyrbil och barnstol – och familjefavoriterna på en karta.',
     Icon: IconUsers,
+  },
+  {
+    href: '/guide/mallorca-med-barn-manad-for-manad',
+    title: 'Mallorca med barn månad för månad',
+    passar: 'För barnfamiljer',
+    text: 'Väder och badvatten, vad som har öppet, lov och barnvänliga fester – och några utflyktsförslag för varje månad.',
+    Icon: IconCalendar,
+  },
+  {
+    href: '/guide/stranderna-for-barn',
+    title: 'Bästa stränderna för barn',
+    passar: 'För barnfamiljer',
+    text: 'Stränder efter ålder: grunt och sand för de minsta, snorkling och klippor för större barn – med service och parkering.',
+    Icon: IconPalm,
+  },
+  {
+    href: '/guide/regniga-dagar-med-barn',
+    title: 'Regniga dagar med barn',
+    passar: 'För barnfamiljer',
+    text: 'Grottor, lekland, akvarium och museer sorterade efter var på ön ni bor – med restid och vad ni ska kontrollera.',
+    Icon: IconBuilding,
   },
   {
     href: '/guide/basta-stranderna-mallorca',
