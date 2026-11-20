@@ -48,7 +48,7 @@ export default function GolfPage() {
         alt="Green på Pula Golf vid Son Servera med berg i bakgrunden"
         photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
         kicker="Aktiviteter på Mallorca"
-        title={`${golfbanor.length} golfbanor i vår guide`}
+        title={`Golf på Mallorca – ${golfbanor.length} banor`}
         subtitle="Öns golfbanor på en karta – för alla nivåer och budgetar"
       />
 

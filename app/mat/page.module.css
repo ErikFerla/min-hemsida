@@ -121,3 +121,50 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* ── Specialiteter och saluhallar (11.2) ── */
+.specialties,
+.markets {
+  margin-bottom: var(--section-space);
+}
+
+/* Faktaruta-mönstret: definitionslista på yta-färg, radie 12 */
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.dish {
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+}
+
+.dishName {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--lh-h3);
+  color: var(--color-ink);
+}
+
+.dishText {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.6;
+  color: var(--color-ink);
+}
+
+.marketText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: var(--w-text);
+}
+
+.marketText p {
+  margin: 0;
+}

@@ -134,7 +134,7 @@ export default function MallorcaPaVintern() {
         <p>
           Vinter och vår är högsäsong för vandrare och cyklister. Det svala vädret gör långa turer i Serra de
           Tramuntana mycket skönare än på sommaren. Tänk på att dagarna är korta, att det kan bli halt efter regn och
-          att raviner som Torrent de Pareis kan bli livsfarliga vid regn. Läs mer om leder, refugier och säkerhet under{' '}
+          att raviner som Torrent de Pareis snabbt kan fyllas med vatten. Läs mer om leder, refugier och säkerhet under{' '}
           <Link href="/vandring-och-cykling">Vandring och cykling</Link>.
         </p>
         <p>
@@ -147,7 +147,7 @@ export default function MallorcaPaVintern() {
         <h2 className={`${h.h2} ${styles.h2}`}>För dig som bor på ön</h2>
         <ul>
           <li>
-            <strong>Stränderna är dina.</strong> Promenera längs Es Trenc eller i Caló des Moro utan folkmassor.
+            <strong>Ni har stränderna för er själva.</strong> Promenera längs Es Trenc eller i Caló des Moro utan folkmassor.
           </li>
           <li>
             <strong>Gratis kollektivtrafik.</strong> Bofasta med Targeta Intermodal har kunnat åka gratis med

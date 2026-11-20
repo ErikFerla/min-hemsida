@@ -3,7 +3,7 @@ import styles from './TipBox.module.css';
 
 /**
  * Tipsrutan "Från oss" (5.2) – sajtens personliga röst. EN komponent för alla
- * insidertips, "5 råd från en som bor här", "Grytes favoritstrand" m.m.
+ * insidertips, "Fem råd för barnfamiljer", "Grytes favoritstrand" m.m.
  *
  * - `heading` visas i Playfair kursiv. Välj rubriknivå med `as` (h2 som sektion, h3 i en sektion, p om rubriken inte är en rubrik).
  * - `children` är innehållet: stycke(n), <ul> eller <ol>.

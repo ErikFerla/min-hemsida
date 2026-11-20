@@ -26,7 +26,7 @@ const bilder: Bild[] = [
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
     alt: 'Sandstranden Es Trenc med turkost vatten en sommardag',
-    rubrik: 'Kristallklara stränder',
+    rubrik: 'Stränder och vikar',
     plats: 'Es Trenc · Södra Mallorca',
     lank: '/strandar',
     cta: 'Utforska stränderna',
@@ -42,7 +42,7 @@ const bilder: Bild[] = [
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg',
     alt: 'Fairway och green på golfbanan Pula Golf vid Son Servera',
-    rubrik: 'Golf i världsklass',
+    rubrik: 'Golf året runt',
     plats: 'Pula Golf · Son Servera',
     lank: '/aktiviteter/golf',
     cta: 'Se golfbanorna',

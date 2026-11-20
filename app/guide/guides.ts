@@ -69,10 +69,10 @@ export const GUIDES = {
   },
   'basta-restauranger-palma': {
     slug: 'basta-restauranger-palma',
-    title: 'Palmas bästa restauranger – lokal guide',
+    title: 'Palmas bästa restauranger – våra favoriter',
     headline: 'De bästa restaurangerna i Palma',
     description:
-      'Utvalda av oss som bor här: de bästa restaurangerna i Palma de Mallorca. Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
+      'Våra favoriter bland restaurangerna i Palma de Mallorca: Michelinkrogar, tapas, fisk och skaldjur – och smultronställen utan turistpriser.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Spanish_Tapas.jpg/1920px-Spanish_Tapas.jpg',
     imageAlt: 'Flera små tapasrätter på ett bord (genrebild)',
     datePublished: '2026-04-11T21:17:34+02:00',

@@ -117,7 +117,7 @@ export default function BarnHubPage() {
         <div className={styles.introRow}>
           <div className={styles.introText}>
             <p>
-              Mallorca är ett av Europas mest barnvänliga resmål, och ön har gott om aktiviteter för
+              Ön har gott om aktiviteter för
               familjer som inte har med stranden att göra. Vattenparker, akvarier, trampolinparker,
               äventyrsparker, grottor, djurparker, museer och historiska tåg – det finns något för
               alla åldrar.
@@ -129,7 +129,7 @@ export default function BarnHubPage() {
               er familj.
             </p>
           </div>
-          <TipBox heading="5 råd från en som bor här" as="h2" signature="Erik">
+          <TipBox heading="Fem råd för barnfamiljer" as="h2" signature="Erik">
             <ol>
               {INSIDER_TIPS.map((t) => (
                 <li key={t}>{t}</li>
