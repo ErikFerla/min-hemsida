@@ -66,9 +66,11 @@
 }
 
 .textListLink {
-  color: var(--color-ink);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--color-accent);
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+.textListLink:hover {
+  color: var(--color-accent-hover);
 }
 
 .textListPlace {

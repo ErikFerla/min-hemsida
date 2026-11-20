@@ -30,8 +30,10 @@
 
 .intro a {
   color: var(--color-accent);
-  font-weight: 600;
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.intro a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Åldersfiltret ligger kvar under sidhuvudet (72 px) när man skrollar */

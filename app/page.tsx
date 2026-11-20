@@ -70,7 +70,6 @@ export default function Home() {
           <div className={s.inner}>
             <p className={s.label}>Vad vill du uppleva?</p>
             <h2 className={s.title}>Upptäck Mallorca</h2>
-            <div className={s.divider}></div>
             {/* Samma genvägskort på mobil och dator (5.3) */}
             <FeatureCards />
           </div>

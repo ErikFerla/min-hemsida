@@ -4,7 +4,7 @@
   margin: 0 0 var(--space-6);
   padding: var(--space-4);
   background: var(--color-surface-warm);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-sea);
   border-radius: var(--radius-sm) var(--radius-card) var(--radius-card) var(--radius-sm);
   font-family: var(--font-body);
   color: var(--color-ink);
@@ -16,7 +16,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-sea);
 }
 
 .title {

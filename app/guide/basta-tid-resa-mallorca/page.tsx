@@ -86,11 +86,11 @@ export default function BästaTidResaMallorca() {
           <h2 className={`${h.h2} ${styles.sectionTitle}`}>Säsongernas logik</h2>
           <div className={styles.seasons}>
             {[
-              { label: 'Lågsäsong', period: 'Nov–mars', hög: false, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },
-              { label: 'Mellansäsong', period: 'Apr–maj och sep–okt', hög: false, text: 'Bästa valet för många. Behagligt att vara ute – i maj är havet friskt, i september och oktober fortfarande varmt.' },
-              { label: 'Högsäsong', period: 'Juni–aug', hög: true, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
+              { label: 'Lågsäsong', period: 'Nov–mars', ton: styles.seasonLow, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },
+              { label: 'Mellansäsong', period: 'Apr–maj och sep–okt', ton: styles.seasonMid, text: 'Bästa valet för många. Behagligt att vara ute – i maj är havet friskt, i september och oktober fortfarande varmt.' },
+              { label: 'Högsäsong', period: 'Juni–aug', ton: styles.seasonHigh, text: 'Fullt, dyrt, varmt. Välj om stämning är viktigare än ro.' },
             ].map((s, i) => (
-              <div key={i} className={s.hög ? `${styles.season} ${styles.seasonHigh}` : styles.season}>
+              <div key={i} className={`${styles.season} ${s.ton}`}>
                 <p className={styles.seasonLabel}>{s.label}</p>
                 <p className={styles.seasonPeriod}>{s.period}</p>
                 <p className={styles.seasonText}>{s.text}</p>

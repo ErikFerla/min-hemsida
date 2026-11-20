@@ -128,8 +128,10 @@
 
 .inlineLink {
   color: var(--color-accent);
-  font-weight: 600;
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.inlineLink:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Direktflyg per avreseort */

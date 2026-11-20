@@ -53,9 +53,11 @@
   composes: tag from '../../components/Chip.module.css';
 }
 
+/* "Läs mer" i ett klickbart kort (10.1): ink – kortet är länken, vinrött är för fristående handling */
 .more {
   margin-top: auto;
   font-size: var(--text-small);
+  color: var(--color-ink);
 }
 
 /* ── Barnvänligt och Fördjupa dig ── */

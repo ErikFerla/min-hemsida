@@ -42,7 +42,7 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .filterTitle {

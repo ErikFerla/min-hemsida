@@ -1,5 +1,7 @@
 /* Startsidans "När ska du åka?" (5.3). Dator: fyra kort (components/Card.module.css),
-   mobil: accordion. Årstidens statusfärg (--season-color) bara som liten text och tunn kant. */
+   mobil: accordion. Årstidens ämnesfärg (10.1): vår = oliv, sommar = hav, höst = terrakotta
+   (kant/ikon) med ockra text, vinter = ink. --season-color är kant och ikon (dekor),
+   --season-text månadstexten (≥4,5:1 mot vitt kort). */
 
 .section {
   position: relative;
@@ -41,7 +43,7 @@
 .icon {
   display: inline-flex;
   align-items: center;
-  color: var(--color-ink);
+  color: var(--season-color);
 }
 
 .cardTitle {
@@ -52,7 +54,7 @@
   margin: 0;
   font-size: var(--text-small);
   font-weight: 600;
-  color: var(--season-color);
+  color: var(--season-text);
 }
 
 .list {
@@ -115,7 +117,7 @@
 .headerIcon {
   display: inline-flex;
   align-items: center;
-  color: var(--color-ink);
+  color: var(--season-color);
 }
 
 .itemTitle {
@@ -132,13 +134,13 @@
   font-size: var(--text-small);
   font-weight: 600;
   line-height: var(--lh-small);
-  color: var(--season-color);
+  color: var(--season-text);
 }
 
 .chevron {
   display: inline-block;
   font-size: var(--text-small);
-  color: var(--color-accent);
+  color: var(--color-text-muted);
   transition: transform 0.2s;
 }
 .chevronOpen {

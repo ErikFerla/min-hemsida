@@ -20,7 +20,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
   margin: 0 0 var(--space-3);
 }
 
@@ -54,7 +54,10 @@
 
 .article a {
   color: var(--color-accent);
-  font-weight: 600;
+  text-decoration: underline;
+}
+.article a:hover {
+  color: var(--color-accent-hover);
 }
 
 .article .updated {

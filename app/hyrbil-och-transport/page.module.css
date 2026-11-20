@@ -27,7 +27,7 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .title {
@@ -90,8 +90,10 @@
 
 .tocList a {
   color: var(--color-accent);
-  font-weight: 600;
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.tocList a:hover {
+  color: var(--color-accent-hover);
 }
 
 .section {
@@ -118,8 +120,10 @@
 
 .inlineLink {
   color: var(--color-accent);
-  font-weight: 600;
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.inlineLink:hover {
+  color: var(--color-accent-hover);
 }
 
 .list {

@@ -2,7 +2,7 @@
 
 .footer {
   padding: 0;
-  background: var(--color-ink);
+  background: var(--color-footer);
   color: var(--color-on-dark);
 }
 
@@ -93,7 +93,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 20px clamp(20px, 4vw, 60px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-on-dark-border);
 }
 
 .small {
@@ -129,7 +129,7 @@
 }
 
 .section {
-  border-top: 1px solid rgba(254, 254, 251, 0.14);
+  border-top: 1px solid var(--color-on-dark-border);
 }
 
 .toggle {

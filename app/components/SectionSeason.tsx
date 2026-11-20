@@ -8,8 +8,10 @@ type Sasong = {
   Icon: ComponentType<{ size?: number }>;
   namn: string;
   månader: string;
-  /** Statusfärg (token) – bara som tunn kant och liten text, aldrig som bakgrund */
+  /** Ämnesfärg (10.1): tunn kant och ikon (dekor, ≥3:1) */
   färg: string;
+  /** Textfärg för månaderna – ämnesfärg som klarar 4,5:1 mot vitt kort */
+  text: string;
   fördelar: string[];
   nackdel: string;
   bästFör: string;
@@ -20,7 +22,8 @@ const säsonger: Sasong[] = [
     Icon: IconFlower,
     namn: 'Våren',
     månader: 'mars–maj',
-    färg: 'var(--color-success)',
+    färg: 'var(--color-olive)',
+    text: 'var(--color-olive)',
     fördelar: ['Perfekt för vandring i Tramuntana', 'Blommande landskap och gröna dalar', 'Färre turister och lägre priser', 'Behagliga 18–22 °C'],
     nackdel: 'Lite kyligt för bad',
     bästFör: 'Natur och vandring',
@@ -29,7 +32,8 @@ const säsonger: Sasong[] = [
     Icon: IconSun,
     namn: 'Sommaren',
     månader: 'juni–augusti',
-    färg: 'var(--color-warning)',
+    färg: 'var(--color-sea)',
+    text: 'var(--color-sea)',
     fördelar: ['28–32 °C och nästan alltid sol', 'Allt är öppet och i gång', 'Livligt nattliv och evenemang'],
     nackdel: 'Mest turister och högsta priser',
     bästFör: 'Bad och familjesemester',
@@ -38,7 +42,8 @@ const säsonger: Sasong[] = [
     Icon: IconLeaf,
     namn: 'Hösten',
     månader: 'september–november',
-    färg: 'var(--color-accent)',
+    färg: 'var(--color-terracotta)',
+    text: 'var(--color-ochre)',
     fördelar: ['Havet är varmt i september (ca 25 °C)', 'Färre turister än sommaren', 'Bäst för mat och kultur', 'Skördefester och marknader'],
     nackdel: 'Regnigare i oktober',
     bästFör: 'Mat och kultur',
@@ -47,7 +52,8 @@ const säsonger: Sasong[] = [
     Icon: IconSnow,
     namn: 'Vintern',
     månader: 'december–februari',
-    färg: 'var(--color-info)',
+    färg: 'var(--color-ink)',
+    text: 'var(--color-ink)',
     fördelar: ['Lugnt och autentiskt', 'Mandelblomning i februari', 'Bra för cykling och vandring', 'Milt, ofta 14–17 °C på dagen'],
     nackdel: 'Många affärer stängda',
     bästFör: 'Avkoppling och cykling',
@@ -125,5 +131,5 @@ export default function SectionSeason() {
 
 /** Säsongens färger som CSS-variabler (dynamiska värden från data). */
 function färger(s: Sasong) {
-  return { '--season-color': s.färg } as CSSProperties;
+  return { '--season-color': s.färg, '--season-text': s.text } as CSSProperties;
 }

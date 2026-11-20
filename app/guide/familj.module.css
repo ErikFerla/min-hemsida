@@ -26,7 +26,9 @@
 .list a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-underline-offset: 3px;
+}
+.list a:hover {
+  color: var(--color-accent-hover);
 }
 
 .section {
@@ -191,7 +193,9 @@
 .facts a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-underline-offset: 3px;
+}
+.facts a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Ingressen före första sektionen och kort i textspaltens bredd */

@@ -31,7 +31,10 @@
 
 .cardText a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.cardText a:hover {
+  color: var(--color-accent-hover);
 }
 
 .cards {

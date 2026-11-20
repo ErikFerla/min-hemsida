@@ -20,11 +20,11 @@ const golfMarkers: MapMarker[] = golfbanor.map((b) => ({
   meta: b.oneliner,
 }));
 
-// Statusfärger (5.1) – visas bara som prick bredvid texten (5.3).
+// Ämnesfärger (10.1) – visas bara som prick bredvid texten (5.3): lätt = oliv, medel = ockra, svår = terrakotta.
 const svårighetFärg: Record<string, string> = {
-  'Lätt': 'var(--color-success)',
-  'Medel': 'var(--color-warning)',
-  'Svår': 'var(--color-accent)',
+  'Lätt': 'var(--color-olive)',
+  'Medel': 'var(--color-ochre)',
+  'Svår': 'var(--color-terracotta)',
 };
 
 /** Svårighetsfärgen som CSS-variabel till modulen */

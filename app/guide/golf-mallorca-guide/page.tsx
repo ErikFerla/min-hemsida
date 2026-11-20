@@ -154,7 +154,7 @@ export default function GolfMallorcaGuide() {
                 <tr>
                   <th>Bana</th>
                   <th>Ort</th>
-                  <th className={styles.center}>Hål</th>
+                  <th className={styles.num}>Hål</th>
                   <th>Prisnivå</th>
                   <th className={styles.center}>Svårighet</th>
                 </tr>
@@ -164,7 +164,7 @@ export default function GolfMallorcaGuide() {
                   <tr key={b.slug}>
                     <td className={styles.name}>{b.namn}</td>
                     <td>{b.plats}</td>
-                    <td className={styles.center}>{b.hål}</td>
+                    <td className={styles.num}>{b.hål}</td>
                     <td className={styles.price}><PriceTag tier={tierFromPris(b.pris)} /></td>
                     <td className={styles.center}>{b.svårighet}</td>
                   </tr>
