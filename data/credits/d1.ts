@@ -206,16 +206,30 @@ export const credits: ImageCredit[] = [
     usedOn: ['/campos', '/byar'],
     checked: '2026-11-18',
   },
+  // Startsidans film (components/HeroSlideshow.tsx, filmBild). Filmen ersätter strandbilden
+  // Es Trenc i bildspelet. Stängs filmen av (video: null): ta bort den här posten och ta tillbaka
+  // Es Trenc-posten som ligger bortkommenterad nedan.
   {
-    src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
-    motiv: 'Stranden Es Trenc',
-    fotograf: 'DerPanscher',
-    license: 'cc-by-sa',
-    licenseVersion: '4.0',
-    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Es_trenc_summer.jpg',
+    src: '/video/hero-strand.mp4',
+    motiv: 'Film: flygbild över en lång sandstrand med turkost vatten och tallskog på Mallorca',
+    fotograf: 'Oskar Gross',
+    roll: 'film',
+    license: 'pexels',
+    sourceUrl: 'https://www.pexels.com/video/aerial-view-of-mallorca-s-stunning-beach-31819589/',
     usedOn: ['/'],
-    checked: '2026-11-18',
+    checked: '2026-11-20',
   },
+  // Används inte medan startsidans film är på (se ovan):
+  // {
+  //   src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Es_trenc_summer.jpg/1920px-Es_trenc_summer.jpg',
+  //   motiv: 'Stranden Es Trenc',
+  //   fotograf: 'DerPanscher',
+  //   license: 'cc-by-sa',
+  //   licenseVersion: '4.0',
+  //   sourceUrl: 'https://commons.wikimedia.org/wiki/File:Es_trenc_summer.jpg',
+  //   usedOn: ['/'],
+  //   checked: '2026-11-18',
+  // },
   {
     src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Alcudia_bay_2025.jpg/1920px-Alcudia_bay_2025.jpg',
     motiv: 'Alcúdiabukten i skymningen',
