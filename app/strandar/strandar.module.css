@@ -8,7 +8,7 @@
   background: var(--color-bg);
 }
 
-/* Intro: brödsmula + ingress i samma container som listan – vänsterställd 68ch-spalt (9.2) */
+/* Intro: brödsmula + ingress i samma container som listan – vänsterställd spalt i --w-text (9.2) */
 .intro {
   max-width: var(--w-wide);
   margin: 0 auto;
@@ -34,8 +34,9 @@
 .inlineLink {
   color: var(--color-accent);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+}
+.inlineLink:hover {
+  color: var(--color-accent-hover);
 }
 
 .container {
@@ -200,14 +201,23 @@
 }
 
 /* Planera vidare */
+/* "Inför stranddagen": sidans ämnesband (10.1) – havston, etikett i havsfärg */
 .more {
+  --section-label-color: var(--color-sea);
   margin-top: var(--section-space);
-  padding-top: var(--space-7);
-  border-top: 1px solid var(--color-border);
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-sea-tint);
 }
 
 .moreKicker {
   composes: label from '../components/section.module.css';
+}
+
+@media (min-width: 1024px) {
+  .more {
+    padding: var(--space-7) var(--space-6);
+  }
 }
 
 .moreTitle {
@@ -236,7 +246,9 @@
   composes: text from '../../components/Card.module.css';
 }
 
+/* "Läs mer" i ett klickbart kort (10.1): ink – kortet är länken, vinrött är för fristående handling */
 .moreCardLink {
   margin-top: auto;
   font-size: var(--text-small);
+  color: var(--color-ink);
 }

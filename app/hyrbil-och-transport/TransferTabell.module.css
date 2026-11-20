@@ -41,6 +41,15 @@
   text-transform: uppercase;
 }
 
+/* Bilkolumnen (restid i minuter) högerställs på dator (10.1) */
+@media (min-width: 1024px) {
+  .table th:nth-child(3),
+  .table td:nth-child(3) {
+    text-align: right;
+    white-space: nowrap;
+  }
+}
+
 .table tbody th {
   font-weight: 600;
   color: var(--color-ink);
@@ -49,7 +58,10 @@
 
 .table tbody th a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.table tbody th a:hover {
+  color: var(--color-accent-hover);
 }
 
 .table tbody tr:last-child th,

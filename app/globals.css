@@ -22,10 +22,12 @@
    Färg      --color-bg (bakgrund) · --color-surface (yta, fakta) · --color-surface-warm
              (varm yta, personlig röst) · --color-ink (text, mörk yta) · --color-text-muted
              (sekundär text) · --color-accent (+ -hover) · --color-border (linjer) ·
-             --color-chip-border (dekor) · --color-control-border (fält, chips) · status: --color-info / --color-success / --color-warning
-             (BARA prick, tunn kant eller liten text på ljus botten – aldrig hel bakgrund) ·
-             mörk botten: --color-on-dark, --color-on-dark-muted, --color-on-dark-heading,
-             --color-accent-on-dark.
+             --color-chip-border (dekor) · --color-control-border (fält, chips) ·
+             ämnesfärger: --color-sea (+ -tint), --color-olive (+ -tint), --color-ochre,
+             --color-terracotta (dekor) · status (alias): --color-info = sea / --color-success = olive /
+             --color-warning = ochre (BARA prick, tunn kant eller liten text – aldrig hel bakgrund) ·
+             --color-error · mörk botten: --color-footer, --color-on-dark, --color-on-dark-muted,
+             --color-on-dark-heading, --color-on-dark-border, --color-accent-on-dark.
    Text      --text-display / -h1 / -h2 / -h3 / -voice / -lead / -body / -small / -label.
              Mobilvärde här, datorvärde från 1024 px. Inga andra storlekar.
              Radhöjder --lh-*. Spärrning: --tracking-display (−0.02em), --tracking-label (0.12em);
@@ -34,26 +36,41 @@
    Avstånd   --space-1…9 = 4, 8, 12, 16, 24, 32, 48, 64, 96 px. Sektionsavstånd
              --section-space (48 → 96 px) – används via .section-space eller
              --section-padding-md.
-   Bredder   --w-text 68ch (löptext) · --w-wide 1280px (sidcontainern .container, inkl. --gutter) ·
+   Bredder   --w-text 53ch (löptext, uppmätt ≈ 60–72 tecken per rad på dator) · --w-wide 1280px (sidcontainern .container, inkl. --gutter) ·
              --w-content 1120px (används inte längre för sidcontainrar) · --gutter (16 → 32 px).
              Brytpunkter: 640 / 1024 / 1280 px (custom properties fungerar inte i @media).
    Form      --radius-sm 4 · --radius-btn 8 · --radius-card 12 · --radius-pill 999px.
    Knapp     --btn-* (se .btn nedan). */
 :root {
-  /* Färgroller – alla textpar klarar WCAG AA (≥4,5:1).
-     Kontrast mot --color-bg / vit / --color-surface / --color-surface-warm:
-       --color-ink          11,2 / 11,3 / 9,6 / 9,0
-       --color-text-muted    6,5 / 6,5 / 5,5 / 5,2
-       --color-accent        7,2 / 7,3 / 6,2 / 5,8
-       --color-info          5,6 / 5,6 / 4,8 / 4,5
-       --color-success       4,8 / 4,9 / –   / –     (text bara på bg/vit)
-       --color-warning       4,7 / 4,7 / –   / –     (text bara på bg/vit)
-       --color-accent-mid    5,2 / –   / 4,46 / –    (text bara på --color-bg)
-     På --color-ink: --color-on-dark 11,2 · --color-on-dark-heading 6,9 · --color-accent-on-dark 5,6.
-     --color-accent-soft (#e86c7f) är dekor – aldrig brödtext på ljus botten. */
-  --color-bg: #fefefb;
-  --color-surface: #eeede4;
-  --color-surface-warm: #ede5da;
+  /* Färgroller (10.1, paket 3 "färgpaletten – evolution"). Alla textpar klarar WCAG AA (≥4,5:1).
+     Uppmätt kontrast (WCAG 2.x) mot --color-bg / vit / --color-surface / --color-surface-warm /
+     --color-sea-tint / --color-olive-tint:
+       --color-ink          10,8 / 11,3 / 9,6 / 8,8 / 9,1 / 9,1
+       --color-text-muted    6,3 / 6,5 / 5,5 / 5,1 / 5,2 / 5,2
+       --color-accent        7,0 / 7,3 / 6,2 / 5,7 / 5,9 / 5,9
+       --color-accent-hover  9,4 / 9,8 / 8,3 / 7,6 / 7,8 / 7,9
+       --color-sea           6,3 / 6,5 / 5,6 / 5,1 / 5,25 / 5,3
+       --color-olive         5,9 / 6,1 / 5,2 / 4,8 / 4,9 / 4,9
+       --color-ochre         4,53 / 4,73 / –  / –  / –  / –     (text BARA på bg/vit, ≥600 eller ≥15 px)
+       --color-terracotta    4,3 / 4,5 / 3,9 / 3,6 / 3,6 / 3,65  (BARA dekor/grafik ≥3:1 – aldrig text)
+       --color-error         5,7 / 5,9 / 5,1 / 4,65 / 4,8 / 4,8 (alltid med ikon och 600-vikt)
+     Ytor (ΔE76): vit kort mot bg 3,1 (+ 1 px --color-border) · bg/surface 5,1 · bg/surface-warm 12,2 ·
+     surface/surface-warm 8,4 · bg/sea-tint 8,9 · bg/olive-tint 10,0.
+     UI-gränser (1.4.11, ≥3:1): --color-control-border 3,9 vit / 3,8 bg / 3,35 surface.
+     På --color-footer (#2c2e38): --color-on-dark 13,4 · --color-on-dark-muted 9,3 ·
+     --color-on-dark-heading 8,2 · --color-accent-on-dark 6,7. På --color-ink: 11,2 / 7,8 / 6,9 / 5,6.
+
+     ROLLER: vinrött (--color-accent) = handling (primärknapp, länkar, aktivt läge), Eriks röst
+     (TipBox-kant och våg, CardTip) och märket (logotypens våg). Etiketter, streck, pilar och ikoner
+     använder ink, --color-text-muted eller en ämnesfärg.
+     ÄMNESFÄRGER (öns färger): hav (stränder, båt, vatten), oliv (natur, vandring, vin, golf),
+     ockra (sol, sommar, byar), terrakotta (höst, dekor). Används i etikett, tunn kant, ikon,
+     prick och – högst ett band per sida – som tonad sektionsbakgrund (--color-*-tint).
+     Statustokens är alias: info = hav, success = oliv, warning = ockra (bara prick, tunn kant
+     eller liten text – aldrig hel bakgrund). */
+  --color-bg: #fcfaf5;          /* kalkstenspapper */
+  --color-surface: #eeede4;     /* kalksten – fakta */
+  --color-surface-warm: #efe2cd; /* sand – personlig röst */
   --color-ink: #383a46;
   --color-ink-strong: var(--color-ink); /* tidigare #1a1a1a – systemet har bara en textfärg */
   --color-text: var(--color-ink);
@@ -61,12 +78,12 @@
   --color-text-muted: #5b5d6b;
   --color-accent: #993335;
   --color-accent-hover: #7a2729;
-  --color-accent-mid: #ba4446;
-  --color-accent-soft: #e86c7f;
   --color-accent-on-dark: #e6a7a9;
   --color-on-dark: #fefefb;
   --color-on-dark-muted: rgba(254, 254, 251, 0.82);
   --color-on-dark-heading: #c9c9d1;
+  --color-on-dark-border: rgba(254, 254, 251, 0.14);
+  --color-footer: #2c2e38;      /* natt – footerns yta */
   --color-border: #dcd9cc;
   --color-chip-border: #cfccbf;
   /* Kant på formulärfält, filterchips och ovalda val: 3,9:1 mot vit (WCAG 1.4.11). --color-chip-border är dekor. */
@@ -75,10 +92,21 @@
   --color-graphic-muted: #827b70;
   --color-focus: #993335;
   --color-white: #ffffff;
-  --color-error: #b42318;
-  --color-info: #2f6f86;
-  --color-success: #5d7a3a;
-  --color-warning: #9a6a12;
+  /* Fel: signalröd, mättad och åt orange – ΔE 39 mot accenten (tidigare #b42318, ΔE 25). Visas alltid med ikon och 600-vikt. */
+  --color-error: #c41e00;
+
+  /* Öns färger (ämnesfärger) */
+  --color-sea: #22657a;
+  --color-sea-tint: #dce9e8;
+  --color-olive: #55683a;
+  --color-olive-tint: #e7e8d5;
+  --color-ochre: #9a6a12;
+  --color-terracotta: #b85c3c;
+
+  /* Status = alias till ämnesfärgerna */
+  --color-info: var(--color-sea);
+  --color-success: var(--color-olive);
+  --color-warning: var(--color-ochre);
   --color-warning-text: var(--color-warning);
   /* Bildöverlägg och bakgrund bakom bilder som inte laddats */
   --color-image-bg: #2b2c33;
@@ -124,7 +152,7 @@
   --section-padding-md: var(--section-space) 0;
 
   /* Bredder */
-  --w-text: 68ch;
+  --w-text: 53ch; /* 10.1: uppmätt på dator – 62ch gav median 80 tecken per rad (Inters "0" är bredare än svensk löptext); 53ch ger ≈ 68 */
   --w-content: 1120px;
   --w-wide: 1280px;
   --gutter: var(--space-4);
@@ -264,6 +292,23 @@ body {
 
   li {
     line-height: var(--lh-body);
+  }
+
+  /* Länkar (10.1): EN understrykning överallt – 1 px, 3 px avstånd, 2 px vid hover.
+     Länkar i löptext: accent, vikt 400 (ärvs), understrukna. Moduler sätter bara färg
+     (och hover-färg) – aldrig egen vikt, tjocklek eller avstånd. */
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Tabeller (10.1): siffror i samma bredd så att kolumner med priser, tider och avstånd
+     linjerar. Kolumner med tal högerställs i respektive modul. */
+  table {
+    font-variant-numeric: tabular-nums;
   }
 
   main {
@@ -437,7 +482,7 @@ body {
 .skip-link:focus,
 .skip-link:focus-visible {
   transform: translateY(0);
-  outline: 3px solid var(--color-accent-soft);
+  outline: 3px solid var(--color-accent-on-dark);
   outline-offset: 0;
 }
 

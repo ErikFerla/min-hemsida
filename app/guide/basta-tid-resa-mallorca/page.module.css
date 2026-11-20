@@ -89,13 +89,14 @@
   padding: var(--space-5);
   background: var(--color-white);
   border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-accent);
+  border-top: 3px solid var(--season-color);
   border-radius: var(--radius-card);
 }
 
-.seasonHigh {
-  border-top-color: var(--color-warning);
-}
+/* Säsongens ämnesfärg (10.1): låg = hav, mellan = oliv, hög = ockra (sol) – tunn kant + liten text */
+.seasonLow { --season-color: var(--color-sea); }
+.seasonMid { --season-color: var(--color-olive); }
+.seasonHigh { --season-color: var(--color-ochre); }
 
 .seasonLabel {
   margin: 0 0 var(--space-1);
@@ -111,11 +112,7 @@
   font-size: var(--text-small);
   font-weight: 600;
   line-height: var(--lh-small);
-  color: var(--color-accent);
-}
-
-.seasonHigh .seasonPeriod {
-  color: var(--color-warning);
+  color: var(--season-color);
 }
 
 .seasonText {
@@ -136,6 +133,10 @@
 
 .scaleNote a {
   color: var(--color-accent);
+  text-decoration: underline;
+}
+.scaleNote a:hover {
+  color: var(--color-accent-hover);
 }
 
 .months {
@@ -181,7 +182,7 @@
 }
 
 .monthStars {
-  color: var(--color-accent);
+  color: var(--color-ochre);
 }
 
 .monthText {
@@ -237,7 +238,7 @@
 
 .ctaArrow {
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 @media (min-width: 640px) {

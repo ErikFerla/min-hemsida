@@ -1,6 +1,6 @@
 /* Gemensam layout för de praktiska sidorna (3.6): /budget-och-priser, /praktiskt,
    /mallorca-pa-vintern och /vandring-och-cykling. Rubrikmått: app/guide/headings.module.css.
-   Textspalt högst --w-text (68ch); innehållsförteckningen ligger i en sticky högerspalt från 1024 px. */
+   Textspalt högst --w-text; innehållsförteckningen ligger i en sticky högerspalt från 1024 px. */
 
 .page {
   background: var(--color-bg);
@@ -62,7 +62,10 @@
   align-items: center;
   min-height: 44px;
   color: var(--color-accent);
-  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+.tocList a:hover {
+  color: var(--color-accent-hover);
 }
 
 .section {
@@ -72,6 +75,20 @@
 
 .h2 {
   color: var(--color-ink);
+}
+
+/* Ämnesband (10.1): EN sektion per sida kan få öns färg som tonad bakgrund
+   (t.ex. vandringarna i olivton). Ink 9,1:1, sekundärtext 5,2:1, accent 5,9:1. */
+.bandOlive {
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-olive-tint);
+}
+
+@media (min-width: 1024px) {
+  .bandOlive {
+    padding: var(--space-7) var(--space-6);
+  }
 }
 
 .h3 {
@@ -97,7 +114,10 @@
 
 .section a {
   color: var(--color-accent);
-  text-underline-offset: 3px;
+  text-decoration: underline;
+}
+.section a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Pristabeller */
@@ -150,6 +170,13 @@
   color: var(--color-ink);
 }
 
+/* Priser högerställs från 640 px (10.1); på mobil blir raden ett kort med etiketter */
+@media (min-width: 640px) {
+  .table .price {
+    text-align: right;
+  }
+}
+
 .note {
   font-size: var(--text-small);
   line-height: var(--lh-small);
@@ -190,7 +217,7 @@
   font-size: var(--text-small);
   font-weight: 600;
   line-height: var(--lh-small);
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .card p {
@@ -230,7 +257,7 @@
 .relatedTitle {
   margin: 0 0 var(--space-1);
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 .relatedText {
@@ -262,9 +289,20 @@
     grid-row: 1;
   }
 
+  /* Dator (10.1): spalten fyller rutnätet så att tabeller och kort får plats;
+     löptexten hålls till --w-text (≈ 60–72 tecken per rad). */
   .main {
     grid-column: 1;
     grid-row: 1;
+    max-width: none;
+  }
+
+  .main :is(p, ul, ol, h2, h3) {
+    max-width: var(--w-text);
+  }
+
+  .main :is(.cards, .relatedGrid) :is(p, h2, h3) {
+    max-width: none;
   }
 
   .tocList a {

@@ -54,7 +54,6 @@ export default function SectionEvents() {
           <div>
             <p className={s.label}>På Mallorca</p>
             <h2 className={s.title}>Kommande evenemang</h2>
-            <div className={s.divider} />
             <p className={styles.intro}>
               Fiestor, mässor, cykellopp och regattor året runt. Välj dina resdatum på evenemangssidan så ser du vad som händer – och vilka byar som har marknad – under just din resa.
             </p>

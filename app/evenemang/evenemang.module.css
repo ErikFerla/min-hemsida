@@ -51,7 +51,10 @@
 
 .more a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.more a:hover {
+  color: var(--color-accent-hover);
 }
 
 @media (min-width: 1024px) {

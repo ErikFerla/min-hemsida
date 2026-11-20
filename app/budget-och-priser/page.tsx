@@ -38,7 +38,7 @@ function PrisTabell({ caption, rader }: { caption: string; rader: PrisRad[] }) {
         <thead>
           <tr>
             <th scope="col">Vad</th>
-            <th scope="col">Pris 2026</th>
+            <th scope="col" className={styles.price}>Pris 2026</th>
             <th scope="col">Bra att veta</th>
           </tr>
         </thead>
@@ -157,8 +157,8 @@ export default function BudgetOchPriser() {
             <thead>
               <tr>
                 <th scope="col">Boende</th>
-                <th scope="col">1 maj–31 okt</th>
-                <th scope="col">1 nov–30 apr</th>
+                <th scope="col" className={styles.price}>1 maj–31 okt</th>
+                <th scope="col" className={styles.price}>1 nov–30 apr</th>
               </tr>
             </thead>
             <tbody>

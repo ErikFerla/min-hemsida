@@ -25,7 +25,7 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--hero-kicker-color, var(--color-text-muted));
 }
 
 .title {
@@ -52,7 +52,9 @@
 .lead a {
   color: var(--color-accent);
   text-decoration: underline;
-  text-underline-offset: 3px;
+}
+.lead a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Brödsmulan överst i heron (som på bildlösa sidor i övrigt) – mindre luft ovanför */

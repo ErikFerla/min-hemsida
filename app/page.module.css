@@ -66,7 +66,7 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 /* Citatet i "Tips från en lokal": personlig röst */
@@ -141,8 +141,9 @@
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
-  font-size: var(--text-lead);
-  color: var(--color-accent);
+  font-size: var(--text-voice);
+  line-height: var(--lh-h3);
+  color: var(--color-ink);
 }
 
 .favoriteLinks {
