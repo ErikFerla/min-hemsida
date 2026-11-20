@@ -22,7 +22,7 @@
 .icon {
   display: inline-flex;
   margin-bottom: var(--space-4);
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .kicker {
@@ -32,7 +32,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
 }
 
 .title {

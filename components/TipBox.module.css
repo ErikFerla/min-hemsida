@@ -77,14 +77,18 @@
 }
 .body li { margin: 0; }
 
+/* Signaturen (10.1): rösten i ink och --text-voice (22 → 26 px) så att kursiven bär;
+   den röda vågen överst är rutans röda signal. */
 .signature {
   margin: 0;
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 400;
-  font-size: var(--text-lead);
-  color: var(--color-accent);
+  font-size: var(--text-voice);
+  line-height: var(--lh-h3);
+  color: var(--color-ink);
 }
+.compact .signature { font-size: var(--text-h3); }
 
 @media (min-width: 1024px) {
   .box:not(.compact):not(.warning):not(.info) { padding: var(--space-6) var(--space-6); }

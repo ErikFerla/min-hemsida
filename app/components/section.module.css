@@ -1,5 +1,5 @@
 /* Gemensamma sektionsdelar för startsidan (överrad, rubrik, sektion).
-   Sektionsrubrik = .label (etikett i accent) + .title (h2). Sektionsavståndet kommer
+   Sektionsrubrik = .label (etikett i sekundärtext eller ämnesfärg) + .title (h2). Sektionsavståndet kommer
    från --section-space (48 → 96 px) och sidmarginalen från --gutter (16 → 32 px). */
 
 .pageSection {
@@ -11,13 +11,8 @@
   background: var(--color-surface);
 }
 
-.inner,
-.wide {
-  max-width: var(--w-wide);
-  margin: 0 auto;
-}
-
-/* Överrad: etikett (--text-label) i accent */
+/* Överrad: etikett (--text-label) i sekundärtext (10.1 – vinrött är handling och röst).
+   En sektion med ämnesfärg sätter --section-label-color, t.ex. var(--color-sea). */
 .label {
   display: block;
   margin: 0 0 var(--space-3);
@@ -27,7 +22,7 @@
   line-height: var(--lh-small);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--section-label-color, var(--color-text-muted));
 }
 
 /* Sektionsrubrik: h2 enligt typskalan */
@@ -44,13 +39,4 @@
 
 .center {
   text-align: center;
-}
-
-/* Kort accentlinje under rubriken (äldre mönster; nya sektioner använder bara etikett + h2). */
-.divider {
-  width: var(--space-7);
-  height: 2px;
-  margin: 0 0 var(--space-5);
-  border-radius: var(--radius-sm);
-  background: var(--color-accent);
 }

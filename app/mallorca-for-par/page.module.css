@@ -40,7 +40,10 @@
 .text a,
 .list a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.list a:hover {
+  color: var(--color-accent-hover);
 }
 
 .list {

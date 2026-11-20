@@ -41,9 +41,11 @@
   color: var(--color-text-muted);
 }
 
+/* "Läs mer" i ett klickbart kort (10.1): ink – kortet är länken, vinrött är för fristående handling */
 .more {
   margin-top: auto;
   font-size: var(--text-small);
+  color: var(--color-ink);
 }
 
 @media (max-width: 639px) {

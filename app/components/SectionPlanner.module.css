@@ -128,7 +128,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-ink);
   color: var(--color-on-dark);
   font-size: var(--text-small);
   font-weight: 600;
@@ -163,7 +163,10 @@
 
 .link {
   color: var(--color-accent);
-  font-weight: 600;
+  text-decoration: underline;
+}
+.link:hover {
+  color: var(--color-accent-hover);
 }
 
 .fullPlan {

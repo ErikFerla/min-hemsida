@@ -1,5 +1,5 @@
 /* Källrutan (5.4): textspaltens bredd, vänsterställd, tunn linje ovanför, small, liten bock.
-   Bredden (68ch) räknas i brödtextens storlek så att linjen blir lika bred som textspalten;
+   Bredden (--w-text) räknas i brödtextens storlek så att linjen blir lika bred som textspalten;
    själva texten är small. */
 .box {
   max-width: var(--w-text);
@@ -34,7 +34,7 @@
 }
 .sources a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
 }
 .sources a:hover {
   color: var(--color-accent-hover);

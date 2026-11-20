@@ -53,7 +53,7 @@ const DEFAULT_DESCRIPTION =
 // (t.ex. Chrome på Android) från att invertera ytor och foton. themeColor = --color-bg.
 export const viewport: Viewport = {
   colorScheme: 'only light',
-  themeColor: '#fefefb',
+  themeColor: '#fcfaf5',
 };
 
 // Ingen canonical här: den ärvs annars av alla sidor som saknar egen och pekar dem mot startsidan.

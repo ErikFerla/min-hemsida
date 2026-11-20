@@ -1,9 +1,9 @@
 /* Ersätter root-layouten när den kraschar: globals.css och fonterna laddas inte här,
    så färgerna definieras lokalt (samma värden som tokens i globals.css) och systemfonter används. */
 .body {
-  --ge-bg: #fefefb;
+  --ge-bg: #fcfaf5;
   --ge-ink: #383a46;
-  --ge-text-soft: #4b5563;
+  --ge-text-soft: #5b5d6b;
   --ge-accent: #993335;
   margin: 0;
   background: var(--ge-bg);

@@ -1,5 +1,5 @@
 /* Gemensam stadsmall (app/[city]), designsystem 5.4.
-   Textspalt (max 68ch) + högerspalt (faktaruta, topp 3, kartlänkar, "Mer i närheten" fäst) från
+   Textspalt (max --w-text) + högerspalt (faktaruta, topp 3, kartlänkar, "Mer i närheten" fäst) från
    1024 px, sist "Orter i närheten" i full bredd.
    På mobil: ingress → faktaruta → resten. Rubriker (h2/h3) och p får storlek från
    basreglerna i globals.css – här bara layout och komponentform med tokens. */
@@ -112,9 +112,7 @@
 
 .link {
   color: var(--color-accent);
-  font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 2px;
 }
 .link:hover {
   color: var(--color-accent-hover);
@@ -350,7 +348,7 @@
 }
 .moreLink > span[aria-hidden] {
   flex-shrink: 0;
-  color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 .moreKicker {

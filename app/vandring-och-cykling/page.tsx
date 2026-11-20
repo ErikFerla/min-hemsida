@@ -94,7 +94,7 @@ export default function VandringOchCykling() {
         </p>
       </section>
 
-      <section id="klassiska-turer" className={styles.section}>
+      <section id="klassiska-turer" className={`${styles.section} ${styles.bandOlive}`}>
         <h2 className={`${h.h2} ${styles.h2}`}>Klassiska vandringar</h2>
         <div className={styles.cards}>
           <div className={styles.card}>

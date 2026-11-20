@@ -136,7 +136,7 @@
 }
 
 .itemTop {
-  border-color: var(--color-accent);
+  border-color: var(--color-sea);
   background: var(--color-white);
 }
 
@@ -162,7 +162,7 @@
   margin-left: auto;
   font-size: var(--text-small);
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-sea);
 }
 
 .bar {
@@ -176,7 +176,7 @@
 .barFill {
   display: block;
   height: 100%;
-  background: var(--color-accent);
+  background: var(--color-sea);
 }
 
 .reasons {

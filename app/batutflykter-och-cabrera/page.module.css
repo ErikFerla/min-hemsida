@@ -25,6 +25,19 @@
   margin-bottom: var(--space-7);
 }
 
+/* Cabrera: sidans ämnesband (10.1) – havston */
+.seaBand {
+  padding: var(--space-6) var(--space-4);
+  border-radius: var(--radius-card);
+  background: var(--color-sea-tint);
+}
+
+@media (min-width: 1024px) {
+  .seaBand {
+    padding: var(--space-7) var(--space-6);
+  }
+}
+
 .sectionTitle {
   color: var(--color-ink);
 }
@@ -41,7 +54,10 @@
 .cardText a,
 .list a {
   color: var(--color-accent);
-  text-underline-offset: 2px;
+  text-decoration: underline;
+}
+.list a:hover {
+  color: var(--color-accent-hover);
 }
 
 .cards {

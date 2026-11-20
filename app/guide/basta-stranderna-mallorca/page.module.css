@@ -49,7 +49,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-sea);
   color: var(--color-on-dark);
   font-family: var(--font-heading);
   font-size: var(--text-h3);
@@ -65,7 +65,7 @@
   font-size: var(--text-small);
   font-weight: 600;
   line-height: var(--lh-small);
-  color: var(--color-accent);
+  color: var(--color-sea);
 }
 
 .image {

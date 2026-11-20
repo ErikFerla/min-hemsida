@@ -160,7 +160,7 @@ export default function BatutflykterPage() {
           </ul>
         </section>
 
-        <section className={styles.section} aria-labelledby="cabrera">
+        <section className={`${styles.section} ${styles.seaBand}`} aria-labelledby="cabrera">
           <h2 id="cabrera" className={`${h.h2} ${styles.sectionTitle}`}>
             Cabrera – nationalparken söder om Mallorca
           </h2>
