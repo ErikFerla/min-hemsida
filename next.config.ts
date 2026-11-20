@@ -92,6 +92,8 @@ const nextConfig: NextConfig = {
     // Commons-thumbs saknar Cache-Control, så optimerade bilder fick standard-TTL:n 4 h och
     // omkodades (hämta ~0,5 MB JPEG + AVIF-kodning) när cachen gått ut – långsamt för den som
     // råkar komma då (t.ex. PageSpeed). Bild-URL:erna är i praktiken oföränderliga: 31 dagar.
+    // Obs: byts en lokal bild i public/ ut under samma filnamn ligger den gamla kvar i upp till
+    // 31 dagar – ge den nya bilden ett nytt filnamn.
     minimumCacheTTL: 2678400,
   },
   async headers() {

@@ -40,8 +40,9 @@ const OMRÅDEN: Område[] = [
     tips: [
       { slug: 'palma-aquarium', text: 'Helt inomhus med hajtunnel och en liten djungel. Öppet året runt.' },
       { slug: 'palma-jump', text: 'Trampolinpark med eget område för de minsta. Boka tid – regniga dagar tar platserna slut.' },
-      { slug: 'kids-republik', text: 'Lekland i tre våningar i centrum, med avdelningar för olika åldrar.' },
+      { slug: 'kids-republik', text: 'Lekland på tre våningar i centrum, med avdelningar för olika åldrar.' },
       { slug: 'sherwood-park', text: 'Mindre lekland för 2–5-åringar, lagom stort för en förmiddag.' },
+      { slug: 'coves-de-genova', text: 'Små droppstensgrottor i stadsdelen Gènova med guidad visning – den enda grottan nära Palma centrum. Öppet året runt.' },
       { slug: 'caixaforum-palma', text: 'Utställningar och familjeaktiviteter i ett modernistiskt hus. Kolla programmet i förväg.' },
       { slug: 'bowling-festival-park', text: 'Bowling med kantskydd för små barn i ett köpcentrum med bio och restauranger.' },
     ],
@@ -103,8 +104,8 @@ const OMRÅDEN: Område[] = [
     tips: [
       {
         namn: 'Katmandu Park, Magaluf',
-        href: aktivitet('katmandu-park-splash').href,
-        text: 'Har flera inomhusdelar, bland annat det upp-och-nedvända huset, 4D-bio och mjuklek. Säsongsöppet – 2026 från april till början av november.',
+        href: aktivitet('katmandu-park').href,
+        text: 'Har flera inomhusdelar, bland annat det upp-och-nedvända huset, 4D-bio och mjuklek. Säsongsöppet – 2026 från april till början av november enligt biljettförsäljare.',
       },
       { namn: 'Palma', href: '#palma', text: 'Trampolinpark, lekland och akvarium – se ovan.' },
     ],
@@ -228,6 +229,7 @@ export default function RegnigaDagarGuide() {
             { label: 'Turisme Petit – Coves de Campanet', href: 'https://www.turismepetit.com/lugares-de-interes-mallorca/cuevas-de-campanet/' },
             { label: 'Majorca Daily Bulletin – öppningsdatum för attraktioner 2026', href: 'https://www.majorcadailybulletin.com/holiday/attractions/2026/03/17/140729/mallorca-attractions-opening-dates-waterpark-set-splash-into-summer-with-two-new-slides.html' },
             { label: 'Taquilla.com – Katmandu Park', href: 'https://www.taquilla.com/entradas/katmandu-park' },
+            { label: 'Fundación Turismo Palma 365 – Cuevas de Génova', href: 'https://www.visitpalma.com/en/tickets/pln668/cuevas-de-genova' },
             { label: 'Mejorruta – Palma till Porto Cristo', href: 'https://www.mejorruta.com/distancia/2512989-2512378/Palma/Porto-Cristo/' },
           ]}
         />

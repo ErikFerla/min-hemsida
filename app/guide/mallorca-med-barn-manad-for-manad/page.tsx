@@ -27,14 +27,14 @@ const REGNGUIDE = '/guide/regniga-dagar-med-barn';
 const MÅNADER: Månad[] = [
   {
     väder: 'Svalt och ofta soligt mitt på dagen, men kalla kvällar. Havet är för kallt för bad – stranden är för lek och promenader.',
-    öppet: 'Vattenparkerna är stängda. Tåget till Sóller har vinteruppehåll (2026/27 till och med 31 januari) och buss 204 går i stället. Coves del Drac, Hams och Artà har öppet utom 1 januari, och Palma Aquarium har öppet året runt.',
-    fester: 'Spanska skolor har jullov till 6 januari. Kvällen 5 januari kommer de tre vise männen med båt till Palma i Cavalcada dels Reis. Den 16–17 januari firas Sant Antoni med brasor, dansande djävlar (dimonis) och välsignelse av djuren.',
+    öppet: 'Vattenparkerna är stängda. Tåget till Sóller har vinteruppehåll (2026/27 till och med 31 januari), men ni kan ta buss 204 (går året runt). Coves del Drac, Hams och Artà har öppet utom 1 januari, och Palma Aquarium har öppet året runt.',
+    fester: 'De baleariska skolorna har jullov till 6 januari. Kvällen 5 januari kommer de tre vise männen med båt till Palma i Cavalcada dels Reis. Den 16–17 januari firas Sant Antoni med brasor, dansande djävlar (dimonis) och välsignelse av djuren.',
     förslag: [aktivitet('palma-aquarium'), aktivitet('coves-del-drac'), aktivitet('castell-de-bellver')],
   },
   {
     väder: 'Fortfarande svalt. Mandelträden blommar och landsbygden är grön – bra för korta promenader och picknick en solig dag.',
     öppet: 'Tåget till Sóller går igen från 1 februari 2027. Vattenparkerna är stängda och flera attraktioner har kortare vintertider.',
-    fester: 'Barnens karnevalståg Sa Rueta går i Palma söndagen före det stora karnevalståget Sa Rua. Tivolit Fira del Ram på Son Fusteret i Palma brukar öppna i slutet av februari.',
+    fester: 'Barnens karnevalståg Sa Rueta går i Palma i slutet av januari eller i februari, söndagen före det stora karnevalståget Sa Rua. Tivolit Fira del Ram på Son Fusteret i Palma brukar öppna i slutet av februari.',
     förslag: [aktivitet('tren-de-soller'), aktivitet('s-albufera'), aktivitet('natura-parc')],
   },
   {
@@ -87,7 +87,7 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Havet har kvar sommarvärmen och hettan släpper. Mot slutet av månaden regnar det oftare.',
-    öppet: 'Spanska skolor börjar igen (10 september 2026) och stränderna blir lugnare. Aqualand stängde i slutet av september 2026 enligt biljettförsäljarna – kontrollera datumet.',
+    öppet: 'De baleariska skolorna börjar igen (10 september 2026) och stränderna blir lugnare. Aqualand stängde i slutet av september 2026 enligt biljettförsäljarna – kontrollera datumet.',
     fester: 'Festa des Vermar i Binissalem firar vinskörden med druvtrampning, och på Fira del Meló i Vilafranca de Bonany tävlar man om öns största melon.',
     förslag: [
       { label: 'Snorkling i Cala Llombards', href: STRANDGUIDE },
@@ -107,14 +107,14 @@ const MÅNADER: Månad[] = [
   },
   {
     väder: 'Milt men ombytligt. Havet lockar bara de tåligaste. Räkna med några regndagar.',
-    öppet: 'Vattenparkerna har stängt och Katmandu Park stängde i början av november 2026. Tåget till Sóller har vinteruppehåll från 23 november 2026. Grottor, Palma Aquarium och inomhuslek i Palma har öppet.',
+    öppet: 'Vattenparkerna har stängt och Katmandu Park stängde i början av november 2026 enligt biljettförsäljare. Tåget till Sóller har vinteruppehåll från 23 november 2026. Grottor, Palma Aquarium och inomhuslek i Palma har öppet.',
     fester: 'Dijous Bo i Inca är öns största mässa. I slutet av månaden öppnar julmarknaden i Palma.',
     förslag: [aktivitet('kids-republik'), aktivitet('coves-de-campanet'), aktivitet('palma-aquarium')],
   },
   {
     väder: 'Kortaste dagarna och svala kvällar. En solig dag kan det ändå kännas som vår mitt på dagen.',
     öppet: 'Spårvagnen mellan Sóller och Port de Sóller går igen från 22 december 2026. Coves del Drac, Hams och Artà har stängt 25 december. Många restauranger i badorterna har stängt, men Palma lever året runt.',
-    fester: 'Julmarknaden har stånd på Plaça Major i Palma. Spanska skolor har jullov 23 december–6 januari. Den 31 december firas Festa de l’Estendard i Palma.',
+    fester: 'Julmarknaden har stånd på Plaça Major i Palma. De baleariska skolorna har jullov 23 december–6 januari. Den 31 december firas Festa de l’Estendard i Palma.',
     förslag: [aktivitet('castell-de-bellver'), aktivitet('palma-jump'), aktivitet('sherwood-park')],
   },
 ];
@@ -250,6 +250,7 @@ export default function ManadForManadGuide() {
             { label: 'Taquilla.com – Aqualand Arenal', href: 'https://www.taquilla.com/entradas/aqualand-arenal' },
             { label: 'Fibwi Diario – Sóllertågets vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
             { label: 'CSIF – Calendari escolar Illes Balears 2026-27', href: 'https://www.csif.es/es/noticia/portada/baleareseducacion/articulo/88118' },
+            { label: 'BOIB núm. 82 (30 juni 2026) – ändring av skolkalendern 2026-27', href: 'https://www.caib.es/eboibfront/pdf/es/2026/82/1222864' },
             { label: 'Illes Balears – Sant Antoni och Sant Sebastià', href: 'https://www.illesbalears.travel/experience/en/mallorca/sant-antoni-and-sant-sebastia' },
             { label: 'Visit Palma – Fira del Ram', href: 'https://visitpalma.com/en/event/fira-del-ram-palma-2026/' },
           ]}

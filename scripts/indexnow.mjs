@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 /**
- * Skickar alla URL:er i sitemapen till IndexNow (Bing, Yandex, Seznam m.fl. delar anropen).
+ * Skickar ändrade URL:er i sitemapen till IndexNow (Bing, Yandex, Seznam m.fl. delar anropen).
+ * Som ändrad räknas en URL vars <lastmod> ligger inom de senaste dygnen (se --days). URL:er
+ * utan <lastmod> skickas bara med --all. Matchar ingen URL skickas inget.
  *
  * Körs automatiskt av .github/workflows/indexnow.yml efter varje lyckad produktionsdeploy,
  * men kan också köras för hand:
  *
- *   node scripts/indexnow.mjs            hämtar sitemapen och skickar URL:erna
- *   node scripts/indexnow.mjs --dry-run  visar bara vad som skulle skickas
+ *   node scripts/indexnow.mjs            skickar URL:er med lastmod inom de senaste 3 dygnen
+ *   node scripts/indexnow.mjs --days=7   samma, men med lastmod inom de senaste 7 dygnen
+ *   node scripts/indexnow.mjs --all      skickar alla URL:er i sitemapen
+ *   node scripts/indexnow.mjs --dry-run  visar bara vad som skulle skickas (går att kombinera)
  *
  * Nyckeln är publik (den ligger i public/<nyckel>.txt och serveras på sajten), så inga
  * hemligheter behövs. Byter du nyckel: byt filnamn och innehåll i public/ och KEY nedan.
@@ -27,6 +31,10 @@ const ENDPOINT = 'https://api.indexnow.org/indexnow';
 const MAX_URLS = 10000; // protokollets gräns per anrop
 const TIMEOUT_MS = 20000;
 const DRY_RUN = process.argv.includes('--dry-run');
+const ALL = process.argv.includes('--all');
+const DAYS_ARG = process.argv.find((a) => a.startsWith('--days='));
+const DAYS = DAYS_ARG ? Number(DAYS_ARG.slice('--days='.length)) : 3;
+const DAY_MS = 24 * 60 * 60 * 1000;
 
 // Svarskoder enligt protokollet.
 const STATUS_TEXT = {
@@ -50,37 +58,70 @@ async function fetchText(url) {
   return res.text();
 }
 
-/** Läser <loc> ur en sitemap; följer ett sitemapindex en nivå ned. */
+/**
+ * Läser <loc> och <lastmod> ur en sitemap; följer ett sitemapindex en nivå ned.
+ * Ger [{ loc, lastmod }] där lastmod är en tidpunkt i ms eller null.
+ */
 async function readSitemap(url, depth = 0) {
   const xml = await fetchText(url);
-  const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1].replace(/&amp;/g, '&'));
   if (/<sitemapindex[\s>]/.test(xml) && depth === 0) {
+    const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1].replace(/&amp;/g, '&'));
     const nested = await Promise.all(locs.map((loc) => readSitemap(loc, 1)));
     return nested.flat();
   }
-  return locs;
+  return [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].flatMap((m) => {
+    const loc = m[1].match(/<loc>\s*([^<\s]+)\s*<\/loc>/);
+    if (!loc) return [];
+    const mod = m[1].match(/<lastmod>\s*([^<\s]+)\s*<\/lastmod>/);
+    const t = mod ? Date.parse(mod[1]) : NaN;
+    return [{ loc: loc[1].replace(/&amp;/g, '&'), lastmod: Number.isNaN(t) ? null : t }];
+  });
 }
 
 async function main() {
-  let urls;
+  if (!ALL && !(DAYS > 0)) {
+    warn(`ogiltigt värde för --days (${DAYS_ARG}); ange ett positivt tal`);
+    return;
+  }
+  let entries;
   try {
-    urls = await readSitemap(SITEMAP);
+    entries = await readSitemap(SITEMAP);
   } catch (e) {
     warn(`kunde inte läsa sitemapen ${SITEMAP} (${e.message})`);
     return;
   }
-  const own = [...new Set(urls)].filter((u) => {
+  const latest = new Map();
+  for (const { loc, lastmod } of entries) {
+    let host;
     try {
-      return new URL(u).host === HOST;
+      host = new URL(loc).host;
     } catch {
-      return false;
+      continue;
     }
-  });
-  if (own.length === 0) {
+    if (host !== HOST) continue;
+    const prev = latest.get(loc);
+    latest.set(loc, prev == null || (lastmod != null && lastmod > prev) ? lastmod : prev);
+  }
+  if (latest.size === 0) {
     warn(`inga URL:er för ${HOST} i ${SITEMAP}`);
     return;
   }
-  if (own.length > MAX_URLS) console.log(`Sitemapen har ${own.length} URL:er; skickar de första ${MAX_URLS}.`);
+
+  let own;
+  if (ALL) {
+    own = [...latest.keys()];
+    console.log(`--all: skickar alla ${own.length} URL:er i sitemapen.`);
+  } else {
+    const since = Date.now() - DAYS * DAY_MS;
+    own = [...latest].filter(([, t]) => t != null && t >= since).map(([loc]) => loc);
+    const cutoff = new Date(since).toISOString().slice(0, 10);
+    console.log(`${own.length} av ${latest.size} URL:er har lastmod från ${cutoff} eller senare (senaste ${DAYS} dygnen).`);
+    if (own.length === 0) {
+      console.log('Inga ändrade URL:er – inget skickas. Använd --all för att skicka alla.');
+      return;
+    }
+  }
+  if (own.length > MAX_URLS) console.log(`Skickar de första ${MAX_URLS} av ${own.length} URL:er.`);
   const body = { host: HOST, key: KEY, keyLocation: KEY_LOCATION, urlList: own.slice(0, MAX_URLS) };
 
   if (DRY_RUN) {

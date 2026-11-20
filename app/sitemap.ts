@@ -13,7 +13,7 @@ const pages: { path: string; priority: number; changeFrequency: ChangeFrequency;
   { path: '/strandar', priority: 0.9, changeFrequency: 'weekly', updated: '2026-11-18' },
   { path: '/byar', priority: 0.9, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/mat', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-20' },
-  { path: '/aktiviteter', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-18' },
+  { path: '/aktiviteter', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-20' },
   { path: '/aktiviteter/golf', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/sevardheter', priority: 0.8, changeFrequency: 'monthly', updated: '2026-11-18' },
   { path: '/barn', priority: 0.85, changeFrequency: 'monthly', updated: '2026-11-20' },

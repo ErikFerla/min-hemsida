@@ -1,8 +1,8 @@
 name: IndexNow
 
 # Vercel rapporterar varje deploy till GitHub som en deployment med status.
-# När en produktionsdeploy är klar skickas alla URL:er i sitemapen till IndexNow
-# (Bing m.fl.), se scripts/indexnow.mjs. Inga hemligheter behövs: nyckeln är publik.
+# När en produktionsdeploy är klar skickas de URL:er i sitemapen som har ändrats de
+# senaste dygnen (enligt <lastmod>) till IndexNow (Bing m.fl.), se scripts/indexnow.mjs. Inga hemligheter behövs: nyckeln är publik.
 on:
   deployment_status:
 
@@ -24,17 +24,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           sparse-checkout: scripts/indexnow.mjs
           sparse-checkout-cone-mode: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 22
 
       # Ett misslyckat anrop loggas som varning men fäller inte arbetsflödet.
-      - name: Skicka sitemapens URL:er
+      - name: Skicka ändrade URL:er
         continue-on-error: true
         timeout-minutes: 2
         run: node scripts/indexnow.mjs

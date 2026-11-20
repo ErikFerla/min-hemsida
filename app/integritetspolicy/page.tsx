@@ -45,7 +45,8 @@ export default function IntegritetspolicyPage() {
         <h2>Besöksstatistik</h2>
         <p>
           Vi använder Vercel Web Analytics för att räkna besök och se vilka sidor som läses. Syftet är att förstå vilka
-          sidor som är till nytta, så att vi vet vad vi ska förbättra.
+          sidor som är till nytta, så att vi vet vad vi ska förbättra. Den rättsliga grunden är vårt berättigade intresse
+          av just det.
         </p>
         <ul>
           <li>Verktyget sätter inga cookies.</li>
@@ -54,11 +55,12 @@ export default function IntegritetspolicyPage() {
             dygn. Därför går det inte att följa dig mellan olika dagar eller mellan olika webbplatser.
           </li>
           <li>
-            Inga personuppgifter sparas. Varje sidvisning registreras anonymt, utan koppling till dig eller din
-            IP-adress. Det som sparas är bland annat vilken sida du läser, varifrån du kom, ungefär var du befinner dig
+            Vercel sparar inte din IP-adress, och vi ser bara sammanställd statistik. Det som sparas är bland annat vilken sida du läser, varifrån du kom, ungefär var du befinner dig
             (till exempel land) och vilken typ av enhet och webbläsare du använder.
           </li>
-          <li>Uppgifterna lagras hos Vercel, och vi ser dem bara som sammanställd statistik.</li>
+          <li>
+            Uppgifterna lagras hos Vercel. Vercel är ett amerikanskt företag och uppgifterna kan behandlas utanför EU.
+          </li>
         </ul>
 
         <h2>Webbhotell och serverloggar</h2>

@@ -54,8 +54,9 @@ export default function CookiesPage() {
         <p>
           Vi räknar besök och ser vilka sidor som läses med Vercel Web Analytics, för att förstå vilka sidor som är till
           nytta. Verktyget sätter inga cookies. Besök räknas med ett tillfälligt värde som tas fram ur själva förfrågan
-          och nollställs efter ett dygn, så det går inte att följa dig mellan olika dagar eller webbplatser. Inga
-          personuppgifter sparas, och uppgifterna lagras hos Vercel. Mer finns i{' '}
+          och nollställs efter ett dygn, så det går inte att följa dig mellan olika dagar eller webbplatser. Vercel
+          sparar inte din IP-adress, och vi ser bara sammanställd statistik. Uppgifterna lagras hos Vercel och kan
+          behandlas utanför EU. Mer finns i{' '}
           <Link href="/integritetspolicy">integritetspolicyn</Link>.
         </p>
 
