@@ -42,6 +42,7 @@ public/bilder/        Lokala bilder (går via Next.js bildoptimering)
 docs/stilguide.md     Stilguide för alla texter (ton, ortnamn, enheter, källor)
 scripts/smoke.mjs     Röktestet
 scripts/proof.mjs     Korrekturskriptet (se stilguiden)
+scripts/indexnow.mjs  Skickar sitemapens URL:er till IndexNow (se Deploy)
 .github/              CI-arbetsflöde och Dependabot
 ```
 
@@ -179,3 +180,10 @@ samma origin, så CSP:n behöver inga nya domäner. Web Analytics måste vara p�
 (*Analytics → Enable*), annars svarar `/_vercel/insights` 404. Lokalt finns skriptet inte, och röktestet
 svarar själv med ett tomt skript. Ändras statistiken (t.ex. egna händelser eller ett annat verktyg)
 ska `/integritetspolicy` och `/cookies` uppdateras.
+
+### IndexNow
+
+Efter varje lyckad produktionsdeploy kör `.github/workflows/indexnow.yml` (händelsen `deployment_status`
+från Vercel) `scripts/indexnow.mjs`, som skickar alla URL:er i sitemapen till IndexNow (Bing m.fl.).
+Nyckeln är publik och ligger i `public/<nyckel>.txt`. Ett misslyckat anrop blir bara en varning.
+Manuellt: `node scripts/indexnow.mjs` (eller `--dry-run` för att bara se vad som skulle skickas).
