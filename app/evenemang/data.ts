@@ -64,6 +64,8 @@ export const STATUSTEXT: Record<Status, string> = {
 };
 
 const C = '2026-11-18';
+/** Evenemang som kontrollerades på nytt inför 2027. */
+const C2 = '2026-11-20';
 
 const evenemangData: EvenemangPost[] = [
   // ── Höst och vinter 2026–2027 ──
@@ -74,10 +76,10 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Marknad',
     beskrivning: 'Mallorcas mest kända mässa. Hela Inca fylls av stånd och folk, och festen börjar redan kvällen före med Dimecres Bo.',
     källa: { label: 'Ajuntament d’Inca', href: 'https://incaciutat.com' },
-    checked: C,
+    checked: C2,
     tillfällen: [
       { start: '2026-11-19', slut: '2026-11-19', status: 'publicerat' },
-      { start: '2027-11-11', slut: '2027-11-25', status: 'preliminärt', period: 'mitten av november 2027' },
+      { start: '2027-11-17', slut: '2027-11-18', status: 'preliminärt', period: 'troligen torsdag 18 november 2027 enligt den traditionella regeln, ej bekräftat av kommunen' },
     ],
   },
   {
@@ -157,7 +159,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Kultur',
     beskrivning: 'Palmas skyddshelgon firas 20 januari. Kvällen före, Revetla de Sant Sebastià, brukar bjuda på konserter på flera torg i gamla stan.',
     källa: { label: 'Visit Palma', href: 'https://visitpalma.com/ca/dir/festes-de-sant-sebastia/' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-01-19', slut: '2027-01-20', status: 'fast', not: 'De officiella festligheterna 2026 ställdes in. Kontrollera programmet för 2027.' }],
   },
   {
@@ -167,8 +169,8 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Sport',
     beskrivning: 'Proffscyklisterna inleder säsongen med flera endagslopp på Mallorcas vägar. Räkna med avstängda vägar när loppen passerar. Damloppet är planerat till 23 januari 2027.',
     källa: { label: 'mallorca.com: Challenge 2027', href: 'https://www.mallorca.com/en/events/challenge-ciclista-mallorca-femenina-2027-8ec6f8' },
-    checked: C,
-    tillfällen: [{ start: '2027-01-20', slut: '2027-02-07', status: 'preliminärt', period: 'slutet av januari 2027' }],
+    checked: C2,
+    tillfällen: [{ start: '2027-01-23', slut: '2027-01-31', status: 'preliminärt', period: '23–31 januari 2027 (enligt cykelpress, ej bekräftat av arrangören)' }],
   },
   {
     id: 'sa-rua',
@@ -177,8 +179,8 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Familj',
     beskrivning: 'Palmas karnevalståg med utklädda grupper och vagnar en söndag före fastan. Barnens tåg, Sa Rueta, går söndagen innan.',
     källa: { label: 'Majorca Daily Bulletin: Sa Rua 2026', href: 'https://www.majorcadailybulletin.com/holiday/attractions/2026/02/12/140171/palma-carnival-spirit-rua-2026.html' },
-    checked: C,
-    tillfällen: [{ start: '2027-01-31', slut: '2027-02-14', status: 'preliminärt', period: 'början av februari 2027' }],
+    checked: C2,
+    tillfällen: [{ start: '2027-01-31', slut: '2027-02-07', status: 'preliminärt', period: 'troligen söndag 7 februari 2027 (söndagen före fastan), ej bekräftat av kommunen' }],
   },
   {
     id: 'fira-del-ram',
@@ -187,7 +189,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Familj',
     beskrivning: 'Mallorcas stora tivoli med karuseller, berg- och dalbana och sockervadd på mässområdet Son Fusteret, varje vår sedan 1948. År 2026 var det öppet från slutet av februari till mitten av april.',
     källa: { label: 'Visit Palma', href: 'https://visitpalma.com/en/event/fira-del-ram-palma-2026/' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-02-20', slut: '2027-04-15', status: 'preliminärt', period: 'slutet av februari – april 2027' }],
   },
   {
@@ -217,7 +219,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Sport',
     beskrivning: 'Internationell regatta i de olympiska seglingsklasserna i Palmabukten.',
     källa: { label: 'Spain.info (officiell turistsajt)', href: 'https://spain.info/en/calendar/trofeo-princesa-sofia-sailing-regatta' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-03-26', slut: '2027-04-03', status: 'preliminärt', period: '26 mars – 3 april 2027 (enligt seglingsförbund, ej bekräftat av arrangören)' }],
   },
   {
@@ -237,7 +239,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Sport',
     beskrivning: 'Seglingsvecka i Palmabukten som arrangeras av Real Club Náutico de Palma, med bland annat havskappseglingen La Larga. År 2026 pågick den 23 april–3 maj.',
     källa: { label: 'PalmaVela', href: 'https://www.palmavela.com' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-04-20', slut: '2027-05-09', status: 'preliminärt', period: 'slutet av april – början av maj 2027' }],
   },
   {
@@ -247,7 +249,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Marknad',
     beskrivning: 'Sineus årliga stora mässa, betydligt större än den vanliga onsdagsmarknaden. Hålls traditionellt första söndagen i maj.',
     källa: { label: 'Illes Balears (officiell turistsajt)', href: 'https://illesbalears.travel/en/mallorca/events-fira-de-sineu' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-05-02', slut: '2027-05-02', status: 'preliminärt', period: 'söndag 2 maj 2027 enligt traditionen' }],
   },
   {
@@ -257,7 +259,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Sport',
     beskrivning: 'Triathlon på halvdistans: 1,9 km simning, 90 km cykling och 21,1 km löpning. Simstarten går från stranden i Port d’Alcúdia.',
     källa: { label: 'Ironman', href: 'https://www.ironman.com/races/im703-mallorca' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-05-08', slut: '2027-05-08', status: 'publicerat' }],
   },
   {
@@ -277,7 +279,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Musik',
     beskrivning: 'Öns stora musikfestival med spanska och internationella artister. År 2027 är det tionde gången – programmet och biljettpriserna är inte släppta ännu.',
     källa: { label: 'Mallorca Live Festival', href: 'https://mallorcalivefestival.com' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-06-11', slut: '2027-06-12', status: 'publicerat' }],
   },
   {
@@ -316,9 +318,9 @@ const evenemangData: EvenemangPost[] = [
     plats: 'Palma',
     kategori: 'Sport',
     beskrivning: 'En av Medelhavets mest kända kappseglingar, arrangerad av Real Club Náutico de Palma i Palmabukten.',
-    källa: { label: 'Copa del Rey MAPFRE', href: 'https://www.regatacopadelrey.com' },
-    checked: C,
-    tillfällen: [{ start: '2027-07-31', slut: '2027-08-07', status: 'preliminärt', period: '31 juli – 7 augusti 2027 (en källa, ej bekräftat av arrangören)' }],
+    källa: { label: 'Forbes España: datumen för 2027 meddelades vid avslutningen 2026', href: 'https://forbes.es/en/balearic/996959/ninth-copa-del-rey-for-javier-banderass-teatro-del-soho-san-miguel-and-silver-for-a-hispania-without-felipe-vi/' },
+    checked: C2,
+    tillfällen: [{ start: '2027-07-31', slut: '2027-08-07', status: 'preliminärt', period: '31 juli – 7 augusti 2027 (enligt Forbes, ännu inte publicerat på arrangörens sajt)' }],
   },
   {
     id: 'moros-pollenca',
@@ -397,7 +399,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Sport',
     beskrivning: 'Maraton, halvmaraton och 10 km med start vid katedralen i Parc de la Mar.',
     källa: { label: 'TUI Palma Marathon', href: 'https://tui-mml.com/palma-marathon/' },
-    checked: C,
+    checked: C2,
     tillfällen: [{ start: '2027-10-17', slut: '2027-10-17', status: 'publicerat' }],
   },
 ];

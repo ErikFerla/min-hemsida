@@ -20,7 +20,7 @@ export const revalidate = 86400;
 
 const HOME_TITLE = 'Mallorcaguide på svenska – stränder & byar';
 const HOME_DESCRIPTION =
-  'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insidertips från Mallorca 2026.';
+  'Din kompletta guide till Mallorca på svenska. Hitta de bästa stränderna, städerna, restaurangerna och aktiviteterna. Insidertips från någon som känner ön.';
 
 // title.template gäller bara undersegment, så startsidan anger hela titeln själv.
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <BreadcrumbSchema items={[{ name: 'Hem', url: '/' }]} />
-      <h1 className="sr-only">Guide till Mallorca på svenska 2026</h1>
+      <h1 className="sr-only">Guide till Mallorca på svenska</h1>
       <HeroSlideshow />
 
       <div className={styles.container}>

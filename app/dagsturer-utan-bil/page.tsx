@@ -15,7 +15,8 @@ const HEADLINE = 'Dagsturer utan bil från Palma';
 const DESCRIPTION =
   'Sju dagsturer från Palma med buss, tåg och båt: Sóller med tåg och spårvagn, Valldemossa och Deià med buss 203, marknaden i Inca, Pollença och Alcúdia.';
 const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/S%C3%B3ller_Tren_de_S%C3%B3ller-4334.jpg/1920px-S%C3%B3ller_Tren_de_S%C3%B3ller-4334.jpg';
-const CHECKED = '2026-11-18';
+const PUBLISHED = '2026-11-18';
+const CHECKED = '2026-11-20';
 
 export const metadata = buildPageMetadata({
   path: PATH,
@@ -37,7 +38,7 @@ const jsonLd = [
     headline: HEADLINE,
     description: DESCRIPTION,
     image: [IMAGE],
-    datePublished: CHECKED,
+    datePublished: PUBLISHED,
     dateModified: CHECKED,
     inLanguage: 'sv-SE',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE_URL}${PATH}` },
@@ -77,8 +78,9 @@ const TRIPS: Trip[] = [
       <>
         Det gamla tåget går genom Serra de Tramuntana med tunnlar och utsikt över Sóllerdalen. Gå runt
         i Sóller, ta spårvagnen ner till hamnen och ät lunch vid vattnet. Från Port de Sóller går också{' '}
-        <Link href="/batutflykter-och-cabrera">båtar till Sa Calobra</Link>. Tåget har ett uppehåll för
-        underhåll en period på vintern – kontrollera tidtabellen.
+        <Link href="/batutflykter-och-cabrera">båtar till Sa Calobra</Link>. Vintern 2026/27 står tåget
+        still för underhåll från 23 november 2026 till och med 31 januari 2027 – då går TIB-buss 204 mellan
+        Palma och Sóller. Spårvagnen ersätts av buss 23 november–21 december 2026.
       </>
     ),
   },
@@ -174,7 +176,7 @@ const SOURCES = [
   { label: 'TIB: linjerna 301 och 302', href: 'https://www.tib.org/en/w/els-usuaris-del-bus-tib-milloren-la-connectivitat-amb-la-zona-de-pollen%C3%A7a-i-la-badia-d-alc%C3%BAdia-a-partir-del-1-d-abril' },
   { label: 'TIB: tåglinjer och tidtabeller', href: 'https://www.tib.org/es/lineas-y-horarios/metro/-/linia/T3' },
   { label: 'Ferrocarril de Sóller', href: 'https://www.trendesoller.com' },
-  { label: 'Mallorcadiario: Sóllertågets vinteruppehåll', href: 'https://www.mallorcadiario.com/el-tren-de-soller-cierra-y-reabrira-el-1-de-febrero-de-2026' },
+  { label: 'Fibwi Diario: Sóllertågets och spårvagnens vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
   { label: 'Imperial Properties: Sóllertåget 2026 och kollektivtrafik', href: 'https://www.imperial-properties.com/es/blog/transporte-publico-gratuito-mallorca-2026-lo-que-deben-saber-residentes-y-propietarios' },
 ];
 
@@ -245,7 +247,7 @@ export default function DagsturerPage() {
 
         <LastChecked
           date={CHECKED}
-          note="Linjenummer och sträckor är kontrollerade mot TIB. Vi har inte kunnat bekräfta 2026 års biljettpriser för TIB och SFM – se tib.org."
+          note="Linjenummer och sträckor är kontrollerade mot TIB. Vi har inte kunnat bekräfta biljettpriserna för TIB och SFM, och priserna för 2027 var inte publicerade i november 2026 – se tib.org."
           sources={SOURCES}
         />
       </div>

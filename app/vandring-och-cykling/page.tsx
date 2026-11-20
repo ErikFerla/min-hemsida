@@ -164,8 +164,9 @@ export default function VandringOchCykling() {
           <li>Kameror kontrollerar registreringsskyltarna och den som kör in olovligt kan få böter.</li>
         </ul>
         <p>
-          Kontrollera hos trafikmyndigheten DGT vad som gäller för cyklar och motorcyklar det år du åker. Utanför
-          perioden är vägen öppen som vanligt.
+          Begränsningen har brukat gälla från mitten av maj till mitten av oktober. Datumen för 2027 var inte
+          beslutade i november 2026 – kontrollera hos trafikmyndigheten DGT vad som gäller, även för cyklar och
+          motorcyklar, det år du åker. Utanför perioden är vägen öppen som vanligt.
         </p>
       </section>
 

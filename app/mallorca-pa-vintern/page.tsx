@@ -32,6 +32,7 @@ export default function MallorcaPaVintern() {
         { label: 'Última Hora – Sant Antoni 2026', href: 'https://www.ultimahora.es/noticias/part-forana/2026/01/16/2550447/mallorca-enciende-llama-sant-antoni-2026.html' },
         { label: '+Mallorca – mandelblomningen', href: 'https://www.masmallorca.es/en?p=215' },
         { label: 'Mallorca.com – Fira de la Flor d’Ametler', href: 'https://www.mallorca.com/en/events/feria-de-la-flor-de-almendro-2027-917160' },
+        { label: 'Fibwi Diario – Sóllertågets vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
         { label: 'Govern de les Illes Balears – turistskatten', href: 'https://apps.caib.es/sites/impostturisme/en/tax' },
         { label: 'Mallorca Magazin – EMT och residenter 2027', href: 'https://www.mallorcamagazin.com/nachrichten/lokales/2026/10/23/158937/palma-mallorca-erhoht-buspreise-viel-kostet-kunftig-die-fahrt-zum-flughafen.html' },
       ]}
@@ -57,6 +58,12 @@ export default function MallorcaPaVintern() {
         <p>
           Trafikbegränsningen på vägen ut till Cap de Formentor gäller bara under sommarhalvåret (2026 från 15 maj till
           18 oktober). Utanför den perioden gäller ingen sådan begränsning.
+        </p>
+        <p>
+          Tren de Sóller står still för underhåll från 23 november 2026 och går igen från 1 februari 2027. Under
+          uppehållet tar du TIB-buss 204 mellan Palma och Sóller. Spårvagnen ner till Port de Sóller går igen från
+          22 december 2026 och ersätts av buss fram till dess. Mer under{' '}
+          <Link href="/hyrbil-och-transport#buss">Hyrbil och transport</Link>.
         </p>
       </section>
 

@@ -84,7 +84,7 @@ const sevardheter = [
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Far_de_Formentor_-_Majorca_-_01.jpg/960px-Far_de_Formentor_-_Majorca_-_01.jpg',
     bildAlt: "Den vita fyren på Cap de Formentor mot blå himmel",
     maps: 'https://maps.google.com/?q=Cap+de+Formentor+Mallorca',
-    redaktionellt: { typ: 'info', text: 'Privatbilar får inte köra ut till fyren dagtid 15 maj–18 oktober (2026) – ta buss 334 från Port de Pollença' },
+    redaktionellt: { typ: 'info', text: 'Privatbilar får inte köra ut till fyren dagtid på sommaren (2026: 15 maj–18 oktober; 2027 års datum är inte beslutade) – ta buss 334 från Port de Pollença' },
   },
   {
     namn: "Palau de l'Almudaina",
@@ -206,7 +206,7 @@ export default function SevardheterPage() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           note="Öppettider ändras ofta med säsongen – kontrollera alltid hos sevärdheten innan du åker."
           sources={[
             { label: 'Catedral de Mallorca', href: 'https://catedraldemallorca.org' },

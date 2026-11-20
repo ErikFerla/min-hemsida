@@ -288,7 +288,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Tåg', text: 'Tren de Sóller har gått mellan Palma och Sóller sedan 1912 och tar ungefär en timme genom bergen. Det är en upplevelse snarare än en transport: enkel resa kostar ca 23 € (2026), och sommartid blir tågen fulla – åk tidigt eller sent på dagen.' },
+        { mode: 'Tåg', text: 'Tren de Sóller har gått mellan Palma och Sóller sedan 1912 och tar ungefär en timme genom bergen. Det är en upplevelse snarare än en transport: enkel resa kostar ca 23 € (2026), och sommartid blir tågen fulla – åk tidigt eller sent på dagen. Vintern 2026/27 står tåget still för underhåll från 23 november 2026 och går igen från 1 februari 2027; då tar du TIB-buss 204 från Palma.' },
         { mode: 'Buss', text: 'TIB-linje 204 är det snabba och billiga alternativet: den går från Palma via Ma-11 och tunneln till Sóller och vidare till Port de Sóller. Linje 203 tar den vackra vägen via Valldemossa och Deià. Sommartid går också linje 231 från Port de Sóller över bergen via Lluc och Pollença till Alcúdia.' },
         { mode: 'Bil', text: 'Ma-11 från Palma går genom Sóllertunneln och är den snabbaste vägen. Den slingriga bergsvägen Ma-10 förbinder Sóller med Deià och Valldemossa åt ena hållet och Lluc åt andra. Parkering i centrum är begränsad – ställ bilen i utkanten.' },
         { mode: 'Från flygplatsen', text: 'Det finns ingen direktbuss. Ta buss A1 in till Palma och byt till buss 204 eller tåget vid Plaça d’Espanya.' },
@@ -331,8 +331,9 @@ export const cities: City[] = [
         'Ta trätåget ena vägen och bussen tillbaka, promenera ut till bergsbyarna Biniaraix och Fornalutx och avsluta med middag i hamnen när solen går ned över viken.',
       ],
     },
-    checked: CHECKED,
+    checked: '2026-11-20',
     sources: [
+      { label: 'Fibwi Diario: Sóllertågets och spårvagnens vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
       { label: 'Wikipedia: Ferrocarril de Sóller', href: 'https://en.wikipedia.org/wiki/Ferrocarril_de_S%C3%B3ller' },
       { label: 'TIB: linje 203', href: 'https://www.tib.org/es/w/avis-prova-pilot-203' },
       { label: 'TIB: sommartidtabeller 2026 (linje 204 och 231)', href: 'https://www.tib.org/en/w/el-govern-millora-el-servei-de-bus-tib-amb-l-increment-de-freq%C3%BC%C3%A8ncies-en-els-nous-horaris-d-estiu-a-partir-d-aquest-divendres' },
@@ -1912,7 +1913,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Spårvagn', text: 'Den gamla spårvagnen går 4,9 km från Sóllers centrum ner till hamnen på ungefär en halvtimme. Enkel resa kostar ca 10 € (2026) och betalas ombord. Kommer du med Tren de Sóller från Palma byter du till spårvagnen i Sóller. Under underhållsperioder vintertid ersätts spårvagnen ibland av buss.' },
+        { mode: 'Spårvagn', text: 'Den gamla spårvagnen går 4,9 km från Sóllers centrum ner till hamnen på ungefär en halvtimme. Enkel resa kostar ca 10 € (2026) och betalas ombord. Kommer du med Tren de Sóller från Palma byter du till spårvagnen i Sóller. Under underhållsperioder vintertid ersätts spårvagnen av buss – vintern 2026/27 från 23 november till och med 21 december 2026.' },
         { mode: 'Buss', text: 'TIB-linje 204 går hela vägen från Palma via Ma-11 och tunneln till Port de Sóller, och linje 203 kommer hit via Valldemossa och Deià. Sommartid går linje 231 från Port de Sóller över bergen till Pollença och Alcúdia.' },
         { mode: 'Bil', text: 'Följ Ma-11 genom Sóllertunneln och fortsätt förbi Sóller ner till hamnen. Parkeringen nära stranden fylls snabbt på sommaren.' },
         { mode: 'Från flygplatsen', text: 'Det finns ingen direktbuss. Ta buss A1 in till Palma och byt till linje 204, som går ända ner till hamnen.' },
@@ -1956,8 +1957,9 @@ export const cities: City[] = [
         { text: 'Ta spårvagnen upp till Sóller för lördagsmarknaden och lunch på torget – läs mer om byn i vår guide till Sóller.', link: { href: '/soller', label: 'Sóller →' } },
       ],
     },
-    checked: CHECKED,
+    checked: '2026-11-20',
     sources: [
+      { label: 'Fibwi Diario: Sóllertågets och spårvagnens vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
       { label: 'TIB: linje 203', href: 'https://www.tib.org/es/w/avis-prova-pilot-203' },
       { label: 'TIB: sommartidtabeller 2026 (linje 204 och 231)', href: 'https://www.tib.org/en/w/el-govern-millora-el-servei-de-bus-tib-amb-l-increment-de-freq%C3%BC%C3%A8ncies-en-els-nous-horaris-d-estiu-a-partir-d-aquest-divendres' },
       { label: 'Mercadillos.org: marknaden i Sóller', href: 'https://mercadillos.org/mercadillo-soller' },

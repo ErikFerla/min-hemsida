@@ -13,7 +13,7 @@ const matOchDryck: PrisRad[] = [
 ];
 
 const transport: PrisRad[] = [
-  { vad: 'Stadsbuss i Palma (EMT), enkelbiljett', pris: '2 €', kommentar: 'Pris hösten 2026. Kommunen har föreslagit en höjning till 3 € – kontrollera innan du åker.' },
+  { vad: 'Stadsbuss i Palma (EMT), enkelbiljett', pris: '2 €', kommentar: 'Pris 2026. Kommunen har godkänt en höjning till 3 € vid kontant betalning från 2027 – kontrollera innan du åker.' },
   { vad: 'Hyrbil, småbil', pris: 'ca 25–35 € per dag', kommentar: 'Snitt över året. I augusti ligger en småbil runt 40–50 € per dag.' },
   { vad: 'Sóllertåget Palma–Sóller', pris: 'ca 23 € enkel, ca 30 € t/r', kommentar: 'Vuxenbiljett 2026. Spårvagnen ned till Port de Sóller kostar extra.' },
 ];
@@ -85,6 +85,8 @@ export default function BudgetOchPriser() {
         { label: 'Mallorca Plus – levnadskostnader', href: 'https://www.mallorca-plus.de/es/temas/dinero-y-derecho/coste-de-vida' },
         { label: 'Hotels Viva – priser 2026', href: 'https://www.hotelsviva.com/en/w/mallorca-travel-prices-2026-complete-budget-guide' },
         { label: 'Mallorca Magazin – EMT-priser', href: 'https://www.mallorcamagazin.com/nachrichten/lokales/2026/10/23/158937/palma-mallorca-erhoht-buspreise-viel-kostet-kunftig-die-fahrt-zum-flughafen.html' },
+        { label: 'Forbes España – EMT-biljetten 3 € från 2027', href: 'https://forbes.es/baleares/actualidad-baleares/1053966/el-billete-sencillo-de-la-emt-de-palma-mas-cerca-de-pasar-de-dos-a-tres-euros-a-partir-del-ano-que-viene/' },
+        { label: 'TIB – gratis resor för boende 2026', href: 'https://www.tib.org/es/w/el-transport-p%C3%BAblic-interurb%C3%A0-mant%C3%A9-la-gratu%C3%AFtat-l-any-2026' },
         { label: 'TIB – kortbetalning på bussarna', href: 'https://www.tib.org/es/w/l-emt-i-el-ctm-completen-la-instal%C2%B7laci%C3%B3-del-nou-sistema-que-permet-el-pagament-amb-targeta-banc%C3%A0ria-en-tots-els-autobusos' },
         { label: 'Kayak – hyrbilspriser', href: 'https://www.kayak.es/Isla-de-Mallorca-Coches-de-alquiler.f2000072.crr.html' },
         { label: 'Planomato – Sóllertåget 2026', href: 'https://planomato.com/es/palma-de-mallorca/n/nuevos-horarios-tren-soller' },
@@ -226,7 +228,8 @@ export default function BudgetOchPriser() {
           </li>
           <li>
             <strong>Bor du på ön?</strong> Med Targeta intermodal har bofasta kunnat åka gratis med kollektivtrafiken
-            2026, och flera sevärdheter, till exempel katedralen, har lägre pris för residenter. Kontrollera vad som gäller för 2027.
+            2026, och flera sevärdheter, till exempel katedralen, har lägre pris för residenter. Om gratisresorna fortsätter
+            2027 var inte beslutat i november 2026 – förra året kom beslutet i mitten av december.
           </li>
         </ul>
       </section>
