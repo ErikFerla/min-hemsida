@@ -283,13 +283,6 @@ body {
     img, video, iframe {
       max-width: 100%;
     }
-
-    nav {
-      width: 100%;
-      max-width: 100%;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
   }
 
   /* Touch-enheter: inga hover-effekter som kräver mus */

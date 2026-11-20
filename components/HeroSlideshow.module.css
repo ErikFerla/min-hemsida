@@ -77,10 +77,7 @@
 
 /* Genvägar per målgrupp: ljusa chips på mörk bild, 44 px tryckyta */
 .shortcuts {
-  /* Nollställ den globala mobilpaddingen för nav (globals.css) */
-  width: auto;
   margin-top: var(--space-1);
-  padding: 0;
   pointer-events: auto;
 }
 

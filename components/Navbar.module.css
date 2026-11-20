@@ -356,6 +356,13 @@
   cursor: pointer;
 }
 
+/* Mobil: sidhuvudets egen sidmarginal (tidigare en basregel för alla <nav> i globals.css) */
+@media (max-width: 639px) {
+  .nav {
+    padding-inline: 16px;
+  }
+}
+
 @media (max-width: 1023px) {
   .links,
   .menu {
