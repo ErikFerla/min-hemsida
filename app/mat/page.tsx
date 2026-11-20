@@ -7,6 +7,7 @@ import { IconPin, IconMap, IconExternal, IconGlass, PriceTag, tierFromPris } fro
 import HeroImage from '@/components/HeroImage';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const vingårdar = [
   { namn: 'Bodega Binigrau', web: 'https://www.binigrau.es', plats: 'Biniali (Sencelles)', info: 'Familjevingård i Biniali med viner av öns inhemska druvor', prisklass: '€€', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vinyes_Mortitx_and_limestone_mountains%2C_Escorca.jpg/960px-Vinyes_Mortitx_and_limestone_mountains%2C_Escorca.jpg', bildAlt: 'Vinodlingar framför kalkstensberg vid Mortitx – genrebild, inte från Bodega Binigrau', maps: 'https://maps.google.com/?q=Bodega+Binigrau+Biniali+Mallorca' },
@@ -56,6 +57,8 @@ export default function MatPage() {
       />
 
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Mat & restauranger', url: '/mat' }]} />
+
         {/* Vingårdar kort teaser */}
         <section className={styles.teaser}>
           <div>
@@ -70,7 +73,7 @@ export default function MatPage() {
             {vingårdar.slice(0, 3).map(v => (
               <article key={v.namn} className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 639px) 96px, 360px" loading="lazy" />
+                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 1023px) 120px, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
                   <div className={styles.head}>
@@ -104,7 +107,7 @@ export default function MatPage() {
             {restauranger.map(r => (
               <article key={r.namn} data-kategori={r.kategori} className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width: 639px) 96px, 360px" loading="lazy" />
+                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width: 1023px) 120px, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
                   <div className={styles.head}>

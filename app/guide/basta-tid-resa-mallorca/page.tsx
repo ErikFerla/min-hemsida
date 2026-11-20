@@ -8,6 +8,7 @@ import BastaRestid from './BastaRestid';
 import { ACTIVITIES, REGIONS, REGION_RULES, RULES, TOURIST_PRESSURE } from './restid';
 import h from '../headings.module.css';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 // Klimatsiffrorna kommer från data/climate.ts (samma som klimattabellen på /vader).
 // Pris och text är redaktionella; turisttrycket delas med verktyget (restid.ts).
@@ -41,6 +42,8 @@ export default function BästaTidResaMallorca() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Bästa tiden att resa till Mallorca', url: '/guide/basta-tid-resa-mallorca' }]} />
+
 
         {/* Verktyget Bästa restid (3.3) */}
         <section id="basta-restid" className={styles.section} aria-labelledby="restid-heading">

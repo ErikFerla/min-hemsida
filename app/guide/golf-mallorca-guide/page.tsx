@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import { IconStar, IconFlag, PriceTag, tierFromPris } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
 import { golfbanor } from '@/data/golf-courses';
 import h from '../headings.module.css';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type ToppBana = {
   rank: number;
@@ -96,6 +97,8 @@ export default function GolfMallorcaGuide() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'De 5 bästa golfbanorna på Mallorca', url: '/guide/golf-mallorca-guide' }]} />
+
 
         <HubLink
           text={`Här är våra fem favoriter. Alla ${golfbanor.length} banor på en karta, med banfakta och tips för varje bana, finns på golfsidan.`}
@@ -128,9 +131,7 @@ export default function GolfMallorcaGuide() {
             </div>
             <p className={styles.courseText}>{bana.beskrivning}</p>
             <div className={styles.boxes}>
-              <TipBox heading="Insidertips" as="h4" variant="compact">
-                <p>{bana.insider}</p>
-              </TipBox>
+              <CardTip label="Insidertips">{bana.insider}</CardTip>
               <div className={h.facts}>
                 <dl>
                   <div><dt>Prisnivå</dt><dd className={styles.fee}><PriceTag tier={tierFromPris(prisnivå(bana.slug))} /></dd></div>

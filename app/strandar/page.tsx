@@ -6,12 +6,13 @@ import StrandFilter from './StrandFilter';
 import DagensStrand from './DagensStrand';
 import LastChecked from '@/app/components/LastChecked';
 import { MET_NO_SOURCE } from '@/data/climate';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import styles from './strandar.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const LIST_ID = 'strand-lista';
 
-// Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
+// Redaktionell notis som enkel text med statusprick (5.3) – korten har ingen ruta; tipset är en rad (CardTip).
 const NOTE: Record<RedaktionellTyp, { klass: string; label: string }> = {
   varning: { klass: styles.noteVarning, label: 'Varning' },
   tips: { klass: styles.noteTips, label: 'Redaktionens tips' },
@@ -35,6 +36,8 @@ export default function StrandarPage() {
 
         {/* Intro – geografisk översikt med interna länkar */}
         <div className={styles.intro}>
+          <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Stränder', url: '/strandar' }]} />
+
           <div className={styles.introInner}>
             <p className={styles.introText}>
               Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. Längs syd- och östkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och tallskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
@@ -82,7 +85,7 @@ export default function StrandarPage() {
             >
               <article className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 639px) 96px, (max-width: 1023px) 50vw, 360px" loading="lazy" />
+                  <Image src={s.bild} alt={s.bildAlt} fill sizes="(max-width: 1023px) 120px, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
                   <div className={styles.head}>
@@ -112,9 +115,7 @@ export default function StrandarPage() {
                   <div className={styles.foot}>
                     <details className={styles.tipDetails}>
                       <summary className={styles.tipSummary}>Visa tips</summary>
-                      <TipBox variant="compact" heading="Tips" as="p">
-                        <p>{s.tips}</p>
-                      </TipBox>
+                      <CardTip>{s.tips}</CardTip>
                     </details>
                     <div className={styles.actions}>
                       <a href={s.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">

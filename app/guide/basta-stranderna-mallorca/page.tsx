@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
 import h from '../headings.module.css';
 import styles from './page.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const stränder = [
   {
@@ -80,6 +81,8 @@ export default function BästaSträndernaGuide() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Mallorcas 15 bästa stränder – vår topplista', url: '/guide/basta-stranderna-mallorca' }]} />
+
 
         <HubLink
           text="Det här är vår topplista med motivering. På strandsidan finns 30 stränder sorterade efter region och typ – många från topplistan och flera andra."
@@ -114,9 +117,7 @@ export default function BästaSträndernaGuide() {
 
             <p className={styles.description}>{strand.beskrivning}</p>
 
-            <TipBox heading="Insidertips" as="h3" variant="compact" className={styles.insider}>
-              <p>{strand.insider}</p>
-            </TipBox>
+            <CardTip label="Insidertips" className={styles.insider}>{strand.insider}</CardTip>
 
             <div className={h.facts}>
               <dl className={styles.factList}>

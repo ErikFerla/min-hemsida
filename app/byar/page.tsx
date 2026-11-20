@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { IconStar, IconBuilding, IconPin, IconMap } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import JsonLd from '@/app/components/JsonLd';
 import { cities, cityPath } from '@/data/cities';
 import { cityUrl } from '@/app/lib/city-seo';
 import styles from './byar.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const TOP3_ICONS = [IconStar, IconBuilding, IconPin] as const;
 
@@ -37,6 +38,8 @@ export default function ByarSida() {
       />
 
       <div className={styles.container}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Städer & byar', url: '/byar' }]} />
+
         <div className={styles.grid}>
           {cities.map((stad) => (
             <article key={stad.slug} className={styles.card}>
@@ -62,9 +65,7 @@ export default function ByarSida() {
                     );
                   })}
                 </div>
-                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
-                  <p>{stad.card.tip}</p>
-                </TipBox>
+                <CardTip className={styles.tip}>{stad.card.tip}</CardTip>
                 <div className={styles.actions}>
                   <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stad.name + ' Mallorca')}`} target="_blank" rel="noopener noreferrer" className="link-arrow">
                     <IconMap size={14} /> Visa på karta ↗

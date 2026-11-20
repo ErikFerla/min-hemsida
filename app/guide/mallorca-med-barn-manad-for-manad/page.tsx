@@ -7,6 +7,7 @@ import { aktivitet } from '../familj-links';
 import h from '../headings.module.css';
 import styles from '../familj.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Länk = { label: string; href: string };
 
@@ -133,6 +134,9 @@ export default function ManadForManadGuide() {
     <div className={styles.page}>
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Mallorca med barn månad för månad', url: '/guide/mallorca-med-barn-manad-for-manad' }]} />
+          </div>
           <p className={t.kicker}>Familjeguide · Månad för månad</p>
           <h1 className={t.title}>Mallorca med barn månad för månad</h1>
           <p className={t.lead}>

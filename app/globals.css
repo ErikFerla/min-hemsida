@@ -34,7 +34,8 @@
    Avstånd   --space-1…9 = 4, 8, 12, 16, 24, 32, 48, 64, 96 px. Sektionsavstånd
              --section-space (48 → 96 px) – används via .section-space eller
              --section-padding-md.
-   Bredder   --w-text 68ch · --w-content 1120px · --w-wide 1280px · --gutter (16 → 32 px).
+   Bredder   --w-text 68ch (löptext) · --w-wide 1280px (sidcontainern .container, inkl. --gutter) ·
+             --w-content 1120px (används inte längre för sidcontainrar) · --gutter (16 → 32 px).
              Brytpunkter: 640 / 1024 / 1280 px (custom properties fungerar inte i @media).
    Form      --radius-sm 4 · --radius-btn 8 · --radius-card 12 · --radius-pill 999px.
    Knapp     --btn-* (se .btn nedan). */
@@ -385,6 +386,18 @@ body {
   .link-arrow:hover {
     color: var(--color-accent-hover);
     text-decoration-thickness: 2px;
+  }
+
+  /* Sidcontainer (9.2): EN vänsterkant för brödsmula, sidrubrik och innehåll på alla sidor.
+     --w-wide inklusive --gutter, centrerad: innehållet börjar 16 px in på mobil, 32 px vid
+     1024–1280 och (vw − 1280)/2 + 32 på bredare skärmar. HeroImage, TextHero och sidmodulernas
+     egna containrar (.container/.inner) har samma mått. Löptext begränsas till --w-text och
+     står vänsterställd i containern – aldrig centrerad på egen kant. */
+  .container {
+    width: 100%;
+    max-width: var(--w-wide);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
   }
 
   /* Sektionsavstånd på ett ställe: 48 px mobil, 96 px dator */

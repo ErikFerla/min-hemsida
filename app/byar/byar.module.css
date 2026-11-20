@@ -1,5 +1,5 @@
 /* /byar (5.3) – översikt över städer och byar i kortet från components/Card.module.css.
-   Kortrubriken är ett h2-element med kortets h3-storlek; tipset i TipBox compact. */
+   Kortrubriken är ett h2-element med kortets h3-storlek; tipset som en rad (CardTip). */
 
 .page {
   min-height: 100vh;

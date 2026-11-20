@@ -8,6 +8,7 @@ import { WEATHER_LOCATIONS } from './locations';
 import styles from './vader.module.css';
 import h from '../guide/headings.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 const byMonth = (n: number) => CLIMATE[n - 1];
 
@@ -19,6 +20,9 @@ export default function Vader() {
     <div className={styles.page}>
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Väder', url: '/vader' }]} />
+          </div>
           <h1 className={t.title}>Väder på Mallorca</h1>
           <p className={t.lead}>
             Här ser du prognosen för de kommande dagarna på sju platser runt ön – från Palma och

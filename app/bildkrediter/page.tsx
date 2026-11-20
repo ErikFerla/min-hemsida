@@ -3,6 +3,7 @@ import { buildPageMetadata } from '@/app/lib/city-seo';
 import { allCredits } from '@/data/credits';
 import { LICENSE_LABEL, licenseHref } from '@/data/credits/types';
 import styles from '../integritetspolicy/legal.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/bildkrediter',
@@ -27,6 +28,7 @@ export default function BildkrediterPage() {
     <div className={styles.page}>
       <JsonLd data={breadcrumbs} />
       <article className={styles.article}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Bildkrediter', url: '/bildkrediter' }]} />
         <p className={styles.kicker}>Om sajten</p>
         <h1>Bildkrediter och licenser</h1>
         <p>

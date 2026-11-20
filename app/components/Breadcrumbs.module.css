@@ -1,5 +1,8 @@
-/* Synliga brödsmulor (JSON-LD finns i SchemaOrg). */
+/* Synliga brödsmulor (JSON-LD finns i SchemaOrg).
+   Ingen egen sidpadding: basregeln för <nav> i globals.css ger 16 px på mobil, men
+   brödsmulan ska linjera med sidrubriken och texten i containern (9.2). */
 .nav {
+  padding-inline: 0;
   font-size: var(--text-small);
   line-height: 1.5;
   color: var(--color-text-muted);
@@ -35,4 +38,8 @@
 /* Avskiljare: samma dämpade färg som länkarna (opacity 0.5 gav för låg kontrast) */
 .separator {
   color: var(--color-text-muted);
+}
+
+.spaced {
+  margin-bottom: var(--space-5);
 }

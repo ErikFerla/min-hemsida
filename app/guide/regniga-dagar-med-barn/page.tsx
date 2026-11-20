@@ -7,6 +7,7 @@ import { aktivitet } from '../familj-links';
 import h from '../headings.module.css';
 import styles from '../familj.module.css';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 type Tips = {
   /** Slug i app/lib/barn-activities.ts – länkas till kategorisidan. Annars `namn` + valfri `href`. */
@@ -130,6 +131,9 @@ export default function RegnigaDagarGuide() {
     <div className={styles.page}>
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }, { name: 'Regniga dagar med barn på Mallorca', url: '/guide/regniga-dagar-med-barn' }]} />
+          </div>
           <p className={t.kicker}>Familjeguide · Plan B</p>
           <h1 className={t.title}>Regniga dagar med barn på Mallorca</h1>
           <p className={t.lead}>
