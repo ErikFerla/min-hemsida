@@ -36,21 +36,21 @@ const escapeHtml = (s: string) =>
 const circleIconHtml = (name: string, color: string, size: number, isMain: boolean) => `
   <div style="display:flex;flex-direction:column;align-items:center;padding:14px 8px 4px;">
     <svg width="${size}" height="${size}" viewBox="0 0 14 14" aria-hidden="true">
-      <circle cx="7" cy="7" r="6" fill="${color}" stroke="white" stroke-width="2.5"/>
-      ${isMain ? '<circle cx="7" cy="7" r="3" fill="white" opacity="0.7"/>' : ''}
+      <circle cx="7" cy="7" r="6" style="fill:${color};stroke:var(--color-white)" stroke-width="2.5"/>
+      ${isMain ? '<circle cx="7" cy="7" r="3" style="fill:var(--color-white)" opacity="0.7"/>' : ''}
     </svg>
-    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
+    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px var(--color-white),0 0 3px var(--color-white),0 0 3px var(--color-white);margin-top:2px">${escapeHtml(name)}</span>
   </div>
 `
 
 const flagIconHtml = (name: string, color: string) => `
   <div style="display:flex;flex-direction:column;align-items:center;padding:10px 10px 4px;">
     <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true" style="filter:drop-shadow(0 1px 2px rgba(0,0,0,0.35))">
-      <line x1="4" y1="2" x2="4" y2="23" stroke="#383a46" stroke-width="1.8" stroke-linecap="round"/>
-      <path d="M4 3 L18 6 L4 10 Z" fill="${color}" stroke="white" stroke-width="1"/>
-      <circle cx="4" cy="22" r="2" fill="${color}" stroke="white" stroke-width="1"/>
+      <line x1="4" y1="2" x2="4" y2="23" style="stroke:var(--color-ink)" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M4 3 L18 6 L4 10 Z" style="fill:${color};stroke:var(--color-white)" stroke-width="1"/>
+      <circle cx="4" cy="22" r="2" style="fill:${color};stroke:var(--color-white)" stroke-width="1"/>
     </svg>
-    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px white,0 0 3px white,0 0 3px white;margin-top:2px">${escapeHtml(name)}</span>
+    <span style="font-family:var(--font-body);font-size:10px;font-weight:600;color:var(--color-ink);white-space:nowrap;text-shadow:0 0 3px var(--color-white),0 0 3px var(--color-white),0 0 3px var(--color-white);margin-top:2px">${escapeHtml(name)}</span>
   </div>
 `
 
@@ -105,7 +105,8 @@ export default function Map({
       }).addTo(map)
 
       markers.forEach((m) => {
-        const color = m.main ? '#383a46' : '#993335'
+        // Färgerna som tokens (CSS-variabler) – markörernas HTML ligger i sidan där tokens finns.
+        const color = m.main ? 'var(--color-ink)' : 'var(--color-accent)'
         const size = m.main ? 22 : 16
         const html = pinVariant === 'flag'
           ? flagIconHtml(m.name, color)

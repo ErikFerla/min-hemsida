@@ -118,7 +118,7 @@
   gap: var(--space-3);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 640px) {
   .intro {
     margin-bottom: var(--space-7);
     font-size: var(--text-lead);

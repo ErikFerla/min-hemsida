@@ -196,7 +196,7 @@
   margin-top: var(--space-5);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 639px) {
   .optionsDays {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));

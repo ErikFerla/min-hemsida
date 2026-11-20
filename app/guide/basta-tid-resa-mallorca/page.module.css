@@ -240,7 +240,7 @@
   color: var(--color-accent);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 640px) {
   .month {
     grid-template-columns: 160px minmax(0, 1fr);
     gap: var(--space-5);

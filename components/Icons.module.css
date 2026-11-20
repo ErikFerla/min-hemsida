@@ -19,6 +19,6 @@
 /* De "tomma" €-tecknen. Fylld nivå = --color-ink (9,8:1). Prisnivån läses upp via
    role="img" + aria-label; de tomma tecknen är aria-hidden. */
 .priceRest {
-  /* Grafik (role="img" på .priceTag): 3,0:1 mot pillret (--color-surface), tydligt ljusare än fyllda tecken. */
-  color: #8f877c;
+  /* Grafik (role="img" på .priceTag): 3,6:1 mot pillret (--color-surface), tydligt ljusare än fyllda tecken. */
+  color: var(--color-graphic-muted);
 }

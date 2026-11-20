@@ -68,6 +68,8 @@
   --color-on-dark-heading: #c9c9d1;
   --color-border: #dcd9cc;
   --color-chip-border: #cfccbf;
+  /* Dämpad grafik (t.ex. tomma €-tecken i prisnivån): 3,6:1 mot --color-surface, 4,2:1 mot vit (1.4.11) */
+  --color-graphic-muted: #827b70;
   --color-focus: #993335;
   --color-white: #ffffff;
   --color-error: #b42318;
@@ -159,6 +161,21 @@ body {
   --font-heading: var(--font-playfair), Georgia, 'Times New Roman', serif;
 }
 
+/* Reservtypsnitt för kursiven (5.6). Playfair 700 och kursiv 400 är två localFont-anrop med
+   familjen 'playfair' (app/layout.tsx); next/font gör reservfamiljen 'playfair Fallback' med
+   700-skärningens mått. Kursiven förladdas inte, så den visas kort i reservtypsnittet – den här
+   kursiva varianten av reservfamiljen har kursivens mått (samma värden som next/font räknar
+   fram för playfair-display-latin-400-italic.woff2) så att bytet inte flyttar texten. */
+@font-face {
+  font-family: 'playfair Fallback';
+  font-style: italic;
+  src: local('Times New Roman');
+  ascent-override: 103.33%;
+  descent-override: 23.97%;
+  line-gap-override: 0%;
+  size-adjust: 104.72%;
+}
+
 /* ── 2. Bas: element ───────────────────────────────────────── */
 @layer base {
   *,
@@ -242,7 +259,7 @@ body {
   /* Mobil. Den tidigare globala section-paddingen (4rem) och de mobila
      rubrik-/styckestorlekarna är borttagna (5.1) – storlekarna kommer från
      typskalan och sektionsavståndet från --section-space. */
-  @media (max-width: 768px) {
+  @media (max-width: 639px) {
     html,
     body {
       width: 100vw;
@@ -405,7 +422,10 @@ body {
 }
 
 /* Global, tydlig fokusring för tangentbord (musklick påverkas inte) */
-:focus-visible {
+:focus-visible,
+/* Datumfält: fokus hamnar i ett inre delfält (dag/månad/år). Med Shift+Tab matchar själva
+   fältet varken :focus eller :focus-visible i Chromium – bara :focus-within (5.6). */
+input:is([type='date'], [type='time'], [type='datetime-local']):focus-within {
   /* Dubbel ring (mörk–ljus–mörk) som syns mot alla bakgrunder: ljus outline med en mörk
      box-shadow som sticker ut 2 px på båda sidor om den (2.4.7 / 1.4.11). */
   outline: 3px solid var(--color-on-dark);

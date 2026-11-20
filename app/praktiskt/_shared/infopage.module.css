@@ -273,7 +273,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 639px) {
   /* Tabellerna staplas på smal skärm: varje rad blir ett block och cellerna får
      sin kolumnrubrik från data-label. */
   .table thead {

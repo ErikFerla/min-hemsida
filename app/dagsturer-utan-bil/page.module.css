@@ -29,17 +29,7 @@
   color: var(--color-ink);
 }
 
-.text {
-  max-width: var(--w-text);
-  font-family: var(--font-body);
-  line-height: var(--lh-body);
-  color: var(--color-ink);
-  margin: 0 0 var(--space-4);
-}
-
-.text a,
-.cardText a,
-.list a {
+.cardText a {
   color: var(--color-accent);
   text-underline-offset: 2px;
 }
@@ -94,19 +84,6 @@
   color: var(--color-text-muted);
 }
 
-.list {
-  font-family: var(--font-body);
-  line-height: var(--lh-body);
-  color: var(--color-ink);
-  max-width: var(--w-text);
-  margin: 0 0 var(--space-4);
-  padding-left: 1.25em;
-}
-
-.list li {
-  margin-bottom: var(--space-2);
-}
-
 .note {
   margin: 0 0 var(--space-5);
 }
@@ -118,7 +95,7 @@
   margin-top: var(--space-4);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 639px) {
   .facts {
     grid-template-columns: 1fr;
     gap: var(--space-1);

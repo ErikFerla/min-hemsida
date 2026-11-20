@@ -80,11 +80,6 @@
   flex-wrap: wrap;
 }
 
-.stars {
-  display: inline-flex;
-  color: var(--color-accent);
-}
-
 .courseText {
   margin-bottom: var(--space-4);
   color: var(--color-ink);
@@ -163,11 +158,6 @@
 
 .table .price {
   color: var(--color-ink);
-}
-
-.table .rating {
-  text-align: center;
-  color: var(--color-accent);
 }
 
 /* Säsonger */

@@ -120,37 +120,44 @@ export default function GolfPage() {
               className={styles.card}
             >
               <div className={styles.media}>
-                <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 400px" loading="lazy" />
-                <span className={styles.region}>
-                  {b.region}
-                </span>
+                <Image src={b.bild} alt={b.bildAlt} fill sizes="(max-width: 639px) 96px, (max-width: 1023px) 50vw, 400px" loading="lazy" />
               </div>
               <div className={styles.body}>
-                <div className={styles.titleRow}>
-                  <h3 className={styles.cardTitle}>{b.namn}</h3>
-                  <span className={styles.price}><PriceTag tier={tierFromPris(b.pris)} /></span>
-                </div>
-                <div className={styles.facts}>
-                  <span className={styles.fact}><IconPin size={12} /> {b.plats}</span>
-                  <span className={styles.fact}><IconFlag size={12} /> {b.hål} hål</span>
-                  <span className={styles.fact}><span className={styles.legendDot} style={niva(b.svårighet)} aria-hidden="true" /> {b.svårighet}</span>
+                <div className={styles.head}>
+                  <div className={styles.titleRow}>
+                    <h3 className={styles.cardTitle}>{b.namn}</h3>
+                    <span className={styles.price}><PriceTag tier={tierFromPris(b.pris)} /></span>
+                  </div>
+                  <div className={styles.facts}>
+                    <span className={styles.fact}><IconPin size={12} /> {b.plats}</span>
+                    <span className={styles.fact}><IconFlag size={12} /> {b.hål} hål</span>
+                    <span className={styles.fact}><span className={styles.legendDot} style={niva(b.svårighet)} aria-hidden="true" /> {b.svårighet}</span>
+                  </div>
+                  <div className={styles.labels}>
+                    <span className={styles.region}>{b.region}</span>
+                  </div>
                 </div>
                 <p className={styles.description}>{b.beskrivning}</p>
-                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
-                  <p>{b.tips}</p>
-                </TipBox>
                 {b.redaktionellt && (
                   <p className={`${styles.note} ${notisKlass[b.redaktionellt.typ] ?? ''}`}>
                     {b.redaktionellt.text}
                   </p>
                 )}
-                <div className={styles.cardLinks}>
-                  <a href={b.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    Visa på karta ↗
-                  </a>
-                  <a href={b.webb} target="_blank" rel="noopener noreferrer" className="link-arrow">
-                    Besök hemsida ↗
-                  </a>
+                <div className={styles.foot}>
+                  <details className={styles.more}>
+                    <summary className={styles.moreSummary}>Visa tips</summary>
+                    <TipBox variant="compact" heading="Tips" as="p">
+                      <p>{b.tips}</p>
+                    </TipBox>
+                  </details>
+                  <div className={styles.cardLinks}>
+                    <a href={b.maps} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                      Visa på karta ↗
+                    </a>
+                    <a href={b.webb} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                      Besök hemsida ↗
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>

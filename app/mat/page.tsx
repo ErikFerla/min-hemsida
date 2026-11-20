@@ -70,15 +70,17 @@ export default function MatPage() {
             {vingårdar.slice(0, 3).map(v => (
               <article key={v.namn} className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 639px) 100vw, 360px" loading="lazy" />
+                  <Image src={v.bild} alt={v.bildAlt} fill sizes="(max-width: 639px) 96px, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
-                  <div className={styles.titleRow}>
-                    <h3 className={styles.cardTitle}>{v.namn}</h3>
-                    <PriceTag tier={tierFromPris(v.prisklass)} />
-                  </div>
-                  <div className={styles.meta}>
-                    <span className={styles.metaItem}><IconPin size={12} /> {v.plats}</span>
+                  <div className={styles.head}>
+                    <div className={styles.titleRow}>
+                      <h3 className={styles.cardTitle}>{v.namn}</h3>
+                      <PriceTag tier={tierFromPris(v.prisklass)} />
+                    </div>
+                    <div className={styles.meta}>
+                      <span className={styles.metaItem}><IconPin size={12} /> {v.plats}</span>
+                    </div>
                   </div>
                   <p className={styles.info}>{v.info}</p>
                 </div>
@@ -102,16 +104,20 @@ export default function MatPage() {
             {restauranger.map(r => (
               <article key={r.namn} data-kategori={r.kategori} className={styles.card}>
                 <div className={styles.media}>
-                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width: 639px) 100vw, 360px" loading="lazy" />
-                  <div className={styles.badge}>{r.kategori}</div>
+                  <Image src={r.bild} alt={r.bildAlt} fill sizes="(max-width: 639px) 96px, 360px" loading="lazy" />
                 </div>
                 <div className={styles.body}>
-                  <div className={styles.titleRow}>
-                    <h3 className={styles.cardTitle}>{r.namn}</h3>
-                    <PriceTag tier={tierFromPris(r.prisklass)} />
-                  </div>
-                  <div className={styles.meta}>
-                    <span className={styles.metaItem}><IconPin size={12} /> {r.plats}</span>
+                  <div className={styles.head}>
+                    <div className={styles.titleRow}>
+                      <h3 className={styles.cardTitle}>{r.namn}</h3>
+                      <PriceTag tier={tierFromPris(r.prisklass)} />
+                    </div>
+                    <div className={styles.meta}>
+                      <span className={styles.metaItem}><IconPin size={12} /> {r.plats}</span>
+                    </div>
+                    <div className={styles.labels}>
+                      <span className={styles.badge}>{r.kategori}</span>
+                    </div>
                   </div>
                   <p className={styles.info}>{r.info}</p>
                   <div className={styles.actions}>

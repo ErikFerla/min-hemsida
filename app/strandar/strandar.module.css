@@ -88,7 +88,7 @@
 }
 
 .card {
-  composes: card from '../../components/Card.module.css';
+  composes: compact from '../../components/Card.module.css';
   flex: 1;
 }
 
@@ -100,16 +100,22 @@
   object-fit: cover;
 }
 
-.badge {
-  composes: imageLabel from '../../components/Card.module.css';
-}
-
-.badgeType {
-  composes: imageLabelEnd from '../../components/Card.module.css';
-}
-
 .body {
   composes: body from '../../components/Card.module.css';
+}
+
+/* Rubrik, meta, etiketter och taggar – bredvid miniatyren på mobil */
+.head {
+  composes: head from '../../components/Card.module.css';
+}
+
+/* Område och strandtyp: över bilden från 640 px, som taggar på mobil */
+.labels {
+  composes: labels from '../../components/Card.module.css';
+}
+
+.badge {
+  composes: label from '../../components/Card.module.css';
 }
 
 .name {
@@ -130,10 +136,6 @@
 
 .tag {
   composes: tag from '../../components/Chip.module.css';
-}
-
-.tip {
-  margin-top: var(--space-1);
 }
 
 /* Redaktionell notis: enkel text med statusprick */
@@ -161,8 +163,37 @@
   composes: noteInfo from '../../components/Card.module.css';
 }
 
+/* Tipset (TipBox compact) i en <details> – utfällt från 640 px, ihopfällt på mobil */
+.foot {
+  composes: foot from '../../components/Card.module.css';
+}
+
+.tipDetails {
+  composes: more from '../../components/Card.module.css';
+  margin-top: var(--space-1);
+}
+
+.tipSummary {
+  composes: moreSummary from '../../components/Card.module.css';
+}
+
 .actions {
   composes: actions from '../../components/Card.module.css';
+}
+
+@media (max-width: 639px) {
+  .list {
+    gap: var(--space-4);
+  }
+
+  .tipDetails {
+    margin-top: 0;
+  }
+
+  /* Taggarna flyter i samma rad som etiketterna */
+  .tags {
+    display: contents;
+  }
 }
 
 /* Planera vidare */

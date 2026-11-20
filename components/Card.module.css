@@ -179,6 +179,173 @@
   }
 }
 
+/* ── Kompakt kort på mobil (5.6) ──────────────────────────────
+   Långa kortlistor (/strandar, /mat, /aktiviteter/golf). Från 640 px ser kortet ut som
+   .card ovan; under 640 px blir bilden en miniatyr bredvid rubriken och tipset fälls ihop
+   i en <details>. Allt innehåll finns kvar i HTML:en (inget döljs med JavaScript).
+
+     <article class="compact">                 (i stället för .card)
+       <div class="media"><Image fill /></div>
+       <div class="body">
+         <div class="head">                    rubrik, meta, etiketter, taggar
+           … <div class="labels"><span class="label">Syd</span>…</div>
+         </div>
+         <p class="text">…</p>
+         <div class="foot">
+           <details class="more"><summary class="moreSummary">Visa tips</summary><TipBox … /></details>
+           <div class="actions">…</div>
+         </div>
+       </div>
+     </article>
+
+   .labels ligger över bilden från 640 px (som .imageLabel) och som taggar i rubrikspalten
+   på mobil. Från 640 px är <details> alltid utfälld och sammanfattningen dold
+   (::details-content); webbläsare utan stöd visar sammanfattningen även där. */
+.compact {
+  composes: card;
+  position: relative;
+}
+
+.labels {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  pointer-events: none;
+}
+
+.label {
+  composes: imageLabel;
+  position: static;
+}
+
+.head,
+.foot {
+  display: contents;
+}
+
+.moreSummary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--color-ink);
+  list-style: none;
+  cursor: pointer;
+}
+
+.moreSummary::-webkit-details-marker {
+  display: none;
+}
+
+/* Liten nedåtpil som vänds när rutan är öppen */
+.moreSummary::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  margin-top: -3px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.more[open] > .moreSummary::after {
+  margin-top: 3px;
+  transform: rotate(-135deg);
+}
+
+.more[open] > .moreSummary {
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 639px) {
+  .compact {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-2) var(--space-3);
+    padding: var(--space-3) var(--space-4) var(--space-2);
+  }
+
+  .compact > .media {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+    min-height: 96px;
+    aspect-ratio: auto;
+    border-radius: var(--radius-sm);
+  }
+
+  .compact > .body {
+    display: contents;
+  }
+
+  .compact > .body > * {
+    grid-column: 1 / -1;
+  }
+
+  .compact > .body > .head {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: var(--space-1);
+    margin-bottom: var(--space-1);
+  }
+
+  .head > * {
+    flex: 1 0 100%;
+  }
+
+  .head > .labels {
+    position: static;
+    display: contents;
+  }
+
+  /* På mobil ser etiketterna ut som taggar (components/Chip.module.css .tag) */
+  .label {
+    flex: none;
+    padding: 2px var(--space-2);
+    background: var(--color-surface);
+    color: var(--color-ink);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-transform: none;
+  }
+
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--space-5);
+  }
+
+  .more[open] {
+    flex-basis: 100%;
+  }
+
+  .foot > .actions {
+    margin-top: 0;
+  }
+}
+
+@supports selector(::details-content) {
+  @media (min-width: 640px) {
+    .moreSummary {
+      display: none;
+    }
+    .more::details-content {
+      content-visibility: visible;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .link {
     transition: none;
