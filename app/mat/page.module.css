@@ -60,7 +60,7 @@
   composes: label from '../../components/Card.module.css';
 }
 
-/* Rubrik, ort och kategori – bredvid miniatyren på mobil; kategorin ligger över bilden från 640 px */
+/* Rubrik, ort och kategori – bredvid miniatyren under 1024 px; kategorin ligger över bilden från 1024 px */
 .head {
   composes: head from '../../components/Card.module.css';
 }

@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import { IconPin, IconClock } from '@/components/Icons';
 import HeroImage from '@/components/HeroImage';
-import TipBox from '@/components/TipBox';
+import CardTip from '@/components/CardTip';
 import LastChecked from '@/app/components/LastChecked';
 import styles from './sevardheter.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 // Redaktionell notis som enkel text med statusprick (5.3) – kortets enda ruta är tipset (TipBox).
 const notisKlass: Record<string, string> = {
@@ -166,6 +167,8 @@ export default function SevardheterPage() {
       />
 
       <div className={styles.inner}>
+        <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Sevärdheter', url: '/sevardheter' }]} />
+
         <div className={styles.grid}>
           {sevardheter.map((s, i) => (
             <article key={i} className={styles.card}>
@@ -180,9 +183,7 @@ export default function SevardheterPage() {
                   <span className={styles.placeItem}><IconClock size={12} /> {s.oppet}</span>
                 </p>
                 <p className={styles.description}>{s.beskrivning}</p>
-                <TipBox variant="compact" heading="Tips" as="p" className={styles.tip}>
-                  <p>{s.tips}</p>
-                </TipBox>
+                <CardTip className={styles.tip}>{s.tips}</CardTip>
                 {s.redaktionellt && (
                   <p className={`${styles.note} ${notisKlass[s.redaktionellt.typ] ?? ''}`}>
                     {s.redaktionellt.text}

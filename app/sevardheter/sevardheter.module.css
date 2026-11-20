@@ -1,5 +1,5 @@
 /* /sevardheter (5.3). Kortet från components/Card.module.css: kortrubriken är ett h2-element
-   med kortets h3-storlek; tipset i TipBox compact, redaktionell notis som enkel text. */
+   med kortets h3-storlek; tipset som en rad (CardTip), redaktionell notis som enkel text. */
 
 .page {
   min-height: 100vh;

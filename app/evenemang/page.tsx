@@ -6,6 +6,7 @@ import Resekalender, { ResekalenderStatisk } from './Resekalender';
 import styles from './evenemang.module.css';
 import { EVENEMANGSKÄLLOR, idagPåMallorca, kommandeEvenemang, årsintervall } from './data';
 import t from '@/components/TextHero.module.css';
+import Breadcrumbs from '@/app/components/Breadcrumbs';
 
 // Listan visar bara kommande tillfällen utifrån dagens datum – bygg om sidan en gång per dygn.
 export const revalidate = 86400;
@@ -19,6 +20,9 @@ export default function EvenemangPage() {
     <div className={styles.page}>
       <header className={t.hero}>
         <div className={t.inner}>
+          <div className={t.crumbs}>
+            <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Evenemang', url: '/evenemang' }]} />
+          </div>
           <p className={t.kicker}>Mallorca {intervall}</p>
           <h1 className={t.title}>Evenemang på Mallorca {intervall}</h1>
           <p className={t.lead}>

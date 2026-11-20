@@ -1,12 +1,15 @@
-/* Gemensamma stilar för /integritetspolicy och /cookies */
+/* Gemensamma stilar för /integritetspolicy, /cookies och /bildkrediter.
+   Samma container som övriga sidor (globals.css .container) med en vänsterställd
+   textspalt på --w-text (9.2). */
 .page {
   background: var(--color-bg);
-  padding: var(--space-9) var(--space-6) var(--space-9);
+  padding: var(--space-6) 0 var(--section-space);
 }
 
 .article {
-  max-width: 720px;
+  max-width: var(--w-wide);
   margin: 0 auto;
+  padding-inline: var(--gutter);
   color: var(--color-ink);
   font-size: var(--text-body);
   line-height: var(--lh-body);
@@ -62,4 +65,8 @@
 
 .article .lead {
   font-size: var(--text-lead);
+}
+
+.article > * {
+  max-width: var(--w-text);
 }

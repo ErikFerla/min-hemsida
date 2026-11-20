@@ -10,6 +10,7 @@ import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
 import { ACTIVITIES, BARN_CHECKED, BARN_SOURCES, CATEGORIES } from '@/app/lib/barn-activities';
 import { buildItemListJsonLd, buildBreadcrumbJsonLd } from '@/app/lib/barn-jsonld';
+import ShowAllActivities from './ShowAllActivities';
 import styles from './barn.module.css';
 
 const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
@@ -55,6 +56,8 @@ const INSIDER_TIPS: string[] = [
 ];
 
 const LIST_ID = 'barn-aktiviteter';
+/** Under 1024 px visas så många aktiviteter först – resten bakom "Visa alla" (ShowAllActivities). */
+const MOBILE_LIMIT = 12;
 
 /** Alla kategoriers källor, utan dubbletter (samma källa kan gälla flera kategorier). */
 const HUB_SOURCES = [...new Map(Object.values(BARN_SOURCES).flat().map((s) => [s.href, s])).values()];
@@ -162,6 +165,20 @@ export default function BarnHubPage() {
           </ul>
         </section>
 
+        {/* ========== GUIDER FÖR FAMILJEN (7.2) – direkt efter kategorierna, inte efter 40 kort ========== */}
+        <section className={styles.block} aria-labelledby="familjeguider-heading">
+          <h2 id="familjeguider-heading">Guider för familjen</h2>
+          <ul className={styles.guideLinks}>
+            {FAMILJEGUIDER.map((g) => (
+              <li key={g.href}>
+                <Link href={g.href} className="link-arrow">
+                  {g.label} <span aria-hidden="true">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* ========== ALLA AKTIVITETER (filtreras av åldersfiltret ovan) ========== */}
         <section className={styles.block} aria-labelledby="alla-aktiviteter-heading">
           <h2 id="alla-aktiviteter-heading">Alla aktiviteter</h2>
@@ -181,25 +198,20 @@ export default function BarnHubPage() {
           </div>
           <ul id={LIST_ID} className={styles.activityGrid}>
             {ACTIVITIES.map((a) => (
-              <li key={a.slug} data-ages={a.ageGroups.join(' ')}>
+              <li key={a.slug} data-slug={a.slug} data-ages={a.ageGroups.join(' ')}>
                 <ActivityCard activity={a} cardCategory={a.categories[0]} />
               </li>
             ))}
           </ul>
-        </section>
-
-        {/* ========== GUIDER FÖR FAMILJEN (7.2) ========== */}
-        <section className={styles.block} aria-labelledby="familjeguider-heading">
-          <h2 id="familjeguider-heading">Guider för familjen</h2>
-          <ul className={styles.guideLinks}>
-            {FAMILJEGUIDER.map((g) => (
-              <li key={g.href}>
-                <Link href={g.href} className="link-arrow">
-                  {g.label} <span aria-hidden="true">→</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ShowAllActivities
+            listId={LIST_ID}
+            items={ACTIVITIES.map((a) => ({ slug: a.slug, ages: a.ageGroups }))}
+            limit={MOBILE_LIMIT}
+          />
+          {/* Utan JS: visa hela listan och dölj knappen (högre specificitet än regeln i ShowAllActivities) */}
+          <noscript>
+            <style>{`body #${LIST_ID} > li[data-slug] { display: list-item; } body .${styles.showAll} { display: none; }`}</style>
+          </noscript>
         </section>
 
         <LastChecked

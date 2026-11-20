@@ -1,22 +1,23 @@
 /* /strandar (5.3). Strandkorten och "Inför stranddagen" använder kortet i
    components/Card.module.css; kännetecken är taggar (components/Chip.module.css).
-   Kortets enda ruta är tipset (TipBox compact); den redaktionella notisen är enkel text
-   med statusprick. */
+   Korten har ingen ruta: tipset är en rad (CardTip) och den redaktionella notisen enkel
+   text med statusprick. */
 
 .page {
   min-height: 100vh;
   background: var(--color-bg);
 }
 
-/* Intro */
+/* Intro: brödsmula + ingress i samma container som listan – vänsterställd 68ch-spalt (9.2) */
 .intro {
-  padding: var(--space-7) var(--gutter) var(--space-4);
+  max-width: var(--w-wide);
+  margin: 0 auto;
+  padding: var(--space-5) var(--gutter) var(--space-4);
   background: var(--color-bg);
 }
 
 .introInner {
   max-width: var(--w-text);
-  margin: 0 auto;
 }
 
 .introText {
@@ -109,7 +110,7 @@
   composes: head from '../../components/Card.module.css';
 }
 
-/* Område och strandtyp: över bilden från 640 px, som taggar på mobil */
+/* Område och strandtyp: över bilden från 1024 px, som taggar under 1024 px */
 .labels {
   composes: labels from '../../components/Card.module.css';
 }
@@ -163,7 +164,7 @@
   composes: noteInfo from '../../components/Card.module.css';
 }
 
-/* Tipset (TipBox compact) i en <details> – utfällt från 640 px, ihopfällt på mobil */
+/* Tipset (CardTip) i en <details> – utfällt från 1024 px, ihopfällt under 1024 px */
 .foot {
   composes: foot from '../../components/Card.module.css';
 }
@@ -181,7 +182,7 @@
   composes: actions from '../../components/Card.module.css';
 }
 
-@media (max-width: 639px) {
+@media (max-width: 1023px) {
   .list {
     gap: var(--space-4);
   }

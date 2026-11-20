@@ -69,6 +69,7 @@ export default function BarnCategoryPageView({
       <JsonLd data={breadcrumbJsonLd} />
 
       <CategoryHero
+        kicker="Med barn"
         imageSrc={hero.imageSrc}
         imageAlt={hero.imageAlt}
         title={hero.title}

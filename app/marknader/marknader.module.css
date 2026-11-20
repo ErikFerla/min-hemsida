@@ -5,57 +5,17 @@
   min-height: 100vh;
 }
 
-.hero {
-  background: var(--color-surface);
-  padding: var(--space-9) var(--space-8) var(--space-7);
-  text-align: center;
-}
-
-.kicker {
-  font-size: var(--text-label);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
-  line-height: var(--lh-small);
-  margin: 0 0 var(--space-3);
-}
-
-.title {
-  font-family: var(--font-heading);
-  font-size: var(--text-h1);
-  font-weight: 700;
-  letter-spacing: -0.012em;
-  margin: 0 auto var(--space-4);
-  line-height: var(--lh-h1);
-  color: var(--color-ink);
-  max-width: 18ch;
-}
-
-.divider {
-  width: 48px;
-  height: 2px;
-  background: var(--color-accent);
-  margin: 0 auto var(--space-4);
-  border-radius: var(--radius-sm);
-}
-
-.lead {
-  max-width: var(--w-text);
-  font-size: var(--text-lead);
-  color: var(--color-ink);
-  margin: 0 auto;
-  max-width: 60ch;
-  line-height: var(--lh-lead);
-}
+/* Heron är TextHero (components/TextHero.module.css) – vänsterställd som övriga sidor (9.2). */
 
 .main {
-  max-width: 1200px;
+  max-width: var(--w-wide);
   margin: 0 auto;
   padding: var(--space-7) var(--gutter);
 }
 
 .dayNav {
+  /* basregeln för <nav> ger 16 px sidpadding på mobil – raden ska linjera med texten */
+  padding-inline: 0;
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -200,10 +160,6 @@
 }
 
 @media (max-width: 639px) {
-  .hero {
-    padding: var(--space-6) var(--space-4);
-  }
-
   .dayNav {
     flex-wrap: nowrap;
     overflow-x: auto;

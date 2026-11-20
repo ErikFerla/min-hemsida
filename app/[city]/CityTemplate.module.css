@@ -1,9 +1,12 @@
 /* Gemensam stadsmall (app/[city]), designsystem 5.4.
-   Textspalt (max 68ch) + högerspalt (faktaruta, topp 3, kartlänkar) från 1024 px.
+   Textspalt (max 68ch) + högerspalt (faktaruta, topp 3, kartlänkar, "Mer i närheten" fäst) från
+   1024 px, sist "Orter i närheten" i full bredd.
    På mobil: ingress → faktaruta → resten. Rubriker (h2/h3) och p får storlek från
    basreglerna i globals.css – här bara layout och komponentform med tokens. */
 
 .page {
+  /* Sidhuvudet: 72 px + 1 px kant (components/Navbar.module.css) */
+  --header-offset: 73px;
   background: var(--color-bg);
 }
 
@@ -73,9 +76,22 @@
     row-gap: var(--space-7);
   }
 
+  /* Högerspalten sträcker sig hela textspaltens höjd så att "Mer i närheten" (sist) kan
+     fästas under sidhuvudet medan man läser – annars är spalten tom i flera skärmhöjder. */
   .aside {
-    align-self: start;
+    align-self: stretch;
     gap: var(--space-5);
+  }
+
+  .moreBox {
+    position: sticky;
+    top: calc(var(--header-offset) + var(--space-5));
+  }
+
+  /* Basregeln main { overflow-x: hidden } gör <main> till skrollbehållare så att sticky inte
+     fäster mot fönstret. clip klipper lika mycket men skapar ingen skrollbehållare. */
+  :global(main):has(.moreBox) {
+    overflow-x: clip;
   }
 
   .sections {
@@ -152,7 +168,8 @@
   line-height: var(--lh-small);
 }
 
-.mapButton {
+.mapLink {
+  align-self: flex-start;
   margin-top: var(--space-1);
 }
 
@@ -303,4 +320,144 @@
   font-size: var(--text-lead);
   font-weight: 600;
   line-height: var(--lh-lead);
+}
+
+/* ── Mer i närheten (sist i högerspalten) ── */
+.moreList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.moreList li + li {
+  border-top: 1px solid var(--color-border);
+}
+
+.moreLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) 0;
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: var(--lh-small);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.moreLink:hover {
+  color: var(--color-accent);
+}
+.moreLink > span[aria-hidden] {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.moreKicker {
+  display: block;
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Orter i närheten (sist på sidan) ── */
+.nearby {
+  margin: var(--space-7) 0 var(--section-space);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--header-offset) + var(--space-4));
+}
+
+.nearbyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Mobil och surfplatta: kompakt rad med tumnagel (som strand- och matkorten) */
+.nearbyCard {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+.nearbyCard:hover .nearbyName {
+  color: var(--color-accent);
+}
+
+.nearbyMedia {
+  position: relative;
+  display: block;
+  min-height: 96px;
+  background: var(--color-surface);
+}
+.nearbyMedia img {
+  object-fit: cover;
+}
+
+.nearbyBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+}
+
+.nearbyName {
+  margin: 0;
+}
+
+.nearbyTagline {
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+
+.nearbyMeta {
+  margin-top: auto;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 640px) {
+  .nearbyGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+/* Dator: fyra kort i rad med bild 3:2 ovanför texten */
+@media (min-width: 1024px) {
+  .nearbyGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-5);
+  }
+
+  .nearbyCard {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+
+  .nearbyMedia {
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+  }
+
+  .nearbyBody {
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .nearby {
+    padding-top: var(--space-7);
+  }
 }
