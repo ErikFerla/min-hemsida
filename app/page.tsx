@@ -44,7 +44,8 @@ export const metadata: Metadata = {
   },
 };
 
-// "Grytes favoritstrand" – samma text som i resplaneraren (app/lib/planner.ts).
+// "Grytes favoritstrand" – stranden och länkarna kommer från resplaneraren (app/lib/planner.ts),
+// men texten är skriven för startsidan så att den inte läses som en dag i en resplan.
 const favoritstrand = förslag['calo-des-moro'];
 
 export default function Home() {
@@ -114,7 +115,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Grytes favoritstrand (texten kommer från resplaneraren) */}
+        {/* Grytes favoritstrand */}
         <section className={`${s.pageSection} ${styles.flushBottom}`} aria-labelledby="favoritstrand-rubrik">
           <div className={styles.favorite}>
             <div className={styles.favoriteImage}>
@@ -134,8 +135,11 @@ export default function Home() {
               </svg>
               <h2 id="favoritstrand-rubrik" className={styles.favoriteTitle}>Grytes favoritstrand</h2>
               <p className={styles.favoriteLead}>{favoritstrand.titel}</p>
-              <p className={styles.favoriteBody}>{favoritstrand.förmiddag} {favoritstrand.eftermiddag}</p>
-              <p className={styles.favoriteSign}>– Erik</p>
+              <p className={styles.favoriteBody}>
+                Caló des Moro tidigt på morgonen, innan viken blir full – på sommaren helst före kl. 9. Sista biten går
+                du till fots. Cala Llombards strax intill har sand, en kiosk och mer plats för en lång badeftermiddag.
+              </p>
+              <p className={styles.favoriteSign}>– Erik Gryte</p>
               <p className={styles.favoriteLinks}>
                 {favoritstrand.länkar.map(l => (
                   <Link key={l.href} href={l.href} className="link-arrow">
@@ -181,7 +185,7 @@ export default function Home() {
                 {[
                   { siffra: '200+', text: 'Stränder och vikar', href: '/strandar' },
                   { siffra: '20+', text: 'Golfbanor', href: '/aktiviteter/golf' },
-                  { siffra: '300', text: 'Soldagar per år', href: '/vader' },
+                  { siffra: '2 750', text: 'Soltimmar per år', href: '/vader' },
                   { siffra: '70+', text: 'Vingårdar på ön', href: '/vingardar' },
                 ].map((stat, i) => (
                   <Link key={i} href={stat.href} className={styles.stat}>

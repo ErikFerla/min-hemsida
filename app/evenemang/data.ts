@@ -79,7 +79,7 @@ const evenemangData: EvenemangPost[] = [
     checked: C2,
     tillfällen: [
       { start: '2026-11-19', slut: '2026-11-19', status: 'publicerat' },
-      { start: '2027-11-17', slut: '2027-11-18', status: 'preliminärt', period: 'troligen torsdag 18 november 2027 enligt den traditionella regeln, ej bekräftat av kommunen' },
+      { start: '2027-11-17', slut: '2027-11-18', status: 'preliminärt', period: 'troligen torsdag 18 november 2027, med Dimecres Bo kvällen före' },
     ],
   },
   {
@@ -180,7 +180,7 @@ const evenemangData: EvenemangPost[] = [
     beskrivning: 'Palmas karnevalståg med utklädda grupper och vagnar en söndag före fastan. Barnens tåg, Sa Rueta, går söndagen innan.',
     källa: { label: 'Majorca Daily Bulletin: Sa Rua 2026', href: 'https://www.majorcadailybulletin.com/holiday/attractions/2026/02/12/140171/palma-carnival-spirit-rua-2026.html' },
     checked: C2,
-    tillfällen: [{ start: '2027-01-31', slut: '2027-02-07', status: 'preliminärt', period: 'troligen söndag 7 februari 2027 (söndagen före fastan), ej bekräftat av kommunen' }],
+    tillfällen: [{ start: '2027-02-07', slut: '2027-02-07', status: 'preliminärt', period: 'troligen söndag 7 februari 2027 (söndagen före fastan), med barnens Sa Rueta veckan innan' }],
   },
   {
     id: 'fira-del-ram',

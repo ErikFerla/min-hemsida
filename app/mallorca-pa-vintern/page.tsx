@@ -24,8 +24,7 @@ export default function MallorcaPaVintern() {
         { href: '/budget-och-priser', title: 'Budget och priser', text: 'Lägre turistskatt och billigare resa på vintern.' },
       ]}
       sources={[
-        { label: 'AEMET – normalvärden Palma flygplats', href: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=B278' },
-        { label: 'Mallorca.com – klimatet i siffror (AEMET 1991–2020)', href: 'https://www.mallorca.com/es/guia/mallorca-en-cifras/clima-en-cifras' },
+        { label: 'AEMET – normalvärden Palma de Mallorca, Aeropuerto 1981–2010', href: 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=B278&k=bal' },
         { label: 'Illes Balears – Sant Antoni och Sant Sebastià', href: 'https://www.illesbalears.travel/en/mallorca/sant-antoni-and-sant-sebastia' },
         { label: 'Visit Palma – Festes de Sant Sebastià', href: 'https://www.visitpalma.com/ca/descobrir/que-veure-i-que-fer/imprescindible-experiencies/pln523/festes-de-sant-sebastia' },
         { label: 'Mallorca Global Mag – Sant Sebastià 2027', href: 'https://mallorcaglobalmag.es/en/sant-sebastia-2027-avance/' },
@@ -36,7 +35,7 @@ export default function MallorcaPaVintern() {
         { label: 'Govern de les Illes Balears – turistskatten', href: 'https://apps.caib.es/sites/impostturisme/en/tax' },
         { label: 'Mallorca Magazin – EMT och residenter 2027', href: 'https://www.mallorcamagazin.com/nachrichten/lokales/2026/10/23/158937/palma-mallorca-erhoht-buspreise-viel-kostet-kunftig-die-fahrt-zum-flughafen.html' },
       ]}
-      checkedNote="Programmen för vinterns fester publiceras av kommunerna först några veckor i förväg. Datum för 2027 som inte är fasta helgdagar har vi inte kunnat bekräfta ännu."
+      checkedNote="Programmen för vinterns fester publiceras av kommunerna först några veckor i förväg – kontrollera datum som inte är fasta helgdagar hos kommunen innan du åker."
     >
       <p className={styles.lead}>
         När badgästerna har åkt hem blir Mallorca en annan ö. Byarna är lugna, bergen är gröna och du har
@@ -70,7 +69,7 @@ export default function MallorcaPaVintern() {
       <section id="vader" className={styles.section}>
         <h2 className={`${h.h2} ${styles.h2}`}>Vädret</h2>
         <p>
-          Vintern är mild men inte varm. Enligt AEMET:s normalvärden för Palmas flygplats (1991–2020) är
+          Vintern är mild men inte varm. Enligt AEMET:s normalvärden för Palmas flygplats (1981–2010) är
           dygnsmedeltemperaturen runt 10 °C i januari och 11 °C i december. Soliga dagar känns det betydligt varmare
           mitt på dagen, men kvällarna är kyliga och de gamla stenhusen kan vara kalla inomhus. Det regnar oftare än på
           sommaren, och uppe i bergen är det kallare och blåsigare än vid kusten.
@@ -135,7 +134,7 @@ export default function MallorcaPaVintern() {
         <p>
           Vinter och vår är högsäsong för vandrare och cyklister. Det svala vädret gör långa turer i Serra de
           Tramuntana mycket skönare än på sommaren. Tänk på att dagarna är korta, att det kan bli halt efter regn och
-          att raviner som Torrent de Pareis kan bli livsfarliga vid regn. Läs mer om leder, refugis och säkerhet under{' '}
+          att raviner som Torrent de Pareis kan bli livsfarliga vid regn. Läs mer om leder, refugier och säkerhet under{' '}
           <Link href="/vandring-och-cykling">Vandring och cykling</Link>.
         </p>
         <p>
@@ -151,7 +150,7 @@ export default function MallorcaPaVintern() {
             <strong>Stränderna är dina.</strong> Promenera längs Es Trenc eller i Caló des Moro utan folkmassor.
           </li>
           <li>
-            <strong>Gratis kollektivtrafik.</strong> Bofasta med Targeta intermodal har kunnat åka gratis med
+            <strong>Gratis kollektivtrafik.</strong> Bofasta med Targeta Intermodal har kunnat åka gratis med
             kollektivtrafiken 2026. När vi kontrollerade i november 2026 var det inte klart om det fortsätter 2027.
           </li>
           <li>

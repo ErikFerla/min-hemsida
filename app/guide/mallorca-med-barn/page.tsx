@@ -4,6 +4,7 @@ import Map from '@/components/Map';
 import { barnMapMarkers } from '@/data/barn-map';
 import HubLink from '../HubLink';
 import LastChecked from '@/app/components/LastChecked';
+import { ageLabel } from '@/app/lib/barn-activities';
 import type { ComponentType } from 'react';
 import h from '../headings.module.css';
 import styles from './page.module.css';
@@ -20,13 +21,13 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Bästa barnvänliga stränderna',
     Icon: IconWave,
-    kortText: 'Mallorca har hundratals stränder, men bara en handfull är riktigt barnvänliga. De bästa kombinerar grunt vatten, mjuk sand och service nära till hands.',
+    kortText: 'De bästa stränderna för små barn kombinerar grunt vatten, mjuk sand och service nära till hands.',
     punkter: ['Platja de Muro', 'Cala Millor', "Port d'Alcúdia", 'Cala Llombards'],
   },
   {
     rubrik: 'Vattenparker',
     Icon: IconSparkle,
-    kortText: 'Tre stora vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
+    kortText: 'Tre vattenparker att välja mellan. Aqualand är störst, Hidropark i Alcúdia lugnast, och Western Water Park i Magaluf har vilda västern-tema.',
     punkter: ['Aqualand El Arenal', 'Hidropark Alcúdia', 'Western Water Park'],
   },
   {
@@ -38,8 +39,8 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Praktiska tips',
     Icon: IconBulb,
-    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil är nödvändig – boka barnstol i förväg.',
-    punkter: ['Bästa restid: juni eller september', 'Hyrbil är ett måste', 'Restaurangerna öppnar ofta kl. 20'],
+    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil gör det enklare att se ön – boka barnstol i förväg. I Alcúdiabukten och Palma klarar ni er utan bil.',
+    punkter: ['Bästa restid: juni eller september', 'Hyrbil gör det enklare', 'Restaurangerna öppnar ofta kl. 20'],
   },
 ];
 
@@ -49,7 +50,7 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <header className={t.hero}>
         <div className={t.inner}>
-          <p className={t.kicker}>Familjereseguide · 2026</p>
+          <p className={t.kicker}>Familjereseguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>
           <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         </div>
@@ -67,10 +68,10 @@ export default function MallorcaMedBarnGuide() {
         <section className={`${h.facts} ${styles.quick}`} aria-labelledby="snabbsvar">
           <p id="snabbsvar" className={styles.quickLabel}>Snabbsvar – vad passar ditt barn?</p>
           <dl className={styles.quickList}>
-            <div><dt>0–3 år</dt><dd>Platja de Muro</dd></div>
-            <div><dt>4–8 år</dt><dd>Aqualand + Coves del Drac</dd></div>
-            <div><dt>9–12 år</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
-            <div><dt>13+ år</dt><dd>Wakeboard, klipphopp, gatumat</dd></div>
+            <div><dt>{ageLabel('0-3')}</dt><dd>Platja de Muro</dd></div>
+            <div><dt>{ageLabel('4-7')}</dt><dd>Aqualand + Coves del Drac</dd></div>
+            <div><dt>{ageLabel('8-12')}</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
+            <div><dt>{ageLabel('13+')}</dt><dd>Wakeboard och annan vattensport, vandring</dd></div>
           </dl>
         </section>
 
@@ -83,11 +84,11 @@ export default function MallorcaMedBarnGuide() {
                 <div className={styles.cardIcon}><s.Icon size={28} /></div>
                 <h3 className={`${h.h3} ${styles.cardTitle}`}>{s.rubrik}</h3>
                 <p className={styles.cardText}>{s.kortText}</p>
-                <div className={styles.tags}>
+                <ul className={styles.points}>
                   {s.punkter.map(p => (
-                    <span key={p} className={styles.tag}>{p}</span>
+                    <li key={p}>{p}</li>
                   ))}
-                </div>
+                </ul>
               </article>
             ))}
           </div>
@@ -121,8 +122,8 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
-          note="Uppgifterna om parker och attraktioner följer barnsidorna, som granskades samtidigt."
+          date="2026-11-20"
+          note="Priser och öppettider ändras ofta – kontrollera på respektive webbplats innan ni åker."
           sources={[
             { label: 'Aqualand', href: 'https://www.aqualand.es' },
             { label: 'Marineland Mallorca', href: 'https://www.marineland.es' },

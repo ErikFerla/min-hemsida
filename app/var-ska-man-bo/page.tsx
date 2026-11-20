@@ -102,7 +102,7 @@ export default function VarSkaManBo() {
           <ul className={t.list}>
             <li>
               <strong>Bil eller inte?</strong> Utan bil bor du bäst i Palma, längs Alcúdiabukten eller i Sóller, där
-              bussar, tåg och flygbussar går. Sydöstra kusten, Tramuntanabyarna och inlandets fincas kräver i praktiken
+              bussar, tåg och flygbussar går. Sydöstra kusten, Tramuntanabyarna och inlandets fincor (lantgårdar) kräver i praktiken
               bil. Läs mer om <Link href="/hyrbil-och-transport" className={t.inlineLink}>hyrbil och transport</Link>.
             </li>
             <li>

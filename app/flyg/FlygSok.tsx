@@ -69,7 +69,7 @@ export default function FlygSok() {
       <form onSubmit={sökFlyg} noValidate aria-labelledby="flygsok-rubrik">
         <div className={styles.fields}>
           <div>
-            <label htmlFor="flyg-fran" className={styles.label}>AVRESA FRÅN</label>
+            <label htmlFor="flyg-fran" className={styles.label}>Avresa från</label>
             <select
               id="flyg-fran"
               name="fran"
@@ -84,7 +84,7 @@ export default function FlygSok() {
           </div>
 
           <div>
-            <label htmlFor="flyg-till" className={styles.label}>DESTINATION</label>
+            <label htmlFor="flyg-till" className={styles.label}>Destination</label>
             <input
               id="flyg-till"
               type="text"
@@ -130,7 +130,7 @@ export default function FlygSok() {
           </div>
 
           <div>
-            <label htmlFor="flyg-resenarer" className={styles.label}>RESENÄRER</label>
+            <label htmlFor="flyg-resenarer" className={styles.label}>Resenärer</label>
             <select
               id="flyg-resenarer"
               name="resenarer"

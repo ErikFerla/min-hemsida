@@ -37,7 +37,7 @@ export default function GrottorPage() {
           <p>
             Under jord är det svalt året runt, ungefär 17–20 °C. Det gör grottorna till ett bra
             val både en het eftermiddag i juli och en regnig dag i november. Ta med en tunn tröja till
-            barnen och skor som sitter fast – det kan vara fuktigt och trappigt.
+            barnen och skor som sitter fast – det kan vara fuktigt, med många trappor.
           </p>
         </>
       }

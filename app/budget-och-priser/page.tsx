@@ -15,7 +15,7 @@ const matOchDryck: PrisRad[] = [
 const transport: PrisRad[] = [
   { vad: 'Stadsbuss i Palma (EMT), enkelbiljett', pris: '2 €', kommentar: 'Pris 2026. Kommunen har godkänt en höjning till 3 € vid kontant betalning från 2027 – kontrollera innan du åker.' },
   { vad: 'Hyrbil, småbil', pris: 'ca 25–35 € per dag', kommentar: 'Snitt över året. I augusti ligger en småbil runt 40–50 € per dag.' },
-  { vad: 'Sóllertåget Palma–Sóller', pris: 'ca 23 € enkel, ca 30 € t/r', kommentar: 'Vuxenbiljett 2026. Spårvagnen ned till Port de Sóller kostar extra.' },
+  { vad: 'Sóllertåget Palma–Sóller', pris: 'ca 23 € enkel, ca 30 € t/r', kommentar: 'Vuxenbiljett 2026. Tur och retur med spårvagnen till Port de Sóller ca 40 €.' },
 ];
 
 const entreer: PrisRad[] = [
@@ -75,7 +75,7 @@ export default function BudgetOchPriser() {
         { href: '/praktiskt', title: 'Praktiskt och säkerhet', text: 'EU-kort, 112, jourapotek, alkoholregler och regler på stranden.' },
         { href: '/mallorca-pa-vintern', title: 'Mallorca på vintern', text: 'Lägre priser, lugna orter och mandelblomning.' },
         { href: '/flyg', title: 'Flyg till Mallorca', text: 'Sök flyg och ta dig från flygplatsen.' },
-        { href: '/mat', title: 'Mat på Mallorca', text: 'Restauranger, tapas och lokala specialiteter.' },
+        { href: '/mat', title: 'Mat och vin på Mallorca', text: 'Restauranger, tapasbarer och vingårdar.' },
         { href: '/strandar', title: 'Stränder', text: 'Alla stränder – också de utan solstolar.' },
       ]}
       sources={[
@@ -227,7 +227,7 @@ export default function BudgetOchPriser() {
             strandbarens priser.
           </li>
           <li>
-            <strong>Bor du på ön?</strong> Med Targeta intermodal har bofasta kunnat åka gratis med kollektivtrafiken
+            <strong>Bor du på ön?</strong> Med Targeta Intermodal har bofasta kunnat åka gratis med kollektivtrafiken
             2026, och flera sevärdheter, till exempel katedralen, har lägre pris för residenter. Om gratisresorna fortsätter
             2027 var inte beslutat i november 2026 – förra året kom beslutet i mitten av december.
           </li>

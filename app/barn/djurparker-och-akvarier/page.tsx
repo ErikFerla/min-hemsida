@@ -47,7 +47,8 @@ export default function DjurparkerPage() {
       intro={
         <>
           <p>
-            Mallorca har två akvarier och tre djurparker värda en dagsutflykt. Palma Aquarium är
+            Mallorca har ett stort akvarium, en marin park och två djurparker som är värda en
+            dagsutflykt. Palma Aquarium är
             störst, med hajtanken Big Blue och 700 arter; Marineland är den klassiska familjefavoriten
             med delfinshow och papegojor; Natura Parc passar särskilt småbarn som vill ha en lugnare
             dag; och i Safari Zoo i Sa Coma kör ni er egen bil
@@ -55,15 +56,15 @@ export default function DjurparkerPage() {
             ön gårdsdjur av gamla mallorkinska raser.
           </p>
           <p>
-            Använd åldersfiltret för att hitta den bästa kombinationen för era barn – vi har testat
-            varje plats och noterat vilka åldersgrupper som får ut mest av besöket.
+            Använd åldersfiltret för att hitta den bästa kombinationen för era barn – vid varje plats
+            står vilka åldersgrupper som får ut mest av besöket.
           </p>
         </>
       }
       lastChecked={{
         date: BARN_CHECKED,
         sources: BARN_SOURCES['djurparker-och-akvarier'] ?? [],
-        note: 'Datumet gäller Els Calderers. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
+        note: 'Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket.',
       }}
     />
   );

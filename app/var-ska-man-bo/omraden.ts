@@ -156,11 +156,11 @@ export const omraden: Omrade[] = [
     fordelar: [
       'Bra bas för vandring och cykling i norra Tramuntana',
       'Skyddad bukt med lugnt vatten',
-      'Autentisk by med söndagsmarknad på torget',
+      'Småstad med söndagsmarknad på torget',
     ],
     nackdelar: [
       'Långt från flygplatsen',
-      'Vägen till Cap de Formentor är stängd för bil på dagtid på sommaren',
+      'Vägen från Platja de Formentor ut till fyren är stängd för privatbil dagtid på sommaren',
       'Fullbokat tidigt under juli och augusti',
     ],
     quiz: {
@@ -272,11 +272,11 @@ export const omraden: Omrade[] = [
     orter: [{ namn: 'Campos', href: '/campos' }],
     passarFor: ['lugn', 'familj'],
     beskrivning:
-      'Lantligt i sydost med saltängar och Es Trenc, en lång orörd sandstrand utan hotell. Campos är en vardaglig småstad med marknad torsdag och lördag.',
+      'Lantligt i söder med saltängar och Es Trenc, en lång orörd sandstrand utan hotell. Campos är en vardaglig småstad med marknad torsdag och lördag.',
     fordelar: [
       'Es Trenc – lång naturstrand med ljus sand',
       'Ganska nära flygplatsen, med flygbuss (A51) året runt',
-      'Lantliga fincas och lokal vardag',
+      'Lantliga fincor och lokal vardag',
     ],
     nackdelar: [
       'Du behöver bil',
@@ -363,7 +363,7 @@ export const omraden: Omrade[] = [
     ],
     passarFor: ['lange', 'lugn', 'utanBil'],
     beskrivning:
-      'Mitt på ön ligger småstäder och byar bland mandel- och olivodlingar. Här bor mallorkinerna, och här finns många fincas att hyra. Sineu har onsdagsmarknad, Inca torsdagsmarknad.',
+      'Mitt på ön ligger småstäder och byar bland mandel- och olivodlingar. Här bor mallorkinerna, och här finns många fincor att hyra. Sineu har onsdagsmarknad, Inca torsdagsmarknad.',
     fordelar: [
       'Tåget går till Palma från både Inca och Sineu',
       'Lägre priser och mer lokalt liv än vid kusten',
@@ -375,7 +375,7 @@ export const omraden: Omrade[] = [
       'Bil behövs för att ta sig till stränderna',
     ],
     quiz: {
-      'nar:lange': { poang: 3, varfor: 'Lokalt vardagsliv och fincas att hyra för en längre tid.' },
+      'nar:lange': { poang: 3, varfor: 'Lokalt vardagsliv och fincor att hyra för en längre tid.' },
       'gora:lugn': { poang: 2, varfor: 'Landsbygd bland mandel- och olivodlingar.' },
       'tempo:lugnt': { poang: 2 },
       'bil:nej': { poang: 1, varfor: 'Tåget går till Palma från både Inca och Sineu.' },
@@ -398,7 +398,7 @@ export const omraden: Omrade[] = [
     nackdelar: [
       'Port d’Andratx har hög prisnivå',
       'Badorterna närmast Palma kan vara mycket livliga på sommaren',
-      'Lite av öns gamla bykänsla vid kusten',
+      'Badorterna vid kusten har lite kvar av den gamla bykänslan',
     ],
     quiz: {
       'vilka:par': { poang: 2, varfor: 'Hamnen i Port d’Andratx är en klassiker för en middag i solnedgången.' },

@@ -37,7 +37,7 @@ export default function StrandarPage() {
         <div className={styles.intro}>
           <div className={styles.introInner}>
             <p className={styles.introText}>
-              Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. På östkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och pinjeskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
+              Mallorca rymmer mer än 200 stränder och vikar längs sina fyra kuster. Längs syd- och östkusten ligger öns mest fotograferade <em>calas</em> – små turkosa vikar inbäddade mellan kalkstensklippor och tallskog, som Caló des Moro och Cala Mondragó. Nordkusten bjuder på långa sandstränder i de grunda bukterna vid{' '}
               <Link href="/alcudia" className={styles.inlineLink}>Alcúdia</Link>
               {' '}och{' '}
               <Link href="/pollenca" className={styles.inlineLink}>Pollença</Link>
@@ -129,7 +129,7 @@ export default function StrandarPage() {
         </ul>
 
         <div className={styles.more}>
-          <p className={styles.moreKicker}>PLANERA VIDARE</p>
+          <p className={styles.moreKicker}>Planera vidare</p>
           <h2 className={styles.moreTitle}>Inför stranddagen</h2>
           <div className={styles.moreGrid}>
             {[
@@ -147,9 +147,14 @@ export default function StrandarPage() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
-          sources={[MET_NO_SOURCE]}
-          note="Kontrollen gäller Dagens strand: vindprognosen och åt vilket håll stränderna vetter."
+          date="2026-11-20"
+          sources={[
+            MET_NO_SOURCE,
+            { label: 'DGT – trafik till Formentor 2026', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
+            { label: 'MITECO – Guía de playas: Alcúdia', href: 'https://www.miteco.gob.es/es/costas/temas/proteccion-medio-marino/anexoi-fichaplayaalcudia_tcm30-535251.pdf' },
+            { label: 'Spain.info – Es Trenc', href: 'https://www.spain.info/es/playa/es-trenc/' },
+          ]}
+          note="Dagens strand bygger på met.no:s vindprognos. Parkering, avgifter och service vid stränderna ändras mellan säsongerna – kontrollera på plats innan du åker."
         />
       </div>
     </div>

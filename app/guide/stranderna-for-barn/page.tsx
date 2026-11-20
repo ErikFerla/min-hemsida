@@ -2,6 +2,7 @@ import Link from 'next/link';
 import TipBox from '@/components/TipBox';
 import LastChecked from '@/app/components/LastChecked';
 import { beaches } from '@/data/beaches';
+import { ageLabel } from '@/app/lib/barn-activities';
 import HubLink from '../HubLink';
 import { aktivitet } from '../familj-links';
 import h from '../headings.module.css';
@@ -24,18 +25,18 @@ type Åldersgrupp = {
 };
 
 // Service, livräddare och djup är kontrollerade mot källorna i LastChecked nedan. Där källorna
-// går isär står det ”uppgifterna går isär” eller ”kontrollera” i stället för en siffra.
+// går isär står det ”kontrollera” eller ”kan kosta” i stället för en siffra.
 const GRUPPER: Åldersgrupp[] = [
   {
     id: 'smabarn',
-    label: '0–3 år',
+    label: ageLabel('0-3'),
     rubrik: 'Småbarn: grunt, sand och toalett nära',
     intro:
       'För de minsta är det enkelt: långgrunt vatten utan vågor, mjuk sand, en toalett och skötbord inom räckhåll och kort väg från bilen. De långa stränderna i Alcúdiabukten och Pollençabukten i norr är bäst på det.',
     stränder: [
       {
         namn: 'Platja de Muro',
-        text: 'Lång, grund sandstrand med lugnt vatten och sanddyner bakom. Blå flagg 2026.',
+        text: 'Lång, grund sandstrand med lugnt vatten och sanddyner bakom. Blå flagg (2026).',
         fakta: [
           { label: 'Service', value: 'Duschar och toaletter, uthyrning av parasoll och solstolar' },
           { label: 'Livräddare', value: 'Under högsäsong' },
@@ -58,21 +59,21 @@ const GRUPPER: Åldersgrupp[] = [
         fakta: [
           { label: 'Service', value: 'Toaletter och en liten strandbar' },
           { label: 'Livräddare', value: 'Under sommaren' },
-          { label: 'Parkering', value: 'Några hundra meter från stranden; uppgifterna om avgift går isär' },
+          { label: 'Parkering', value: 'Några hundra meter från stranden – parkeringen kan kosta' },
         ],
       },
     ],
   },
   {
     id: 'fyra-till-sju',
-    label: '4–7 år',
+    label: ageLabel('4-7'),
     rubrik: '4–7 år: plats att leka och lite mer att göra',
     intro:
       'Nu vill barnen hoppa i vågor, bygga stora sandslott och kanske prova en pedalbåt. Välj en strand med service men lite mer natur runt omkring – eller en ort där ni kan kombinera stranden med en utflykt.',
     stränder: [
       {
         namn: 'Platja d\'Alcúdia',
-        text: 'Öns längsta strand är grund långt ut, och längs stranden finns lekplatser och vattensport. Blå flagg 2026.',
+        text: 'Öns längsta strand är grund långt ut, och längs stranden finns lekplatser och vattensport. Blå flagg (2026).',
         fakta: [
           { label: 'Service', value: 'Toaletter, duschar, lekplats, uthyrning av parasoll och båtar' },
           { label: 'Livräddare', value: 'Under högsäsong' },
@@ -84,7 +85,7 @@ const GRUPPER: Åldersgrupp[] = [
         fakta: [
           { label: 'Service', value: 'Toaletter, duschar och restaurang' },
           { label: 'Livräddare', value: 'Under säsongen' },
-          { label: 'Parkering', value: 'Begränsad – uppgifterna om avgift går isär, kom tidigt' },
+          { label: 'Parkering', value: 'Begränsad och kan kosta – kom tidigt' },
         ],
       },
       {
@@ -100,7 +101,7 @@ const GRUPPER: Åldersgrupp[] = [
   },
   {
     id: 'atta-till-tolv',
-    label: '8–12 år',
+    label: ageLabel('8-12'),
     rubrik: '8–12 år: snorkling och klippor',
     intro:
       'Nu blir det roligt med mask och snorkel. De bästa platserna är vikar med sand i mitten och klippor på sidorna, där fiskarna samlas. Ta med vattenskor – klipporna är vassa – och låt barnen simma två och två.',
@@ -109,7 +110,7 @@ const GRUPPER: Åldersgrupp[] = [
         namn: 'Cala Llombards',
         text: 'Sandig ingång och klippor på båda sidor, med stegar upp ur vattnet. Bra snorkling bland stenar och sjögräs när det är lugnt.',
         fakta: [
-          { label: 'Service', value: 'En strandbar; uppgifterna om toaletter och livräddare går isär' },
+          { label: 'Service', value: 'En strandbar – kontrollera toaletter och livräddare på plats' },
           { label: 'Utrustning', value: 'Ta med egen mask och snorkel' },
           { label: 'Parkering', value: 'Gratis men liten – kom tidigt på sommaren' },
         ],
@@ -133,7 +134,7 @@ const GRUPPER: Åldersgrupp[] = [
   },
   {
     id: 'tonaringar',
-    label: '13+ år',
+    label: ageLabel('13+'),
     rubrik: 'Tonåringar: vågor, vandring och vattensport',
     intro:
       'Tonåringar vill ofta ha något att göra – eller en strand som känns som en upptäckt. En vik som kräver en promenad, vågor att leka i eller en strand med vattensport fungerar bättre än den närmaste hotellstranden.',
@@ -275,7 +276,7 @@ export default function StrandernaForBarnGuide() {
 
         <LastChecked
           date="2026-11-20"
-          note="Service och livräddare gäller under badsäsongen och kan skilja sig mellan olika delar av stranden. Där källorna går isär skriver vi det."
+          note="Service och livräddare gäller under badsäsongen och kan skilja sig mellan olika delar av stranden – kontrollera på plats."
           sources={[
             { label: 'Spain.info – Playa de Muro', href: 'https://www.spain.info/es/playa/muro/' },
             { label: 'Spain.info – Playa de Alcúdia', href: 'https://www.spain.info/es/playa/alcudia/' },

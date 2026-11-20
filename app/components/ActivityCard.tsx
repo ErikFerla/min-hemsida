@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cardImageUrl } from '@/app/lib/image-url';
 import Link from 'next/link';
-import { IconPin, IconExternal } from '@/components/Icons';
+import { IconPin } from '@/components/Icons';
 import AgeGroupChip from './AgeGroupChip';
 import styles from './ActivityCard.module.css';
 import type { Activity, Category } from '@/app/lib/barn-activities';
@@ -56,7 +56,8 @@ export default function ActivityCard({ activity, cardCategory }: ActivityCardPro
         </div>
 
         <span className={styles.more}>
-          Läs mer <IconExternal size={12} stroke={1.8} />
+          {/* Intern länk: pil, inte extern-ikon (den är bara för externa länkar) */}
+          Läs mer <span aria-hidden="true">→</span>
         </span>
       </div>
     </Link>
