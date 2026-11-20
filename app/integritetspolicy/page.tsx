@@ -7,7 +7,7 @@ export const metadata = buildPageMetadata({
   path: '/integritetspolicy',
   title: 'Integritetspolicy',
   description:
-    'Så hanterar MyMallorca personuppgifter: inga konton, inga formulär, ingen analys eller annonsspårning. Här ser du vilka tjänster sidan använder och varför.',
+    'Så hanterar MyMallorca personuppgifter: inga konton, inga formulär, ingen annonsspårning, bara cookiefri besöksstatistik. Här ser du vilka tjänster vi använder.',
   image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
   imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
 });
@@ -28,7 +28,7 @@ export default function IntegritetspolicyPage() {
       <article className={styles.article}>
         <p className={styles.kicker}>Om sajten</p>
         <h1>Integritetspolicy</h1>
-        <p className={styles.updated}>Senast uppdaterad 17 november 2026</p>
+        <p className={styles.updated}>Senast uppdaterad 20 november 2026</p>
 
         <p className={styles.lead}>
           MyMallorca är en privat guide till Mallorca som drivs av intresse för ön, inte för att tjäna pengar. Vi vill
@@ -38,8 +38,27 @@ export default function IntegritetspolicyPage() {
         <h2>Det här samlar vi inte in</h2>
         <ul>
           <li>Det finns inga konton, inget nyhetsbrev och inget kontaktformulär.</li>
-          <li>Vi använder inget analysverktyg, inga annonser och ingen spårning i sociala medier.</li>
+          <li>Vi visar inga annonser och har ingen spårning i sociala medier.</li>
           <li>Vi sätter inga cookies och sparar inget i din webbläsare. Läs mer på sidan om <Link href="/cookies">cookies</Link>.</li>
+        </ul>
+
+        <h2>Besöksstatistik</h2>
+        <p>
+          Vi använder Vercel Web Analytics för att räkna besök och se vilka sidor som läses. Syftet är att förstå vilka
+          sidor som är till nytta, så att vi vet vad vi ska förbättra.
+        </p>
+        <ul>
+          <li>Verktyget sätter inga cookies.</li>
+          <li>
+            Besök räknas med hjälp av ett tillfälligt värde som tas fram ur själva förfrågan och nollställs efter ett
+            dygn. Därför går det inte att följa dig mellan olika dagar eller mellan olika webbplatser.
+          </li>
+          <li>
+            Inga personuppgifter sparas. Varje sidvisning registreras anonymt, utan koppling till dig eller din
+            IP-adress. Det som sparas är bland annat vilken sida du läser, varifrån du kom, ungefär var du befinner dig
+            (till exempel land) och vilken typ av enhet och webbläsare du använder.
+          </li>
+          <li>Uppgifterna lagras hos Vercel, och vi ser dem bara som sammanställd statistik.</li>
         </ul>
 
         <h2>Webbhotell och serverloggar</h2>

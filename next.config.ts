@@ -13,7 +13,9 @@ const TILE_HOSTS = ['https://tile.openstreetmap.org', 'https://*.tile.openstreet
 // så connect-src räcker med 'self'. Skärp och flytta till enforced CSP när rapporterna är rena.
 const cspReportOnly = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
+  // Vercel Web Analytics laddas från /_vercel/insights och skickar till samma origin ('self').
+  // Bara i next dev hämtas felsökningsskriptet från va.vercel-scripts.com.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ''}`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${[...IMAGE_HOSTS, ...TILE_HOSTS].join(' ')}`,
   "font-src 'self'",

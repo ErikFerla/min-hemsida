@@ -170,3 +170,12 @@ något från en ny extern domän måste domänen läggas till i CSP:n, annars f�
 
 Sajten deployas på Vercel. Varje push till `main` går ut i produktion och varje pull request får en
 förhandsversion. Inga miljövariabler krävs för bygget.
+
+### Besöksstatistik
+
+`<Analytics />` från `@vercel/analytics` i `app/layout.tsx` ger cookiefri besöksstatistik (Vercel Web
+Analytics, ingen Speed Insights). Skriptet laddas från `/_vercel/insights/script.js` och skickar till
+samma origin, så CSP:n behöver inga nya domäner. Web Analytics måste vara påslaget i Vercel-projektet
+(*Analytics → Enable*), annars svarar `/_vercel/insights` 404. Lokalt finns skriptet inte, och röktestet
+svarar själv med ett tomt skript. Ändras statistiken (t.ex. egna händelser eller ett annat verktyg)
+ska `/integritetspolicy` och `/cookies` uppdateras.
