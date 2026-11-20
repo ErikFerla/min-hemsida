@@ -40,7 +40,7 @@ export const golfbanor: GolfCourse[] = [
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Golf_de_Son_Gual_visto_desde_avi%C3%B3n_-_panoramio.jpg/1920px-Golf_de_Son_Gual_visto_desde_avi%C3%B3n_-_panoramio.jpg', bildAlt: 'Son Gual Golf sedd från flygplan – fairways och bunkrar öster om Palma',
     maps: 'https://maps.google.com/?q=Son+Gual+Golf+Palma+Mallorca',
     webb: 'https://www.golfsongual.com',
-    tips: 'Boka minst 2 dagar i förväg – mycket populär',
+    tips: 'Mycket populär – boka starttid i god tid, särskilt i mars–juni',
     redaktionellt: { typ: 'bast', text: 'Bäst för: seriösa golfare som vill ha Mallorcas tuffaste utmaning' },
   },
   {
@@ -58,8 +58,7 @@ export const golfbanor: GolfCourse[] = [
     bild: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/CasasAlcanada.jpg', bildAlt: 'Klubbhuset vid Club de Golf Alcanada med utsikt över Alcúdiabukten',
     maps: 'https://maps.google.com/?q=Club+de+Golf+Alcanada+Alcudia+Mallorca',
     webb: 'https://www.golf-alcanada.com',
-    tips: 'Fyren på Illa d’Alcanada syns från stora delar av banan – ta god tid på dig och njut av kulissen',
-    redaktionellt: { typ: 'tips', text: 'Utsikten mot fyren och Alcúdiabukten gör banan till en av Europas vackraste' },
+    tips: 'Ta god tid på dig – kulissen med fyren och Alcúdiabukten är halva upplevelsen',
   },
   {
     slug: 'son-muntaner-golf',
@@ -95,7 +94,6 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Son+Vida+Golf+Palma+Mallorca',
     webb: 'https://www.arabellagolf.com',
     tips: 'Klassisk bana – passar alla nivåer',
-    redaktionellt: { typ: 'info', text: 'Äldsta golfbanan på ön sedan 1964 – historisk känsla genom hela rundan' },
   },
   {
     slug: 'son-quint-golf',
@@ -197,8 +195,8 @@ export const golfbanor: GolfCourse[] = [
     pris: '€€€',
     lat: 39.5361,
     lng: 2.5864,
-    oneliner: '18 hål · utmanande klassiker nära Magaluf',
-    beskrivning: 'En av de äldsta och mest populära banorna nära Magaluf. Utmanande och tuff – passar golfare som vill ha utmaning.',
+    oneliner: '18 hål · par 70 · i en dal nära havet',
+    beskrivning: 'Bana i en dal nära havet mellan Palma och Magaluf. Öppnade 1986 med nio hål och byggdes ut till 18 hål 1995. Kuperad och utmanande.',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Aerial_view_of_14th%2C_15th_and_16th_holes_at_Portmarnock_Golf_Club%2C_Ireland.jpg/1920px-Aerial_view_of_14th%2C_15th_and_16th_holes_at_Portmarnock_Golf_Club%2C_Ireland.jpg', bildAlt: 'Generisk golfbild: golfbana vid havet sedd från luften (inte den här banan)',
     maps: 'https://maps.google.com/?q=Real+Golf+de+Bendinat+Mallorca',
     webb: 'https://www.golfbendinat.com',
@@ -221,7 +219,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Son+Antem+Golf+Llucmajor+Mallorca',
     webb: 'https://www.sonantem.com',
     tips: 'East anses lite lättare än West – bra startalternativ',
-    redaktionellt: { typ: 'bast', text: 'Bäst för: golfare som vill ha två banor på ett ställe – East är den lättare' },
+    redaktionellt: { typ: 'bast', text: 'Bäst för: golfare som vill ha två banor på ett ställe' },
   },
   {
     slug: 'son-antem-west',
@@ -239,7 +237,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Son+Antem+Golf+Llucmajor+Mallorca',
     webb: 'https://www.sonantem.com',
     tips: 'Kombinera med övernattning på anläggningens hotell',
-    redaktionellt: { typ: 'info', text: 'West Course är tuffare med fler vattenhinder – rekommenderas för hcp under 20' },
+    redaktionellt: { typ: 'info', text: 'Rekommenderas för handicap under 20' },
   },
   {
     slug: 't-golf-palma-puntiro',
@@ -256,8 +254,8 @@ export const golfbanor: GolfCourse[] = [
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Aerial_view_of_14th%2C_15th_and_16th_holes_at_Portmarnock_Golf_Club%2C_Ireland.jpg/1920px-Aerial_view_of_14th%2C_15th_and_16th_holes_at_Portmarnock_Golf_Club%2C_Ireland.jpg', bildAlt: 'Generisk golfbild: golfbana vid havet sedd från luften (inte den här banan)',
     maps: 'https://maps.google.com/?q=T+Golf+Palma+Puntiro+Mallorca',
     webb: 'https://www.tgolfmallorca.com',
-    tips: 'Nära Palma – lätt att kombinera med en dag i stan',
-    redaktionellt: { typ: 'tips', text: 'Kort bilresa från Palma – passar om du vill spela en kvällsrunda' },
+    tips: 'Lätt att kombinera med en dag i stan',
+    redaktionellt: { typ: 'tips', text: 'Passar om du vill spela en kvällsrunda' },
   },
   {
     slug: 'golf-maioris',
@@ -293,11 +291,11 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Club+de+Golf+Son+Servera+Mallorca',
     webb: 'https://www.golfsonservera.com',
     tips: 'Bra för nybörjare och för en avkopplande runda',
-    redaktionellt: { typ: 'info', text: 'En av öns äldsta banor med karaktäristisk terräng vid kusten i nordost' },
+    redaktionellt: { typ: 'info', text: 'Karaktäristisk terräng vid kusten i nordost' },
   },
   {
     slug: 'vall-dor-golf',
-    namn: "Vall d'or Golf",
+    namn: "Vall d'Or Golf",
     plats: 'Felanitx',
     region: 'Öst',
     hål: 18,
@@ -328,7 +326,6 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Golf+Santa+Ponsa+II+Mallorca',
     webb: 'https://www.golfsantaponsa.com',
     tips: 'Som gäst spelar du hellre Santa Ponsa I – fråga klubben om det går att få speltid här',
-    redaktionellt: { typ: 'info', text: 'Privat bana – räkna inte med att kunna boka starttid som gäst' },
   },
   {
     slug: 't-golf-poniente',
@@ -346,7 +343,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=T+Golf+Poniente+Magaluf+Mallorca',
     webb: 'https://www.tgolfmallorca.com',
     tips: 'Bra läge nära stränder och restauranger i Magaluf',
-    redaktionellt: { typ: 'bast', text: 'Bäst för: havsutsikt – flera hål längs kusten med fantastisk panoramautsikt' },
+    redaktionellt: { typ: 'bast', text: 'Bäst för: bergsutsikten mot Serra de Tramuntana' },
   },
   {
     slug: 'golf-de-son-termes',
@@ -364,7 +361,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Golf+de+Son+Termes+Bunyola+Mallorca',
     webb: 'https://www.sontermes.com',
     tips: 'Perfekt för en lugn runda utan folkmassor',
-    redaktionellt: { typ: 'info', text: 'Lugn och avskild bana i bergsmiljö – populär bland dem som bor på ön' },
+    redaktionellt: { typ: 'info', text: 'Populär bland dem som bor på ön' },
   },
   {
     slug: 'pollensa-golf',
@@ -382,7 +379,7 @@ export const golfbanor: GolfCourse[] = [
     maps: 'https://maps.google.com/?q=Pollensa+Golf+Mallorca',
     webb: 'https://www.pollensagolf.com',
     tips: 'Lugnt och avslappnat – bra för nybörjare och rekreationsgolfare',
-    redaktionellt: { typ: 'tips', text: 'Vackert läge vid Tramuntanabergen – kombinera med en eftermiddag i Pollença' },
+    redaktionellt: { typ: 'tips', text: 'Kombinera med en eftermiddag i Pollença' },
   },
   {
     slug: 'club-de-golf-canyamel',
