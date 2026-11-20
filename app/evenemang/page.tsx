@@ -55,7 +55,7 @@ export default function EvenemangPage() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           sources={EVENEMANGSKÄLLOR}
           note="Varje evenemang länkar till sin egen källa. Datum som inte är publicerade är markerade som preliminära."
         />

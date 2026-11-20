@@ -56,7 +56,7 @@ const OMRÅDEN: Område[] = [
     intro:
       'I norr finns få inomhusaktiviteter, men en grotta och ett litet museum ligger nära. Vill ni ha mer: kör till Palma och kombinera två saker på samma dag.',
     tips: [
-      { slug: 'coves-de-campanet', text: 'Lugnare grotta i inlandet, ungefär 15 km sydväst om Pollença. Visningen tar omkring 40 minuter. Öppettiderna varierar – kontrollera före besöket.' },
+      { slug: 'coves-de-campanet', text: 'Lugnare grotta i inlandet, ungefär 15 km sydväst om Pollença. Visningen tar omkring 40 minuter. Kontrollera öppettiderna innan ni åker.' },
       {
         namn: 'Museu Monogràfic de Pollentia',
         text: 'Litet museum i Alcúdia med fynd från den romerska staden Pollentia, lagom stort för nyfikna barn. Ingår i biljetten till utgrävningarna. Kontrollera öppettiderna.',

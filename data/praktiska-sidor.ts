@@ -49,8 +49,8 @@ export const PRAKTISKA_SIDOR = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/TIB_route_412_bus_at_Costa_dels_Pins_Mallorca.jpg/1920px-TIB_route_412_bus_at_Costa_dels_Pins_Mallorca.jpg',
     imageAlt: 'Gul TIB-buss på linje 412 vid hållplatsen i Costa dels Pins',
     datePublished: '2026-11-18',
-    dateModified: '2026-11-18',
-    checked: '2026-11-18',
+    dateModified: '2026-11-20',
+    checked: '2026-11-20',
   },
   vinter: {
     path: '/mallorca-pa-vintern',
@@ -71,7 +71,7 @@ export const PRAKTISKA_SIDOR = {
     headline: 'Vandring och cykling på Mallorca',
     breadcrumb: 'Vandring och cykling',
     description:
-      'Vandra GR 221 med övernattning i refugis, Torrent de Pareis och Puig de Massanella, cykla Sa Calobra och Formentor – med säsong, regler och säkerhet i bergen.',
+      'Vandra GR 221 med övernattning i refugier, Torrent de Pareis och Puig de Massanella, cykla Sa Calobra och Formentor – med säsong, regler och säkerhet i bergen.',
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg',
     imageAlt: 'Serra de Tramuntana sedd från vandringsleden Camí de s\'Arxiduc vid Valldemossa',
     datePublished: '2026-11-18',

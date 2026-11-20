@@ -39,7 +39,7 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Praktiska tips',
     Icon: IconBulb,
-    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil gör det enklare – men i Alcúdiabukten och Palma klarar ni er utan. Hyr ni bil, boka barnstol i förväg.',
+    kortText: 'Res i juni eller september för bästa balansen mellan väder och trängsel. Hyrbil gör det enklare att se ön – boka barnstol i förväg. I Alcúdiabukten och Palma klarar ni er utan bil.',
     punkter: ['Bästa restid: juni eller september', 'Hyrbil gör det enklare', 'Restaurangerna öppnar ofta kl. 20'],
   },
 ];
@@ -50,7 +50,7 @@ export default function MallorcaMedBarnGuide() {
       {/* Hero */}
       <header className={t.hero}>
         <div className={t.inner}>
-          <p className={t.kicker}>Familjereseguide · 2026</p>
+          <p className={t.kicker}>Familjereseguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>
           <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         </div>
@@ -71,7 +71,7 @@ export default function MallorcaMedBarnGuide() {
             <div><dt>{ageLabel('0-3')}</dt><dd>Platja de Muro</dd></div>
             <div><dt>{ageLabel('4-7')}</dt><dd>Aqualand + Coves del Drac</dd></div>
             <div><dt>{ageLabel('8-12')}</dt><dd>Kajak, snorkling, Safari Zoo</dd></div>
-            <div><dt>{ageLabel('13+')}</dt><dd>Vattensport, karting och Western Water Park</dd></div>
+            <div><dt>{ageLabel('13+')}</dt><dd>Wakeboard och annan vattensport, vandring</dd></div>
           </dl>
         </section>
 
@@ -122,8 +122,8 @@ export default function MallorcaMedBarnGuide() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
-          note="Priser och öppettider ändras ofta – kontrollera på respektive webbplats före besöket. Fler uppgifter och källor finns på barnsidorna."
+          date="2026-11-20"
+          note="Priser och öppettider ändras ofta – kontrollera på respektive webbplats innan ni åker."
           sources={[
             { label: 'Aqualand', href: 'https://www.aqualand.es' },
             { label: 'Marineland Mallorca', href: 'https://www.marineland.es' },

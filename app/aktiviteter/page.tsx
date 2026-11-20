@@ -23,9 +23,9 @@ type BarnTips = { namn: string; plats: string; ålder: string; kategori: string;
 const barnvanligt: BarnTips[] = [
   { namn: 'Palma Aquarium', plats: 'Palma', ålder: 'Alla åldrar', kategori: 'Akvarium', beskrivning: 'Hajtanken Big Blue och omkring 700 arter. Köp biljetten online – ofta billigare och utan kö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG/1920px-Palma_Aquarium-Tibur%C3%B3n_puntas_negras.JPG', bildAlt: 'Svartfenad revhaj i en bassäng på Palma Aquarium' },
   { namn: 'Coves del Drac', plats: 'Porto Cristo', ålder: 'Alla åldrar', kategori: 'Grotta', beskrivning: 'Imponerande droppstensgrottor med en klassisk konsert på öns största underjordiska sjö.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Coves_del_Drac_01.jpg/1920px-Coves_del_Drac_01.jpg', bildAlt: 'Upplysta droppstenar inne i Coves del Drac' },
-  { namn: "Aqualand s'Arenal", plats: "s'Arenal", ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg', bildAlt: 'Vattenrutschbanor på Aqualand i s\'Arenal' },
+  { namn: 'Aqualand El Arenal', plats: "s'Arenal", ålder: 'Alla åldrar', kategori: 'Vattenpark', beskrivning: 'Öns största vattenpark. Kom tidigt på morgonen för kortare köer – heldagsupplevelse.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Aqualand_s%27Arenal_tobogan_blanc.jpg/1280px-Aqualand_s%27Arenal_tobogan_blanc.jpg', bildAlt: 'Vattenrutschbanor på Aqualand i s\'Arenal' },
   { namn: 'Marineland', plats: "Costa d'en Blanes", ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Delfiner, sjölejon och papegojor med shower – lagom stort för en halvdag.', bild: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Delfinschow_im_Marineland_Mallorca.jpg', bildAlt: 'Delfinshow på Marineland Mallorca med publik på läktaren' },
-  { namn: 'House of Katmandu', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: 'Det upp-och-nedvända huset med inomhusattraktioner, och vattenlek i Katopia Splash. Bra vid regnväder.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/House_of_Katmandu_Palmanova_Mallorca.jpg/1920px-House_of_Katmandu_Palmanova_Mallorca.jpg', bildAlt: 'Det upp-och-nedvända huset House of Katmandu i Magaluf' },
+  { namn: 'Katmandu Park', plats: 'Magaluf', ålder: '4+ år', kategori: 'Äventyr', beskrivning: 'Det upp-och-nedvända huset med inomhusattraktioner, och vattenlek i Katopia Splash. Bra vid regnväder.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/House_of_Katmandu_Palmanova_Mallorca.jpg/1920px-House_of_Katmandu_Palmanova_Mallorca.jpg', bildAlt: 'Det upp-och-nedvända huset House of Katmandu i Magaluf' },
   { namn: 'Safari Zoo Sa Coma', plats: 'Sa Coma', ålder: 'Alla åldrar', kategori: 'Djurpark', beskrivning: 'Kör genom safariparken i egen bil bland giraffer, zebror och strutsar.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Girafa_al_safari.jpg/1920px-Girafa_al_safari.jpg', bildAlt: 'Giraff i safariparken vid Sa Coma, fotograferad från bilen' },
   { namn: 'Glasbottenbåt Cala d\'Or', plats: 'Cala d\'Or', ålder: 'Alla åldrar', kategori: 'Båttur', beskrivning: 'Se undervattenslivet utan att bli blöt. Turerna tar från ett par timmar upp till en heldag, ofta med badstopp.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg/1920px-Porto_Cristo_harbour_glass-bottom_catamarans_off-season_December_2025.jpg', bildAlt: 'Glasbottenbåtar i hamnen i Porto Cristo (bilden är inte från Cala d\'Or)' },
   { namn: 'Jungle Parc', plats: 'Santa Ponça', ålder: '4+ år', kategori: 'Äventyr', beskrivning: 'Klätter- och linbanor bland träden. Juniorbanan är för barn från 4 år som är minst 105 cm långa.', bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg/1920px-Zip_line_over_the_falls_of_Li_Phi_at_sunrise_in_Don_Khon_Laos.jpg', bildAlt: 'Linbana över ett vattenfall – generisk bild, inte från Jungle Parc' },
@@ -74,7 +74,7 @@ const aktiviteter: Aktivitet[] = [
   },
   {
     titel: 'Båtliv & segling',
-    beskrivning: 'Utforska Mallorcas dramatiska kustlinje från havet – charter, guidade båtturer och glassbottenbåtar.',
+    beskrivning: 'Utforska Mallorcas dramatiska kustlinje från havet – charter, guidade båtturer och glasbottenbåtar.',
     Icon: IconWave,
     href: '/batutflykter-och-cabrera',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Regata_Conde_de_Barcelona_-_panoramio.jpg/1280px-Regata_Conde_de_Barcelona_-_panoramio.jpg', bildAlt: 'Segelbåtar i regatta i Palmabukten',
@@ -126,7 +126,7 @@ export default function AktiviteterPage() {
           <p className={styles.eyebrow}>För hela familjen</p>
           <h2 className={styles.sectionTitle}>Barnvänligt</h2>
           <p className={styles.intro}>
-            Vattenparker, grottor, djurparker och äventyrsparker – Mallorca hör till Europas bästa resmål för barnfamiljer. Här är våra handplockade favoriter.
+            Vattenparker, grottor, djurparker och äventyrsparker – här är våra handplockade favoriter.
           </p>
 
           <div className={styles.barnGrid}>
@@ -154,7 +154,7 @@ export default function AktiviteterPage() {
         </section>
 
         <div className={styles.section}>
-          <p className={styles.eyebrow}>LÄS VIDARE</p>
+          <p className={styles.eyebrow}>Läs vidare</p>
           <h2 className={styles.sectionTitle}>Fördjupa dig</h2>
           <div className={styles.readGrid}>
             {[
@@ -172,7 +172,7 @@ export default function AktiviteterPage() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           sources={[
             { label: 'Palma Aquarium', href: 'https://www.palmaaquarium.com' },
             { label: 'Jungle Parc', href: 'https://www.jungleparc.es' },

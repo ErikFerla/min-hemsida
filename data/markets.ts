@@ -174,7 +174,7 @@ export const marknader: Marknad[] = [
   {
     id: 'porto-colom',
     ort: 'Porto Colom',
-    område: 'Syd',
+    område: 'Öst',
     dagar: [2, 6],
     tid: 'förmiddag',
     vad: 'Liten veckomarknad i fiskebyn.',

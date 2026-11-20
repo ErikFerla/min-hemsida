@@ -1,13 +1,13 @@
 /**
  * Transportfakta som delas av /flyg och /hyrbil-och-transport (3.4, 3.5).
  *
- * Faktagranskning (3.7): allt nedan är kontrollerat 2026-11-18 mot källorna i `sources`.
+ * Faktagranskning (3.7): allt nedan är kontrollerat 2026-11-18 (och sedd över 2026-11-20) mot källorna i `sources`.
  * Priser är ungefärliga ("ca") och gäller 2026. Uppdatera `CHECKED` bara när uppgifterna
  * faktiskt har kontrollerats på nytt. Tidtabeller och flygbolagens utbud ändras varje säsong.
  */
 import type { Source } from '@/app/components/LastChecked';
 
-export const CHECKED = '2026-11-18';
+export const CHECKED = '2026-11-20';
 
 /** /hyrbil-och-transport: 2027-uppgifterna (gratis resor, EMT-taxa, Sóllertåget, Formentor) kontrollerades på nytt. */
 export const TRANSPORT_CHECKED = '2026-11-20';
@@ -226,7 +226,7 @@ export const avreseorter: Avreseort[] = [
     namn: 'Malmö Airport',
     kod: 'MMX',
     flygbolag: 'Charter med Ving',
-    sasong: 'Charter till Palma sommaren 2026. Reguljära direktflyg har vi inte kunnat belägga.',
+    sasong: 'Charter till Palma sommaren 2026.',
     flygtid: 'Ca 3 h',
   },
 ];

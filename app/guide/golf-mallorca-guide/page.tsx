@@ -30,7 +30,7 @@ const toppBanor: ToppBana[] = [
     hål: 18,
     par: 72,
     beskrivning: 'Son Gual är vår favorit bland Mallorcas golfbanor. Den ritades av Thomas Himmel, invigdes 2007 och har fin utsikt mot Tramuntanabergen. Fairways i mycket gott skick.',
-    insider: 'Boka starttid minst två veckor i förväg i mars–juni. Det är lättast att få tid tidigt på morgonen. Restaurangen är utmärkt efter rundan.',
+    insider: 'Boka starttid i god tid, särskilt i mars–juni. Det är lättast att få tid tidigt på morgonen. Restaurangen är utmärkt efter rundan.',
     bästTid: 'November–april (svalare och lugnare)',
   },
   {
@@ -89,7 +89,7 @@ export default function GolfMallorcaGuide() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Pula_Golfplatz_01.jpg/1920px-Pula_Golfplatz_01.jpg"
         alt="Green på Pula Golf vid Son Servera med Mallorcas berg i bakgrunden"
         photoCredit="Foto: Olaf Tausch / Wikimedia Commons (CC BY 3.0)"
-        kicker="Golfguide · Uppdaterad 2026"
+        kicker="Golfguide"
         title="De 5 bästa golfbanorna på Mallorca"
         subtitle="Vårt urval med motivering, prisnivå och insidertips – och när på året det är bäst att spela."
         height="55vh"
@@ -201,7 +201,7 @@ export default function GolfMallorcaGuide() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           sources={[
             { label: 'Arabella Golf Mallorca: banguide 2026', href: 'https://arabellagolfmallorca.com/wp-content/uploads/2026/04/GSV_CourseGuide2026_low.pdf' },
             { label: 'Golf Son Gual', href: 'https://www.golfsongual.com' },

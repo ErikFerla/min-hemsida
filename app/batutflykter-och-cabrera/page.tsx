@@ -14,7 +14,7 @@ const HEADLINE = 'Båtutflykter och Cabrera';
 const DESCRIPTION =
   'Båtturer på Mallorca: Sa Calobra från Port de Sóller, Formentor från Port de Pollença, glasbottenbåtar, katamaraner och nationalparken Cabrera.';
 const IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/View_of_Isla_de_Cabrera_National_Park%2C_Mallorca_%28Spain%29_%2823407630506%29.jpg/1920px-View_of_Isla_de_Cabrera_National_Park%2C_Mallorca_%28Spain%29_%2823407630506%29.jpg';
-const CHECKED = '2026-11-18';
+const CHECKED = '2026-11-20';
 
 export const metadata = buildPageMetadata({
   path: PATH,
@@ -36,7 +36,7 @@ const jsonLd = [
     headline: HEADLINE,
     description: DESCRIPTION,
     image: [IMAGE],
-    datePublished: CHECKED,
+    datePublished: '2026-11-18',
     dateModified: CHECKED,
     inLanguage: 'sv-SE',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE_URL}${PATH}` },
@@ -86,7 +86,7 @@ export default function BatutflykterPage() {
 
         <p className={styles.lead}>
           Vissa av Mallorcas vackraste platser ser du bäst från havet. Här är de klassiska båtturerna
-          och hur du tar dig till Cabrera, Spaniens största nationalpark. Vi länkar inte till
+          och hur du tar dig till Cabrera, Spaniens största nationalpark räknat med havet. Vi länkar inte till
           bokningssidor – boka direkt hos rederierna i hamnen eller på deras egna webbplatser. Alla
           båtturer är väderberoende och kan ställas in när det blåser.
         </p>
