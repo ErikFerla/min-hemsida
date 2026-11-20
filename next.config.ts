@@ -58,6 +58,15 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  turbopack: {
+    resolveAlias: {
+      // Nexts polyfill-modul utan polyfills som målwebbläsarna redan har (se filen). Nyckeln är
+      // den relativa importen i next/dist/(esm/)client/app-globals.js – Turbopack matchar
+      // aliaset mot importsträngen, inte mot den upplösta sökvägen. Kontrollera efter
+      // Next-uppgraderingar att "trimStart" inte finns i .next/static/chunks utom i noModule-filen.
+      '../build/polyfills/polyfill-module': './app/lib/polyfills/next-polyfill-module.js',
+    },
+  },
   images: {
     remotePatterns: [
       {
@@ -76,6 +85,12 @@ const nextConfig: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [390, 768, 1024, 1280, 1600],
     imageSizes: [64, 128, 256, 384, 600],
+    // 75 = standard (next/image); 60 = hjältebilderna (HERO_QUALITY i app/lib/image-url.ts).
+    qualities: [60, 75],
+    // Commons-thumbs saknar Cache-Control, så optimerade bilder fick standard-TTL:n 4 h och
+    // omkodades (hämta ~0,5 MB JPEG + AVIF-kodning) när cachen gått ut – långsamt för den som
+    // råkar komma då (t.ex. PageSpeed). Bild-URL:erna är i praktiken oföränderliga: 31 dagar.
+    minimumCacheTTL: 2678400,
   },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];
