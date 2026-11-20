@@ -2,7 +2,7 @@ import Link from 'next/link';
 import TipBox from '@/components/TipBox';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 import LastChecked from '@/app/components/LastChecked';
-import { CHECKED, SOURCES } from '@/data/transport';
+import { SOURCES, TRANSPORT_CHECKED } from '@/data/transport';
 import h from '../guide/headings.module.css';
 import TransferTabell from './TransferTabell';
 import styles from './page.module.css';
@@ -138,8 +138,9 @@ export default function HyrbilOchTransport() {
           <p className={styles.text}>
             Vägen ut mot fyren på Cap de Formentor stängs för privatbilar på dagtid under sommarhalvåret. 2026 gällde
             det 15 maj–18 oktober, kl. 10–22. Ta i stället buss 334 från Alcúdia via Port de Pollença. Att köra
-            förbi bommarna utan tillstånd ger böter på 100–200 €. Datumen för 2027 meddelas av den spanska
-            trafikmyndigheten DGT.
+            förbi bommarna utan tillstånd ger böter på 100–200 €. Begränsningen har brukat gälla från mitten av maj till
+            mitten av oktober. Datumen för 2027 var inte beslutade i november 2026 – de bestäms av den spanska
+            trafikmyndigheten DGT tillsammans med Consell de Mallorca och Pollença kommun.
           </p>
         </section>
 
@@ -160,8 +161,9 @@ export default function HyrbilOchTransport() {
             <li>
               <strong>Ungefärliga priser (kontrollera aktuella priser hos TIB):</strong> flygbussen A11 till sydvästkusten kostar ca 4–7 € och de långa
               flygbussarna till norra och östra kusten ca 8–14 €, beroende på om du betalar med kort eller kontant.
-              Stadsbussen A1 från flygplatsen till Palma kostar ca 5 € kontant. Priserna ändras – Palma har aviserat
-              höjda busspriser.
+              Stadsbussen A1 från flygplatsen till Palma kostar ca 5 € kontant (2026). Palmas kommun har under hösten
+              2026 godkänt en höjning av EMT:s enkelbiljett vid kontant betalning från 2 € till 3 € från 2027. När de nya priserna börjar gälla och
+              vad A1 kommer att kosta var inte publicerat hos EMT i november 2026.
             </li>
             <li>
               <strong>Sommar och vinter.</strong> TIB kör sommartidtabell från våren till slutet av oktober och
@@ -171,7 +173,8 @@ export default function HyrbilOchTransport() {
             </li>
             <li>
               <strong>Bor du på ön?</strong> Med det personliga Intermodal- eller Única-kortet är resor med TIB-buss,
-              tåg och metro gratis under 2026. Om det fortsätter 2027 var inte beslutat i november 2026. Kortet kräver ansökan; villkoren finns hos TIB.
+              tåg och metro gratis under 2026. Om det fortsätter 2027 var inte beslutat i november 2026 – förra året
+              fattade regeringen beslutet i mitten av december. Kortet kräver ansökan; villkoren finns hos TIB.
             </li>
           </ul>
           <p className={styles.text}>
@@ -208,8 +211,10 @@ export default function HyrbilOchTransport() {
             Sóller tar du spårvagnen vidare ner till{' '}
             <Link href="/port-de-soller" className={styles.inlineLink}>Port de Sóller</Link>. Tåget är ett eget bolag och
             ingår inte i TIB:s system. För turister kostar en enkel resa Palma–Sóller drygt 20 €, och tur och retur med
-            spårvagnen ca 40 € (2026). Tåget brukar ha ett uppehåll för underhåll på vintern – vintern 2025/26 öppnade
-            det igen 1 februari – så kolla tidtabellen hos Ferrocarril de Sóller innan du åker.
+            spårvagnen ca 40 € (2026). Priserna för 2027 var inte publicerade i november 2026. Vintern 2026/27 står tåget
+            still för underhåll från 23 november 2026 och går igen från 1 februari 2027 – då tar du TIB-buss 204 mellan
+            Palma och Sóller. Spårvagnen står still 23 november–21 december 2026 och ersätts under tiden av buss mellan
+            Sóller och Port de Sóller.
           </p>
         </section>
 
@@ -258,7 +263,7 @@ export default function HyrbilOchTransport() {
         </TipBox>
 
         <LastChecked
-          date={CHECKED}
+          date={TRANSPORT_CHECKED}
           note="Priser och tidtabeller ändras, särskilt mellan sommar- och vintersäsong. Kontrollera hos TIB, SFM och Ferrocarril de Sóller innan du reser."
           sources={[
             SOURCES.hyrbilsforsakring,
@@ -271,6 +276,7 @@ export default function HyrbilOchTransport() {
             SOURCES.formentor2026,
             SOURCES.tibFragor,
             SOURCES.emtKort,
+            SOURCES.emtTaxa2027,
             SOURCES.tibGratis,
             SOURCES.tibSommar,
             SOURCES.tibVinter,

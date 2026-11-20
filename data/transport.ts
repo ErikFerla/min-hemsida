@@ -9,6 +9,9 @@ import type { Source } from '@/app/components/LastChecked';
 
 export const CHECKED = '2026-11-18';
 
+/** /hyrbil-och-transport: 2027-uppgifterna (gratis resor, EMT-taxa, Sóllertåget, Formentor) kontrollerades på nytt. */
+export const TRANSPORT_CHECKED = '2026-11-20';
+
 /* ------------------------------ Källor ------------------------------ */
 
 export const SOURCES = {
@@ -41,8 +44,8 @@ export const SOURCES = {
     href: 'https://intranet.caib.es/eboibfront/pdf/es/2023/77/1138782',
   },
   sollerVinter: {
-    label: 'Mallorcadiario: Sóllertågets vinteruppehåll',
-    href: 'https://www.mallorcadiario.com/el-tren-de-soller-cierra-y-reabrira-el-1-de-febrero-de-2026',
+    label: 'Fibwi Diario: Sóllertågets och spårvagnens vinteruppehåll 2026/27',
+    href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html',
   },
   sollerTunnel: {
     label: 'Última Hora: Sóllertunneln avgiftsfri',
@@ -71,6 +74,10 @@ export const SOURCES = {
   acire: {
     label: 'Mallorca Map: trafikböter och ACIRE-zoner',
     href: 'https://mallorca-map.com/en/tips/traffic-fines-mallorca',
+  },
+  emtTaxa2027: {
+    label: 'Forbes España: EMT-biljetten höjs till 3 € från 2027',
+    href: 'https://forbes.es/baleares/actualidad-baleares/1053966/el-billete-sencillo-de-la-emt-de-palma-mas-cerca-de-pasar-de-dos-a-tres-euros-a-partir-del-ano-que-viene/',
   },
   emtKort: {
     label: 'TIB: bankkortsbetalning i alla EMT- och TIB-bussar',

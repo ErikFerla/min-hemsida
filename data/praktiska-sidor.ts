@@ -36,8 +36,8 @@ export const PRAKTISKA_SIDOR = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg/1920px-Palma_Cathedral_%28La_Seu%29_and_reflection_at_Parc_de_la_Mar.jpg',
     imageAlt: 'Katedralen La Seu i Palma speglad i dammen i Parc de la Mar',
     datePublished: '2026-11-18',
-    dateModified: '2026-11-18',
-    checked: '2026-11-18',
+    dateModified: '2026-11-20',
+    checked: '2026-11-20',
   },
   praktiskt: {
     path: '/praktiskt',
@@ -62,8 +62,8 @@ export const PRAKTISKA_SIDOR = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Almendro_en_flor_-_panoramio.jpg/1920px-Almendro_en_flor_-_panoramio.jpg',
     imageAlt: 'Blommande mandelträd mot blå himmel',
     datePublished: '2026-11-18',
-    dateModified: '2026-11-18',
-    checked: '2026-11-18',
+    dateModified: '2026-11-20',
+    checked: '2026-11-20',
   },
   vandring: {
     path: '/vandring-och-cykling',
@@ -75,8 +75,8 @@ export const PRAKTISKA_SIDOR = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Serra_de_Tramuntana_Valldemossa_01.jpg/1920px-Serra_de_Tramuntana_Valldemossa_01.jpg',
     imageAlt: 'Serra de Tramuntana sedd från vandringsleden Camí de s\'Arxiduc vid Valldemossa',
     datePublished: '2026-11-18',
-    dateModified: '2026-11-18',
-    checked: '2026-11-18',
+    dateModified: '2026-11-20',
+    checked: '2026-11-20',
   },
 } as const satisfies Record<string, PraktiskSida>;
 
