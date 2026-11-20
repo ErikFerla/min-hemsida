@@ -1,6 +1,7 @@
 /* /barn (navsidan), designsystem 5.4. Ordning: hero → åldersfilter (fäst under sidhuvudet på
    mobil) → intro + "5 råd" → kategorier (rutnät på dator, rad som skrollar i sidled på mobil)
-   → alla aktiviteter. Rubriker och p får storlek från basreglerna i globals.css. */
+   → guider för familjen → alla aktiviteter (under 1024 px de 12 första + "Visa alla").
+   Rubriker och p får storlek från basreglerna i globals.css. */
 
 .page {
   background: var(--color-bg);
@@ -242,4 +243,17 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* "Visa alla N aktiviteter" (ShowAllActivities) – bara under 1024 px, där listan kortas */
+.showAll {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .showAll {
+    display: none;
+  }
 }
