@@ -107,6 +107,7 @@ export default function MallorcaMedBarnGuide() {
           <div className={styles.mapFrame}>
             <Map
               markers={barnMapMarkers}
+              tone="sea"
               height="clamp(320px, 60vh, 450px)"
               ariaLabel="Karta över familjeaktiviteter på Mallorca"
               listLabel="Visa alla platser som lista"

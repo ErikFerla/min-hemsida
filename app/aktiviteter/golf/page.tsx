@@ -72,28 +72,12 @@ export default function GolfPage() {
           <Map
             markers={golfMarkers}
             pinVariant="flag"
+            tone="olive"
             height="clamp(380px, 60vh, 560px)"
             ariaLabel={`Karta över alla ${golfbanor.length} golfbanor på Mallorca`}
             ctaLabel="Se banan"
-            listLabel={false}
+            listLabel="Visa alla banor som textlista"
           />
-
-          {/* Textfallback – alltid synlig, både a11y- och SEO-fördel */}
-          <details className={styles.textList}>
-            <summary className={styles.textListSummary}>
-              Visa alla banor som textlista
-            </summary>
-            <ul className={styles.textListItems}>
-              {golfbanor.map(b => (
-                <li key={b.slug} className={styles.textListItem}>
-                  <a href={`#${b.slug}`} className={styles.textListLink}>
-                    {b.namn}
-                  </a>{' '}
-                  <span className={styles.textListPlace}>· {b.plats}</span>
-                </li>
-              ))}
-            </ul>
-          </details>
         </section>
 
         <div className={styles.listHeader}>
