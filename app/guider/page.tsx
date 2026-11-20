@@ -140,7 +140,7 @@ const merAttUtforska: { label: string; href: string }[] = [
   { label: 'Marknader', href: '/marknader' },
   { label: 'Städer & byar', href: '/byar' },
   { label: 'Alla stränder', href: '/strandar' },
-  { label: 'Barnaktiviteter', href: '/barn' },
+  { label: 'Med barn', href: '/barn' },
   { label: 'Mat & vin', href: '/mat' },
   { label: 'Vingårdar', href: '/vingardar' },
   { label: 'Aktiviteter', href: '/aktiviteter' },

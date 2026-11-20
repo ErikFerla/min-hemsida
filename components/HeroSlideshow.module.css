@@ -34,7 +34,7 @@
   z-index: 1;
 }
 
-/* Text: samma typografi som HeroImage (5.1) – etikett, display, ingress */
+/* Text: fast h1 + ingress + genvägar (samma typografi som HeroImage, 5.1), bildtext under */
 .text {
   position: absolute;
   left: 0;
@@ -52,14 +52,83 @@
   gap: var(--space-3);
   max-width: var(--w-wide);
   margin: 0 auto;
-  padding: 0 var(--gutter) var(--space-8);
+  /* Plats för kontrollraden (paus + prickar) under bildtexten */
+  padding: 0 var(--gutter) calc(var(--space-8) + var(--space-2));
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
-.place {
+.title {
+  max-width: 18ch;
   margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: 700;
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-display);
+  color: inherit;
+}
+
+.sub {
+  max-width: 52ch;
+  margin: 0;
+  font-size: var(--text-lead);
+  line-height: var(--lh-lead);
+}
+
+/* Genvägar per målgrupp: ljusa chips på mörk bild, 44 px tryckyta */
+.shortcuts {
+  /* Nollställ den globala mobilpaddingen för nav (globals.css) */
+  width: auto;
+  margin-top: var(--space-1);
+  padding: 0;
+  pointer-events: auto;
+}
+
+.shortcutList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcut {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-size: var(--text-small);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  text-shadow: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+@media (hover: hover) {
+  .shortcut:hover {
+    background: var(--color-ink);
+    color: var(--color-on-dark);
+  }
+}
+
+/* Bildtext: platsen som liten etikett + länk till sidan om platsen */
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-small);
+  line-height: var(--lh-small);
+}
+
+.place {
   /* Mörk platta (som bildetiketten på korten) – etiketten klarar 4,5:1 oavsett bild */
-  align-self: flex-start;
   padding: var(--space-1) var(--space-2);
   border-radius: var(--radius-sm);
   background: var(--hero-kicker-bg);
@@ -71,29 +140,19 @@
   text-transform: uppercase;
 }
 
-/* Sidans enda h1 finns i app/page.tsx – bildrubriken är därför en p */
-.title {
-  max-width: 16ch;
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: var(--text-display);
-  font-weight: 700;
-  line-height: var(--lh-display);
-  letter-spacing: var(--tracking-display);
-}
-
-.sub {
-  max-width: 52ch;
-  margin: 0;
-  font-size: var(--text-lead);
-  line-height: var(--lh-lead);
-}
-
-/* Formen kommer från .btn .btn-primary i globals.css */
-.cta {
-  margin-top: var(--space-2);
-  text-shadow: none;
+.captionLink {
+  color: var(--color-on-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   pointer-events: auto;
+}
+
+/* Mobil: lägre hero så att genvägskorten kommer upp tidigare */
+@media (max-width: 639px) {
+  .hero {
+    height: clamp(520px, 78svh, 640px);
+  }
 }
 
 .controls {
@@ -160,7 +219,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .slide,
-  .dot {
+  .dot,
+  .shortcut {
     transition: none;
   }
 }

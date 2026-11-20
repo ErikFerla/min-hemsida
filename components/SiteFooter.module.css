@@ -149,8 +149,8 @@
 
 .toggleIcon {
   display: inline-block;
+  flex-shrink: 0;
   color: var(--color-on-dark-muted);
-  font-size: var(--text-label);
   transition: transform 0.2s;
 }
 .toggle[aria-expanded='true'] .toggleIcon {
