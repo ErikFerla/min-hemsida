@@ -16,7 +16,7 @@ const AVAILABLE_CATEGORIES = CATEGORIES.filter((c) => c.available);
 
 const META_TITLE = `Mallorca med barn – ${ACTIVITIES.length} barnaktiviteter`;
 const META_DESCRIPTION =
-  'Barnaktiviteter på Mallorca utöver stranden – vattenparker, djurparker, grottor, äventyrsparker, museer, natur och regndagstips. Filtrera efter ålder.';
+  'Barnaktiviteter på Mallorca utöver stranden – vattenparker, djurparker, grottor, äventyr, museer, natur, aktiva dagar och regndagstips. Filtrera efter ålder.';
 
 export const metadata: Metadata = {
   title: META_TITLE,
@@ -56,6 +56,9 @@ const INSIDER_TIPS: string[] = [
 
 const LIST_ID = 'barn-aktiviteter';
 
+/** Alla kategoriers källor, utan dubbletter (samma källa kan gälla flera kategorier). */
+const HUB_SOURCES = [...new Map(Object.values(BARN_SOURCES).flat().map((s) => [s.href, s])).values()];
+
 const FAMILJEGUIDER: { label: string; href: string }[] = [
   { label: 'Planera familjesemestern', href: '/guide/mallorca-med-barn' },
   { label: 'Mallorca med barn månad för månad', href: '/guide/mallorca-med-barn-manad-for-manad' },
@@ -92,7 +95,7 @@ export default function BarnHubPage() {
         imageAlt="Det gamla trätåget till Sóller vid stationen i Sóller"
         kicker="Familjeresan"
         title="Mallorca med barn"
-        subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker, grottor, äventyr, museer och natur"
+        subtitle="Handplockade aktiviteter utöver stranden – vattenparker, djurparker, grottor, äventyr, museer, natur och aktiva dagar"
       />
 
       <div className={styles.inner}>
@@ -199,8 +202,8 @@ export default function BarnHubPage() {
 
         <LastChecked
           date={BARN_CHECKED}
-          note="Datumet gäller grottor, äventyrsparker, museer och natur. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket."
-          sources={Object.values(BARN_SOURCES).flat()}
+          note="Datumet gäller grottor, äventyrsparker, museer, natur, aktiv dag och de aktiviteter som lades till eller ändrades i november 2026. Priser och öppettider ändras ofta – kontrollera alltid på respektive webbplats före besöket."
+          sources={HUB_SOURCES}
         />
       </div>
     </div>
