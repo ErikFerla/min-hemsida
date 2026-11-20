@@ -313,7 +313,7 @@ export default function CityTemplate({ city }: { city: City }) {
 
           <div className={styles.main}>
             <div className={styles.sections}>
-              <TipBox heading="Insidertips" as="h2">
+              <TipBox heading="Bra att veta" as="h2">
                 <ul>
                   {city.tips.map((tip, i) => (
                     <li key={i}><RichText value={tip} /></li>
