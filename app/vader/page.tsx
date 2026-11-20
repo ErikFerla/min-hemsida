@@ -3,7 +3,7 @@ import Link from 'next/link';
 import WeatherForecast from './WeatherForecast';
 import ClimateTable from './ClimateTable';
 import LastChecked from '@/app/components/LastChecked';
-import { CLIMATE, CLIMATE_CHECKED, CLIMATE_SOURCES, MET_NO_SOURCE, fmt } from '@/data/climate';
+import { CLIMATE, CLIMATE_CHECKED, CLIMATE_SOURCES, MET_NO_SOURCE, fmt0 } from '@/data/climate';
 import { WEATHER_LOCATIONS } from './locations';
 import styles from './vader.module.css';
 import h from '../guide/headings.module.css';
@@ -13,7 +13,6 @@ const byMonth = (n: number) => CLIMATE[n - 1];
 
 export default function Vader() {
   const jul = byMonth(7);
-  const aug = byMonth(8);
   const jan = byMonth(1);
   const okt = byMonth(10);
   return (
@@ -49,8 +48,8 @@ export default function Vader() {
           <h2 id="klimat-heading" className={h.h2}>Klimatet månad för månad</h2>
           <p className={styles.climateLead}>
             Prognosen ovan gäller de närmaste dagarna. Planerar du längre fram ger normalvärdena en bättre bild:
-            i juli och augusti ligger dagens högsta temperatur kring {fmt(jul.max)}–{fmt(aug.max)} °C i Palma och
-            havet är som varmast, medan januari ger runt {fmt(jan.max)} °C på dagen och kalla nätter. Mest regn
+            i juli och augusti ligger dagens högsta temperatur kring {fmt0(jul.max)} °C i Palma och
+            havet är som varmast, medan januari ger runt {fmt0(jan.max)} °C på dagen och kalla nätter. Mest regn
             faller under hösten – oktober är den blötaste månaden med i snitt {okt.rainMm} mm.
           </p>
           <ClimateTable />

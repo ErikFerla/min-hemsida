@@ -90,7 +90,7 @@ export default function MarknaderPage() {
         </section>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           sources={MARKNADSKÄLLOR}
           note="Dag och ort för varje marknad är kontrollerade mot källan som anges på marknaden. Tiderna skiljer sig något mellan källorna och är därför ungefärliga."
         />

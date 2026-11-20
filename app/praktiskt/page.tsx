@@ -52,8 +52,8 @@ export default function Praktiskt() {
         <h2 className={`${h.h2} ${styles.h2}`}>Pass och id-kort</h2>
         <p>
           Spanien ingår i EU och Schengen, så som svensk medborgare reser du med giltigt pass eller nationellt id-kort
-          från Polisen. Andra id-kort och körkort gäller inte som resehandling. Flygbolagen kräver ändå en giltig
-          id-handling vid ombordstigning.
+          från Polisen. Andra id-kort och körkort gäller inte som resehandling. Flygbolagen kontrollerar id-handling
+          vid ombordstigning.
         </p>
         <p>
           Barn behöver egen resehandling. Polisen rekommenderar pass eller nationellt id-kort även inom Schengen.

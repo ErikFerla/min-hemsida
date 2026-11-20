@@ -10,7 +10,7 @@ export type FooterSection = {
 
 export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
   {
-    heading: 'UTFORSKA',
+    heading: 'Utforska',
     links: [
       ['Städer & byar', '/byar'],
       ['Stränder', '/strandar'],
@@ -27,7 +27,7 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
     ],
   },
   {
-    heading: 'GUIDER',
+    heading: 'Guider',
     links: [
       ['Bästa tiden att resa', '/guide/basta-tid-resa-mallorca'],
       ['Familjesemester', '/guide/mallorca-med-barn'],
@@ -41,7 +41,7 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
     ],
   },
   {
-    heading: 'PLANERA',
+    heading: 'Planera',
     links: [
       ['Resplan dag för dag', '/resplan'],
       ['Var ska man bo?', '/var-ska-man-bo'],
@@ -53,7 +53,7 @@ export const FOOTER_SECTIONS: ReadonlyArray<FooterSection> = [
     ],
   },
   {
-    heading: 'BARNVÄNLIGT',
+    heading: 'Barnvänligt',
     links: [
       ['Mallorca med barn', '/barn'],
       ['Vattenparker', '/barn/vattenparker'],

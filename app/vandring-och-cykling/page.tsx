@@ -16,7 +16,7 @@ export default function VandringOchCykling() {
       kicker="Aktiviteter · Serra de Tramuntana"
       subtitle="Långleden GR 221, klassiska bergsturer och cykelstigningarna som proffsen tränar på."
       toc={[
-        { id: 'gr-221', label: 'GR 221 och refugis' },
+        { id: 'gr-221', label: 'GR 221 och refugier' },
         { id: 'klassiska-turer', label: 'Klassiska vandringar' },
         { id: 'cykling', label: 'Cykling' },
         { id: 'sasong', label: 'Bästa säsong' },
@@ -43,7 +43,7 @@ export default function VandringOchCykling() {
         { label: 'DGT – tillträde till Formentor-fyren', href: 'https://www.dgt.es/conoce-el-estado-del-trafico/rutas-de-interes/trafico-acceso-faro-de-formentor/' },
         { label: 'Mallorcadiario – brandrisksäsongen', href: 'https://www.mallorcadiario.com/el-1-de-mayo-comienza-la-temporada-de-alto-riesgo-de-incendio' },
       ]}
-      checkedNote="Tider och längder är ungefärliga och varierar mellan källor och med kondition. Regler för refugis, privat mark och vägen till Formentor kan ändras – kontrollera inför turen."
+      checkedNote="Tider och längder är ungefärliga och varierar mellan källor och med kondition. Regler för refugier, privat mark och vägen till Formentor kan ändras – kontrollera inför turen."
     >
       <p className={styles.lead}>
         Serra de Tramuntana, bergskedjan längs Mallorcas nordvästkust, är världsarv och ett av Europas finaste områden
@@ -89,7 +89,7 @@ export default function VandringOchCykling() {
           </table>
         </div>
         <p className={styles.note}>
-          Den sydvästra delen av leden är inte helt utbyggd och alla refugier där är inte öppna. Kontrollera aktuell
+          Den sydvästra delen av leden är inte helt utbyggd och inte alla refugier där är öppna. Kontrollera aktuell
           status och etappindelning hos Consell de Mallorca innan du planerar.
         </p>
       </section>
@@ -101,8 +101,8 @@ export default function VandringOchCykling() {
             <p className={styles.cardTitle}>Torrent de Pareis</p>
             <p className={styles.cardMeta}>Mycket krävande · ca 5–8 tim</p>
             <p>
-              Ravinen från Escorca ned till havet vid Sa Calobra är Mallorcas mest berömda – och mest underskattade –
-              tur. Det är ingen vanlig vandring utan en ravinvandring med stora block, klättring och partier där du
+              Ravinen från Escorca ned till havet vid Sa Calobra är Mallorcas mest berömda tur – och den som oftast
+              underskattas. Det är ingen vanlig vandring utan en ravinvandring med stora block, klättring och partier där du
               behöver använda händerna. Mobiltäckningen är nästan obefintlig.
             </p>
             <p>
