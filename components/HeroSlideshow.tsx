@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type RefObject } from 'react';
 import { HERO_QUALITY, isUnsplash, sizedImageSrcSet, sizedImageUrl } from '@/app/lib/image-url';
 import styles from './HeroSlideshow.module.css';
 
@@ -12,9 +12,47 @@ type Bild = {
   plats: string;
   lank: string;
   cta: string;
+  /**
+   * Kort, tyst film som spelas i loop ovanpå bilden (HeroFilm nedan). `bas` är då filmens poster:
+   * sidans LCP-bild, och det enda som visas vid reducerad rörelse, Save-Data och långsam
+   * anslutning. null/utelämnad = bara bilden.
+   */
+  video?: HeroVideo | null;
 };
 
-const bilder: Bild[] = [
+type HeroVideo = {
+  /** VP9 (valfri) – listas först, så att webbläsare som klarar den väljer den. */
+  webm?: string;
+  /** H.264 – fungerar överallt. */
+  mp4: string;
+  /** Klippets första bildruta (JPEG, 1280 px) – samma fil som bildens `bas`. */
+  poster: string;
+};
+
+/**
+ * Startsidans film: Pexels "Aerial View of Mallorca's Stunning Beach" (id 31819589, Oskar Gross,
+ * Pexels License, kreditpost i data/credits/d1.ts). Filerna skapas med
+ * scripts/encode-hero-video.sh – se README, "Startsidans film".
+ *
+ * Med film blir den här bilden första bild i bildspelet och ersätter strandbilden (samma länk).
+ * Sätt `video: null` för att stänga av filmen: då är bildspelet som före filmen (Palma först,
+ * Es Trenc som strandbild) och den här posten används inte – ta då också bort kreditposten.
+ */
+const filmBild: Bild = {
+  bas: '/video/hero-strand-poster.jpg',
+  alt: 'Flygbild över en lång sandstrand med turkost vatten och tallskog på Mallorca',
+  rubrik: 'Stränder och vikar',
+  plats: 'Mallorcas kust · Från ovan',
+  lank: '/strandar',
+  cta: 'Utforska stränderna',
+  video: {
+    webm: '/video/hero-strand.webm',
+    mp4: '/video/hero-strand.mp4',
+    poster: '/video/hero-strand-poster.jpg',
+  },
+};
+
+const fotoBilder: Bild[] = [
   {
     bas: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg/1920px-Catedral_de_Santa_Mar%C3%ADa%2C_Palma_de_Mallorca%2C_Espa%C3%B1a%2C_2022-10-06%2C_DD_16-18_HDR.jpg',
     alt: 'Katedralen La Seu i Palma de Mallorca i kvällsljus, med stadsmuren framför',
@@ -73,6 +111,10 @@ const bilder: Bild[] = [
   },
 ];
 
+const bilder: Bild[] = filmBild.video
+  ? [filmBild, ...fotoBilder.filter((b) => b.lank !== filmBild.lank)]
+  : fotoBilder;
+
 const INTERVALL_MS = 6000;
 const SRCSET_BREDDER = [640, 960, 1280, 1600, 2000];
 
@@ -96,6 +138,53 @@ function prenumereraRM(cb: () => void) {
 const rmKlient = () => window.matchMedia(RM_QUERY).matches;
 // På servern antar vi reducerad rörelse så att inget autospel startar före hydrering.
 const rmServer = () => true;
+
+/*
+ * Snål dataanvändning: Save-Data, (prefers-reduced-data: reduce) eller långsam anslutning
+ * (slow-2g/2g/3g enligt Network Information API). Då visas bara filmens poster. Webbläsare utan
+ * API:t (Safari, Firefox) räknas som snabba.
+ */
+type Natinfo = EventTarget & { saveData?: boolean; effectiveType?: string };
+const LANGSAMMA = new Set(['slow-2g', '2g', '3g']);
+const RD_QUERY = '(prefers-reduced-data: reduce)';
+function natinfo(): Natinfo | undefined {
+  return (navigator as Navigator & { connection?: Natinfo }).connection;
+}
+function prenumereraNat(cb: () => void) {
+  const c = natinfo();
+  c?.addEventListener('change', cb);
+  return () => c?.removeEventListener('change', cb);
+}
+const snalKlient = () => {
+  const c = natinfo();
+  return c?.saveData === true || LANGSAMMA.has(c?.effectiveType ?? '') || window.matchMedia(RD_QUERY).matches;
+};
+const snalServer = () => true;
+
+/* Fliken dold (Page Visibility API) */
+function prenumereraSynlighet(cb: () => void) {
+  document.addEventListener('visibilitychange', cb);
+  return () => document.removeEventListener('visibilitychange', cb);
+}
+const doldKlient = () => document.hidden;
+const doldServer = () => true;
+
+/** Kör `cb` när sidan har laddat klart och webbläsaren har en ledig stund. Returnerar avbryt. */
+function efterLoad(cb: () => void): () => void {
+  let idle: number | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const nar = () => {
+    if ('requestIdleCallback' in window) idle = window.requestIdleCallback(cb, { timeout: 2000 });
+    else timer = setTimeout(cb, 200);
+  };
+  if (document.readyState === 'complete') nar();
+  else window.addEventListener('load', nar, { once: true });
+  return () => {
+    window.removeEventListener('load', nar);
+    if (idle !== undefined) window.cancelIdleCallback(idle);
+    if (timer !== undefined) clearTimeout(timer);
+  };
+}
 
 /** Fast text över bildspelet: sajtens h1, ingress och genvägar per målgrupp (app/page.tsx). */
 type Props = {
@@ -134,29 +223,36 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
   // i god tid före första bytet efter INTERVALL_MS – men bara när bildspelet spelar.
   useEffect(() => {
     if (!spelar) return;
-    let idle: number | undefined;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const forladda = () => {
-      const lagg = () => setLaddade((prev) => (prev.includes(1) ? prev : [...prev, 1]));
-      if ('requestIdleCallback' in window) idle = window.requestIdleCallback(lagg, { timeout: 2000 });
-      else timer = setTimeout(lagg, 200);
-    };
-    if (document.readyState === 'complete') forladda();
-    else window.addEventListener('load', forladda, { once: true });
-    return () => {
-      window.removeEventListener('load', forladda);
-      if (idle !== undefined) window.cancelIdleCallback(idle);
-      if (timer !== undefined) clearTimeout(timer);
-    };
+    return efterLoad(() => setLaddade((prev) => (prev.includes(1) ? prev : [...prev, 1])));
   }, [spelar]);
 
+  // Filmen (första bilden) monteras först efter load + idle, och bara om rörelse och dataläge
+  // tillåter det och bildspelet spelar. Postern (första <img>) är och förblir LCP-elementet.
+  const film = bilder[0].video ?? null;
+  const snalData = useSyncExternalStore(prenumereraNat, snalKlient, snalServer);
+  const flikDold = useSyncExternalStore(prenumereraSynlighet, doldKlient, doldServer);
+  const filmTillaten = film !== null && !reduceraRorelse && !snalData;
+  const [filmMonterad, setFilmMonterad] = useState(false);
+  // Hur länge filmen har kvar (ms) när den började spela; null = spelar inte.
+  const [filmKvarMs, setFilmKvarMs] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!filmTillaten || !spelar || filmMonterad) return;
+    return efterLoad(() => setFilmMonterad(true));
+  }, [filmTillaten, spelar, filmMonterad]);
+
+  // Första bilden står kvar tills filmen har gått ett helt varv (minst INTERVALL_MS) – ett byte
+  // mitt i drönarens rörelse ser avhugget ut. Spelar filmen inte (laddas, pausad, bara poster)
+  // gäller INTERVALL_MS som för de andra bilderna.
+  const fordrojning = aktiv === 0 && filmKvarMs !== null ? Math.max(INTERVALL_MS, filmKvarMs) : INTERVALL_MS;
   useEffect(() => {
     if (!spelar) return;
-    const timer = setTimeout(() => visa((aktiv + 1) % bilder.length), INTERVALL_MS);
+    const timer = setTimeout(() => visa((aktiv + 1) % bilder.length), fordrojning);
     return () => clearTimeout(timer);
-  }, [spelar, aktiv, visa]);
+  }, [spelar, aktiv, visa, fordrojning]);
 
   const bild = bilder[aktiv];
+  const forstaBildRef = useRef<HTMLImageElement>(null);
 
   return (
     <div className={styles.hero}>
@@ -206,6 +302,7 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
           return (
             <img
               key={b.bas}
+              ref={i === 0 ? forstaBildRef : undefined}
               src={bildUrl(b.bas, 1600)}
               srcSet={bildSrcSet(b.bas)}
               sizes="100vw"
@@ -220,6 +317,16 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
             />
           );
         })}
+
+        {film && filmTillaten && filmMonterad && (
+          <HeroFilm
+            video={film}
+            spela={spelar && aktiv === 0 && !flikDold}
+            visas={aktiv === 0}
+            posterRef={forstaBildRef}
+            onKvar={setFilmKvarMs}
+          />
+        )}
 
         {/* Gradient overlay */}
         <div aria-hidden="true" className={styles.overlay} />
@@ -259,5 +366,93 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
         </div>
       </section>
     </div>
+  );
+}
+
+type FilmProps = {
+  video: HeroVideo;
+  /** Bildspelet spelar, första bilden är aktiv och fliken syns. */
+  spela: boolean;
+  /** Första bilden är aktiv (annars tonas filmen ut tillsammans med bilden). */
+  visas: boolean;
+  /** Postern som redan visas – dess currentSrc (redan nedladdad) blir videons poster. */
+  posterRef: RefObject<HTMLImageElement | null>;
+  onKvar: (ms: number | null) => void;
+};
+
+/**
+ * Dekorativ, ljudlös loop ovanpå postern (aria-hidden – bildens alt och bildtexten beskriver
+ * sliden). Videon är genomskinlig tills den faktiskt spelar, så postern syns medan filen laddas
+ * och om uppspelningen nekas. Pausas när bildspelet pausas, när heron inte syns
+ * (IntersectionObserver), när fliken är dold och när en annan bild är aktiv; spolas till början
+ * när första bilden visas igen.
+ */
+function HeroFilm({ video, spela, visas, posterRef, onKvar }: FilmProps) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [iVy, setIVy] = useState(true);
+  const [harSpelat, setHarSpelat] = useState(false);
+  const spolaOm = useRef(false);
+
+  // Samma URL som bilden under (ur srcset, redan i cachen) – ingen extra hämtning för postern.
+  useEffect(() => {
+    ref.current?.setAttribute('poster', posterRef.current?.currentSrc || video.poster);
+  }, [posterRef, video.poster]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([e]) => setIVy(e.isIntersecting), { threshold: 0.1 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visas) spolaOm.current = true;
+  }, [visas]);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (spela && iVy) {
+      if (spolaOm.current) {
+        el.currentTime = 0;
+        spolaOm.current = false;
+      }
+      el.muted = true;
+      el.play().catch(() => {
+        // Uppspelningen nekades (t.ex. energisparläge) – postern ligger kvar.
+      });
+    } else {
+      el.pause();
+    }
+  }, [spela, iVy]);
+
+  const narSpelar = () => {
+    const el = ref.current;
+    if (!el) return;
+    setHarSpelat(true);
+    onKvar(Number.isFinite(el.duration) ? (el.duration - el.currentTime) * 1000 : null);
+  };
+
+  return (
+    <video
+      ref={ref}
+      muted
+      playsInline
+      loop
+      autoPlay
+      preload="none"
+      aria-hidden="true"
+      tabIndex={-1}
+      width={1280}
+      height={720}
+      data-hero-film=""
+      onPlaying={narSpelar}
+      onPause={() => onKvar(null)}
+      className={visas && harSpelat ? `${styles.slide} ${styles.slideActive}` : styles.slide}
+    >
+      {video.webm && <source src={video.webm} type="video/webm" />}
+      <source src={video.mp4} type="video/mp4" />
+    </video>
   );
 }

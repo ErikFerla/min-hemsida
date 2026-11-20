@@ -39,6 +39,8 @@ components/           Delade layout- och UI-komponenter (se nedan)
 data/                 Typad innehållsdata (se Datakällor)
   credits/            Bildkrediter och licenser för varje bild (visas på /bildkrediter)
 public/bilder/        Lokala bilder (går via Next.js bildoptimering)
+public/video/         Startsidans film (se Startsidans film)
+scripts/encode-hero-video.sh  Kodar startsidans film med ffmpeg
 docs/stilguide.md     Stilguide för alla texter (ton, ortnamn, enheter, källor)
 scripts/smoke.mjs     Röktestet
 scripts/proof.mjs     Korrekturskriptet (se stilguiden)
@@ -113,6 +115,30 @@ Fakta i datafilerna har en källa och ett datum för senaste kontroll, som visas
   webbläsaren annars ner hjältebilderna för alla länkade sidor. Använd inte `ReactDOM.preload`
   för bilder.
 - Övriga bilder laddas lat (`loading="lazy"`) och har `sizes`.
+
+### Startsidans film
+
+Första bilden i startsidans bildspel (`components/HeroSlideshow.tsx`, `filmBild`) är en kort, tyst
+loop: Pexels "Aerial View of Mallorca's Stunning Beach" (id 31819589, Oskar Gross, Pexels License).
+
+- **Filer:** `public/video/hero-strand.mp4` (H.264), `hero-strand.webm` (VP9) och
+  `hero-strand-poster.jpg` (klippets första bildruta). De skapas med
+  `scripts/encode-hero-video.sh <källfil> [start_s] [längd_s]` (ffmpeg; 1280×720, utan ljud,
+  sömlös loop med 1 s övertoning, mål ≤ 1,5 MB mp4 / ≤ 1,2 MB webm – CRF höjs tills filen ryms).
+  Nuvarande filer: `scripts/encode-hero-video.sh source.mp4 0 13` (sekund 1–14 av källan).
+- **Laddning:** postern är bildspelets första `<img>` (eager, `fetchPriority="high"`) och därmed
+  LCP-bilden. `<video>` monteras först efter `load` + `requestIdleCallback`, med `preload="none"`,
+  och är genomskinlig tills den spelar.
+- **Bara postern** visas vid `prefers-reduced-motion: reduce`, Save-Data,
+  `prefers-reduced-data: reduce` eller långsam anslutning (`effectiveType` slow-2g/2g/3g).
+- **Paus:** bildspelets pausknapp pausar filmen; filmen pausas också när heron inte syns
+  (IntersectionObserver), när fliken är dold och när en annan bild visas.
+- **Tid:** första bilden står kvar ett helt varv av filmen (minst 6 s), övriga bilder 6 s.
+- **Byta film:** koda om med skriptet. Filerna i `public/` cachas utan versionsnummer, så ge en ny
+  film nya filnamn (t.ex. `hero-strand-2.mp4`) och uppdatera `filmBild` och kreditposten.
+- **Stänga av:** sätt `video: null` i `filmBild`. Bildspelet blir då som före filmen (Palma först,
+  Es Trenc som strandbild). Byt kreditposterna enligt kommentaren i `data/credits/d1.ts`.
+- CSP: `media-src 'self'` finns redan i `next.config.ts`; filmen ligger på egen domän.
 
 ## Kommandon
 
