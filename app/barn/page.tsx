@@ -129,7 +129,7 @@ export default function BarnHubPage() {
               er familj.
             </p>
           </div>
-          <TipBox heading="5 råd från en som bor här" as="h2" signature="Erik">
+          <TipBox heading="Fem råd för barnfamiljer" as="h2" signature="Erik">
             <ol>
               {INSIDER_TIPS.map((t) => (
                 <li key={t}>{t}</li>

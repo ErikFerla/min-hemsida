@@ -74,9 +74,9 @@ export default function BästaSträndernaGuide() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg"
         alt="Caló des Moro på södra Mallorca – turkost vatten mellan kalkstensklippor och tallskog"
         photoCredit="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
-        kicker="Lokal guide"
+        kicker="Strandguide"
         title="Mallorcas 15 bästa stränder – vår topplista"
-        subtitle="Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
+        subtitle="Våra favoriter, med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
         height="55vh"
       />
 

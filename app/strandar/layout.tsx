@@ -9,7 +9,7 @@ const PAGE_URL = `${SITE}/strandar`;
 export const metadata = buildPageMetadata({
   path: '/strandar',
   title: 'Stränder på Mallorca – 30 vikar & sandstränder',
-  description: 'Upptäck Mallorcas 30 bästa stränder – från östkustens turkosa calas till västkustens dramatiska klippor. Handplockad guide från lokalkännare.',
+  description: '30 stränder på Mallorca – från östkustens turkosa vikar till västkustens klippor – med parkering, service, väderstreck och när du ska komma.',
   image: BEACHES_HERO.src,
   imageWidth: 1920,
   imageHeight: 1276,

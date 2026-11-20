@@ -93,15 +93,15 @@ export default function Home() {
             </div>
 
             <div className={styles.text}>
-              <p className={s.label}>Upplev skillnaden</p>
+              <p className={s.label}>Om MyMallorca</p>
               <h2 id="om-rubrik" className={s.title}>
-                Din guide till Mallorca – inifrån och ut
+                Mallorca bortom hotellpoolen
               </h2>
               <p className={styles.body}>
-                De flesta reser till Mallorca. Vi vill hjälpa dig att uppleva den.
-                Det är skillnaden mellan en semester vid hotellpoolen och en morgon
-                på en okänd strand i nordväst – där vattnet är turkost och du
-                är ensam om den.
+                En semester på Mallorca kan vara poolen och stranden nedanför
+                hotellet. Den kan också vara en tidig morgon i en klippvik, en
+                marknadsdag i en by i inlandet eller en söndagslunch på en
+                källarkrog. Det är den andra sortens resa vi skriver om.
               </p>
               <p className={styles.body}>
                 MyMallorca drivs av kärlek till ön, inte av försäljning. Här
@@ -110,7 +110,7 @@ export default function Home() {
                 reser med familjen, som par eller har ditt andra hem på ön.
               </p>
               <TipBox signature="Erik" className={styles.quoteBox}>
-                <p className={styles.quoteLabel}>Tips från en lokal</p>
+                <p className={styles.quoteLabel}>Bästa månaderna</p>
                 <p className={styles.quote}>
                   ”Mallorca är fantastiskt hela året – men maj och september är de bästa månaderna. Färre turister, perfekt temperatur och allt är öppet.”
                 </p>

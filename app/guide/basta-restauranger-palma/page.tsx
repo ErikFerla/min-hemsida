@@ -56,7 +56,7 @@ export default function BästaRestaurangerPalma() {
         alt="Flera små tapasrätter på ett bord – genrebild, inte från någon av restaurangerna"
         kicker="Matguide"
         title="De bästa restaurangerna i Palma"
-        subtitle="Handplockade av en som bor här – inte utvalda av Tripadvisor. Från Michelinstjärnor till pintxos vid bardisken."
+        subtitle="Våra egna favoriter, inte en topplista från Tripadvisor. Från Michelinstjärnor till pintxos (små tilltugg på bröd) vid bardisken."
         height="52vh"
       />
 
