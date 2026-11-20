@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import HeroImage from '@/components/HeroImage';
 import TipBox from '@/components/TipBox';
@@ -6,6 +7,7 @@ import LastChecked from '@/app/components/LastChecked';
 import { CityJsonLd, cityBreadcrumbs } from '@/app/lib/CityJsonLd';
 import type { City, CityText } from '@/data/cities';
 import { beaches } from '@/data/beaches';
+import { beachRegion, heroCredit, kidsNearby, nearbyCities } from './nearby';
 import styles from './CityTemplate.module.css';
 
 const BEACH_NAMES = new Set(beaches.map((b) => b.namn));
@@ -138,10 +140,91 @@ function CityGuideSections({ city }: { city: City }) {
 }
 
 /**
+ * "Mer i närheten" (sist i högerspalten, fäst på dator): stränder i regionen, barnaktiviteter
+ * nära orten och genväg till orterna i närheten – vägar vidare in på sajten.
+ */
+function MoreNearby({ city }: { city: City }) {
+  const region = beachRegion(city);
+  const kids = kidsNearby(city);
+  return (
+    <section className={`${styles.box} ${styles.moreBox}`} aria-labelledby="mer-i-narheten">
+      <h2 id="mer-i-narheten" className={styles.boxTitle}>Mer i närheten</h2>
+      <ul className={styles.moreList}>
+        <li>
+          <Link
+            href={region ? `/strandar?region=${encodeURIComponent(region)}#strand-lista` : '/strandar#strand-lista'}
+            className={styles.moreLink}
+          >
+            {region ? `Stränder i ${region}` : 'Alla stränder på Mallorca'} <span aria-hidden="true">→</span>
+          </Link>
+        </li>
+        {kids.map((k) => (
+          <li key={k.href}>
+            <Link href={k.href} className={styles.moreLink}>
+              <span>
+                <span className={styles.moreKicker}>Med barn</span> {k.name}
+              </span>{' '}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </li>
+        ))}
+        {kids.length === 0 && (
+          <li>
+            <Link href="/barn" className={styles.moreLink}>
+              Med barn på Mallorca <span aria-hidden="true">→</span>
+            </Link>
+          </li>
+        )}
+        <li>
+          <a href="#orter-i-narheten" className={styles.moreLink}>
+            Orter i närheten <span aria-hidden="true">↓</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+/** "Orter i närheten": de fyra närmaste orterna fågelvägen, sist på sidan. */
+function NearbyCities({ city }: { city: City }) {
+  const nearby = nearbyCities(city, 4);
+  return (
+    <section id="orter-i-narheten" className={styles.nearby} aria-labelledby="orter-i-narheten-rubrik">
+      <h2 id="orter-i-narheten-rubrik">Orter i närheten</h2>
+      <ul className={styles.nearbyGrid}>
+        {nearby.map(({ city: c, href, km }) => (
+          <li key={c.slug}>
+            <Link href={href} className={styles.nearbyCard}>
+              <span className={styles.nearbyMedia}>
+                <Image
+                  src={c.card.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1023px) 112px, 300px"
+                  loading="lazy"
+                />
+              </span>
+              <span className={styles.nearbyBody}>
+                <h3 className={styles.nearbyName}>{c.name}</h3>
+                <span className={styles.nearbyTagline}>{c.tagline}</span>
+                <span className={styles.nearbyMeta}>
+                  {c.region} · {km} km fågelvägen
+                </span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/**
  * Gemensam mall för alla stadssidor. Allt innehåll kommer från data/cities.ts.
  *
  * Layout (5.4): textspalt (max 68ch) + högerspalt med faktarutan "Praktisk info", topp 3
- * och ev. kartlänkar. På mobil ligger högerspalten direkt efter ingressen ("Om …").
+ * ev. kartlänkar och "Mer i närheten" (fäst på dator). På mobil ligger högerspalten direkt efter
+ * ingressen ("Om …"). Sist kommer "Orter i närheten" (närmaste orterna fågelvägen).
  */
 export default function CityTemplate({ city }: { city: City }) {
   return (
@@ -153,6 +236,7 @@ export default function CityTemplate({ city }: { city: City }) {
         kicker={city.hero.kicker}
         title={city.name}
         subtitle={city.hero.subtitle}
+        photoCredit={heroCredit(city)}
       />
       <div className={styles.container}>
         <div className={styles.breadcrumbs}>
@@ -177,11 +261,12 @@ export default function CityTemplate({ city }: { city: City }) {
                   </div>
                 ))}
               </dl>
+              {/* Extern länk = textlänk, inte primärknapp (brief: knappregeln) – sidans vägar vidare är interna */}
               <a
                 href={`https://maps.google.com/?q=${city.mapsQuery}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`btn btn-primary ${styles.mapButton}`}
+                className={`link-arrow ${styles.mapLink}`}
               >
                 Visa på karta ↗
               </a>
@@ -209,6 +294,7 @@ export default function CityTemplate({ city }: { city: City }) {
                 </ul>
               </section>
             )}
+            <MoreNearby city={city} />
           </aside>
 
           <div className={styles.main}>
@@ -231,6 +317,7 @@ export default function CityTemplate({ city }: { city: City }) {
             )}
           </div>
         </div>
+        <NearbyCities city={city} />
       </div>
     </div>
   );
