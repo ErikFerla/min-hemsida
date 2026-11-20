@@ -9,7 +9,7 @@ export const metadata = buildPageMetadata({
   path: '/barn/natur-och-utomhus',
   title: 'Natur och utomhus med barn på Mallorca',
   description:
-    'Naturparkerna s’Albufera och Mondragó, och tåget till Sóller genom Serra de Tramuntana – natur och utflykter för barnfamiljer på Mallorca.',
+    'Naturparker, botaniska trädgårdar, båten till Sa Dragonera, glasbottenbåt och tåget till Sóller – natur och utflykter för barnfamiljer på Mallorca.',
   image: IMAGE,
   imageWidth: 1920,
   imageHeight: 1440,
@@ -24,7 +24,7 @@ export default function NaturOchUtomhusPage() {
         imageSrc: IMAGE,
         imageAlt: 'Segelbåtar i viken Cala Mondragó i Parc Natural de Mondragó',
         title: 'Natur och utomhus med barn',
-        subtitle: 'Fågeltorn, skyltade slingor och ett hundraårigt tåg över bergen.',
+        subtitle: 'Fågeltorn, botaniska trädgårdar, båtar till öar och ett hundraårigt tåg över bergen.',
       }}
       intro={
         <>
@@ -38,6 +38,12 @@ export default function NaturOchUtomhusPage() {
             båtar längs kusten. Mer om det på sidorna om{' '}
             <Link href="/dagsturer-utan-bil">dagsturer utan bil</Link> och{' '}
             <Link href="/batutflykter-och-cabrera">båtutflykter och Cabrera</Link>.
+          </p>
+          <p>
+            Med små barn räcker det ofta med en lekplats i Palma eller en skuggig botanisk trädgård i
+            Sóller eller Lluc. Större barn klarar en båttur till ödlorna på Sa Dragonera, en vandring
+            upp till borgruinen Castell d&apos;Alaró eller en cykeltur på{' '}
+            <Link href="/barn/aktivitet-och-rorelse#via-verda-manacor-arta">Via Verda</Link>.
           </p>
         </>
       }

@@ -25,7 +25,7 @@ export type BarnCategoryPageViewProps = {
   };
   intro: ReactNode;
   /** Faktagranskning (3.7): datum och källor som visas längst ner. */
-  lastChecked?: { date: string; sources: Source[] };
+  lastChecked?: { date: string; sources: Source[]; note?: string };
 };
 
 /**
@@ -98,7 +98,9 @@ export default function BarnCategoryPageView({
           ))}
         </div>
 
-        {lastChecked && <LastChecked date={lastChecked.date} sources={lastChecked.sources} />}
+        {lastChecked && (
+          <LastChecked date={lastChecked.date} sources={lastChecked.sources} note={lastChecked.note} />
+        )}
 
         {/* Avslutande länkar till navsidan och övriga kategorier */}
         <section className={styles.more} aria-labelledby="fler-aktiviteter-heading">

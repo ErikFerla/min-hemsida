@@ -9,7 +9,7 @@ export const metadata = buildPageMetadata({
   path: '/barn/museer-och-kultur',
   title: 'Museer och kultur för barn på Mallorca',
   description:
-    'Castell de Bellver, Es Baluard, CaixaForum och Rafa Nadal Museum – museer och kultur som fungerar för barn på Mallorca, med priser och öppettider.',
+    'Castell de Bellver, Fundació Miró, Castell de Capdepera, Els Calderers och fler – museer och kultur som fungerar för barn på Mallorca.',
   image: IMAGE,
   imageWidth: 1920,
   imageHeight: 1136,
@@ -37,6 +37,12 @@ export default function MuseerOchKulturPage() {
             Es Baluard och CaixaForum har växlande utställningar och återkommande familjeaktiviteter,
             och i Manacor finns Rafa Nadals interaktiva sportmuseum. Flera av dem passar också en
             regnig dag – se även <Link href="/barn/inomhus-och-regn">inomhus och regn</Link>.
+          </p>
+          <p>
+            Utanför Palma kan barnen gå på murarna i Castell de Capdepera i nordost, se hur en stor
+            gård fungerade förr på Els Calderers mitt på ön och besöka klostret i Lluc uppe i bergen.
+            I Cala Major, strax väster om centrum, ligger Joan Mirós gamla ateljéer – gratis för barn
+            och unga under 16 år.
           </p>
         </>
       }
