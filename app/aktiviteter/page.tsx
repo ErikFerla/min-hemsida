@@ -51,7 +51,7 @@ const aktiviteter: Aktivitet[] = [
   },
   {
     titel: 'Vattensport',
-    beskrivning: 'Kristallklart vatten och perfekta vindförhållanden gör Mallorca till ett paradis för segling, kajakpaddling och snorkling.',
+    beskrivning: 'Klart vatten och lugna vikar för kajak och snorkling – och eftermiddagsbris för den som seglar.',
     Icon: IconSnorkel,
     href: '/strandar',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Schnorchler_%C3%BCber_Seegraswiese.JPG/1920px-Schnorchler_%C3%BCber_Seegraswiese.JPG', bildAlt: 'Snorklare över en sjögräsäng i Medelhavet',
@@ -59,7 +59,7 @@ const aktiviteter: Aktivitet[] = [
   },
   {
     titel: 'Med barn',
-    beskrivning: 'Vattenparker, djurparker, grottor och äventyr – Mallorca är ett av Europas bästa resmål för barnfamiljer.',
+    beskrivning: 'Vattenparker, djurparker, grottor och äventyr – aktiviteter utöver stranden, sorterade efter typ och ålder.',
     Icon: IconUsers,
     href: '/barn',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Platja_de_Muro_R02.jpg/1920px-Platja_de_Muro_R02.jpg', bildAlt: 'Grunt vatten och sandstrand vid Platja de Muro',
@@ -67,7 +67,7 @@ const aktiviteter: Aktivitet[] = [
   },
   {
     titel: 'Cykling',
-    beskrivning: 'Mallorca är cyklisternas mekka – professionella lag tränar här på vintern. Välj mellan bergsetapper och kustvägar.',
+    beskrivning: 'Professionella cykellag förlägger vinterträningen hit. Välj mellan bergsetapper och kustvägar.',
     Icon: IconHiker,
     href: '/vandring-och-cykling#cykling',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Cycle_Path_in_North_Mallorca.JPG/1920px-Cycle_Path_in_North_Mallorca.JPG', bildAlt: 'Cykelbana längs Pollençabukten med Formentorhalvön i bakgrunden',
@@ -94,7 +94,7 @@ export default function AktiviteterPage() {
         photoCredit="Foto: Heuschrecke / Wikimedia Commons (CC BY-SA 3.0)"
         kicker="Upplev Mallorca"
         title="Aktiviteter på Mallorca"
-        subtitle="Golf, vandring, vattensport och mycket mer – för alla smaker"
+        subtitle="Golf, vandring, cykling, vattensport och barnaktiviteter – med tips om var och när"
         height="55vh"
       />
 
@@ -163,7 +163,7 @@ export default function AktiviteterPage() {
             {[
               { titel: 'Golfguiden', text: 'Vilka banor passar din nivå, och vilka är värda en extra resdag? Vår genomgång av öns golfbanor.', href: '/guide/golf-mallorca-guide' },
               { titel: 'Vingårdar på Mallorca', text: 'Binissalem, Pla i Llevant och små familjeägda bodegas – perfekt för en lugn dag för två.', href: '/vingardar' },
-              { titel: 'Mallorca med barn', text: 'Vattenparker, grottor och djurparker, med tips om vilken ålder varje upplevelse passar för.', href: '/guide/mallorca-med-barn' },
+              { titel: 'Mallorca med barn', text: 'Vattenparker, grottor och djurparker, med tips om vilken ålder varje upplevelse passar.', href: '/guide/mallorca-med-barn' },
             ].map(t => (
               <Link key={t.href} href={t.href} className={styles.readCard}>
                 <h3 className={styles.readTitle}>{t.titel}</h3>

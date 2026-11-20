@@ -229,7 +229,7 @@ export const marknader: Marknad[] = [
     område: 'Norr',
     dagar: [7],
     tid: 'förmiddag',
-    vad: 'Söndagsmarknad med frukt och grönt från traktens odlingar, och mer därtill.',
+    vad: 'Söndagsmarknad med frukt och grönt från traktens odlingar.',
     källa: { label: 'mallorca.com: Sa Pobla', href: 'https://www.mallorca.com/en/directory/business/mercat-de-diumenge-fresh-fruit-and-vegetables-and-more-sa-pobla-wetda-hq' },
     checked: CHECKED,
   },

@@ -25,7 +25,7 @@ const stränder = [
     namn: 'Es Trenc',
     region: 'Sydkusten · Campos',
     typ: 'Sandstrand · 2–3 km lång',
-    beskrivning: 'Es Trenc kallas Mallorcas Karibien – och det är förtjänt. Den 2–3 kilometer långa stranden med vit sand och turkost vatten ligger i ett skyddat naturområde, vilket innebär inga hotell och lite kommersialisering.',
+    beskrivning: 'Es Trenc har ljus sand och grunt, klart vatten – och inga hotell bakom dynerna. Den 2–3 kilometer långa stranden med vit sand och turkost vatten ligger i ett skyddat naturområde, vilket innebär inga hotell och lite kommersialisering.',
     insider: 'Ta med vatten och skugga – servicen längs stranden är begränsad. En del av stranden används av naturister. Parkeringarna kostar pengar och fylls tidigt; bussen från Campos är ett alternativ.',
     gps: '39.3447° N, 2.9758° E',
     bästaTid: 'Maj och september – stranden är lång, men parkeringen räcker inte till på sommaren',
@@ -74,9 +74,9 @@ export default function BästaSträndernaGuide() {
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg/1920px-View_of_the_bay_at_Calo_des_Moro%2C_Mallorca_%28Spain%29_%2823899506181%29.jpg"
         alt="Caló des Moro på södra Mallorca – turkost vatten mellan kalkstensklippor och tallskog"
         photoCredit="Foto: Tommie Hansen / Wikimedia Commons (CC BY 2.0)"
-        kicker="Lokal guide"
+        kicker="Strandguide"
         title="Mallorcas 15 bästa stränder – vår topplista"
-        subtitle="Rankade av en som bott på ön i 10 år. Med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
+        subtitle="Våra favoriter, med GPS-koordinater, parkeringstips och ärliga råd om när du ska undvika dem."
         height="55vh"
       />
 
@@ -133,7 +133,7 @@ export default function BästaSträndernaGuide() {
           <h2 className={`${h.h2} ${styles.listTitle}`}>Stränder 6–15: hela listan</h2>
           {[
             { rank: 6, namn: 'Cala Agulla', region: 'Nordost · Capdepera', tips: 'Blå flagg och tallskog i ett skyddat naturområde nära Cala Rajada.' },
-            { rank: 7, namn: 'Cala Pi', region: 'Sydkust · Llucmajor', tips: 'Smal vik med klippväggar – en av öns vackraste silhuetter.' },
+            { rank: 7, namn: 'Cala Pi', region: 'Sydkust · Llucmajor', tips: 'Smal vik mellan höga klippväggar.' },
             { rank: 8, namn: 'Cala Llombards', region: 'Sydkust · Santanyí', tips: 'Lugn och avskild vik med klippor runt om. Liten strandbar på plats.' },
             { rank: 9, namn: 'Platja de Formentor', region: 'Nordkust · Pollença', tips: 'Dagtid mitten av maj–mitten av oktober begränsas biltrafiken – ta bussen eller båten från Port de Pollença.' },
             { rank: 10, namn: 'Cala Rajada', region: 'Nordost', tips: 'Livlig sommardestination med bra restauranger längs stranden.' },

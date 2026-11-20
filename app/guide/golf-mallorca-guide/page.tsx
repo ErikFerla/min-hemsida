@@ -42,7 +42,7 @@ const toppBanor: ToppBana[] = [
     hål: 18,
     par: 71,
     beskrivning: 'Arabella har tre banor nära Palma: Son Vida, Son Muntaner och Son Quint. Son Vida är öns äldsta bana (1964) och har en av de vackraste utsikterna över Palmabukten. En favorit bland vana golfresenärer.',
-    insider: 'Golfresor till Son Vida inkluderar ofta rabatterade greenfees. Hotellen i Son Vida ligger alldeles intill banorna.',
+    insider: 'Arabella har tre banor – är Son Vida fullbokad, fråga efter en starttid på Son Muntaner eller Son Quint.',
     bästTid: 'Oktober–maj',
   },
   {

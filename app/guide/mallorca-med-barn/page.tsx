@@ -34,7 +34,7 @@ const sektioner: Sektion[] = [
   {
     rubrik: 'Djurparker & natur',
     Icon: IconBuilding,
-    kortText: 'Klassiska barnattraktioner som blandar natur och underhållning – från safaripark till magiska droppstensgrottor.',
+    kortText: 'Klassiska barnattraktioner som blandar natur och underhållning – från safaripark till droppstensgrottor.',
     punkter: ['Safari Zoo Sa Coma', 'Coves del Drac', 'Marineland'],
   },
   {
@@ -54,7 +54,7 @@ export default function MallorcaMedBarnGuide() {
           <div className={t.crumbs}>
             <Breadcrumbs items={[{ name: 'Hem', url: '/' }, { name: 'Med barn', url: '/barn' }, { name: 'Familjesemester på Mallorca', url: '/guide/mallorca-med-barn' }]} />
           </div>
-          <p className={t.kicker}>Familjereseguide</p>
+          <p className={t.kicker}>Familjeguide</p>
           <h1 className={t.title}>Familjesemester på Mallorca</h1>
           <p className={t.lead}>Så planerar du resan med barn – från rätt strand för rätt ålder till familjefavoriterna på kartan.</p>
         </div>

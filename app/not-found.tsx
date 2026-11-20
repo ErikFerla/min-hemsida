@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const popularaLankar: { label: string; href: string; beskrivning: string }[] = [
   { label: 'Förstasidan', href: '/', beskrivning: 'Börja om från startsidan' },
-  { label: 'Städer & byar', href: '/byar', beskrivning: '18 utvalda destinationer på ön' },
+  { label: 'Städer & byar', href: '/byar', beskrivning: '18 orter och byar på ön' },
   { label: 'Stränder', href: '/strandar', beskrivning: 'Från Es Trenc till dolda vikar' },
   { label: 'Guider', href: '/guider', beskrivning: 'Restid, barn, stränder, restauranger och golf' },
   { label: 'Aktiviteter', href: '/aktiviteter', beskrivning: 'Barnaktiviteter, golf, sevärdheter och evenemang' },

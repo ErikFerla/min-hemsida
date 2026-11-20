@@ -20,7 +20,7 @@ const månader: { pris: number; text: string }[] = [
   { pris: 2, text: 'Försäsong med sommarkänsla. Havet är fortfarande friskt – badbart för de tåliga. Priserna är rimliga och det är sällan lika trångt som på sommaren. Favoritperiod för många.' },
   { pris: 3, text: 'Sommarens start. Allt varmare vatten, långa stranddagar och livlig stämning. Antalet turister ökar men når inte juli och augustis nivåer.' },
   { pris: 4, text: 'Högsäsong. Fullt på stränderna, långa köer och höga priser. Samtidigt är havet varmt och kvällarna i Palma fantastiska – boka tidigt och var på stranden tidigt på dagen.' },
-  { pris: 4, text: 'Som juli, med årets varmaste hav. Undvik juli och augusti om du vill ha ro på stranden – men om stämning och nattliv är prioritet är detta din månad.' },
+  { pris: 4, text: 'Som juli, med årets varmaste hav. Undvik juli och augusti om du vill ha ro på stranden – men vill du ha mycket liv och nattliv passar augusti dig bäst.' },
   { pris: 3, text: 'Bästa månaden för många. Havet har kvar sin sommarvärme och när skolorna har börjat blir det färre barnfamiljer. Enstaka kraftiga regnskurar kan komma. September är ändå populär – boka i god tid.' },
   { pris: 2, text: 'Höstfärger, fortfarande badbart hav och lugnare än sommaren. Oktober är årets regnigaste månad, men regnet kommer ofta som skurar. Bra för golf, vandring och mat.' },
   { pris: 1, text: 'Lugnt och vackert. Gott om plats på restaurangerna. Många hotell på kustorterna stänger för säsongen, men i Palma och de större orterna finns det mesta öppet.' },
@@ -50,7 +50,7 @@ export default function BästaTidResaMallorca() {
           <h2 id="restid-heading" className={`${h.h2} ${styles.sectionTitle}`}>Bästa restid för det du vill göra</h2>
           <p className={styles.toolIntro}>
             Välj vad du vill göra och gärna var på ön, så rangordnar vi årets tolv månader. Rankningen bygger på
-            klimatdatan längre ner på sidan och på reglerna under verktyget. Valet sparas i adressen, så du kan dela
+            klimatdatan längre ner på sidan och på reglerna under verktyget. Valet hamnar i länken, så du kan dela
             resultatet.
           </p>
           <BastaRestid />
@@ -83,7 +83,7 @@ export default function BästaTidResaMallorca() {
 
         {/* Säsongsöversikt */}
         <section className={styles.section}>
-          <h2 className={`${h.h2} ${styles.sectionTitle}`}>Säsongernas logik</h2>
+          <h2 className={`${h.h2} ${styles.sectionTitle}`}>Hög-, mellan- och lågsäsong</h2>
           <div className={styles.seasons}>
             {[
               { label: 'Lågsäsong', period: 'Nov–mars', ton: styles.seasonLow, text: 'Lägsta priser, minst turister. Bra för kultur, vandring och golf.' },

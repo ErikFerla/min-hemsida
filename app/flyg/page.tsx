@@ -15,7 +15,7 @@ const skyscanner = (kod: string) =>
 
 const tips = [
   { text: 'Skollov, påsk och juli–augusti är dyrast. Kan du resa i maj, juni eller september brukar det bli billigare.' },
-  { text: 'Vintertid flyger färre bolag direkt. Jämför med en mellanlandning eller flyg från Kastrup.' },
+  { text: 'På vintern flyger färre bolag direkt. Jämför med en mellanlandning eller flyg från Kastrup.' },
   { text: 'Tidiga morgonflyg och sena kvällsflyg är ofta billigast – men tänk på hur du tar dig vidare från PMI sent på kvällen.' },
   { text: 'Kontrollera vad som ingår. Hos lågprisbolagen kostar incheckat bagage och platsval ofta extra.' },
 ];

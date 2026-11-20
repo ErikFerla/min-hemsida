@@ -124,7 +124,7 @@ export default function VandringOchCykling() {
             <p className={styles.cardMeta}>Krävande · ca 6–7 tim t/r från Lluc</p>
             <p>
               Med 1 364 meter är Massanella den högsta toppen du kan bestiga, eftersom Puig Major är militärt område.
-              Utsikten över hela ön är magnifik. Den vanliga leden från Lluc eller Coll de Comafreda går över privat
+              Från toppen ser du ut över hela ön. Den vanliga leden från Lluc eller Coll de Comafreda går över privat
               mark där markägaren tar ut en avgift. Stigen är stenig och kräver bra skor och god kondition.
             </p>
           </div>

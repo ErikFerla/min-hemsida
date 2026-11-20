@@ -85,7 +85,7 @@ export default function SiteFooter() {
               <LogoLockup className={styles.brand} markClassName={styles.brandMark} nameClassName={styles.brandName} />
             </Link>
             <p className={styles.about}>
-              Din kompletta guide till Mallorca på svenska. Insidertips, stränder, mat, golf och mycket mer.
+              Mallorca på svenska: stränder, byar, barnaktiviteter, mat, golf och vin.
             </p>
           </div>
 

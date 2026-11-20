@@ -45,7 +45,7 @@ const sections = [
   { key: 'fin', label: 'Finkrogar', kicker: 'Michelinstjärnor och avsmakningsmenyer', items: restauranger.fin },
   { key: 'tapas', label: 'Bästa tapas', kicker: 'Barer och små rätter', items: restauranger.tapas },
   { key: 'fisk', label: 'Fisk och skaldjur', kicker: 'Havet på tallriken', items: restauranger.fisk },
-  { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Autentiskt och prisvärt', items: restauranger.lokalt },
+  { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Husmanskost och cellers', items: restauranger.lokalt },
 ];
 
 export default function BästaRestaurangerPalma() {
@@ -56,7 +56,7 @@ export default function BästaRestaurangerPalma() {
         alt="Flera små tapasrätter på ett bord – genrebild, inte från någon av restaurangerna"
         kicker="Matguide"
         title="De bästa restaurangerna i Palma"
-        subtitle="Handplockade av en som bor här – inte utvalda av Tripadvisor. Från Michelinstjärnor till pintxos vid bardisken."
+        subtitle="Våra egna favoriter, inte en topplista från Tripadvisor. Från Michelinstjärnor till pintxos (små tilltugg på bröd) vid bardisken."
         height="52vh"
       />
 

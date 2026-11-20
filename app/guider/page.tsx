@@ -190,9 +190,8 @@ export default function GuiderPage() {
         <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Guider', url: '/guider' }]} />
 
         <p className={styles.intro}>
-          Guiderna är skrivna av oss som älskar Mallorca och har upptäckt ön under många år. Här samlar vi det vi själva
-          vill veta inför en resa: när det är bäst att åka, vilka stränder som är värda omvägen, var maten är som godast och
-          hur du får en lyckad semester med barnen. Välj den guide som passar dig och din resa.
+          I guiderna samlar vi det vi själva vill veta inför en resa: när det är bäst att åka, vilka stränder som är värda
+          omvägen, var maten är som godast och hur du får en lyckad semester med barnen.
         </p>
 
         <section aria-labelledby="alla-guider">
