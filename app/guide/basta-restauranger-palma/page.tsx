@@ -31,7 +31,7 @@ const restauranger: Record<string, Restaurant[]> = {
   ],
   fisk: [
     { namn: 'Patrón Lunares', adress: 'Carrer de la Fàbrica, Santa Catalina', pris: '€€€', specialitet: 'Fisk, skaldjur och risrätter', bästRätt: 'En risrätt med skaldjur att dela', insiderTips: 'Ofta fullt – boka bord, särskilt på helger.' },
-    { namn: 'Caballito de Mar', adress: 'Passeig de Sagrera, Palma', pris: '€€€', specialitet: 'Klassisk fiskrestaurang vid vattnet nära Sa Llotja', bästRätt: 'Dagens fisk', insiderTips: 'Perfekt för en lång lunch på terrassen i solen.' },
+    { namn: 'Caballito de Mar', adress: 'Passeig de Sagrera 5, Palma', pris: '€€€', specialitet: 'Klassisk fiskrestaurang mitt emot Sa Llotja, öppnad igen efter en renovering', bästRätt: 'Dagens fisk', insiderTips: 'Bra för en lång lunch på terrassen – kontrollera öppettiderna, som har varierat.' },
   ],
   lokalt: [
     { namn: 'Celler Sa Premsa', adress: 'Plaça del Bisbe Berenguer de Palou, Palma', pris: '€', specialitet: 'En av Palmas klassiska källarkrogar, sedan 1958', bästRätt: 'Frit mallorquí (traditionell rätt med inälvor, potatis och grönsaker)', insiderTips: 'Interiören har knappt ändrats på årtionden. Kom hungrig – portionerna är stora.' },
@@ -90,7 +90,7 @@ export default function BästaRestaurangerPalma() {
         </div>
 
         <LastChecked
-          date="2026-11-18"
+          date="2026-11-20"
           note="Michelinstjärnorna gäller Michelinguiden 2026. Öppettider ändras med säsongen – kontrollera hos restaurangen."
           sources={[
             { label: 'Michelinguiden: DINS Santi Taura', href: 'https://guide.michelin.com/en/islas-baleares/palma/restaurant/dins-santi-taura' },
@@ -99,6 +99,8 @@ export default function BästaRestaurangerPalma() {
             { label: 'Ajuntament de Palma: Celler Sa Premsa', href: 'https://web.palmaactiva.com/emblematics-palma/content/pdf/celler-sa-premsa.pdf' },
             { label: 'Última Hora: Ca’n Joan de s’Aigo 325 år', href: 'https://www.ultimahora.es/noticias/local/2025/11/09/2500845/joan-aigo-decano-325-anos-vida-reclamo-turistico-palma.html' },
             { label: 'Palma Weekly: tapas i Palma', href: 'https://www.palmaweekly.com/10-tapas-restaurants-in-palma-city-centre/' },
+            { label: 'Última Hora: Caballito de Mar 2025', href: 'https://www.ultimahora.es/monograficos/cocinas-cocineros-alma-3/2025/12/11/14221/style-gastronomy-estas-fiestas-caballito-mar-vuelve-promocion-cocinas-cocineros-alma.html' },
+            { label: 'Michelinguiden: La Bodeguilla', href: 'https://guide.michelin.com/en/illes-balears/palma/restaurant/la-bodeguilla' },
           ]}
         />
       </div>
