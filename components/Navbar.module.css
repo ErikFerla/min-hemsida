@@ -130,6 +130,14 @@
   box-shadow: 0 8px 24px rgba(56, 58, 70, 0.12);
 }
 
+/* De två sista menypunkterna (Guider, Planera) ligger nära högerkanten: deras undermenyer
+   högerjusteras så att de inte klipps. Navbar.tsx mäter dessutom den öppna menyn och vänder
+   den om den ändå skulle hamna utanför fönstret. */
+.dropdown:nth-last-child(-n + 2) .menu {
+  right: 0;
+  left: auto;
+}
+
 .menuWide {
   display: grid;
   grid-template-columns: repeat(2, max-content);
@@ -248,6 +256,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  /* Pilen ligger i en 56 px bred ruta med samma högermarginal som .mobileToggle */
+  padding-right: var(--space-2);
   background: none;
   border: none;
   font-family: inherit;
@@ -261,6 +271,14 @@
 }
 .mobileTrigger[aria-expanded='true'] .mobileChevron {
   transform: rotate(180deg);
+}
+
+.mobileChevronBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
 }
 
 .mobileLink {

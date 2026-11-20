@@ -7,6 +7,12 @@
   background: var(--color-image-bg);
 }
 
+/* Karusellregionen (bilder, övertoning, kontroller) fyller heron; texten ligger ovanpå, utanför regionen */
+.carousel {
+  position: absolute;
+  inset: 0;
+}
+
 .slide {
   position: absolute;
   inset: 0;
@@ -26,12 +32,6 @@
   position: absolute;
   inset: 0;
   background: var(--hero-shade);
-}
-
-.clickArea {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
 }
 
 /* Text: fast h1 + ingress + genvägar (samma typografi som HeroImage, 5.1), bildtext under */
@@ -145,10 +145,18 @@
   pointer-events: auto;
 }
 
-/* Mobil: lägre hero så att genvägskorten kommer upp tidigare */
+/* Mobil: lägre hero så att genvägskorten kommer upp tidigare. Textblocket är där så högt att
+   det når upp i den ljusa delen av --hero-shade, så det får en egen mörk gradient som följer
+   textens höjd: h1 och ingress klarar 4,5:1 mot den ljusaste bildpixeln bakom texten i alla
+   sju bilderna (mätt i 360×640, 375×667 och 390×844). */
 @media (max-width: 639px) {
   .hero {
     height: clamp(520px, 78svh, 640px);
+  }
+
+  .text {
+    padding-top: var(--space-7);
+    background: linear-gradient(180deg, rgba(20, 20, 26, 0) 0, rgba(20, 20, 26, 0.65) var(--space-7));
   }
 }
 

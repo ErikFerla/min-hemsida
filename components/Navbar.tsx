@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef, useCallback, type FocusEvent } from 'react'
+import { useState, useEffect, useLayoutEffect, useRef, useCallback, type FocusEvent, type PointerEvent } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './Navbar.module.css'
@@ -129,17 +129,28 @@ function isCurrent(pathname: string | null, href: string) {
   return pathname === href
 }
 
+/**
+ * aria-current för en länk i en undermeny: inte på "Översikt" när den pekar på samma sida som
+ * menypunktens egen länk (då bär redan menypunkten aria-current, och sidan ska bara markeras en gång).
+ */
+function childCurrent(pathname: string | null, item: NavItem, href: string) {
+  return href !== item.href && isCurrent(pathname, href) ? 'page' : undefined
+}
+
 export default function Navbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<number | null>(null)
   const [mobileAccordion, setMobileAccordion] = useState<number | null>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Öppnades den öppna undermenyn av muspekaren (hover)? Då ska ett klick på pilen inte stänga den.
+  const openedByHover = useRef(false)
   const navRef = useRef<HTMLElement>(null)
   const hamburgerRef = useRef<HTMLButtonElement>(null)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const triggerRefs = useRef<(HTMLButtonElement | null)[]>([])
   const wrapperRefs = useRef<(HTMLDivElement | null)[]>([])
+  const menuRefs = useRef<(HTMLDivElement | null)[]>([])
 
   // Stäng menyerna när adressen ändras, även via webbläsarens bakåt-/framåtknapp
   // (justering under rendering i stället för setState i en effekt).
@@ -233,17 +244,60 @@ export default function Navbar() {
     }
   }, [openDropdown])
 
+  // Undermenyn får aldrig hamna utanför fönstret: de sista menypunkterna högerjusteras i CSS,
+  // och här mäts den öppna menyn och vänds åt andra hållet om den ändå sticker ut (t.ex. vid zoom).
+  useLayoutEffect(() => {
+    if (openDropdown === null) return
+    const menu = menuRefs.current[openDropdown]
+    if (!menu) return
+    menu.style.left = ''
+    menu.style.right = ''
+    const margin = 8
+    const rect = menu.getBoundingClientRect()
+    const viewport = document.documentElement.clientWidth
+    if (rect.right > viewport - margin) {
+      menu.style.left = 'auto'
+      menu.style.right = '0'
+      if (menu.getBoundingClientRect().left < margin) {
+        // Får inte plats åt något håll: lägg den så långt till höger det går utan att klippas
+        menu.style.right = `${menu.getBoundingClientRect().left - margin}px`
+      }
+    } else if (rect.left < margin) {
+      menu.style.left = '0'
+      menu.style.right = 'auto'
+    }
+  }, [openDropdown])
+
   useEffect(() => () => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
   }, [])
 
-  const handleMouseEnter = (i: number) => {
+  // Hover öppnar bara för mus: på pekskärm skickar webbläsaren mushändelser direkt före klicket,
+  // och då skulle klicket på pilen stänga menyn som hovern just öppnat.
+  const handlePointerEnter = (i: number) => (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return
     if (closeTimer.current) clearTimeout(closeTimer.current)
-    setOpenDropdown(i)
+    if (openDropdown !== i) {
+      openedByHover.current = true
+      setOpenDropdown(i)
+    }
   }
 
-  const handleMouseLeave = () => {
+  const handlePointerLeave = (e: PointerEvent) => {
+    if (e.pointerType !== 'mouse') return
     closeTimer.current = setTimeout(() => setOpenDropdown(null), 150)
+  }
+
+  // Klick/tryck/Enter på pilen: öppnar, eller stänger en meny som redan var öppnad med klick.
+  // En meny som just öppnats av hover stannar öppen (klicket "låser" den i stället för att stänga).
+  const handleToggle = (i: number) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    if (openDropdown === i && !openedByHover.current) {
+      setOpenDropdown(null)
+    } else {
+      setOpenDropdown(i)
+    }
+    openedByHover.current = false
   }
 
   // Stäng dropdownen när fokus lämnar den (t.ex. Tab vidare till nästa menypunkt)
@@ -276,7 +330,7 @@ export default function Navbar() {
               const toggleProps = {
                 ref: (el: HTMLButtonElement | null) => { triggerRefs.current[i] = el },
                 type: 'button' as const,
-                onClick: () => setOpenDropdown(openDropdown === i ? null : i),
+                onClick: () => handleToggle(i),
                 'aria-expanded': openDropdown === i,
                 'aria-controls': `nav-menu-${i}`,
               }
@@ -285,8 +339,8 @@ export default function Navbar() {
                   key={item.label}
                   ref={el => { wrapperRefs.current[i] = el }}
                   className={styles.dropdown}
-                  onMouseEnter={() => handleMouseEnter(i)}
-                  onMouseLeave={handleMouseLeave}
+                  onPointerEnter={handlePointerEnter(i)}
+                  onPointerLeave={handlePointerLeave}
                   onBlur={handleWrapperBlur(i)}
                 >
                   {item.href ? (
@@ -313,10 +367,9 @@ export default function Navbar() {
                   {/* Alltid i DOM:en (även i SSR) – döljs med hidden när menyn är stängd */}
                   <div
                     id={`nav-menu-${i}`}
+                    ref={el => { menuRefs.current[i] = el }}
                     className={item.extra ? `${styles.menu} ${styles.menuWide}` : styles.menu}
                     hidden={openDropdown !== i}
-                    onMouseEnter={() => handleMouseEnter(i)}
-                    onMouseLeave={handleMouseLeave}
                   >
                     <div className={styles.menuCol}>
                       {item.children.map(child => (
@@ -324,7 +377,7 @@ export default function Navbar() {
                           key={child.href}
                           href={child.href}
                           className={styles.menuItem}
-                          aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
+                          aria-current={childCurrent(pathname, item, child.href)}
                           onClick={() => setOpenDropdown(null)}
                         >
                           {child.label}
@@ -332,14 +385,14 @@ export default function Navbar() {
                       ))}
                     </div>
                     {item.extra && (
-                      <div className={styles.menuCol}>
-                        <p className={styles.menuHeading}>{item.extra.heading}</p>
+                      <div className={styles.menuCol} role="group" aria-labelledby={`nav-menu-${i}-rubrik`}>
+                        <p id={`nav-menu-${i}-rubrik`} className={styles.menuHeading}>{item.extra.heading}</p>
                         {item.extra.links.map(child => (
                           <Link
                             key={child.href}
                             href={child.href}
                             className={styles.menuItem}
-                            aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
+                            aria-current={childCurrent(pathname, item, child.href)}
                             onClick={() => setOpenDropdown(null)}
                           >
                             {child.label}
@@ -392,7 +445,7 @@ export default function Navbar() {
                 key={child.href}
                 href={child.href}
                 className={styles.mobileSubitem}
-                aria-current={isCurrent(pathname, child.href) ? 'page' : undefined}
+                aria-current={childCurrent(pathname, item, child.href)}
                 onClick={() => closeMobile(false)}
               >
                 {child.label}
@@ -429,16 +482,17 @@ export default function Navbar() {
                 ) : (
                   <button {...toggleProps} className={styles.mobileTrigger}>
                     <span>{item.label}</span>
-                    {chevron}
+                    {/* Samma 56 px breda ruta som pilknapparna ovan, så att alla pilar står i linje */}
+                    <span className={styles.mobileChevronBox}>{chevron}</span>
                   </button>
                 )}
                 <div id={`mobilmeny-${i}`} className={styles.mobileSubitems} hidden={mobileAccordion !== i}>
                   {item.children.map(subLink)}
                   {item.extra && (
-                    <>
-                      <p className={styles.mobileHeading}>{item.extra.heading}</p>
+                    <div role="group" aria-labelledby={`mobilmeny-${i}-rubrik`}>
+                      <p id={`mobilmeny-${i}-rubrik`} className={styles.mobileHeading}>{item.extra.heading}</p>
                       {item.extra.links.map(subLink)}
-                    </>
+                    </div>
                   )}
                 </div>
               </div>

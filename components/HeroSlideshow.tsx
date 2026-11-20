@@ -159,46 +159,9 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
   const bild = bilder[aktiv];
 
   return (
-    <section
-      aria-roledescription="karusell"
-      aria-label="Utvalda platser och upplevelser på Mallorca"
-      className={styles.hero}
-    >
-      {/* Bilder: bara aktiv + nästa (och redan visade) renderas */}
-      {bilder.map((b, i) => {
-        if (!laddade.includes(i)) return null;
-        const arAktiv = i === aktiv;
-        return (
-          <img
-            key={b.bas}
-            src={bildUrl(b.bas, 1600)}
-            srcSet={bildSrcSet(b.bas)}
-            sizes="100vw"
-            alt={arAktiv ? b.alt : ''}
-            aria-hidden={arAktiv ? undefined : true}
-            width={2000}
-            height={1333}
-            loading={i === 0 ? 'eager' : 'lazy'}
-            fetchPriority={i === 0 ? 'high' : 'low'}
-            decoding="async"
-            className={arAktiv ? `${styles.slide} ${styles.slideActive}` : styles.slide}
-          />
-        );
-      })}
-
-      {/* Gradient overlay */}
-      <div aria-hidden="true" className={styles.overlay} />
-
-      {/* Klickbar yta för mus – dold för tangentbord och skärmläsare (CTA-länken nedan är den riktiga länken) */}
-      <Link
-        href={bild.lank}
-        prefetch={false}
-        tabIndex={-1}
-        aria-hidden="true"
-        className={styles.clickArea}
-      />
-
-      {/* Text: fast rubrik och genvägar – bildspelet ligger bakom och har en egen liten bildtext */}
+    <div className={styles.hero}>
+      {/* Text: fast rubrik och genvägar över bildspelet. Bara bildtextens länk leder till
+          aktuell bilds sida – rubrik, ingress och ytan mellan chipsen är inte klickbara. */}
       <div className={styles.text}>
         <div className={styles.textInner}>
           {/* Sidans enda h1 – texten kommer från app/page.tsx */}
@@ -229,39 +192,72 @@ export default function HeroSlideshow({ rubrik, ingress, genvagar }: Props) {
         </div>
       </div>
 
-      {/* Kontroller: paus + bildväljare (klickytor ≥24 px) */}
-      <div className={styles.controls}>
-        <button
-          type="button"
-          onClick={() => setAnvandarPaus(!pausad)}
-          aria-label={pausad ? 'Starta bildspelet' : 'Pausa bildspelet'}
-          className={styles.pause}
-        >
-          {pausad ? (
-            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 4l13 8-13 8z" /></svg>
-          ) : (
-            <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
-          )}
-        </button>
+      {/* Karusellregionen innehåller bara bilderna och kontrollerna. Sidans h1, ingress och
+          genvägar ligger utanför (.text ovan) – de hör till sidan, inte till bildspelet. */}
+      <section
+        aria-roledescription="karusell"
+        aria-label="Utvalda platser och upplevelser på Mallorca"
+        className={styles.carousel}
+      >
+        {/* Bilder: bara aktiv + nästa (och redan visade) renderas */}
+        {bilder.map((b, i) => {
+          if (!laddade.includes(i)) return null;
+          const arAktiv = i === aktiv;
+          return (
+            <img
+              key={b.bas}
+              src={bildUrl(b.bas, 1600)}
+              srcSet={bildSrcSet(b.bas)}
+              sizes="100vw"
+              alt={arAktiv ? b.alt : ''}
+              aria-hidden={arAktiv ? undefined : true}
+              width={2000}
+              height={1333}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'low'}
+              decoding="async"
+              className={arAktiv ? `${styles.slide} ${styles.slideActive}` : styles.slide}
+            />
+          );
+        })}
 
-        {bilder.map((b, i) => (
+        {/* Gradient overlay */}
+        <div aria-hidden="true" className={styles.overlay} />
+
+        {/* Kontroller: paus + bildväljare (klickytor ≥24 px) */}
+        <div className={styles.controls}>
           <button
-            key={b.bas}
             type="button"
-            onClick={() => visa(i)}
-            aria-label={`Visa bild ${i + 1} av ${bilder.length}: ${b.rubrik}`}
-            aria-current={i === aktiv ? 'true' : undefined}
-            className={styles.dotBtn}
+            onClick={() => setAnvandarPaus(!pausad)}
+            aria-label={pausad ? 'Starta bildspelet' : 'Pausa bildspelet'}
+            className={styles.pause}
           >
-            <span aria-hidden="true" className={i === aktiv ? `${styles.dot} ${styles.dotActive}` : styles.dot} />
+            {pausad ? (
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 4l13 8-13 8z" /></svg>
+            ) : (
+              <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1" /><rect x="14" y="4" width="4" height="16" rx="1" /></svg>
+            )}
           </button>
-        ))}
-      </div>
 
-      {/* Räknare */}
-      <div aria-hidden="true" className={styles.counter}>
-        {String(aktiv + 1).padStart(2, '0')} / {String(bilder.length).padStart(2, '0')}
-      </div>
-    </section>
+          {bilder.map((b, i) => (
+            <button
+              key={b.bas}
+              type="button"
+              onClick={() => visa(i)}
+              aria-label={`Visa bild ${i + 1} av ${bilder.length}: ${b.rubrik}`}
+              aria-current={i === aktiv ? 'true' : undefined}
+              className={styles.dotBtn}
+            >
+              <span aria-hidden="true" className={i === aktiv ? `${styles.dot} ${styles.dotActive}` : styles.dot} />
+            </button>
+          ))}
+        </div>
+
+        {/* Räknare */}
+        <div aria-hidden="true" className={styles.counter}>
+          {String(aktiv + 1).padStart(2, '0')} / {String(bilder.length).padStart(2, '0')}
+        </div>
+      </section>
+    </div>
   );
 }
