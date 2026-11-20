@@ -35,7 +35,7 @@ export default function MallorcaPaVintern() {
         { label: 'Govern de les Illes Balears – turistskatten', href: 'https://apps.caib.es/sites/impostturisme/en/tax' },
         { label: 'Mallorca Magazin – EMT och residenter 2027', href: 'https://www.mallorcamagazin.com/nachrichten/lokales/2026/10/23/158937/palma-mallorca-erhoht-buspreise-viel-kostet-kunftig-die-fahrt-zum-flughafen.html' },
       ]}
-      checkedNote="Programmen för vinterns fester publiceras av kommunerna först några veckor i förväg. Datum för 2027 som inte är fasta helgdagar har vi inte kunnat bekräfta ännu."
+      checkedNote="Programmen för vinterns fester publiceras av kommunerna först några veckor i förväg – kontrollera datum som inte är fasta helgdagar hos kommunen innan du åker."
     >
       <p className={styles.lead}>
         När badgästerna har åkt hem blir Mallorca en annan ö. Byarna är lugna, bergen är gröna och du har

@@ -131,7 +131,7 @@ const TRIPS: Trip[] = [
     id: 'sineu',
     title: '5. Marknaden i Sineu på onsdagar – tåg T3',
     how: 'SFM-tåget T3 Palma – Manacor, av i Sineu',
-    time: 'Ca 45 min',
+    time: 'Ca 50 min',
     price: 'Ordinarie SFM-taxa – se tib.org',
     text: (
       <>

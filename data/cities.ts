@@ -259,7 +259,7 @@ export const cities: City[] = [
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Vista_de_S%C3%B3ller.jpg/1920px-Vista_de_S%C3%B3ller.jpg',
       alt: 'Sóller med kyrktornet och stenhusen i dalen under Serra de Tramuntanas berg',
       kicker: 'Nordvästra Mallorca · Tramuntana',
-      subtitle: 'Bergsby med historisk spårvagn, omgiven av apelsinlundar och Serra de Tramuntana',
+      subtitle: 'Småstad i Sóllerdalen med historisk spårvagn, omgiven av apelsinlundar och Serra de Tramuntana',
     },
     about: [
       'Sóller ligger inbäddad i en frodig dal omgiven av Tramuntanabergens dramatiska siluetter. Det är en bergsby med franskt inflytande – en gång välbärgad tack vare handel med apelsiner och citrus, vilket syns i de modernistiska byggnaderna runt torget.',

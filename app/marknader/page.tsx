@@ -48,7 +48,7 @@ export default function MarknaderPage() {
               </h2>
               {lista.length === 0 ? (
                 <p className={styles.empty}>
-                  Det finns marknader även den här dagen, men vi har ännu inte kunnat bekräfta någon mot en pålitlig källa. Fråga på hotellet eller turistbyrån.
+                  Det finns marknader även den här dagen, men ingen vi kan ge säkra uppgifter om. Fråga på hotellet eller turistbyrån.
                 </p>
               ) : (
                 <div className={styles.grid}>

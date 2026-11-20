@@ -156,7 +156,7 @@ export const omraden: Omrade[] = [
     fordelar: [
       'Bra bas för vandring och cykling i norra Tramuntana',
       'Skyddad bukt med lugnt vatten',
-      'Autentisk by med söndagsmarknad på torget',
+      'Småstad med söndagsmarknad på torget',
     ],
     nackdelar: [
       'Långt från flygplatsen',
@@ -272,7 +272,7 @@ export const omraden: Omrade[] = [
     orter: [{ namn: 'Campos', href: '/campos' }],
     passarFor: ['lugn', 'familj'],
     beskrivning:
-      'Lantligt i sydost med saltängar och Es Trenc, en lång orörd sandstrand utan hotell. Campos är en vardaglig småstad med marknad torsdag och lördag.',
+      'Lantligt i söder med saltängar och Es Trenc, en lång orörd sandstrand utan hotell. Campos är en vardaglig småstad med marknad torsdag och lördag.',
     fordelar: [
       'Es Trenc – lång naturstrand med ljus sand',
       'Ganska nära flygplatsen, med flygbuss (A51) året runt',
