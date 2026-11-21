@@ -8,8 +8,8 @@ export function OrganizationSchema() {
     url: 'https://www.mymallorca.se',
     email: 'info@mymallorca.se',
     description: 'Redaktionell reseguide till Mallorca på svenska – skriven av passion för ön, inte för att sälja resor.',
-    // logo & sameAs intentionally omitted – add when a real logo asset exists in
-    // public/ and when public social channels go live (avoid placeholder URLs).
+    logo: 'https://www.mymallorca.se/logo.png',
+    // sameAs utelämnat tills sajten har publika sociala kanaler (inga platshållar-URL:er).
   };
   return <JsonLd data={schema} />;
 }
