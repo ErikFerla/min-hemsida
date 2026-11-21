@@ -35,7 +35,9 @@
 }
 
 .brandMark {
-  color: var(--color-accent-on-dark);
+  /* Samma röda ruta som i headern – motivet är ljust, så märket syns även mot den mörka footern. */
+  color: var(--color-accent);
+  flex: none;
 }
 
 .brandName {
