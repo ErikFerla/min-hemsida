@@ -74,7 +74,7 @@ const toppBanor: ToppBana[] = [
     region: 'Son Servera (östkust)',
     hål: 18,
     beskrivning: 'En av Mallorcas äldsta banor (1967), byggd ut från nio till 18 hål 2012. Favoriten för avslappnad golf, omgiven av tallar och olivträd. Bra för nybörjare och för dig som vill ha en enkel runda.',
-    insider: 'Kombinera med en middag i Porto Cristo, en kort bilresa söderut. Lokal och vänlig personal – inget snobberi.',
+    insider: 'Kombinera med en middag i Porto Cristo, en kort bilresa söderut. Personalen är från trakten och vänlig – inget snobberi.',
     bästTid: 'Hela året',
   },
 ];

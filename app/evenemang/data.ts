@@ -87,7 +87,7 @@ const evenemangData: EvenemangPost[] = [
     namn: 'Fira de s’Oliva',
     plats: 'Caimari (Selva)',
     kategori: 'Mat & dryck',
-    beskrivning: 'Olivfest i bergsbyn Caimari i Serra de Tramuntana, med olivolja, oliver, lokal mat och gamla traditioner. Hålls tredje helgen i november.',
+    beskrivning: 'Olivfest i bergsbyn Caimari i Serra de Tramuntana, med olivolja, oliver, mallorkinsk mat och gamla traditioner. Hålls tredje helgen i november.',
     källa: { label: 'Illes Balears (officiell turistsajt)', href: 'https://illesbalears.travel/en/mallorca/events-fira-de-loliva-de-caimari' },
     checked: C,
     tillfällen: [

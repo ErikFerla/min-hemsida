@@ -276,7 +276,7 @@ export const omraden: Omrade[] = [
     fordelar: [
       'Es Trenc – lång naturstrand med ljus sand',
       'Ganska nära flygplatsen, med flygbuss (A51) året runt',
-      'Lantliga fincor och lokal vardag',
+      'Lantliga fincor och vardagsliv',
     ],
     nackdelar: [
       'Du behöver bil',
@@ -335,7 +335,7 @@ export const omraden: Omrade[] = [
     beskrivning:
       'Porto Colom är en fiskeby kring en djup naturhamn. Felanitx en bit upp i landet är en vardaglig stad med vin, keramik och söndagsmarknad.',
     fordelar: [
-      'Lokal vardag med fiskebåtar och bykänsla',
+      'Vardagsliv med fiskebåtar och bykänsla',
       'Bra för en längre vistelse – det finns liv även utanför högsäsong',
       'Små vikar i närheten',
     ],
@@ -346,7 +346,7 @@ export const omraden: Omrade[] = [
     ],
     quiz: {
       'bil:nej': { poang: -2 },
-      'gora:lugn': { poang: 3, varfor: 'Fiskeby med lokal vardag i stället för hotellområden.' },
+      'gora:lugn': { poang: 3, varfor: 'Fiskeby med vardagsliv i stället för hotellområden.' },
       'tempo:lugnt': { poang: 2 },
       'nar:lange': { poang: 3, varfor: 'Passar bra för den som vill hyra ett hus en längre tid eller ha sommarställe.' },
       'vilka:par': { poang: 1 },
@@ -366,7 +366,7 @@ export const omraden: Omrade[] = [
       'Mitt på ön ligger småstäder och byar bland mandel- och olivodlingar. Här bor mallorkinerna, och här finns många fincor att hyra. Sineu har onsdagsmarknad, Inca torsdagsmarknad.',
     fordelar: [
       'Tåget går till Palma från både Inca och Sineu',
-      'Lägre priser och mer lokalt liv än vid kusten',
+      'Lägre priser och mer vardagsliv än vid kusten',
       'Nära till hela ön – du kan nå både norra och södra kusten',
     ],
     nackdelar: [
@@ -375,7 +375,7 @@ export const omraden: Omrade[] = [
       'Bil behövs för att ta sig till stränderna',
     ],
     quiz: {
-      'nar:lange': { poang: 3, varfor: 'Lokalt vardagsliv och fincor att hyra för en längre tid.' },
+      'nar:lange': { poang: 3, varfor: 'Byar med vardagsliv året runt och fincor att hyra för en längre tid.' },
       'gora:lugn': { poang: 2, varfor: 'Landsbygd bland mandel- och olivodlingar.' },
       'tempo:lugnt': { poang: 2 },
       'bil:nej': { poang: 1, varfor: 'Tåget går till Palma från både Inca och Sineu.' },

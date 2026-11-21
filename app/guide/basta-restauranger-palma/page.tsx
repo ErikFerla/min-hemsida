@@ -45,7 +45,7 @@ const sections = [
   { key: 'fin', label: 'Finkrogar', kicker: 'Michelinstjärnor och avsmakningsmenyer', items: restauranger.fin },
   { key: 'tapas', label: 'Bästa tapas', kicker: 'Barer och små rätter', items: restauranger.tapas },
   { key: 'fisk', label: 'Fisk och skaldjur', kicker: 'Havet på tallriken', items: restauranger.fisk },
-  { key: 'lokalt', label: 'Lokalt och prisvärt', kicker: 'Husmanskost och cellers', items: restauranger.lokalt },
+  { key: 'lokalt', label: 'Enkelt och prisvärt', kicker: 'Husmanskost och cellers', items: restauranger.lokalt },
 ];
 
 export default function BästaRestaurangerPalma() {
@@ -85,7 +85,7 @@ export default function BästaRestaurangerPalma() {
 
         <div className={styles.cta}>
           <h2 className={h.h2}>Mer mat och vin på Mallorca</h2>
-          <p className={styles.ctaText}>Vingårdar, lokala marknader och fler restaurangtips utanför Palma.</p>
+          <p className={styles.ctaText}>Vingårdar, bymarknader och fler restaurangtips utanför Palma.</p>
           <div className={styles.ctaButtons}>
             <Link href="/mat" className="btn btn-primary">Se matguiden →</Link>
             <Link href="/vingardar" className="btn btn-secondary">Vingårdar →</Link>
