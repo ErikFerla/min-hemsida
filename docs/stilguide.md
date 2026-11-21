@@ -152,7 +152,7 @@ tapas och shopping går bra.
 
 | Undvik | Skriv |
 |---|---|
-| Insider-tips, Insidertips mitt i mening | insidertips, lokala tips |
+| Insider-tips, Insidertips mitt i mening | insidertips, tips från ön |
 | must-see, highlights | det du inte ska missa, höjdpunkter |
 | hidden gem, okänd pärla | smultronställe |
 | dagstrip, daytrip | dagsutflykt |
@@ -167,7 +167,8 @@ tapas och shopping går bra.
 | Karibien-liknande | som i Karibien |
 | perfekt för (överallt) | bra för, passar för – variera |
 | spektakulär (överallt) | storslagen, mäktig – variera |
-| lokalbefolkningen (hela tiden) | mallorkinerna, de som bor här |
+| lokalbefolkningen, lokalbor | mallorkinerna, de som bor här |
+| lokal, lokala, lokalt (eng. local) | mallorkinsk, från ön, från trakten, bymarknad, vardagsliv – efter sammanhang (”lokal tid” och ”lokaler” går bra) |
 | mallorquinsk, mallorcansk | mallorkinsk (mallorkinska köket, mallorkinerna) |
 | istället | i stället |
 | drop-in | utan bokning |

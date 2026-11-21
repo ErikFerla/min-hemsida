@@ -84,6 +84,9 @@ const WORDS = [
   [/(?<!\p{L})[Mm]allor(?:quin|can)(?:sk|ska|skt|er|erna)(?!\p{L})/u, 'mallorkinsk, mallorkinerna'],
   [/Drach-grott/u, 'Coves del Drac (drakgrottorna)'],
   [/(?<!\p{L})(ok\.|OK\.?)(?!\p{L})/u, 'okej/bra'],
+  // Anglicismen "lokal" (eng. local). "lokal tid" och "lokaler" (utrymmen) är tillåtna.
+  [/(?<!\p{L})[Ll]okal(?:a|t)?(?!\p{L})(?! tid(?!\p{L}))|(?<!\p{L})[Ll]okal(?:befolkning|bo|bor|borna|känd|kända|känt)\p{L}*/u,
+    'mallorkinsk, från ön, från trakten, bymarknad, vardagsliv, de som bor här – välj efter sammanhang'],
 ];
 
 const MONTHS = 'Januari|Februari|Mars|April|Maj|Juni|Juli|Augusti|September|Oktober|November|December|Måndag|Tisdag|Onsdag|Torsdag|Fredag|Lördag|Söndag';

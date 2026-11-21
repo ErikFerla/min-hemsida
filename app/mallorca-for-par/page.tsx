@@ -131,7 +131,7 @@ export default function ParPage() {
           <h2 id="mat" className={`${h.h2} ${styles.sectionTitle}`}>Restauranger</h2>
           <p className={styles.text}>
             Palma har allt från små tapasbarer i gamla stan till kockdrivna restauranger. Utanför
-            staden är det ofta byarnas enkla restauranger med lokala råvaror som blir resans
+            staden är det ofta byarnas enkla restauranger med råvaror från ön som blir resans
             höjdpunkt.
           </p>
           <div className={styles.links}>

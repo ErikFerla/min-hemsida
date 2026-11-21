@@ -51,7 +51,7 @@ const favoritstrand = förslag['calo-des-moro'];
 // Heron: sajtens h1 och genvägar för de tre målgrupperna (barnfamiljer, par, de som bor på ön).
 const HERO_RUBRIK = 'Mallorca på svenska';
 const HERO_INGRESS =
-  'Stränder, byar, mat och utflykter med lokala tips – för dig som reser med barn, som par eller bor på ön.';
+  'Stränder, byar, mat och utflykter med våra egna tips – för dig som reser med barn, som par eller bor på ön.';
 const HERO_GENVAGAR = [
   { label: 'Med barn', href: '/barn' },
   { label: 'Som par', href: '/mallorca-for-par' },
@@ -188,7 +188,7 @@ export default function Home() {
                 Mallorca är mer än sol och sand. Det är klippor som faller rakt ner i turkost hav, medeltida bergsbyar dolda bland olivlundar och en matkultur som sträcker sig från enkla fiskrestauranger till Michelinstjärnor.
               </p>
               <p className={styles.lead}>
-                Öns nordvästra bergsmassiv, Serra de Tramuntana, finns på Unescos världsarvslista. Längs kusterna hittar du över 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande lokal kultur som pågår oberoende av turistsäsongen.
+                Öns nordvästra bergsmassiv, Serra de Tramuntana, finns på Unescos världsarvslista. Längs kusterna hittar du över 200 stränder med vatten så klart att det knappast verkar verkligt. Och mitt i allt detta – en levande mallorkinsk kultur som pågår oberoende av turistsäsongen.
               </p>
               <div className={styles.stats}>
                 {[
