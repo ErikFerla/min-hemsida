@@ -30,7 +30,7 @@ const featureItems: FeatureItem[] = [
   },
   {
     title: 'Mat & vin',
-    desc: 'Restaurangtips, vingårdar att besöka och lokala smaker',
+    desc: 'Restaurangtips, vingårdar att besöka och smaker från ön',
     href: '/mat',
     bild: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vinyes_Mortitx_and_limestone_mountains%2C_Escorca.jpg/960px-Vinyes_Mortitx_and_limestone_mountains%2C_Escorca.jpg',
     bildAlt: 'Vinodlingar framför kalkstensberg vid Mortitx i Tramuntana',

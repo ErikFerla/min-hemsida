@@ -62,8 +62,8 @@ export const PRAKTISKA_SIDOR = {
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Almendro_en_flor_-_panoramio.jpg/1920px-Almendro_en_flor_-_panoramio.jpg',
     imageAlt: 'Blommande mandelträd mot blå himmel',
     datePublished: '2026-11-18',
-    dateModified: '2026-11-20',
-    checked: '2026-11-20',
+    dateModified: '2026-11-21',
+    checked: '2026-11-21',
   },
   vandring: {
     path: '/vandring-och-cykling',

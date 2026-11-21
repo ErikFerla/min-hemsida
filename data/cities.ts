@@ -206,7 +206,7 @@ export const cities: City[] = [
         days: 'Marknadshallar måndag–lördag · gatumarknad tisdag, torsdag och lördag',
         text: [
           'Mercat de l’Olivar och Mercat de Santa Catalina har öppet måndag till lördag från tidig morgon till tidig eftermiddag och är stängda på söndagar. Kom på förmiddagen, då är utbudet störst.',
-          'Den lokala gatumarknaden på Plaça de Pere Garau, öster om centrum, hålls tisdagar, torsdagar och lördagar.',
+          'Gatumarknaden på Plaça de Pere Garau, öster om centrum, hålls tisdagar, torsdagar och lördagar.',
         ],
       },
       bestTime: [
@@ -494,7 +494,7 @@ export const cities: City[] = [
       'På onsdagar och lördagar fyller marknaden torget och gränderna runt kyrkan med grönsaker, ost och korv, keramik, korgar och konsthantverk. Parkera i utkanten och kom tidigt. På sommaren ger arkaderna skugga när du tar kaffet på torget efteråt.',
     ],
     tips: [
-      'Onsdagsmarknaden är bättre än lördagens – mindre folk, mer lokalt',
+      'Onsdagsmarknaden är bättre än lördagens – mindre folk, fler som bor här',
       'Cala Llombards, en kort biltur söderut, är en av öns vackraste vikar – kom tidigt, parkeringen är liten',
       'Beställ ”pa amb oli” på baren vid kyrkan – en klassisk mallorkinsk smårätt',
     ],
@@ -703,7 +703,7 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Motorvägen Ma-13 går från Palma förbi Inca nästan hela vägen till Alcúdia – den enklaste långkörningen på ön. Gamla stan upplever du bäst till fots – parkera utanför murarna.' },
-        { mode: 'Buss', text: 'TIB-linje 302 går mellan Palma och Alcúdia via Inca och vidare till Port d’Alcúdia och Can Picafort. Lokalt finns bland annat linje 322 till Pollença och, under säsongen, linje 334 ut på Formentorhalvön och linje 325 till Cala Rajada.' },
+        { mode: 'Buss', text: 'TIB-linje 302 går mellan Palma och Alcúdia via Inca och vidare till Port d’Alcúdia och Can Picafort. Från Alcúdia går också bland annat linje 322 till Pollença och, under säsongen, linje 334 ut på Formentorhalvön och linje 325 till Cala Rajada.' },
         { mode: 'Tåg', text: 'Tåget från Palma går till Sa Pobla (linje T2), som ligger en bit inåt land. Bussen är oftast smidigare hela vägen.' },
         { mode: 'Från flygplatsen', text: 'Flygbussen A32 går direkt från flygplatsen till Alcúdia, Port d’Alcúdia, Platja de Muro och Can Picafort på sommaren. På vintern går A33 via Inca och Sa Pobla till Port d’Alcúdia. Alternativt tar du buss A1 till Plaça d’Espanya och linje 302 från Estació Intermodal.' },
       ],
@@ -783,7 +783,7 @@ export const cities: City[] = [
     ],
     tips: [
       'Kom tidigt på morgonen – turistbussarna anländer efter 10',
-      'Prova coca de patata vid torgets bageri – en lokal klassiker',
+      'Prova coca de patata vid torgets bageri – en mallorkinsk klassiker',
       'Promenera ut ur byn norrut för fin utsikt över bergen',
     ],
     highlights: {
@@ -931,7 +931,7 @@ export const cities: City[] = [
         dishes: [
           'Fisk och skaldjur från kusten, bland annat den röda räkan gamba de Sóller som fiskas på djupt vatten utanför den här delen av Tramuntana',
           'Pa amb oli med oliver och ost från ön',
-          'Lokal olivolja från terrasserna runt byn',
+          'Olivolja från terrasserna runt byn',
         ],
       },
       beaches: {
@@ -1007,7 +1007,7 @@ export const cities: City[] = [
       items: [
         'Santuari de Sant Salvador – befäst vallfartskyrka med panoramautsikt, fri entré',
         "Coves d'Artà – en av öns vackraste grottor, kort biltur från byn",
-        'Tisdagsmarknaden – autentisk och lokal, en av öns bästa',
+        'Tisdagsmarknaden – en äkta bymarknad, en av öns bästa',
       ],
     },
     practical: [
@@ -1046,7 +1046,7 @@ export const cities: City[] = [
       market: {
         days: 'Tisdagar, förmiddag',
         text: [
-          'Tisdagsmarknaden hålls på och runt Plaça del Conqueridor på förmiddagen. Den är lokal och levande, med råvaror, kläder och hantverk – ett bra tillfälle att se byn när den är som mest vaken.',
+          'Tisdagsmarknaden hålls på och runt Plaça del Conqueridor på förmiddagen. Det är en levande bymarknad med råvaror, kläder och hantverk – ett bra tillfälle att se byn när den är som mest vaken.',
         ],
       },
       bestTime: [
@@ -1134,7 +1134,7 @@ export const cities: City[] = [
     guide: {
       getThere: [
         { mode: 'Bil', text: 'Följ Ma-1 från Palma längs sydvästkusten till Andratx. Port d\'Andratx ligger en kort bit nedanför byn vid havet.' },
-        { mode: 'Buss', text: 'TIB-linje 101 går från Palma längs motorvägen Ma-1 till Camp de Mar, Andratx och Port d\'Andratx. Linje 102 går till Peguera. Lokalt går linje 121 mellan Andratx, Port d\'Andratx, S\'Arracó och Sant Elm, och linje 131 binder ihop Andratx med bergsbyarna Estellencs och Banyalbufar. Tidtabeller finns på tib.org.' },
+        { mode: 'Buss', text: 'TIB-linje 101 går från Palma längs motorvägen Ma-1 till Camp de Mar, Andratx och Port d\'Andratx. Linje 102 går till Peguera. Inom kommunen går linje 121 mellan Andratx, Port d\'Andratx, S\'Arracó och Sant Elm, och linje 131 binder ihop Andratx med bergsbyarna Estellencs och Banyalbufar. Tidtabeller finns på tib.org.' },
         { mode: 'Från flygplatsen', text: 'Sommartid går flygbussen A11 från flygplatsen via Palmanova, Santa Ponça och Peguera till Camp de Mar. Vintertid vänder den i Peguera. Till byn Andratx och hamnen byter du till linje 101, eller tar buss A1 in till Palma och byter där.' },
       ],
       stay: {
@@ -1149,7 +1149,7 @@ export const cities: City[] = [
       eat: {
         intro: 'I Port d\'Andratx är det fisk och skaldjur vid kajen som gäller, ofta med utsikt över segelbåtarna. Uppe i byn Andratx äter du enklare och billigare på kaféerna och barerna runt torget.',
         dishes: [
-          'Den röda räkan gamba de Sóller, som fiskas på djupt vatten längs kusten mellan Sóller och Port d\'Andratx – dyr, men en lokal delikatess',
+          'Den röda räkan gamba de Sóller, som fiskas på djupt vatten längs kusten mellan Sóller och Port d\'Andratx – dyr, men en mallorkinsk delikatess',
           'Dagens fångst och paella vid hamnen',
           'Pa amb oli och tapas på torget i Andratx by',
         ],
@@ -1243,7 +1243,7 @@ export const cities: City[] = [
       heading: 'Topp 3 i Pollença',
       items: [
         '365 trappsteg till Calvari – en av öns bästa utsiktspunkter, gratis',
-        'Söndagsmarknaden – autentisk och lokal, en av öns bästa marknader',
+        'Söndagsmarknaden – äkta och levande, en av öns bästa marknader',
         'Festival de Pollença i juli–augusti – klassisk musik i klostret Sant Domingo',
       ],
     },
@@ -1256,7 +1256,7 @@ export const cities: City[] = [
     ],
     guide: {
       getThere: [
-        { mode: 'Buss', text: 'TIB-linje 301 går från Palma via Inca till Pollença och vidare till Port de Pollença. Lokalt går linje 321 mellan Port de Pollença och Cala Sant Vicenç och linje 322 mellan Pollença och Port d’Alcúdia. Sommartid går linje 231 över bergen via Lluc till Sóller.' },
+        { mode: 'Buss', text: 'TIB-linje 301 går från Palma via Inca till Pollença och vidare till Port de Pollença. Dessutom går linje 321 mellan Port de Pollença och Cala Sant Vicenç och linje 322 mellan Pollença och Port d’Alcúdia. Sommartid går linje 231 över bergen via Lluc till Sóller.' },
         { mode: 'Bil', text: 'Ta motorvägen Ma-13 från Palma mot Alcúdia och vik av mot Pollença. Vill du ha en vackrare väg kan du köra över Tramuntana via Lluc. I byn är gatorna smala – parkera i utkanten och gå in till torget.' },
         { mode: 'Från flygplatsen', text: 'Ta buss A1 in till Palma och byt till linje 301 vid Estació Intermodal.' },
       ],
@@ -1278,7 +1278,7 @@ export const cities: City[] = [
       market: {
         days: 'Söndagar i Pollença · onsdagar i Port de Pollença',
         text: [
-          'Söndagsmarknaden fyller Plaça Major och gatorna runt omkring på förmiddagen, med lokala råvaror, hantverk och kläder. Ta en kaffe på torget efteråt.',
+          'Söndagsmarknaden fyller Plaça Major och gatorna runt omkring på förmiddagen, med råvaror från trakten, hantverk och kläder. Ta en kaffe på torget efteråt.',
           'I Port de Pollença hålls en mindre marknad på onsdagar.',
         ],
       },
@@ -1332,7 +1332,7 @@ export const cities: City[] = [
       subtitle: 'Mallorcas geografiska hjärta med öns äldsta marknad – sedan kung Jaume II år 1306',
     },
     about: [
-      'Sineu ligger mitt på Mallorca, och tåget från Palma tar ungefär 50 minuter. Onsdagsmarknaden har pågått sedan kung Jaume II utfärdade privilegiet år 1306, vilket gör den till öns äldsta. Levande djur, lokala produkter, hantverk och grönsaker säljs sida vid sida på byns torg.',
+      'Sineu ligger mitt på Mallorca, och tåget från Palma tar ungefär 50 minuter. Onsdagsmarknaden har pågått sedan kung Jaume II utfärdade privilegiet år 1306, vilket gör den till öns äldsta. Levande djur, produkter från trakten, hantverk och grönsaker säljs sida vid sida på byns torg.',
       'Församlingskyrkan Santa Maria dominerar byn. Den byggdes upp på nytt efter en brand 1505, och det kraftiga klocktornet från 1549 står separat bredvid kyrkan. Framför den vaktar en bevingad lejonstaty – symbolen för Sant Marc, byns skyddshelgon. Runt Sa Plaça ligger barer och enkla restauranger med mallorkinsk vardagsmat. På marknadsdagen är de fulla redan vid lunch, så sätt dig tidigt.',
       'Sineu var också kungligt. Mellan 1309 och 1349 hade Mallorcas kungar sitt andra palats här, efter Palma. Palatset gick senare till koncepcionistnunnor, som bodde i det i över 400 år, fram till 2016. I dag bor en ny kommunitet där igen. Gå runt i gränderna bakom torget, så ser du hur mycket av den gamla byn som finns kvar.',
     ],
@@ -1429,7 +1429,7 @@ export const cities: City[] = [
     sitemapPriority: 0.65,
     tagline: 'Marknads- och vinstad i öst',
     seo: {
-      description: 'Felanitx i östra Mallorca – traditionell stad känd för lokal keramik, vin och stor söndagsmarknad, med Castell de Santueri och Porto Colom nära.',
+      description: 'Felanitx i östra Mallorca – traditionell stad känd för keramik, vin och stor söndagsmarknad, med Castell de Santueri och Porto Colom nära.',
     },
     hero: {
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/1920px-Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
@@ -1444,7 +1444,7 @@ export const cities: City[] = [
     ],
     tips: [
       'Söndagsmarknaden startar tidigt – bäst är att komma vid öppning kl. 8',
-      'Köp lokal keramik direkt från hantverkarna, priserna är rimliga',
+      'Köp keramiken direkt från hantverkarna i stan, priserna är rimliga',
       'Kör upp till Castell de Santueri för panoramautsikt – kontrollera först att borgen är öppen för besök',
       'Kombinera med Porto Colom vid kusten för en hel dagsutflykt',
     ],
@@ -1452,9 +1452,9 @@ export const cities: City[] = [
       variant: 'cards',
       heading: 'Topp 3 i Felanitx',
       items: [
-        'Söndagsmarknaden med lokal keramik',
+        'Söndagsmarknaden med keramik från trakten',
         'Castell de Santueri med panoramautsikt',
-        'Lokalt vin från vingårdarna runt Felanitx',
+        'Vin från vingårdarna runt Felanitx',
       ],
     },
     practical: [
@@ -1525,8 +1525,8 @@ export const cities: City[] = [
     card: {
       description: 'Inlandsstad med söndagsmarknad, keramik och vingårdar',
       image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg/960px-Felanitx%2C_Balearic_Islands%2C_Spain_-_panoramio.jpg',
-      tip: 'Köp lokal keramik direkt från hantverkarna',
-      top3: ['Lokal keramik och hantverk', 'Söndagsmarknaden', 'Castell de Santueri (nära)'],
+      tip: 'Köp keramik som görs i Felanitx direkt från hantverkarna',
+      top3: ['Keramik och hantverk från trakten', 'Söndagsmarknaden', 'Castell de Santueri (nära)'],
     },
   },
   {
@@ -1611,7 +1611,7 @@ export const cities: City[] = [
       },
       market: {
         days: 'Måndagar, förmiddag',
-        text: ['Måndagsmarknaden hålls på Plaça Ramon Llull i centrum – en vardagsmarknad med lokala produkter, mer för dem som bor här än för turister.'],
+        text: ['Måndagsmarknaden hålls på Plaça Ramon Llull i centrum – en vardagsmarknad med produkter från trakten, mer för dem som bor här än för turister.'],
       },
       bestTime: [
         'April–juni och september–oktober passar bäst för att kombinera staden med grottor och vikar på östkusten. En regnig dag är Manacor ett bra alternativ till stranden.',
@@ -2023,7 +2023,7 @@ export const cities: City[] = [
     },
     about: [
       'Campos ligger på Migjorn-slätten i södra Mallorca, omgivet av jordbruksmark, mandelträd och låga stenmurar. Det är en jordbruksstad där folk bor och arbetar året runt, med sandstenskvarter, gröna fönsterluckor och torg där äldre fortfarande pratar bred mallorquí.',
-      "Stadens hjärta är marknaderna – två per vecka, på torsdagar och lördagar – där lokala bönder säljer allt från getostar och grönsaker till kryddor och grovt salt från saltpannorna söder om staden. Just saltet är Campos signatur: Flor de Sal d'Es Trenc skördas för hand i Salines d'Es Trenc, vid vägen mot Colònia de Sant Jordi. Bakom saltpannorna ligger Es Trenc, en lång naturstrand utan storskalig bebyggelse, med ljus sand och klart, grunt vatten.",
+      "Stadens hjärta är marknaderna – två per vecka, på torsdagar och lördagar – där bönder från trakten säljer allt från getostar och grönsaker till kryddor och grovt salt från saltpannorna söder om staden. Just saltet är Campos signatur: Flor de Sal d'Es Trenc skördas för hand i Salines d'Es Trenc, vid vägen mot Colònia de Sant Jordi. Bakom saltpannorna ligger Es Trenc, en lång naturstrand utan storskalig bebyggelse, med ljus sand och klart, grunt vatten.",
       'Stranden, våtmarken Salobrar och saltpannorna ingår i naturparken Es Trenc–Salobrar de Campos, som skyddas sedan 2017. Inne i staden är församlingskyrkan Sant Julià värd ett besök – i ett av kapellen hänger en Kristusmålning som tillskrivs Murillo. Font Santa, Balearernas enda naturliga varma källor, ligger också i kommunen.',
     ],
     tips: [
@@ -2038,7 +2038,7 @@ export const cities: City[] = [
       items: [
         'Es Trenc-stranden – lång naturstrand med turkost vatten och utan hotellkomplex, en kort biltur bort',
         'Salines d\'Es Trenc – besök saltpannorna där Flor de Sal skördas för hand, guidade turer finns',
-        'Torsdags- eller lördagsmarknaden – äkta lokal marknad med producenter från hela södra Mallorca',
+        'Torsdags- eller lördagsmarknaden – äkta bymarknad med producenter från hela södra Mallorca',
       ],
     },
     practical: [

@@ -34,6 +34,16 @@ export default function MallorcaPaVintern() {
         { label: 'Fibwi Diario – Sóllertågets vinteruppehåll 2026/27', href: 'https://www.fibwidiario.com/baleares/mallorca/tren-tranvia-soller-paran-lunes-son-fechas-regreso/20261118112127327898.html' },
         { label: 'Govern de les Illes Balears – turistskatten', href: 'https://apps.caib.es/sites/impostturisme/en/tax' },
         { label: 'Mallorca Magazin – EMT och residenter 2027', href: 'https://www.mallorcamagazin.com/nachrichten/lokales/2026/10/23/158937/palma-mallorca-erhoht-buspreise-viel-kostet-kunftig-die-fahrt-zum-flughafen.html' },
+        { label: 'Canal 4 Diario – Palmas julprogram 2026', href: 'https://canal4diario.com/palma/2026/11/19/el-ajuntament-de-palma-presenta-un-amplio-programa-de-navidad-con-cerca-de-300-actividades-repartidas-por-toda-la-ciudad/' },
+        { label: 'Mallorca Global Mag – Navidad en Palma 2026', href: 'https://mallorcaglobalmag.es/navidad-palma-2026/' },
+        { label: 'Mallorca Global Mag – julbelysningen 2026', href: 'https://mallorcaglobalmag.es/en/encendido-luces-navidad-2026-palma-parc-mar/' },
+        { label: 'Parc de Nadal', href: 'https://parcdenadal.com/es' },
+        { label: 'Unesco – Chant of the Sybil on Majorca', href: 'https://ich.unesco.org/en/decisions/5.COM/6.38' },
+        { label: 'Visit Palma – Matines de Nadal', href: 'https://visitpalma.com/ca/event/matines-de-nadal-el-cant-de-la-sibilla/' },
+        { label: 'Visit Palma – Festa de l’Estendard', href: 'https://visitpalma.com/en/event/fiesta-de-lestendard/' },
+        { label: 'El Debate – Cavalcada dels Reis i Palma 2026', href: 'https://www.eldebate.com/espana/baleares/20260105/reyes-magos-lucen-cabalgata-ambiciosa-hasta-fecha-palma_370837.html' },
+        { label: 'Govern de les Illes Balears – helgdagar 2026', href: 'https://www.caib.es/sites/calendarilaboral/ca/any_2026/' },
+        { label: 'Govern de les Illes Balears – helgdagar 2027', href: 'https://www.caib.es/sites/calendarilaboral/ca/2027/' },
       ]}
       checkedNote="Programmen för vinterns fester publiceras av kommunerna först några veckor i förväg – kontrollera datum som inte är fasta helgdagar hos kommunen innan du åker."
     >
@@ -124,8 +134,75 @@ export default function MallorcaPaVintern() {
       <section id="jul" className={styles.section}>
         <h2 className={`${h.h2} ${styles.h2}`}>Jul och nyår</h2>
         <p>
-          I december pyntas Palma och många orter med julbelysning, och i katedralen La Seu hålls julkonserter. Flera
-          kommuner ordnar julmarknader – programmen publiceras av kommunerna under hösten, så kolla den ort du ska till.
+          Julen på Mallorca firas mest i familjen, men i Palma händer det mycket ute på stan. Palma kommuns julprogram
+          2026 har ett 300-tal aktiviteter och pågår till 6 januari 2027.
+        </p>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Julmarknader</p>
+            <p className={styles.cardMeta}>21 november 2026–6 januari 2027</p>
+            <p>
+              Kommunens julmarknader står på Plaça Major, La Rambla och i Parc de les Estacions. Öppettiderna finns i kommunens julprogram.
+              Nedanför katedralen, i Parc de la Mar, finns julmarknaden Parc de Nadal med skridskobana.
+              Många andra orter har en egen marknad någon helg i december – kolla kommunens program.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Julbelysningen</p>
+            <p className={styles.cardMeta}>Från 21 november 2026</p>
+            <p>
+              Julbelysningen 2026 invigs den 21 november med en show i Parc de la Mar, med ljus som projiceras på
+              katedralens fasad. Belysningen sitter längs gatorna i hela centrum. En kvällspromenad genom gamla stan räcker för att
+              se det mesta.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Cant de la Sibil·la</p>
+            <p className={styles.cardMeta}>Julafton 24 december</p>
+            <p>
+              I midnattsmässan, <em>Matines</em>, på julaftons kväll sjungs Sibyllans sång i kyrkor över hela ön. Sången
+              står sedan 2010 på Unescos lista över immateriellt kulturarv. I katedralen La Seu blir det fullt, så kom i
+              god tid. Tiden för 2026 publiceras av katedralen i december.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Festa de l’Estendard</p>
+            <p className={styles.cardMeta}>31 december, Palma</p>
+            <p>
+              Palma minns Jaume I:s intåg i staden den 31 december 1229. På förmiddagen hissas fanan på Plaça de Cort
+              och bärs i procession till La Seu.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Nyårsafton</p>
+            <p className={styles.cardMeta}>31 december, Plaça de Cort</p>
+            <p>
+              Palma kommun firar nyår på Plaça de Cort framför rådhuset, med dj och klockslagen vid midnatt. Som i
+              resten av Spanien äter man tolv vindruvor, en för varje slag. Ta med egna druvor.
+            </p>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.cardTitle}>Cavalcada dels Reis</p>
+            <p className={styles.cardMeta}>5 januari 2027, Palma</p>
+            <p>
+              De tre vise männen kommer med båt till Moll Vell på kvällen och tågar sedan genom centrum. 2026 började
+              kortegen vid 18-tiden. Tid och väg för 2027 publiceras av Palma kommun i slutet av december.
+            </p>
+          </div>
+        </div>
+        <p>
+          <strong>Tips för familjer:</strong> i Spanien är det trettondagen, 6 januari, som barnen får sina julklappar
+          av de vise männen. Kvällen före är kortegen höjdpunkten – ställ er längs vägen i god tid.
+        </p>
+        <p>
+          <strong>Helgdagar.</strong> 25 och 26 december 2026 och 1 och 6 januari 2027 är helgdagar på Balearerna.
+          26 december, Sant Esteve, är helgdag här men inte i hela Spanien. De dagarna har de flesta butiker stängt och
+          bussar och tåg går med helgdagstidtabell. Den 24 och 31 december stänger många butiker tidigare. Kolla EMT:s
+          och TIB:s tidtabeller innan du åker.
+        </p>
+        <p>
+          Julmarknaden, Festa de l’Estendard och Cavalcada dels Reis finns också i{' '}
+          <Link href="/evenemang">evenemangskalendern</Link>.
         </p>
       </section>
 

@@ -48,7 +48,7 @@ const playfairItalic = localFont({
 const SITE_NAME = 'MyMallorca';
 const DEFAULT_TITLE = 'MyMallorca – svensk guide till Mallorca';
 const DEFAULT_DESCRIPTION =
-  'Svensk guide till Mallorca för barnfamiljer, par och dig som bor på ön – stränder, byar, mat, vingårdar, golf och barnaktiviteter med lokala tips.';
+  'Svensk guide till Mallorca för barnfamiljer, par och dig som bor på ön – stränder, byar, mat, vingårdar, golf och barnaktiviteter med våra egna tips.';
 // Sajten har bara ljust tema: 'only light' hindrar webbläsarnas automatiska mörkläge
 // (t.ex. Chrome på Android) från att invertera ytor och foton. themeColor = --color-bg.
 export const viewport: Viewport = {
