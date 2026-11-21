@@ -66,6 +66,8 @@ export const STATUSTEXT: Record<Status, string> = {
 const C = '2026-11-18';
 /** Evenemang som kontrollerades på nytt inför 2027. */
 const C2 = '2026-11-20';
+/** Julens evenemang, kontrollerade mot Palmas julprogram 2026. */
+const C3 = '2026-11-21';
 
 const evenemangData: EvenemangPost[] = [
   // ── Höst och vinter 2026–2027 ──
@@ -112,11 +114,11 @@ const evenemangData: EvenemangPost[] = [
     namn: 'Julmarknaden i Palma',
     plats: 'Palma',
     kategori: 'Marknad',
-    beskrivning: 'Julmarknad med stånd på Plaça Major och fler platser i centrum. Förra säsongen pågick den från slutet av november till 7 januari.',
-    källa: { label: 'Mallorcadiario: julmarknaden 2025–2026', href: 'https://www.mallorcadiario.com/cort-adelanta-esta-ano-el-mercadillo-de-navidad-al-23-de-noviembre' },
-    checked: C,
+    beskrivning: 'Kommunens julmarknader på Plaça Major, La Rambla och i Parc de les Estacions, alla dagar kl. 10–21. Nedanför katedralen, i Parc de la Mar, finns dessutom Parc de Nadal med ett 60-tal stånd.',
+    källa: { label: 'Canal 4 Diario: Palmas julprogram 2026', href: 'https://canal4diario.com/palma/2026/11/19/el-ajuntament-de-palma-presenta-un-amplio-programa-de-navidad-con-cerca-de-300-actividades-repartidas-por-toda-la-ciudad/' },
+    checked: C3,
     tillfällen: [
-      { start: '2026-11-23', slut: '2027-01-07', status: 'preliminärt', period: 'slutet av november 2026 – början av januari 2027' },
+      { start: '2026-11-21', slut: '2027-01-06', status: 'publicerat' },
     ],
   },
   {
@@ -126,7 +128,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Kultur',
     beskrivning: 'Palmas fest till minne av Jaume I:s intåg i staden 31 december 1229. Fanan hissas på Plaça de Cort och bärs i procession till katedralen La Seu.',
     källa: { label: 'Visit Palma', href: 'https://visitpalma.com/en/event/fiesta-de-lestendard/' },
-    checked: C,
+    checked: C3,
     tillfällen: [
       { start: '2026-12-31', slut: '2026-12-31', status: 'fast' },
       { start: '2027-12-31', slut: '2027-12-31', status: 'fast' },
@@ -139,7 +141,7 @@ const evenemangData: EvenemangPost[] = [
     kategori: 'Familj',
     beskrivning: 'De tre vise männen kommer med båt till Moll Vell i Palma kvällen den 5 januari och paraderar sedan genom staden. En stor kväll för barnen.',
     källa: { label: 'El Debate: kortegen i Palma 2026', href: 'https://www.eldebate.com/espana/baleares/20260105/reyes-magos-lucen-cabalgata-ambiciosa-hasta-fecha-palma_370837.html' },
-    checked: C,
+    checked: C3,
     tillfällen: [{ start: '2027-01-05', slut: '2027-01-05', status: 'fast' }],
   },
   {
