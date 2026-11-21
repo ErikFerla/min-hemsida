@@ -30,7 +30,7 @@ export default function IntegritetspolicyPage() {
         <Breadcrumbs spaced items={[{ name: 'Hem', url: '/' }, { name: 'Integritetspolicy', url: '/integritetspolicy' }]} />
         <p className={styles.kicker}>Om sajten</p>
         <h1>Integritetspolicy</h1>
-        <p className={styles.updated}>Senast uppdaterad 20 november 2026</p>
+        <p className={styles.updated}>Senast uppdaterad 21 november 2026</p>
 
         <p className={styles.lead}>
           MyMallorca är en privat guide till Mallorca som drivs av intresse för ön, inte för att tjäna pengar. Vi vill
@@ -87,7 +87,7 @@ export default function IntegritetspolicyPage() {
           Typsnitten ligger på vår egen server, så inget skickas till Google när sidan visar text.
         </p>
 
-        <h2>Väder, resplanerare och flygsök</h2>
+        <h2>Väder och resplanerare</h2>
         <ul>
           <li>
             <strong>Väder:</strong> prognosen hämtas av vår egen server från Meteorologisk institutt i Norge (api.met.no)
@@ -96,10 +96,6 @@ export default function IntegritetspolicyPage() {
           <li>
             <strong>Resplaneraren:</strong> dina val sparas bara i sidans adress, så att du kan dela eller spara planen.
             Vi lagrar dem inte.
-          </li>
-          <li>
-            <strong>Flygsök:</strong> när du söker flyg öppnas Skyscanner i en ny flik med dina val i adressen. Vi sparar
-            inget av det du fyller i. På Skyscanner gäller deras egen integritetspolicy.
           </li>
         </ul>
 
