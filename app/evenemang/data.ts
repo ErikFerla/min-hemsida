@@ -114,7 +114,7 @@ const evenemangData: EvenemangPost[] = [
     namn: 'Julmarknaden i Palma',
     plats: 'Palma',
     kategori: 'Marknad',
-    beskrivning: 'Kommunens julmarknader på Plaça Major, La Rambla och i Parc de les Estacions, alla dagar kl. 10–21. Nedanför katedralen, i Parc de la Mar, finns dessutom Parc de Nadal med ett 60-tal stånd.',
+    beskrivning: 'Kommunens julmarknader på Plaça Major, La Rambla och i Parc de les Estacions. Öppettiderna finns i kommunens julprogram. Nedanför katedralen, i Parc de la Mar, finns dessutom julmarknaden Parc de Nadal med skridskobana.',
     källa: { label: 'Canal 4 Diario: Palmas julprogram 2026', href: 'https://canal4diario.com/palma/2026/11/19/el-ajuntament-de-palma-presenta-un-amplio-programa-de-navidad-con-cerca-de-300-actividades-repartidas-por-toda-la-ciudad/' },
     checked: C3,
     tillfällen: [

@@ -142,8 +142,8 @@ export default function MallorcaPaVintern() {
             <p className={styles.cardTitle}>Julmarknader</p>
             <p className={styles.cardMeta}>21 november 2026–6 januari 2027</p>
             <p>
-              Kommunens julmarknader står på Plaça Major, La Rambla och i Parc de les Estacions, alla dagar kl. 10–21.
-              Nedanför katedralen, i Parc de la Mar, finns Parc de Nadal med ett 60-tal stånd och en skridskobana.
+              Kommunens julmarknader står på Plaça Major, La Rambla och i Parc de les Estacions. Öppettiderna finns i kommunens julprogram.
+              Nedanför katedralen, i Parc de la Mar, finns julmarknaden Parc de Nadal med skridskobana.
               Många andra orter har en egen marknad någon helg i december – kolla kommunens program.
             </p>
           </div>
