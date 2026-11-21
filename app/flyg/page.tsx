@@ -6,7 +6,6 @@ import LastChecked from '@/app/components/LastChecked';
 import TransferTabell from '@/app/hyrbil-och-transport/TransferTabell';
 import { avreseorter, CHECKED, SOURCES } from '@/data/transport';
 import h from '../guide/headings.module.css';
-import FlygSok from './FlygSok';
 import styles from './flyg.module.css';
 import Breadcrumbs from '@/app/components/Breadcrumbs';
 
@@ -42,7 +41,18 @@ export default function FlygPage() {
           direktflyg, och hur du kommer vidare till din ort när du har landat.
         </p>
 
-        <FlygSok />
+        <p className={styles.text}>
+          Vill du jämföra priser och avgångstider kan du söka på{' '}
+          <a
+            href="https://www.skyscanner.se/transport/flyg/sto/pmi/?adults=1&currency=SEK&locale=sv-SE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.inlineLink}
+          >
+            Skyscanner<span className="sr-only"> (öppnas i ny flik)</span>
+          </a>{' '}
+          eller direkt hos flygbolagen.
+        </p>
 
         {/* Direktflyg */}
         <section aria-labelledby="direktflyg" className={styles.block}>
